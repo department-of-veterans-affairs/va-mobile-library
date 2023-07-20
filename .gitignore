@@ -11,6 +11,7 @@ yarn-error.log*
 *.tsbuildinfo
 .npm
 .eslintcache
+coverage
 
 .yarn/*
 !.yarn/patches
