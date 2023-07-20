@@ -18,8 +18,8 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: 'packages/components/yarn.lock'
       - name: Install dependencies
-        run: |
-          cd packages/components
-          yarn install --frozen-lockfile --non-interactive
+        working-directory: packages/components
+        run: yarn install --frozen-lockfile --non-interactive
       - name: yarn test
+        working-directory: packages/components
         run: yarn test
