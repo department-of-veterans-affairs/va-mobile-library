@@ -7,7 +7,7 @@ name: 'Unit tests'
 on: push
 
 jobs:
-  test-component-libray:
+  test-component-library:
     name: Component Library Unit Tests
     runs-on: ubuntu-latest
     steps:
