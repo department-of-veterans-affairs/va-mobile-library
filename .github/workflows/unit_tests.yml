@@ -1,0 +1,25 @@
+#
+# Unit tests
+#
+
+name: 'Unit tests'
+
+on: push
+
+jobs:
+  test-component-libray:
+    name: Component Library Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+          cache-dependency-path: 'yarn.lock'
+      - name: Install dependencies
+        run: |
+          cd packages/components
+          yarn install --frozen-lockfile --non-interactive
+      - name: yarn test
+        run: yarn test
