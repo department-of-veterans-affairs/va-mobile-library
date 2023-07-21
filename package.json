@@ -1,0 +1,11 @@
+{
+  "name": "@department-of-veterans-affairs/mobile-component-library-monorepo",
+  "description": "VA Design System Mobile Monorepo",
+  "main": "index.js",
+  "private": "true",
+  "version": "0.0.1",
+  "license": "ISC",
+  "workspaces": ["packages/*"],
+  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-temporary#readme",
+  "packageManager": "yarn@3.6.1"
+}
