@@ -1,17 +1,18 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
+    project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
+    tsconfigRootDir: __dirname,
   },
   plugins: [
     '@typescript-eslint',
-    'sort-imports-es6-autofix',
     'eslint-plugin-tsdoc',
+    'sort-imports-es6-autofix',
   ],
   extends: [
-    '@react-native-community',
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    'prettier',
   ],
   env: {
     commonjs: true,
@@ -19,42 +20,23 @@ module.exports = {
     node: true,
     browser: false,
   },
+  root: true,
   rules: {
-    'tsdoc/syntax': 'warn',
+    // Simple rules (one line)
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    '@typescript-eslint/naming-convention': 'warn',
+    '@typescript-eslint/no-empty-function': 'warn',
+    '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'linebreak-style': ['error', 'unix'],
-    'max-len': 120,
-    'no-console': 0,
-    semi: 0,
-    'no-multiple-empty-lines:': 0,
-    'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/no-unused-vars': 1,
-    'no-unused-vars': 'off',
-    '@typescript-eslint/ban-ts-ignore': 0,
-    '@typescript-eslint/no-empty-function': 0,
-    '@typescript-eslint/camelcase': 0,
-    '@typescript-eslint/no-empty-interface': 0,
-    '@typescript-eslint/ban-ts-comment': 0,
-    '@typescript-eslint/member-delimiter-style': [
-      2,
-      {
-        multiline: {
-          delimiter: 'none',
-          requireLast: true,
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false,
-        },
-      },
-    ],
-    'sort-imports-es6-autofix/sort-imports-es6': [
-      2,
-      {
-        ignoreCase: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      },
-    ],
+    'max-len': 120, // See https://eslint.org/docs/latest/rules/max-len for options if needed
+    'no-console': 'off',
+    'no-multiple-empty-lines': 'off',
+    'no-shadow': 'off', // Handled by @typescript-eslint
+    semi: 'off',
+    'sort-imports-es6-autofix/sort-imports-es6': 'error',
+    'tsdoc/syntax': 'warn',
+    // Complex rules (multiline)
   },
 }
