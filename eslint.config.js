@@ -10,8 +10,7 @@ module.exports = {
     'sort-imports-es6-autofix',
   ],
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended', // For what this sets, see: https://typescript-eslint.io/linting/configs#recommended
     'prettier',
   ],
   env: {
@@ -30,7 +29,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unused-vars': 'warn',
     'linebreak-style': ['error', 'unix'],
-    'max-len': 120, // See https://eslint.org/docs/latest/rules/max-len for options if needed
+    'max-len': 120, // See https://eslint.org/docs/latest/rules/max-len for details/options
     'no-console': 'off',
     'no-multiple-empty-lines': 'off',
     'no-shadow': 'off', // Handled by @typescript-eslint
