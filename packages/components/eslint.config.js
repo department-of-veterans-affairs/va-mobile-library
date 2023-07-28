@@ -3,16 +3,21 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'sort-imports-es6-autofix', 'eslint-plugin-tsdoc'],
-  extends: ['@react-native-community', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended'],
+  plugins: [
+    '@typescript-eslint',
+    'sort-imports-es6-autofix',
+    'eslint-plugin-tsdoc',
+  ],
+  extends: [
+    '@react-native-community',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+  ],
   env: {
     commonjs: true,
     es6: true,
     node: true,
     browser: false,
-  },
-  globals: {
-    strapi: true,
   },
   rules: {
     'tsdoc/syntax': 'warn',

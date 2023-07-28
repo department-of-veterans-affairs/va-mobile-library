@@ -14,7 +14,9 @@
     "library",
     "tokens"
   ],
-  "maintainers": ["@department-of-veterans-affairs/flagship-mobile-platform"],
+  "maintainers": [
+    "@department-of-veterans-affairs/flagship-mobile-platform"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/va-mobile-temporary/issues"
