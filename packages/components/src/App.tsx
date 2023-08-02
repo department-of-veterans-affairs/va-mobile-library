@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true'
 
-const Index = () => {
+const App = () => {
   return (
     <SafeAreaView>
       <Text>Hello world</Text>
@@ -13,9 +13,7 @@ const Index = () => {
   )
 }
 
-let EntryPoint = Index
-
-console.log('storybookEnabled', process.env)
+let EntryPoint = App
 
 if (storybookEnabled) {
   const StorybookUI = require('../.storybook/native').default
