@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "scheme": "mobile-components",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "mobile-components",
+    "slug": "mobile-components",
+    "experiments": {
+      "tsconfigPaths": true
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { sum } from '../../../sum'
+import { sum } from '../../sum'
 
 // Placeholder till component exists so the test will pass
 test('adds 1 + 2 to equal 3', () => {
