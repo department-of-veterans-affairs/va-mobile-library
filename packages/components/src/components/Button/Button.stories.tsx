@@ -31,6 +31,12 @@ export const Basic: Story = {
     disabled: false,
     text: 'Tap me',
   },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
+    },
+  },
 }
 
 export const Disabled: Story = {
