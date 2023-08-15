@@ -7,6 +7,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-react-native-web',
+    'storybook-addon-designs',
   ],
   core: {
     builder: 'webpack5',
