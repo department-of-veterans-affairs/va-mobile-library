@@ -12,6 +12,7 @@ npm-debug.*
 web-build/
 storybook-static/
 .tool-versions
+yarn.lock
 
 # macOS
 .DS_Store
