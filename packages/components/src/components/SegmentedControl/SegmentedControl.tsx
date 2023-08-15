@@ -2,123 +2,134 @@ import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components'
 import {
-  StyleSheet,
   Text,
   TextStyle,
   TouchableOpacity,
   View,
+  ViewStyle,
+  useColorScheme,
 } from 'react-native'
 
-import { themeFn } from '../utils/theme'
-
 /**
- * Signifies the props to send into the {@link SegmentedControl}
+ * Props for {@link SegmentedControl}
  */
-export type ToggleButtonProps = {
-  /** function to call when the selected value has changed */
+export type SegmentedControlProps = {
+  /** Array of segment labels */
+  labels: string[]
+  /** Handler function for changing segment selection */
   onChange: (selection: string) => void
-  /** The values to signify selection options */
-  values: string[]
-  /** REMOVE REMOVE REMOVE the text to display in the selection option UI */
-  titles: string[]
-  /** the index of the currently selected item. used to set initial state  */
+  /** Index of the currently selected segment */
   selected: number
-  /** optional list of accessibility hints, ordering dependent on values/titles ordering */
-  accessibilityHints?: string[]
+  /** Optional list of accessibility hints for labels */
+  labelsA11yHints?: string[]
 }
 
-type ButtonContainerProps = {
-  /** lets the component know if it is selected */
+type SegmentProps = {
+  /** Sets the background color */
+  backgroundColor: string
+  /** True if segment is selected, else false */
   isSelected: boolean
-  /** width percent of parent for the component */
+  /** Percent of width the segment is allocated */
   widthPct: string
 }
 
-const ButtonContainer = styled(TouchableOpacity)<ButtonContainerProps>`
+const Segment = styled(TouchableOpacity)<SegmentProps>`
   border-radius: 8px;
   padding-vertical: 7px;
-  width: ${themeFn<ButtonContainerProps>((theme, props) => props.widthPct)};
-  elevation: ${themeFn<ButtonContainerProps>((theme, props) =>
-    props.isSelected ? 4 : 0,
-  )};
-  background-color: ${themeFn<ButtonContainerProps>((theme, props) =>
-    props.isSelected
-      ? theme.colors.segmentedControl.buttonActive
-      : theme.colors.segmentedControl.buttonInactive,
-  )};
+  width: ${(props) => props.widthPct};
+  elevation: ${(props) => (props.isSelected ? 4 : 0)};
+  background-color: ${(props) => props.backgroundColor};
 `
-/**A common component for filtering UI views by segments or lanes. Used for things like toggling between Active/Completed claims and Future/Past Appointments */
-const SegmentedControl: FC<ToggleButtonProps> = ({
-  values,
-  titles,
+/** A component used to switch between related views of information within the same context */
+export const SegmentedControl: FC<SegmentedControlProps> = ({
+  labels,
   onChange,
   selected,
-  accessibilityHints,
+  labelsA11yHints: accessibilityHints,
 }) => {
   const { t } = useTranslation()
+  const colorScheme = useColorScheme()
+
+  // Copied from DSVA color tokens in css-library
+  const colorTokens = {
+    white: '#FFFFFF',
+    gray: {
+      dark: '#323A45',
+      lighter: '#D6D7D9',
+      lightest: '#F1F1F1',
+      medium: '#757575'
+    }
+  }
+
+  let textColor: string, activeBgColor: string, inactiveBgColor: string
+
+  if (colorScheme === 'light') {
+    textColor = colorTokens.gray.dark
+    activeBgColor = colorTokens.white
+    inactiveBgColor = colorTokens.gray.lighter
+  } else {
+    textColor = colorTokens.gray.lightest
+    activeBgColor = colorTokens.gray.medium
+    inactiveBgColor = colorTokens.gray.dark
+  }
 
   useEffect(() => {
-    onChange(values[selected])
-  }, [selected, onChange, values])
+    onChange(labels[selected])
+  }, [selected, onChange, labels])
+
+  const viewStyle: ViewStyle = {
+    alignSelf: 'baseline',
+    backgroundColor: inactiveBgColor,
+    borderRadius: 8,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    padding: 2,
+  }
 
   return (
-    <View style={styles.viewStyle} accessibilityRole="tablist">
-      {values.map((value, index) => {
+    <View style={viewStyle} accessibilityRole="tablist">
+      {labels.map((label, index) => {
         const isSelected = selected === index
 
         const font: TextStyle = {
-          fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
+          fontFamily: isSelected
+            ? 'SourceSansPro-Bold'
+            : 'SourceSansPro-Regular',
           fontSize: 20,
-          lineHeight: 30
+          lineHeight: 30,
         }
 
         const textStyle: TextStyle = {
           ...font,
-          color: isSelected
-            ? 'segmentControllerActive'
-            : 'segmentControllerInactive',
+          color: textColor,
           textAlign: 'center',
         }
 
         return (
-          <ButtonContainer
-            onPress={(): void => onChange(values[index])}
+          <Segment
+            onPress={(): void => onChange(labels[index])}
+            backgroundColor={isSelected ? activeBgColor : inactiveBgColor}
             isSelected={isSelected}
             key={index}
-            widthPct={`${100 / values.length}%`}
+            widthPct={`${100 / labels.length}%`}
             accessibilityHint={
               accessibilityHints ? accessibilityHints[index] : ''
             }
             accessibilityValue={{
               text: t('listPosition', {
                 position: index + 1,
-                total: values.length,
+                total: labels.length,
               }),
             }}
             accessibilityRole={'tab'}
             accessibilityState={{ selected: isSelected }}>
-            <Text
-              allowFontScaling={false}
-              style={textStyle}>
-              {titles[index]}
+            <Text allowFontScaling={false} style={textStyle}>
+              {label}
             </Text>
-          </ButtonContainer>
+          </Segment>
         )
       })}
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  viewStyle: {
-    alignSelf: 'baseline',
-    backgroundColor: 'segmentedController',
-    borderRadius: 8,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    padding: 2,
-  },
-})
-
-export default SegmentedControl
