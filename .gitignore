@@ -13,7 +13,6 @@ yarn-error.log*
 .eslintcache
 coverage
 
-.yarn
 .yarn/*
 !.yarn/patches
 !.yarn/releases
