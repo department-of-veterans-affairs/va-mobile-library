@@ -1,12 +1,13 @@
 {
-  "name": "@department-of-veterans-affairs/mobile-components",
+  "name": "@department-of-veterans-affairs/mobile-component-library",
   "version": "0.0.1",
   "description": "VA Design System Mobile Component Library",
-  "main": "src/App.tsx",
+  "main": "src/index.tsx",
   "scripts": {
     "start": "sb-rn-get-stories --config-path .storybook/native && expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "publish-package": "npm publish --access public --tolerate-republish",
     "storybook:build": "build-storybook --config-dir .storybook/web",
     "storybook:deploy": "yarn storybook:build && gh-pages -d storybook-static",
     "storybook:generate": "sb-rn-get-stories",

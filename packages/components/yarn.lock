@@ -2184,9 +2184,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/mobile-components@workspace:.":
+"@department-of-veterans-affairs/mobile-component-library@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@department-of-veterans-affairs/mobile-components@workspace:."
+  resolution: "@department-of-veterans-affairs/mobile-component-library@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
     "@babel/plugin-proposal-export-namespace-from": ^7.18.9
