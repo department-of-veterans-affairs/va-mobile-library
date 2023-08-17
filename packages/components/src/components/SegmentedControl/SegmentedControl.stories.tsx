@@ -32,7 +32,7 @@ type Story = StoryObj<SegmentedControlProps>
 export const twoSegments: Story = {
   storyName: 'Two Segments',
   args: {
-    labels: ['Inbox (3)', "Folders"],
+    labels: ['Inbox (3)', "Folders", "Red Fish", "Blue fish"],
     onChange: () => {},
     selected: 0 // ['Inbox (3)', "Folders"].indexOf("Folders")
   },
