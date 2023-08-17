@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
 import { Meta, StoryObj } from '@storybook/react-native'
-
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
+
+// const twoSegmentsLabels = ['Inbox (3)', "Folders"]
+// const [selectedSegment, setSelectedSegment] = useState(twoSegmentsLabels[0])
 
 const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',
@@ -27,15 +29,12 @@ export default meta
 
 type Story = StoryObj<SegmentedControlProps>
 
-const twoSegmentsLabels = ['Inbox (3)', "Folders"]
-const [selectedSegment, setSelectedSegment] = useState(twoSegmentsLabels[0])
-
-export const Basic: Story = {
+export const twoSegments: Story = {
   storyName: 'Two Segments',
   args: {
-    labels: twoSegmentsLabels,
-    onChange: setSelectedSegment,
-    selected: twoSegmentsLabels.indexOf(selectedSegment)
+    labels: ['Inbox (3)', "Folders"],
+    onChange: () => {},
+    selected: 0 // ['Inbox (3)', "Folders"].indexOf("Folders")
   },
   parameters: {
     design: {

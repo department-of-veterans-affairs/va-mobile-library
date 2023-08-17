@@ -7,13 +7,11 @@ import i18n from 'utils/translation/i18n'
 const App = () => {
   const StorybookUI = require('../.storybook/native').default
   return (
-    <I18nextProvider i18n={i18n}>
-      <SafeAreaView>
+    // <I18nextProvider i18n={i18n}>
         <View style={{ flex: 1 }}>
           <StorybookUI />
         </View>
-      </SafeAreaView>
-    </I18nextProvider>
+    // </I18nextProvider>
   )
 }
 
