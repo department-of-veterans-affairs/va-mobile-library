@@ -2,6 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { MyButton, MyButtonProps } from './Button'
 import { Meta, StoryObj } from '@storybook/react-native'
+import { DocLink } from '../../utils'
 
 const meta: Meta<MyButtonProps> = {
   title: 'Button',
@@ -15,6 +16,7 @@ const meta: Meta<MyButtonProps> = {
   decorators: [
     (Story) => (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <DocLink url="google.com"/>
         <Story />
       </View>
     ),
