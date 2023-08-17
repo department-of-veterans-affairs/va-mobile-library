@@ -19,7 +19,7 @@ export const DocLink = ({ name, docUrl }: DocProps): JSX.Element => (
       style={{ color: "blue", textDecorationLine: 'underline', lineHeight: 20 }}
       onPress={() => { Linking.openURL(docUrl) }}
     >
-      View guidance for the {name} input component on the VA Mobile
+      View guidance for the {name} component on the VA Mobile
       Documentation Site
     </Text>
   </View>
