@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, Text, Linking } from 'react-native';
-import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/addon-docs';
+import { View, Text, Linking } from 'react-native'
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/addon-docs'
 
 type DocProps = {
   name: string
   docUrl: string
-};
+}
+
 /**
  * 
  * @param name: Name of the component 
