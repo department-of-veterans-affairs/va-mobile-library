@@ -1,17 +1,46 @@
 import React from 'react'
-import { Text, Linking } from 'react-native';
+import { View, Text, Linking } from 'react-native';
+import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/addon-docs';
 
-type DocLinkProps = {
-  url: string
+type DocProps = {
+  name: string
+  docUrl: string
 };
-
-export const DocLink = ({ url }: DocLinkProps): JSX.Element => (
-  <Text>Visit
+/**
+ * 
+ * @param name: Name of the component 
+ * @param docUrl: URL for the component's documentation on the docs site
+ * @returns 
+ */
+export const DocLink = ({ name, docUrl }: DocProps): JSX.Element => (
+  <View style={{ marginVertical: 10 }}>
     <Text
-      style={{color: 'red'}}
-      onPress={() => {Linking.openURL(url)}}
+      style={{ color: "blue", textDecorationLine: 'underline', lineHeight: 20 }}
+      onPress={() => { Linking.openURL(docUrl) }}
     >
-      doc site
-    </Text>.
-  </Text>
+      View guidance for the {name} input component on the VA Mobile
+      Documentation Site
+    </Text>
+  </View>
+)
+
+/**
+ * 
+ * @param name: Name of the component 
+ * @param docUrl: URL for the component's documentation on the docs site
+ * @returns 
+ */
+export const generateDocs = ({ name, docUrl }: DocProps) => (
+  {
+    page: () =>
+      <>
+        <Title />
+        <Subtitle />
+        <DocLink name={name} docUrl={docUrl} />
+        <Description />
+        <Primary />
+        <ArgsTable />
+        <Stories />
+      </>
+  }
 )
