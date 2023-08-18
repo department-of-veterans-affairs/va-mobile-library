@@ -1,21 +1,11 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
-import { Meta, StoryObj } from '@storybook/react-native'
+import { Meta, StoryObj, storiesOf } from '@storybook/react-native'
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
-
-// const twoSegmentsLabels = ['Inbox (3)', "Folders"]
-// const [selectedSegment, setSelectedSegment] = useState(twoSegmentsLabels[0])
 
 const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',
   component: SegmentedControl,
-  argTypes: {
-    // labels: [],
-    onChange: {
-      action: 'onPress event',
-    },
-  },
-
   decorators: [
     (Story) => (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -29,24 +19,46 @@ export default meta
 
 type Story = StoryObj<SegmentedControlProps>
 
-export const twoSegments: Story = {
-  storyName: 'Two Segments',
-  args: {
-    labels: ['Inbox (3)', "Folders", "Red Fish", "Blue fish"],
-    onChange: () => {},
-    selected: 0 // ['Inbox (3)', "Folders"].indexOf("Folders")
-  },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7327%3A3032&mode=design&t=F0hXXm33PlK48vBm-1',
-    },
-  },
+const statefulComponentRenderer = (props: SegmentedControlProps) => {
+  const { labels } = props
+  const [selectedSegment, setSelectedSegment] = useState(labels[0])
+
+  return (
+    <SegmentedControl
+      labels={labels}
+      onChange={setSelectedSegment}
+      selected={labels.indexOf(selectedSegment)}
+    />
+  )
 }
 
-// export const Disabled: Story = {
-//   args: {
-//     disabled: true,
-//     text: 'Disabled',
-//   },
-// }
+export const twoSegments: Story = {
+  render: statefulComponentRenderer,
+  args: {
+    labels: ['Inbox (3)', 'Folders'],
+  },
+  parameters: {
+    design: [
+      {
+        name: 'Figma header',
+        type: 'figma',
+        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7327%3A3032&mode=design&t=F0hXXm33PlK48vBm-1',
+      },
+      {
+        name: 'Figma master component',
+        type: 'figma',
+        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11264&mode=design&t=IfpGfogEOoBtNhmN-1',
+      },
+      {
+        name: 'Figma component overview',
+        type: 'figma',
+        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11330&mode=design&t=IfpGfogEOoBtNhmN-1',
+      },
+      {
+        name: 'Figma examples',
+        type: 'figma',
+        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11331&mode=design&t=IfpGfogEOoBtNhmN-1',
+      },
+    ],
+  },
+}
