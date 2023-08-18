@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "license": "ISC",
   "workspaces": [
-    "packages/*"
+    "packages/components"
   ],
   "scripts": {
     "publish-workspaces": "yarn workspaces foreach --verbose --no-private npm publish --access public --tolerate-republish"
