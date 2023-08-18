@@ -13,13 +13,13 @@ const App = () => {
   })
 
   const StorybookUI = require('../.storybook/native').default
-  
+
   return (
-    // <I18nextProvider i18n={i18n}>
-    <View style={{ flex: 1 }}>
-      <StorybookUI />
-    </View>
-    // </I18nextProvider>
+    <I18nextProvider i18n={i18n}>
+      <View style={{ flex: 1 }}>
+        <StorybookUI />
+      </View>
+    </I18nextProvider>
   )
 }
 
