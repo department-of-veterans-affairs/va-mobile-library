@@ -1,6 +1,7 @@
 name: Yarn publish
 
 on:
+  workflow_dispatch:
   release:
     types: [published]
 
