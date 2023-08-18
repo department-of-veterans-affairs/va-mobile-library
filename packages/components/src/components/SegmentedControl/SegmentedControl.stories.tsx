@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
-import { Meta, StoryObj, storiesOf } from '@storybook/react-native'
+import { Meta, StoryObj } from '@storybook/react-native'
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
 
 const meta: Meta<SegmentedControlProps> = {
