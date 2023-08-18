@@ -15,6 +15,7 @@ coverage
 
 .yarn/*
 .yarn/cache
+packages/components/.yarn/cache
 
 !.yarn/patches
 !.yarn/releases
