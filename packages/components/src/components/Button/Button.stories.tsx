@@ -2,6 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { MyButton, MyButtonProps } from './Button'
 import { Meta, StoryObj } from '@storybook/react-native'
+import { generateDocs } from '../../utils'
 
 const meta: Meta<MyButtonProps> = {
   title: 'Button',
@@ -11,7 +12,9 @@ const meta: Meta<MyButtonProps> = {
       action: 'onPress event',
     },
   },
-
+  parameters: {
+    docs: generateDocs({ name: 'Button', docUrl: 'https://department-of-veterans-affairs.github.io/va-mobile-app/' }),
+  },
   decorators: [
     (Story) => (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
