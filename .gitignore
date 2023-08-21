@@ -23,5 +23,3 @@ coverage
 !.yarn/versions
 .pnp.*
 component-apps-and-owners-*.csv
-
-packages/components/.yarn
