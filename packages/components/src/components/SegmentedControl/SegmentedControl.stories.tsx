@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
 import { Meta, StoryObj } from '@storybook/react-native'
+
+import { generateDocs } from '../../utils'
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
 
 const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',
   component: SegmentedControl,
+  parameters: {
+    docs: generateDocs({
+      name: 'Segmented control',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Navigation/Secondary/SegmentedControl',
+    }),
+  },
   decorators: [
     (Story) => (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
