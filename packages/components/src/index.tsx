@@ -14,3 +14,4 @@ if (storybookEnabled) {
 
 
 export { MyButton } from 'components/Button/Button'
+export { SegmentedControl } from 'components/SegmentedControl/SegmentedControl'

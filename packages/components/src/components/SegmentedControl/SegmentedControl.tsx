@@ -57,8 +57,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       dark: '#323A45',
       lighter: '#D6D7D9',
       lightest: '#F1F1F1',
-      medium: '#757575'
-    }
+      medium: '#757575',
+    },
   }
 
   let textColor: string, activeBgColor: string, inactiveBgColor: string
