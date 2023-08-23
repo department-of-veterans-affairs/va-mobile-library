@@ -1,7 +1,7 @@
 module.exports = {
   bracketSameLine: true,
   bracketSpacing: true,
-  printWidth: 80, // Ideal length not max length, see https://prettier.io/docs/en/options.html#print-width
+  printWidth: 120,
   semi: false,
   singleQuote: true,
   tabWidth: 2,

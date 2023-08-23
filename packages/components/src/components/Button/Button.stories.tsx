@@ -1,8 +1,8 @@
-import React from 'react'
-import { View } from 'react-native'
-import { MyButton, MyButtonProps } from './Button'
 import { Meta, StoryObj } from '@storybook/react-native'
+import { MyButton, MyButtonProps } from './Button'
+import { View } from 'react-native'
 import { generateDocs } from '../../utils'
+import React from 'react'
 
 const meta: Meta<MyButtonProps> = {
   title: 'Button',
