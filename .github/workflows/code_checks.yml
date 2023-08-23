@@ -1,14 +1,27 @@
 #
-# Unit tests
+# Code checks – linting and unit tests
 #
 
-name: 'Unit tests'
+name: 'Code checks'
 
 on: push
 
 jobs:
-  test-component-library:
-    name: Component Library Unit Tests
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run eslint
+        run: yarn lint
+  unit-tests:
+    name: Unit Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
