@@ -3,7 +3,7 @@
   "parserOptions": {
     "project": ["./tsconfig.eslint.json", "./packages/*/tsconfig.json"]
   },
-  "ignorePatterns": ["**/storybook-static/**", "**/.expo/**"],
+  "ignorePatterns": ["**/storybook-static/**", "**/.expo/**", "**/.yarn/**"],
   "plugins": [
     "@typescript-eslint",
     "eslint-plugin-tsdoc",
