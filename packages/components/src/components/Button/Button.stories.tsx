@@ -2,7 +2,6 @@ import { Meta, StoryObj } from '@storybook/react-native'
 import { MyButton, MyButtonProps } from './Button'
 import { View } from 'react-native'
 import { generateDocs } from '../../utils'
-import React from 'react'
 
 const meta: Meta<MyButtonProps> = {
   title: 'Button',
@@ -13,7 +12,10 @@ const meta: Meta<MyButtonProps> = {
     },
   },
   parameters: {
-    docs: generateDocs({ name: 'Button', docUrl: 'https://department-of-veterans-affairs.github.io/va-mobile-app/' }),
+    docs: generateDocs({
+      name: 'Button',
+      docUrl: 'https://department-of-veterans-affairs.github.io/va-mobile-app/',
+    }),
   },
   decorators: [
     (Story) => (
