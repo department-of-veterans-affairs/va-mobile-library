@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-native'
 import { MyButton, MyButtonProps } from './Button'
-import { generateDocs } from '../../utils'
 import { View } from 'react-native'
+import { generateDocs } from '../../utils'
 
 const meta: Meta<MyButtonProps> = {
   title: 'Button',
