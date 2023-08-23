@@ -2,7 +2,7 @@
 # Code checks – linting and unit tests
 #
 
-name: 'Code checks'
+name: 'Code Checks'
 
 on: push
 
