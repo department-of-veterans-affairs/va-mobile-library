@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+    "lint": "eslint .",
     "publish-workspaces": "yarn workspaces foreach --verbose --no-private npm publish --access public --tolerate-republish"
   },
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-temporary#readme",
