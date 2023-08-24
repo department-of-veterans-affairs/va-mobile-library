@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { View } from 'react-native'
 import { Meta, StoryObj } from '@storybook/react-native'
+import { View } from 'react-native'
+import React, { useState } from 'react'
 
-import { generateDocs } from '../../utils'
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
+import { generateDocs } from '../../utils'
 
 const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',
