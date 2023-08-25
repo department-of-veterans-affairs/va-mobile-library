@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -43,7 +43,6 @@
     "expo-constants": "~14.4.2",
     "expo-font": "^11.4.0",
     "expo-linking": "~5.0.2",
-    "expo-localization": "^14.3.0",
     "expo-splash-screen": "~0.20.4",
     "expo-status-bar": "~1.6.0",
     "i18next": "^23.4.3",
@@ -55,6 +54,11 @@
     "react-native-screens": "~3.22.0",
     "react-native-web": "~0.19.6",
     "styled-components": "^6.0.7"
+  },
+  "peerDependencies": {
+    "expo-localization": "^14.3.0",
+    "react": "^18.2.0",
+    "react-native": "~0.71.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
@@ -102,9 +106,5 @@
     "react-docgen-typescript": "2.2.2",
     "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
   },
-  "packageManager": "yarn@3.6.1",
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-native": "~0.71.7"
-  }
+  "packageManager": "yarn@3.6.1"
 }
