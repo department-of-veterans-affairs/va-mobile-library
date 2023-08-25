@@ -1,10 +1,10 @@
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 import { View } from 'react-native'
 import { I18nextProvider } from 'react-i18next'
 import { useFonts } from 'expo-font'
-import * as SplashScreen from 'expo-splash-screen';
+import * as SplashScreen from 'expo-splash-screen'
 
-import i18n from 'utils/translation/i18n'
+import i18n from './utils/translation/i18n'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -18,12 +18,12 @@ const App = () => {
   // Holds rendering until custom fonts load
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
+      await SplashScreen.hideAsync()
     }
-  }, [fontsLoaded, fontError]);
+  }, [fontsLoaded, fontError])
 
   if (!fontsLoaded && !fontError) {
-    return null;
+    return null
   }
 
   const StorybookUI = require('../.storybook/native').default

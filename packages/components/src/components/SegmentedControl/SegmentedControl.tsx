@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next'
-import React, { FC, useEffect } from 'react'
+import { I18nextProvider, useTranslation } from 'react-i18next'
+import { FC, useEffect } from 'react'
 import styled from 'styled-components'
 import {
   Text,
@@ -9,6 +9,8 @@ import {
   ViewStyle,
   useColorScheme,
 } from 'react-native'
+
+import i18n from '../../utils/translation/i18n'
 
 /**
  * Props for {@link SegmentedControl}
@@ -50,6 +52,10 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   const { t } = useTranslation()
   const colorScheme = useColorScheme()
 
+  useEffect(() => {
+    onChange(labels[selected])
+  }, [selected, onChange, labels])
+
   // Copied from DSVA color tokens in css-library
   const colorTokens = {
     white: '#FFFFFF',
@@ -73,10 +79,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     inactiveBgColor = colorTokens.gray.dark
   }
 
-  useEffect(() => {
-    onChange(labels[selected])
-  }, [selected, onChange, labels])
-
   const viewStyle: ViewStyle = {
     alignSelf: 'baseline',
     backgroundColor: inactiveBgColor,
@@ -88,48 +90,50 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   }
 
   return (
-    <View style={viewStyle} accessibilityRole="tablist">
-      {labels.map((label, index) => {
-        const isSelected = selected === index
+    <I18nextProvider i18n={i18n}>
+      <View style={viewStyle} accessibilityRole="tablist">
+        {labels.map((label, index) => {
+          const isSelected = selected === index
 
-        const font: TextStyle = {
-          fontFamily: isSelected
-            ? 'SourceSansPro-Bold'
-            : 'SourceSansPro-Regular',
-          fontSize: 20,
-          lineHeight: 30,
-        }
+          const font: TextStyle = {
+            fontFamily: isSelected
+              ? 'SourceSansPro-Bold'
+              : 'SourceSansPro-Regular',
+            fontSize: 20,
+            lineHeight: 30,
+          }
 
-        const textStyle: TextStyle = {
-          ...font,
-          color: textColor,
-          textAlign: 'center',
-        }
+          const textStyle: TextStyle = {
+            ...font,
+            color: textColor,
+            textAlign: 'center',
+          }
 
-        return (
-          <Segment
-            onPress={(): void => onChange(labels[index])}
-            backgroundColor={isSelected ? activeBgColor : inactiveBgColor}
-            isSelected={isSelected}
-            key={index}
-            widthPct={`${100 / labels.length}%`}
-            accessibilityHint={
-              accessibilityHints ? accessibilityHints[index] : ''
-            }
-            accessibilityValue={{
-              text: t('listPosition', {
-                position: index + 1,
-                total: labels.length,
-              }),
-            }}
-            accessibilityRole={'tab'}
-            accessibilityState={{ selected: isSelected }}>
-            <Text allowFontScaling={false} style={textStyle}>
-              {label}
-            </Text>
-          </Segment>
-        )
-      })}
-    </View>
+          return (
+            <Segment
+              onPress={(): void => onChange(labels[index])}
+              backgroundColor={isSelected ? activeBgColor : inactiveBgColor}
+              isSelected={isSelected}
+              key={index}
+              widthPct={`${100 / labels.length}%`}
+              accessibilityHint={
+                accessibilityHints ? accessibilityHints[index] : ''
+              }
+              accessibilityValue={{
+                text: t('listPosition', {
+                  position: index + 1,
+                  total: labels.length,
+                }),
+              }}
+              accessibilityRole={'tab'}
+              accessibilityState={{ selected: isSelected }}>
+              <Text allowFontScaling={false} style={textStyle}>
+                {label}
+              </Text>
+            </Segment>
+          )
+        })}
+      </View>
+    </I18nextProvider>
   )
 }

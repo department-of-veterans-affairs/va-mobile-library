@@ -49,16 +49,6 @@ export const twoSegments: Story = {
   parameters: {
     design: [
       {
-        name: 'Figma header',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7327%3A3032&mode=design&t=F0hXXm33PlK48vBm-1',
-      },
-      {
-        name: 'Figma master component',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11264&mode=design&t=IfpGfogEOoBtNhmN-1',
-      },
-      {
         name: 'Figma component overview',
         type: 'figma',
         url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11330&mode=design&t=IfpGfogEOoBtNhmN-1',
