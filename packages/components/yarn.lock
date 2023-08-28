@@ -2252,6 +2252,7 @@ __metadata:
     "@babel/core": ^7.20.0
     "@babel/plugin-proposal-export-namespace-from": ^7.18.9
     "@expo/webpack-config": ^18.1.2
+    "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": ^1.19.0
     "@react-native-community/datetimepicker": ^7.4.0
     "@react-native-community/slider": ^4.4.2
@@ -2276,7 +2277,6 @@ __metadata:
     expo-constants: ~14.4.2
     expo-font: ^11.4.0
     expo-linking: ~5.0.2
-    expo-localization: ^14.3.0
     expo-splash-screen: ~0.20.4
     expo-status-bar: ~1.6.0
     gh-pages: ^5.0.0
@@ -2286,7 +2286,6 @@ __metadata:
     react-dom: 18.2.0
     react-i18next: ^13.0.3
     react-native-gesture-handler: ~2.12.0
-    react-native-localize: ^3.0.2
     react-native-reanimated: ~3.3.0
     react-native-safe-area-context: 4.6.3
     react-native-screens: ~3.22.0
@@ -3439,6 +3438,16 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: c96381d4a37448ea280951e46233f7e541058cf57a57d4094dd4bdcaae43fa5872b5f2eb6bfb004591a68e29c5877abe3cdc210cb3588cbf20ab2877f31a7de7
+  languageName: node
+  linkType: hard
+
+"@os-team/i18next-react-native-language-detector@npm:^1.0.28":
+  version: 1.0.28
+  resolution: "@os-team/i18next-react-native-language-detector@npm:1.0.28"
+  peerDependencies:
+    i18next: "*"
+    react-native: "*"
+  checksum: 6daa7ca83ca03833ef8cb445ee7a82ff62c08493dcf14eb29a1b7c52a3fbe8af055457f1ed5e938ae287150b4e0dd392adadd8f7bbacf2c5d091b00b72da7fa7
   languageName: node
   linkType: hard
 
@@ -9760,17 +9769,6 @@ __metadata:
     qs: ^6.11.0
     url-parse: ^1.5.9
   checksum: 4807372719932f1949783a93d264b56eb160cb9e2cebe47e3b77043d7360955c917c057acbf01042a3e62df413d97b264608f241b25273d68bbf171f98149e7d
-  languageName: node
-  linkType: hard
-
-"expo-localization@npm:^14.3.0":
-  version: 14.4.0
-  resolution: "expo-localization@npm:14.4.0"
-  dependencies:
-    rtl-detect: ^1.0.2
-  peerDependencies:
-    expo: "*"
-  checksum: 4f1a9da6728851d82ee0a1e1eecac39565bf78752fca63eb2e11e56761470a3b8e65137f99879a2fc23ff9ac7ec84a1117a5255c71e6e801c1d7c941cfcfa530
   languageName: node
   linkType: hard
 
@@ -16567,20 +16565,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-localize@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "react-native-localize@npm:3.0.2"
-  peerDependencies:
-    react: ">=18.1.0"
-    react-native: ">=0.70.0"
-    react-native-macos: ">=0.70.0"
-  peerDependenciesMeta:
-    react-native-macos:
-      optional: true
-  checksum: 46abd6046dfb1fb5426f9e51971894e893556646206b7fa387c5eb9394a3f3b9ddce190bc94ffc9c51c65326f60bbad57219d8330b4a1dcfaf46dd2eb4ef43ae
-  languageName: node
-  linkType: hard
-
 "react-native-modal-datetime-picker@npm:^14.0.0":
   version: 14.0.1
   resolution: "react-native-modal-datetime-picker@npm:14.0.1"
@@ -17273,13 +17257,6 @@ __metadata:
   version: 4.8.5
   resolution: "rsvp@npm:4.8.5"
   checksum: 2d8ef30d8febdf05bdf856ccca38001ae3647e41835ca196bc1225333f79b94ae44def733121ca549ccc36209c9b689f6586905e2a043873262609744da8efc1
-  languageName: node
-  linkType: hard
-
-"rtl-detect@npm:^1.0.2":
-  version: 1.0.4
-  resolution: "rtl-detect@npm:1.0.4"
-  checksum: d562535baa0db62f57f0a1d4676297bff72fd6b94e88f0f0900d5c3e810ab512c5c4cadffd3e05fbe8d9c74310c919afa3ea8c1001c244e5555e8eef12d02d6f
   languageName: node
   linkType: hard
 
