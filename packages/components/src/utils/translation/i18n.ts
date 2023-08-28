@@ -1,11 +1,17 @@
-import { getLocales } from 'expo-localization'
 import { initReactI18next } from 'react-i18next'
 import i18n from 'i18next'
 
 import * as enTranslation from './en.json'
 
+let localization
+try {
+  localization = require('expo-localization')
+} catch {
+  localization = require('react-native-localize')
+}
+
 const fallbackLanguage = { languageTag: 'en', isRTL: false }
-const defaultLanguage = getLocales()[0] || fallbackLanguage
+const defaultLanguage = localization.getLocales()[0] || fallbackLanguage
 
 export const resources = {
   en: { translation: enTranslation },
