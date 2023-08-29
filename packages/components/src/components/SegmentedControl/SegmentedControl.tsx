@@ -1,4 +1,3 @@
-import { I18nextProvider, useTranslation } from 'react-i18next'
 import { FC, useEffect } from 'react'
 import styled from 'styled-components'
 import {
@@ -9,8 +8,9 @@ import {
   ViewStyle,
   useColorScheme,
 } from 'react-native'
+import { useTranslation } from 'react-i18next'
 
-import i18n from '../../utils/translation/i18n'
+import { ComponentWrapper } from '../../wrapper'
 
 /**
  * Props for {@link SegmentedControl}
@@ -90,7 +90,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   }
 
   return (
-    <I18nextProvider i18n={i18n}>
+    <ComponentWrapper>
       <View style={viewStyle} accessibilityRole="tablist">
         {labels.map((label, index) => {
           const isSelected = selected === index
@@ -134,6 +134,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
           )
         })}
       </View>
-    </I18nextProvider>
+    </ComponentWrapper>
   )
 }

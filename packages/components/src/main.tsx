@@ -1,7 +1,12 @@
-let main
+/**
+ * Module to set App environment:
+ *   - Standalone Expo App (Storybook environment)
+ *   - Component wrapper environment as part of NPM package/within external app (App = null)
+ */
+let App
 try {
-  main = require('./App.tsx')
+  App = require('./App.tsx')
 } catch {
-  main = require('./wrapper.tsx')
+  App = require('./wrapper.tsx')
 }
-module.exports = main
+module.exports = App
