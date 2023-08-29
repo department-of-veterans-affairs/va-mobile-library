@@ -1,4 +1,7 @@
-// Export components here so they are exported through npm
-
-export { MyButton } from './components/Button/Button'
-export { SegmentedControl } from './components/SegmentedControl/SegmentedControl'
+let main
+try {
+  main = require('./App.tsx')
+} catch {
+  main = require('./wrapper.tsx')
+}
+module.exports = main
