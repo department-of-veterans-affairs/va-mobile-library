@@ -1,9 +1,8 @@
-import { useCallback } from 'react'
-import { View } from 'react-native'
+import * as SplashScreen from 'expo-splash-screen'
 import { I18nextProvider } from 'react-i18next'
 import { View } from 'react-native'
+import { useCallback } from 'react'
 import { useFonts } from 'expo-font'
-import * as SplashScreen from 'expo-splash-screen'
 
 import i18n from './utils/translation/i18n'
 
