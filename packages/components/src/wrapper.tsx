@@ -15,7 +15,7 @@ export default App
  * @param props - Empty props w/ Component(s) as nested children being wrapped
  * @returns Wrapped component
  */
-export const ComponentWrapper = ( props?: PropsWithChildren ) => {
+export const ComponentWrapper = (props?: PropsWithChildren<unknown>) => {
   return (
     <I18nextProvider i18n={i18n}>
       {props ? props.children : null}
