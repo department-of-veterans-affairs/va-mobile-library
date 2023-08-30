@@ -1,5 +1,4 @@
 import { FC, useEffect } from 'react'
-import styled from 'styled-components'
 import {
   Text,
   TextStyle,
@@ -9,8 +8,9 @@ import {
   useColorScheme,
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
+import styled from 'styled-components'
 
-import { ComponentWrapper } from '../../wrapper'
+import { ComponentWrapper } from 'wrapper'
 
 /**
  * Props for {@link SegmentedControl}

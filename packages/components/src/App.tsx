@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
 import { View } from 'react-native'
 import { I18nextProvider } from 'react-i18next'
+import { View } from 'react-native'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 
@@ -26,6 +27,7 @@ const App = () => {
     return null
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const StorybookUI = require('../.storybook/native').default
 
   return (
