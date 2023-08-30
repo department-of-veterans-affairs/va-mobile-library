@@ -10,7 +10,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
-import { ComponentWrapper } from 'wrapper'
+import { ComponentWrapper } from '../../wrapper'
 
 /**
  * Props for {@link SegmentedControl}
