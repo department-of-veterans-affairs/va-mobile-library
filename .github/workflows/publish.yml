@@ -8,9 +8,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      working-directory: packages/components
-      YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
+    defaults:
+      run:
+        working-directory: packages/components
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 18.x
@@ -21,3 +21,5 @@ jobs:
       - name: Install dependencies in components
         run: yarn install
       - run: yarn publish-package
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
