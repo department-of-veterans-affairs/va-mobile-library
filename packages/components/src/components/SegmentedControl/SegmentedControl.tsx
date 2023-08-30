@@ -1,6 +1,3 @@
-import { useTranslation } from 'react-i18next'
-import React, { FC, useEffect } from 'react'
-import styled from 'styled-components'
 import {
   Text,
   TextStyle,
@@ -9,6 +6,9 @@ import {
   ViewStyle,
   useColorScheme,
 } from 'react-native'
+import { useTranslation } from 'react-i18next'
+import React, { FC, useEffect } from 'react'
+import styled from 'styled-components'
 
 /**
  * Props for {@link SegmentedControl}
@@ -57,8 +57,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       dark: '#323A45',
       lighter: '#D6D7D9',
       lightest: '#F1F1F1',
-      medium: '#757575'
-    }
+      medium: '#757575',
+    },
   }
 
   let textColor: string, activeBgColor: string, inactiveBgColor: string

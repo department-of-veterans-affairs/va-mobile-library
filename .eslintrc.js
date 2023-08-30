@@ -4,13 +4,20 @@ module.exports = {
     project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
+  ignorePatterns: [
+    '**/storybook-static/**',
+    '**/.expo/**',
+    '**/.yarn/**',
+    '.eslintrc.js',
+  ],
   plugins: [
     '@typescript-eslint',
     'eslint-plugin-tsdoc',
     'sort-imports-es6-autofix',
   ],
   extends: [
-    'plugin:@typescript-eslint/recommended', // For what this sets, see: https://typescript-eslint.io/linting/configs#recommended
+    // For what this sets, see: https://typescript-eslint.io/linting/configs#recommended
+    'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
   env: {
@@ -24,12 +31,12 @@ module.exports = {
     // Simple rules (one line)
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/ban-ts-ignore': 'off',
-    '@typescript-eslint/naming-convention': 'warn',
     '@typescript-eslint/no-empty-function': 'warn',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unused-vars': 'warn',
     'linebreak-style': ['error', 'unix'],
-    'max-len': 120, // See https://eslint.org/docs/latest/rules/max-len for details/options
+    // See https://eslint.org/docs/latest/rules/max-len for details/options
+    'max-len': ['error', { code: 120, ignoreUrls: true, ignoreStrings: true }],
     'no-console': 'off',
     'no-multiple-empty-lines': 'off',
     'no-shadow': 'off', // Handled by @typescript-eslint
@@ -37,5 +44,12 @@ module.exports = {
     'sort-imports-es6-autofix/sort-imports-es6': 'error',
     'tsdoc/syntax': 'warn',
     // Complex rules (multiline)
+    '@typescript-eslint/naming-convention': [
+      'warn',
+      {
+        selector: 'function',
+        format: ['camelCase', 'PascalCase'],
+      },
+    ],
   },
 }

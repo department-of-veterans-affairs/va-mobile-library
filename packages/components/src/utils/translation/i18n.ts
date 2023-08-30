@@ -1,12 +1,11 @@
-import * as RNLocalize from 'react-native-localize'
+import * as RNLocalize from 'expo-localization'
 import { initReactI18next } from 'react-i18next'
 import i18n from 'i18next'
 
 import * as enTranslation from './en.json'
 
 const fallbackLanguage = { languageTag: 'en', isRTL: false }
-const defaultLanguage =
-  RNLocalize.findBestLanguageTag(['en']) || fallbackLanguage
+const defaultLanguage = RNLocalize.getLocales()[0] || fallbackLanguage
 
 export const resources = {
   en: { translation: enTranslation },
@@ -18,6 +17,7 @@ i18n.use(initReactI18next).init({
   resources,
   keySeparator: false,
   fallbackLng: 'en',
+  compatibilityJSON: 'v3',
   debug: true,
   interpolation: {
     escapeValue: false,
