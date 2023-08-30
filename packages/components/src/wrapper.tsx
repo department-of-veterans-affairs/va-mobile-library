@@ -12,7 +12,7 @@ export default App
 
 /**
  * Simple wrapping function for non-visual global component package utilities
- * @param props Empty props w/ Component(s) as nested children being wrapped
+ * @param props - Empty props w/ Component(s) as nested children being wrapped
  * @returns Wrapped component
  */
 export const ComponentWrapper = ( props?: PropsWithChildren ) => {

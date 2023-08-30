@@ -1,6 +1,6 @@
 import { initReactI18next } from 'react-i18next'
+import RNLanguageDetector from '@os-team/i18next-react-native-language-detector'
 import i18n from 'i18next'
-import RNLanguageDetector from '@os-team/i18next-react-native-language-detector';
 
 import * as enTranslation from './en.json'
 
