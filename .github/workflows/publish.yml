@@ -1,4 +1,4 @@
-name: Yarn publish
+name: Publish to NPM
 
 on:
   workflow_dispatch:
@@ -14,6 +14,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18.x
+      - run: yarn install
+      - name: Install dependencies in components
+        run: yarn install
       - run: yarn publish-workspaces
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
