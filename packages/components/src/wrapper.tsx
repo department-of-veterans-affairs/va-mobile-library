@@ -1,5 +1,5 @@
 import { I18nextProvider } from 'react-i18next'
-import { PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from 'react'
 
 import i18n from './utils/translation/i18n'
 
