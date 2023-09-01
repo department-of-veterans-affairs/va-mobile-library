@@ -1,4 +1,3 @@
-import { FC, useEffect } from 'react'
 import {
   Text,
   TextStyle,
@@ -8,6 +7,7 @@ import {
   useColorScheme,
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
+import React, { FC, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { ComponentWrapper } from '../../wrapper'

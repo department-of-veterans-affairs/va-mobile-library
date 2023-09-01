@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -39,6 +39,7 @@
   "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-temporary",
   "dependencies": {
     "@os-team/i18next-react-native-language-detector": "^1.0.28",
+    "expo": "^49.0.0",
     "i18next": "^23.4.3",
     "react-i18next": "^13.0.3",
     "styled-components": "^6.0.7"
@@ -72,7 +73,6 @@
     "babel-loader": "^8.3.0",
     "babel-plugin-react-docgen-typescript": "^1.5.1",
     "babel-plugin-react-native-web": "^0.18.10",
-    "expo": "^49.0.0",
     "expo-constants": "~14.4.2",
     "expo-font": "^11.4.0",
     "expo-linking": "~5.0.2",
