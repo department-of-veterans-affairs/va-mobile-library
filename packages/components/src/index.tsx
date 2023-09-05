@@ -1,7 +1,6 @@
-// @ts-ignore
-import * as App from './main'
+import App from './main'
 
-const expoApp: JSX.Element | null = App.default
+const expoApp = App.default
 
 if (expoApp) {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -9,7 +8,7 @@ if (expoApp) {
   // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
   // It also ensures that whether you load the app in Expo Go or in a native build,
   // the environment is set up appropriately
-  expo.registerRootComponent(App.default)
+  expo.registerRootComponent(expoApp)
 }
 
 // Export components here so they are exported through npm
