@@ -3,6 +3,9 @@
  *   - Standalone Expo App (Storybook environment)
  *   - Component wrapper environment as part of NPM package/within external app (App = null)
  */
+// Empty export so TS doesn't interpret as a script file
+export {}
+
 let App
 try {
   App = require('./App.tsx')
