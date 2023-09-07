@@ -29,14 +29,16 @@ export default meta
 type Story = StoryObj<SegmentedControlProps>
 
 const statefulComponentRenderer = (props: SegmentedControlProps) => {
-  const { labels } = props
-  const [selectedSegment, setSelectedSegment] = useState(labels[0])
+  const { labels, a11yLabels, a11yHints } = props
+  const [selectedSegment, setSelectedSegment] = useState(0)
 
   return (
     <SegmentedControl
       labels={labels}
       onChange={setSelectedSegment}
-      selected={labels.indexOf(selectedSegment)}
+      selected={selectedSegment}
+      a11yLabels={a11yLabels}
+      a11yHints={a11yHints}
     />
   )
 }
@@ -45,6 +47,11 @@ export const twoSegments: Story = {
   render: statefulComponentRenderer,
   args: {
     labels: ['Inbox (3)', 'Folders'],
+    a11yLabels: ['Inbox'],
+    a11yHints: [
+      'You have 3 unread messages. Review messages in your inbox',
+      'Review your folders',
+    ],
   },
   parameters: {
     design: [
