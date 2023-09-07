@@ -3,7 +3,10 @@
  *   - Standalone Expo App (Storybook environment)
  *   - Component wrapper environment as part of NPM package/within external app (App = null)
  */
-type AppType = { default: JSX.Element | null }
+export type AppType = {
+  default: JSX.Element | null
+  initiateExpo: ((expoApp: JSX.Element | null) => void) | null
+}
 
 let App: AppType
 try {
