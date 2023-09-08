@@ -23,7 +23,7 @@ jobs:
 
         - name: Install npm dependencies
           working-directory: ./packages/components
-          run: yarn install --frozen-lockfile --non-interactive
+          run: yarn install --immutable
 
         - name: Run documentation build
           working-directory: ./packages/components
