@@ -44,7 +44,7 @@ const statefulComponentRenderer = (props: SegmentedControlProps) => {
 export const twoSegments: Story = {
   render: statefulComponentRenderer,
   args: {
-    labels: ['Inbox (3)', 'Folders'],
+    labels: ['Inbox (4)', 'Folders'],
   },
   parameters: {
     design: [
