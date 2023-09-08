@@ -6,10 +6,15 @@ on:
     #   - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v2
+
+        - name: Set git config
+          run: |
+              git config --global user.name 'VA Automation Bot'
+              git config --global user.email 'va-mobileapp@adhocteam.us'
 
         - name: Setup Node
           uses: actions/setup-node@v3
