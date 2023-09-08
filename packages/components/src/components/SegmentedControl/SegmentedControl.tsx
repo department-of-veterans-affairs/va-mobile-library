@@ -19,11 +19,13 @@ export type SegmentedControlProps = {
   /** Array of segment labels */
   labels: string[]
   /** Handler function for changing segment selection */
-  onChange: (selection: string) => void
+  onChange: (selection: number) => void
   /** Index of the currently selected segment */
   selected: number
-  /** Optional list of accessibility hints for labels */
-  labelsA11yHints?: string[]
+  /** Optional array of segment accessibility override labels */
+  a11yLabels?: string[]
+  /** Optional array of segment accessibility hints */
+  a11yHints?: string[]
 }
 
 type SegmentProps = {
@@ -47,13 +49,14 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   labels,
   onChange,
   selected,
-  labelsA11yHints: accessibilityHints,
+  a11yLabels,
+  a11yHints,
 }) => {
   const { t } = useTranslation()
   const colorScheme = useColorScheme()
 
   useEffect(() => {
-    onChange(labels[selected])
+    onChange(selected)
   }, [selected, onChange, labels])
 
   // Copied from DSVA color tokens in css-library
@@ -89,50 +92,60 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     padding: 2,
   }
 
+  /**
+   * Function to build individual segment within controller
+   * @param label - Segment label
+   * @param index - Segment index position in array
+   */
+  const buildSegment = (label: string, index: number) => {
+    const isSelected = selected === index
+
+    const accessibilityLabel = a11yLabels
+      ? a11yLabels[index] || labels[index]
+      : labels[index]
+    const accessibilityValue = {
+      text: t('listPosition', {
+        position: index + 1,
+        total: labels.length,
+      }),
+    }
+
+    // TODO: Replace with typography tokens
+    const font: TextStyle = {
+      fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
+      fontSize: 20,
+      lineHeight: 30,
+    }
+
+    const textStyle: TextStyle = {
+      ...font,
+      color: textColor,
+      textAlign: 'center',
+    }
+
+    return (
+      <Segment
+        onPress={(): void => onChange(index)}
+        backgroundColor={isSelected ? activeBgColor : inactiveBgColor}
+        isSelected={isSelected}
+        key={index}
+        widthPct={`${100 / labels.length}%`}
+        accessibilityLabel={accessibilityLabel}
+        accessibilityHint={a11yHints ? a11yHints[index] : ''}
+        accessibilityValue={accessibilityValue}
+        accessibilityRole={'tab'}
+        accessibilityState={{ selected: isSelected }}>
+        <Text allowFontScaling={false} style={textStyle}>
+          {label}
+        </Text>
+      </Segment>
+    )
+  }
+
   return (
     <ComponentWrapper>
       <View style={viewStyle} accessibilityRole="tablist">
-        {labels.map((label, index) => {
-          const isSelected = selected === index
-
-          const font: TextStyle = {
-            fontFamily: isSelected
-              ? 'SourceSansPro-Bold'
-              : 'SourceSansPro-Regular',
-            fontSize: 20,
-            lineHeight: 30,
-          }
-
-          const textStyle: TextStyle = {
-            ...font,
-            color: textColor,
-            textAlign: 'center',
-          }
-
-          return (
-            <Segment
-              onPress={(): void => onChange(labels[index])}
-              backgroundColor={isSelected ? activeBgColor : inactiveBgColor}
-              isSelected={isSelected}
-              key={index}
-              widthPct={`${100 / labels.length}%`}
-              accessibilityHint={
-                accessibilityHints ? accessibilityHints[index] : ''
-              }
-              accessibilityValue={{
-                text: t('listPosition', {
-                  position: index + 1,
-                  total: labels.length,
-                }),
-              }}
-              accessibilityRole={'tab'}
-              accessibilityState={{ selected: isSelected }}>
-              <Text allowFontScaling={false} style={textStyle}>
-                {label}
-              </Text>
-            </Segment>
-          )
-        })}
+        {labels.map((label, index) => buildSegment(label, index))}
       </View>
     </ComponentWrapper>
   )

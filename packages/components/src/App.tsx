@@ -1,12 +1,20 @@
 import * as SplashScreen from 'expo-splash-screen'
 import { I18nextProvider } from 'react-i18next'
 import { View } from 'react-native'
+import { registerRootComponent } from 'expo'
 import { useCallback } from 'react'
 import { useFonts } from 'expo-font'
 
 import i18n from './utils/translation/i18n'
 
 SplashScreen.preventAutoHideAsync()
+
+export const initiateExpo = (expoApp: typeof App) => {
+  // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
+  // It also ensures that whether you load the app in Expo Go or in a native build,
+  // the environment is set up appropriately
+  registerRootComponent(expoApp)
+}
 
 const App = () => {
   // Loads in custom fonts async
