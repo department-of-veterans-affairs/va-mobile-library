@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -23,7 +23,7 @@ jobs:
           node-version: '18'
           cache: 'yarn'
 
-      - name: Install npm dependencies
+      - name: Install dependencies
         working-directory: ./packages/components
         run: yarn install --immutable
 
@@ -31,8 +31,8 @@ jobs:
         working-directory: ./packages/components
         run: yarn storybook:build
 
-      - name: Deploy
+      - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./packages/components/storybook-static
