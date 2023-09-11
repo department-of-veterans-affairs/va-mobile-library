@@ -29,14 +29,16 @@ export default meta
 type Story = StoryObj<SegmentedControlProps>
 
 const statefulComponentRenderer = (props: SegmentedControlProps) => {
-  const { labels } = props
-  const [selectedSegment, setSelectedSegment] = useState(labels[0])
+  const { labels, a11yLabels, a11yHints } = props
+  const [selectedSegment, setSelectedSegment] = useState(0)
 
   return (
     <SegmentedControl
       labels={labels}
       onChange={setSelectedSegment}
-      selected={labels.indexOf(selectedSegment)}
+      selected={selectedSegment}
+      a11yLabels={a11yLabels}
+      a11yHints={a11yHints}
     />
   )
 }
@@ -44,20 +46,15 @@ const statefulComponentRenderer = (props: SegmentedControlProps) => {
 export const twoSegments: Story = {
   render: statefulComponentRenderer,
   args: {
-    labels: ['Inbox (4)', 'Folders'],
+    labels: ['Inbox (3)', 'Folders'],
+    a11yLabels: ['Inbox'],
+    a11yHints: [
+      'You have 3 unread messages. Review messages in your inbox',
+      'Review your folders',
+    ],
   },
   parameters: {
     design: [
-      {
-        name: 'Figma header',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7327%3A3032&mode=design&t=F0hXXm33PlK48vBm-1',
-      },
-      {
-        name: 'Figma master component',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11264&mode=design&t=IfpGfogEOoBtNhmN-1',
-      },
       {
         name: 'Figma component overview',
         type: 'figma',

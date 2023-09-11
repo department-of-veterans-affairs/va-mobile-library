@@ -1,17 +1,10 @@
-// Import components here so they can be exported through npm
-import { registerRootComponent } from 'expo'
+import App from './main'
 
-import App from './App'
+const expoApp = App.default
 
-const storybookEnabled = process.env.EXPO_PUBLIC_STORYBOOK_ENABLED === 'true'
-
-if (storybookEnabled) {
-  // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-  // It also ensures that whether you load the app in Expo Go or in a native build,
-  // the environment is set up appropriately
-  registerRootComponent(App)
+if (expoApp && App.initiateExpo) {
+  App.initiateExpo(expoApp)
 }
 
-
-export { MyButton } from 'components/Button/Button'
-export { SegmentedControl } from 'components/SegmentedControl/SegmentedControl'
+// Export components here so they are exported through npm
+export { SegmentedControl } from './components/SegmentedControl/SegmentedControl'
