@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "publish-workspaces": "yarn workspaces foreach --verbose --no-private npm publish --access public --tolerate-republish"
   },
-  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-temporary#readme",
+  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "packageManager": "yarn@3.6.1",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.2.0",
