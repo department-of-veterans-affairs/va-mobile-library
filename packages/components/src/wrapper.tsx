@@ -17,8 +17,9 @@ export default App
  */
 export const ComponentWrapper = (props?: PropsWithChildren<unknown>) => {
   return (
-    <I18nextProvider i18n={i18n}>
-      {props ? props.children : null}
-    </I18nextProvider>
+    // <I18nextProvider i18n={i18n}>
+    <>
+      {props ? props.children : null}</>
+    // </I18nextProvider>
   )
 }
