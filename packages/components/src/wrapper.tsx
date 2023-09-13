@@ -1,7 +1,7 @@
-// import { I18nextProvider } from 'react-i18next'
+import { I18nextProvider } from 'react-i18next'
 import React, { PropsWithChildren } from 'react'
 
-// import i18n from './utils/translation/i18n'
+import i18n from './utils/translation/i18n'
 
 /**
  * App is null in the wrapper environment--for running as a package within another App
@@ -17,8 +17,8 @@ export default App
  */
 export const ComponentWrapper = (props?: PropsWithChildren<unknown>) => {
   return (
-    // <I18nextProvider i18n={i18n}>
-    <>{props ? props.children : null}</>
-    // </I18nextProvider>
+    <I18nextProvider i18n={i18n}>
+      {props ? props.children : null}
+    </I18nextProvider>
   )
 }
