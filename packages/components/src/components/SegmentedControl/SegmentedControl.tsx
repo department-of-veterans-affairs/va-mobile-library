@@ -83,7 +83,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   }
 
   const viewStyle: ViewStyle = {
-    alignSelf: 'baseline',
+    alignSelf: 'stretch',
     backgroundColor: inactiveBgColor,
     borderRadius: 8,
     flexDirection: 'row',
