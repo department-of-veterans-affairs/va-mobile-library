@@ -16,6 +16,7 @@ coverage
 
 .yarn/*
 .yarn/cache
+.yarn/install-state.gz
 packages/components/.yarn/cache
 
 !.yarn/patches
