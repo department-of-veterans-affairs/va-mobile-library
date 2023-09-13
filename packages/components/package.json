@@ -12,7 +12,7 @@
     "storybook:deploy": "yarn storybook:build && gh-pages -d storybook-static",
     "storybook:generate": "sb-rn-get-stories --config-path .storybook/native",
     "storybook:watch": "sb-rn-watcher --config-path .storybook/native",
-    "storybook:web": "start-storybook --config-dir .storybook/web -p 6006",
+    "storybook:web": "STORYBOOK_WEB=true start-storybook --config-dir .storybook/web -p 6006",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
