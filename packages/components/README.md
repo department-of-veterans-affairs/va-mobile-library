@@ -12,13 +12,13 @@
 1. Clone the repo
 
 ```
-git clone git@github.com:department-of-veterans-affairs/va-mobile-temporary.git
+git clone git@github.com:department-of-veterans-affairs/va-mobile-library.git
 ```
 
 2. Navigate to the components package
 
 ```
-cd va-mobile-temporary/packages/components
+cd va-mobile-library/packages/components
 ```
 
 3. Install dependencies
@@ -47,7 +47,7 @@ yarn
 | `android `           | Run app on last used Android emulator/device                                                                                               |
 | `ios`                | Run app on last used iOS simulator/device                                                                                                  |
 | `storybook:build`    | Generates static version of Storybook for deployment                                                                                       |
-| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-temporary) in `package.json`                  |
+| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json`                  |
 | `storybook:generate` | Generates `.storybook/native/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
 | `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js`                                                                  |
 | `storybook:web`      | Builds and launches development server for web                                                                                             |

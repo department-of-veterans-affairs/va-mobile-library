@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-temporary.git"
+    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
   },
   "keywords": [
     "design",
@@ -34,9 +34,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/department-of-veterans-affairs/va-mobile-temporary/issues"
+    "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
   },
-  "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-temporary",
+  "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
     "@os-team/i18next-react-native-language-detector": "^1.0.28",
     "i18next": "^23.4.3",

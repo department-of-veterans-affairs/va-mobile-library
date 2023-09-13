@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-temporary.git"
+    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
   },
   "keywords": [
     "design",
@@ -19,8 +19,8 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/department-of-veterans-affairs/va-mobile-temporary/issues"
+    "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
   },
-  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-temporary#readme",
+  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "packageManager": "yarn@3.6.1"
 }
