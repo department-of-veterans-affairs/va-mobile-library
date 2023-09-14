@@ -9,8 +9,14 @@ export const resources = {
 }
 
 // Initialize the internationalization library
+
+// Use RNLanguageDetector only if mobile
+if (process.env.STORYBOOK_WEB !== 'true') {
+  i18n.use(RNLanguageDetector)
+}
+
+
 i18n
-  .use(RNLanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
@@ -26,5 +32,4 @@ i18n
       useSuspense: true,
     },
   })
-
 export default i18n

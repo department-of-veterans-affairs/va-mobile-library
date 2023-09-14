@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
 
@@ -83,7 +83,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   }
 
   const viewStyle: ViewStyle = {
-    alignSelf: 'baseline',
+    alignSelf: 'stretch',
     backgroundColor: inactiveBgColor,
     borderRadius: 8,
     flexDirection: 'row',
@@ -134,7 +134,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         accessibilityHint={a11yHints ? a11yHints[index] : ''}
         accessibilityValue={accessibilityValue}
         accessibilityRole={'tab'}
-        accessibilityState={{ selected: isSelected }}>
+        accessibilityState={{ selected: isSelected }}
+      >
         <Text allowFontScaling={false} style={textStyle}>
           {label}
         </Text>
