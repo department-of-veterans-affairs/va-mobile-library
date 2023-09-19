@@ -1,0 +1,17 @@
+{
+  "source": [
+    "./src/tokens/**/*.json"
+  ],
+  "platforms": {
+    "rn": {
+      "transformGroup": "react-native",
+      "buildPath": "./dist/",
+      "files": [
+        {
+          "destination": "variables.js",
+          "format": "javascript/es6"
+        }
+      ]
+    }
+  }
+}
