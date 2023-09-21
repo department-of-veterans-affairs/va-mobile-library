@@ -6,10 +6,16 @@
     "rn": {
       "transformGroup": "react-native",
       "buildPath": "./dist/",
+      "prefix": "",
       "files": [
         {
-          "destination": "variables.js",
-          "format": "javascript/es6"
+          "destination": "js/colors.js",
+          "format": "javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
         }
       ]
     }

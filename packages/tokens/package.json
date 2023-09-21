@@ -1,7 +1,8 @@
 {
   "name": "@department-of-veterans-affairs/mobile-tokens",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "VA Design System Mobile Token Library",
+  "main": "src/index.ts",
   "scripts": {
     "build": "style-dictionary build",
     "publish-package": "npm publish --access public --tolerate-republish"
