@@ -2156,7 +2156,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.0
     "@babel/plugin-proposal-export-namespace-from": ^7.18.9
-    "@department-of-veterans-affairs/mobile-tokens": "file:../tokens"
+    "@department-of-veterans-affairs/mobile-tokens": 0.0.4
     "@expo/webpack-config": ^18.1.2
     "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": ^1.19.0
@@ -2209,14 +2209,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-tokens@file:../tokens::locator=%40department-of-veterans-affairs%2Fmobile-component-library%40workspace%3Apackages%2Fcomponents":
-  version: 0.0.3
-  resolution: "@department-of-veterans-affairs/mobile-tokens@file:../tokens#../tokens::hash=01cfe1&locator=%40department-of-veterans-affairs%2Fmobile-component-library%40workspace%3Apackages%2Fcomponents"
-  checksum: be7f4cc339214a42252c41e7e176abe64ee8c6745ff2d1bfb48744ef0fb5eaa485ce7bbafed1d6bf6373376bae396f19eeb912c9cf9ae241864ebc3baab7e97c
-  languageName: node
-  linkType: hard
-
-"@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens":
+"@department-of-veterans-affairs/mobile-tokens@0.0.4, @department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens"
   dependencies:
