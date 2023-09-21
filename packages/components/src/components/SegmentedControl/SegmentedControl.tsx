@@ -1,3 +1,4 @@
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Text,
   TextStyle,
@@ -59,27 +60,16 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     onChange(selected)
   }, [selected, onChange, labels])
 
-  // Copied from DSVA color tokens in css-library
-  const colorTokens = {
-    white: '#FFFFFF',
-    gray: {
-      dark: '#323A45',
-      lighter: '#D6D7D9',
-      lightest: '#F1F1F1',
-      medium: '#757575',
-    },
-  }
-
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = colorTokens.gray.dark
-    activeBgColor = colorTokens.white
-    inactiveBgColor = colorTokens.gray.lighter
+    textColor = Colors.grayDark
+    activeBgColor = Colors.white
+    inactiveBgColor = Colors.grayLighter
   } else {
-    textColor = colorTokens.gray.lightest
-    activeBgColor = colorTokens.gray.medium
-    inactiveBgColor = colorTokens.gray.dark
+    textColor = Colors.grayLightest
+    activeBgColor = Colors.grayMedium
+    inactiveBgColor = Colors.grayDark
   }
 
   const viewStyle: ViewStyle = {

@@ -2829,6 +2829,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.0
     "@babel/plugin-proposal-export-namespace-from": ^7.18.9
+    "@department-of-veterans-affairs/mobile-tokens": 0.0.4
     "@expo/webpack-config": ^18.1.2
     "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": ^1.19.0
@@ -2880,6 +2881,13 @@ __metadata:
     react-native-gesture-handler: ^2.12.0
   languageName: unknown
   linkType: soft
+
+"@department-of-veterans-affairs/mobile-tokens@npm:0.0.4":
+  version: 0.0.4
+  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.0.4"
+  checksum: a3455980b9733d7c3102824cb7f9531abcc0e3084ed2f265442ccd4bf15b3a4538cbc4796c58c347aa3dab0d0130a8989f9da628a3fc0726fdcedd8a7187c423
+  languageName: node
+  linkType: hard
 
 "@discoveryjs/json-ext@npm:^0.5.3":
   version: 0.5.7
