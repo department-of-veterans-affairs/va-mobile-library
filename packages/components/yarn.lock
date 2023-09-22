@@ -2829,7 +2829,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.0
     "@babel/plugin-proposal-export-namespace-from": ^7.18.9
-    "@department-of-veterans-affairs/mobile-tokens": 0.0.6
+    "@department-of-veterans-affairs/mobile-tokens": 0.0.7
     "@expo/webpack-config": ^18.1.2
     "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": ^1.19.0
@@ -2882,10 +2882,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-tokens@npm:0.0.6":
-  version: 0.0.6
-  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.0.6"
-  checksum: a13f3ed329ffb4109a36e00685a78749bb68b96c2e0bfdcff16025202c202a38a466f93bfadd147e9a9e43bc9468df930b745cb9f762111fbf0f4bb69b2252fc
+"@department-of-veterans-affairs/mobile-tokens@npm:0.0.7":
+  version: 0.0.7
+  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.0.7"
+  checksum: eb1f4c756a3408a6219aaa8465aec5a2d1d926e1a49271574847c8668afe2082f8dafd21ee451becd12409262d7697c41a7ba61490a077662a14710218205b1e
   languageName: node
   linkType: hard
 
