@@ -1,0 +1,23 @@
+{
+  "source": [
+    "./src/tokens/**/*.json"
+  ],
+  "platforms": {
+    "rn": {
+      "transformGroup": "react-native",
+      "buildPath": "./dist/",
+      "prefix": "",
+      "files": [
+        {
+          "destination": "js/colors.js",
+          "format": "javascript/es6",
+          "filter": {
+            "attributes": {
+              "category": "color"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

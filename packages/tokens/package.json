@@ -1,8 +1,13 @@
 {
   "name": "@department-of-veterans-affairs/mobile-tokens",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "VA Design System Mobile Token Library",
-  "main": "index.js",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "style-dictionary build",
+    "prepack": "style-dictionary build",
+    "publish-package": "npm publish --access public --tolerate-republish"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
@@ -22,5 +27,8 @@
     "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
   },
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@3.6.1",
+  "devDependencies": {
+    "style-dictionary": "^3.8.0"
+  }
 }
