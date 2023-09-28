@@ -27,6 +27,8 @@ export type SegmentedControlProps = {
   a11yLabels?: string[]
   /** Optional array of segment accessibility hints */
   a11yHints?: string[]
+  /** Optional array of test IDs for test suites */
+  testIDs?: string[]
 }
 
 type SegmentProps = {
@@ -52,6 +54,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   selected,
   a11yLabels,
   a11yHints,
+  testIDs,
 }) => {
   const { t } = useTranslation()
   const colorScheme = useColorScheme()
@@ -125,6 +128,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         accessibilityValue={accessibilityValue}
         accessibilityRole={'tab'}
         accessibilityState={{ selected: isSelected }}
+        testID={testIDs?.[index]}
       >
         <Text allowFontScaling={false} style={textStyle}>
           {label}

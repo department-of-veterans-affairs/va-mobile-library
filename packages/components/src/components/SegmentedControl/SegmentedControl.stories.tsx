@@ -52,6 +52,7 @@ export const twoSegments: Story = {
       'You have 3 unread messages. Review messages in your inbox',
       'Review your folders',
     ],
+    testIDs: ['test-id-1', 'test-id-2'],
   },
   parameters: {
     design: [
