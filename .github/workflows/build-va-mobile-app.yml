@@ -37,15 +37,15 @@ jobs:
           cache: 'yarn'
       
       - name: Install global dependencies
-        run: pwd && yarn install --immutable
+        run: yarn install --immutable
 
       - name: Install token dependencies
         working-directory: packages/tokens
-        run: pwd && ls
+        run: yarn install --immutable
 
-      # - name: Install component dependencies
-      #   working-directory: packages/component
-      #   run: pwd && ls && yarn install --immutable
+      - name: Install component dependencies
+        working-directory: packages/components
+        run: yarn install --immutable
 
   setup-mobile-app:
     runs-on: ubuntu-latest
@@ -55,5 +55,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install app dependencies
-        working-directory: va-mobile-library/va-mobile-app/VAMobile
+        working-directory: va-mobile-app/VAMobile
         run: pwd && ls
