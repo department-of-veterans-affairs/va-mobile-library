@@ -1,4 +1,4 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Text,
   TextStyle,
@@ -66,13 +66,13 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = Colors.grayDark
-    activeBgColor = Colors.white
-    inactiveBgColor = Colors.grayLighter
+    textColor = DesignTokens.colorGrayDark
+    activeBgColor = DesignTokens.colorWhite
+    inactiveBgColor = DesignTokens.colorGrayLighter
   } else {
-    textColor = Colors.grayLightest
-    activeBgColor = Colors.grayMedium
-    inactiveBgColor = Colors.grayDark
+    textColor = DesignTokens.colorGrayLightest
+    activeBgColor = DesignTokens.colorGrayMedium
+    inactiveBgColor = DesignTokens.colorGrayDark
   }
 
   const viewStyle: ViewStyle = {
