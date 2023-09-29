@@ -69,3 +69,12 @@ jobs:
       - name: Install Ruby gems
         working-directory: va-mobile-app/VAMobile/ios
         run: bundle install
+
+      - name: Build iOS
+        working-directory: va-mobile-app/VAMobile/
+        run: yarn bundle:ios
+
+      - name: Build Android
+        working-directory: va-mobile-app/VAMobile/
+        run: yarn bundle:android
+
