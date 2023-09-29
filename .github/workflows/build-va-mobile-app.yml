@@ -42,5 +42,5 @@ jobs:
           path: va-mobile-app
 
       - name: Install app dependencies
-        working-directory: va-mobile-app
-        run: pwd && ls
+        working-directory: va-mobile-app/VAMobile
+        run: yarn install
