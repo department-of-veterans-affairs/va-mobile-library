@@ -37,7 +37,7 @@ jobs:
           cache: 'yarn'
       
       - name: Install global dependencies
-        run: pwd && yarn install --immutable
+        run: pwd && ls
         # working-directory: va-mobile-library
 
       - name: Install token dependencies
@@ -45,7 +45,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Install component dependencies
-        working-directory: packages/component
+        # working-directory: packages/component
         run: yarn install --immutable
 
   setup-mobile-app:
