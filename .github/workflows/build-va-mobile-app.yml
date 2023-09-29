@@ -1,0 +1,56 @@
+#
+# Code checks – linting and unit tests
+#
+
+name: 'Test Build: va-mobile-app'
+
+on: push
+
+jobs:
+  setup-repos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout va-mobile-library
+        uses: actions/checkout@v3
+        with:
+          path: va-mobile-library
+
+      - name: Checkout va-mobile-app
+        uses: actions/checkout@v3
+        with:
+          repository: department-of-veterans-affairs/va-mobile-app
+          path: va-mobile-app
+  
+  setup-mobile-library:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+      
+      - name: Install global dependencies
+        run: yarn install --immutable
+        working-directory: va-mobile-library
+
+      - name: Install token dependencies
+        working-directory: va-mobile-library/packages/token
+        run: yarn install --immutable
+
+      - name: Install component dependencies
+        working-directory: va-mobile-library/packages/component
+        run: yarn install --immutable
+
+  setup-mobile-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install token dependencies
+        working-directory: va-mobile-app/VAMobile
+        run: yarn install
