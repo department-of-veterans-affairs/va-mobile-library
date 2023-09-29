@@ -42,5 +42,5 @@ jobs:
           path: va-mobile-app
 
       - name: Install app dependencies
-        # working-directory: va-mobile-app
+        working-directory: va-mobile-library/va-mobile-app
         run: pwd && ls
