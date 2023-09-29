@@ -38,15 +38,14 @@ jobs:
       
       - name: Install global dependencies
         run: pwd && yarn install --immutable
-        # working-directory: va-mobile-library
 
       - name: Install token dependencies
-        working-directory: va-mobile-library/packages/token
-        run: yarn install --immutable
+        working-directory: packages/token
+        run: pwd && ls && yarn install --immutable
 
       - name: Install component dependencies
-        working-directory: va-mobile-library/packages/component
-        run: yarn install --immutable
+        working-directory: packages/component
+        run: pwd && ls && yarn install --immutable
 
   setup-mobile-app:
     runs-on: ubuntu-latest
