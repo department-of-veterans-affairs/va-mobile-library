@@ -9,13 +9,12 @@
       "prefix": "",
       "files": [
         {
-          "destination": "js/colors.js",
-          "format": "javascript/es6",
-          "filter": {
-            "attributes": {
-              "category": "color"
-            }
-          }
+          "destination": "js/tokens.js",
+          "format": "javascript/es6"
+        },
+        {
+          "format": "typescript/es6-declarations",
+          "destination": "index.d.ts"
         }
       ]
     }
