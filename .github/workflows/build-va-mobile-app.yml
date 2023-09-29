@@ -59,6 +59,7 @@ jobs:
         run: yarn install
       
       - name: Set app environment variables
+        working-directory: va-mobile-app/VAMobile
         run: yarn env:staging
       
       - name: Install pods
