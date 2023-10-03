@@ -1,190 +1,202 @@
 {
-  "white": {
-    "value": "#fff",
-    "attributes": {
-      "category": "color"
-    }
-  },
-  "gray": {
-    "*": {
-      "value": "#5b616b",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#5b616b"
-      },
-      "name": "color-gray",
+  "color": {
+    "white": {
+      "value": "#fff",
       "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "*"
-      },
-      "path": [
-        "gray",
-        "*"
-      ]
+        "category": "color"
+      }
     },
-    "dark": {
-      "value": "#323a45",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#323a45"
+    "gray": {
+      "*": {
+        "value": "#5b616b",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#5b616b"
+        },
+        "name": "color-gray",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "*"
+        },
+        "path": [
+          "color",
+          "gray",
+          "*"
+        ]
       },
-      "name": "color-gray-dark",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "dark"
+      "dark": {
+        "value": "#323a45",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#323a45"
+        },
+        "name": "color-gray-dark",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "dark"
+        },
+        "path": [
+          "color",
+          "gray",
+          "dark"
+        ]
       },
-      "path": [
-        "gray",
-        "dark"
-      ]
-    },
-    "medium": {
-      "value": "#757575",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#757575"
+      "medium": {
+        "value": "#757575",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#757575"
+        },
+        "name": "color-gray-medium",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "medium"
+        },
+        "path": [
+          "color",
+          "gray",
+          "medium"
+        ]
       },
-      "name": "color-gray-medium",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "medium"
+      "light": {
+        "value": "#aeb0b5",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#aeb0b5"
+        },
+        "name": "color-gray-light",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "light"
+        },
+        "path": [
+          "color",
+          "gray",
+          "light"
+        ]
       },
-      "path": [
-        "gray",
-        "medium"
-      ]
-    },
-    "light": {
-      "value": "#aeb0b5",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#aeb0b5"
+      "light-alt": {
+        "value": "#eeeeee",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#eeeeee"
+        },
+        "name": "color-gray-light-alt",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "light-alt"
+        },
+        "path": [
+          "color",
+          "gray",
+          "light-alt"
+        ]
       },
-      "name": "color-gray-light",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "light"
+      "lighter": {
+        "value": "#d6d7d9",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#d6d7d9"
+        },
+        "name": "color-gray-lighter",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "lighter"
+        },
+        "path": [
+          "color",
+          "gray",
+          "lighter"
+        ]
       },
-      "path": [
-        "gray",
-        "light"
-      ]
-    },
-    "light-alt": {
-      "value": "#eeeeee",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#eeeeee"
+      "lightest": {
+        "value": "#f1f1f1",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#f1f1f1"
+        },
+        "name": "color-gray-lightest",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "lightest"
+        },
+        "path": [
+          "color",
+          "gray",
+          "lightest"
+        ]
       },
-      "name": "color-gray-light-alt",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "light-alt"
+      "warm-dark": {
+        "value": "#494440",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#494440"
+        },
+        "name": "color-gray-warm-dark",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "warm-dark"
+        },
+        "path": [
+          "color",
+          "gray",
+          "warm-dark"
+        ]
       },
-      "path": [
-        "gray",
-        "light-alt"
-      ]
-    },
-    "lighter": {
-      "value": "#d6d7d9",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#d6d7d9"
+      "warm-light": {
+        "value": "#e4e2e0",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#e4e2e0"
+        },
+        "name": "color-gray-warm-light",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "warm-light"
+        },
+        "path": [
+          "color",
+          "gray",
+          "warm-light"
+        ]
       },
-      "name": "color-gray-lighter",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "lighter"
-      },
-      "path": [
-        "gray",
-        "lighter"
-      ]
-    },
-    "lightest": {
-      "value": "#f1f1f1",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#f1f1f1"
-      },
-      "name": "color-gray-lightest",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "lightest"
-      },
-      "path": [
-        "gray",
-        "lightest"
-      ]
-    },
-    "warm-dark": {
-      "value": "#494440",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#494440"
-      },
-      "name": "color-gray-warm-dark",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "warm-dark"
-      },
-      "path": [
-        "gray",
-        "warm-dark"
-      ]
-    },
-    "warm-light": {
-      "value": "#e4e2e0",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#e4e2e0"
-      },
-      "name": "color-gray-warm-light",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "warm-light"
-      },
-      "path": [
-        "gray",
-        "warm-light"
-      ]
-    },
-    "cool-light": {
-      "value": "#dce4ef",
-      "filePath": "tokens/color.json",
-      "isSource": true,
-      "original": {
-        "value": "#dce4ef"
-      },
-      "name": "color-gray-cool-light",
-      "attributes": {
-        "category": "color",
-        "type": "gray",
-        "item": "cool-light"
-      },
-      "path": [
-        "gray",
-        "cool-light"
-      ]
+      "cool-light": {
+        "value": "#dce4ef",
+        "filePath": "tokens/color.json",
+        "isSource": true,
+        "original": {
+          "value": "#dce4ef"
+        },
+        "name": "color-gray-cool-light",
+        "attributes": {
+          "category": "color",
+          "type": "gray",
+          "item": "cool-light"
+        },
+        "path": [
+          "color",
+          "gray",
+          "cool-light"
+        ]
+      }
     }
   }
 }

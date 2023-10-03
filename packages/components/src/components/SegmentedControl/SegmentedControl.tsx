@@ -1,4 +1,4 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Text,
   TextStyle,
@@ -27,6 +27,8 @@ export type SegmentedControlProps = {
   a11yLabels?: string[]
   /** Optional array of segment accessibility hints */
   a11yHints?: string[]
+  /** Optional array of test IDs for test suites */
+  testIDs?: string[]
 }
 
 type SegmentProps = {
@@ -52,6 +54,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   selected,
   a11yLabels,
   a11yHints,
+  testIDs,
 }) => {
   const { t } = useTranslation()
   const colorScheme = useColorScheme()
@@ -63,13 +66,13 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = Colors.grayDark
-    activeBgColor = Colors.white
-    inactiveBgColor = Colors.grayLighter
+    textColor = DesignTokens.colorGrayDark
+    activeBgColor = DesignTokens.colorWhite
+    inactiveBgColor = DesignTokens.colorGrayLighter
   } else {
-    textColor = Colors.grayLightest
-    activeBgColor = Colors.grayMedium
-    inactiveBgColor = Colors.grayDark
+    textColor = DesignTokens.colorGrayLightest
+    activeBgColor = DesignTokens.colorGrayMedium
+    inactiveBgColor = DesignTokens.colorGrayDark
   }
 
   const viewStyle: ViewStyle = {
@@ -125,6 +128,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         accessibilityValue={accessibilityValue}
         accessibilityRole={'tab'}
         accessibilityState={{ selected: isSelected }}
+        testID={testIDs?.[index]}
       >
         <Text allowFontScaling={false} style={textStyle}>
           {label}
