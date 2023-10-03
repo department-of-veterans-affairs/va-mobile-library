@@ -70,11 +70,11 @@ jobs:
         working-directory: va-mobile-app/VAMobile/ios
         run: bundle install
 
-      - name: Build iOS
+      - name: Run tsc:compile for va-mobile-app
         working-directory: va-mobile-app/VAMobile/
-        run: yarn bundle:ios
+        run: yarn tsc:compile
 
-      - name: Build Android
+      - name: Run unit tests for va-mobile-app
         working-directory: va-mobile-app/VAMobile/
-        run: yarn bundle:android
+        run: yarn test
 
