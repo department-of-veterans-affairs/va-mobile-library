@@ -4,11 +4,24 @@
 
 name: 'Check Component Integrations'
 
-on: push
+on: 
+  push:
+    # branches:
+    #   - main
 
 jobs:  
   check-integration:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        directory: [
+          va-mobile-library, 
+          va-mobile-library/packages/tokens, 
+          va-mobile-library/packages/components
+        ]
+
     steps:
       - name: Checkout (va-mobile-library)
         id: clone-lib
@@ -24,17 +37,17 @@ jobs:
           ref: 'develop'
           path: va-mobile-app
 
-      - name: Install global dependencies (va-mobile-library)
-        working-directory: va-mobile-library
+      - name: Install dependencies (${{ matrix.directory }})
+        working-directory: ${{ matrix.directory }}
         run: yarn install --immutable
 
-      - name: Install token dependencies (va-mobile-library)
-        working-directory: va-mobile-library/packages/tokens
-        run: yarn install --immutable
+      # - name: Install token dependencies (va-mobile-library)
+      #   working-directory: va-mobile-library/packages/tokens
+      #   run: yarn install --immutable
 
-      - name: Install component dependencies (va-mobile-library)
-        working-directory: va-mobile-library/packages/components
-        run: yarn install --immutable
+      # - name: Install component dependencies (va-mobile-library)
+      #   working-directory: va-mobile-library/packages/components
+      #   run: yarn install --immutable
 
       - name: Install dependencies (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
