@@ -2,13 +2,12 @@
 # Code checks – linting and unit tests
 #
 
-name: 'Test Build: va-mobile-app'
+name: 'Check Component Integrations'
 
 on: push
 
 jobs:  
   check-integration:
-    name: Check component integrations
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (va-mobile-library)
@@ -41,9 +40,9 @@ jobs:
         working-directory: va-mobile-app/VAMobile
         run: yarn install
 
-      - name: Check Directories
+      - name: Install local component library
         working-directory: va-mobile-app
-        run: cd ../ && pwd && ls -l
+        run: yarn add file:../va-mobile-app/packages/componentsers
 
       - name: Compile TypeScript (va-mobile-app)
         working-directory: va-mobile-app/VAMobile/
