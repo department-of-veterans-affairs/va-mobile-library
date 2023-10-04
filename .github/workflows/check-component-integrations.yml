@@ -13,15 +13,6 @@ jobs:
   check-integration:
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      matrix:
-        directory: [
-          va-mobile-library, 
-          va-mobile-library/packages/tokens, 
-          va-mobile-library/packages/components
-        ]
-
     steps:
       - name: Checkout (va-mobile-library)
         id: clone-lib
@@ -37,17 +28,17 @@ jobs:
           ref: 'develop'
           path: va-mobile-app
 
-      - name: Install dependencies (${{ matrix.directory }})
-        working-directory: ${{ matrix.directory }}
+      - name: Install dependencies (va-mobile-library)
+        working-directory: va-mobile-library
         run: yarn install --immutable
 
-      # - name: Install token dependencies (va-mobile-library)
-      #   working-directory: va-mobile-library/packages/tokens
-      #   run: yarn install --immutable
+      - name: Install token dependencies (va-mobile-library)
+        working-directory: va-mobile-library/packages/tokens
+        run: yarn install --immutable
 
-      # - name: Install component dependencies (va-mobile-library)
-      #   working-directory: va-mobile-library/packages/components
-      #   run: yarn install --immutable
+      - name: Install component dependencies (va-mobile-library)
+        working-directory: va-mobile-library/packages/components
+        run: yarn install --immutable
 
       - name: Install dependencies (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
@@ -58,9 +49,9 @@ jobs:
         run: yarn add file:../va-mobile-library/packages/components
 
       - name: Compile TypeScript (va-mobile-app)
-        working-directory: va-mobile-app/VAMobile/
+        working-directory: va-mobile-app/VAMobile
         run: yarn tsc:compile
 
       - name: Run Unit Tests (va-mobile-app)
-        working-directory: va-mobile-app/VAMobile/
+        working-directory: va-mobile-app/VAMobile
         run: yarn test --testTimeout=30000
