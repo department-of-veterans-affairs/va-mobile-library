@@ -42,7 +42,7 @@ jobs:
 
       - name: Install local component library
         working-directory: va-mobile-app
-        run: yarn add file:../va-mobile-app/packages/componentsert
+        run: yarn add file:../va-mobile-app/packages/components
 
       - name: Compile TypeScript (va-mobile-app)
         working-directory: va-mobile-app/VAMobile/
