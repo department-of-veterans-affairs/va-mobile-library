@@ -1,5 +1,5 @@
 #
-# Code checks – linting and unit tests
+# Checking instances where we're integrating with apps
 #
 
 name: 'Check Component Integrations'
