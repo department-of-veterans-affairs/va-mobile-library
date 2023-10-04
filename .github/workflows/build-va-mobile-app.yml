@@ -13,8 +13,8 @@ jobs:
       - name: Checkout va-mobile-library
         id: clone-lib
         uses: actions/checkout@v4
-        with:
-          path: va-mobile-library
+        # with:
+        #   path: va-mobile-library
       
       - name: Setup Node
         uses: actions/setup-node@v3
