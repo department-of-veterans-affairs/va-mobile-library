@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout va-mobile-library
         id: clone-lib
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -36,9 +36,10 @@ jobs:
     steps:
       - name: Checkout va-mobile-app
         id: clone-app
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: department-of-veterans-affairs/va-mobile-app
+          ref: 'develop'
           path: va-mobile-app
       
       # - name: Setup Xcode
