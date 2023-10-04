@@ -7,40 +7,23 @@ name: 'Test Build: va-mobile-app'
 on: push
 
 jobs:  
-  setup-mobile-library:
+  check-integration:
+    name: Check component integrations
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout va-mobile-library
-      #   id: clone-lib
-      #   uses: actions/checkout@v4
-      #   # with:
-      #   #   path: va-mobile-library
-      
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          cache: 'yarn'
-      
-      # - name: Install global dependencies (va-mobile-library)
-      #   run: yarn install --immutable
-
-      # - name: Install token dependencies (va-mobile-library)
-      #   working-directory: packages/tokens
-      #   run: yarn install --immutable
-
-      # - name: Install component dependencies (va-mobile-library)
-      #   working-directory: packages/components
-      #   run: yarn install --immutable
-
-  setup-mobile-app:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout va-mobile-library
+      - name: Checkout (va-mobile-library)
         id: clone-lib
         uses: actions/checkout@v4
         with:
            path: va-mobile-library
+
+      - name: Checkout (va-mobile-app)
+        id: clone-app
+        uses: actions/checkout@v4
+        with:
+          repository: department-of-veterans-affairs/va-mobile-app
+          ref: 'develop'
+          path: va-mobile-app
 
       - name: Install global dependencies (va-mobile-library)
         working-directory: va-mobile-library
@@ -54,21 +37,13 @@ jobs:
         working-directory: va-mobile-library/packages/components
         run: yarn install --immutable
 
-      - name: Checkout (va-mobile-app)
-        id: clone-app
-        uses: actions/checkout@v4
-        with:
-          repository: department-of-veterans-affairs/va-mobile-app
-          ref: 'develop'
-          path: va-mobile-app
-
       - name: Install dependencies (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
-        run: yarn install && cd ../../ && pwd
+        run: yarn install
 
       - name: Check Directories
         working-directory: va-mobile-app
-        run: yarn install && cd ../ && pwd
+        run: cd ../ && pwd && ls -l
 
       - name: Compile TypeScript (va-mobile-app)
         working-directory: va-mobile-app/VAMobile/
@@ -77,4 +52,3 @@ jobs:
       - name: Run Unit Tests (va-mobile-app)
         working-directory: va-mobile-app/VAMobile/
         run: yarn test --testTimeout=30000
-
