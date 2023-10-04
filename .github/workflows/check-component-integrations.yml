@@ -6,11 +6,11 @@ name: 'Check Component Integrations'
 
 on: 
   push:
-    # branches:
-    #   - main
+    branches:
+      - main
 
 jobs:  
-  check-integration:
+  check-integrations:
     runs-on: ubuntu-latest
 
     steps:
