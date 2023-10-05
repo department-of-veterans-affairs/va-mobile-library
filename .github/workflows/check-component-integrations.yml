@@ -1,0 +1,59 @@
+#
+# Checking instances where we're integrating with apps
+#
+
+name: 'Check Component Integrations'
+
+on: 
+  workflow_dispatch:
+  push:
+    paths: 'packages/components/**'
+    branches:
+      - main
+
+jobs:  
+  check-integrations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (va-mobile-library)
+        id: clone-lib
+        uses: actions/checkout@v4
+        with:
+           path: va-mobile-library
+
+      - name: Checkout (va-mobile-app)
+        id: clone-app
+        uses: actions/checkout@v4
+        with:
+          repository: department-of-veterans-affairs/va-mobile-app
+          ref: 'develop'
+          path: va-mobile-app
+
+      - name: Install dependencies (va-mobile-library)
+        working-directory: va-mobile-library
+        run: yarn install --immutable
+
+      - name: Install token dependencies (va-mobile-library)
+        working-directory: va-mobile-library/packages/tokens
+        run: yarn install --immutable
+
+      - name: Install component dependencies (va-mobile-library)
+        working-directory: va-mobile-library/packages/components
+        run: yarn install --immutable
+
+      - name: Install dependencies (va-mobile-app)
+        working-directory: va-mobile-app/VAMobile
+        run: yarn install
+
+      - name: Install local component library
+        working-directory: va-mobile-app
+        run: yarn add file:../va-mobile-library/packages/components
+
+      - name: Compile TypeScript (va-mobile-app)
+        working-directory: va-mobile-app/VAMobile
+        run: yarn tsc:compile
+
+      - name: Run Unit Tests (va-mobile-app)
+        working-directory: va-mobile-app/VAMobile
+        run: yarn test --testTimeout=30000

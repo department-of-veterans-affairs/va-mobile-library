@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.0.18",
+  "version": "0.0.22",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -8,17 +8,17 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "publish-package": "npm publish --access public --tolerate-republish",
-    "storybook:build": "build-storybook --config-dir .storybook/web",
+    "storybook:build": "STORYBOOK_WEB=true build-storybook --config-dir .storybook/web",
     "storybook:deploy": "yarn storybook:build && gh-pages -d storybook-static",
     "storybook:generate": "sb-rn-get-stories --config-path .storybook/native",
     "storybook:watch": "sb-rn-watcher --config-path .storybook/native",
-    "storybook:web": "start-storybook --config-dir .storybook/web -p 6006",
+    "storybook:web": "STORYBOOK_WEB=true start-storybook --config-dir .storybook/web -p 6006",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-temporary.git"
+    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
   },
   "keywords": [
     "design",
@@ -34,10 +34,11 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/department-of-veterans-affairs/va-mobile-temporary/issues"
+    "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
   },
-  "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-temporary",
+  "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
+    "@department-of-veterans-affairs/mobile-tokens": "0.0.10",
     "@os-team/i18next-react-native-language-detector": "^1.0.28",
     "i18next": "^23.4.3",
     "react-i18next": "^13.0.3",

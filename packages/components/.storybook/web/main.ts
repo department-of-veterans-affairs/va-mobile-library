@@ -13,4 +13,5 @@ module.exports = {
     builder: 'webpack5',
   },
   framework: '@storybook/react',
+  staticDirs: ['../../src/assets'],
 }

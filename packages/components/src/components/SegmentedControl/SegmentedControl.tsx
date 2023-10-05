@@ -1,3 +1,4 @@
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Text,
   TextStyle,
@@ -8,7 +9,7 @@ import {
 } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
 
@@ -26,6 +27,8 @@ export type SegmentedControlProps = {
   a11yLabels?: string[]
   /** Optional array of segment accessibility hints */
   a11yHints?: string[]
+  /** Optional array of test IDs for test suites */
+  testIDs?: string[]
 }
 
 type SegmentProps = {
@@ -51,6 +54,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   selected,
   a11yLabels,
   a11yHints,
+  testIDs,
 }) => {
   const { t } = useTranslation()
   const colorScheme = useColorScheme()
@@ -59,31 +63,20 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     onChange(selected)
   }, [selected, onChange, labels])
 
-  // Copied from DSVA color tokens in css-library
-  const colorTokens = {
-    white: '#FFFFFF',
-    gray: {
-      dark: '#323A45',
-      lighter: '#D6D7D9',
-      lightest: '#F1F1F1',
-      medium: '#757575',
-    },
-  }
-
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = colorTokens.gray.dark
-    activeBgColor = colorTokens.white
-    inactiveBgColor = colorTokens.gray.lighter
+    textColor = DesignTokens.colorGrayDark
+    activeBgColor = DesignTokens.colorWhite
+    inactiveBgColor = DesignTokens.colorGrayLighter
   } else {
-    textColor = colorTokens.gray.lightest
-    activeBgColor = colorTokens.gray.medium
-    inactiveBgColor = colorTokens.gray.dark
+    textColor = DesignTokens.colorGrayLightest
+    activeBgColor = DesignTokens.colorGrayMedium
+    inactiveBgColor = DesignTokens.colorGrayDark
   }
 
   const viewStyle: ViewStyle = {
-    alignSelf: 'baseline',
+    alignSelf: 'stretch',
     backgroundColor: inactiveBgColor,
     borderRadius: 8,
     flexDirection: 'row',
@@ -134,7 +127,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         accessibilityHint={a11yHints ? a11yHints[index] : ''}
         accessibilityValue={accessibilityValue}
         accessibilityRole={'tab'}
-        accessibilityState={{ selected: isSelected }}>
+        accessibilityState={{ selected: isSelected }}
+        testID={testIDs?.[index]}
+      >
         <Text allowFontScaling={false} style={textStyle}>
           {label}
         </Text>

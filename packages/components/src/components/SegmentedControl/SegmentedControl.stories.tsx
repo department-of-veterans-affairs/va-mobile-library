@@ -18,7 +18,7 @@ const meta: Meta<SegmentedControlProps> = {
   decorators: [
     (Story) => (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Story />
+        {Story()}
       </View>
     ),
   ],
@@ -52,6 +52,7 @@ export const twoSegments: Story = {
       'You have 3 unread messages. Review messages in your inbox',
       'Review your folders',
     ],
+    testIDs: ['test-id-1', 'test-id-2'],
   },
   parameters: {
     design: [
