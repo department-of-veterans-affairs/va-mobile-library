@@ -7,6 +7,7 @@ name: 'Check Component Integrations'
 on: 
   workflow_dispatch:
   push:
+    paths: 'packages/components/**'
     branches:
       - main
 
