@@ -6,7 +6,7 @@ import 'jest-styled-components'
 import { ReactTestInstance } from 'react-test-renderer'
 import Mock = jest.Mock
 
-import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
+import { SegmentedControl } from './SegmentedControl'
 
 describe('SegmentedControl', () => {
   let component: RenderAPI
@@ -17,7 +17,7 @@ describe('SegmentedControl', () => {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     onChangeSpy = jest.fn(() => {})
 
-    component = render<SegmentedControlProps>(
+    component = render(
       <SegmentedControl
         labels={['tab0', 'tab1']}
         onChange={onChangeSpy}

@@ -51,6 +51,9 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "@babel/plugin-transform-react-jsx": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "@babel/preset-typescript": "^7.22.15",
     "@expo/webpack-config": "^18.1.2",
     "@react-native-async-storage/async-storage": "^1.19.0",
     "@react-native-community/datetimepicker": "^7.4.0",
@@ -71,6 +74,7 @@
     "@types/react": "~18.2.14",
     "@types/react-test-renderer": "^18.0.1",
     "@types/styled-components-react-native": "^5.2.1",
+    "babel-jest": "^29.6.4",
     "babel-loader": "^8.3.0",
     "babel-plugin-react-docgen-typescript": "^1.5.1",
     "babel-plugin-react-native-web": "^0.18.10",
