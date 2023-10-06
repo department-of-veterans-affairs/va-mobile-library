@@ -16,7 +16,7 @@
 git clone git@github.com:department-of-veterans-affairs/va-mobile-library.git
 ```
 
-2. From the root directory (`va-mobile-library`) run `nvm use`. If you don't have the active Node version installed (you will see an error) run `nvm install v18.18.0` (replacing v.18.18.0 with the version listed in our root-level .nvmrc file), then run `nvm use` to activate it.
+2. From the root directory (`va-mobile-library`) run `nvm use`. If you do not have the active Node version installed (you will see an error) run `nvm install v18.18.0` (replacing v.18.18.0 with the version listed in our root-level .nvmrc file), then run `nvm use` to activate it.
 
 3. Navigate to the components package
 
