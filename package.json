@@ -11,6 +11,9 @@
     "lint": "eslint .",
     "publish-workspaces": "yarn workspaces foreach --verbose --no-private npm publish --access public --tolerate-republish"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "packageManager": "yarn@3.6.1",
   "devDependencies": {
