@@ -5,8 +5,8 @@
 ### Prerequisites
 
 1. Install [Node.js](https://nodejs.org/en)
-2. Install [yarn 3.6.1](https://yarnpkg.com/getting-started/install)
-3. Install [NVM](https://github.com/nvm-sh/nvm)
+2. Install [NVM](https://github.com/nvm-sh/nvm)
+3. Install [yarn 3.6.1](https://yarnpkg.com/getting-started/install)
 
 ### Installation
 
