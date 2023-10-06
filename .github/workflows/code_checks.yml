@@ -16,6 +16,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
+      - name: Check Node Version
+        run: node --version
       - name: Install dependencies
         run: yarn install --immutable
       - name: Run eslint
@@ -29,6 +31,8 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
+      - name: Check Node Version
+        run: node --version
       - name: Install dependencies
         working-directory: packages/components
         run: yarn install --immutable
