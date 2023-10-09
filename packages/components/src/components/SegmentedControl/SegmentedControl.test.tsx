@@ -55,8 +55,7 @@ describe('SegmentedControl', () => {
 
   it('should initialize with the 0th index label selected', async () => {
     await waitFor(() => {
-      const selectedSegment = testInstance.props.selected
-      expect(selectedSegment).toEqual(0)
+      expect(testInstance.props.selected).toEqual(0)
     })
   })
 
