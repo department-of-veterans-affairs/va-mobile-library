@@ -61,7 +61,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
   useEffect(() => {
     onChange(selected)
-  }, [selected, onChange, labels])
+  }, [selected, onChange])
 
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
