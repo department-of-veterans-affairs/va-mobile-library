@@ -47,7 +47,7 @@ const Segment = styled(TouchableOpacity)<SegmentProps>`
   elevation: ${(props) => (props.isSelected ? 4 : 0)};
   background-color: ${(props) => props.backgroundColor};
 `
-/** A component used to switch between related views of information within the same context */
+/** A segmented control is used to switch between related views of information within the same context. */
 export const SegmentedControl: FC<SegmentedControlProps> = ({
   labels,
   onChange,

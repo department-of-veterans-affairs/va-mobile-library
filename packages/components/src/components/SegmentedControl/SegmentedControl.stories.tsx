@@ -43,29 +43,45 @@ const statefulComponentRenderer = (props: SegmentedControlProps) => {
   )
 }
 
-export const twoSegments: Story = {
+const designParameters = [
+  {
+    name: 'Figma component overview',
+    type: 'figma',
+    url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11330&mode=design&t=IfpGfogEOoBtNhmN-1',
+  },
+  {
+    name: 'Figma examples',
+    type: 'figma',
+    url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11331&mode=design&t=IfpGfogEOoBtNhmN-1',
+  },
+]
+
+export const _2Segments: Story = {
   render: statefulComponentRenderer,
   args: {
-    labels: ['Inbox (3)', 'Folders'],
-    a11yLabels: ['Inbox'],
+    labels: ['Label 1', 'Label 2'],
+    a11yLabels: ['Accessibility label override for label 1'],
     a11yHints: [
-      'You have 3 unread messages. Review messages in your inbox',
-      'Review your folders',
+      'Accessibility hint for label 1',
+      'Accessibility hint for label 2',
     ],
     testIDs: ['test-id-1', 'test-id-2'],
   },
-  parameters: {
-    design: [
-      {
-        name: 'Figma component overview',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11330&mode=design&t=IfpGfogEOoBtNhmN-1',
-      },
-      {
-        name: 'Figma examples',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11331&mode=design&t=IfpGfogEOoBtNhmN-1',
-      },
-    ],
+  parameters: { design: designParameters },
+}
+
+export const _3Segments: Story = {
+  render: statefulComponentRenderer,
+  args: {
+    labels: ['Label 1', 'Label 2', 'Label 3'],
   },
+  parameters: { design: designParameters },
+}
+
+export const _4Segments: Story = {
+  render: statefulComponentRenderer,
+  args: {
+    labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
+  },
+  parameters: { design: designParameters },
 }
