@@ -12,6 +12,7 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
+import { webStorybookColorScheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -57,7 +58,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   testIDs,
 }) => {
   const { t } = useTranslation()
-  const colorScheme = useColorScheme()
+  const colorScheme = webStorybookColorScheme() || useColorScheme()
 
   useEffect(() => {
     onChange(selected)
@@ -128,8 +129,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         accessibilityValue={accessibilityValue}
         accessibilityRole={'tab'}
         accessibilityState={{ selected: isSelected }}
-        testID={testIDs?.[index]}
-      >
+        testID={testIDs?.[index]}>
         <Text allowFontScaling={false} style={textStyle}>
           {label}
         </Text>
