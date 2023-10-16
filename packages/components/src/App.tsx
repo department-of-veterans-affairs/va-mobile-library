@@ -1,9 +1,10 @@
 import * as SplashScreen from 'expo-splash-screen'
+import { Appearance, NativeModules, View } from 'react-native'
 import { I18nextProvider } from 'react-i18next'
-import { View } from 'react-native'
 import { registerRootComponent } from 'expo'
+import { useDarkMode } from 'storybook-dark-mode'
 import { useFonts } from 'expo-font'
-import React, { useCallback } from 'react'
+import React, { useCallback, useEffect } from 'react'
 
 import i18n from './utils/translation/i18n'
 
@@ -16,12 +17,32 @@ export const initiateExpo = (expoApp: typeof App) => {
   registerRootComponent(expoApp)
 }
 
+/** Function for web Storybook to override setting colorScheme based on UI toggle button */
+function webStorybookColorSchemeOverride() {
+  // If not web Storybook, no override
+  if (!process.env.STORYBOOK) {
+    return
+  }
+
+  const mode = useDarkMode() ? 'dark' : 'light'
+  Appearance.setColorScheme('light')
+  // NativeModules.Appearance.setColorScheme('light')
+  console.log('useDarkModeToggledTo: ' + mode)
+}
+
 const App = () => {
   // Loads in custom fonts async
   const [fontsLoaded, fontError] = useFonts({
     'SourceSansPro-Bold': require('./assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
     'SourceSansPro-Regular': require('./assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf'),
   })
+
+  // useEffect(() => {
+  //   console.log('test')
+  //   webStorybookColorSchemeOverride()
+  // })
+  // console.log('test')
+  // webStorybookColorSchemeOverride()
 
   // Holds rendering until custom fonts load
   const onLayoutRootView = useCallback(async () => {

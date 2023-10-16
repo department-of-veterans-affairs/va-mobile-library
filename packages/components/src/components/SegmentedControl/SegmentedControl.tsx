@@ -1,5 +1,6 @@
 import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
+  Appearance,
   Text,
   TextStyle,
   TouchableOpacity,
@@ -58,7 +59,12 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   testIDs,
 }) => {
   const { t } = useTranslation()
-  const colorScheme = webStorybookColorScheme() || useColorScheme()
+  // Appearance.setColorScheme('light')
+  // useEffect(() => {
+  //   Appearance.setColorScheme('light')
+  // })
+  // const colorScheme = webStorybookColorScheme() || useColorScheme()
+  const colorScheme = useColorScheme()
 
   useEffect(() => {
     onChange(selected)
