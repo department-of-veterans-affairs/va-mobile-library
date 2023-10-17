@@ -1,0 +1,13 @@
+name: Require Checkboxes
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  run-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mheap/require-checklist-action@v2
+        with:
+          requireChecklist: false # If this is true and there are no checklists detected, the action will fail
