@@ -8,6 +8,9 @@
     "slug": "mobile-components",
     "experiments": {
       "tsconfigPaths": true
+    },
+    "android": {
+      "userInterfaceStyle": "automatic"
     }
   }
 }

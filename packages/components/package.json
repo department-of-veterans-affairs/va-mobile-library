@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -12,7 +12,7 @@
     "storybook:deploy": "yarn storybook:build && gh-pages -d storybook-static",
     "storybook:generate": "sb-rn-get-stories --config-path .storybook/native",
     "storybook:watch": "sb-rn-watcher --config-path .storybook/native",
-    "storybook:web": "STORYBOOK_WEB=true start-storybook --config-dir .storybook/web -p 6006",
+    "storybook:web": "STORYBOOK_WEB=true start-storybook --config-dir .storybook/web -p 6006 --no-version-updates",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -56,9 +56,9 @@
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
-    "@expo/webpack-config": "^18.1.2",
-    "@react-native-async-storage/async-storage": "^1.19.0",
-    "@react-native-community/datetimepicker": "^7.4.0",
+    "@expo/webpack-config": "^19.0.0",
+    "@react-native-async-storage/async-storage": "1.18.2",
+    "@react-native-community/datetimepicker": "7.2.0",
     "@react-native-community/slider": "^4.4.2",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-controls": "^6.5.16",
@@ -80,9 +80,9 @@
     "babel-loader": "^8.3.0",
     "babel-plugin-react-docgen-typescript": "^1.5.1",
     "babel-plugin-react-native-web": "^0.18.10",
-    "expo": "^49.0.0",
+    "expo": "49.0.13",
     "expo-constants": "~14.4.2",
-    "expo-font": "^11.4.0",
+    "expo-font": "~11.4.0",
     "expo-linking": "~5.0.2",
     "expo-splash-screen": "~0.20.4",
     "expo-status-bar": "~1.6.0",
@@ -92,7 +92,7 @@
     "metro-react-native-babel-preset": "^0.77.0",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
-    "react-native": "~0.71.7",
+    "react-native": "0.72.5",
     "react-native-gesture-handler": "^2.12.0",
     "react-native-reanimated": "~3.3.0",
     "react-native-safe-area-context": "4.6.3",
@@ -102,14 +102,6 @@
     "storybook-addon-designs": "^6.3.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
-  },
-  "expo": {
-    "install": {
-      "exclude": [
-        "@react-native-async-storage/async-storage",
-        "@react-native-community/datetimepicker"
-      ]
-    }
   },
   "resolutions": {
     "react-docgen-typescript": "2.2.2",
