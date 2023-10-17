@@ -9,6 +9,8 @@ import {
 import { ColorSchemeName, Linking, Text, View } from 'react-native'
 import React from 'react'
 
+import { useDarkMode } from 'storybook-dark-mode'
+
 type DocProps = {
   name: string
   docUrl: string
@@ -55,11 +57,9 @@ export const generateDocs = ({ name, docUrl }: DocProps) => ({
 /** Function for web Storybook to override setting colorScheme based on UI toggle button */
 export function webStorybookColorScheme(): ColorSchemeName {
   // If not web Storybook, set with RN useColorScheme hook
-  if (!process.env.STORYBOOK) {
+  if (!process.env.STORYBOOK_WEB) {
     return null
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const storybookDarkMode = require('storybook-dark-mode')
-  return storybookDarkMode.useDarkMode() ? 'dark' : 'light'
+  return useDarkMode() ? 'dark' : 'light'
 }
