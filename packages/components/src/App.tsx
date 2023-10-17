@@ -2,8 +2,8 @@ import * as SplashScreen from 'expo-splash-screen'
 import { I18nextProvider } from 'react-i18next'
 import { View } from 'react-native'
 import { registerRootComponent } from 'expo'
-import { useCallback } from 'react'
 import { useFonts } from 'expo-font'
+import React, { useCallback } from 'react'
 
 import i18n from './utils/translation/i18n'
 
