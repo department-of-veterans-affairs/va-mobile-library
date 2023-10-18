@@ -42,6 +42,7 @@
     "@os-team/i18next-react-native-language-detector": "^1.0.28",
     "i18next": "^23.4.3",
     "react-i18next": "^13.0.3",
+    "storybook-dark-mode": "^3.0.1",
     "styled-components": "^6.0.7"
   },
   "peerDependencies": {
