@@ -51,15 +51,13 @@ jobs:
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Publish to NPM
         run: yarn publish-package
-      - name: Commit package.json changes
-        run: |
-          git add package.json
-          git commit -m '[TEST] Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
-          git push
-      - name: Git Tag
+      - name: Commit package.json changes and tag
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
+          git add package.json
+          git commit -m '[TEST] Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
+          git push
           TAG=${{ steps.bump-version.outputs.GIT_TAG }}
           echo $TAG
           git tag -a $TAG -m $TAG
