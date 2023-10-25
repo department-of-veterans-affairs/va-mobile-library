@@ -45,11 +45,19 @@ jobs:
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
           echo "NPM Package name: $NPM_PACKAGE"
+
           LATEST_VERSION=$(npm view $NPM_PACKAGE version)
           echo "Latest NPM version: $LATEST_VERSION"
+
+          echo "Setting package.json version to $LATEST_VERSION"
           npm version $LATEST_VERSION
+
+          echo "Bumping version:  ${{ inputs.version_bump }}"
           npm version ${{ inputs.version_bump }}
+
           NEW_VERSION=$(jq -r .version package.json)
+          echo "Updated version: $NEW_VERSION"
+
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Publish to NPM
         run: yarn publish-package
