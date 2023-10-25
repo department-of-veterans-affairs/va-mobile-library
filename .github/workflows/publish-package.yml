@@ -58,6 +58,8 @@ jobs:
           git push
       - name: Git Tag
         run: |
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
           TAG=${{ steps.bump-version.outputs.GIT_TAG }}
           echo $TAG
           git tag -a $TAG -m $TAG
