@@ -50,13 +50,19 @@ jobs:
           LATEST_VERSION=$(npm view $NPM_PACKAGE version)
           echo "Latest NPM version: $LATEST_VERSION"
 
-          echo "Setting package.json version to $LATEST_VERSION"
           if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
+            echo "Setting package.json version to $LATEST_VERSION"
             npm version $LATEST_VERSION
           fi
 
-          echo "Bumping version:  ${{ inputs.version_bump }}"
-          npm version ${{ inputs.version_bump }}
+
+          BUMP = ${{ inputs.version_bump }}
+          echo "Bumping version: $BUMP"
+          if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
+            npm version prerelease --preid $BUMP
+          else
+            npm version $BUMP
+          fi
 
           NEW_VERSION=$(jq -r .version package.json)
           echo "Updated version: $NEW_VERSION"
