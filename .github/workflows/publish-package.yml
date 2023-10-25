@@ -44,6 +44,8 @@ jobs:
         id: bump-version
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
+          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
+
           echo "NPM Package name: $NPM_PACKAGE"
           CURRENT_VERSION=$(jq -r .version package.json)
 
@@ -81,6 +83,18 @@ jobs:
           echo $TAG
           git tag -a $TAG -m $TAG
           git push origin $TAG
+      - name: Post to a Slack channel
+        id: slack
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          # Slack channel id, channel name, or user id to post message.
+          # See also: https://api.slack.com/methods/chat.postMessage#channels
+          # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
+          channel-id: C022SV53ASZ # C05DQPHUVNZ
+          # For posting a simple plain text message
+          slack-message: 'Published a new version of [${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}](https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}) to NPM: [${{ steps.bump-version.outputs.GIT_TAG }}](https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }})'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
       - name: Setup tmate session
         if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3
