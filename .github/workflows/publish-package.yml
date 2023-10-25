@@ -47,7 +47,9 @@ jobs:
           echo "NPM Package name: $NPM_PACKAGE"
           LATEST_VERSION=$(npm view $NPM_PACKAGE version)
           echo "Latest NPM version: $LATEST_VERSION"
+          npm version $LATEST_VERSION
           npm version ${{ inputs.version_bump }}
+          NEW_VERSION=$(jq -r .name package.json)
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Publish to NPM
         run: yarn publish-package
@@ -63,5 +65,6 @@ jobs:
           git tag -a $TAG -m $TAG
           git push origin $TAG
       - name: Setup tmate session
+        if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3
         timeout-minutes: 15
