@@ -40,7 +40,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
           node-version-file: '.nvmrc'
       - run: yarn install
-      - name: Bump version
+      - name: Bump version and publish to NPM
         id: bump-version
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
@@ -56,20 +56,20 @@ jobs:
           fi
 
 
-          BUMP = ${{ inputs.version_bump }}
+          BUMP=${{ inputs.version_bump }}
           echo "Bumping version: $BUMP"
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
             npm version prerelease --preid $BUMP
+            npm publish --access public --tolerate-republish --tag $BUMP
           else
             npm version $BUMP
+            npm publish --access public --tolerate-republish
           fi
 
           NEW_VERSION=$(jq -r .version package.json)
           echo "Updated version: $NEW_VERSION"
 
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Publish to NPM
-        run: yarn publish-package
       - name: Commit package.json changes and tag
         run: |
           git config --global user.name 'VA Automation Bot'
