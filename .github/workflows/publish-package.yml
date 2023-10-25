@@ -45,12 +45,15 @@ jobs:
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
           echo "NPM Package name: $NPM_PACKAGE"
+          CURRENT_VERSION=$(jq -r .version package.json)
 
           LATEST_VERSION=$(npm view $NPM_PACKAGE version)
           echo "Latest NPM version: $LATEST_VERSION"
 
           echo "Setting package.json version to $LATEST_VERSION"
-          npm version $LATEST_VERSION
+          if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
+            npm version $LATEST_VERSION
+          fi
 
           echo "Bumping version:  ${{ inputs.version_bump }}"
           npm version ${{ inputs.version_bump }}
