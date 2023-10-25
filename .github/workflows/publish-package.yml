@@ -1,7 +1,7 @@
 # Bump version and release a specific package to NPM
 # https://github.com/department-of-veterans-affairs/va-mobile-app/actions/workflows/on_demand_build.yml
 
-name: '[Build] On Demand Build'
+name: 'Publish Package'
 
 on:
   workflow_dispatch:
