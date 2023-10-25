@@ -27,9 +27,11 @@ on:
 jobs:
   publish-package:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/${{ inputs.package }}
     env:
       YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
-      working-directory: packages/${{ inputs.package }}
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js 18.x
@@ -37,7 +39,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - run: yarn install
-      - name: Bump version and publish to NPM
+      - name: Bump version
         id: bump-version
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
