@@ -43,6 +43,7 @@ jobs:
         id: bump-version
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
+          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
 
           echo "NPM Package name: $NPM_PACKAGE"
           CURRENT_VERSION=$(jq -r .version package.json)
@@ -54,6 +55,7 @@ jobs:
             echo "Setting package.json version to $LATEST_VERSION"
             npm version $LATEST_VERSION
           fi
+
 
           BUMP=${{ inputs.version_bump }}
           echo "Bumping version: $BUMP"
@@ -68,7 +70,6 @@ jobs:
           NEW_VERSION=$(jq -r .version package.json)
           echo "Updated version: $NEW_VERSION"
 
-          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit package.json changes and tag
@@ -89,7 +90,8 @@ jobs:
           # Slack channel id, channel name, or user id to post message.
           # See also: https://api.slack.com/methods/chat.postMessage#channels
           # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
-          channel-id: C022SV53ASZ # C05DQPHUVNZ
+          channel-id: C062ZNXP9DG # C022SV53ASZ # C05DQPHUVNZ
+          # For posting a simple plain text message
           payload: |
             {
               "blocks": [
@@ -97,9 +99,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>",
-                    "unfurl_links": false,
-                    "unfurl_media": false
+                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM Link>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>"
                   }
                 }
               ]
