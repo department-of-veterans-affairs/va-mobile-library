@@ -59,10 +59,10 @@ jobs:
           echo "Bumping version: $BUMP"
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
             npm version prerelease --preid $BUMP
-            npm publish --access public --tolerate-republish --tag $BUMP
+            # npm publish --access public --tolerate-republish --tag $BUMP
           else
             npm version $BUMP
-            npm publish --access public --tolerate-republish
+            # npm publish --access public --tolerate-republish
           fi
 
           NEW_VERSION=$(jq -r .version package.json)
@@ -89,7 +89,7 @@ jobs:
           # Slack channel id, channel name, or user id to post message.
           # See also: https://api.slack.com/methods/chat.postMessage#channels
           # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
-          channel-id: C062ZNXP9DG # alerts C022SV53ASZ # shared-systems C05DQPHUVNZ
+          channel-id: C022SV53ASZ # C05DQPHUVNZ
           payload: |
             {
               "blocks": [
@@ -97,10 +97,10 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>"
-                  },
-                  "unfurl_links": false,
-                  "unfurl_media": false
+                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>",
+                    "unfurl_links": false,
+                    "unfurl_media": false
+                  }
                 }
               ]
             }
