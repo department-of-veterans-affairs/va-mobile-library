@@ -39,7 +39,6 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: '.nvmrc'
-      - run: yarn install
       - name: Bump version and publish to NPM
         id: bump-version
         run: |
@@ -49,7 +48,7 @@ jobs:
           echo "NPM Package name: $NPM_PACKAGE"
           CURRENT_VERSION=$(jq -r .version package.json)
 
-          LATEST_VERSION=$(npm view $NPM_PACKAGE version)
+          LATEST_VERSION=$(npm view @department-of-veterans-affairs/mobile-component-library versions --json | jq -r '.[-1]')
           echo "Latest NPM version: $LATEST_VERSION"
 
           if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
@@ -71,6 +70,7 @@ jobs:
           NEW_VERSION=$(jq -r .version package.json)
           echo "Updated version: $NEW_VERSION"
 
+          echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit package.json changes and tag
         run: |
@@ -92,7 +92,18 @@ jobs:
           # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
           channel-id: C022SV53ASZ # C05DQPHUVNZ
           # For posting a simple plain text message
-          slack-message: 'Published a new version of [${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}](https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}) to NPM: [${{ steps.bump-version.outputs.GIT_TAG }}](https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }})'
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM Link>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>"
+                  }
+                }
+              ]
+            }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
       - name: Setup tmate session
