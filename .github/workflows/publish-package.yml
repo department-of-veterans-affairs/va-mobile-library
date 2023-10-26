@@ -39,6 +39,7 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: '.nvmrc'
+      - run: yarn install
       - name: Bump version and publish to NPM
         id: bump-version
         run: |
@@ -72,17 +73,17 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Commit package.json changes and tag
-        run: |
-          git config --global user.name 'VA Automation Bot'
-          git config --global user.email 'va-mobileapp@adhocteam.us'
-          git add package.json
-          git commit -m '[TEST] Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
-          git push
-          TAG=${{ steps.bump-version.outputs.GIT_TAG }}
-          echo $TAG
-          git tag -a $TAG -m $TAG
-          git push origin $TAG
+      # - name: Commit package.json changes and tag
+      #   run: |
+      #     git config --global user.name 'VA Automation Bot'
+      #     git config --global user.email 'va-mobileapp@adhocteam.us'
+      #     git add package.json
+      #     git commit -m '[TEST] Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
+      #     git push
+      #     TAG=${{ steps.bump-version.outputs.GIT_TAG }}
+      #     echo $TAG
+      #     git tag -a $TAG -m $TAG
+      #     git push origin $TAG
       - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
