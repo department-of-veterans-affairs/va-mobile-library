@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.0.27-beta.0",
+  "version": "0.0.27-beta.1",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
