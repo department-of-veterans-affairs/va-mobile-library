@@ -99,10 +99,25 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>"
-                  },
-                  "unfurl_links": false,
-                  "unfurl_media": false
+                    "text": "Published a new version of *${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}* to NPM"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Version:* ${{ steps.bump-version.outputs.NEW_VERSION }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|GitHub>"
+                    }
+                  ]
                 }
               ]
             }
