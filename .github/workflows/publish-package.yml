@@ -49,7 +49,7 @@ jobs:
           echo "NPM Package name: $NPM_PACKAGE"
           CURRENT_VERSION=$(jq -r .version package.json)
 
-          LATEST_VERSION=$(npm view @department-of-veterans-affairs/mobile-component-library versions --json | jq -r '.[-1]')
+          LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | jq -r '.[-1]')
           echo "Latest NPM version: $LATEST_VERSION"
 
           if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
@@ -57,15 +57,14 @@ jobs:
             npm version $LATEST_VERSION
           fi
 
-
           BUMP=${{ inputs.version_bump }}
           echo "Bumping version: $BUMP"
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
             npm version prerelease --preid $BUMP
-            # npm publish --access public --tolerate-republish --tag $BUMP
+            npm publish --access public --tolerate-republish --tag $BUMP
           else
             npm version $BUMP
-            # npm publish --access public --tolerate-republish
+            npm publish --access public --tolerate-republish
           fi
 
           NEW_VERSION=$(jq -r .version package.json)
@@ -73,17 +72,17 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      # - name: Commit package.json changes and tag
-      #   run: |
-      #     git config --global user.name 'VA Automation Bot'
-      #     git config --global user.email 'va-mobileapp@adhocteam.us'
-      #     git add package.json
-      #     git commit -m '[TEST] Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
-      #     git push
-      #     TAG=${{ steps.bump-version.outputs.GIT_TAG }}
-      #     echo $TAG
-      #     git tag -a $TAG -m $TAG
-      #     git push origin $TAG
+      - name: Commit package.json changes and tag
+        run: |
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
+          git add package.json
+          git commit -m '[TEST] Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
+          git push
+          TAG=${{ steps.bump-version.outputs.GIT_TAG }}
+          echo $TAG
+          git tag -a $TAG -m $TAG
+          git push origin $TAG
       - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
@@ -100,10 +99,10 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>",
-                    "unfurl_links": false,
-                    "unfurl_media": false
+                    "text": "${{ steps.bump-version.outputs.NEW_VERSION }} of ${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }} has been published to NPM \n • <https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>  \n • <https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|Git Tag>"
                   },
+                  "unfurl_links": false,
+                  "unfurl_media": false
                 }
               ]
             }
