@@ -1,5 +1,4 @@
 # Bump version and release specified package to NPM
-# https://github.com/department-of-veterans-affairs/va-mobile-app/actions/workflows/on_demand_build.yml
 
 name: 'Publish Package'
 
@@ -58,7 +57,8 @@ jobs:
           fi
 
           BUMP=${{ inputs.version_bump }}
-          echo "Bumping version: $BUMP"
+          echo "Bumping $BUMP version and publishing to NPM..."
+
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
             npm version prerelease --preid $BUMP
             npm publish --access public --tolerate-republish --tag $BUMP
@@ -87,11 +87,7 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          # Slack channel id, channel name, or user id to post message.
-          # See also: https://api.slack.com/methods/chat.postMessage#channels
-          # You can pass in multiple channels to post to by providing a comma-delimited list of channel IDs.
-          channel-id: C062TM03HN2
-          # For posting a simple plain text message
+          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
           payload: |
             {
               "blocks": [
@@ -125,7 +121,3 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
