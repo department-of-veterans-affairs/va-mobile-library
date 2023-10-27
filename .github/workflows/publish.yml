@@ -112,7 +112,12 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "<https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|GitHub>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Workflow Run>"
                     }
+                    
                   ]
                 }
               ],
