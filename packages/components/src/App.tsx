@@ -5,6 +5,7 @@ import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import React, { useCallback } from 'react'
 
+import StorybookUI from '../.storybook/native'
 import i18n from './utils/translation/i18n'
 
 SplashScreen.preventAutoHideAsync()
@@ -33,9 +34,6 @@ const App = () => {
   if (!fontsLoaded && !fontError) {
     return null
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const StorybookUI = require('../.storybook/native').default
 
   return (
     <I18nextProvider i18n={i18n}>
