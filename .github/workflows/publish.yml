@@ -76,8 +76,9 @@ jobs:
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
+          git pull
           git add package.json
-          git commit -m '[TEST] Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
+          git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
           git push
           TAG=${{ steps.bump-version.outputs.GIT_TAG }}
           echo $TAG
