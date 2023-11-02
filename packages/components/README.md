@@ -29,6 +29,10 @@ cd va-mobile-library/packages/components
 ```
 yarn
 ```
+then
+```
+yarn tokensBuild
+```
 
 5. Launch the app
 
@@ -44,13 +48,14 @@ yarn
 
 ### Yarn Commands
 
-| Command              | Description                                                                                                                                |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `start`              | Starts Metro Bundler with options to run app on different platforms. **Note:** To run on web, use `yarn storybook:web` command below       |
-| `android `           | Run app on last used Android emulator/device                                                                                               |
-| `ios`                | Run app on last used iOS simulator/device                                                                                                  |
-| `storybook:build`    | Generates static version of Storybook for deployment                                                                                       |
-| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json`                  |
+| Command              | Description |
+| -------------------- | ----------- |
+| `start`              | Starts Metro Bundler with options to run app on different platforms. **Note:** To run on web, use `yarn storybook:web` command below |
+| `android `           | Run app on last used Android emulator/device |
+| `ios`                | Run app on last used iOS simulator/device |
+| `storybook:build`    | Generates static version of Storybook for deployment |
+| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json` |
 | `storybook:generate` | Generates `.storybook/native/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
-| `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js`                                                                  |
-| `storybook:web`      | Builds and launches development server for web                                                                                             |
+| `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js` |
+| `storybook:web`      | Builds and launches development server for web |
+| `tokensBuild`        | Builds the tokens package so they are available locally for use by Storybook |
