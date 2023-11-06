@@ -55,6 +55,7 @@ try {
 const getStories = () => {
   return {
     "./src/components/SegmentedControl/SegmentedControl.stories.tsx": require("../../src/components/SegmentedControl/SegmentedControl.stories.tsx"),
+    "./src/components/VAButton/VAButton.stories.tsx": require("../../src/components/VAButton/VAButton.stories.tsx"),
   };
 };
 
