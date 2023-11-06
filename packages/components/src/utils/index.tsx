@@ -6,7 +6,15 @@ import {
   Subtitle,
   Title,
 } from '@storybook/addon-docs'
-import { ColorSchemeName, Linking, Text, View } from 'react-native'
+import {
+  ColorSchemeName,
+  Linking,
+  PressableStateCallbackType,
+  StyleProp,
+  Text,
+  View,
+  ViewStyle,
+} from 'react-native'
 import React from 'react'
 
 type DocProps = {
@@ -68,10 +76,12 @@ export function webStorybookColorScheme(): ColorSchemeName {
  * Convenience function for handling TouchableOpacity styling on Pressable component
  * @param styles - RN styling to apply to Pressable component besides on press opacity
  */
-export function PressableOpacityStyle(styles?: ViewStyle) {
+export function PressableOpacityStyle(
+  styles?: ViewStyle,
+): (pressed: PressableStateCallbackType) => StyleProp<ViewStyle> {
   if (styles) {
-    return ({pressed}) => [{opacity: pressed ? 0.2 : 1, ...styles}]
+    return ({ pressed }) => [{ opacity: pressed ? 0.2 : 1, ...styles }]
   }
 
-  return ({pressed}) => [{opacity: pressed ? 0.2 : 1}]
+  return ({ pressed }) => [{ opacity: pressed ? 0.2 : 1 }]
 }
