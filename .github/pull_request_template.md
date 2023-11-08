@@ -39,7 +39,7 @@ Consider highlighting:
 ## PR Checklist
 Code reviewer validation:
 - General
-	- [ ] PR is connected to ticket(s)
+	- [ ] PR is linked to ticket(s)
 	- [ ] Acceptance criteria: 
 		- All satisfied _or_
 		- Documented reason for not being performed _or_
