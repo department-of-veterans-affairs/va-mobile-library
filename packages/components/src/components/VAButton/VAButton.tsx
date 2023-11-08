@@ -1,5 +1,6 @@
 import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
+  AccessibilityState,
   Pressable,
   PressableStateCallbackType,
   Text,
@@ -11,22 +12,52 @@ import React from 'react'
 
 import { webStorybookColorScheme } from '../../utils'
 
+export const ButtonTypesConstants: {
+  buttonPrimary: ButtonTypes
+  buttonSecondary: ButtonTypes
+  buttonDestructive: ButtonTypes
+  buttonWhite: ButtonTypes
+} = {
+  buttonPrimary: 'buttonPrimary',
+  buttonSecondary: 'buttonSecondary',
+  buttonDestructive: 'buttonDestructive',
+  buttonWhite: 'buttonWhite',
+}
+
+export type ButtonTypes =
+  | 'buttonPrimary'
+  | 'buttonSecondary'
+  | 'buttonDestructive'
+  | 'buttonWhite'
+
 export type VAButtonProps = {
-  onPress?: () => void
-  text: string
-  secondary?: boolean
-  destructive?: boolean
-  disabled?: boolean
+  /** text appearing in the button */
+  label: string
+  /** function called when button is pressed */
+  onPress: () => void
+  /** optional accessibility state */
+  accessibilityState?: AccessibilityState
+  /** text to use as the accessibility hint */
+  a11yHint?: string
+  /** specifies button styling type. defaults to primary if none specified  */
+  buttonType?: ButtonTypes
+  /** a string value used to set the buttons testID/accessibility label */
+  testID?: string
 }
 
 export const VAButton: React.FC<VAButtonProps> = ({
+  label,
   onPress,
-  text,
-  secondary,
-  destructive,
-  disabled,
+  accessibilityState,
+  a11yHint,
+  buttonType,
+  testID,
 }) => {
   const colorScheme = webStorybookColorScheme() || useColorScheme()
+  const isDestructive = buttonType === ButtonTypesConstants.buttonDestructive
+  const isSecondary = buttonType === ButtonTypesConstants.buttonSecondary
+  const isWhite = buttonType === ButtonTypesConstants.buttonWhite
+
   let bgColor: string,
     bgColorPressed: string,
     textColor: string,
@@ -34,16 +65,20 @@ export const VAButton: React.FC<VAButtonProps> = ({
     borderColor: string = 'none',
     borderColorPressed: string = 'none'
 
-  if (colorScheme === 'light') {
+  if (isWhite) {
+    bgColor = DesignTokens.colorWhite
+    bgColorPressed = '#ffffffb3'
+    textColor = '#003e73'
+  } else if (colorScheme === 'light') {
     bgColor = '#005EA2'
     bgColorPressed = '#162E51'
     textColor = DesignTokens.colorGrayLightest
     textColorPressed = DesignTokens.colorGrayLightest
 
-    if (destructive) {
+    if (isDestructive) {
       bgColor = '#B50909'
       bgColorPressed = '#5C1111'
-    } else if (secondary) {
+    } else if (isSecondary) {
       bgColor = DesignTokens.colorWhite
       bgColorPressed = DesignTokens.colorWhite
       borderColor = '#005EA2'
@@ -57,10 +92,10 @@ export const VAButton: React.FC<VAButtonProps> = ({
     textColor = '#000000'
     textColorPressed = '#000000'
 
-    if (destructive) {
+    if (isDestructive) {
       bgColor = '#FB5A47'
       bgColorPressed = '#F9DEDE'
-    } else if (secondary) {
+    } else if (isSecondary) {
       bgColor = '#000'
       bgColorPressed = '#000'
       borderColor = '#005EA2'
@@ -78,8 +113,8 @@ export const VAButton: React.FC<VAButtonProps> = ({
     padding: 10,
     backgroundColor: pressed ? bgColorPressed : bgColor,
     borderRadius: 4,
-    borderWidth: secondary ? 2 : 0,
-    borderColor: secondary
+    borderWidth: isSecondary ? 2 : 0,
+    borderColor: isSecondary
       ? pressed
         ? borderColorPressed
         : borderColor
@@ -101,9 +136,17 @@ export const VAButton: React.FC<VAButtonProps> = ({
   }
 
   return (
-    <Pressable style={getBackgroundStyle} onPress={onPress}>
+    <Pressable
+      style={getBackgroundStyle}
+      onPress={onPress}
+      accessibilityHint={a11yHint}
+      accessibilityRole="button"
+      accessible={true}
+      accessibilityState={accessibilityState || {}}
+      testID={testID || label}
+    >
       {({ pressed }: PressableStateCallbackType) => (
-        <Text style={getTextStyle(pressed)}>{text}</Text>
+        <Text style={getTextStyle(pressed)}>{label}</Text>
       )}
     </Pressable>
   )

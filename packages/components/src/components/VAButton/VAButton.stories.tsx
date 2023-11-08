@@ -1,5 +1,5 @@
+import { ButtonTypesConstants, VAButton, VAButtonProps } from './VAButton'
 import { Meta, StoryObj } from '@storybook/react-native'
-import { VAButton, VAButtonProps } from './VAButton'
 import { View } from 'react-native'
 import React from 'react'
 
@@ -34,22 +34,31 @@ type Story = StoryObj<VAButtonProps>
 export const Primary: Story = {
   storyName: 'Primary',
   args: {
-    text: 'Button text',
+    label: 'Button text',
   },
 }
 
 export const Secondary: Story = {
   storyName: 'Secondary',
   args: {
-    secondary: true,
-    text: 'Button text',
+    buttonType: ButtonTypesConstants.buttonSecondary,
+
+    label: 'Button text',
   },
 }
 
 export const Destructive: Story = {
   storyName: 'Destructive',
   args: {
-    destructive: true,
-    text: 'Button text',
+    buttonType: ButtonTypesConstants.buttonDestructive,
+    label: 'Button text',
+  },
+}
+
+export const White: Story = {
+  storyName: 'White',
+  args: {
+    buttonType: ButtonTypesConstants.buttonWhite,
+    label: 'Button text',
   },
 }
