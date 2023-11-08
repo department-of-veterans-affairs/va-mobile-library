@@ -66,41 +66,42 @@ export const VAButton: React.FC<VAButtonProps> = ({
     borderColorPressed: string = 'none'
 
   if (isWhite) {
+    // This is a one-off, mobile app only variant. Colors are not tokenized
     bgColor = DesignTokens.colorWhite
     bgColorPressed = '#ffffffb3'
     textColor = '#003e73'
   } else if (colorScheme === 'light') {
-    bgColor = '#005EA2'
-    bgColorPressed = '#162E51'
+    bgColor = DesignTokens.colorUswdsSystemColorBlueVivid60
+    bgColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
     textColor = DesignTokens.colorGrayLightest
     textColorPressed = DesignTokens.colorGrayLightest
 
     if (isDestructive) {
-      bgColor = '#B50909'
-      bgColorPressed = '#5C1111'
+      bgColor = DesignTokens.colorUswdsSystemColorRedVivid60
+      bgColorPressed = DesignTokens.colorUswdsSystemColorRedVivid80
     } else if (isSecondary) {
       bgColor = DesignTokens.colorWhite
       bgColorPressed = DesignTokens.colorWhite
-      borderColor = '#005EA2'
-      borderColorPressed = '#162E51'
-      textColor = '#005EA2'
-      textColorPressed = '#162E51'
+      borderColor = DesignTokens.colorUswdsSystemColorBlueVivid60
+      borderColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
+      textColor = DesignTokens.colorUswdsSystemColorBlueVivid60
+      textColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
     }
   } else {
-    bgColor = '#58B4FF'
-    bgColorPressed = '#E1F3F8'
-    textColor = '#000000'
-    textColorPressed = '#000000'
+    bgColor = DesignTokens.colorUswdsSystemColorBlueVivid30
+    bgColorPressed = DesignTokens.colorPrimaryAltLightest
+    textColor = DesignTokens.colorBlack
+    textColorPressed = DesignTokens.colorBlack
 
     if (isDestructive) {
-      bgColor = '#FB5A47'
-      bgColorPressed = '#F9DEDE'
+      bgColor = DesignTokens.colorUswdsSystemColorRedVivid40
+      bgColorPressed = DesignTokens.colorSecondaryLightest
     } else if (isSecondary) {
-      bgColor = '#000'
-      bgColorPressed = '#000'
-      borderColor = '#005EA2'
+      bgColor = DesignTokens.colorBlack
+      bgColorPressed = DesignTokens.colorBlack
+      borderColor = DesignTokens.colorUswdsSystemColorBlueVivid60
       borderColorPressed = DesignTokens.colorWhite
-      textColor = '#58B4FF'
+      textColor = DesignTokens.colorUswdsSystemColorBlueVivid30
       textColorPressed = DesignTokens.colorWhite
     }
   }
