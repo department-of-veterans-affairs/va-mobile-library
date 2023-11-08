@@ -33,7 +33,6 @@ describe('VAButton', () => {
   })
 
   it('should render label', async () => {
-    component.debug()
     expect(component.findByText('Button text')).toBeTruthy()
   })
 })
