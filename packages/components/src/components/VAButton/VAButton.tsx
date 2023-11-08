@@ -12,23 +12,12 @@ import React from 'react'
 
 import { webStorybookColorScheme } from '../../utils'
 
-export const ButtonTypesConstants: {
-  buttonPrimary: ButtonTypes
-  buttonSecondary: ButtonTypes
-  buttonDestructive: ButtonTypes
-  buttonWhite: ButtonTypes
-} = {
-  buttonPrimary: 'buttonPrimary',
-  buttonSecondary: 'buttonSecondary',
-  buttonDestructive: 'buttonDestructive',
-  buttonWhite: 'buttonWhite',
+export enum VAButtonVariants {
+  Primary,
+  Secondary,
+  Destructive,
+  White,
 }
-
-export type ButtonTypes =
-  | 'buttonPrimary'
-  | 'buttonSecondary'
-  | 'buttonDestructive'
-  | 'buttonWhite'
 
 export type VAButtonProps = {
   /** text appearing in the button */
@@ -40,7 +29,7 @@ export type VAButtonProps = {
   /** text to use as the accessibility hint */
   a11yHint?: string
   /** specifies button styling type. defaults to primary if none specified  */
-  buttonType?: ButtonTypes
+  buttonType?: VAButtonVariants
   /** a string value used to set the buttons testID/accessibility label */
   testID?: string
 }
@@ -54,9 +43,9 @@ export const VAButton: React.FC<VAButtonProps> = ({
   testID,
 }) => {
   const colorScheme = webStorybookColorScheme() || useColorScheme()
-  const isDestructive = buttonType === ButtonTypesConstants.buttonDestructive
-  const isSecondary = buttonType === ButtonTypesConstants.buttonSecondary
-  const isWhite = buttonType === ButtonTypesConstants.buttonWhite
+  const isDestructive = buttonType === VAButtonVariants.Destructive
+  const isSecondary = buttonType === VAButtonVariants.Secondary
+  const isWhite = buttonType === VAButtonVariants.White
 
   let bgColor: string,
     bgColorPressed: string,
