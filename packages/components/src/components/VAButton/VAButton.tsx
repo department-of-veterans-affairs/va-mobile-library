@@ -95,6 +95,11 @@ export const VAButton: React.FC<VAButtonProps> = ({
     }
   }
 
+  /**
+   * Get button styling based on pressed state
+   * @param pressed - boolean for pressed state
+   * @returns ViewStyle for background
+   */
   const getBackgroundStyle = ({
     pressed,
   }: PressableStateCallbackType): ViewStyle => ({
@@ -111,6 +116,11 @@ export const VAButton: React.FC<VAButtonProps> = ({
       : 'none',
   })
 
+  /**
+   * Get text styling based on pressed state
+   * @param pressed - boolean for pressed state
+   * @returns TextStyle for text
+   */
   const getTextStyle = (pressed: boolean): TextStyle => {
     // TODO: Replace with typography tokens
     const font: TextStyle = {
