@@ -1,10 +1,25 @@
 {
   "color": {
+    "primary": {
+      "alt": {
+        "lightest": {
+          "value": "#e1f3f8"
+        }
+      }
+    },
+    "secondary": {
+      "lightest": {
+        "value": "#f9dede"
+      }
+    },
     "white": {
       "value": "#fff",
       "attributes": {
         "category": "color"
       }
+    },
+    "black": {
+      "value": "#000000"
     },
     "gray": {
       "*": {
@@ -197,6 +212,21 @@
           "cool-light"
         ]
       }
+    },
+    "uswds-system-color-blue-vivid-60": {
+      "value": "#005ea2"
+    },
+    "uswds-system-color-blue-warm-vivid-80": {
+      "value": "#162e51"
+    },
+    "uswds-system-color-red-vivid-40": {
+      "value": "#b50909"
+    },
+    "uswds-system-color-red-vivid-60": {
+      "value": "#b50909"
+    },
+    "uswds-system-color-red-vivid-80": {
+      "value": "#b50909"
     }
   }
 }
