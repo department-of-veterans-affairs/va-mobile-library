@@ -1,8 +1,8 @@
 import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
+  Pressable,
   Text,
   TextStyle,
-  TouchableOpacity,
   View,
   ViewStyle,
   useColorScheme,
@@ -12,7 +12,7 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { webStorybookColorScheme } from '../../utils'
+import { PressableOpacityStyle, webStorybookColorScheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -41,7 +41,7 @@ type SegmentProps = {
   widthPct: string
 }
 
-const Segment = styled(TouchableOpacity)<SegmentProps>`
+const Segment = styled(Pressable)<SegmentProps>`
   border-radius: 8px;
   padding-vertical: 7px;
   width: ${(props) => props.widthPct};
@@ -124,11 +124,12 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         isSelected={isSelected}
         key={index}
         widthPct={`${100 / labels.length}%`}
-        accessibilityLabel={accessibilityLabel}
+        aria-label={accessibilityLabel}
         accessibilityHint={a11yHints ? a11yHints[index] : ''}
         accessibilityValue={accessibilityValue}
-        accessibilityRole={'tab'}
+        role={'tab'}
         accessibilityState={{ selected: isSelected }}
+        style={PressableOpacityStyle()}
         testID={testIDs?.[index]}>
         <Text allowFontScaling={false} style={textStyle}>
           {label}
@@ -139,7 +140,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
   return (
     <ComponentWrapper>
-      <View style={viewStyle} accessibilityRole="tablist">
+      <View style={viewStyle} role="tablist">
         {labels.map((label, index) => buildSegment(label, index))}
       </View>
     </ComponentWrapper>

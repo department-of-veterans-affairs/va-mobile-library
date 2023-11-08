@@ -14,7 +14,8 @@
     "storybook:watch": "sb-rn-watcher --config-path .storybook/native",
     "storybook:web": "STORYBOOK_WEB=true start-storybook --config-dir .storybook/web -p 6006 --no-version-updates",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "tokensBuild": "cd ../tokens && yarn build"
   },
   "repository": {
     "type": "git",
