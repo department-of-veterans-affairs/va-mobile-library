@@ -1,6 +1,9 @@
 {
   "color": {
     "primary": {
+      "darker": {
+        "value": "#003e73"
+      },
       "alt": {
         "lightest": {
           "value": "#e1f3f8"
