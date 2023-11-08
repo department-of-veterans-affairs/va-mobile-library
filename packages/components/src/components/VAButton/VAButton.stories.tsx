@@ -35,6 +35,7 @@ export const Primary: Story = {
   storyName: 'Primary',
   args: {
     label: 'Button text',
+    a11yHint: 'My hint',
   },
 }
 
@@ -42,7 +43,6 @@ export const Secondary: Story = {
   storyName: 'Secondary',
   args: {
     buttonType: ButtonTypesConstants.buttonSecondary,
-
     label: 'Button text',
   },
 }
@@ -51,14 +51,6 @@ export const Destructive: Story = {
   storyName: 'Destructive',
   args: {
     buttonType: ButtonTypesConstants.buttonDestructive,
-    label: 'Button text',
-  },
-}
-
-export const White: Story = {
-  storyName: 'White',
-  args: {
-    buttonType: ButtonTypesConstants.buttonWhite,
     label: 'Button text',
   },
 }
