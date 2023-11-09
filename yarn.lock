@@ -2715,6 +2715,7 @@ __metadata:
     "@react-native-community/slider": ^4.4.2
     "@storybook/addon-actions": ^6.5.16
     "@storybook/addon-controls": ^6.5.16
+    "@storybook/addon-docs": ^6.5.16
     "@storybook/addon-essentials": ^6.5.16
     "@storybook/addon-links": ^6.5.16
     "@storybook/addon-ondevice-actions": ^6.5.4
@@ -5097,7 +5098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:6.5.16":
+"@storybook/addon-docs@npm:6.5.16, @storybook/addon-docs@npm:^6.5.16":
   version: 6.5.16
   resolution: "@storybook/addon-docs@npm:6.5.16"
   dependencies:

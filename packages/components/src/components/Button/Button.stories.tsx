@@ -1,6 +1,7 @@
 import { Button, ButtonProps, ButtonVariants } from './Button'
 import { Meta, StoryObj } from '@storybook/react-native'
 import { View } from 'react-native'
+import { generateDocs } from '../../utils'
 import React from 'react'
 
 const meta: Meta<ButtonProps> = {
@@ -11,7 +12,13 @@ const meta: Meta<ButtonProps> = {
       action: 'onPress event',
     },
   },
-
+  parameters: {
+    docs: generateDocs({
+      name: 'Button',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/docs/Flagship%20design%20library/Components/Buttons%20and%20Links/VAButton/',
+    }),
+  },
   decorators: [
     (Story) => (
       <View
