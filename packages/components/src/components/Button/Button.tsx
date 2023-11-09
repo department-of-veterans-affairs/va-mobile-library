@@ -1,6 +1,5 @@
 import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
-  AccessibilityState,
   Pressable,
   PressableStateCallbackType,
   Text,
@@ -13,9 +12,11 @@ import React from 'react'
 import { webStorybookColorScheme } from '../../utils'
 
 export enum ButtonVariants {
+  Base,
+  BaseSecondary,
+  Destructive,
   Primary,
   Secondary,
-  Destructive,
   White,
 }
 
@@ -44,16 +45,47 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const colorScheme = webStorybookColorScheme() || useColorScheme()
   const isDarkMode = colorScheme === 'dark'
-  const isSecondary = buttonType === ButtonVariants.Secondary
 
   let bgColor: string,
     bgColorPressed: string,
     textColor: string,
     textColorPressed: string,
+    borderWidth: number = 0,
     borderColor: string = 'none',
     borderColorPressed: string = 'none'
 
   switch (buttonType) {
+    case ButtonVariants.Base:
+      bgColor = DesignTokens.colorGrayMedium
+      bgColorPressed = DesignTokens.colorUswdsSystemColorGray80
+      textColor = DesignTokens.colorGrayLightest
+      textColorPressed = DesignTokens.colorGrayLightest
+
+      if (isDarkMode) {
+        bgColor = DesignTokens.colorGrayLightest
+        bgColorPressed = DesignTokens.colorUswdsSystemColorGray30
+        textColor = DesignTokens.colorBlack
+        textColorPressed = DesignTokens.colorBlack
+      }
+      break
+    case ButtonVariants.BaseSecondary:
+      bgColor = DesignTokens.colorWhite
+      bgColorPressed = DesignTokens.colorWhite
+      borderColor = DesignTokens.colorGrayMedium
+      borderColorPressed = DesignTokens.colorUswdsSystemColorGray80
+      textColor = DesignTokens.colorGrayMedium
+      textColorPressed = DesignTokens.colorUswdsSystemColorGray80
+      borderWidth = 2
+
+      if (isDarkMode) {
+        bgColor = DesignTokens.colorBlack
+        bgColorPressed = DesignTokens.colorBlack
+        borderColor = DesignTokens.colorGrayLightest
+        borderColorPressed = DesignTokens.colorUswdsSystemColorGray30
+        textColor = DesignTokens.colorGrayLightest
+        textColorPressed = DesignTokens.colorUswdsSystemColorGray30
+      }
+      break
     case ButtonVariants.Destructive:
       bgColor = DesignTokens.colorUswdsSystemColorRedVivid60
       bgColorPressed = DesignTokens.colorUswdsSystemColorRedVivid80
@@ -74,6 +106,7 @@ export const Button: React.FC<ButtonProps> = ({
       borderColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
       textColor = DesignTokens.colorUswdsSystemColorBlueVivid60
       textColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
+      borderWidth = 2
 
       if (isDarkMode) {
         bgColor = DesignTokens.colorBlack
@@ -83,6 +116,12 @@ export const Button: React.FC<ButtonProps> = ({
         textColor = DesignTokens.colorUswdsSystemColorBlueVivid30
         textColorPressed = DesignTokens.colorWhite
       }
+      break
+    case ButtonVariants.White:
+      bgColor = DesignTokens.colorGrayLightest
+      bgColorPressed = DesignTokens.colorUswdsSystemColorGray30
+      textColor = DesignTokens.colorBlack
+      textColorPressed = DesignTokens.colorBlack
       break
     default:
       bgColor = DesignTokens.colorUswdsSystemColorBlueVivid60
@@ -111,12 +150,13 @@ export const Button: React.FC<ButtonProps> = ({
     padding: 10,
     backgroundColor: pressed ? bgColorPressed : bgColor,
     borderRadius: 4,
-    borderWidth: isSecondary ? 2 : 0,
-    borderColor: isSecondary
-      ? pressed
-        ? borderColorPressed
-        : borderColor
-      : 'none',
+    borderWidth: borderWidth,
+    borderColor:
+      borderColor !== 'none'
+        ? pressed
+          ? borderColorPressed
+          : borderColor
+        : 'none',
   })
 
   /**
