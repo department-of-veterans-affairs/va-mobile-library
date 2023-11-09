@@ -12,7 +12,8 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, webStorybookColorScheme } from '../../utils'
+import { PressableOpacityStyle } from '../../utils'
+import { webStorybookColorScheme } from '../../utils/storybook'
 
 /**
  * Props for {@link SegmentedControl}
@@ -130,7 +131,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         role={'tab'}
         accessibilityState={{ selected: isSelected }}
         style={PressableOpacityStyle()}
-        testID={testIDs?.[index]}>
+        testID={testIDs?.[index]}
+      >
         <Text allowFontScaling={false} style={textStyle}>
           {label}
         </Text>
