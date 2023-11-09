@@ -33,6 +33,8 @@ export type ButtonProps = {
   buttonType?: ButtonVariants
   /** Optional test ID for test suites */
   testID?: string
+  /** Optional pressed state test suites */
+  testOnlyPressed?: boolean
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -42,6 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
   a11yLabel,
   buttonType,
   testID,
+  testOnlyPressed,
 }) => {
   const colorScheme = webStorybookColorScheme() || useColorScheme()
   const isDarkMode = colorScheme === 'dark'
@@ -187,6 +190,7 @@ export const Button: React.FC<ButtonProps> = ({
       accessible={true}
       aria-label={a11yLabel}
       testID={testID || label}
+      testOnly_pressed={testOnlyPressed}
     >
       {({ pressed }: PressableStateCallbackType) => (
         <Text style={getTextStyle(pressed)}>{label}</Text>
