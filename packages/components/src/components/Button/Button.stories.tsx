@@ -36,6 +36,7 @@ export const Base: Story = {
   args: {
     buttonType: ButtonVariants.Base,
     label: 'Button text',
+    a11yLabel: 'A11y label override',
   },
 }
 
