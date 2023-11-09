@@ -7,6 +7,7 @@ import {
   Title,
 } from '@storybook/addon-docs'
 import { Linking, Text, View } from 'react-native'
+import React from 'react'
 
 type DocProps = {
   name: string
