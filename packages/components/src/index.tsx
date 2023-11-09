@@ -8,4 +8,4 @@ if (expoApp && App.initiateExpo) {
 
 // Export components here so they are exported through npm
 export { SegmentedControl } from './components/SegmentedControl/SegmentedControl'
-export { VAButton, VAButtonVariants } from './components/VAButton/VAButton'
+export { Button, ButtonVariants } from './components/Button/Button'

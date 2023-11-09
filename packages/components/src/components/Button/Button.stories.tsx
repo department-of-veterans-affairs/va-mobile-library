@@ -1,11 +1,11 @@
+import { Button, ButtonProps, ButtonVariants } from './Button'
 import { Meta, StoryObj } from '@storybook/react-native'
-import { VAButton, VAButtonProps, VAButtonVariants } from './VAButton'
 import { View } from 'react-native'
 import React from 'react'
 
-const meta: Meta<VAButtonProps> = {
-  title: 'VAButton',
-  component: VAButton,
+const meta: Meta<ButtonProps> = {
+  title: 'Button',
+  component: Button,
   argTypes: {
     onPress: {
       action: 'onPress event',
@@ -29,7 +29,7 @@ const meta: Meta<VAButtonProps> = {
 
 export default meta
 
-type Story = StoryObj<VAButtonProps>
+type Story = StoryObj<ButtonProps>
 
 export const Primary: Story = {
   storyName: 'Primary',
@@ -42,7 +42,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   storyName: 'Secondary',
   args: {
-    buttonType: VAButtonVariants.Secondary,
+    buttonType: ButtonVariants.Secondary,
     label: 'Button text',
   },
 }
@@ -50,7 +50,7 @@ export const Secondary: Story = {
 export const Destructive: Story = {
   storyName: 'Destructive',
   args: {
-    buttonType: VAButtonVariants.Destructive,
+    buttonType: ButtonVariants.Destructive,
     label: 'Button text',
   },
 }

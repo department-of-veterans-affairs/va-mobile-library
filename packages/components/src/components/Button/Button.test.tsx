@@ -5,16 +5,16 @@ import React from 'react'
 import 'jest-styled-components'
 import { ReactTestInstance } from 'react-test-renderer'
 
-import { VAButton } from './VAButton'
+import { Button } from './Button'
 
-describe('VAButton', () => {
+describe('Button', () => {
   let component: RenderAPI
   let testInstance: ReactTestInstance
 
   const onPressSpy = jest.fn()
 
   const initializeTestInstance = (): void => {
-    component = render(<VAButton label="Button text" onPress={onPressSpy} />)
+    component = render(<Button label="Button text" onPress={onPressSpy} />)
 
     testInstance = component.UNSAFE_root
   }

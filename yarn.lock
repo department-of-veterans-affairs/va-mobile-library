@@ -2766,7 +2766,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-tokens@0.1.0, @department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens":
+"@department-of-veterans-affairs/mobile-tokens@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.1.0"
+  checksum: 4d44c25ed247254b39df746b4de9d518d80c8624d973d5277a11a9f9d011155a59cf24aee0dc9aaae493db409a60b75b00f1a05dc5f18317efaf64f5f472ff99
+  languageName: node
+  linkType: hard
+
+"@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens"
   dependencies:
