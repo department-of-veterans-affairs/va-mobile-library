@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import React from 'react'
 
-import { webStorybookColorScheme } from '../../utils/storybook'
+import { webStorybookColorScheme } from '../../utils'
 
 export enum ButtonVariants {
   Base,

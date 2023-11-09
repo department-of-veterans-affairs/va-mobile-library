@@ -13,7 +13,7 @@ import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
 import { PressableOpacityStyle } from '../../utils'
-import { webStorybookColorScheme } from '../../utils/storybook'
+import { webStorybookColorScheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
