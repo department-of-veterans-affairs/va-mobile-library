@@ -13,26 +13,25 @@ describe('Button', () => {
   const label = 'Button text'
   const onPressSpy = jest.fn()
 
-  it('initializes correctly', async () => {
-    component = render(<Button label={label} onPress={onPressSpy} />)
-    expect(component).toBeTruthy()
-  })
-
-  it('should call onChange', async () => {
-    component = render(<Button label={label} onPress={onPressSpy} />)
-    fireEvent.press(component.getByRole('button'))
-    expect(onPressSpy).toBeCalled()
-  })
-
-  it('should render label', async () => {
-    component = render(<Button label={label} onPress={onPressSpy} />)
-    expect(component.findByText('Button text')).toBeTruthy()
-  })
-
   describe('Primary variant', () => {
-    it('should render Primary variant by default', async () => {
+    beforeEach(() => {
       component = render(<Button label={label} onPress={onPressSpy} />)
+    })
 
+    it('initializes correctly', async () => {
+      expect(component).toBeTruthy()
+    })
+
+    it('should call onChange', async () => {
+      fireEvent.press(component.getByRole('button'))
+      expect(onPressSpy).toBeCalled()
+    })
+
+    it('should render label', async () => {
+      expect(component.findByText('Button text')).toBeTruthy()
+    })
+
+    it('should render Primary variant by default', async () => {
       const button = component.getByRole('button')
       const text = component.getByText(label)
       const { backgroundColor, borderWidth } = button.props.style
