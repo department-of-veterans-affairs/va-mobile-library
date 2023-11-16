@@ -17,6 +17,17 @@
           "destination": "index.d.ts"
         }
       ]
+    },
+    "figma": {
+      "transformGroup": "react-native",
+      "buildPath": "./figma/",
+      "prefix": "",
+      "files": [
+        {
+          "destination": "tokens.json",
+          "format": "json"
+        }
+      ]
     }
   }
 }
