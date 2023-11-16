@@ -153,13 +153,8 @@ export const Button: React.FC<ButtonProps> = ({
     padding: 10,
     backgroundColor: pressed ? bgColorPressed : bgColor,
     borderRadius: 4,
-    borderWidth: borderWidth,
-    borderColor:
-      borderColor !== 'none'
-        ? pressed
-          ? borderColorPressed
-          : borderColor
-        : 'none',
+    borderWidth,
+    borderColor: pressed ? borderColorPressed : borderColor,
   })
 
   /**
