@@ -12,12 +12,12 @@ import React from 'react'
 import { webStorybookColorScheme } from '../../utils'
 
 export enum ButtonVariants {
-  Base,
-  BaseSecondary,
-  Destructive,
-  Primary,
-  Secondary,
-  White,
+  Base = 'Base',
+  BaseSecondary = 'BaseSecondary',
+  Destructive = 'Destructive',
+  Primary = 'Primary',
+  Secondary = 'Secondary',
+  White = 'White',
 }
 
 export type ButtonProps = {
