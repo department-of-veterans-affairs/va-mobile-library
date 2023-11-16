@@ -1,202 +1,81 @@
 {
   "color": {
-    "white": {
-      "value": "#fff",
-      "attributes": {
-        "category": "color"
+    "primary": {
+      "darker": {
+        "value": "#003e73"
+      },
+      "alt": {
+        "lightest": {
+          "value": "#e1f3f8"
+        }
       }
+    },
+    "secondary": {
+      "lightest": {
+        "value": "#f9dede"
+      }
+    },
+    "white": {
+      "value": "#ffffff"
+    },
+    "black": {
+      "value": "#000000"
     },
     "gray": {
       "*": {
-        "value": "#5b616b",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#5b616b"
-        },
-        "name": "color-gray",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "*"
-        },
-        "path": [
-          "color",
-          "gray",
-          "*"
-        ]
+        "value": "#5b616b"
       },
       "dark": {
-        "value": "#323a45",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#323a45"
-        },
-        "name": "color-gray-dark",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "dark"
-        },
-        "path": [
-          "color",
-          "gray",
-          "dark"
-        ]
+        "value": "#323a45"
       },
       "medium": {
-        "value": "#757575",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#757575"
-        },
-        "name": "color-gray-medium",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "medium"
-        },
-        "path": [
-          "color",
-          "gray",
-          "medium"
-        ]
+        "value": "#757575"
       },
       "light": {
-        "value": "#aeb0b5",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#aeb0b5"
-        },
-        "name": "color-gray-light",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "light"
-        },
-        "path": [
-          "color",
-          "gray",
-          "light"
-        ]
+        "value": "#aeb0b5"
       },
       "light-alt": {
-        "value": "#eeeeee",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#eeeeee"
-        },
-        "name": "color-gray-light-alt",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "light-alt"
-        },
-        "path": [
-          "color",
-          "gray",
-          "light-alt"
-        ]
+        "value": "#eeeeee"
       },
       "lighter": {
-        "value": "#d6d7d9",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#d6d7d9"
-        },
-        "name": "color-gray-lighter",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "lighter"
-        },
-        "path": [
-          "color",
-          "gray",
-          "lighter"
-        ]
+        "value": "#d6d7d9"
       },
       "lightest": {
-        "value": "#f1f1f1",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#f1f1f1"
-        },
-        "name": "color-gray-lightest",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "lightest"
-        },
-        "path": [
-          "color",
-          "gray",
-          "lightest"
-        ]
+        "value": "#f1f1f1"
       },
       "warm-dark": {
-        "value": "#494440",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#494440"
-        },
-        "name": "color-gray-warm-dark",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "warm-dark"
-        },
-        "path": [
-          "color",
-          "gray",
-          "warm-dark"
-        ]
+        "value": "#494440"
       },
       "warm-light": {
-        "value": "#e4e2e0",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#e4e2e0"
-        },
-        "name": "color-gray-warm-light",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "warm-light"
-        },
-        "path": [
-          "color",
-          "gray",
-          "warm-light"
-        ]
+        "value": "#e4e2e0"
       },
       "cool-light": {
-        "value": "#dce4ef",
-        "filePath": "tokens/color.json",
-        "isSource": true,
-        "original": {
-          "value": "#dce4ef"
-        },
-        "name": "color-gray-cool-light",
-        "attributes": {
-          "category": "color",
-          "type": "gray",
-          "item": "cool-light"
-        },
-        "path": [
-          "color",
-          "gray",
-          "cool-light"
-        ]
+        "value": "#dce4ef"
       }
+    },
+    "uswds-system-color-blue-vivid-30": {
+      "value": "#58b4ff"
+    },
+    "uswds-system-color-blue-vivid-60": {
+      "value": "#005ea2"
+    },
+    "uswds-system-color-blue-warm-vivid-80": {
+      "value": "#162e51"
+    },
+    "uswds-system-color-gray-30": {
+      "value": "#adadad"
+    },
+    "uswds-system-color-gray-80": {
+      "value": "#2e2e2e"
+    },
+    "uswds-system-color-red-vivid-40": {
+      "value": "#fb5a47"
+    },
+    "uswds-system-color-red-vivid-60": {
+      "value": "#b50909"
+    },
+    "uswds-system-color-red-vivid-80": {
+      "value": "#5c1111"
     }
   }
 }

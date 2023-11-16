@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import React, { useState } from 'react'
 
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
-import { generateDocs } from '../../utils'
+import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',

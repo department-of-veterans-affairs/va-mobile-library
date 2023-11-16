@@ -1,3 +1,5 @@
+import { ColorSchemeName } from "react-native"
+
 /**
  * Module to set App environment:
  *   - Standalone Expo App (Storybook environment)
@@ -6,6 +8,7 @@
 export type AppType = {
   default: JSX.Element | null
   initiateExpo: ((expoApp: JSX.Element | null) => void) | null
+  webStorybookColorScheme: () => ColorSchemeName | null
 }
 
 let App: AppType
