@@ -13,7 +13,7 @@ describe('Button', () => {
   const label = 'Button text'
   const onPressSpy = jest.fn()
 
-  describe('Primary variant', () => {
+  describe('Primary variant and basic tests', () => {
     beforeEach(() => {
       component = render(<Button label={label} onPress={onPressSpy} />)
     })
