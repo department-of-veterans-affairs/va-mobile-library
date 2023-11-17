@@ -12,12 +12,12 @@ import React from 'react'
 import { webStorybookColorScheme } from '../../utils'
 
 export enum ButtonVariants {
-  Base,
-  BaseSecondary,
-  Destructive,
-  Primary,
-  Secondary,
-  White,
+  Base = 'Base',
+  BaseSecondary = 'BaseSecondary',
+  Destructive = 'Destructive',
+  Primary = 'Primary',
+  Secondary = 'Secondary',
+  White = 'White',
 }
 
 export type ButtonProps = {
@@ -153,13 +153,8 @@ export const Button: React.FC<ButtonProps> = ({
     padding: 10,
     backgroundColor: pressed ? bgColorPressed : bgColor,
     borderRadius: 4,
-    borderWidth: borderWidth,
-    borderColor:
-      borderColor !== 'none'
-        ? pressed
-          ? borderColorPressed
-          : borderColor
-        : 'none',
+    borderWidth,
+    borderColor: pressed ? borderColorPressed : borderColor,
   })
 
   /**

@@ -43,7 +43,8 @@ export const Base: Story = {
   args: {
     buttonType: ButtonVariants.Base,
     label: 'Button text',
-    a11yLabel: 'A11y label override',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
   },
 }
 
@@ -52,6 +53,8 @@ export const BaseSecondary: Story = {
   args: {
     buttonType: ButtonVariants.BaseSecondary,
     label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
   },
 }
 
@@ -60,6 +63,8 @@ export const Destructive: Story = {
   args: {
     buttonType: ButtonVariants.Destructive,
     label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
   },
 }
 
@@ -67,6 +72,8 @@ export const Primary: Story = {
   storyName: 'Primary',
   args: {
     label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
   },
 }
 
@@ -75,6 +82,8 @@ export const Secondary: Story = {
   args: {
     buttonType: ButtonVariants.Secondary,
     label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
   },
 }
 
@@ -83,5 +92,7 @@ export const White: Story = {
   args: {
     buttonType: ButtonVariants.White,
     label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
   },
 }

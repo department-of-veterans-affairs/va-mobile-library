@@ -12,8 +12,7 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle } from '../../utils'
-import { webStorybookColorScheme } from '../../utils'
+import { PressableOpacityStyle, webStorybookColorScheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}

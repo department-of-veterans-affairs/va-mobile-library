@@ -4,7 +4,8 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import { useSyncExternalStore } from 'react'
+
+import App from '../main'
 
 /** Function for web Storybook to override setting colorScheme based on UI toggle button */
 export function webStorybookColorScheme(): ColorSchemeName {
@@ -12,13 +13,8 @@ export function webStorybookColorScheme(): ColorSchemeName {
   if (!process.env.STORYBOOK_WEB) {
     return null
   }
-  
-  // Mimicking RN's useColorScheme hook, but using storybook-dark-mode's setting of HTML top-body class to light/dark
-  return useSyncExternalStore(callback => {
-    window.top!.addEventListener("click", callback);
-    return () => window.top!.removeEventListener("click", callback);
-  },
-  (): ColorSchemeName => window.top ? window.top.document.body.className as ColorSchemeName : null,)
+
+  return App.webStorybookColorScheme()
 }
 
 /**
