@@ -5,8 +5,8 @@
   "main": "dist/js/tokens.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "style-dictionary build",
-    "prepack": "style-dictionary build",
+    "build": "node ./build.js",
+    "prepack": "node ./build.js",
     "publish-package": "npm publish --access public --tolerate-republish"
   },
   "repository": {
