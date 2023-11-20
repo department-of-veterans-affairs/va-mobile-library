@@ -1,11 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
-const groupName = StyleDictionary.transformGroup['group_name']
-if (groupName) {
-  console.log(groupName)
-}
-
 StyleDictionary.registerTransformGroup({
   name: 'figma',
   transforms: ['name/ti/camel', 'color/hex'],
