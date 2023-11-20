@@ -1,12 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
+/** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'figma',
   transforms: ['name/ti/camel', 'color/hex'],
 })
 
-/** Function to generate JSON in Design Token Community Group format (https://tr.designtokens.org/format/) */
+/** Registering format to generate JSON in Design Token Community Group format (https://tr.designtokens.org/format/) */
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
