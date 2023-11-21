@@ -110,7 +110,7 @@ export const Button: React.FC<ButtonProps> = ({
       borderWidth = 2
 
       if (isDarkMode) {
-        borderColor = DesignTokens.colorUswdsSystemColorBlueVivid60
+        borderColor = DesignTokens.colorUswdsSystemColorBlueVivid30
         borderColorPressed = DesignTokens.colorWhite
         textColor = DesignTokens.colorUswdsSystemColorBlueVivid30
         textColorPressed = DesignTokens.colorWhite
