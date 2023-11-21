@@ -72,8 +72,8 @@ export const Button: React.FC<ButtonProps> = ({
       }
       break
     case ButtonVariants.BaseSecondary:
-      bgColor = DesignTokens.colorWhite
-      bgColorPressed = DesignTokens.colorWhite
+      bgColor = 'transparent'
+      bgColorPressed = 'transparent'
       borderColor = DesignTokens.colorGrayMedium
       borderColorPressed = DesignTokens.colorUswdsSystemColorGray80
       textColor = DesignTokens.colorGrayMedium
@@ -81,8 +81,6 @@ export const Button: React.FC<ButtonProps> = ({
       borderWidth = 2
 
       if (isDarkMode) {
-        bgColor = DesignTokens.colorBlack
-        bgColorPressed = DesignTokens.colorBlack
         borderColor = DesignTokens.colorGrayLightest
         borderColorPressed = DesignTokens.colorUswdsSystemColorGray30
         textColor = DesignTokens.colorGrayLightest
@@ -103,8 +101,8 @@ export const Button: React.FC<ButtonProps> = ({
       }
       break
     case ButtonVariants.Secondary:
-      bgColor = DesignTokens.colorWhite
-      bgColorPressed = DesignTokens.colorWhite
+      bgColor = 'transparent'
+      bgColorPressed = 'transparent'
       borderColor = DesignTokens.colorUswdsSystemColorBlueVivid60
       borderColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
       textColor = DesignTokens.colorUswdsSystemColorBlueVivid60
@@ -112,8 +110,6 @@ export const Button: React.FC<ButtonProps> = ({
       borderWidth = 2
 
       if (isDarkMode) {
-        bgColor = DesignTokens.colorBlack
-        bgColorPressed = DesignTokens.colorBlack
         borderColor = DesignTokens.colorUswdsSystemColorBlueVivid60
         borderColorPressed = DesignTokens.colorWhite
         textColor = DesignTokens.colorUswdsSystemColorBlueVivid30
