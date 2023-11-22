@@ -35,6 +35,10 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+      - name: 'Set up GH CLI secret'
+        run: echo "${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}" >> token.txt
+      - name: 'Log into GH CLI'
+        run: gh auth login --with-token < token.txt
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -75,8 +79,6 @@ jobs:
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit package.json changes and tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" >> token.txt
           echo "${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}" >> token.txt
