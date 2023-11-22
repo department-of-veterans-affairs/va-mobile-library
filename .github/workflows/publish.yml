@@ -23,6 +23,9 @@ on:
           - minor
           - major
 
+env:
+  GITHUB_TOKEN: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+
 jobs:
   publish-package:
     runs-on: ubuntu-latest
