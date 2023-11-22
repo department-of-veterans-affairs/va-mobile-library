@@ -118,7 +118,7 @@ describe('Button', () => {
       const { backgroundColor, borderWidth, borderColor } = button.props.style
       const { color } = text.props.style
 
-      expect(backgroundColor).toEqual(DesignTokens.colorWhite)
+      expect(backgroundColor).toEqual('transparent')
       expect(borderColor).toEqual(DesignTokens.colorUswdsSystemColorBlueVivid60)
       expect(borderWidth).toEqual(2)
       expect(color).toEqual(DesignTokens.colorUswdsSystemColorBlueVivid60)
@@ -139,7 +139,7 @@ describe('Button', () => {
       const { backgroundColor, borderColor, borderWidth } = button.props.style
       const { color } = text.props.style
 
-      expect(backgroundColor).toEqual(DesignTokens.colorWhite)
+      expect(backgroundColor).toEqual('transparent')
       expect(borderColor).toEqual(
         DesignTokens.colorUswdsSystemColorBlueWarmVivid80,
       )
@@ -252,7 +252,7 @@ describe('Button', () => {
       const { backgroundColor, borderWidth, borderColor } = button.props.style
       const { color } = text.props.style
 
-      expect(backgroundColor).toEqual(DesignTokens.colorWhite)
+      expect(backgroundColor).toEqual('transparent')
       expect(borderColor).toEqual(DesignTokens.colorGrayMedium)
       expect(borderWidth).toEqual(2)
       expect(color).toEqual(DesignTokens.colorGrayMedium)
@@ -273,7 +273,7 @@ describe('Button', () => {
       const { backgroundColor, borderColor, borderWidth } = button.props.style
       const { color } = text.props.style
 
-      expect(backgroundColor).toEqual(DesignTokens.colorWhite)
+      expect(backgroundColor).toEqual('transparent')
       expect(borderColor).toEqual(DesignTokens.colorUswdsSystemColorGray80)
       expect(borderWidth).toEqual(2)
       expect(color).toEqual(DesignTokens.colorUswdsSystemColorGray80)

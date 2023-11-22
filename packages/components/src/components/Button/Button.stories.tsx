@@ -16,7 +16,7 @@ const meta: Meta<ButtonProps> = {
     docs: generateDocs({
       name: 'Button',
       docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/docs/Flagship%20design%20library/Components/Buttons%20and%20Links/VAButton/',
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Button',
     }),
   },
   decorators: [
@@ -38,37 +38,7 @@ export default meta
 
 type Story = StoryObj<ButtonProps>
 
-export const Base: Story = {
-  storyName: 'Base',
-  args: {
-    buttonType: ButtonVariants.Base,
-    label: 'Button text',
-    a11yLabel: 'Alternate a11y text',
-    a11yHint: 'Descriptive text about this Button',
-  },
-}
-
-export const BaseSecondary: Story = {
-  storyName: 'Base Secondary',
-  args: {
-    buttonType: ButtonVariants.BaseSecondary,
-    label: 'Button text',
-    a11yLabel: 'Alternate a11y text',
-    a11yHint: 'Descriptive text about this Button',
-  },
-}
-
-export const Destructive: Story = {
-  storyName: 'Destructive',
-  args: {
-    buttonType: ButtonVariants.Destructive,
-    label: 'Button text',
-    a11yLabel: 'Alternate a11y text',
-    a11yHint: 'Descriptive text about this Button',
-  },
-}
-
-export const Primary: Story = {
+export const _Primary: Story = {
   storyName: 'Primary',
   args: {
     label: 'Button text',
@@ -77,7 +47,7 @@ export const Primary: Story = {
   },
 }
 
-export const Secondary: Story = {
+export const __Secondary: Story = {
   storyName: 'Secondary',
   args: {
     buttonType: ButtonVariants.Secondary,
@@ -87,7 +57,37 @@ export const Secondary: Story = {
   },
 }
 
-export const White: Story = {
+export const ___Base: Story = {
+  storyName: 'Base Primary',
+  args: {
+    buttonType: ButtonVariants.Base,
+    label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
+  },
+}
+
+export const ____BaseSecondary: Story = {
+  storyName: 'Base Secondary',
+  args: {
+    buttonType: ButtonVariants.BaseSecondary,
+    label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
+  },
+}
+
+export const _____Destructive: Story = {
+  storyName: 'Destructive',
+  args: {
+    buttonType: ButtonVariants.Destructive,
+    label: 'Button text',
+    a11yLabel: 'Alternate a11y text',
+    a11yHint: 'Descriptive text about this Button',
+  },
+}
+
+export const ______White: Story = {
   storyName: 'White',
   args: {
     buttonType: ButtonVariants.White,

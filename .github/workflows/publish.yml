@@ -38,6 +38,7 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: '.nvmrc'
+          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - run: yarn install
       - name: Bump version and publish to NPM
         id: bump-version
