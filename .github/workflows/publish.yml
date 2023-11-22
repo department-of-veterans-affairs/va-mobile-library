@@ -78,6 +78,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
         run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" >> token.txt
+          echo "${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}" >> token.txt
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
@@ -131,3 +133,7 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
