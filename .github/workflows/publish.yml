@@ -23,9 +23,6 @@ on:
           - minor
           - major
 
-env:
-  GITHUB_TOKEN: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-
 jobs:
   publish-package:
     runs-on: ubuntu-latest
@@ -36,6 +33,7 @@ jobs:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
     steps:
       - uses: actions/checkout@v4
+        with: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -77,11 +75,7 @@ jobs:
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit package.json changes and tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
         run: |
-          echo "VA_MOBILE_ROBOT_GITHUB_PAT=${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}"
-          echo "GITHUB_TOKEN=${{ env.GITHUB_TOKEN }}"
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
