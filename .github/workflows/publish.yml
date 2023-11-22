@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          persist-credentials: false
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
