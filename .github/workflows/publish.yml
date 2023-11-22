@@ -34,7 +34,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - name: 'Set up GH CLI secret'
         run: echo "${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}" >> token.txt
       - name: 'Log into GH CLI'
@@ -80,8 +81,6 @@ jobs:
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit package.json changes and tag
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" >> token.txt
-          echo "${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}" >> token.txt
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
@@ -92,6 +91,12 @@ jobs:
           echo $TAG
           git tag -a $TAG -m $TAG
           git push origin $TAG
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          branch: ${{ github.ref }}
+          tags: true
       - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
