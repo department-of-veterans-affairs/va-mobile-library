@@ -32,14 +32,9 @@ jobs:
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-      - name: 'Set up GH CLI secret'
-        run: echo "${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}" >> token.txt
-      - name: 'Log into GH CLI'
-        run: gh auth login --with-token < token.txt
+          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
@@ -86,17 +81,11 @@ jobs:
           git pull
           git add package.json
           git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
-          git push
+          git push -f
           TAG=${{ steps.bump-version.outputs.GIT_TAG }}
           echo $TAG
           git tag -a $TAG -m $TAG
           git push origin $TAG
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-          branch: ${{ github.ref }}
-          tags: true
       - name: Post to a Slack channel
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
