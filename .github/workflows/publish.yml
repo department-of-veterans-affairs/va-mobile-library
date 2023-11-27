@@ -84,8 +84,7 @@ jobs:
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
-          git config user.name
-          git config user.email
+          git remote set-url origin "https://va-mobile-automation-robot:${{secrets.VA_MOBILE_ROBOT_GITHUB_PAT}}@github.com/department-of-veterans-affairs/va-mobile-library"
           git pull
           git add package.json
           git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
