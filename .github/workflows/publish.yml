@@ -38,7 +38,7 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: 'Set up GH CLI secret'
-        run: echo "${{secrets.GH_ACTIONS_PAT}}" >> token.txt
+        run: echo "${{secrets.VA_MOBILE_ROBOT_GITHUB_PAT}}" >> token.txt
       - name: 'Log into GH CLI'
         run: gh auth login --with-token < token.txt
       - name: Use Node.js 18.x
