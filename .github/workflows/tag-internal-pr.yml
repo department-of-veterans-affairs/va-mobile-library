@@ -1,4 +1,4 @@
-# Creates git tag for internal PRs that have been merged and have the
+# Creates git tag for PRs that have been merged and have the
 # platform-internal label applied in order to keep our changelogs clean
 name: Tag internal PR
 
@@ -10,7 +10,7 @@ on:
 jobs:
   tag-internal:
     runs-on: ubuntu-latest
-    name: Tag interal PR
+    name: Tag internal PR
     if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'platform-internal')) }}
     steps:
       - name: Checkout repo
@@ -18,7 +18,8 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-      - run: |
+      - name: Git tag
+        run: |
           CURRENT_DATE=$(date +"%Y-%m-%d-%H%M%S")
           TAG=internal-$CURRENT_DATE
 
