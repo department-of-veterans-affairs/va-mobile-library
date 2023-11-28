@@ -1,6 +1,6 @@
 
-<!-- Preferred PR naming convention:
-'[Issue type] Copy issue title or brief summary of issue suitable for changelog',
+<!-- PR title naming convention:
+'[Issue type] Brief summary of issue suitable for changelog or copy/paste issue title',
 where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
 
 <!-- Preferred branch naming convention:
