@@ -84,14 +84,16 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Generate changelog, commit changes and tag
+      - name: Generate changelog
+        run: |
+          chmod +x ../../.github/scripts/generate-changelog.sh
+          ./../../.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+      - name: Commit changes and tag
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
-          cd ../../
-          bundle exec github_changelog_generator -u department-of-veterans-affairs -p va-mobile-library -t ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }} --exclude-tags-regex ".*-(alpha|beta).*"
           git add CHANGELOG.md
           git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
           git push
