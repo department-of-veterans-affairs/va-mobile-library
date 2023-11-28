@@ -32,17 +32,26 @@ jobs:
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
     steps:
-      - name: 'Checkout repo'
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+          working-directory: ${{ github.workspace }}
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: '.nvmrc'
-      - run: yarn install
+          cache: yarn
+      - run: |
+          yarn install
+          cd ../../
+          yarn install
       - name: Bump version and publish to NPM
         id: bump-version
         run: |
@@ -76,12 +85,17 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Commit package.json changes and tag
+      - name: Generate changelog
+        run: |
+          chmod +x ../../.github/scripts/generate-changelog.sh
+          ./../../.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+      - name: Commit changes and tag
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
+          git add CHANGELOG.md
           git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
           git push
           TAG=${{ steps.bump-version.outputs.GIT_TAG }}
@@ -131,7 +145,3 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15

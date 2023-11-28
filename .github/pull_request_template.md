@@ -1,4 +1,9 @@
-<!-- Preferred branch and PR naming convention:
+
+<!-- Preferred PR naming convention:
+'[Issue type] – Brief summary of issue suitable for changelog',
+where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
+
+<!-- Preferred branch naming convention:
 '[Issue type]/[Issue #]-[Your name]-[Summary of issue]',
 where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
 
@@ -54,5 +59,5 @@ Code reviewer validation:
 <!-- Most changes entail a version increment; section can be removed for PRs exclusively within non-ship-relevant files (e.g. unit tests, Storybook stories) -->
 If changes warrant a new version [per the versioning guidelines](https://github.com/department-of-veterans-affairs/va-mobile-library#versioning-policy) and the PR is approved and ready to merge:
 - [ ] Merge `main` into branch
-- [ ] [Publish new version](https://github.com/department-of-veterans-affairs/va-mobile-library/actions/workflows/publish.yml)
 - [ ] Merge branch to `main`
+- [ ] [Publish new version](https://github.com/department-of-veterans-affairs/va-mobile-library/actions/workflows/publish.yml)
