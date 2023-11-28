@@ -10,9 +10,13 @@ if [ "$#" -ne 2 ]; then
 fi
 
 # Assign command line arguments to variables
-packages=("components" "tokens")
 current_package="$1"
 token="$2"
+
+# Get list of packages based on directories in packages/
+packages=(../../packages/*/)
+packages=("${packages[@]%/}")
+packages=("${packages[@]##*/}")
 
 # Filter out current package
 filtered_array=()
