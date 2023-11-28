@@ -99,8 +99,9 @@ jobs:
           git push origin $TAG
       - name: Generate changelog
         run: |
-          chmod +x ../../.github/scripts/generate-changelog.sh
-          ./../../.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          cd ../../
+          chmod +x .github/scripts/generate-changelog.sh
+          ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
           git add CHANGELOG.md
           git commit -m 'Changelog for ${{ steps.bump-version.outputs.GIT_TAG }}'
           git push
