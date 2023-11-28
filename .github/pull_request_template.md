@@ -1,6 +1,6 @@
 
-<!-- Preferred PR naming convention:
-'[Issue type] – Brief summary of issue suitable for changelog',
+<!-- PR title naming convention:
+'[Issue type] Brief summary of issue suitable for changelog or copy/paste issue title',
 where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
 
 <!-- Preferred branch naming convention:
@@ -45,6 +45,7 @@ Consider highlighting:
 Code reviewer validation:
 - General
 	- [ ] PR is linked to ticket(s)
+	- [ ] If the PR is unrelated to a specific package, it should be tagged with the 'platform-internal' label (e.g. GitHub Actions work)
 	- [ ] Acceptance criteria: 
 		- All satisfied _or_
 		- Documented reason for not being performed _or_
