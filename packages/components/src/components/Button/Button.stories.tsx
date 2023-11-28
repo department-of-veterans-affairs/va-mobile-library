@@ -43,7 +43,7 @@ export const _Primary: Story = {
   args: {
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
-    a11yHint: 'A brief description of the result of performing this Button',
+    a11yHint: 'A brief description of the result of pressing this Button',
   },
 }
 
@@ -53,7 +53,7 @@ export const __Secondary: Story = {
     buttonType: ButtonVariants.Secondary,
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
-    a11yHint: 'A brief description of the result of performing this Button',
+    a11yHint: 'A brief description of the result of pressing this Button',
   },
 }
 
@@ -63,7 +63,7 @@ export const ___Base: Story = {
     buttonType: ButtonVariants.Base,
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
-    a11yHint: 'A brief description of the result of performing this Button',
+    a11yHint: 'A brief description of the result of pressing this Button',
   },
 }
 
@@ -73,7 +73,7 @@ export const ____BaseSecondary: Story = {
     buttonType: ButtonVariants.BaseSecondary,
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
-    a11yHint: 'A brief description of the result of performing this Button',
+    a11yHint: 'A brief description of the result of pressing this Button',
   },
 }
 
@@ -83,7 +83,7 @@ export const _____Destructive: Story = {
     buttonType: ButtonVariants.Destructive,
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
-    a11yHint: 'A brief description of the result of performing this Button',
+    a11yHint: 'A brief description of the result of pressing this Button',
   },
 }
 
@@ -93,6 +93,6 @@ export const ______White: Story = {
     buttonType: ButtonVariants.White,
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
-    a11yHint: 'A brief description of the result of performing this Button',
+    a11yHint: 'A brief description of the result of pressing this Button',
   },
 }
