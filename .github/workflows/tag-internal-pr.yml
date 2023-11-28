@@ -1,0 +1,29 @@
+# Creates git tag for internal PRs that have been merged and have the
+# platform-internal label applied in order to keep our changelogs clean
+name: Tag internal PR
+
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  tag-internal:
+    runs-on: ubuntu-latest
+    name: Tag interal PR
+    if: ${{ (github.event.pull_request.merged == true) && (contains(github.event.pull_request.labels.*.name, 'platform-internal')) }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }
+      - run: |
+          CURRENT_DATE=$(date +"%Y-%m-%d-%H%M%S")
+          TAG=internal-$CURRENT_DATE
+
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
+
+          git tag -a $TAG -m $TAG
+          git push origin $TAG

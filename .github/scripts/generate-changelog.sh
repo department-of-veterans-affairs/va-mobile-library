@@ -32,7 +32,7 @@ filtered_array=( "${filtered_array[@]/%/-.*}" )
 joined_string=$(IFS="|"; echo "${filtered_array[*]}")
 
 # Build full regex string
-regex="(.*-(alpha|beta).*|$joined_string)"
+regex="(internal-.*|.*-(alpha|beta).*|$joined_string)"
 echo "Regex: $regex"
 
 bundle exec github_changelog_generator -u department-of-veterans-affairs -p va-mobile-library -t $token --exclude-tags-regex $regex --no-unreleased
