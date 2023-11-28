@@ -3,7 +3,7 @@
 # in order to generate a changelog that filters out the other
 # packages in this monorepo.
 
-# Check if 'packages', 'current_package' and 'token' are provided as command line arguments
+# Check if 'current_package' and 'token' are provided as command line arguments
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <current_package> <token>"
     exit 1
