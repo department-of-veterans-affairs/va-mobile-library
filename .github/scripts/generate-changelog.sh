@@ -28,4 +28,4 @@ joined_string=$(IFS="|"; echo "${filtered_array[*]}")
 regex="(.*-(alpha|beta).*|$joined_string)"
 echo "Regex: $regex"
 
-github_changelog_generator -u department-of-veterans-affairs -p va-mobile-library -t $token --exclude-tags-regex $regex --no-unreleased
+bundle exec github_changelog_generator -u department-of-veterans-affairs -p va-mobile-library -t $token --exclude-tags-regex $regex --no-unreleased

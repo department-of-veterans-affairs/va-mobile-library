@@ -51,6 +51,10 @@ jobs:
           yarn install
           cd ../../
           yarn install
+      - name: Generate changelog
+        run: |
+          chmod +x ../../.github/scripts/generate-changelog.sh
+          ./../../.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Bump version and publish to NPM
         id: bump-version
         run: |
@@ -84,10 +88,6 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Generate changelog
-        run: |
-          chmod +x ../../.github/scripts/generate-changelog.sh
-          ./../../.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Commit changes and tag
         run: |
           git config --global user.name 'VA Automation Bot'
