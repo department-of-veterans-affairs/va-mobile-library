@@ -45,7 +45,7 @@ Consider highlighting:
 Code reviewer validation:
 - General
 	- [ ] PR is linked to ticket(s)
-	- [ ] If the PR is unrelated to a specific package, it should be tagged with the 'platform-internal' label (e.g. GitHub Actions work)
+	- [ ] PR has 'changelog' label applied if it's to be included in the changelog
 	- [ ] Acceptance criteria: 
 		- All satisfied _or_
 		- Documented reason for not being performed _or_
