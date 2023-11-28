@@ -1,5 +1,18 @@
 # Changelog
 
+## [components-v0.3.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.1) (2023-11-28)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.0...components-v0.3.1)
+
+## [components-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.0) (2023-11-28)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.2.1...components-v0.3.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Automate changelog generation for non-alpha/beta releases [\#37](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/37) ([narin](https://github.com/narin))
+- \[Bug\] Button border and background color fixes for Secondary variants [\#36](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/36) ([narin](https://github.com/narin))
+
 ## [components-v0.2.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.2.1) (2023-11-22)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.2.0...components-v0.2.1)
