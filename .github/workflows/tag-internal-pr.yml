@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }
+          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - run: |
           CURRENT_DATE=$(date +"%Y-%m-%d-%H%M%S")
           TAG=internal-$CURRENT_DATE
