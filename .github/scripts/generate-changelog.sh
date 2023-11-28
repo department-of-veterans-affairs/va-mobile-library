@@ -1,4 +1,7 @@
 #!/bin/bash
+# This script creates a regex string based on the passed package
+# in order to generate a changelog that filters out the other
+# packages in this monorepo.
 
 # Check if 'packages', 'current_package' and 'token' are provided as command line arguments
 if [ "$#" -ne 2 ]; then

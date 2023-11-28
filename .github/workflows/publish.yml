@@ -39,8 +39,8 @@ jobs:
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          ruby-version: '3.2'
+          bundler-cache: true
           working-directory: ${{ github.workspace }}
       - name: Use Node.js 18.x
         uses: actions/setup-node@v3
