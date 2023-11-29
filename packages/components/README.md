@@ -18,28 +18,26 @@ git clone git@github.com:department-of-veterans-affairs/va-mobile-library.git
 
 2. From the root directory (`va-mobile-library`) run `nvm use`. If you do not have the active Node version installed (you will see an error) run `nvm install v18.18.0` (replacing v.18.18.0 with the version listed in our root-level .nvmrc file), then run `nvm use` to activate it.
 
-3. Navigate to the components package
-
-```
-cd va-mobile-library/packages/components
-```
-
-4. Install dependencies
+3. Install dependencies
 
 ```
 yarn
 ```
 then
 ```
-yarn tokensBuild
+yarn workspace @department-of-veterans-affairs/mobile-tokens tokens:build
 ```
 
 5. Launch the app
 
 - **Physical Device**
   1. Install the Expo Go app from the [App Store](https://itunes.apple.com/app/apple-store/id982107779) or [Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
-  2. Run `yarn start`
-  3. Using your devices camera, scan the QR code that pops up in your console
+  2. Navigate to the components package
+```
+cd va-mobile-library/packages/components
+```
+  3. Run `yarn start`
+  4. Using your devices camera, scan the QR code that pops up in your console
 - **Simulator**
   1. Run `yarn start`
   2. Press `i` to run on an iOS simulator or `a` to run on an Android Emulator (you may have to set up an emulator in Android Studio in order for this to work)
