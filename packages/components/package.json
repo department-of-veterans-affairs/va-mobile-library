@@ -14,8 +14,7 @@
     "storybook:watch": "sb-rn-watcher --config-path .storybook/native",
     "storybook:web": "STORYBOOK_WEB=true start-storybook --config-dir .storybook/web -p 6006 --no-version-updates",
     "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "tokensBuild": "cd ../tokens && yarn build"
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -39,7 +38,7 @@
   },
   "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
-    "@department-of-veterans-affairs/mobile-tokens": "0.2.0",
+    "@department-of-veterans-affairs/mobile-tokens": "workspace:^",
     "@os-team/i18next-react-native-language-detector": "^1.0.28",
     "i18next": "^23.4.3",
     "react-i18next": "^13.0.3",
@@ -104,13 +103,5 @@
     "storybook-dark-mode": "^3.0.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.1.6"
-  },
-  "resolutions": {
-    "react-docgen-typescript": "2.2.2",
-    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
-  },
-  "overrides": {
-    "react-docgen-typescript": "2.2.2",
-    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
   }
 }
