@@ -45,7 +45,7 @@ Consider highlighting:
 Code reviewer validation:
 - General
 	- [ ] PR is linked to ticket(s)
-	- [ ] PR has 'changelog' label applied if it's to be included in the changelog
+	- [ ] PR has `changelog` label applied if it's to be included in the changelog
 	- [ ] Acceptance criteria: 
 		- All satisfied _or_
 		- Documented reason for not being performed _or_
