@@ -31,7 +31,7 @@ yarn
 ```
 then
 ```
-yarn tokensBuild
+yarn tokens:build
 ```
 
 5. Launch the app
@@ -58,4 +58,3 @@ yarn tokensBuild
 | `storybook:generate` | Generates `.storybook/native/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
 | `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js` |
 | `storybook:web`      | Builds and launches development server for web |
-| `tokensBuild`        | Builds the tokens package so they are available locally for use by Storybook |

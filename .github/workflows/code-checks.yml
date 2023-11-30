@@ -30,7 +30,6 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
-        working-directory: packages/components
         run: yarn install --immutable
       - name: yarn test
         working-directory: packages/components
