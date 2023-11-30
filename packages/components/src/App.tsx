@@ -31,9 +31,9 @@ export const webStorybookColorScheme = () => {
       if (colorScheme !== 'light' && colorScheme !== 'dark') {
         return null
       }
-      
+
       return colorScheme
-    }
+    },
   )
 }
 
