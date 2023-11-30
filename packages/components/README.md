@@ -25,7 +25,7 @@ yarn
 ```
 then
 ```
-yarn workspace @department-of-veterans-affairs/mobile-tokens tokens:build
+yarn tokens:build
 ```
 
 5. Launch the app
