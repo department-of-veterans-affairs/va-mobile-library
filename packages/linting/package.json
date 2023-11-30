@@ -9,9 +9,9 @@
   "keywords": [
     "design",
     "system",
-    "design",
     "library",
     "eslint",
+    "eslintConfig",
     "linter",
     "linting"
   ],
@@ -23,8 +23,11 @@
     "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
   },
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
-  "packageManager": "yarn@3.6.1",
-  "dependencies": {
+  "peerDependencies": {
+    "eslint": ">= 8",
+    "eslint-plugin-deprecate": ">= 0.8.4"
+  },
+  "devDependencies": {
     "eslint": "^8.54.0",
     "eslint-plugin-deprecate": "^0.8.4"
   }
