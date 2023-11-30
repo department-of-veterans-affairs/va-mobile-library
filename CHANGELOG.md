@@ -1,5 +1,13 @@
 # Changelog
 
+## [components-v0.3.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.3) (2023-11-30)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.2.1...components-v0.3.3)
+
+**Merged pull requests:**
+
+- \[BUG\] Configure Yarn Workspace Correctly [\#42](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/42) ([narin](https://github.com/narin))
+
 ## [tokens-v0.2.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.2.1) (2023-11-28)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.2...tokens-v0.2.1)
