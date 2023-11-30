@@ -26,9 +26,6 @@ on:
 jobs:
   publish-package:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: packages/${{ inputs.package }}
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
     steps:
@@ -46,14 +43,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           registry-url: https://registry.npmjs.org/
-          node-version-file: '.nvmrc'
+          node-version-file: .nvmrc
           cache: yarn
-      - run: |
-          yarn install
-          cd ../../
-          yarn install
+          cache-dependency-path: yarn.lock
+      - run: yarn install
       - name: Bump version and publish to NPM
         id: bump-version
+        working-directory: packages/${{ inputs.package }}
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
           echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
@@ -86,6 +82,7 @@ jobs:
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit changes and tag
+        working-directory: packages/${{ inputs.package }}
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
@@ -99,7 +96,6 @@ jobs:
           git push origin $TAG
       - name: Generate changelog
         run: |
-          cd ../../
           chmod +x .github/scripts/generate-changelog.sh
           ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
           git add CHANGELOG.md
