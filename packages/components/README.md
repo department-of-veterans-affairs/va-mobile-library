@@ -28,16 +28,17 @@ then
 yarn tokens:build
 ```
 
-5. Launch the app
+4. Launch the app
+
+    1. Navigate to the components package:
+```
+cd packages/components
+```
 
 - **Physical Device**
   1. Install the Expo Go app from the [App Store](https://itunes.apple.com/app/apple-store/id982107779) or [Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
-  2. Navigate to the components package
-```
-cd va-mobile-library/packages/components
-```
-  3. Run `yarn start`
-  4. Using your devices camera, scan the QR code that pops up in your console
+  2. Run `yarn start`
+  3. Using your devices camera, scan the QR code that pops up in your console
 - **Simulator**
   1. Run `yarn start`
   2. Press `i` to run on an iOS simulator or `a` to run on an Android Emulator (you may have to set up an emulator in Android Studio in order for this to work)
@@ -56,4 +57,3 @@ cd va-mobile-library/packages/components
 | `storybook:generate` | Generates `.storybook/native/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
 | `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js` |
 | `storybook:web`      | Builds and launches development server for web |
-| `tokensBuild`        | Builds the tokens package so they are available locally for use by Storybook |
