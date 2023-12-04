@@ -50,6 +50,7 @@ jobs:
         working-directory: va-mobile-app/VAMobile
         run: yarn test --testTimeout=30000
 
-      - name: Retry failed
+      - name: Retry failed jobs
         if: failure()
+        working-directory: va-mobile-library
         run: GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh run rerun ${{ github.run_id }} --failed
