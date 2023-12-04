@@ -43,10 +43,13 @@ jobs:
         run: yarn add file:../../va-mobile-library/packages/components
 
       - name: Compile TypeScript (va-mobile-app)
-        id: tsc
+        uses: nick-fields/retry@v2
         working-directory: va-mobile-app/VAMobile
         run: yarn tsc:compile
-        continue-on-error: true
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: npm run some-typically-slow-script
 
       - name: Run Unit Tests (va-mobile-app)
         id: unit-tests
@@ -54,14 +57,8 @@ jobs:
         run: yarn test --testTimeout=30000
         continue-on-error: true
 
-      - name: Retry failed TypeScript compile
-        if: steps.tsc.outcome == 'failure'
-        working-directory: va-mobile-app/VAMobile
-        run: yarn tsc:compile
-        continue-on-error: true
-
-      - name: Retry failed unit tests
-        if: steps.unit-tests.outcome == 'failure'
-        working-directory: va-mobile-app/VAMobile
-        run: yarn test --testTimeout=30000
-        continue-on-error: true
+      # - name: Retry failed unit tests
+      #   if: steps.unit-tests.outcome == 'failure'
+      #   working-directory: va-mobile-app/VAMobile
+      #   run: yarn test --testTimeout=30000
+      #   continue-on-error: true
