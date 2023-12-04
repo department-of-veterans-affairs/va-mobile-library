@@ -5,7 +5,7 @@
   "main": "dist/js/tokens.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "node ./build.js",
+    "tokens:build": "node ./build.js",
     "prepack": "node ./build.js",
     "publish-package": "npm publish --access public --tolerate-republish"
   },
