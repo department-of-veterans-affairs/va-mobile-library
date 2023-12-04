@@ -48,7 +48,7 @@ jobs:
           timeout_minutes: 10
           max_attempts: 3
           command: |
-            cd vamobile-app/VAMobile
+            cd va-mobile-app/VAMobile
             yarn tsc:compile
 
       - name: Run Unit Tests (va-mobile-app)
