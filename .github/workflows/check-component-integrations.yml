@@ -4,14 +4,14 @@
 
 name: 'Check Component Integrations'
 
-on: 
+on:
   workflow_dispatch:
   push:
-    paths: 'packages/components/**'
+    paths: ['packages/components/**']
     branches:
       - main
 
-jobs:  
+jobs:
   check-integrations:
     runs-on: ubuntu-latest
 
@@ -20,7 +20,7 @@ jobs:
         id: clone-lib
         uses: actions/checkout@v4
         with:
-           path: va-mobile-library
+          path: va-mobile-library
 
       - name: Checkout (va-mobile-app)
         id: clone-app
@@ -57,3 +57,7 @@ jobs:
       - name: Run Unit Tests (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
         run: yarn test --testTimeout=30000
+
+      - name: Re-run if failed
+        if: failure()
+        run: gh run rerun ${{ github.run_id }} --failed
