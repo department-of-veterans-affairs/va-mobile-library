@@ -49,7 +49,7 @@ jobs:
         with:
           timeout_minutes: 10
           max_attempts: 3
-          command: npm run some-typically-slow-script
+          command: yarn tsc:compile
 
       - name: Run Unit Tests (va-mobile-app)
         id: unit-tests
