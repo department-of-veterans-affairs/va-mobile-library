@@ -54,7 +54,7 @@ export const Button: React.FC<ButtonProps> = ({
     textColor: string,
     textColorPressed: string,
     borderWidth: number = 0,
-    borderColor: string = 'none',
+    borderColor: string = 3,
     borderColorPressed: string = 'none'
 
   switch (buttonType) {
