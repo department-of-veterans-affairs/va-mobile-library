@@ -43,7 +43,6 @@ jobs:
         run: yarn add file:../../va-mobile-library/packages/components
 
       - name: Compile TypeScript (va-mobile-app)
-        id: unit-tests
         working-directory: va-mobile-app/VAMobile
         run: yarn tsc:compile
 
