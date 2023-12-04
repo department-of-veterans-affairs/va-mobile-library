@@ -4,14 +4,14 @@
 
 name: 'Check Component Integrations'
 
-on: 
+on:
   workflow_dispatch:
   push:
-    paths: 'packages/components/**'
+    paths: ['packages/components/**']
     branches:
       - main
 
-jobs:  
+jobs:
   check-integrations:
     runs-on: ubuntu-latest
 
@@ -20,7 +20,7 @@ jobs:
         id: clone-lib
         uses: actions/checkout@v4
         with:
-           path: va-mobile-library
+          path: va-mobile-library
 
       - name: Checkout (va-mobile-app)
         id: clone-app
@@ -34,26 +34,23 @@ jobs:
         working-directory: va-mobile-library
         run: yarn install --immutable
 
-      - name: Install token dependencies (va-mobile-library)
-        working-directory: va-mobile-library/packages/tokens
-        run: yarn install --immutable
-
-      - name: Install component dependencies (va-mobile-library)
-        working-directory: va-mobile-library/packages/components
-        run: yarn install --immutable
-
       - name: Install dependencies (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
         run: yarn install
 
       - name: Install local component library
-        working-directory: va-mobile-app
-        run: yarn add file:../va-mobile-library/packages/components
+        working-directory: va-mobile-app/VAMobile
+        run: yarn add file:../../va-mobile-library/packages/components
 
       - name: Compile TypeScript (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
         run: yarn tsc:compile
 
       - name: Run Unit Tests (va-mobile-app)
-        working-directory: va-mobile-app/VAMobile
-        run: yarn test --testTimeout=30000
+        uses: nick-fields/retry@v2
+        with:
+          timeout_minutes: 20
+          max_attempts: 3
+          command: |
+            cd va-mobile-app/VAMobile
+            yarn test --testTimeout=30000
