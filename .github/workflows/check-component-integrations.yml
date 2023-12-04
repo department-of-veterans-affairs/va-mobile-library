@@ -43,22 +43,15 @@ jobs:
         run: yarn add file:../../va-mobile-library/packages/components
 
       - name: Compile TypeScript (va-mobile-app)
+        id: unit-tests
+        working-directory: va-mobile-app/VAMobile
+        run: yarn tsc:compile
+
+      - name: Run Unit Tests (va-mobile-app)
         uses: nick-fields/retry@v2
         with:
-          timeout_minutes: 10
+          timeout_minutes: 20
           max_attempts: 3
           command: |
             cd va-mobile-app/VAMobile
-            yarn tsc:compile
-
-      - name: Run Unit Tests (va-mobile-app)
-        id: unit-tests
-        working-directory: va-mobile-app/VAMobile
-        run: yarn test --testTimeout=30000
-        continue-on-error: true
-
-      # - name: Retry failed unit tests
-      #   if: steps.unit-tests.outcome == 'failure'
-      #   working-directory: va-mobile-app/VAMobile
-      #   run: yarn test --testTimeout=30000
-      #   continue-on-error: true
+            yarn test --testTimeout=30000
