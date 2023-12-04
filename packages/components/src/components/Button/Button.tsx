@@ -57,8 +57,6 @@ export const Button: React.FC<ButtonProps> = ({
     borderColor: string = 'none',
     borderColorPressed: string = 'none'
 
-  console.log(onPress)
-
   switch (buttonType) {
     case ButtonVariants.Base:
       bgColor = DesignTokens.colorGrayMedium
@@ -177,7 +175,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <Pressable
       style={getBackgroundStyle}
-      // onPress={onPress}
+      onPress={onPress}
       accessibilityHint={a11yHint}
       role="button"
       accessible={true}
