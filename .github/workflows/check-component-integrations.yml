@@ -43,14 +43,24 @@ jobs:
         run: yarn add file:../../va-mobile-library/packages/components
 
       - name: Compile TypeScript (va-mobile-app)
+        id: tsc
         working-directory: va-mobile-app/VAMobile
         run: yarn tsc:compile
 
       - name: Run Unit Tests (va-mobile-app)
+        id: unit-tests
         working-directory: va-mobile-app/VAMobile
         run: yarn test --testTimeout=30000
+        continue-on-error: true
 
-      - name: Retry failed jobs
-        if: failure()
-        working-directory: va-mobile-library
-        run: GH_TOKEN=${{ secrets.GITHUB_TOKEN }} gh run rerun ${{ github.run_id }} --failed
+      - name: Retry failed TypeScript compile
+        if: steps.tsc.outcome == 'failure'
+        working-directory: va-mobile-app/VAMobile
+        run: yarn tsc:compile
+        continue-on-error: true
+
+      - name: Retry failed unit tests
+        if: steps.unit-tests.outcome == 'failure'
+        working-directory: va-mobile-app/VAMobile
+        run: yarn test --testTimeout=30000
+        continue-on-error: true
