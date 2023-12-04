@@ -34,14 +34,6 @@ jobs:
         working-directory: va-mobile-library
         run: yarn install --immutable
 
-      - name: Install token dependencies (va-mobile-library)
-        working-directory: va-mobile-library/packages/tokens
-        run: yarn install --immutable
-
-      - name: Install component dependencies (va-mobile-library)
-        working-directory: va-mobile-library/packages/components
-        run: yarn install --immutable
-
       - name: Install dependencies (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
         run: yarn install
