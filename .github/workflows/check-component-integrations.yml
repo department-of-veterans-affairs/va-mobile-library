@@ -44,12 +44,12 @@ jobs:
 
       - name: Compile TypeScript (va-mobile-app)
         uses: nick-fields/retry@v2
-        working-directory: va-mobile-app/VAMobile
-        run: yarn tsc:compile
         with:
           timeout_minutes: 10
           max_attempts: 3
-          command: yarn tsc:compile
+          command: |
+            cd vamobile-app/VAMobile
+            yarn tsc:compile
 
       - name: Run Unit Tests (va-mobile-app)
         id: unit-tests
