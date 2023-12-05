@@ -12,7 +12,6 @@ on:
         options:
           - components
           - tokens
-          - linting
       version_bump:
         description: Version bump
         required: true
