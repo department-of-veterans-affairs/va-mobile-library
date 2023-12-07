@@ -2691,7 +2691,6 @@ __metadata:
     eslint-plugin-deprecate: ^0.8.4
   peerDependencies:
     eslint: ">= 8"
-    eslint-plugin-deprecate: ">= 0.8.4"
   languageName: unknown
   linkType: soft
 
