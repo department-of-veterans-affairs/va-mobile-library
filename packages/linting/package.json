@@ -1,0 +1,35 @@
+{
+  "name": "@department-of-veterans-affairs/eslint-config-mobile",
+  "version": "0.2.0-alpha.1",
+  "description": "VA Design System Mobile ESLint Configuration",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
+  },
+  "keywords": [
+    "design",
+    "system",
+    "library",
+    "eslint",
+    "eslintConfig",
+    "linter",
+    "linting"
+  ],
+  "maintainers": [
+    "@department-of-veterans-affairs/flagship-mobile-platform"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
+  },
+  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
+  "dependencies": {
+    "eslint-plugin-deprecate": "^0.8.4"
+  },
+  "peerDependencies": {
+    "eslint": ">= 8"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0"
+  }
+}
