@@ -88,14 +88,17 @@ describe('SegmentedControl', () => {
 
   it('should render correct styles in light mode', () => {
     const activeSegment = component.getAllByRole('tab')[0]
-    const activeSegmentLabel = component.getByText(labels[0])
+    const activeSegmentText = component.getByText(labels[0])
     const activeBgColor = activeSegment.props.style[0].backgroundColor
-    const textColor = activeSegmentLabel.props.style.color
+    const activeTextColor = activeSegmentText.props.style.color
     const inactiveSegment = component.getAllByRole('tab')[1]
+    const inactiveSegmentText = component.getByText(labels[1])
+    const inactiveTextColor = inactiveSegmentText.props.style.color
     const inactiveBgColor = inactiveSegment.props.style[0].backgroundColor
 
     expect(activeBgColor).toEqual(DesignTokens.colorWhite)
-    expect(textColor).toEqual(DesignTokens.colorGrayDark)
+    expect(activeTextColor).toEqual(DesignTokens.colorGrayDark)
+    expect(inactiveTextColor).toEqual(DesignTokens.colorGrayDark)
     expect(inactiveBgColor).toEqual(DesignTokens.colorGrayLighter)
   })
 
@@ -103,14 +106,17 @@ describe('SegmentedControl', () => {
     mockedColorScheme.mockImplementationOnce(() => 'dark')
     rerender()
     const activeSegment = component.getAllByRole('tab')[0]
-    const activeSegmentLabel = component.getByText(labels[0])
+    const activeSegmentText = component.getByText(labels[0])
     const activeBgColor = activeSegment.props.style[0].backgroundColor
-    const textColor = activeSegmentLabel.props.style.color
+    const activeTextColor = activeSegmentText.props.style.color
     const inactiveSegment = component.getAllByRole('tab')[1]
+    const inactiveSegmentText = component.getByText(labels[1])
+    const inactiveTextColor = inactiveSegmentText.props.style.color
     const inactiveBgColor = inactiveSegment.props.style[0].backgroundColor
 
     expect(activeBgColor).toEqual(DesignTokens.colorGrayMedium)
-    expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+    expect(activeTextColor).toEqual(DesignTokens.colorGrayLightest)
+    expect(inactiveTextColor).toEqual(DesignTokens.colorGrayLightest)
     expect(inactiveBgColor).toEqual(DesignTokens.colorGrayDark)
   })
 })
