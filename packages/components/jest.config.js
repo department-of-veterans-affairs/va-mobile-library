@@ -14,8 +14,5 @@ module.exports = {
     '../../node_modules/react-native-gesture-handler/jestSetup.js',
     './jest/testSetup.ts',
   ],
-  transformIgnorePatterns: [
-    '../../node_modules/(?!react-native|any-react-native-esm-package)',
-    'jest-runner',
-  ],
+  transformIgnorePatterns: ['jest-runner', '/node_modules/(?!native-base)/'],
 }
