@@ -8,6 +8,7 @@ import {
 import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import { ReactTestInstance } from 'react-test-renderer'
 
 import { SegmentedControl } from './SegmentedControl'
@@ -17,13 +18,23 @@ describe('SegmentedControl', () => {
   let testInstance: ReactTestInstance
   let rerender: () => void
 
+  const mockedColorScheme = jest.fn()
+
+  jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
+    return {
+      default: mockedColorScheme,
+    }
+  })
+
   const labels = ['segment 0', 'segment 1']
+
   const onChangeSpy = jest.fn((selectTab) => {
     selectedTab = selectTab
   })
   let selectedTab = 0
 
   const initializeTestInstance = (): void => {
+    mockedColorScheme.mockImplementationOnce(() => 'light')
     component = render(
       <SegmentedControl
         labels={labels}
@@ -73,5 +84,33 @@ describe('SegmentedControl', () => {
       rerender()
       expect(testInstance.props.selected).toEqual(0)
     })
+  })
+
+  it('should render correct styles in light mode', () => {
+    const activeSegment = component.getAllByRole('tab')[0]
+    const activeSegmentLabel = component.getByText(labels[0])
+    const activeBgColor = activeSegment.props.style[0].backgroundColor
+    const textColor = activeSegmentLabel.props.style.color
+    const inactiveSegment = component.getAllByRole('tab')[1]
+    const inactiveBgColor = inactiveSegment.props.style[0].backgroundColor
+
+    expect(activeBgColor).toEqual(DesignTokens.colorWhite)
+    expect(textColor).toEqual(DesignTokens.colorGrayDark)
+    expect(inactiveBgColor).toEqual(DesignTokens.colorGrayLighter)
+  })
+
+  it('should render correct styles in dark mode', () => {
+    mockedColorScheme.mockImplementationOnce(() => 'dark')
+    rerender()
+    const activeSegment = component.getAllByRole('tab')[0]
+    const activeSegmentLabel = component.getByText(labels[0])
+    const activeBgColor = activeSegment.props.style[0].backgroundColor
+    const textColor = activeSegmentLabel.props.style.color
+    const inactiveSegment = component.getAllByRole('tab')[1]
+    const inactiveBgColor = inactiveSegment.props.style[0].backgroundColor
+
+    expect(activeBgColor).toEqual(DesignTokens.colorGrayMedium)
+    expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+    expect(inactiveBgColor).toEqual(DesignTokens.colorGrayDark)
   })
 })
