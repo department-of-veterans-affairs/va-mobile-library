@@ -87,11 +87,12 @@ describe('SegmentedControl', () => {
   })
 
   it('should render correct styles in light mode', () => {
-    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style
+    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style[0]
     const activeSegmentTextStyle = component.getByText(labels[0]).props.style
-    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style
+    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style[0]
     const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
 
+    console.log(activeSegmentStyle)
     expect(activeSegmentStyle.elevation).toEqual(4)
     expect(activeSegmentStyle.backgroundColor).toEqual(DesignTokens.colorWhite)
     expect(activeSegmentTextStyle.color).toEqual(DesignTokens.colorGrayDark)
@@ -106,9 +107,9 @@ describe('SegmentedControl', () => {
   it('should render correct styles in dark mode', () => {
     mockedColorScheme.mockImplementationOnce(() => 'dark')
     rerender()
-    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style
+    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style[0]
     const activeSegmentTextStyle = component.getByText(labels[0]).props.style
-    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style
+    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style[0]
     const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
 
     expect(activeSegmentStyle.elevation).toEqual(4)
