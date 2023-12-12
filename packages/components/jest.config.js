@@ -1,5 +1,5 @@
 module.exports = {
-  preset: 'react-native',
+  preset: 'jest-expo',
   testEnvironment: 'node',
   transform: {
     '^.+\\.(ts|tsx)$': [
@@ -14,5 +14,7 @@ module.exports = {
     '../../node_modules/react-native-gesture-handler/jestSetup.js',
     './jest/testSetup.ts',
   ],
-  transformIgnorePatterns: ['jest-runner', '/node_modules/(?!native-base)/'],
+  transformIgnorePatterns: [
+    '../../node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)',
+  ],
 }
