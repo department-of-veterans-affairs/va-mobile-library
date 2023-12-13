@@ -92,7 +92,6 @@ describe('SegmentedControl', () => {
     const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style[0]
     const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
 
-    console.log(activeSegmentStyle)
     expect(activeSegmentStyle.elevation).toEqual(4)
     expect(activeSegmentStyle.backgroundColor).toEqual(DesignTokens.colorWhite)
     expect(activeSegmentTextStyle.color).toEqual(DesignTokens.colorGrayDark)
