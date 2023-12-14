@@ -39,6 +39,6 @@ jobs:
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
-          git add figma/
+          git add -f figma/
           git commit -m 'Build latest figma tokens'
           git push

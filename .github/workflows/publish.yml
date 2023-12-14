@@ -91,7 +91,7 @@ jobs:
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
-          git add figma/
+          git add -f figma/
           git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
           git push
           TAG=${{ steps.bump-version.outputs.GIT_TAG }}
