@@ -28,4 +28,9 @@ StyleDictionary.registerFormat({
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
 
-StyleDictionaryExtended.buildAllPlatforms()
+if (process.env.CI) {
+  // When run via GitHub Action, only build figma
+  StyleDictionaryExtended.buildPlatform('figma')
+} else {
+  StyleDictionaryExtended.buildAllPlatforms()
+}
