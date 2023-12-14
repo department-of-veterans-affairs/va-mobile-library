@@ -47,9 +47,6 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - run: yarn install
-      - name: Build tokens
-        run: |
-          yarn tokens:build
       - name: Bump version and publish to NPM
         id: bump-version
         working-directory: packages/${{ inputs.package }}
@@ -91,7 +88,6 @@ jobs:
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
-          git add -f figma/
           git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
           git push
           TAG=${{ steps.bump-version.outputs.GIT_TAG }}
