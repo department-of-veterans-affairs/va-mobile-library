@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -88,6 +88,7 @@
     "expo-status-bar": "~1.6.0",
     "gh-pages": "^5.0.0",
     "jest": "^29.6.1",
+    "jest-expo": "~49.0.0",
     "jest-styled-components": "^7.1.1",
     "metro-react-native-babel-preset": "^0.77.0",
     "react": "^18.2.0",
