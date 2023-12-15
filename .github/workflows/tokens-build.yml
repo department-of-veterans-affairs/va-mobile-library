@@ -12,6 +12,7 @@ on:
 jobs:
   tokens-build:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -38,7 +39,6 @@ jobs:
           git add -f figma/
       - name: Check figma diff
         id: diff
-        continue-on-error: true
         working-directory: packages/tokens
         run: | 
           git commit --dry-run
@@ -52,3 +52,13 @@ jobs:
         run: |
           git commit -m 'Build latest figma tokens'
           git push
+
+  tokens-build-success:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tokens Build Succeeded
+        if: jobs.tokens-build.steps.diff.conclusion == 'success'
+        echo Great success!
+      - name: Tokens Build Failure
+        if: failure() || jobs.tokens-build.steps.diff.conclusion == 'failure'
+        run: exit 1
