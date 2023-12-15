@@ -77,5 +77,5 @@ jobs:
         run: echo Great success!
       - name: Tokens Build Failure
         # if: needs.tokens-build.outputs.figma-built
-        if: ${{ vars.BUILD_SUCCESS == 'false' }}
+        if: ${{ BUILD_SUCCESS == 'false' }}
         run: exit 1
