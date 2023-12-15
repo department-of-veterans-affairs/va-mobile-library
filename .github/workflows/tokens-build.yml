@@ -9,11 +9,17 @@ on:
     branches:
       - main
 
+env:
+  BUILD_SUCCESS: true
+
 jobs:
   tokens-build:
     id: tokens-build
     runs-on: ubuntu-latest
     continue-on-error: true
+    # outputs:
+      # figma-noDiff: steps.noDiff.outputs.test
+      # figma-built: steps.built.output.test
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -43,25 +49,33 @@ jobs:
         working-directory: packages/tokens
         run: | 
           git commit --dry-run
-      - name: No changes to figma tokens
-        if: failure() || steps.diff.conclusion == 'failure'
-        run: |
-          echo No changes to figma tokens
+      # - name: No changes to figma tokens
+        # id: noDiff
+        # if: failure() || steps.diff.conclusion == 'failure'
+        # run: |
+        #   echo No changes to figma tokens
+        # run: |
+        #   echo 'test=noDiff' >> 'No changes to figma tokens'
       - name: Commit latest figma tokens
+        id: built
         if: success() && steps.diff.conclusion == 'success'
         working-directory: packages/tokens
         run: |
           git commit -m 'Build latest figma tokens'
           git push
+          echo 'test=built' >> 'Built latest figma tokens'
+      - name: Set success/fail
+        if: failure() && steps.built.conclusion == 'failure'
+        run: echo "BUILD_SUCCESS=false" >> "$GITHUB_ENV"
 
   tokens-build-success:
     needs: tokens-build
     runs-on: ubuntu-latest
     steps:
       - name: Tokens Build Succeeded
-        if: tokens-build.steps.diff.conclusion == 'success'
-        run: |
-          echo Great success!
+        if: $BUILD_SUCCESS == 'true'
+        run: echo Great success!
       - name: Tokens Build Failure
-        if: failure() || jobs.tokens-build.steps.diff.conclusion == 'failure'
+        # if: needs.tokens-build.outputs.figma-built
+        if: $BUILD_SUCCESS == 'false'
         run: exit 1
