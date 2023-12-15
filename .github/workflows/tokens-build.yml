@@ -73,9 +73,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Tokens Build Succeeded
-        if: $BUILD_SUCCESS == 'true'
+        if: ${{ vars.BUILD_SUCCESS == 'true' }}
         run: echo Great success!
       - name: Tokens Build Failure
         # if: needs.tokens-build.outputs.figma-built
-        if: $BUILD_SUCCESS == 'false'
+        if: ${{ vars.BUILD_SUCCESS == 'false' }}
         run: exit 1
