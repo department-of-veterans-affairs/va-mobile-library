@@ -77,7 +77,7 @@ jobs:
     steps:
       - name: Test output
         run: |
-          echo ${{ $var.BUILD_SUCCESS }}
+          echo ${{ var.BUILD_SUCCESS }}
           echo ${{ vars.BUILD_SUCCESS == 'true' }}
           ${{ vars.BUILD_SUCCESS == 'false' }}
       - name: Tokens Build Succeeded
