@@ -54,10 +54,11 @@ jobs:
           git push
 
   tokens-build-success:
+    needs: tokens-build
     runs-on: ubuntu-latest
     steps:
       - name: Tokens Build Succeeded
-        if: jobs.tokens-build.steps.diff.conclusion == 'success'
+        if: tokens-build.steps.diff.conclusion == 'success'
         run: |
           echo Great success!
       - name: Tokens Build Failure
