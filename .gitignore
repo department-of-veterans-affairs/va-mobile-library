@@ -19,6 +19,7 @@ coverage
 packages/components/.yarn/install-state.gz
 packages/components/.yarn/cache
 packages/tokens/dist/
+packages/tokens/figma/
 
 !.yarn/patches
 !.yarn/releases
