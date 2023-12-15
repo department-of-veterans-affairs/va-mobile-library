@@ -79,6 +79,7 @@ describe('Button', () => {
 
     describe('Dark mode', () => {
       beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
+
       it('should render Primary variant in dark mode', async () => {
         component = render(<Button label={label} onPress={onPressSpy} />)
 
