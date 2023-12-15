@@ -78,13 +78,13 @@ jobs:
       - name: Test output
         run: |
           echo $BUILD_SUCCESS
-          echo ${{ BUILD_SUCCESS }}
-          echo ${{ BUILD_SUCCESS == 'true' }}
-          echo ${{ BUILD_SUCCESS == 'false' }}
+          echo ${{ $BUILD_SUCCESS }}
+          echo ${{ $BUILD_SUCCESS == 'true' }}
+          echo ${{ $BUILD_SUCCESS == 'false' }}
       - name: Tokens Build Succeeded
-        if: ${{ vars.BUILD_SUCCESS == 'true' }}
+        if: ${{ $BUILD_SUCCESS == 'true' }}
         run: echo Great success!
       - name: Tokens Build Failure
         # if: needs.tokens-build.outputs.figma-built
-        if: ${{ vars.BUILD_SUCCESS == 'false' }}
+        if: ${{ $BUILD_SUCCESS == 'false' }}
         run: exit 1
