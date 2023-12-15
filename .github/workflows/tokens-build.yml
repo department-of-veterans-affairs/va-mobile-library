@@ -43,7 +43,7 @@ jobs:
         run: | 
           git commit --dry-run
       - name: No changes to figma tokens
-        if: success() || failure() || steps.diff.conclusion == 'failure'
+        if: failure() || steps.diff.conclusion == 'failure'
         run: |
           echo No changes to figma tokens
       - name: Commit latest figma tokens
