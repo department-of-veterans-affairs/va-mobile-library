@@ -78,9 +78,9 @@ jobs:
       - name: Test output
         run: |
           echo $BUILD_SUCCESS
-          echo ${{ $BUILD_SUCCESS }}
-          echo ${{ $BUILD_SUCCESS == 'true' }}
-          echo ${{ $BUILD_SUCCESS == 'false' }}
+          echo ${{ vars.BUILD_SUCCESS }}
+          echo ${{ vars.BUILD_SUCCESS == 'true' }}
+          echo ${{ vars.BUILD_SUCCESS == 'false' }}
       - name: Tokens Build Succeeded
         if: ${{ $BUILD_SUCCESS == 'true' }}
         run: echo Great success!
