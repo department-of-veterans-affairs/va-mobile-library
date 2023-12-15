@@ -30,6 +30,7 @@ jobs:
         run: |
           yarn tokens:build
       - name: Prepare commit
+        working-directory: packages/tokens
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
