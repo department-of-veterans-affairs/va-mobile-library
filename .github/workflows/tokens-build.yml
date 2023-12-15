@@ -58,7 +58,8 @@ jobs:
     steps:
       - name: Tokens Build Succeeded
         if: jobs.tokens-build.steps.diff.conclusion == 'success'
-        echo Great success!
+        run: |
+          echo Great success!
       - name: Tokens Build Failure
         if: failure() || jobs.tokens-build.steps.diff.conclusion == 'failure'
         run: exit 1
