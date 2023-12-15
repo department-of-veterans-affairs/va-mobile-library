@@ -29,12 +29,24 @@ jobs:
       - name: Build tokens
         run: |
           yarn tokens:build
-      - name: Commit latest figma tokens
-        working-directory: packages/tokens
+      - name: Prepare commit
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add -f figma/
+      - name: Check figma diff
+        id: diff
+        working-directory: packages/tokens
+        run: | 
+          git commit --dry-run
+      - name: No changes to figma tokens
+        if: steps.diff.conclusion == 'failure'
+        run: |
+          echo No changes to figma tokens
+      - name: Commit latest figma tokens
+        if: steps.diff.conclusion == 'success'
+        working-directory: packages/tokens
+        run: |
           git commit -m 'Build latest figma tokens'
           git push
