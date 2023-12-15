@@ -8,6 +8,7 @@ import {
 import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import { ReactTestInstance } from 'react-test-renderer'
 
 import { SegmentedControl } from './SegmentedControl'
@@ -17,13 +18,23 @@ describe('SegmentedControl', () => {
   let testInstance: ReactTestInstance
   let rerender: () => void
 
+  const mockedColorScheme = jest.fn()
+
+  jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
+    return {
+      default: mockedColorScheme,
+    }
+  })
+
   const labels = ['segment 0', 'segment 1']
+
   const onChangeSpy = jest.fn((selectTab) => {
     selectedTab = selectTab
   })
   let selectedTab = 0
 
   const initializeTestInstance = (): void => {
+    mockedColorScheme.mockImplementationOnce(() => 'light')
     component = render(
       <SegmentedControl
         labels={labels}
@@ -73,5 +84,45 @@ describe('SegmentedControl', () => {
       rerender()
       expect(testInstance.props.selected).toEqual(0)
     })
+  })
+
+  it('should render correct styles in light mode', () => {
+    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style[0]
+    const activeSegmentTextStyle = component.getByText(labels[0]).props.style
+    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style[0]
+    const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
+
+    expect(activeSegmentStyle.elevation).toEqual(4)
+    expect(activeSegmentStyle.backgroundColor).toEqual(DesignTokens.colorWhite)
+    expect(activeSegmentTextStyle.color).toEqual(DesignTokens.colorGrayDark)
+
+    expect(inactiveSegmentStyle.backgroundColor).toEqual(
+      DesignTokens.colorGrayLighter,
+    )
+    expect(inactiveSegmentStyle.elevation).toEqual(0)
+    expect(inactiveSegmentTextStyle.color).toEqual(DesignTokens.colorGrayDark)
+  })
+
+  it('should render correct styles in dark mode', () => {
+    mockedColorScheme.mockImplementationOnce(() => 'dark')
+    rerender()
+    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style[0]
+    const activeSegmentTextStyle = component.getByText(labels[0]).props.style
+    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style[0]
+    const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
+
+    expect(activeSegmentStyle.elevation).toEqual(4)
+    expect(activeSegmentStyle.backgroundColor).toEqual(
+      DesignTokens.colorGrayMedium,
+    )
+    expect(activeSegmentTextStyle.color).toEqual(DesignTokens.colorGrayLightest)
+
+    expect(inactiveSegmentStyle.backgroundColor).toEqual(
+      DesignTokens.colorGrayDark,
+    )
+    expect(inactiveSegmentStyle.elevation).toEqual(0)
+    expect(inactiveSegmentTextStyle.color).toEqual(
+      DesignTokens.colorGrayLightest,
+    )
   })
 })

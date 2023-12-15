@@ -1,5 +1,5 @@
 module.exports = {
-  preset: 'react-native',
+  preset: 'jest-expo',
   testEnvironment: 'node',
   transform: {
     '^.+\\.(ts|tsx)$': [
