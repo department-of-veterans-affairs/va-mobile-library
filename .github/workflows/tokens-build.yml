@@ -12,7 +12,6 @@ on:
 jobs:
   tokens-build:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -39,6 +38,7 @@ jobs:
           git add -f figma/
       - name: Check figma diff
         id: diff
+        continue-on-error: true
         working-directory: packages/tokens
         run: | 
           git commit --dry-run
