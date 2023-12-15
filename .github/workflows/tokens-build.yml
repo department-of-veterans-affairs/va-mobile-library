@@ -48,6 +48,9 @@ jobs:
         id: diff
         working-directory: packages/tokens
         run: | 
+          echo $var.BUILD_SUCCESS
+          echo $BUILD_SUCCESS
+          echo '$BUILD_SUCCESS'
           git commit --dry-run
       # - name: No changes to figma tokens
         # id: noDiff
@@ -61,9 +64,6 @@ jobs:
         if: success() && steps.diff.conclusion == 'success'
         working-directory: packages/tokens
         run: |
-          echo $var.BUILD_SUCCESS
-          echo $BUILD_SUCCESS
-          echo '$BUILD_SUCCESS'
           git commit -m 'Build latest figma tokens'
           git push
           echo 'test=built' >> 'Built latest figma tokens'
@@ -76,7 +76,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test output
-        run: echo $var.BUILD_SUCCESS
+        run: |
+          echo ${{ $var.BUILD_SUCCESS }}
+          echo ${{ vars.BUILD_SUCCESS == 'true' }}
+          ${{ vars.BUILD_SUCCESS == 'false' }}
       - name: Tokens Build Succeeded
         if: ${{ vars.BUILD_SUCCESS == 'true' }}
         run: echo Great success!
