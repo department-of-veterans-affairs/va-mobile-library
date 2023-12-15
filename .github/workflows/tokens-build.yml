@@ -12,7 +12,7 @@ on:
 jobs:
   tokens-build:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ jobs.tokens-build.steps.diff }}
+    continue-on-error: ${{ steps.diff }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
