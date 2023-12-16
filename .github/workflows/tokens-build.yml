@@ -39,10 +39,7 @@ jobs:
           git add -f figma/
       - name: Check for `figma` diff
         working-directory: packages/tokens
-        run: | 
-          git diff HEAD --name-only figma | wc -l
-          git status figma -uall --porcelain 2>/dev/null| egrep "^(A| A|M| M|R| R|D| D)" | wc -l
-          echo "FIGMA_FILES_CHANGED=$(git diff HEAD --name-only figma | wc -l)" >> $GITHUB_ENV
+        run: echo "FIGMA_FILES_CHANGED=$(git diff HEAD --name-only figma | wc -l)" >> $GITHUB_ENV
       - name: No changes to `figma` tokens
         if: ${{ env.FIGMA_FILES_CHANGED == 0 }}
         run: echo No changes to figma tokens
