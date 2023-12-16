@@ -40,7 +40,6 @@ jobs:
       - name: Check for `figma` diff
         working-directory: packages/tokens
         run: | 
-          git diff --shortstat figma | wc -l
           git diff HEAD --name-only figma | wc -l
           git status figma -uall --porcelain 2>/dev/null| egrep "^(A| A|M| M|R| R|D| D)" | wc -l
           echo "FIGMA_FILES_CHANGED=$(git diff HEAD --name-only figma | wc -l)" >> $GITHUB_ENV
