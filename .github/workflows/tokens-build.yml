@@ -71,7 +71,21 @@ jobs:
           echo 'test=built' >> 'Built latest figma tokens'
       - name: Set success/fail
         if: failure() && steps.built.conclusion == 'failure'
-        run: echo 'BUILD_SUCCESS=false' >> $GITHUB_ENV
+        run: |
+          echo $BUILD_SUCCESS
+          echo 'BUILD_SUCCESS=false' >> '$GITHUB_ENV'
+          echo $BUILD_SUCCESS
+          echo '{BUILD_SUCCESS}=false' >> '$GITHUB_ENV'
+          echo $BUILD_SUCCESS
+          echo '{BUILD_SUCCESS}={false}' >> '$GITHUB_ENV'
+          echo $BUILD_SUCCESS
+          echo 'env.BUILD_SUCCESS=false' >> '$GITHUB_ENV'
+          echo $BUILD_SUCCESS
+          echo '{env.BUILD_SUCCESS}=false' >> '$GITHUB_ENV'
+          echo $BUILD_SUCCESS
+          echo '{env.BUILD_SUCCESS}={false}' >> '$GITHUB_ENV'
+          echo $BUILD_SUCCESS
+          
 
   tokens-build-success:
     name: Build Process Success/Failure
