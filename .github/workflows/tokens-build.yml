@@ -14,6 +14,7 @@ env:
 
 jobs:
   tokens-build:
+    name: Build (fails by design)
     # id: tokens-build
     runs-on: ubuntu-latest
     continue-on-error: true
@@ -64,6 +65,7 @@ jobs:
         if: success() && steps.diff.conclusion == 'success'
         working-directory: packages/tokens
         run: |
+          exit 1
           git commit -m 'Build latest figma tokens'
           git push
           echo 'test=built' >> 'Built latest figma tokens'
@@ -85,6 +87,5 @@ jobs:
         if: ${{ env.BUILD_SUCCESS == 'true' }}
         run: echo Great success!
       - name: Tokens Build Failure
-        # if: needs.tokens-build.outputs.figma-built
         if: ${{ env.BUILD_SUCCESS == 'false' }}
         run: exit 1
