@@ -85,6 +85,18 @@ jobs:
           echo $BUILD_SUCCESS
           echo '{env.BUILD_SUCCESS}={false}' >> '$GITHUB_ENV'
           echo $BUILD_SUCCESS
+          echo 'BUILD_SUCCESS=false' >> $GITHUB_ENV
+          echo $BUILD_SUCCESS
+          echo '{BUILD_SUCCESS}=false' >> $GITHUB_ENV
+          echo $BUILD_SUCCESS
+          echo '{BUILD_SUCCESS}={false}' >> $GITHUB_ENV
+          echo $BUILD_SUCCESS
+          echo 'env.BUILD_SUCCESS=false' >> $GITHUB_ENV
+          echo $BUILD_SUCCESS
+          echo '{env.BUILD_SUCCESS}=false' >> $GITHUB_ENV
+          echo $BUILD_SUCCESS
+          echo '{env.BUILD_SUCCESS}={false}' >> $GITHUB_ENV
+          echo $BUILD_SUCCESS
           
 
   tokens-build-success:
