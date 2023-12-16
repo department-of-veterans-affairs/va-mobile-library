@@ -45,20 +45,19 @@ jobs:
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add -f figma/
+          git status --porcelain 2>/dev/null| egrep "^(A| A|M| M|D| D)" | wc -l
       - name: Check figma diff
         id: diff
         working-directory: packages/tokens
         run: | 
           echo $FILES_MODIFIED
-          git status --porcelain 2>/dev/null | egrep "^(M| M|D| D)" | wc -l
-          echo "FILES_MODIFIED=$(git status --porcelain 2>/dev/null| egrep "^(M| M|D| D)" | wc -l)" >> $GITHUB_ENV
+          git status --porcelain 2>/dev/null| egrep "^(A| A|M| M|D| D)" | wc -l
+          echo "FILES_MODIFIED=$(git status --porcelain 2>/dev/null| egrep "^(A| A|M| M|D| D)" | wc -l)" >> $GITHUB_ENV
       - name: No changes to figma tokens
         if: ${{ env.FILES_MODIFIED == '0' }}
         run: |
           echo $FILES_MODIFIED
           echo No changes to figma tokens
-        # run: |
-        #   echo 'test=noDiff' >> 'No changes to figma tokens'
       - name: Commit latest figma tokens
         id: built
         if: ${{ env.FILES_MODIFIED == '1' }}
