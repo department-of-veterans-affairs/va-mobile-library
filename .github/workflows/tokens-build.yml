@@ -17,7 +17,7 @@ jobs:
     name: Build (fails by design)
     # id: tokens-build
     runs-on: ubuntu-latest
-    continue-on-error: true
+    # continue-on-error: true
     # outputs:
       # figma-noDiff: steps.noDiff.outputs.test
       # figma-built: steps.built.output.test
@@ -50,7 +50,7 @@ jobs:
         working-directory: packages/tokens
         run: | 
           echo $FILES_MODIFIED
-          echo "FILES_MODIFIED=(git status --porcelain 2>/dev/null| egrep "^(M| M|D| D)" | wc -l)" >> $GITHUB_ENV
+          echo "FILES_MODIFIED=git status --porcelain 2>/dev/null| egrep "^(M| M|D| D)" | wc -l" >> $GITHUB_ENV
       - name: No changes to figma tokens
         if: ${{ env.FILES_MODIFIED == '0' }}
         run: |
