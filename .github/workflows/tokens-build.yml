@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  BUILD_SUCCESS:
+  FILES_MODIFIED:
 
 jobs:
   tokens-build:
@@ -49,45 +49,24 @@ jobs:
         id: diff
         working-directory: packages/tokens
         run: | 
-          echo $BUILD_SUCCESS
-          echo "BUILD_SUCCESS=true" >> $GITHUB_ENV
-          git commit --dry-run
-      # - name: No changes to figma tokens
-        # id: noDiff
-        # if: failure() || steps.diff.conclusion == 'failure'
-        # run: |
-        #   echo No changes to figma tokens
+          echo $FILES_MODIFIED
+          echo "FILES_MODIFIED=(git status --porcelain 2>/dev/null| egrep "^(M| M|D| D)" | wc -l)" >> $GITHUB_ENV
+      - name: No changes to figma tokens
+        if: ${{ env.FILES_MODIFIED == '0' }}
+        run: |
+          echo $FILES_MODIFIED
+          echo No changes to figma tokens
         # run: |
         #   echo 'test=noDiff' >> 'No changes to figma tokens'
       - name: Commit latest figma tokens
         id: built
-        if: success() && steps.diff.conclusion == 'success'
+        if: ${{ env.FILES_MODIFIED == '1' }}
         working-directory: packages/tokens
         run: |
-          echo $BUILD_SUCCESS
+          echo $FILES_MODIFIED
           exit 1
           git commit -m 'Build latest figma tokens'
           git push
-          echo 'test=built' >> 'Built latest figma tokens'
       - name: Set success/fail
-        if: failure() && steps.built.conclusion == 'failure'
-        run: |
-          echo $BUILD_SUCCESS
-
-  tokens-build-success:
-    name: Build Process Success/Failure
-    needs: tokens-build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test output
-        run: |
-          echo $BUILD_SUCCESS
-          echo ${{ env.BUILD_SUCCESS }}
-          echo ${{ env.BUILD_SUCCESS == 'true' }}
-          echo ${{ env.BUILD_SUCCESS == 'false' }}
-      - name: Tokens Build Succeeded
-        if: ${{ env.BUILD_SUCCESS == 'true' }}
-        run: echo Great success!
-      - name: Tokens Build Failure
-        if: success() || ${{ env.BUILD_SUCCESS == 'false' }}
-        run: exit 1
+        if: ${{ env.FILES_MODIFIED >= '2' }}
+        run: fail 1
