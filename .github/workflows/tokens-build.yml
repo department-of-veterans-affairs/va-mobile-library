@@ -29,6 +29,9 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - run: yarn install
+      - name: Clean `figma` folder
+        working-directory: packages/tokens
+        run: rm -r figma
       - run: yarn tokens:build
       - name: Prepare commit
         working-directory: packages/tokens
