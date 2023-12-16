@@ -31,7 +31,7 @@ jobs:
       - run: yarn install
       - name: Clean `figma` folder
         working-directory: packages/tokens
-        run: rm -r figma
+        run: rm -rf figma
       - run: yarn tokens:build
       - name: Prepare commit
         working-directory: packages/tokens
