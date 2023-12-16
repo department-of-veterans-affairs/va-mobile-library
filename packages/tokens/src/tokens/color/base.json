@@ -10,14 +10,6 @@
         }
       }
     },
-    "secondary": {
-      "lightest": {
-        "value": "#f9dede"
-      }
-    },
-    "white": {
-      "value": "#ffffff"
-    },
     "black": {
       "value": "#000000"
     },
