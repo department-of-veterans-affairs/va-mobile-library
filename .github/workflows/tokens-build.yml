@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  BUILD_SUCCESS: true
+  BUILD_SUCCESS:
 
 jobs:
   tokens-build:
@@ -49,9 +49,8 @@ jobs:
         id: diff
         working-directory: packages/tokens
         run: | 
-          echo $vars.BUILD_SUCCESS
           echo $BUILD_SUCCESS
-          echo '$BUILD_SUCCESS'
+          echo "BUILD_SUCCESS=true" >> $GITHUB_ENV
           git commit --dry-run
       # - name: No changes to figma tokens
         # id: noDiff
@@ -65,6 +64,7 @@ jobs:
         if: success() && steps.diff.conclusion == 'success'
         working-directory: packages/tokens
         run: |
+          echo $BUILD_SUCCESS
           exit 1
           git commit -m 'Build latest figma tokens'
           git push
