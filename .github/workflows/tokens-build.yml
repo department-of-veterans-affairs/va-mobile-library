@@ -42,8 +42,9 @@ jobs:
         working-directory: packages/tokens
         run: | 
           echo $FIGMA_FILES_CHANGED
+          git diff --shortstat figma | wc -l
           git status figma --porcelain 2>/dev/null| egrep "^(A| A|M| M|R| R|D| D)" | wc -l
-          echo "FIGMA_FILES_CHANGED=$(git status figma --porcelain 2>/dev/null| egrep "^(A| A|M| M|R| R|D| D)" | wc -l)" >> $GITHUB_ENV
+          echo "FIGMA_FILES_CHANGED=$(git diff --shortstat figma | wc -l)" >> $GITHUB_ENV
       - name: No changes to `figma` tokens
         if: ${{ env.FIGMA_FILES_CHANGED == 0 }}
         run: |
