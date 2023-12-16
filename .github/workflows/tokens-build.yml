@@ -73,31 +73,6 @@ jobs:
         if: failure() && steps.built.conclusion == 'failure'
         run: |
           echo $BUILD_SUCCESS
-          echo 'BUILD_SUCCESS=false' >> '$GITHUB_ENV'
-          echo $BUILD_SUCCESS
-          echo '{BUILD_SUCCESS}=false' >> '$GITHUB_ENV'
-          echo $BUILD_SUCCESS
-          echo '{BUILD_SUCCESS}={false}' >> '$GITHUB_ENV'
-          echo $BUILD_SUCCESS
-          echo 'env.BUILD_SUCCESS=false' >> '$GITHUB_ENV'
-          echo $BUILD_SUCCESS
-          echo '{env.BUILD_SUCCESS}=false' >> '$GITHUB_ENV'
-          echo $BUILD_SUCCESS
-          echo '{env.BUILD_SUCCESS}={false}' >> '$GITHUB_ENV'
-          echo $BUILD_SUCCESS
-          echo 'BUILD_SUCCESS=false' >> $GITHUB_ENV
-          echo $BUILD_SUCCESS
-          echo '{BUILD_SUCCESS}=false' >> $GITHUB_ENV
-          echo $BUILD_SUCCESS
-          echo '{BUILD_SUCCESS}={false}' >> $GITHUB_ENV
-          echo $BUILD_SUCCESS
-          echo 'env.BUILD_SUCCESS=false' >> $GITHUB_ENV
-          echo $BUILD_SUCCESS
-          echo '{env.BUILD_SUCCESS}=false' >> $GITHUB_ENV
-          echo $BUILD_SUCCESS
-          echo '{env.BUILD_SUCCESS}={false}' >> $GITHUB_ENV
-          echo $BUILD_SUCCESS
-          
 
   tokens-build-success:
     name: Build Process Success/Failure
@@ -114,5 +89,5 @@ jobs:
         if: ${{ env.BUILD_SUCCESS == 'true' }}
         run: echo Great success!
       - name: Tokens Build Failure
-        if: ${{ env.BUILD_SUCCESS == 'false' }}
+        if: success() || ${{ env.BUILD_SUCCESS == 'false' }}
         run: exit 1
