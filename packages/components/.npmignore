@@ -8,7 +8,6 @@ coverage/
 jest/
 node_modules/
 storybook-static/
-README.md
 
 # Config
 app.json
