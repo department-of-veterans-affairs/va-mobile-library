@@ -1,5 +1,14 @@
 # Changelog
 
+## [tokens-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.3.0) (2023-12-19)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.4...tokens-v0.3.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Update primaryDarker color to match VADS/USWDS updates [\#55](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/55) ([narin](https://github.com/narin))
+- feature Automate build of figma tokens [\#51](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/51) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.3.4](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.4) (2023-12-15)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.3.0...components-v0.3.4)
