@@ -9,6 +9,9 @@ on:
     branches:
       - main
 
+env:
+  FIGMA_FILES_CHANGED:
+
 jobs:
   tokens-build:
     runs-on: ubuntu-latest
@@ -26,15 +29,26 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - run: yarn install
-      - name: Build tokens
-        run: |
-          yarn tokens:build
-      - name: Commit latest figma tokens
+      - name: Clean `figma` folder
+        working-directory: packages/tokens
+        run: rm -rf figma
+      - run: yarn tokens:build
+      - name: Prepare commit
         working-directory: packages/tokens
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add -f figma/
+      - name: Check for `figma` diff
+        working-directory: packages/tokens
+        run: echo "FIGMA_FILES_CHANGED=$(git diff HEAD --name-only figma | wc -l)" >> $GITHUB_ENV
+      - name: No changes to `figma` tokens
+        if: ${{ env.FIGMA_FILES_CHANGED == 0 }}
+        run: echo No changes to figma tokens
+      - name: Commit latest `figma` tokens
+        if: ${{ env.FIGMA_FILES_CHANGED >= 1 }}
+        working-directory: packages/tokens
+        run: |
           git commit -m 'Build latest figma tokens'
           git push
