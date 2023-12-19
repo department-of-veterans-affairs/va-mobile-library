@@ -2718,7 +2718,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.22.15
     "@babel/preset-env": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
-    "@department-of-veterans-affairs/mobile-tokens": 0.3.1-alpha.0
+    "@department-of-veterans-affairs/mobile-tokens": 0.2.0
     "@expo/webpack-config": ^19.0.0
     "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": 1.18.2
@@ -2779,10 +2779,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-tokens@npm:0.3.1-alpha.0":
-  version: 0.3.1-alpha.0
-  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.3.1-alpha.0"
-  checksum: 92fcf6a6c2a0af80420e4ce147d2c8967593132ebbc363f0f5e418fb6495b82806b5994799e7d1092e493d51bf0ad220168200885e4a652d6b34b8f9f5b7a51f
+"@department-of-veterans-affairs/mobile-tokens@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.2.0"
+  checksum: 0d964a3f5197268f3592410a2992400ac5225e44ade3b1d1e4981c19c4e06594bccaef46c79e3a55bad40dd4f9eb9122fb2cad3c7e1b920e82205ee3746f13c2
   languageName: node
   linkType: hard
 
