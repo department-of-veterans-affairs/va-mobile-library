@@ -1,6 +1,6 @@
 # List of files to ignore during NPM publish
 
-# General tooling
+# General
 .expo
 .storybook
 .yarn
@@ -8,6 +8,7 @@ coverage/
 jest/
 node_modules/
 storybook-static/
+README.md
 
 # Config
 app.json

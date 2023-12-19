@@ -38,6 +38,7 @@ jobs:
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
+          rm -rf dist
           git pull
           git add -f figma/
       - name: Check for `figma` diff
