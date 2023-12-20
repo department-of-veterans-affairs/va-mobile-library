@@ -1,5 +1,18 @@
 # Changelog
 
+## [tokens-v0.3.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.3.1) (2023-12-20)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.3.0...tokens-v0.3.1)
+
+**Closed issues:**
+
+- DS - Create AlertBox Component [\#60](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/60)
+- DS - Create AlertBox Component [\#59](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/59)
+
+**Merged pull requests:**
+
+- \[CU\] Add All Non-Shipping Relevant Files to NPM Ignore [\#57](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/57) ([TimRoe](https://github.com/TimRoe))
+
 ## [tokens-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.3.0) (2023-12-19)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.4...tokens-v0.3.0)
