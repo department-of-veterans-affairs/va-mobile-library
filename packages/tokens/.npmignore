@@ -1,0 +1,9 @@
+# List of files to ignore during NPM publish
+
+# General
+figma/
+
+# Source code
+src/
+build.js
+config.js
