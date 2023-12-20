@@ -1,5 +1,13 @@
 # Changelog
 
+## [components-v0.3.5](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.5) (2023-12-20)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.3.1...components-v0.3.5)
+
+**Merged pull requests:**
+
+- \[CU\] Bump mobile-tokens version to 0.3.1 [\#75](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/75) ([narin](https://github.com/narin))
+
 ## [tokens-v0.3.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.3.1) (2023-12-20)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.3.0...tokens-v0.3.1)
