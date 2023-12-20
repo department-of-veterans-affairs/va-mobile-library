@@ -28,13 +28,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-          # cache: 'yarn'
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
       - name: yarn test
         working-directory: packages/components
         run: yarn test
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
