@@ -67,15 +67,15 @@ jobs:
           CURRENT_VERSION=$(jq -r .version package.json)
 
           echo "Checking latest version on NPM..."
-          VERSIONS_OUTPUT_TYPE=$(npm view @department-of-veterans-affairs/mobile-test versions --json \
-            | jq 'if type=="array" then "array" elif type=="string" then "string" else "error" end')
+          VERSIONS_OUTPUT_TYPE=$(npm view $NPM_PACKAGE versions --json \
+            | jq -r 'if type=="array" then "array" elif type=="string" then "string" else "error" end')
 
           if [[ "$VERSIONS_OUTPUT_TYPE" == "array" ]]; then
             LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | jq -r '.[-1]')
           elif [[ "$VERSIONS_OUTPUT_TYPE" == "string" ]]; then
-            LATEST_VERSION=$(npm view @department-of-veterans-affairs/mobile-test versions)
+            LATEST_VERSION=$(npm view $NPM_PACKAGE versions)
           else
-            echo "Unexpected response getting versions. Exiting..."
+            echo "Unexpected result getting versions. Exiting..."
             exit 1
           fi
 
