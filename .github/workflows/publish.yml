@@ -50,12 +50,14 @@ jobs:
       - run: yarn install
       - name: Get NPM Package name
         id: package-name
+        working-directory: packages/${{ inputs.package }}
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
           echo "NPM Package name: $NPM_PACKAGE"
           echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
       - name: Bump version
         if: ${{ inputs.version_bump != 'new package' }}
+        working-directory: packages/${{ inputs.package }}
         run: |
           BUMP=${{ inputs.version_bump }}
           NPM_PACKAGE=${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}
