@@ -2779,6 +2779,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@department-of-veterans-affairs/mobile-test@workspace:packages/test":
+  version: 0.0.0-use.local
+  resolution: "@department-of-veterans-affairs/mobile-test@workspace:packages/test"
+  languageName: unknown
+  linkType: soft
+
 "@department-of-veterans-affairs/mobile-tokens@npm:0.3.1":
   version: 0.3.1
   resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.3.1"
