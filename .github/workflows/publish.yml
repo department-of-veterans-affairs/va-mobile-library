@@ -125,7 +125,7 @@ jobs:
           git tag -a $TAG -m $TAG
           git push origin $TAG
       - name: Generate changelog
-        if: ${{ inputs.version_type != 'alpha' && inputs.version_type != 'beta' }}
+        if: ${{ inputs.version_type != 'alpha' && inputs.version_type != 'beta' && inputs.version_type != 'new package' }}
         run: |
           chmod +x .github/scripts/generate-changelog.sh
           ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
