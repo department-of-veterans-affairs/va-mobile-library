@@ -23,6 +23,7 @@ on:
           - patch
           - minor
           - major
+          - new package
 
 jobs:
   publish-package:
@@ -51,28 +52,32 @@ jobs:
         id: bump-version
         working-directory: packages/${{ inputs.package }}
         run: |
+          BUMP=${{ inputs.version_bump }}
           NPM_PACKAGE=$(jq -r .name package.json)
-          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
 
           echo "NPM Package name: $NPM_PACKAGE"
-          CURRENT_VERSION=$(jq -r .version package.json)
+          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
 
-          LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | jq -r '.[-1]')
-          echo "Latest NPM version: $LATEST_VERSION"
+          if [[ "$BUMP" != "new package" ]]; then
+            echo "Checking latest version on NPM..."
+            CURRENT_VERSION=$(jq -r .version package.json)
 
-          if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
-            echo "Setting package.json version to $LATEST_VERSION"
-            npm version $LATEST_VERSION
+            LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | jq -r '.[-1]')
+            echo "Latest NPM version: $LATEST_VERSION"
+
+            if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
+              echo "Setting package.json version to $LATEST_VERSION"
+              npm version $LATEST_VERSION
+            fi
           fi
 
-          BUMP=${{ inputs.version_bump }}
           echo "Bumping $BUMP version and publishing to NPM..."
 
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
             npm version prerelease --preid $BUMP
             npm publish --access public --tolerate-republish --tag $BUMP
           else
-            npm version $BUMP
+            if [[ "$BUMP" != "new package" ]]; then npm version $BUMP; fi
             npm publish --access public --tolerate-republish
           fi
 
