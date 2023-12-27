@@ -49,7 +49,7 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - run: yarn install
-      - name: Get NPM Package name
+      - name: Get NPM package name
         id: package-name
         working-directory: packages/${{ inputs.package }}
         run: |
@@ -84,7 +84,7 @@ jobs:
         id: publish
         working-directory: packages/${{ inputs.package }}
         run: |
-          BUMP=${{ inputs.version_bump }}
+          BUMP="${{ inputs.version_bump }}"
 
           echo "Publishing to NPM..."
 
