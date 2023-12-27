@@ -31,6 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
+      GIT_AUTHOR_NAME: VA Automation Bot"
+      GIT_AUTHOR_EMAIL: va-mobileapp@adhocteam.us
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -112,8 +114,6 @@ jobs:
         if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
-          git config --global user.name 'VA Automation Bot'
-          git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
           git commit -m 'Version bump: ${{ steps.publish.outputs.GIT_TAG }}'
