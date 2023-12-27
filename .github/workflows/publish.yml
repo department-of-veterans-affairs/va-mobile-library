@@ -177,3 +177,34 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+      - name: Post to a Slack channel
+        if: failure()
+        id: slack-error
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": ":red-x: Error publishing *${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}* to NPM"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Workflow Run>"
+                    }
+                  ]
+                }
+              ],
+              "unfurl_links": false,
+              "unfurl_media": false
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
