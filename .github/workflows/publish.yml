@@ -14,8 +14,8 @@ on:
           - tokens
           - linting
           - test
-      version_bump:
-        description: Version bump
+      version_type:
+        description: Version type
         required: true
         type: choice
         options:
@@ -57,10 +57,10 @@ jobs:
           echo "NPM Package name: $NPM_PACKAGE"
           echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
       - name: Bump version
-        if: ${{ inputs.version_bump != 'new package' }}
+        if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
-          BUMP=${{ inputs.version_bump }}
+          BUMP=${{ inputs.version_type }}
           NPM_PACKAGE=${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}
 
           echo "Checking package.json version..."
@@ -93,7 +93,7 @@ jobs:
         id: publish
         working-directory: packages/${{ inputs.package }}
         run: |
-          BUMP="${{ inputs.version_bump }}"
+          BUMP="${{ inputs.version_type }}"
 
           echo "Publishing to NPM..."
 
@@ -109,7 +109,7 @@ jobs:
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit changes and tag
-        if: ${{ inputs.version_bump != 'new package' }}
+        if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
           git config --global user.name 'VA Automation Bot'
@@ -123,7 +123,7 @@ jobs:
           git tag -a $TAG -m $TAG
           git push origin $TAG
       - name: Generate changelog
-        if: ${{ inputs.version_bump != 'alpha' && inputs.version_bump != 'beta' }}
+        if: ${{ inputs.version_type != 'alpha' && inputs.version_type != 'beta' }}
         run: |
           chmod +x .github/scripts/generate-changelog.sh
           ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
