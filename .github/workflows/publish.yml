@@ -13,7 +13,6 @@ on:
           - components
           - tokens
           - linting
-          - test
       version_type:
         description: Version type
         required: true
