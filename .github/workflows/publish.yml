@@ -114,6 +114,8 @@ jobs:
         if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
           git commit -m 'Version bump: ${{ steps.publish.outputs.GIT_TAG }}'
@@ -127,6 +129,8 @@ jobs:
         run: |
           chmod +x .github/scripts/generate-changelog.sh
           ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
           git add CHANGELOG.md
           git commit -m 'Changelog for ${{ steps.publish.outputs.GIT_TAG }}'
           git push
