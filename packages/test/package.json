@@ -1,6 +1,6 @@
 {
-  "name": "@department-of-veterans-affairs/mobile-test",
-  "version": "0.0.2-alpha.0",
+  "name": "@department-of-veterans-affairs/mobile-test-2",
+  "version": "0.0.1",
   "description": "For testing purposes only",
   "main": "index.js",
   "repository": {
