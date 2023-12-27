@@ -1,0 +1,18 @@
+{
+  "name": "@department-of-veterans-affairs/mobile-test",
+  "version": "0.0.1",
+  "description": "For testing purposes only",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
+  },
+  "maintainers": [
+    "@department-of-veterans-affairs/flagship-mobile-platform"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
