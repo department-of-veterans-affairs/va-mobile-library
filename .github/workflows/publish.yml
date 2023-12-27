@@ -48,36 +48,46 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - run: yarn install
-      - name: Bump version and publish to NPM
-        id: bump-version
+      - name: Get NPM Package name
+        id: package-name
+        run: |
+          NPM_PACKAGE=$(jq -r .name package.json)
+          echo "NPM Package name: $NPM_PACKAGE"
+          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
+      - name: Bump version
+        if: ${{ inputs.version_bump != 'new package' }}
+        run: |
+          BUMP=${{ inputs.version_bump }}
+          NPM_PACKAGE=${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}
+
+          echo "Checking latest version on NPM..."
+          CURRENT_VERSION=$(jq -r .version package.json)
+
+          LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | jq -r '.[-1]')
+          echo "Latest NPM version: $LATEST_VERSION"
+
+          if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
+            echo "Setting package.json version to $LATEST_VERSION"
+            npm version $LATEST_VERSION
+          fi
+
+          echo "Bumping $BUMP version..."
+          if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
+            npm version prerelease --preid $BUMP
+          else
+            npm version $BUMP
+          fi
+      - name: Publish to NPM
+        id: publish
         working-directory: packages/${{ inputs.package }}
         run: |
           BUMP=${{ inputs.version_bump }}
-          NPM_PACKAGE=$(jq -r .name package.json)
 
-          echo "NPM Package name: $NPM_PACKAGE"
-          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
-
-          if [[ "$BUMP" != "new package" ]]; then
-            echo "Checking latest version on NPM..."
-            CURRENT_VERSION=$(jq -r .version package.json)
-
-            LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | jq -r '.[-1]')
-            echo "Latest NPM version: $LATEST_VERSION"
-
-            if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
-              echo "Setting package.json version to $LATEST_VERSION"
-              npm version $LATEST_VERSION
-            fi
-          fi
-
-          echo "Bumping $BUMP version and publishing to NPM..."
+          echo "Publishing to NPM..."
 
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
-            npm version prerelease --preid $BUMP
             npm publish --access public --tolerate-republish --tag $BUMP
           else
-            if [[ "$BUMP" != "new package" ]]; then npm version $BUMP; fi
             npm publish --access public --tolerate-republish
           fi
 
@@ -93,9 +103,9 @@ jobs:
           git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
-          git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
+          git commit -m 'Version bump: ${{ steps.publish.outputs.GIT_TAG }}'
           git push
-          TAG=${{ steps.bump-version.outputs.GIT_TAG }}
+          TAG=${{ steps.publish.outputs.GIT_TAG }}
           echo $TAG
           git tag -a $TAG -m $TAG
           git push origin $TAG
@@ -105,7 +115,7 @@ jobs:
           chmod +x .github/scripts/generate-changelog.sh
           ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
           git add CHANGELOG.md
-          git commit -m 'Changelog for ${{ steps.bump-version.outputs.GIT_TAG }}'
+          git commit -m 'Changelog for ${{ steps.publish.outputs.GIT_TAG }}'
           git push
       - name: Post to a Slack channel
         id: slack
@@ -119,7 +129,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Published *${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}* to NPM"
+                    "text": "Published *${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}* to NPM"
                   }
                 },
                 {
@@ -127,15 +137,15 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Version:* ${{ steps.bump-version.outputs.NEW_VERSION }}"
+                      "text": "*Version:* ${{ steps.publish.outputs.NEW_VERSION }}"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "<https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>"
+                      "text": "<https://www.npmjs.com/package/${{ steps.publish.outputs.NPM_PACKAGE_NAME }}|NPM>"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "<https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|GitHub>"
+                      "text": "<https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.publish.outputs.GIT_TAG }}|GitHub>"
                     },
                     {
                       "type": "mrkdwn",
