@@ -36,26 +36,28 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-      - uses: ruby/setup-ruby@v1
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
-      - name: Use Node.js 18.x
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: .nvmrc
           cache: yarn
           cache-dependency-path: yarn.lock
-      - run: yarn install
-      - name: Get NPM package name
+      - name: Install dependencies
+        run: yarn install
+      - name: Get package name
         id: package-name
         working-directory: packages/${{ inputs.package }}
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
           echo "NPM Package name: $NPM_PACKAGE"
           echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
-      - name: Bump version
+      - name: Increment version
         if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
@@ -107,7 +109,7 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Commit changes and tag
+      - name: Commit changes to git and tag
         if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
@@ -117,6 +119,9 @@ jobs:
           git add package.json
           git commit -m 'Version bump: ${{ steps.publish.outputs.GIT_TAG }}'
           git push
+      - name: Git tag
+        working-directory: packages/${{ inputs.package }}
+        run: |
           TAG=${{ steps.publish.outputs.GIT_TAG }}
           echo $TAG
           git tag -a $TAG -m $TAG
@@ -131,7 +136,7 @@ jobs:
           git add CHANGELOG.md
           git commit -m 'Changelog for ${{ steps.publish.outputs.GIT_TAG }}'
           git push
-      - name: Post to a Slack channel
+      - name: Send success message to Slack
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
         with:
@@ -174,7 +179,7 @@ jobs:
             }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
-      - name: Post to a Slack channel
+      - name: Send failure message to Slack
         if: failure()
         id: slack-error
         uses: slackapi/slack-github-action@v1.24.0
