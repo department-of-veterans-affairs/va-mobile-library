@@ -48,6 +48,10 @@ jobs:
           node-version-file: .nvmrc
           cache: yarn
           cache-dependency-path: yarn.lock
+      - name: Set git config
+        run: |
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
       - name: Install dependencies
         run: yarn install
       - name: Get package name
@@ -109,17 +113,15 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Commit changes to git and tag
+      - name: Commit changes to git
         if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
-          git config --global user.name 'VA Automation Bot'
-          git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
           git commit -m 'Version bump: ${{ steps.publish.outputs.GIT_TAG }}'
           git push
-      - name: Git tag
+      - name: Create git tag
         working-directory: packages/${{ inputs.package }}
         run: |
           TAG=${{ steps.publish.outputs.GIT_TAG }}
@@ -127,18 +129,18 @@ jobs:
           git tag -a $TAG -m $TAG
           git push origin $TAG
       - name: Generate changelog
-        if: ${{ inputs.version_type != 'alpha' && inputs.version_type != 'beta' && inputs.version_type != 'new package' }}
+        if: ${{ inputs.version_type != 'alpha' && inputs.version_type != 'beta' && github.ref.name == 'main' }}
         run: |
           chmod +x .github/scripts/generate-changelog.sh
           ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-          git config --global user.name 'VA Automation Bot'
-          git config --global user.email 'va-mobileapp@adhocteam.us'
           git add CHANGELOG.md
           git commit -m 'Changelog for ${{ steps.publish.outputs.GIT_TAG }}'
           git push
       - name: Send success message to Slack
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
         with:
           channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
           payload: |
@@ -177,12 +179,12 @@ jobs:
               "unfurl_links": false,
               "unfurl_media": false
             }
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
       - name: Send failure message to Slack
         if: failure()
         id: slack-error
         uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
         with:
           channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
           payload: |
@@ -208,5 +210,3 @@ jobs:
               "unfurl_links": false,
               "unfurl_media": false
             }
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
