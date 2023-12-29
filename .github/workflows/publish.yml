@@ -13,8 +13,8 @@ on:
           - components
           - tokens
           - linting
-      version_bump:
-        description: Version bump
+      version_type:
+        description: Version type
         required: true
         type: choice
         options:
@@ -23,6 +23,7 @@ on:
           - patch
           - minor
           - major
+          - new package
 
 jobs:
   publish-package:
@@ -35,29 +36,51 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-      - uses: ruby/setup-ruby@v1
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
-      - name: Use Node.js 18.x
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: .nvmrc
           cache: yarn
           cache-dependency-path: yarn.lock
-      - run: yarn install
-      - name: Bump version and publish to NPM
-        id: bump-version
+      - name: Set git config
+        run: |
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
+      - name: Install dependencies
+        run: yarn install
+      - name: Get package name
+        id: package-name
         working-directory: packages/${{ inputs.package }}
         run: |
           NPM_PACKAGE=$(jq -r .name package.json)
-          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
-
           echo "NPM Package name: $NPM_PACKAGE"
+          echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
+      - name: Increment version
+        if: ${{ inputs.version_type != 'new package' }}
+        working-directory: packages/${{ inputs.package }}
+        run: |
+          BUMP=${{ inputs.version_type }}
+          NPM_PACKAGE=${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}
+
+          echo "Checking package.json version..."
           CURRENT_VERSION=$(jq -r .version package.json)
 
-          LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | jq -r '.[-1]')
+          echo "Checking latest version on NPM..."
+
+          LATEST_VERSION=$(npm view $NPM_PACKAGE versions --json | \
+            jq -r 'if type=="string" then . elif type=="array" then .[-1] else "error" end')
+
+          if [[ "$LATEST_VERSION" == "error" ]]; then
+            echo "Unexpected result getting version. Exiting..."
+            exit 1
+          fi
+
           echo "Latest NPM version: $LATEST_VERSION"
 
           if [[ "$CURRENT_VERSION" != "$LATEST_VERSION" ]]; then
@@ -65,14 +88,23 @@ jobs:
             npm version $LATEST_VERSION
           fi
 
-          BUMP=${{ inputs.version_bump }}
-          echo "Bumping $BUMP version and publishing to NPM..."
-
+          echo "Bumping $BUMP version..."
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
             npm version prerelease --preid $BUMP
-            npm publish --access public --tolerate-republish --tag $BUMP
           else
             npm version $BUMP
+          fi
+      - name: Publish to NPM
+        id: publish
+        working-directory: packages/${{ inputs.package }}
+        run: |
+          BUMP="${{ inputs.version_type }}"
+
+          echo "Publishing to NPM..."
+
+          if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
+            npm publish --access public --tolerate-republish --tag $BUMP
+          else
             npm publish --access public --tolerate-republish
           fi
 
@@ -81,30 +113,34 @@ jobs:
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
-      - name: Commit changes and tag
+      - name: Commit changes to git
+        if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
-          git config --global user.name 'VA Automation Bot'
-          git config --global user.email 'va-mobileapp@adhocteam.us'
           git pull
           git add package.json
-          git commit -m 'Version bump: ${{ steps.bump-version.outputs.GIT_TAG }}'
+          git commit -m 'Version bump: ${{ steps.publish.outputs.GIT_TAG }}'
           git push
-          TAG=${{ steps.bump-version.outputs.GIT_TAG }}
+      - name: Create git tag
+        working-directory: packages/${{ inputs.package }}
+        run: |
+          TAG=${{ steps.publish.outputs.GIT_TAG }}
           echo $TAG
           git tag -a $TAG -m $TAG
           git push origin $TAG
       - name: Generate changelog
-        if: ${{ inputs.version_bump != 'alpha' && inputs.version_bump != 'beta' }}
+        if: ${{ inputs.version_type != 'alpha' && inputs.version_type != 'beta' && github.ref.name == 'main' }}
         run: |
           chmod +x .github/scripts/generate-changelog.sh
           ./.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
           git add CHANGELOG.md
-          git commit -m 'Changelog for ${{ steps.bump-version.outputs.GIT_TAG }}'
+          git commit -m 'Changelog for ${{ steps.publish.outputs.GIT_TAG }}'
           git push
-      - name: Post to a Slack channel
+      - name: Send success message to Slack
         id: slack
         uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
         with:
           channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
           payload: |
@@ -114,7 +150,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Published *${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}* to NPM"
+                    "text": "Published *${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}* to NPM"
                   }
                 },
                 {
@@ -122,15 +158,15 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Version:* ${{ steps.bump-version.outputs.NEW_VERSION }}"
+                      "text": "*Version:* ${{ steps.publish.outputs.NEW_VERSION }}"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "<https://www.npmjs.com/package/${{ steps.bump-version.outputs.NPM_PACKAGE_NAME }}|NPM>"
+                      "text": "<https://www.npmjs.com/package/${{ steps.publish.outputs.NPM_PACKAGE_NAME }}|NPM>"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "<https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.bump-version.outputs.GIT_TAG }}|GitHub>"
+                      "text": "<https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.publish.outputs.GIT_TAG }}|GitHub>"
                     },
                     {
                       "type": "mrkdwn",
@@ -143,5 +179,34 @@ jobs:
               "unfurl_links": false,
               "unfurl_media": false
             }
+      - name: Send failure message to Slack
+        if: failure()
+        id: slack-error
+        uses: slackapi/slack-github-action@v1.24.0
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+        with:
+          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": ":red-x: Error publishing *${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}* to NPM"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Workflow Run>"
+                    }
+                  ]
+                }
+              ],
+              "unfurl_links": false,
+              "unfurl_media": false
+            }
