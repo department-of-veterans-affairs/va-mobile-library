@@ -2794,6 +2794,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@department-of-veterans-affairs/va-mobile-assets@workspace:packages/assets":
+  version: 0.0.0-use.local
+  resolution: "@department-of-veterans-affairs/va-mobile-assets@workspace:packages/assets"
+  languageName: unknown
+  linkType: soft
+
 "@discoveryjs/json-ext@npm:^0.5.3":
   version: 0.5.7
   resolution: "@discoveryjs/json-ext@npm:0.5.7"
