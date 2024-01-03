@@ -2719,6 +2719,7 @@ __metadata:
     "@babel/preset-env": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.3.1"
+    "@department-of-veterans-affairs/va-mobile-assets": 0.1.0
     "@expo/webpack-config": ^19.0.0
     "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": 1.18.2
@@ -2773,6 +2774,7 @@ __metadata:
     ts-jest: ^29.1.1
     typescript: ^5.1.6
   peerDependencies:
+    "@department-of-veterans-affairs/va-mobile-assets": 0.1.0
     react: ^18.2.0
     react-native: ~0.71.7
     react-native-gesture-handler: ^2.12.0
@@ -2793,6 +2795,13 @@ __metadata:
     style-dictionary: ^3.8.0
   languageName: unknown
   linkType: soft
+
+"@department-of-veterans-affairs/va-mobile-assets@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@department-of-veterans-affairs/va-mobile-assets@npm:0.1.0"
+  checksum: deadea634706740d4d766063de817bbcabae6fbe4a7ac9d47704fc7e7f095bf3e78f4a7234d0872feb9072e4bd71de337e838fd47aa6cf86468f690d9a98eaa8
+  languageName: node
+  linkType: hard
 
 "@department-of-veterans-affairs/va-mobile-assets@workspace:packages/assets":
   version: 0.0.0-use.local

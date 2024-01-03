@@ -45,6 +45,7 @@
     "styled-components": "^6.0.7"
   },
   "peerDependencies": {
+    "@department-of-veterans-affairs/va-mobile-assets": "0.1.0",
     "react": "^18.2.0",
     "react-native": "~0.71.7",
     "react-native-gesture-handler": "^2.12.0"
@@ -55,6 +56,7 @@
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
+    "@department-of-veterans-affairs/va-mobile-assets": "0.1.0",
     "@expo/webpack-config": "^19.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-community/datetimepicker": "7.2.0",
