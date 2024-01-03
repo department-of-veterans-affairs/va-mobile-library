@@ -12,6 +12,7 @@ on:
         options:
           - components
           - tokens
+          - assets
           - linting
       version_type:
         description: Version type
