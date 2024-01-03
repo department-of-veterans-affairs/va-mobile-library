@@ -2719,7 +2719,7 @@ __metadata:
     "@babel/preset-env": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.3.1"
-    "@department-of-veterans-affairs/va-mobile-assets": 0.1.0
+    "@department-of-veterans-affairs/va-mobile-assets": 0.1.1-alpha.0
     "@expo/webpack-config": ^19.0.0
     "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": 1.18.2
@@ -2766,6 +2766,7 @@ __metadata:
     react-native-reanimated: ~3.3.0
     react-native-safe-area-context: 4.6.3
     react-native-screens: ~3.22.0
+    react-native-svg: ^14.1.0
     react-native-web: ~0.19.6
     react-test-renderer: ^18.2.0
     storybook-addon-designs: ^6.3.1
@@ -2774,7 +2775,7 @@ __metadata:
     ts-jest: ^29.1.1
     typescript: ^5.1.6
   peerDependencies:
-    "@department-of-veterans-affairs/va-mobile-assets": 0.1.0
+    "@department-of-veterans-affairs/va-mobile-assets": 0.1.1-alpha.0
     react: ^18.2.0
     react-native: ~0.71.7
     react-native-gesture-handler: ^2.12.0
@@ -2796,16 +2797,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/va-mobile-assets@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@department-of-veterans-affairs/va-mobile-assets@npm:0.1.0"
-  checksum: deadea634706740d4d766063de817bbcabae6fbe4a7ac9d47704fc7e7f095bf3e78f4a7234d0872feb9072e4bd71de337e838fd47aa6cf86468f690d9a98eaa8
+"@department-of-veterans-affairs/va-mobile-assets@npm:0.1.1-alpha.0":
+  version: 0.1.1-alpha.0
+  resolution: "@department-of-veterans-affairs/va-mobile-assets@npm:0.1.1-alpha.0"
+  checksum: b4c5e56792c2a2bc6ca2ef0fb6c69045399f4ee68edbe74b686aec827d5b56fdfd1fa3dbc083daf40193eaf883e83946bd077577d23e011e17e17954ec0e6210
   languageName: node
   linkType: hard
 
 "@department-of-veterans-affairs/va-mobile-assets@workspace:packages/assets":
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/va-mobile-assets@workspace:packages/assets"
+  dependencies:
+    typescript: ^5.3.3
   languageName: unknown
   linkType: soft
 
@@ -10693,6 +10696,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-select@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "css-select@npm:5.1.0"
+  dependencies:
+    boolbase: ^1.0.0
+    css-what: ^6.1.0
+    domhandler: ^5.0.2
+    domutils: ^3.0.1
+    nth-check: ^2.0.1
+  checksum: 2772c049b188d3b8a8159907192e926e11824aea525b8282981f72ba3f349cf9ecd523fdf7734875ee2cb772246c22117fc062da105b6d59afe8dcd5c99c9bda
+  languageName: node
+  linkType: hard
+
 "css-to-react-native@npm:^3.2.0":
   version: 3.2.0
   resolution: "css-to-react-native@npm:3.2.0"
@@ -10714,7 +10730,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-what@npm:^6.0.1":
+"css-what@npm:^6.0.1, css-what@npm:^6.1.0":
   version: 6.1.0
   resolution: "css-what@npm:6.1.0"
   checksum: b975e547e1e90b79625918f84e67db5d33d896e6de846c9b584094e529f0c63e2ab85ee33b9daffd05bff3a146a1916bec664e18bb76dd5f66cbff9fc13b2bbe
@@ -11312,6 +11328,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-serializer@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "dom-serializer@npm:2.0.0"
+  dependencies:
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.2
+    entities: ^4.2.0
+  checksum: cd1810544fd8cdfbd51fa2c0c1128ec3a13ba92f14e61b7650b5de421b88205fd2e3f0cc6ace82f13334114addb90ed1c2f23074a51770a8e9c1273acbc7f3e6
+  languageName: node
+  linkType: hard
+
 "dom-walk@npm:^0.1.0":
   version: 0.1.2
   resolution: "dom-walk@npm:0.1.2"
@@ -11326,7 +11353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"domelementtype@npm:^2.0.1, domelementtype@npm:^2.2.0":
+"domelementtype@npm:^2.0.1, domelementtype@npm:^2.2.0, domelementtype@npm:^2.3.0":
   version: 2.3.0
   resolution: "domelementtype@npm:2.3.0"
   checksum: ee837a318ff702622f383409d1f5b25dd1024b692ef64d3096ff702e26339f8e345820f29a68bcdcea8cfee3531776b3382651232fbeae95612d6f0a75efb4f6
@@ -11351,6 +11378,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"domhandler@npm:^5.0.2, domhandler@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "domhandler@npm:5.0.3"
+  dependencies:
+    domelementtype: ^2.3.0
+  checksum: 0f58f4a6af63e6f3a4320aa446d28b5790a009018707bce2859dcb1d21144c7876482b5188395a188dfa974238c019e0a1e610d2fc269a12b2c192ea2b0b131c
+  languageName: node
+  linkType: hard
+
 "domutils@npm:^2.5.2, domutils@npm:^2.8.0":
   version: 2.8.0
   resolution: "domutils@npm:2.8.0"
@@ -11359,6 +11395,17 @@ __metadata:
     domelementtype: ^2.2.0
     domhandler: ^4.2.0
   checksum: abf7434315283e9aadc2a24bac0e00eab07ae4313b40cc239f89d84d7315ebdfd2fb1b5bf750a96bc1b4403d7237c7b2ebf60459be394d625ead4ca89b934391
+  languageName: node
+  linkType: hard
+
+"domutils@npm:^3.0.1":
+  version: 3.1.0
+  resolution: "domutils@npm:3.1.0"
+  dependencies:
+    dom-serializer: ^2.0.0
+    domelementtype: ^2.3.0
+    domhandler: ^5.0.3
+  checksum: e5757456ddd173caa411cfc02c2bb64133c65546d2c4081381a3bafc8a57411a41eed70494551aa58030be9e58574fcc489828bebd673863d39924fb4878f416
   languageName: node
   linkType: hard
 
@@ -11554,7 +11601,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^4.4.0":
+"entities@npm:^4.2.0, entities@npm:^4.4.0":
   version: 4.5.0
   resolution: "entities@npm:4.5.0"
   checksum: 853f8ebd5b425d350bffa97dd6958143179a5938352ccae092c62d1267c4e392a039be1bae7d51b6e4ffad25f51f9617531fedf5237f15df302ccfb452cbf2d7
@@ -20176,6 +20223,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-svg@npm:^14.1.0":
+  version: 14.1.0
+  resolution: "react-native-svg@npm:14.1.0"
+  dependencies:
+    css-select: ^5.1.0
+    css-tree: ^1.1.3
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: ed94adac9bf3144c5dcbf37a2956ab672d402f11c0ed75cda247d1d9136ce8977f4d01bcfc813ba576bd61ece420d66306c148057e2552828aa8fe9bad173d46
+  languageName: node
+  linkType: hard
+
 "react-native-swipe-gestures@npm:^1.0.5":
   version: 1.0.5
   resolution: "react-native-swipe-gestures@npm:1.0.5"
@@ -23255,6 +23315,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "typescript@npm:5.3.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2007ccb6e51bbbf6fde0a78099efe04dc1c3dfbdff04ca3b6a8bc717991862b39fd6126c0c3ebf2d2d98ac5e960bcaa873826bb2bb241f14277034148f41f6a2
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@^5.1.6#~builtin<compat/typescript>":
   version: 5.1.6
   resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"
@@ -23262,6 +23332,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: f53bfe97f7c8b2b6d23cf572750d4e7d1e0c5fff1c36d859d0ec84556a827b8785077bc27676bf7e71fae538e517c3ecc0f37e7f593be913d884805d931bc8be
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^5.3.3#~builtin<compat/typescript>":
+  version: 5.3.3
+  resolution: "typescript@patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=14eedb"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: f61375590b3162599f0f0d5b8737877ac0a7bc52761dbb585d67e7b8753a3a4c42d9a554c4cc929f591ffcf3a2b0602f65ae3ce74714fd5652623a816862b610
   languageName: node
   linkType: hard
 

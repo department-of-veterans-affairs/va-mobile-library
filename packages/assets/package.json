@@ -6,9 +6,13 @@
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
   },
+  "main": "./src/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
   "files": [
-    "fonts/**/*",
-    "svgs/**/*"
+    "src/fonts/**/*",
+    "src/svgs/**/*"
   ],
   "keywords": [
     "design",
@@ -26,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
   },
-  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme"
+  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
 }
