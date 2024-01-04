@@ -1,5 +1,0 @@
-{
-  "include": ["src/**/*.ts", "src/fonts/**/*", "src/svgs/**/*"],
-  "exclude": ["node_modules", "dist"],
-  "files": ["globals.d.ts"]
-}
