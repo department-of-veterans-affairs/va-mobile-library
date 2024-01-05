@@ -1,4 +1,4 @@
-import { Icon, IconProps, IconVariants } from './Icon'
+import { Icon, IconProps } from './Icon'
 import { Meta, StoryObj } from '@storybook/react-native'
 import { View } from 'react-native'
 import { generateDocs } from '../../utils/storybook'
@@ -38,8 +38,6 @@ export const _Primary: Story = {
     width: 100,
     height: 100,
     fill: '#1e90ff',
-    name: 'HomeSelected',
-    preventScaling: true,
-    paddingTop: 50,
+    name: 'PaperClip',
   },
 }
