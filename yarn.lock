@@ -2896,7 +2896,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.22.15
     "@babel/preset-env": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
-    "@department-of-veterans-affairs/mobile-assets": 0.1.0-alpha.0
+    "@department-of-veterans-affairs/mobile-assets": "npm:0.1.0-alpha.0"
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.3.1"
     "@expo/webpack-config": ^19.0.0
     "@os-team/i18next-react-native-language-detector": ^1.0.28
@@ -2956,7 +2956,7 @@ __metadata:
     ts-jest: ^29.1.1
     typescript: ^5.1.6
   peerDependencies:
-    "@department-of-veterans-affairs/mobile-assets": 0.1.0-alpha.0
+    "@department-of-veterans-affairs/mobile-assets": "*"
     react: ^18.2.0
     react-native: ~0.71.7
     react-native-gesture-handler: ^2.12.0
