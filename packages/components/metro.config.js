@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getDefaultConfig } = require('expo/metro-config')
+
+const { getDefaultConfig } = require('metro-config')
 const path = require('path')
 
 // Find the project and workspace directories
@@ -7,17 +8,49 @@ const projectRoot = __dirname
 // This can be replaced with `find-yarn-workspace-root`
 const workspaceRoot = path.resolve(projectRoot, '../..')
 
-const config = getDefaultConfig(__dirname)
+module.exports = (async () => {
+  const {
+    resolver: { sourceExts, assetExts, resolverMainFields },
+  } = await getDefaultConfig()
 
-// 1. Watch all files within the monorepo
-config.watchFolders = [workspaceRoot]
-// 2. Let Metro know where to resolve packages and in what order
-config.resolver.nodeModulesPaths = [
-  path.resolve(projectRoot, 'node_modules'),
-  path.resolve(workspaceRoot, 'node_modules'),
-]
-// 3. Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
-config.resolver.disableHierarchicalLookup = true
-config.resolver.resolverMainFields.unshift('sbmodern')
+  return {
+    watchFolders: [workspaceRoot],
+    transformer: {
+      babelTransformerPath: require.resolve('react-native-svg-transformer'),
+    },
+    resolver: {
+      assetExts: assetExts.filter((ext) => ext !== 'svg'),
+      sourceExts: [...sourceExts, 'svg'],
+      nodeModulesPaths: [
+        path.resolve(projectRoot, 'node_modules'),
+        path.resolve(workspaceRoot, 'node_modules'),
+      ],
+      disableHierarchicalLookup: true,
+      resolverMainFields: ['sbmodern', 'react-native', ...resolverMainFields],
+      // 3. Force Metr
+    },
+  }
+})()
 
-module.exports = config
+// const { getDefaultConfig } = require('expo/metro-config')
+// const path = require('path')
+
+// const config = getDefaultConfig(__dirname)
+
+// // 1. Watch all files within the monorepo
+// config.watchFolders = [workspaceRoot]
+// // 2. Let Metro know where to resolve packages and in what order
+// // config.resolver.nodeModulesPaths = [
+// //   path.resolve(projectRoot, 'node_modules'),
+// //   path.resolve(workspaceRoot, 'node_modules'),
+// // ]
+// // // 3. Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
+// // config.resolver.disableHierarchicalLookup = true
+// // config.resolver.resolverMainFields.unshift('sbmodern')
+
+// config.resolver.assetExts.push(
+//   // Adds support for `.db` files for SQLite databases
+//   'svg'
+// );
+
+// module.exports = config
