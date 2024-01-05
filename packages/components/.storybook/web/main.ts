@@ -1,3 +1,6 @@
+const path = require('path')
+const CopyPlugin = require('copy-webpack-plugin')
+
 module.exports = {
   stories: [
     '../../src/components/**/*.stories.mdx',
@@ -15,4 +18,18 @@ module.exports = {
   },
   framework: '@storybook/react',
   staticDirs: ['../../src/assets'],
+  webpackFinal: async (config) => {
+    config.plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: '../../node_modules/@department-of-veterans-affairs/mobile-assets/fonts',
+            to: 'fonts',
+          },
+        ],
+      }),
+    )
+
+    return config
+  },
 }

@@ -40,8 +40,8 @@ export const webStorybookColorScheme = () => {
 const App = () => {
   // Loads in custom fonts async
   const [fontsLoaded, fontError] = useFonts({
-    'SourceSansPro-Bold': require('@department-of-veterans-affairs/va-mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
-    'SourceSansPro-Regular': require('@department-of-veterans-affairs/va-mobile-assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf'),
+    'SourceSansPro-Bold': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
+    'SourceSansPro-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf'),
   })
 
   // Holds rendering until custom fonts load
