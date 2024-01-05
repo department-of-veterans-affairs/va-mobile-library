@@ -1,3 +1,4 @@
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import { Icon, IconProps } from './Icon'
 import { Meta, StoryObj } from '@storybook/react-native'
 import { View } from 'react-native'
@@ -32,12 +33,12 @@ export default meta
 
 type Story = StoryObj<IconProps>
 
-export const _Primary: Story = {
-  storyName: 'Primary',
+export const Example: Story = {
+  storyName: 'Example',
   args: {
-    width: 100,
-    height: 100,
-    fill: '#1e90ff',
-    name: 'PaperClip',
+    width: 50,
+    height: 50,
+    fill: DesignTokens.colorUswdsSystemColorBlueVivid30,
+    name: 'HomeUnselected',
   },
 }
