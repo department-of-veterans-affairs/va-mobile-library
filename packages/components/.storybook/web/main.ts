@@ -19,6 +19,7 @@ module.exports = {
   framework: '@storybook/react',
   staticDirs: ['../../src/assets'],
   webpackFinal: async (config) => {
+    // Copies fonts from mobile-assets to storybook static folder
     config.plugins.push(
       new CopyPlugin({
         patterns: [
@@ -29,6 +30,16 @@ module.exports = {
         ],
       }),
     )
+
+    // SVG support for storybook web
+    const fileLoaderRule = config.module.rules.find((rule) =>
+      rule.test.test('.svg'),
+    )
+    fileLoaderRule.exclude = /\.svg$/
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
 
     return config
   },

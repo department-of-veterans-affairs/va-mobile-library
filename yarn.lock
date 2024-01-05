@@ -2114,6 +2114,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-transform-react-constant-elements@npm:^7.21.3":
+  version: 7.23.3
+  resolution: "@babel/plugin-transform-react-constant-elements@npm:7.23.3"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.22.5
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: f386fe59657910a00c5d276918765c6a74e52c9a223d79463a4eecd652b4da4a6c0a16710fcf5e17b838c336e0c46b552b79e47c1d6eeebc74a813788e0611f7
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-transform-react-display-name@npm:^7.0.0, @babel/plugin-transform-react-display-name@npm:^7.22.5":
   version: 7.22.5
   resolution: "@babel/plugin-transform-react-display-name@npm:7.22.5"
@@ -2848,10 +2859,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-assets@file:./../assets::locator=%40department-of-veterans-affairs%2Fmobile-component-library%40workspace%3Apackages%2Fcomponents":
+"@department-of-veterans-affairs/mobile-assets@npm:0.1.0-alpha.0":
   version: 0.1.0-alpha.0
-  resolution: "@department-of-veterans-affairs/mobile-assets@file:./../assets#./../assets::hash=ada4d0&locator=%40department-of-veterans-affairs%2Fmobile-component-library%40workspace%3Apackages%2Fcomponents"
-  checksum: 06352ed677ee69450fde447969010509a4ac46be2d9ee5ea601df7e275121803136305c3b6d2dbb85075c886a3e79658ade7b000ec58f2cb5b1eab64f330aca4
+  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.1.0-alpha.0"
+  checksum: 87af9a94b1696ae36c829cade64dafeed3fc5bd457b37911103e785344d19e6271fbc400ebc9e3a4da262d45f265a7cb95f39978466fd77f51f7eb48145c06d3
   languageName: node
   linkType: hard
 
@@ -2885,7 +2896,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.22.15
     "@babel/preset-env": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
-    "@department-of-veterans-affairs/mobile-assets": "file:./../assets"
+    "@department-of-veterans-affairs/mobile-assets": 0.1.0-alpha.0
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.3.1"
     "@expo/webpack-config": ^19.0.0
     "@os-team/i18next-react-native-language-detector": ^1.0.28
@@ -2904,6 +2915,7 @@ __metadata:
     "@storybook/manager-webpack5": ^6.5.14
     "@storybook/react": ^6.5.16
     "@storybook/react-native": ^6.5.4
+    "@svgr/webpack": ^8.1.0
     "@testing-library/react-native": ^12.3.0
     "@types/jest": ^29.5.3
     "@types/react": ~18.2.14
@@ -2944,7 +2956,7 @@ __metadata:
     ts-jest: ^29.1.1
     typescript: ^5.1.6
   peerDependencies:
-    "@department-of-veterans-affairs/mobile-assets": "*"
+    "@department-of-veterans-affairs/mobile-assets": 0.1.0-alpha.0
     react: ^18.2.0
     react-native: ~0.71.7
     react-native-gesture-handler: ^2.12.0
@@ -6777,7 +6789,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/core@npm:^8.1.0":
+"@svgr/core@npm:8.1.0, @svgr/core@npm:^8.1.0":
   version: 8.1.0
   resolution: "@svgr/core@npm:8.1.0"
   dependencies:
@@ -6800,7 +6812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-jsx@npm:^8.1.0":
+"@svgr/plugin-jsx@npm:8.1.0, @svgr/plugin-jsx@npm:^8.1.0":
   version: 8.1.0
   resolution: "@svgr/plugin-jsx@npm:8.1.0"
   dependencies:
@@ -6814,7 +6826,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@svgr/plugin-svgo@npm:^8.1.0":
+"@svgr/plugin-svgo@npm:8.1.0, @svgr/plugin-svgo@npm:^8.1.0":
   version: 8.1.0
   resolution: "@svgr/plugin-svgo@npm:8.1.0"
   dependencies:
@@ -6824,6 +6836,22 @@ __metadata:
   peerDependencies:
     "@svgr/core": "*"
   checksum: 59d9d214cebaacca9ca71a561f463d8b7e5a68ca9443e4792a42d903acd52259b1790c0680bc6afecc3f00a255a6cbd7ea278a9f625bac443620ea58a590c2d0
+  languageName: node
+  linkType: hard
+
+"@svgr/webpack@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "@svgr/webpack@npm:8.1.0"
+  dependencies:
+    "@babel/core": ^7.21.3
+    "@babel/plugin-transform-react-constant-elements": ^7.21.3
+    "@babel/preset-env": ^7.20.2
+    "@babel/preset-react": ^7.18.6
+    "@babel/preset-typescript": ^7.21.0
+    "@svgr/core": 8.1.0
+    "@svgr/plugin-jsx": 8.1.0
+    "@svgr/plugin-svgo": 8.1.0
+  checksum: c6eec5b0cf2fb2ecd3a7a362d272eda35330b17c76802a3481f499b5d07ff8f87b31d2571043bff399b051a1767b1e2e499dbf186104d1c06d76f9f1535fac01
   languageName: node
   linkType: hard
 
