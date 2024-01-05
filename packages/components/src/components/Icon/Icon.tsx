@@ -1,18 +1,8 @@
 import { SvgProps } from 'react-native-svg'
-import React, { FC } from 'react'
-
-// import { AccessibilityState } from 'store/slices'
-// import { Box, BoxProps } from 'components'
-// import { RootState } from 'store'
-// import { IconColors, VATextColors } from 'styles/theme'
-// import { updateFontScale } from 'utils/accessibility'
-// import { useAppDispatch, useFontScale, useTheme } from 'utils/hooks'
-// import { useSelector } from 'react-redux'
-
-// See Icon function documentation below for guidance on adding new SVGs
+import React, { FC, useEffect, useState } from 'react'
 
 // Navigation
-import { View } from 'react-native'
+import { AppState, AppStateStatus, PixelRatio, View } from 'react-native'
 import BenefitsSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsSelected.svg'
 import BenefitsUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsUnselected.svg'
 import HealthSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/HealthSelected.svg'
@@ -145,14 +135,15 @@ const IconMap = {
   VideoCamera,
 }
 
-export type IconVariants = keyof typeof IconMap
-
 /**
  *  Props that need to be passed in to {@link Icon}
  */
 export type IconProps = {
   /**  enum name of the icon to use {@link IconMap} **/
-  name: keyof typeof IconMap
+  name?: keyof typeof IconMap
+
+  /** SVG passed to display */
+  svg?: React.FC<SvgProps>
 
   /** Fill color for the icon */
   fill?: string // keyof IconColors | keyof VATextColors | string
@@ -223,6 +214,7 @@ export type IconProps = {
  */
 export const Icon: FC<IconProps> = ({
   name,
+  svg,
   width,
   height,
   fill,
@@ -231,39 +223,26 @@ export const Icon: FC<IconProps> = ({
   maxWidth,
   preventScaling,
   testID,
-  marginTop = 0,
-  marginBottom = 0,
-  marginLeft = 0,
-  marginRight = 0,
-  paddingTop = 0,
-  paddingBottom = 0,
-  paddingLeft = 0,
-  paddingRight = 0,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  paddingTop,
+  paddingBottom,
+  paddingLeft,
+  paddingRight,
 }) => {
-  // const fs: (val: number) => number = useFontScale()
-  const fs: (val: number) => number = () => 1 // useFontScale()
-  // const dispatch = useAppDispatch()
-  // const { fontScale } = useSelector<RootState, AccessibilityState>(
-  //   (state) => state.accessibility,
-  // )
+  const [fontScale, setFontScale] = useState<number>(PixelRatio.getFontScale())
+  const fs = (val: number) => fontScale * val
 
   let iconProps = {
     name,
     width,
     height,
     preventScaling,
-  }
-
-  if (fill) {
-    iconProps = Object.assign({}, iconProps, { fill: fill })
-  }
-
-  if (fill2) {
-    iconProps = Object.assign({}, iconProps, { color: fill2 })
-  }
-
-  if (stroke) {
-    iconProps = Object.assign({}, iconProps, { stroke: stroke })
+    fill,
+    stroke,
+    color: fill2,
   }
 
   const viewProps = {
@@ -277,17 +256,24 @@ export const Icon: FC<IconProps> = ({
     paddingRight,
   }
 
-  // useEffect(() => {
-  //   // Listener for the current app state, updates the font scale when app state is active and the font scale has changed
-  //   const sub = AppState.addEventListener(
-  //     'change',
-  //     (newState: AppStateStatus): void =>
-  //       updateFontScale(newState, fontScale, dispatch),
-  //   )
-  //   return (): void => sub?.remove()
-  // }, [dispatch, fontScale])
+  useEffect(() => {
+    // Listener for the current app state, updates the font scale when app state
+    // is active and the font scale has changed
+    const sub = AppState.addEventListener(
+      'change',
+      (newState: AppStateStatus): void => {
+        if (newState === 'active') {
+          const fontScaleUpdated = PixelRatio.getFontScale()
+          if (fontScale !== fontScaleUpdated) {
+            setFontScale(fontScaleUpdated)
+          }
+        }
+      },
+    )
+    return (): void => sub?.remove()
+  }, [fontScale])
 
-  const VAIcon: FC<SvgProps> | undefined = IconMap[name]
+  const VAIcon: FC<SvgProps> | undefined = name ? IconMap[name] : svg
 
   if (!VAIcon) {
     return <></>
@@ -306,8 +292,6 @@ export const Icon: FC<IconProps> = ({
       iconProps = { ...iconProps, width: fs(width), height: fs(height) }
     }
   }
-
-  console.log('iconProps', iconProps)
 
   return (
     <View testID={testID} style={viewProps}>
