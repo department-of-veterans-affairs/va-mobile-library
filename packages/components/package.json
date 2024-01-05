@@ -42,7 +42,7 @@
     "@os-team/i18next-react-native-language-detector": "^1.0.28",
     "i18next": "^23.4.3",
     "react-i18next": "^13.0.3",
-    "react-native-svg": "^14.1.0",
+    "react-native-svg": "13.9.0",
     "styled-components": "^6.0.7"
   },
   "peerDependencies": {
