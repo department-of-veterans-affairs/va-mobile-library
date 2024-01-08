@@ -2,7 +2,10 @@
   "name": "@department-of-veterans-affairs/mobile-component-library",
   "version": "0.3.6-alpha.6",
   "description": "VA Design System Mobile Component Library",
-  "main": "src/index.tsx",
+  "main": "src/App.tsx",
+  "publishConfig": {
+    "main": "src/index.tsx"
+  },
   "scripts": {
     "start": "sb-rn-get-stories --config-path .storybook/native && expo start",
     "android": "expo start --android",
