@@ -210,7 +210,7 @@ export const Icon: FC<IconProps> = ({
     preventScaling,
     fill,
     stroke,
-    color: fill2 || Design,
+    color: fill2,
   }
 
   useEffect(() => {
