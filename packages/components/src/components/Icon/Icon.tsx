@@ -1,8 +1,8 @@
+import { AppState, AppStateStatus, PixelRatio, View } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 import React, { FC, useEffect, useState } from 'react'
 
 // Navigation
-import { AppState, AppStateStatus, PixelRatio, View } from 'react-native'
 import BenefitsSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsSelected.svg'
 import BenefitsUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsUnselected.svg'
 import HealthSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/HealthSelected.svg'
