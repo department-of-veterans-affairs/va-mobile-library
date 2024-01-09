@@ -38,7 +38,7 @@ export const Example: Story = {
   args: {
     width: 50,
     height: 50,
-    fill: DesignTokens.colorUswdsSystemColorBlueVivid30,
+    fill: DesignTokens.colorGrayMedium,
     name: 'HomeUnselected',
   },
 }
