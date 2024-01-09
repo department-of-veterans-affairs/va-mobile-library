@@ -1,9 +1,11 @@
-import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
-import { Icon, IconProps } from './Icon'
 import { Meta, StoryObj } from '@storybook/react-native'
 import { View } from 'react-native'
-import { generateDocs } from '../../utils/storybook'
 import React from 'react'
+
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
+import { Icon, IconProps } from './Icon'
+import { generateDocs } from '../../utils/storybook'
+import CustomSVG from '../../assets/svgs/custom.svg'
 
 const meta: Meta<IconProps> = {
   title: 'Icon',
@@ -33,12 +35,21 @@ export default meta
 
 type Story = StoryObj<IconProps>
 
-export const Example: Story = {
-  storyName: 'Example',
+export const _Example: Story = {
+  storyName: 'Preloaded Icons',
   args: {
     width: 50,
     height: 50,
     fill: DesignTokens.colorGrayMedium,
     name: 'HomeUnselected',
+  },
+}
+export const __Custom: Story = {
+  storyName: 'Custom SVG',
+  args: {
+    width: 50,
+    height: 50,
+    fill: DesignTokens.colorGrayMedium,
+    svg: CustomSVG,
   },
 }
