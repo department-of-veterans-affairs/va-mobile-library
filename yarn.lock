@@ -2718,7 +2718,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.22.15
     "@babel/preset-env": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
-    "@department-of-veterans-affairs/mobile-tokens": "npm:0.3.1"
+    "@department-of-veterans-affairs/mobile-tokens": 0.3.1
     "@expo/webpack-config": ^19.0.0
     "@os-team/i18next-react-native-language-detector": ^1.0.28
     "@react-native-async-storage/async-storage": 1.18.2
