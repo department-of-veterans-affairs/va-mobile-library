@@ -1,6 +1,8 @@
-import { AppState, AppStateStatus, PixelRatio, View } from 'react-native'
+import { AppState, AppStateStatus, PixelRatio } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 import React, { FC, useEffect, useState } from 'react'
+
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 
 // Navigation
 import BenefitsSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsSelected.svg'
@@ -166,30 +168,6 @@ export type IconProps = {
 
   /** Optional TestID */
   testID?: string
-
-  /** optional top margin */
-  marginTop?: number
-
-  /** optional bottom margin */
-  marginBottom?: number
-
-  /** optional right margin */
-  marginRight?: number
-
-  /** optional left margin */
-  marginLeft?: number
-
-  /** optional top padding */
-  paddingTop?: number
-
-  /** optional bottom padding */
-  paddingBottom?: number
-
-  /** optional right padding */
-  paddingRight?: number
-
-  /** optional left padding */
-  paddingLeft?: number
 }
 
 /**
@@ -216,19 +194,11 @@ export const Icon: FC<IconProps> = ({
   width,
   height,
   fill,
-  fill2,
+  fill2 = DesignTokens.colorWhite,
   stroke,
   maxWidth,
   preventScaling,
   testID,
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight,
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
 }) => {
   const [fontScale, setFontScale] = useState<number>(PixelRatio.getFontScale())
   const fs = (val: number) => fontScale * val
@@ -240,18 +210,7 @@ export const Icon: FC<IconProps> = ({
     preventScaling,
     fill,
     stroke,
-    color: fill2,
-  }
-
-  const viewProps = {
-    marginTop,
-    marginBottom,
-    marginLeft,
-    marginRight,
-    paddingTop,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
+    color: fill2 || Design,
   }
 
   useEffect(() => {
@@ -291,9 +250,5 @@ export const Icon: FC<IconProps> = ({
     }
   }
 
-  return (
-    <View testID={testID} style={viewProps}>
-      <_Icon {...iconProps} />
-    </View>
-  )
+  return <_Icon {...iconProps} testID={testID} />
 }
