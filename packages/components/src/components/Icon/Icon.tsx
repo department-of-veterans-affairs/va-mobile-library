@@ -33,7 +33,6 @@ import CircleExternalLink from '@department-of-veterans-affairs/mobile-assets/sv
 import CirclePhone from '@department-of-veterans-affairs/mobile-assets/svgs/links/CirclePhone.svg'
 import Directions from '@department-of-veterans-affairs/mobile-assets/svgs/links/Directions.svg'
 import PhoneTTY from '@department-of-veterans-affairs/mobile-assets/svgs/links/PhoneTTY.svg'
-import RightArrowInCircle from '@department-of-veterans-affairs/mobile-assets/svgs/links/right-arrow-blue-circle.svg'
 import Text from '@department-of-veterans-affairs/mobile-assets/svgs/links/Text.svg'
 
 // VASelector
@@ -125,7 +124,6 @@ const IconMap = {
   Redo,
   Remove,
   Reply,
-  RightArrowInCircle, // TODO: Ticket 3402 (or separate implementation ticket) to remove this icon
   Sort,
   Text,
   Trash,
