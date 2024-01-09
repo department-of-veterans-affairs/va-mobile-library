@@ -273,9 +273,9 @@ export const Icon: FC<IconProps> = ({
     return (): void => sub?.remove()
   }, [fontScale])
 
-  const VAIcon: FC<SvgProps> | undefined = name ? IconMap[name] : svg
+  const _Icon: FC<SvgProps> | undefined = name ? IconMap[name] : svg
 
-  if (!VAIcon) {
+  if (!_Icon) {
     return <></>
   }
 
@@ -295,7 +295,7 @@ export const Icon: FC<IconProps> = ({
 
   return (
     <View testID={testID} style={viewProps}>
-      <VAIcon {...iconProps} />
+      <_Icon {...iconProps} />
     </View>
   )
 }
