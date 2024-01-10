@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.3.6-alpha.10",
+  "version": "0.3.6-alpha.11",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -38,6 +38,7 @@
   },
   "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
+    "@department-of-veterans-affairs/mobile-assets": "0.1.0",
     "@department-of-veterans-affairs/mobile-tokens": "0.3.1",
     "@os-team/i18next-react-native-language-detector": "^1.0.28",
     "i18next": "^23.4.3",
@@ -57,7 +58,6 @@
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@babel/preset-env": "^7.22.15",
     "@babel/preset-typescript": "^7.22.15",
-    "@department-of-veterans-affairs/mobile-assets": "0.1.0",
     "@expo/webpack-config": "^19.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-community/datetimepicker": "7.2.0",
