@@ -12,6 +12,7 @@ on:
         options:
           - components
           - tokens
+          - assets
           - linting
       version_type:
         description: Version type
@@ -162,7 +163,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "<https://www.npmjs.com/package/${{ steps.publish.outputs.NPM_PACKAGE_NAME }}|NPM>"
+                      "text": "<https://www.npmjs.com/package/${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}|NPM>"
                     },
                     {
                       "type": "mrkdwn",
@@ -194,7 +195,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": ":red-x: Error publishing *${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}* to NPM"
+                    "text": ":red-x: Error publishing *${{ inputs.package }}* to NPM"
                   }
                 },
                 {

@@ -10,6 +10,9 @@ module.exports = {
       },
     ],
   },
+  moduleNameMapper: {
+    '\\.svg': '<rootDir>/jest/svgMock.ts',
+  },
   setupFiles: [
     '../../node_modules/react-native-gesture-handler/jestSetup.js',
     './jest/testSetup.ts',

@@ -1,0 +1,30 @@
+{
+  "name": "@department-of-veterans-affairs/mobile-assets",
+  "version": "0.1.1",
+  "description": "VA Design System Mobile Assets",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
+  },
+  "files": [
+    "fonts/**/*",
+    "svgs/**/*"
+  ],
+  "keywords": [
+    "design",
+    "system",
+    "library",
+    "assets",
+    "svg",
+    "icons",
+    "fonts"
+  ],
+  "maintainers": [
+    "@department-of-veterans-affairs/flagship-mobile-platform"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
+  },
+  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme"
+}
