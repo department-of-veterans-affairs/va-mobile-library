@@ -1,5 +1,5 @@
 import * as SplashScreen from 'expo-splash-screen'
-import { ColorSchemeName, View } from 'react-native'
+import { ColorSchemeName, Platform, View } from 'react-native'
 import { I18nextProvider } from 'react-i18next'
 import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
@@ -38,10 +38,16 @@ export const webStorybookColorScheme = () => {
 }
 
 const App = () => {
-  // Loads in custom fonts async
+  // Loads in custom fonts async conditionally based on OS. Loading from node
+  // module seems to be broken on Android
+  const isAndroid = Platform.OS === 'android'
   const [fontsLoaded, fontError] = useFonts({
-    'SourceSansPro-Bold': require('./assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
-    'SourceSansPro-Regular': require('./assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf'),
+    'SourceSansPro-Bold': isAndroid
+      ? require('./assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf')
+      : require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
+    'SourceSansPro-Regular': isAndroid
+      ? require('./assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf')
+      : require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
   })
 
   // Holds rendering until custom fonts load
