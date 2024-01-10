@@ -2859,10 +2859,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-assets@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.1.0"
-  checksum: 75f79c47297408d6d73ee7cda42d097aec3d70e17aae2826c7f662fd8875a7c9f6f65f53d87c9afd11e9a3367a3898e043de983e1c6c6cb449abfec2983fc19a
+"@department-of-veterans-affairs/mobile-assets@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.1.1"
+  checksum: 5c5182ca146424e4022e5f95e5bce09c8fe1e5a393ac278096608e3db87b8719a958e72a34497c7cb99acf39bb27627088d1a99c3da064174ce1dd9da0f19ea5
   languageName: node
   linkType: hard
 
@@ -2896,7 +2896,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.22.15
     "@babel/preset-env": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
-    "@department-of-veterans-affairs/mobile-assets": 0.1.0
+    "@department-of-veterans-affairs/mobile-assets": 0.1.1
     "@department-of-veterans-affairs/mobile-tokens": 0.3.1
     "@expo/webpack-config": ^19.0.0
     "@os-team/i18next-react-native-language-detector": ^1.0.28
