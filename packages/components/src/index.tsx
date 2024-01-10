@@ -7,5 +7,5 @@ if (expoApp && App.initiateExpo) {
 }
 
 // Export components here so they are exported through npm
-export { Button, ButtonVariants } from './components/Button/Button'
 export { SegmentedControl } from './components/SegmentedControl/SegmentedControl'
+export { Button, ButtonVariants } from './components/Button/Button'
