@@ -2,9 +2,10 @@
   "name": "@department-of-veterans-affairs/mobile-tokens",
   "version": "0.3.1",
   "description": "VA Design System Mobile Token Library",
-  "main": "dist/js/tokens.js",
+  "main": "dist/js/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "tokens:fetch-uswds": "node ./fetchUswds.js",
     "tokens:build": "node ./build.js",
     "prepack": "node ./build.js",
     "publish-package": "npm publish --access public --tolerate-republish"
@@ -30,6 +31,9 @@
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "packageManager": "yarn@3.6.1",
   "devDependencies": {
+    "@department-of-veterans-affairs/css-library": "^0.3.0",
+    "axios": "^1.6.5",
+    "download": "^8.0.0",
     "style-dictionary": "^3.8.0"
   }
 }
