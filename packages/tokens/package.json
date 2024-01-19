@@ -5,7 +5,6 @@
   "main": "dist/js/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "tokens:fetch-uswds": "node ./fetchUswds.js",
     "tokens:build": "node ./build.js",
     "prepack": "node ./build.js",
     "publish-package": "npm publish --access public --tolerate-republish"
