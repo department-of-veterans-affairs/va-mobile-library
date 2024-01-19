@@ -2974,8 +2974,8 @@ __metadata:
 
 "@department-of-veterans-affairs/mobile-tokens@file:../tokens::locator=%40department-of-veterans-affairs%2Fmobile-component-library%40workspace%3Apackages%2Fcomponents":
   version: 0.3.1
-  resolution: "@department-of-veterans-affairs/mobile-tokens@file:../tokens#../tokens::hash=0e12a2&locator=%40department-of-veterans-affairs%2Fmobile-component-library%40workspace%3Apackages%2Fcomponents"
-  checksum: 6529b43cccfdc8d27e85b1f4d94638d043d3d8335efa0619429c22b8b6e33c4865870002572aefbe8e44f73041f54b4a7a7ec3f0d45f7f3911a31a512c8fc893
+  resolution: "@department-of-veterans-affairs/mobile-tokens@file:../tokens#../tokens::hash=c0537a&locator=%40department-of-veterans-affairs%2Fmobile-component-library%40workspace%3Apackages%2Fcomponents"
+  checksum: 5153497c989f1ba3f3b596431ddb7bedfc1670267aecaca5c8355155e3def3133e373a866f4e349b7cc8c99ce1c59b3c94c3b587fdaa6184947db456d9954373
   languageName: node
   linkType: hard
 

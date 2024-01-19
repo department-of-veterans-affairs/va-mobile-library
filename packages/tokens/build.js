@@ -1,6 +1,46 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
+const formatColorTokenName = (name) => {
+  return name
+    .replace('color', '')
+    .replace('SystemColor', '')
+    .replace('uswds', 'Uswds')
+}
+
+StyleDictionary.registerFilter({
+  name: 'isColor',
+  matcher: function (token) {
+    return token.attributes.category.includes('color')
+  },
+})
+
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/vads-colors',
+  formatter: function (dictionary) {
+    console.log(`dictionary`, dictionary)
+    const colorTokens = dictionary.allProperties.reduce((result, token) => {
+      result[formatColorTokenName(token.name)] = token.value
+      return result
+    }, {})
+
+    return `export const Colors = ${JSON.stringify(colorTokens, null, 2)};`
+  },
+})
+
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/colors',
+  formatter: function (dictionary) {
+    let declaration = 'export declare const Colors: { [key: string]: string;\n'
+    dictionary.allProperties.forEach((token) => {
+      declaration += `  ${formatColorTokenName(token.name)}: string;\n`
+    })
+
+    declaration += `}`
+    return declaration
+  },
+})
+
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'figma',

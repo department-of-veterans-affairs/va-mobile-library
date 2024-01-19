@@ -1,14 +1,6 @@
 {
-  "primaryDarker": {
-    "$value": "#1a4480",
-    "$type": "color"
-  },
-  "primaryAltLightest": {
-    "$value": "#e1f3f8",
-    "$type": "color"
-  },
-  "secondaryLightest": {
-    "$value": "#f9dede",
+  "base": {
+    "$value": "#1b1b1b",
     "$type": "color"
   },
   "white": {
@@ -19,12 +11,84 @@
     "$value": "#000000",
     "$type": "color"
   },
+  "linkDefault": {
+    "$value": "#005ea2",
+    "$type": "color"
+  },
+  "linkDefaultHover": {
+    "$value": "rgba(#000000, 0.05)",
+    "$type": "color"
+  },
+  "linkVisited": {
+    "$value": "#54278f",
+    "$type": "color"
+  },
+  "warningMessage": {
+    "$value": "#faf3d1",
+    "$type": "color"
+  },
+  "feedbackWarningBackground": {
+    "$value": "#faf3d1",
+    "$type": "color"
+  },
+  "primary": {
+    "$value": "#005ea2",
+    "$type": "color"
+  },
+  "primaryDark": {
+    "$value": "#1a4480",
+    "$type": "color"
+  },
+  "primaryDarker": {
+    "$value": "#162e51",
+    "$type": "color"
+  },
+  "primaryAlt": {
+    "$value": "#00bde3",
+    "$type": "color"
+  },
+  "primaryAltDark": {
+    "$value": "#28a0cb",
+    "$type": "color"
+  },
+  "primaryAltDarkest": {
+    "$value": "#07648d",
+    "$type": "color"
+  },
+  "primaryAltLight": {
+    "$value": "#97d4ea",
+    "$type": "color"
+  },
+  "primaryAltLightest": {
+    "$value": "#e1f3f8",
+    "$type": "color"
+  },
+  "secondary": {
+    "$value": "#d83933",
+    "$type": "color"
+  },
+  "secondaryDark": {
+    "$value": "#b50909",
+    "$type": "color"
+  },
+  "secondaryDarkest": {
+    "$value": "#8b0a03",
+    "$type": "color"
+  },
+  "secondaryLight": {
+    "$value": "#f2938c",
+    "$type": "color"
+  },
+  "secondaryLightest": {
+    "$value": "#f8dfe2",
+    "$type": "color"
+  },
   "gray": {
-    "$value": "#5b616b",
+    "$value": "#565c65",
     "$type": "color"
   },
   "grayDark": {
-    "$value": "#323a45",
+    "$value": "#3d4551",
     "$type": "color"
   },
   "grayMedium": {
@@ -32,63 +96,95 @@
     "$type": "color"
   },
   "grayLight": {
-    "$value": "#aeb0b5",
+    "$value": "#a9aeb1",
     "$type": "color"
   },
   "grayLightAlt": {
-    "$value": "#eeeeee",
+    "$value": "#edeff0",
     "$type": "color"
   },
   "grayLighter": {
-    "$value": "#d6d7d9",
+    "$value": "#dfe1e2",
     "$type": "color"
   },
   "grayLightest": {
-    "$value": "#f1f1f1",
+    "$value": "#f0f0f0",
     "$type": "color"
   },
   "grayWarmDark": {
-    "$value": "#494440",
+    "$value": "#454540",
     "$type": "color"
   },
   "grayWarmLight": {
-    "$value": "#e4e2e0",
+    "$value": "#e6e6e2",
     "$type": "color"
   },
   "grayCoolLight": {
-    "$value": "#dce4ef",
+    "$value": "#e1e7f1",
     "$type": "color"
   },
-  "uswdsSystemColorBlueVivid30": {
-    "$value": "#58b4ff",
+  "green": {
+    "$value": "#008817",
     "$type": "color"
   },
-  "uswdsSystemColorBlueVivid60": {
-    "$value": "#005ea2",
+  "greenDark": {
+    "$value": "#216e1f",
     "$type": "color"
   },
-  "uswdsSystemColorBlueWarmVivid80": {
-    "$value": "#162e51",
+  "greenDarker": {
+    "$value": "#154c21",
     "$type": "color"
   },
-  "uswdsSystemColorGray30": {
-    "$value": "#adadad",
+  "greenLight": {
+    "$value": "#5e9f69",
     "$type": "color"
   },
-  "uswdsSystemColorGray80": {
-    "$value": "#2e2e2e",
+  "greenLighter": {
+    "$value": "#b4d0b9",
     "$type": "color"
   },
-  "uswdsSystemColorRedVivid40": {
-    "$value": "#fb5a47",
+  "greenLightest": {
+    "$value": "#ecf3ec",
     "$type": "color"
   },
-  "uswdsSystemColorRedVivid60": {
-    "$value": "#b50909",
+  "gold": {
+    "$value": "#ffbe2e",
     "$type": "color"
   },
-  "uswdsSystemColorRedVivid80": {
-    "$value": "#5c1111",
+  "goldLight": {
+    "$value": "#face00",
     "$type": "color"
+  },
+  "goldLighter": {
+    "$value": "#ffe396",
+    "$type": "color"
+  },
+  "goldLightest": {
+    "$value": "#fef0c8",
+    "$type": "color"
+  },
+  "goldDarker": {
+    "$value": "#936f38",
+    "$type": "color"
+  },
+  "blueCool": {
+    "$value": "#345d96",
+    "$type": "color"
+  },
+  "blueCoolLight": {
+    "$value": "#4a77b4",
+    "$type": "color"
+  },
+  "blueCoolLighter": {
+    "$value": "#98afd2",
+    "$type": "color"
+  },
+  "blueCoolLightest": {
+    "$value": "#e6e6e2",
+    "$type": "color"
+  },
+  "": {
+    "$value": "#422d19",
+    "$type": "uswds-system-color-yellow-vivid-80"
   }
 }
