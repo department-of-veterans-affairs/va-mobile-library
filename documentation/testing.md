@@ -25,7 +25,7 @@ The first option is to manually install the local component into the app you're 
 
 <details>
 <summary>Alternate Method 2</summary>
-The second is to use [local dependency linking through yarn commands](https://classic.yarnpkg.com/lang/en/docs/cli/link/). This creates a symlink to the local component from the app. There are some [Metro config changes that need to happen for this to work](https://github.com/facebook/metro/issues/1) and support is a little iffy at the moment, but it's certainly an option, although not highly recommended at this point.
+The second is to use <a href="https://classic.yarnpkg.com/lang/en/docs/cli/link/">local dependency linking through yarn commands</a>. This creates a symlink to the local component from the app. There are some <a href="https://github.com/facebook/metro/issues/1">Metro config changes that need to happen for this to work</a> and support is a little iffy at the moment, but it's certainly an option, although not highly recommended at this point.
 
 </details>
 
