@@ -29,4 +29,4 @@ The second is to use <a href="https://classic.yarnpkg.com/lang/en/docs/cli/link/
 
 </details>
 
-With all methods above, you can validate things have installed correctly looking up the `@department-of-veterans-affairs/mobile-component-library` folder within your package folder (e.g. `node_modules`). You can then run all app-level tests on it (manual app use, unit, compiling, e2e). The level of testing needed will be defined by the size of the update that is being made.
+With all methods above, you can validate things have installed correctly looking up the `@department-of-veterans-affairs/mobile-component-library` folder within your package folder (e.g. `node_modules`) and validating the correct package version is present. You can then run all app-level tests on it (manual app use, unit, compiling, e2e). The level of testing needed will be defined by the size of the update that is being made.
