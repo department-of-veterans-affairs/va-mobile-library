@@ -1,6 +1,4 @@
-# For engineers
-
-## Overview
+# Overview
 
 Welcome to the engineering section of the VA Mobile Design System documentation!
 
@@ -14,7 +12,7 @@ The VA Mobile Design System is in early stages and far from maturity; as such, f
 
 Lastly, the [va-mobile-library repo](https://github.com/department-of-veterans-affairs/va-mobile-library) houses the VA Mobile Design System codebase and [our Storybook](https://department-of-veterans-affairs.github.io/va-mobile-library/) demonstrates them functionally.
 
-### Packages
+## Packages
 
 So, what is currently being offered? 
 
