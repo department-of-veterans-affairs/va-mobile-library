@@ -1,4 +1,4 @@
-# VA Mobile Design Library Assets
+# VA Mobile Design System - Assets Package
 
 The Assets package contains static assets such as fonts and SVG icons for use by VA mobile applications. 
 

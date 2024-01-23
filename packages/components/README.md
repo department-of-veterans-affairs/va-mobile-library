@@ -1,4 +1,4 @@
-# VA Design System Mobile Component Library
+# VA Mobile Design System - Components Package
 
 The Components package is the core of the VA Mobile Design System containing the components themselves.
 

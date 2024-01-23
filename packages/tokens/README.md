@@ -1,4 +1,4 @@
-# VA Mobile Design Tokens
+# VA Mobile Design System - Tokens Package
 
 The Tokens package contains the design tokens for the VA Mobile Design Library. It uses [Style Dictionary](https://amzn.github.io/style-dictionary/#/) as a build system to define our styles in JSON and export them to different formats.
 
