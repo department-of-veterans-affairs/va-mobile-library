@@ -41,7 +41,7 @@ Our packages:
   - [NPM](https://www.npmjs.com/package/@department-of-veterans-affairs/mobile-tokens)
   - [Code](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/main/packages/tokens)
 
-Each package's documentation page contains more specialized guidance both for users of the package as well as documentation for getting set up locally for contributing.
+Each package's documentation page contains more specialized guidance both for consumers of the package as well as for contributing.
 
 All packages use [ISC licenses](https://en.wikipedia.org/wiki/ISC_license):
 > Copyright 2023 Department of Veterans Affairs

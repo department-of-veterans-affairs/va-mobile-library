@@ -19,7 +19,7 @@ The preferred method for manual testing is [to create an alpha build via the NPM
 There are a couple additional methods to manually check if a component works inside an app environment, but neither works as well as the preferred method and may not behave the same as a published package (e.g. changes may work using these methods that would _not_ work in a published NPM package): 
 <details>
 <summary>Alternate Method 1</summary>
-The first option is to manually install the local component into the app you're testing in by running: `yarn add file:../../va-mobile-library/packages/components` (assumes va-mobile-app and va-mobile-library are siblings, if they are not, change the path). This method points directly to the component file you're testing. The downside here is that your watch command may not work, so you'll need to rebuild the app to see changes (or update the watch configuration).
+The first option is to manually install the local component into the app you're testing in by running: <code>yarn add file:../../va-mobile-library/packages/components</code> (assumes va-mobile-app and va-mobile-library are siblings, if they are not, change the path). This method points directly to the component file you're testing. The downside here is that your watch command may not work, so you'll need to rebuild the app to see changes (or update the watch configuration).
 
 </details>
 

@@ -23,4 +23,4 @@ Note: the folder structure and file naming within the `src/` folder is relevant 
 
 | Command              | Description |
 | -------------------- | ----------- |
-| yarn tokens:build    | Takes any JSON files in the `src/tokens` folder and transforms them according to the defined transformations in the `config.js` |
+| `tokens:build`    | Takes any JSON files in the `src/tokens` folder and transforms them according to the defined transformations in the `config.js` |
