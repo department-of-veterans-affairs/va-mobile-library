@@ -1,12 +1,28 @@
-# VA Design System Mobile Component Library
+# VA Mobile Design System - Components Package
 
-## Getting Started
+The Components package is the core of the VA Mobile Design System containing the components themselves.
+
+## For Consumers
+The components package assumes you already have a functioning React Native app, whether using Expo or React Native CLI; see the [React Native documentation](https://reactnative.dev/docs/environment-setup) if you do not.
+
+Once you have a running app:
+1. Add `@department-of-veterans-affairs/mobile-component-library` as a dependency with your package manager (e.g. yarn)
+2. Add `@department-of-veterans-affairs/mobile-assets` as a dependency
+    - Note: beyond the assets package, `react`, `react-native`, and `react-native-gesture-handler` are also expected dependencies to run the components package
+3. [Hook up the custom fonts](https://blog.logrocket.com/adding-custom-fonts-react-native/) in the assets package to your app
+4. Import components from `@department-of-veterans-affairs/mobile-component-library` within .jsx/.tsx files and incorporate into the display logic similarly to how you would the built-in React Native components
+
+Note: The linting package is highly recommended so you'll automatically receive linting warnings for deprecation as the components package evolves; it should be set to the same version as the components package.
+
+Documentation about components available can be found via [the documentation site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Intro) as well as [our Storybook](https://department-of-veterans-affairs.github.io/va-mobile-library/). Questions and issues can be directed to [our DSVA Slack channel](https://dsva.slack.com/archives/C05HF9ULKJ4).
+
+## For Contributors
 
 ### Prerequisites
 
 1. Install [Node.js](https://nodejs.org/en)
 2. Install [NVM](https://github.com/nvm-sh/nvm)
-3. Install [yarn 3.6.1](https://yarnpkg.com/getting-started/install)
+3. Install [yarn 4.0.2](https://yarnpkg.com/getting-started/install)
 
 ### Installation
 
@@ -58,3 +74,4 @@ yarn tokens:build
 | `storybook:generate` | Generates `.storybook/native/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
 | `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js` |
 | `storybook:web`      | Builds and launches development server for web |
+| `test`               | Runs unit tests |
