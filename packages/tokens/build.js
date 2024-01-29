@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
+/** Removes unneeded prefixes from tokens and applies camel case to USWDS colors */
 const formatColorTokenName = (name) => {
   return name
     .replace('color', '')
@@ -8,6 +9,7 @@ const formatColorTokenName = (name) => {
     .replace('uswds', 'Uswds')
 }
 
+/** Custom filter to include only tokens with the 'color' category */
 StyleDictionary.registerFilter({
   name: 'isColor',
   matcher: function (token) {
@@ -15,6 +17,7 @@ StyleDictionary.registerFilter({
   },
 })
 
+/** Custom format for colors. Exports color tokens as single object */
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-colors',
   formatter: function (dictionary) {
@@ -28,6 +31,7 @@ StyleDictionary.registerFormat({
   },
 })
 
+/** Creates named type declaration for Colors. Allows for TypeScript autocomplete */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
