@@ -4,6 +4,7 @@ const tokenCategories = require('./src/tokens')
 module.exports = {
   source: [
     '../../node_modules/@department-of-veterans-affairs/css-library/dist/tokens/json/variables.json',
+    'src/tokens/color/uswds.json',
   ],
   platforms: {
     rn: {
