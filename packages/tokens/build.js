@@ -25,7 +25,6 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-colors',
   formatter: function (dictionary) {
-    console.log(`dictionary`, dictionary)
     const colorTokens = dictionary.allProperties.reduce((result, token) => {
       result[formatColorTokenName(token.name)] = token.value
       return result
