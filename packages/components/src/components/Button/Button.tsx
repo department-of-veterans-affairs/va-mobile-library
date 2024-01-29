@@ -1,4 +1,4 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Pressable,
   PressableStateCallbackType,
@@ -59,81 +59,80 @@ export const Button: React.FC<ButtonProps> = ({
 
   switch (buttonType) {
     case ButtonVariants.Base:
-      bgColor = Colors.GrayMedium
-      bgColor = Colors.GrayMedium
-      bgColorPressed = Colors.UswdsGray80
-      textColor = Colors.GrayLightest
-      textColorPressed = Colors.GrayLightest
+      bgColor = DesignTokens.colorGrayMedium
+      bgColorPressed = DesignTokens.colorUswdsSystemColorGray80
+      textColor = DesignTokens.colorGrayLightest
+      textColorPressed = DesignTokens.colorGrayLightest
 
       if (isDarkMode) {
-        bgColor = Colors.GrayLightest
-        bgColorPressed = Colors.UswdsGray30
-        textColor = Colors.Black
-        textColorPressed = Colors.Black
+        bgColor = DesignTokens.colorGrayLightest
+        bgColorPressed = DesignTokens.colorUswdsSystemColorGray30
+        textColor = DesignTokens.colorBlack
+        textColorPressed = DesignTokens.colorBlack
       }
       break
     case ButtonVariants.BaseSecondary:
       bgColor = 'transparent'
       bgColorPressed = 'transparent'
-      borderColor = Colors.GrayMedium
-      borderColorPressed = Colors.UswdsGray80
-      textColor = Colors.GrayMedium
-      textColorPressed = Colors.UswdsGray80
+      borderColor = DesignTokens.colorGrayMedium
+      borderColorPressed = DesignTokens.colorUswdsSystemColorGray80
+      textColor = DesignTokens.colorGrayMedium
+      textColorPressed = DesignTokens.colorUswdsSystemColorGray80
       borderWidth = 2
 
       if (isDarkMode) {
-        borderColor = Colors.GrayLightest
-        borderColorPressed = Colors.UswdsGray30
-        textColor = Colors.GrayLightest
-        textColorPressed = Colors.UswdsGray30
+        borderColor = DesignTokens.colorGrayLightest
+        borderColorPressed = DesignTokens.colorUswdsSystemColorGray30
+        textColor = DesignTokens.colorGrayLightest
+        textColorPressed = DesignTokens.colorUswdsSystemColorGray30
       }
       break
     case ButtonVariants.Destructive:
-      bgColor = Colors.UswdsRedVivid60
-      bgColorPressed = Colors.UswdsRedVivid80
-      textColor = Colors.GrayLightest
-      textColorPressed = Colors.GrayLightest
+      bgColor = DesignTokens.colorUswdsSystemColorRedVivid60
+      bgColorPressed = DesignTokens.colorUswdsSystemColorRedVivid80
+      textColor = DesignTokens.colorGrayLightest
+      textColorPressed = DesignTokens.colorGrayLightest
 
       if (isDarkMode) {
-        bgColor = Colors.UswdsRedVivid40
-        bgColorPressed = Colors.SecondaryLightest
-        textColor = Colors.Black
-        textColorPressed = Colors.Black
+        bgColor = DesignTokens.colorUswdsSystemColorRedVivid40
+        bgColorPressed = DesignTokens.colorSecondaryLightest
+        textColor = DesignTokens.colorBlack
+        textColorPressed = DesignTokens.colorBlack
       }
       break
     case ButtonVariants.Secondary:
       bgColor = 'transparent'
       bgColorPressed = 'transparent'
-      borderColor = Colors.UswdsBlueVivid60
-      borderColorPressed = Colors.UswdsBlueWarmVivid80
-      textColor = Colors.UswdsBlueVivid60
-      textColorPressed = Colors.UswdsBlueWarmVivid80
+      borderColor = DesignTokens.colorUswdsSystemColorBlueVivid60
+      borderColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
+      textColor = DesignTokens.colorUswdsSystemColorBlueVivid60
+      textColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
       borderWidth = 2
 
       if (isDarkMode) {
-        borderColor = Colors.UswdsBlueVivid30
-        borderColorPressed = Colors.White
-        textColor = Colors.UswdsBlueVivid30
-        textColorPressed = Colors.White
+        borderColor = DesignTokens.colorUswdsSystemColorBlueVivid30
+        borderColorPressed = DesignTokens.colorWhite
+        textColor = DesignTokens.colorUswdsSystemColorBlueVivid30
+        textColorPressed = DesignTokens.colorWhite
       }
       break
     case ButtonVariants.White:
-      bgColor = Colors.GrayLightest
-      bgColorPressed = Colors.UswdsGray30
-      textColor = Colors.Black
-      textColorPressed = Colors.Black
+      bgColor = DesignTokens.colorGrayLightest
+      bgColorPressed = DesignTokens.colorUswdsSystemColorGray30
+      textColor = DesignTokens.colorBlack
+      textColorPressed = DesignTokens.colorBlack
       break
     default:
-      bgColor = Colors.UswdsBlueVivid60
-      bgColorPressed = Colors.UswdsBlueWarmVivid80
-      textColor = Colors.GrayLightest
-      textColorPressed = Colors.GrayLightest
+      bgColor = DesignTokens.colorUswdsSystemColorBlueVivid60
+      bgColorPressed = DesignTokens.colorUswdsSystemColorBlueWarmVivid80
+      textColor = DesignTokens.colorGrayLightest
+      textColorPressed = DesignTokens.colorGrayLightest
 
       if (isDarkMode) {
-        bgColor = Colors.UswdsBlueVivid30
-        bgColorPressed = Colors.PrimaryAltLightest
-        textColor = Colors.Black
-        textColorPressed = Colors.Black
+        bgColor = DesignTokens.colorUswdsSystemColorBlueVivid30
+        bgColorPressed = DesignTokens.colorPrimaryAltLightest
+        textColor = DesignTokens.colorBlack
+        textColorPressed = DesignTokens.colorBlack
       }
   }
 

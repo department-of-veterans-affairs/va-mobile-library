@@ -1,4 +1,4 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Pressable,
   Text,
@@ -67,13 +67,13 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = Colors.GrayDark
-    activeBgColor = Colors.White
-    inactiveBgColor = Colors.GrayLighter
+    textColor = DesignTokens.colorGrayDark
+    activeBgColor = DesignTokens.colorWhite
+    inactiveBgColor = DesignTokens.colorGrayLighter
   } else {
-    textColor = Colors.GrayLightest
-    activeBgColor = Colors.GrayMedium
-    inactiveBgColor = Colors.GrayDark
+    textColor = DesignTokens.colorGrayLightest
+    activeBgColor = DesignTokens.colorGrayMedium
+    inactiveBgColor = DesignTokens.colorGrayDark
   }
 
   const viewStyle: ViewStyle = {
