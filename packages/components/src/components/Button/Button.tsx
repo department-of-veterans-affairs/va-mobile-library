@@ -181,7 +181,8 @@ export const Button: React.FC<ButtonProps> = ({
       accessible={true}
       aria-label={a11yLabel}
       testID={testID || label}
-      testOnly_pressed={testOnlyPressed}>
+      testOnly_pressed={testOnlyPressed}
+    >
       {({ pressed }: PressableStateCallbackType) => (
         <Text style={getTextStyle(pressed)}>{label}</Text>
       )}

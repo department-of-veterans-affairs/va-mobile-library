@@ -130,7 +130,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         role={'tab'}
         accessibilityState={{ selected: isSelected }}
         style={PressableOpacityStyle()}
-        testID={testIDs?.[index]}>
+        testID={testIDs?.[index]}
+      >
         <Text allowFontScaling={false} style={textStyle}>
           {label}
         </Text>
