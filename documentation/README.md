@@ -1,0 +1,1 @@
+A folder for general design system documentation not specifically tied to a package.
