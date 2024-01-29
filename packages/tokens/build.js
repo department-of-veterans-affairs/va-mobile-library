@@ -1,7 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
-/** Removes unneeded prefixes from tokens and applies camel case to USWDS colors */
+/**
+ * Removes unneeded prefixes from tokens and applies camel case to USWDS colors
+ * @param name - name of token being passed
+ * @returns name stripped of unneeded prefixes and formatted in camel case
+ */
 const formatColorTokenName = (name) => {
   return name
     .replace('color', '')
