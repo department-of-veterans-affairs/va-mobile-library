@@ -7,6 +7,10 @@ const StyleDictionary = require('style-dictionary')
  * @returns name stripped of unneeded prefixes and formatted in camel case
  */
 const formatColorTokenName = (name) => {
+  if (name === 'color') {
+    return
+  }
+
   return name
     .replace('color', '')
     .replace('SystemColor', '')
@@ -55,7 +59,7 @@ StyleDictionary.registerFormat({
     const tokensObject = dictionary.allTokens.reduce(
       (previousTokens, token) => ({
         ...previousTokens,
-        [token.name]: {
+        [formatColorTokenName(token.name)]: {
           $value: token.value,
           $type: token.path[0], // path[0] is top level token type (e.g. 'color'), should meet: https://tr.designtokens.org/format/#types
         },
