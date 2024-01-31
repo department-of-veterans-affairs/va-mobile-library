@@ -2,7 +2,7 @@
 const StyleDictionary = require('style-dictionary')
 
 /**
- * Removes unneeded prefixes from tokens and applies camel case to USWDS colors
+ * Removes unneeded prefixes from tokens and applies PascalCase to USWDS colors
  * @param name - name of token being passed
  * @returns name stripped of unneeded prefixes and formatted in camel case
  */
