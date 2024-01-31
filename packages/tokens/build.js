@@ -48,12 +48,6 @@ StyleDictionary.registerFormat({
   },
 })
 
-/** Registering transform group to massage output as desired for figma */
-StyleDictionary.registerTransformGroup({
-  name: 'figma',
-  transforms: ['name/ti/camel', 'color/hex'],
-})
-
 /** Registering format to generate JSON in Design Token Community Group format (https://tr.designtokens.org/format/) */
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
@@ -71,6 +65,12 @@ StyleDictionary.registerFormat({
 
     return JSON.stringify(tokensObject, undefined, 2) + `\n`
   },
+})
+
+/** Registering transform group to massage output as desired for figma */
+StyleDictionary.registerTransformGroup({
+  name: 'figma',
+  transforms: ['name/ti/camel', 'color/hex'],
 })
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
