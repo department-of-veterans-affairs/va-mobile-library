@@ -69,18 +69,13 @@ StyleDictionary.registerTransform({
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: [
-    'name/cti/pascal',
-    'name/strip-color-category',
-    'color/css',
-    'filterDuplicates',
-  ],
+  transforms: ['name/cti/pascal', 'name/strip-color-category', 'color/css'],
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'figma',
-  transforms: ['name/ti/camel', 'color/hex'],
+  transforms: ['name/ti/camel', 'name/strip-color-category', 'color/hex'],
 })
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
