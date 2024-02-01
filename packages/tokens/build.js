@@ -3,9 +3,12 @@ const StyleDictionary = require('style-dictionary')
 
 /** Custom filter to include only tokens with the 'color' category */
 StyleDictionary.registerFilter({
-  name: 'isColor',
+  name: 'isValidColor',
   matcher: function (token) {
-    return token.attributes.category.includes('color')
+    if (!token.name.length) {
+      console.log('TOKEN', token)
+    }
+    return token.attributes.category.includes('color') && token.name.length
   },
 })
 
@@ -60,20 +63,20 @@ StyleDictionary.registerTransform({
   name: 'name/color/clean-up',
   type: 'name',
   transformer: (token) => {
-    return token.name.replace('Color', '').replace('System', '')
+    return token.name.replace('SystemColor', '')
   },
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: ['name/cti/pascal', 'name/color/clean-up', 'color/css'],
+  transforms: ['name/ti/camel', 'name/color/clean-up', 'color/css'],
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'figma',
-  transforms: ['name/cti/pascal', 'name/color/clean-up', 'color/hex'],
+  transforms: ['name/ti/camel', 'name/color/clean-up', 'color/hex'],
 })
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')

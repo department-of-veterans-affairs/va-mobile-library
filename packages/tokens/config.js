@@ -15,12 +15,12 @@ module.exports = {
         {
           destination: 'js/index.js',
           format: 'javascript/es6/vads-colors',
-          filter: 'isColor',
+          filter: 'isValidColor',
         },
         {
           destination: 'index.d.ts',
           format: 'typescript/es6-declarations/colors',
-          filter: 'isColor',
+          filter: 'isValidColor',
         },
       ],
     },
@@ -30,7 +30,7 @@ module.exports = {
       files: tokenCategories.map((tokenCategory) => ({
         destination: `${tokenCategory}.json`,
         format: 'json/dtcg',
-        filter: 'isColor',
+        filter: 'isValidColor',
       })),
     },
   },
