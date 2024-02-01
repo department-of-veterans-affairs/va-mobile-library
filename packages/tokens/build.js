@@ -57,25 +57,23 @@ StyleDictionary.registerFormat({
 
 /** Registering a transform that strips out category from token name */
 StyleDictionary.registerTransform({
-  name: 'name/strip-color-category',
+  name: 'name/color/clean-up',
   type: 'name',
   transformer: (token) => {
-    // Modify the token name here
-    console.log(token)
-    return token.name.replace('color', '').replace('SystemColor', '')
+    return token.name.replace('Color', '').replace('System', '')
   },
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: ['name/cti/pascal', 'name/strip-color-category', 'color/css'],
+  transforms: ['name/cti/pascal', 'name/color/clean-up', 'color/css'],
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'figma',
-  transforms: ['name/ti/camel', 'name/strip-color-category', 'color/hex'],
+  transforms: ['name/cti/pascal', 'name/color/clean-up', 'color/hex'],
 })
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
