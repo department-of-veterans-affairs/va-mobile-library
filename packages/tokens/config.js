@@ -30,6 +30,7 @@ module.exports = {
       files: tokenCategories.map((tokenCategory) => ({
         destination: `${tokenCategory}.json`,
         format: 'json/dtcg',
+        filter: 'isColor',
       })),
     },
   },
