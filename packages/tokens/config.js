@@ -8,7 +8,7 @@ module.exports = {
   ],
   platforms: {
     rn: {
-      transformGroup: 'react-native',
+      transformGroup: 'rn',
       buildPath: './dist/',
       prefix: '',
       files: [

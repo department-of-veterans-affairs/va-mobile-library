@@ -1,22 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
-/**
- * Removes unneeded prefixes from tokens and applies PascalCase to USWDS colors
- * @param name - name of token being passed
- * @returns name stripped of unneeded prefixes and formatted in camel case
- */
-const formatColorTokenName = (name) => {
-  if (name === 'color') {
-    return
-  }
-
-  return name
-    .replace('color', '')
-    .replace('SystemColor', '')
-    .replace('uswds', 'Uswds')
-}
-
 /** Custom filter to include only tokens with the 'color' category */
 StyleDictionary.registerFilter({
   name: 'isColor',
@@ -30,7 +14,7 @@ StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-colors',
   formatter: function (dictionary) {
     const colorTokens = dictionary.allProperties.reduce((result, token) => {
-      result[formatColorTokenName(token.name)] = token.value
+      result[token.name] = token.value
       return result
     }, {})
 
@@ -44,7 +28,7 @@ StyleDictionary.registerFormat({
   formatter: function (dictionary) {
     let declaration = 'export declare const Colors: { [key: string]: string;\n'
     dictionary.allProperties.forEach((token) => {
-      declaration += `  ${formatColorTokenName(token.name)}: string;\n`
+      declaration += `  ${token.name}: string;\n`
     })
 
     declaration += `}`
@@ -59,7 +43,7 @@ StyleDictionary.registerFormat({
     const tokensObject = dictionary.allTokens.reduce(
       (previousTokens, token) => ({
         ...previousTokens,
-        [formatColorTokenName(token.name)]: {
+        [token.name]: {
           $value: token.value,
           $type: token.path[0], // path[0] is top level token type (e.g. 'color'), should meet: https://tr.designtokens.org/format/#types
         },
@@ -69,6 +53,28 @@ StyleDictionary.registerFormat({
 
     return JSON.stringify(tokensObject, undefined, 2) + `\n`
   },
+})
+
+/** Registering a transform that strips out category from token name */
+StyleDictionary.registerTransform({
+  name: 'name/strip-color-category',
+  type: 'name',
+  transformer: (token) => {
+    // Modify the token name here
+    console.log(token)
+    return token.name.replace('color', '').replace('SystemColor', '')
+  },
+})
+
+/** Registering transform group to massage output as desired for figma */
+StyleDictionary.registerTransformGroup({
+  name: 'rn',
+  transforms: [
+    'name/cti/pascal',
+    'name/strip-color-category',
+    'color/css',
+    'filterDuplicates',
+  ],
 })
 
 /** Registering transform group to massage output as desired for figma */
