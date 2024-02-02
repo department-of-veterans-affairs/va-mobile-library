@@ -1,15 +1,16 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
-/** Custom filter to include only tokens with the 'color' category */
+/**
+ * Custom filter to include only tokens with the 'color' category and
+ * exclude uswds primitives from variables.json to avoid collisions since these
+ * colors are defined twice in variables.json
+ */
 StyleDictionary.registerFilter({
-  name: 'isValidColor',
-  matcher: function (token) {
-    if (!token.name.length) {
-      console.log('TOKEN', token)
-    }
-    return token.attributes.category.includes('color') && token.name.length
-  },
+  name: 'isUniqueColor',
+  matcher: (token) =>
+    token.attributes.category.includes('color') &&
+    token.filePath !== 'tokens/uswds.json',
 })
 
 /** Custom format for colors. Exports color tokens as single object */
