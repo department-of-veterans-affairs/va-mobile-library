@@ -8,19 +8,19 @@ module.exports = {
   ],
   platforms: {
     rn: {
-      transformGroup: 'react-native',
+      transformGroup: 'rn',
       buildPath: './dist/',
       prefix: '',
       files: [
         {
           destination: 'js/index.js',
           format: 'javascript/es6/vads-colors',
-          filter: 'isColor',
+          filter: 'isUniqueColor',
         },
         {
           destination: 'index.d.ts',
           format: 'typescript/es6-declarations/colors',
-          filter: 'isColor',
+          filter: 'isUniqueColor',
         },
       ],
     },
@@ -30,7 +30,7 @@ module.exports = {
       files: tokenCategories.map((tokenCategory) => ({
         destination: `${tokenCategory}.json`,
         format: 'json/dtcg',
-        filter: 'isColor',
+        filter: 'isUniqueColor',
       })),
     },
   },
