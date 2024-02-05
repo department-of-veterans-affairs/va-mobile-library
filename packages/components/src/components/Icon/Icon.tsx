@@ -2,7 +2,7 @@ import { AppState, AppStateStatus, PixelRatio } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 import React, { FC, useEffect, useState } from 'react'
 
-import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 
 // Navigation
 import BenefitsSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsSelected.svg'
@@ -194,7 +194,7 @@ export const Icon: FC<IconProps> = ({
   width,
   height,
   fill,
-  fill2 = DesignTokens.colorWhite,
+  fill2 = Colors.white,
   stroke,
   maxWidth,
   preventScaling,
