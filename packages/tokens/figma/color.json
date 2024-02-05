@@ -247,6 +247,14 @@
     "$value": "#112f4e",
     "$type": "color"
   },
+  "uswdsGray30": {
+    "$value": "#adadad",
+    "$type": "color"
+  },
+  "uswdsGray80": {
+    "$value": "#2e2e2e",
+    "$type": "color"
+  },
   "uswdsGrayWarm90": {
     "$value": "#171716",
     "$type": "color"

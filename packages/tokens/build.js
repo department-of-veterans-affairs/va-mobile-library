@@ -30,7 +30,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
-    let declaration = 'export declare const Colors: { [key: string]: string;\n'
+    let declaration = 'export declare const Colors: {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
     })
