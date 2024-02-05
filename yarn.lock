@@ -2848,6 +2848,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@department-of-veterans-affairs/css-library@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@department-of-veterans-affairs/css-library@npm:0.3.1"
+  dependencies:
+    "@divriots/style-dictionary-to-figma": "npm:^0.4.0"
+  checksum: a313a03aaab8309d484e70c685b0cbe31f41b4dcc618fe0a2e05125df66ae7b39aa3410a01487b80f584ccb804fc3026634b8cd30d98d87617bed481991d2d6c
+  languageName: node
+  linkType: hard
+
 "@department-of-veterans-affairs/eslint-config-mobile@workspace:packages/linting":
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/eslint-config-mobile@workspace:packages/linting"
@@ -2974,6 +2983,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens"
   dependencies:
+    "@department-of-veterans-affairs/css-library": "npm:^0.3.1"
     style-dictionary: "npm:^3.8.0"
   languageName: unknown
   linkType: soft
@@ -2982,6 +2992,13 @@ __metadata:
   version: 0.5.7
   resolution: "@discoveryjs/json-ext@npm:0.5.7"
   checksum: e10f1b02b78e4812646ddf289b7d9f2cb567d336c363b266bd50cd223cf3de7c2c74018d91cd2613041568397ef3a4a2b500aba588c6e5bd78c38374ba68f38c
+  languageName: node
+  linkType: hard
+
+"@divriots/style-dictionary-to-figma@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@divriots/style-dictionary-to-figma@npm:0.4.0"
+  checksum: 9bd487d7a7ba2a1dcbb75c23e29f5e5ab3d35debfd5e74b68136c3bd0573198492488cf3a61290c6add4e12c39762e7f108511467f97aafb15c7ec0e4c3ddb30
   languageName: node
   linkType: hard
 
