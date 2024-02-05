@@ -131,7 +131,7 @@ export const Button: React.FC<ButtonProps> = ({
 
       if (isDarkMode) {
         bgColor = Colors.uswdsBlueVivid30
-        bgColorPressed = Colors.PrimaryAltLightest
+        bgColorPressed = Colors.primaryAltLightest
         textColor = Colors.black
         textColorPressed = Colors.black
       }
