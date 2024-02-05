@@ -59,81 +59,81 @@ export const Button: React.FC<ButtonProps> = ({
 
   switch (buttonType) {
     case ButtonVariants.Base:
-      bgColor = Colors.GrayMedium
-      bgColor = Colors.GrayMedium
-      bgColorPressed = Colors.UswdsGray80
-      textColor = Colors.GrayLightest
-      textColorPressed = Colors.GrayLightest
+      bgColor = Colors.grayMedium
+      bgColor = Colors.grayMedium
+      bgColorPressed = Colors.uswdsGray80
+      textColor = Colors.grayLightest
+      textColorPressed = Colors.grayLightest
 
       if (isDarkMode) {
-        bgColor = Colors.GrayLightest
-        bgColorPressed = Colors.UswdsGray30
-        textColor = Colors.Black
-        textColorPressed = Colors.Black
+        bgColor = Colors.grayLightest
+        bgColorPressed = Colors.uswdsGray30
+        textColor = Colors.black
+        textColorPressed = Colors.black
       }
       break
     case ButtonVariants.BaseSecondary:
       bgColor = 'transparent'
       bgColorPressed = 'transparent'
-      borderColor = Colors.GrayMedium
-      borderColorPressed = Colors.UswdsGray80
-      textColor = Colors.GrayMedium
-      textColorPressed = Colors.UswdsGray80
+      borderColor = Colors.grayMedium
+      borderColorPressed = Colors.uswdsGray80
+      textColor = Colors.grayMedium
+      textColorPressed = Colors.uswdsGray80
       borderWidth = 2
 
       if (isDarkMode) {
-        borderColor = Colors.GrayLightest
-        borderColorPressed = Colors.UswdsGray30
-        textColor = Colors.GrayLightest
-        textColorPressed = Colors.UswdsGray30
+        borderColor = Colors.grayLightest
+        borderColorPressed = Colors.uswdsGray30
+        textColor = Colors.grayLightest
+        textColorPressed = Colors.uswdsGray30
       }
       break
     case ButtonVariants.Destructive:
-      bgColor = Colors.UswdsRedVivid60
-      bgColorPressed = Colors.UswdsRedVivid80
-      textColor = Colors.GrayLightest
-      textColorPressed = Colors.GrayLightest
+      bgColor = Colors.secondaryDark
+      bgColorPressed = Colors.uswdsRedVivid80
+      textColor = Colors.grayLightest
+      textColorPressed = Colors.grayLightest
 
       if (isDarkMode) {
-        bgColor = Colors.UswdsRedVivid40
-        bgColorPressed = Colors.SecondaryLightest
-        textColor = Colors.Black
-        textColorPressed = Colors.Black
+        bgColor = Colors.uswdsRedVivid40
+        bgColorPressed = Colors.secondaryLightest
+        textColor = Colors.black
+        textColorPressed = Colors.black
       }
       break
     case ButtonVariants.Secondary:
       bgColor = 'transparent'
       bgColorPressed = 'transparent'
-      borderColor = Colors.UswdsBlueVivid60
-      borderColorPressed = Colors.UswdsBlueWarmVivid80
-      textColor = Colors.UswdsBlueVivid60
-      textColorPressed = Colors.UswdsBlueWarmVivid80
+      borderColor = Colors.primary
+      borderColorPressed = Colors.primaryDarker
+      textColor = Colors.primary
+      textColorPressed = Colors.primaryDarker
       borderWidth = 2
 
       if (isDarkMode) {
-        borderColor = Colors.UswdsBlueVivid30
-        borderColorPressed = Colors.White
-        textColor = Colors.UswdsBlueVivid30
-        textColorPressed = Colors.White
+        borderColor = Colors.uswdsBlueVivid30
+        borderColorPressed = Colors.white
+        textColor = Colors.uswdsBlueVivid30
+        textColorPressed = Colors.white
       }
       break
     case ButtonVariants.White:
-      bgColor = Colors.GrayLightest
-      bgColorPressed = Colors.UswdsGray30
-      textColor = Colors.Black
-      textColorPressed = Colors.Black
+      bgColor = Colors.grayLightest
+      bgColorPressed = Colors.uswdsGray30
+      textColor = Colors.black
+      textColorPressed = Colors.black
       break
     default:
-      bgColor = Colors.UswdsBlueVivid60
-      bgColorPressed = Colors.UswdsBlueWarmVivid80
-      textColor = Colors.GrayLightest
-      textColorPressed = Colors.GrayLightest
+      bgColor = Colors.primary
+      bgColorPressed = Colors.primaryDarker
+      textColor = Colors.grayLightest
+      textColorPressed = Colors.grayLightest
 
       if (isDarkMode) {
-        bgColor = Colors.UswdsBlueVivid30
+        bgColor = Colors.uswdsBlueVivid30
         bgColorPressed = Colors.PrimaryAltLightest
-        textColor = Colors.Black
-        textColorPressed = Colors.Black
+        textColor = Colors.black
+        textColorPressed = Colors.black
       }
   }
 
@@ -182,8 +182,7 @@ export const Button: React.FC<ButtonProps> = ({
       accessible={true}
       aria-label={a11yLabel}
       testID={testID || label}
-      testOnly_pressed={testOnlyPressed}
-    >
+      testOnly_pressed={testOnlyPressed}>
       {({ pressed }: PressableStateCallbackType) => (
         <Text style={getTextStyle(pressed)}>{label}</Text>
       )}

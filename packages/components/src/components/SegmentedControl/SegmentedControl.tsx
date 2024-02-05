@@ -67,13 +67,13 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = Colors.GrayDark
-    activeBgColor = Colors.White
-    inactiveBgColor = Colors.GrayLighter
+    textColor = Colors.grayDark
+    activeBgColor = Colors.white
+    inactiveBgColor = Colors.grayLighter
   } else {
-    textColor = Colors.GrayLightest
-    activeBgColor = Colors.GrayMedium
-    inactiveBgColor = Colors.GrayDark
+    textColor = Colors.grayLightest
+    activeBgColor = Colors.grayMedium
+    inactiveBgColor = Colors.grayDark
   }
 
   const viewStyle: ViewStyle = {
@@ -130,8 +130,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         role={'tab'}
         accessibilityState={{ selected: isSelected }}
         style={PressableOpacityStyle()}
-        testID={testIDs?.[index]}
-      >
+        testID={testIDs?.[index]}>
         <Text allowFontScaling={false} style={textStyle}>
           {label}
         </Text>
