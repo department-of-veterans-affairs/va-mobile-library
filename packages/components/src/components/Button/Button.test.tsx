@@ -4,7 +4,7 @@ import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
 
-import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 
 import { Button, ButtonVariants } from './Button'
 
@@ -54,11 +54,9 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(
-        DesignTokens.colorUswdsSystemColorBlueVivid60,
-      )
+      expect(backgroundColor).toEqual(Colors.primary)
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+      expect(textColor).toEqual(Colors.grayLightest)
     })
 
     it('should render Primary variant pressed state', async () => {
@@ -70,11 +68,9 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(
-        DesignTokens.colorUswdsSystemColorBlueWarmVivid80,
-      )
+      expect(backgroundColor).toEqual(Colors.primaryDarker)
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+      expect(textColor).toEqual(Colors.grayLightest)
     })
 
     describe('Dark mode', () => {
@@ -87,11 +83,9 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(
-          DesignTokens.colorUswdsSystemColorBlueVivid30,
-        )
+        expect(backgroundColor).toEqual(Colors.uswdsBlueVivid30)
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
 
       it('should render Primary variant pressed state in dark mode', async () => {
@@ -103,9 +97,9 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(DesignTokens.colorPrimaryAltLightest)
+        expect(backgroundColor).toEqual(Colors.primaryAltLightest)
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
     })
   })
@@ -124,9 +118,9 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(DesignTokens.colorGrayMedium)
+      expect(backgroundColor).toEqual(Colors.grayMedium)
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+      expect(textColor).toEqual(Colors.grayLightest)
     })
 
     it('should render Base variant pressed state', async () => {
@@ -143,9 +137,9 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(DesignTokens.colorUswdsSystemColorGray80)
+      expect(backgroundColor).toEqual(Colors.uswdsGray80)
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+      expect(textColor).toEqual(Colors.grayLightest)
     })
 
     describe('Dark mode', () => {
@@ -164,9 +158,9 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(DesignTokens.colorGrayLightest)
+        expect(backgroundColor).toEqual(Colors.grayLightest)
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
 
       it('should render Base variant pressed state and dark mode', async () => {
@@ -183,11 +177,9 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(
-          DesignTokens.colorUswdsSystemColorGray30,
-        )
+        expect(backgroundColor).toEqual(Colors.uswdsGray30)
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
     })
   })
@@ -208,9 +200,9 @@ describe('Button', () => {
       textColor = getTextColor(component)
 
       expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(DesignTokens.colorUswdsSystemColorBlueVivid60)
+      expect(borderColor).toEqual(Colors.primary)
       expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(DesignTokens.colorUswdsSystemColorBlueVivid60)
+      expect(textColor).toEqual(Colors.primary)
     })
 
     it('should render Secondary variant pressed state', async () => {
@@ -229,13 +221,9 @@ describe('Button', () => {
       textColor = getTextColor(component)
 
       expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(
-        DesignTokens.colorUswdsSystemColorBlueWarmVivid80,
-      )
+      expect(borderColor).toEqual(Colors.primaryDarker)
       expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(
-        DesignTokens.colorUswdsSystemColorBlueWarmVivid80,
-      )
+      expect(textColor).toEqual(Colors.primaryDarker)
     })
 
     describe('Dark mode', () => {
@@ -256,11 +244,9 @@ describe('Button', () => {
         textColor = getTextColor(component)
 
         expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(
-          DesignTokens.colorUswdsSystemColorBlueVivid30,
-        )
+        expect(borderColor).toEqual(Colors.uswdsBlueVivid30)
         expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(DesignTokens.colorUswdsSystemColorBlueVivid30)
+        expect(textColor).toEqual(Colors.uswdsBlueVivid30)
       })
 
       it('should render Secondary variant pressed state in dark mode', async () => {
@@ -279,9 +265,9 @@ describe('Button', () => {
         textColor = getTextColor(component)
 
         expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(DesignTokens.colorWhite)
+        expect(borderColor).toEqual(Colors.white)
         expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(DesignTokens.colorWhite)
+        expect(textColor).toEqual(Colors.white)
       })
     })
   })
@@ -301,12 +287,10 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(
-        DesignTokens.colorUswdsSystemColorRedVivid60,
-      )
+      expect(backgroundColor).toEqual(Colors.secondaryDark)
       expect(borderColor).toEqual('none')
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+      expect(textColor).toEqual(Colors.grayLightest)
     })
 
     it('should render Destructive variant pressed state', async () => {
@@ -324,11 +308,9 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(
-        DesignTokens.colorUswdsSystemColorRedVivid80,
-      )
+      expect(backgroundColor).toEqual(Colors.uswdsRedVivid80)
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+      expect(textColor).toEqual(Colors.grayLightest)
     })
 
     describe('Dark mode', () => {
@@ -348,12 +330,10 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(
-          DesignTokens.colorUswdsSystemColorRedVivid40,
-        )
+        expect(backgroundColor).toEqual(Colors.uswdsRedVivid40)
         expect(borderColor).toEqual('none')
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
 
       it('should render Destructive variant pressed state in dark mode', async () => {
@@ -370,9 +350,9 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(DesignTokens.colorSecondaryLightest)
+        expect(backgroundColor).toEqual(Colors.secondaryLightest)
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
     })
   })
@@ -392,10 +372,10 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(DesignTokens.colorGrayLightest)
+      expect(backgroundColor).toEqual(Colors.grayLightest)
       expect(borderColor).toEqual('none')
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorBlack)
+      expect(textColor).toEqual(Colors.black)
     })
 
     it('should render White variant pressed state', async () => {
@@ -412,9 +392,9 @@ describe('Button', () => {
       borderWidth = getButtonStyle(component).borderWidth
       textColor = getTextColor(component)
 
-      expect(backgroundColor).toEqual(DesignTokens.colorUswdsSystemColorGray30)
+      expect(backgroundColor).toEqual(Colors.uswdsGray30)
       expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(DesignTokens.colorBlack)
+      expect(textColor).toEqual(Colors.black)
     })
 
     describe('Dark mode', () => {
@@ -434,10 +414,10 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(DesignTokens.colorGrayLightest)
+        expect(backgroundColor).toEqual(Colors.grayLightest)
         expect(borderColor).toEqual('none')
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
 
       it('should render White variant pressed state in dark mode', async () => {
@@ -454,11 +434,9 @@ describe('Button', () => {
         borderWidth = getButtonStyle(component).borderWidth
         textColor = getTextColor(component)
 
-        expect(backgroundColor).toEqual(
-          DesignTokens.colorUswdsSystemColorGray30,
-        )
+        expect(backgroundColor).toEqual(Colors.uswdsGray30)
         expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(DesignTokens.colorBlack)
+        expect(textColor).toEqual(Colors.black)
       })
     })
   })
@@ -479,9 +457,9 @@ describe('Button', () => {
       textColor = getTextColor(component)
 
       expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(DesignTokens.colorGrayMedium)
+      expect(borderColor).toEqual(Colors.grayMedium)
       expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(DesignTokens.colorGrayMedium)
+      expect(textColor).toEqual(Colors.grayMedium)
     })
 
     it('should render BaseSecondary variant pressed state', async () => {
@@ -500,9 +478,9 @@ describe('Button', () => {
       textColor = getTextColor(component)
 
       expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(DesignTokens.colorUswdsSystemColorGray80)
+      expect(borderColor).toEqual(Colors.uswdsGray80)
       expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(DesignTokens.colorUswdsSystemColorGray80)
+      expect(textColor).toEqual(Colors.uswdsGray80)
     })
 
     describe('Dark mode', () => {
@@ -523,9 +501,9 @@ describe('Button', () => {
         textColor = getTextColor(component)
 
         expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(DesignTokens.colorGrayLightest)
+        expect(borderColor).toEqual(Colors.grayLightest)
         expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(DesignTokens.colorGrayLightest)
+        expect(textColor).toEqual(Colors.grayLightest)
       })
 
       it('should render BaseSecondary variant pressed state in dark mode', async () => {
@@ -544,9 +522,9 @@ describe('Button', () => {
         textColor = getTextColor(component)
 
         expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(DesignTokens.colorUswdsSystemColorGray30)
+        expect(borderColor).toEqual(Colors.uswdsGray30)
         expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(DesignTokens.colorUswdsSystemColorGray30)
+        expect(textColor).toEqual(Colors.uswdsGray30)
       })
     })
   })

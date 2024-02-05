@@ -60,7 +60,6 @@ export const Button: React.FC<ButtonProps> = ({
   switch (buttonType) {
     case ButtonVariants.Base:
       bgColor = Colors.grayMedium
-      bgColor = Colors.grayMedium
       bgColorPressed = Colors.uswdsGray80
       textColor = Colors.grayLightest
       textColorPressed = Colors.grayLightest
