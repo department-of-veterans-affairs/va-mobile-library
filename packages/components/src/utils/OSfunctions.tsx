@@ -1,9 +1,56 @@
 /** A file for functions that leverage OS functionality */
 
-import { Alert, Linking, NativeModules, PermissionsAndroid, Platform } from 'react-native'
+import { Alert, Linking, Platform } from 'react-native'
 // import { logNonFatalErrorToFirebase } from './analytics'
 
 const isIOS = Platform.OS === 'ios'
+
+type address = {
+  street: string
+  city: string
+  state: string // 2 letter abbreviation
+  zipCode: string
+}
+
+type hasAddress = {
+  name: string
+  address: address
+  latitude?: number
+  longitude?: number
+}
+
+type hasLatLong = {
+  name: string
+  address?: address
+  latitude: number
+  longitude: number
+}
+
+export type LocationData = hasAddress | hasLatLong
+
+const APPLE_MAPS_BASE_URL = 'https://maps.apple.com/'
+const GOOGLE_MAPS_BASE_URL = 'https://www.google.com/maps/dir/'
+
+export const FormDirectionsUrl = (location: LocationData): string => {
+  const { name, address, latitude, longitude } = location
+  const addressString = Object.values(address || {}).join(' ')
+
+  if (isIOS) {
+    const queryString = new URLSearchParams({
+      // apply type parameter = m (map)
+      t: 'm',
+      daddr: `${addressString}+${name}+${latitude},${longitude}`,
+    }).toString()
+    return `${APPLE_MAPS_BASE_URL}?${queryString}`
+  } else {
+    const queryString = new URLSearchParams({
+      api: '1',
+      destination: addressString || `${latitude},${longitude}`,
+    }).toString()
+    return `${GOOGLE_MAPS_BASE_URL}?${queryString}`
+  }
+}
+
 
 /**
  * Hook to display a warning that the user is leaving the app when tapping an external link
@@ -37,7 +84,7 @@ export function useExternalLink(): (url: string) => void {
 }
 
 // Calendar bridge from iOS and Android
-const RNCal = NativeModules.RNCalendar
+// const RNCal = NativeModules.RNCalendar
 
 export type CalendarData = {
   title: string
@@ -49,6 +96,7 @@ export type CalendarData = {
 }
 
 export const onPressCalendar = async (calendarData: CalendarData): Promise<void> => {
+  calendarData
   // const { title, endTime, startTime, location, latitude, longitude } = calendarData
 
   // console.log('test')

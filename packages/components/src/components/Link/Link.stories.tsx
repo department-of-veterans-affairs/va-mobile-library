@@ -27,8 +27,7 @@ const meta: Meta<LinkProps> = {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <Story />
       </View>
     ),
@@ -42,22 +41,26 @@ type Story = StoryObj<LinkProps>
 const startTime = new Date()
 const endTime = new Date(startTime.setMinutes(startTime.getMinutes() + 30))
 const location = {
-  "id": "983GC",
-  "lat": 40.553875,
-  "long": -105.08795,
-  "name":"Fort Collins VA Clinic",
-  "address": {
-    "street": "2509 Research Boulevard",
-    "city": "Fort Collins",
-    "state": "CO",
-    "zipCode": "80526-8108"
-  }
+  lat: 33.7764681,
+  long: -118.1189664,
+  name: 'Tibor Rubin VA Medical Center',
+  address: {
+    street: '5901 E 7th St',
+    city: 'Long Beach',
+    state: 'CA',
+    zipCode: '90822',
+  },
 }
 const getLocation = (): string => {
   const { lat, long, name, address } = location
   if (Platform.OS === 'ios' && lat && long) {
     return name || ''
-  } else if (address?.street && address?.city && address?.state && address?.zipCode) {
+  } else if (
+    address?.street &&
+    address?.city &&
+    address?.state &&
+    address?.zipCode
+  ) {
     return `${address.street} ${address.city}, ${address.state} ${address.zipCode}`
   } else {
     return name || ''
@@ -67,46 +70,66 @@ const getLocation = (): string => {
 export const Calendar: Story = {
   storyName: 'Calendar',
   args: {
-    text: 'Button text',
-    type: {type: 'calendar', calendarData: {
-      title: 'Test',
-      startTime: startTime.getTime(),
-      endTime: endTime.getTime(),
-      location: getLocation(),
-      latitude: location.lat,
-      longitude: location.long
-    }}
-    // a11yLabel: 'Alternate a11y text',
+    text: 'Add to calendar',
+    type: {
+      type: 'calendar',
+      calendarData: {
+        title: 'Test',
+        startTime: startTime.getTime(),
+        endTime: endTime.getTime(),
+        location: getLocation(),
+        latitude: location.lat,
+        longitude: location.long,
+      },
     },
+    // a11yLabel: 'Alternate a11y text',
+  },
+}
+
+export const Directions: Story = {
+  storyName: 'Directions',
+  args: {
+    text: 'Get directions',
+    type: {
+      type: 'directions',
+      locationData: {
+        name: 'VA Long Beach Healthcare System',
+        address: location.address,
+        latitude: location.lat,
+        longitude: location.long,
+      },
+    },
+    // a11yLabel: 'Alternate a11y text',
+  },
 }
 
 export const Phone: Story = {
   args: {
     text: 'Call number',
-    type: {type: 'call', phoneNumber: '555'}
+    type: { type: 'call', phoneNumber: '555' },
     // a11yLabel: 'Alternate a11y text',
-    },
+  },
 }
 
 export const PhoneTTY: Story = {
   args: {
     text: 'Call TTY number',
-    type: {type: 'call TTY', TTYnumber: '711'}
+    type: { type: 'call TTY', TTYnumber: '711' },
     // a11yLabel: 'Alternate a11y text',
-    },
+  },
 }
 export const Text: Story = {
   args: {
     text: 'Text SMS number',
-    type: {type: 'text', textNumber: '55555'}
+    type: { type: 'text', textNumber: '55555' },
     // a11yLabel: 'Alternate a11y text',
-    },
+  },
 }
 
 export const URL: Story = {
   args: {
     text: 'External link',
-    type: {type: 'url', url: 'https://www.va.gov/'}
+    type: { type: 'url', url: 'https://www.va.gov/' },
     // a11yLabel: 'Alternate a11y text',
-    },
+  },
 }

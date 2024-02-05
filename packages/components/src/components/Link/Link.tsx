@@ -13,6 +13,8 @@ import React, { FC } from 'react'
 
 import {
   CalendarData,
+  FormDirectionsUrl,
+  LocationData,
   onPressCalendar,
   useExternalLink,
 } from '../../utils/OSfunctions'
@@ -39,23 +41,9 @@ type custom = {
   onPress: () => void
 }
 
-type appointmentAddress = {
-  street: string
-  city: string
-  state: string // 2 letter abbreviation
-  zipCode: string
-}
-
-type locationData = {
-  name: string
-  address?: appointmentAddress
-  lat?: number
-  long?: number
-}
-
 type directions = {
   type: 'directions'
-  locationData: locationData
+  locationData: LocationData
 }
 
 type normalText = {
@@ -101,8 +89,8 @@ export type LinkProps = {
   type: linkType
   /**  */
   variant?: 'default' | 'base'
-  /** Optional onPress logic */
-  onPress?: () => void | ((data: string | CalendarData | locationData) => void)
+  /** Optional onPress override logic */
+  onPress?: () => void | ((data: string | CalendarData | LocationData) => void)
   /** Optional icon override, sized by default to 24x24 */
   icon?: IconProps | 'no icon'
   /** Optional a11yLabel override; should be used for phone numbers */
@@ -162,8 +150,9 @@ export const Link: FC<LinkProps> = ({
       break
     case 'directions':
       icon = icon ? icon : { name: 'Directions' }
-      _onPress = () => {
-        null
+      const directions = FormDirectionsUrl(type.locationData)
+      _onPress = async (): Promise<void> => {
+        launchExternalLink(directions)
       }
       break
     case 'text':
@@ -189,7 +178,7 @@ export const Link: FC<LinkProps> = ({
 
   switch (variant) {
     case 'base':
-      linkColor = isDarkMode ? Colors.colorGrayLightest : Colors.colorGrayMedium
+      linkColor = isDarkMode ? Colors.colorGrayLightest : Colors.colorGrayDark
       break
     default:
       linkColor = isDarkMode
