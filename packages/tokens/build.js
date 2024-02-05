@@ -71,7 +71,7 @@ StyleDictionary.registerTransform({
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: ['name/ti/camel', 'name/color/clean-up', 'color/css'],
+  transforms: ['name/ti/camel', 'name/color/clean-up', 'color/hex'],
 })
 
 /** Registering transform group to massage output as desired for figma */
