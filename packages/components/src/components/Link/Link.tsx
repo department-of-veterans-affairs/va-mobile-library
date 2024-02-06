@@ -46,17 +46,18 @@ type directions = {
   locationData: LocationData
 }
 
-type normalText = {
-  text: string
-  textA11y: string
-}
-
-// Split to separate ticket, see lines 373-390 for app code:
+// TODO: Ticket 168 created for in-line link
+// See lines 373-390 for app code:
 // src/screens/BenefitsScreen/ClaimsScreen/AppealDetailsScreen/AppealStatus/AppealCurrentStatus/AppealCurrentStatus.tsx
-type inLineLink = {
-  type: 'in line link'
-  paragraphText: normalText[] | LinkProps[]
-}
+// type normalText = {
+//   text: string
+//   textA11y: string
+// }
+
+// type inLineLink = {
+//   type: 'in line link'
+//   paragraphText: normalText[] | LinkProps[]
+// }
 
 type text = {
   type: 'text'
@@ -70,14 +71,15 @@ type url = {
 
 type linkType = calendar | call | callTTY | custom | directions | text | url
 
-type analytics = {
-  onPress?: () => void
-  onConfirm?: () => void
-  hasCalendarPermission?: () => void
-  onRequestCalendarPermission?: () => void
-  onCalendarPermissionSuccess?: () => void
-  onCalendarPermissionFailure?: () => void
-}
+// TODO: Ticket 170 created to revisit adding analytics after calendar support added/or deemed infeasible
+// type analytics = {
+//   onPress?: () => void
+//   onConfirm?: () => void
+//   hasCalendarPermission?: () => void
+//   onRequestCalendarPermission?: () => void
+//   onCalendarPermissionSuccess?: () => void
+//   onCalendarPermissionFailure?: () => void
+// }
 
 /**
  *  Signifies the props that need to be passed in to {@link ClickForActionLink}
@@ -96,7 +98,7 @@ export type LinkProps = {
   /** Optional a11yLabel override; should be used for phone numbers */
   a11yLabel?: string
   /** Optional analytics event logging */
-  analytics?: analytics
+  // analytics?: analytics
   /** Optional TestID */
   testID?: string
 }
@@ -111,7 +113,7 @@ export const Link: FC<LinkProps> = ({
   onPress,
   icon,
   a11yLabel,
-  analytics,
+  // analytics,
   testID,
 }) => {
   const colorScheme = webStorybookColorScheme() || useColorScheme()
@@ -126,7 +128,6 @@ export const Link: FC<LinkProps> = ({
   switch (type.type) {
     case 'calendar':
       icon = icon ? icon : { name: 'Calendar' }
-      console.log('calendar switch')
       _onPress = async (): Promise<void> => {
         await onPressCalendar(type.calendarData)
         return
@@ -216,8 +217,6 @@ export const Link: FC<LinkProps> = ({
       lineHeight: 30,
     }
 
-    // ON PRESS STYLE BUGGED ON IOS (STORYBOOK) BUT WORKS ON WEB/ANDROID
-
     const textStyle: TextStyle = {
       color: linkColor,
       textDecorationColor: linkColor,
@@ -226,8 +225,6 @@ export const Link: FC<LinkProps> = ({
 
     return { ...(pressed ? pressedFont : regularFont), ...textStyle }
   }
-
-  // ON PRESS ASYNC, DOES THAT NEED ANY SPECIAL HANDLING!?
 
   return (
     <Pressable {...pressableProps} testID={testID}>

@@ -83,6 +83,7 @@ export function useExternalLink(): (url: string) => void {
   }
 }
 
+// TODO: Ticket 169 created to implement support for adding to calendar (or clean up if not feasible)
 // Calendar bridge from iOS and Android
 // const RNCal = NativeModules.RNCalendar
 
