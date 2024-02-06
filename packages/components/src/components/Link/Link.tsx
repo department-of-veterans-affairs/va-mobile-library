@@ -1,4 +1,4 @@
-import * as Colors from '@department-of-veterans-affairs/mobile-tokens'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Pressable,
   PressableProps,
@@ -176,12 +176,10 @@ export const Link: FC<LinkProps> = ({
 
   switch (variant) {
     case 'base':
-      linkColor = isDarkMode ? Colors.colorGrayLightest : Colors.colorGrayDark
+      linkColor = isDarkMode ? Colors.grayLightest : Colors.grayDark
       break
     default:
-      linkColor = isDarkMode
-        ? Colors.colorUswdsSystemColorBlueVivid30
-        : Colors.colorUswdsSystemColorBlueVivid60
+      linkColor = isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary
   }
 
   const pressableProps: PressableProps = {
