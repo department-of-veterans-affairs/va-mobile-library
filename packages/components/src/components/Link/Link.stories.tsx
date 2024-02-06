@@ -83,7 +83,35 @@ export const Calendar: Story = {
         longitude: location.long,
       },
     },
-    // a11yLabel: 'Alternate a11y text',
+  },
+}
+
+export const Custom: Story = {
+  name: 'Custom Link w/o Icon',
+  args: {
+    text: 'Custom Link - no icon',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: {
+      type: 'custom',
+      onPress: () => {
+        null
+      },
+    },
+  },
+}
+
+export const CustomWithIcon: Story = {
+  name: 'Custom Link with Icon',
+  args: {
+    text: 'Custom Link',
+    icon: { name: 'Truck' },
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: {
+      type: 'custom',
+      onPress: () => {
+        null
+      },
+    },
   },
 }
 
@@ -103,11 +131,11 @@ export const Directions: Story = {
     },
     promptText: {
       body: "You're navigating to your Maps app.",
-      cancel: "No thanks",
+      cancel: 'No thanks',
       confirm: "Let's go!",
-      title: 'Title override'
-    }
-    // a11yLabel: 'Alternate a11y text',
+      title: 'Title override',
+    },
+    a11yLabel: 'Get directions with Maps app',
   },
 }
 
@@ -116,7 +144,6 @@ export const Phone: Story = {
     text: 'Call number',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'call', phoneNumber: '555' },
-    // a11yLabel: 'Alternate a11y text',
   },
 }
 
@@ -125,15 +152,15 @@ export const PhoneTTY: Story = {
     text: 'Call TTY number',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'call TTY', TTYnumber: '711' },
-    // a11yLabel: 'Alternate a11y text',
   },
 }
+
 export const Text: Story = {
   args: {
     text: 'Text SMS number',
+    variant: 'base',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'text', textNumber: '55555' },
-    // a11yLabel: 'Alternate a11y text',
   },
 }
 
@@ -142,6 +169,5 @@ export const URL: Story = {
     text: 'External link',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'url', url: 'https://www.va.gov/' },
-    // a11yLabel: 'Alternate a11y text',
   },
 }

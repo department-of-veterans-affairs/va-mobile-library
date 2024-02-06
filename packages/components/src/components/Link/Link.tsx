@@ -87,7 +87,7 @@ export type LinkProps = {
   text: string
   /** Preset link types that include default icons and onPress behavior */
   type: linkType
-  /** Color variant, primary by default */
+  /** Color variant */
   variant?: 'default' | 'base'
   /** Optional onPress override logic */
   onPress?: () => void
