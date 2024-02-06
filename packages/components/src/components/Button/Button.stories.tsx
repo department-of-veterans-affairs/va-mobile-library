@@ -26,8 +26,7 @@ const meta: Meta<ButtonProps> = {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <Story />
       </View>
     ),
@@ -39,7 +38,7 @@ export default meta
 type Story = StoryObj<ButtonProps>
 
 export const _Primary: Story = {
-  storyName: 'Primary',
+  name: 'Primary',
   args: {
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
@@ -48,7 +47,7 @@ export const _Primary: Story = {
 }
 
 export const __Secondary: Story = {
-  storyName: 'Secondary',
+  name: 'Secondary',
   args: {
     buttonType: ButtonVariants.Secondary,
     label: 'Button text',
@@ -58,7 +57,7 @@ export const __Secondary: Story = {
 }
 
 export const ___Base: Story = {
-  storyName: 'Base Primary',
+  name: 'Base Primary',
   args: {
     buttonType: ButtonVariants.Base,
     label: 'Button text',
@@ -68,7 +67,7 @@ export const ___Base: Story = {
 }
 
 export const ____BaseSecondary: Story = {
-  storyName: 'Base Secondary',
+  name: 'Base Secondary',
   args: {
     buttonType: ButtonVariants.BaseSecondary,
     label: 'Button text',
@@ -78,7 +77,7 @@ export const ____BaseSecondary: Story = {
 }
 
 export const _____Destructive: Story = {
-  storyName: 'Destructive',
+  name: 'Destructive',
   args: {
     buttonType: ButtonVariants.Destructive,
     label: 'Button text',
@@ -88,7 +87,7 @@ export const _____Destructive: Story = {
 }
 
 export const ______White: Story = {
-  storyName: 'White',
+  name: 'White',
   args: {
     buttonType: ButtonVariants.White,
     label: 'Button text',

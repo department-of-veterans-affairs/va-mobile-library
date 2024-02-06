@@ -18,6 +18,7 @@ module.exports = (async () => {
     // SVG support
     transformer: {
       babelTransformerPath: require.resolve('react-native-svg-transformer'),
+      unstable_allowRequireContext: true,
     },
     resolver: {
       // SVG support
@@ -30,7 +31,7 @@ module.exports = (async () => {
       ],
       // Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
       disableHierarchicalLookup: true,
-      resolverMainFields: ['sbmodern', 'react-native', ...resolverMainFields],
+      resolverMainFields: ['react-native', ...resolverMainFields],
     },
   }
 })()

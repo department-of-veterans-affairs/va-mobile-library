@@ -21,7 +21,7 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
-  framework: '@storybook/react',
+  framework: '@storybook/react-webpack5',
   staticDirs: ['../../src/assets'],
   webpackFinal: async (config) => {
     // Copies fonts from mobile-assets to storybook static folder

@@ -1,7 +1,7 @@
-import { getStorybookUI } from '@storybook/react-native'
+import { view } from './storybook.requires'
 
 import './storybook.requires'
 
-const StorybookUIRoot = getStorybookUI({})
+const StorybookUIRoot = view.getStorybookUI({})
 
 export default StorybookUIRoot
