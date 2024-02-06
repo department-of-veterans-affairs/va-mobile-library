@@ -1,0 +1,88 @@
+{
+  "color": {
+    "uswds-system-color-blue-vivid-5": {
+      "value": "#e8f5ff",
+      "name": "uswds-system-color-blue-vivid-5",
+      "attributes": {
+        "category": "uswds-system-color-blue-vivid-5"
+      }
+    },
+    "uswds-system-color-blue-vivid-10": {
+      "value": "#cfe8ff",
+      "name": "uswds-system-color-blue-vivid-10",
+      "attributes": {
+        "category": "uswds-system-color-blue-vivid-10"
+      }
+    },
+    "uswds-system-color-blue-vivid-20": {
+      "value": "#a1d3ff",
+      "name": "uswds-system-color-blue-vivid-20",
+      "attributes": {
+        "category": "uswds-system-color-blue-vivid-20"
+      }
+    },
+    "uswds-system-color-blue-vivid-30": {
+      "value": "#58b4ff",
+      "name": "uswds-system-color-blue-vivid-30",
+      "attributes": {
+        "category": "uswds-system-color-blue-vivid-30"
+      }
+    },
+    "uswds-system-color-blue-vivid-80": {
+      "value": "#112f4e",
+      "name": "uswds-system-color-blue-vivid-80",
+      "attributes": {
+        "category": "uswds-system-color-blue-vivid-80"
+      }
+    },
+    "uswds-system-color-gray-30": {
+      "value": "#adadad",
+      "name": "uswds-system-color-gray-30",
+      "attributes": {
+        "category": "uswds-system-color-gray-30"
+      }
+    },
+    "uswds-system-color-gray-80": {
+      "value": "#2e2e2e",
+      "name": "uswds-system-color-gray-80",
+      "attributes": {
+        "category": "uswds-system-color-gray-80"
+      }
+    },
+    "uswds-system-color-gray-warm-90": {
+      "value": "#171716",
+      "name": "uswds-system-color-gray-warm-90",
+      "attributes": {
+        "category": "uswds-system-color-gray-warm-90"
+      }
+    },
+    "uswds-system-color-green-cool-vivid-80": {
+      "value": "#19311e",
+      "name": "uswds-system-color-green-cool-vivid-80",
+      "attributes": {
+        "category": "uswds-system-color-green-cool-vivid-80"
+      }
+    },
+    "uswds-system-color-red-vivid-40": {
+      "value": "#fb5a47",
+      "name": "uswds-system-color-red-vivid-40",
+      "attributes": {
+        "category": "uswds-system-color-red-vivid-40"
+      }
+    },
+    "uswds-system-color-red-vivid-80": {
+      "value": "#5c1111",
+      "name": "uswds-system-color-red-vivid-80",
+      "attributes": {
+        "category": "uswds-system-color-red-vivid-80"
+      }
+    },
+    "uswds-system-color-yellow-vivid-80": {
+      "value": "#5c4809",
+      "name": "uswds-system-color-yellow-vivid-80",
+      "attributes": {
+        "category": "uswds-system-color-yellow-vivid-80"
+      }
+    }
+  }
+}
