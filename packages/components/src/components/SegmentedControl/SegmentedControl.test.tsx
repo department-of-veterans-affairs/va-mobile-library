@@ -8,7 +8,7 @@ import {
 import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
-import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { ReactTestInstance } from 'react-test-renderer'
 
 import { SegmentedControl } from './SegmentedControl'
@@ -93,14 +93,12 @@ describe('SegmentedControl', () => {
     const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
 
     expect(activeSegmentStyle.elevation).toEqual(4)
-    expect(activeSegmentStyle.backgroundColor).toEqual(DesignTokens.colorWhite)
-    expect(activeSegmentTextStyle.color).toEqual(DesignTokens.colorGrayDark)
+    expect(activeSegmentStyle.backgroundColor).toEqual(Colors.white)
+    expect(activeSegmentTextStyle.color).toEqual(Colors.grayDark)
 
-    expect(inactiveSegmentStyle.backgroundColor).toEqual(
-      DesignTokens.colorGrayLighter,
-    )
+    expect(inactiveSegmentStyle.backgroundColor).toEqual(Colors.grayLighter)
     expect(inactiveSegmentStyle.elevation).toEqual(0)
-    expect(inactiveSegmentTextStyle.color).toEqual(DesignTokens.colorGrayDark)
+    expect(inactiveSegmentTextStyle.color).toEqual(Colors.grayDark)
   })
 
   it('should render correct styles in dark mode', () => {
@@ -112,17 +110,11 @@ describe('SegmentedControl', () => {
     const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
 
     expect(activeSegmentStyle.elevation).toEqual(4)
-    expect(activeSegmentStyle.backgroundColor).toEqual(
-      DesignTokens.colorGrayMedium,
-    )
-    expect(activeSegmentTextStyle.color).toEqual(DesignTokens.colorGrayLightest)
+    expect(activeSegmentStyle.backgroundColor).toEqual(Colors.grayMedium)
+    expect(activeSegmentTextStyle.color).toEqual(Colors.grayLightest)
 
-    expect(inactiveSegmentStyle.backgroundColor).toEqual(
-      DesignTokens.colorGrayDark,
-    )
+    expect(inactiveSegmentStyle.backgroundColor).toEqual(Colors.grayDark)
     expect(inactiveSegmentStyle.elevation).toEqual(0)
-    expect(inactiveSegmentTextStyle.color).toEqual(
-      DesignTokens.colorGrayLightest,
-    )
+    expect(inactiveSegmentTextStyle.color).toEqual(Colors.grayLightest)
   })
 })

@@ -2,7 +2,7 @@ import { Icon } from './Icon'
 import { RenderAPI, render } from '@testing-library/react-native'
 import React from 'react'
 
-import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
 describe('Icon', () => {
@@ -15,9 +15,9 @@ describe('Icon', () => {
         testID="myId"
         height={100}
         width={100}
-        fill={DesignTokens.colorGray}
-        fill2={DesignTokens.colorSecondaryLightest}
-        stroke={DesignTokens.colorPrimaryAltLightest}
+        fill={Colors.gray}
+        fill2={Colors.secondaryLightest}
+        stroke={Colors.primaryAltLightest}
         maxWidth={100}
         preventScaling={true}
       />,
@@ -32,9 +32,9 @@ describe('Icon', () => {
     expect(width).toBe(100)
     expect(height).toBe(100)
     expect(preventScaling).toBe(true)
-    expect(fill).toBe(DesignTokens.colorGray)
-    expect(color).toBe(DesignTokens.colorSecondaryLightest)
-    expect(stroke).toBe(DesignTokens.colorPrimaryAltLightest)
+    expect(fill).toBe(Colors.gray)
+    expect(color).toBe(Colors.secondaryLightest)
+    expect(stroke).toBe(Colors.primaryAltLightest)
   })
 
   it('maxWidth is set properly when scaled', async () => {
@@ -44,9 +44,9 @@ describe('Icon', () => {
         testID="myId"
         height={50}
         width={50}
-        fill={DesignTokens.colorGray}
-        fill2={DesignTokens.colorSecondaryLightest}
-        stroke={DesignTokens.colorPrimaryAltLightest}
+        fill={Colors.gray}
+        fill2={Colors.secondaryLightest}
+        stroke={Colors.primaryAltLightest}
         maxWidth={100}
         preventScaling={false}
       />,
@@ -68,9 +68,9 @@ describe('Icon', () => {
         testID="myId"
         height={100}
         width={100}
-        fill={DesignTokens.colorGray}
-        fill2={DesignTokens.colorSecondaryLightest}
-        stroke={DesignTokens.colorPrimaryAltLightest}
+        fill={Colors.gray}
+        fill2={Colors.secondaryLightest}
+        stroke={Colors.primaryAltLightest}
         maxWidth={100}
         preventScaling={true}
       />,
@@ -85,8 +85,8 @@ describe('Icon', () => {
     expect(width).toBe(100)
     expect(height).toBe(100)
     expect(preventScaling).toBe(true)
-    expect(fill).toBe(DesignTokens.colorGray)
-    expect(color).toBe(DesignTokens.colorSecondaryLightest)
-    expect(stroke).toBe(DesignTokens.colorPrimaryAltLightest)
+    expect(fill).toBe(Colors.gray)
+    expect(color).toBe(Colors.secondaryLightest)
+    expect(stroke).toBe(Colors.primaryAltLightest)
   })
 })
