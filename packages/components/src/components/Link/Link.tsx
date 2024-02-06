@@ -15,7 +15,8 @@ import {
   CalendarData,
   FormDirectionsUrl,
   LocationData,
-  onPressCalendar,
+  OnPressCalendar,
+  leaveAppPromptText,
   useExternalLink,
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
@@ -81,31 +82,27 @@ type linkType = calendar | call | callTTY | custom | directions | text | url
 //   onCalendarPermissionFailure?: () => void
 // }
 
-/**
- *  Signifies the props that need to be passed in to {@link ClickForActionLink}
- */
 export type LinkProps = {
   /** Display text for the link */
   text: string
   /** Preset link types that include default icons and onPress behavior */
   type: linkType
-  /**  */
+  /** Color variant, primary by default */
   variant?: 'default' | 'base'
   /** Optional onPress override logic */
-  onPress?: () => void | ((data: string | CalendarData | LocationData) => void)
+  onPress?: () => void
   /** Optional icon override, sized by default to 24x24 */
   icon?: IconProps | 'no icon'
   /** Optional a11yLabel override; should be used for phone numbers */
   a11yLabel?: string
+  /** Optional override text for leaving app confirmation prompt */
+  promptText?: leaveAppPromptText
   /** Optional analytics event logging */
   // analytics?: analytics
   /** Optional TestID */
   testID?: string
 }
 
-/**
- * Reusable component used for opening native calling app, texting app, or opening a url in the browser
- */
 export const Link: FC<LinkProps> = ({
   text,
   type,
@@ -113,6 +110,7 @@ export const Link: FC<LinkProps> = ({
   onPress,
   icon,
   a11yLabel,
+  promptText,
   // analytics,
   testID,
 }) => {
@@ -120,16 +118,15 @@ export const Link: FC<LinkProps> = ({
   const isDarkMode = colorScheme === 'dark'
   const launchExternalLink = useExternalLink()
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let _onPress: (() => void) | (() => Promise<void>) | any = () => {
-    return
+  let _onPress: () => Promise<void> = async () => {
+    null // Empty function to keep TS happy a function exists
   }
 
   switch (type.type) {
     case 'calendar':
       icon = icon ? icon : { name: 'Calendar' }
       _onPress = async (): Promise<void> => {
-        await onPressCalendar(type.calendarData)
+        await OnPressCalendar(type.calendarData)
         return
       }
       break
@@ -153,7 +150,7 @@ export const Link: FC<LinkProps> = ({
       icon = icon ? icon : { name: 'Directions' }
       const directions = FormDirectionsUrl(type.locationData)
       _onPress = async (): Promise<void> => {
-        launchExternalLink(directions)
+        launchExternalLink(directions, promptText)
       }
       break
     case 'text':
@@ -165,7 +162,7 @@ export const Link: FC<LinkProps> = ({
     case 'url':
       icon = icon ? icon : { name: 'ExternalLink' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(type.url)
+        launchExternalLink(type.url, promptText)
       }
       break
   }
@@ -188,7 +185,7 @@ export const Link: FC<LinkProps> = ({
   }
 
   const pressableProps: PressableProps = {
-    onPress: _onPress ? _onPress : onPress,
+    onPress: onPress ? onPress : _onPress,
     'aria-label': a11yLabel,
     role: 'link',
     accessible: true,

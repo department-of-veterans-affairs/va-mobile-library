@@ -71,6 +71,7 @@ export const Calendar: Story = {
   storyName: 'Calendar',
   args: {
     text: 'Add to calendar',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: {
       type: 'calendar',
       calendarData: {
@@ -90,6 +91,7 @@ export const Directions: Story = {
   storyName: 'Directions',
   args: {
     text: 'Get directions',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: {
       type: 'directions',
       locationData: {
@@ -99,6 +101,12 @@ export const Directions: Story = {
         longitude: location.long,
       },
     },
+    promptText: {
+      body: "You're navigating to your Maps app.",
+      cancel: "No thanks",
+      confirm: "Let's go!",
+      title: 'Title override'
+    }
     // a11yLabel: 'Alternate a11y text',
   },
 }
@@ -106,6 +114,7 @@ export const Directions: Story = {
 export const Phone: Story = {
   args: {
     text: 'Call number',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'call', phoneNumber: '555' },
     // a11yLabel: 'Alternate a11y text',
   },
@@ -114,6 +123,7 @@ export const Phone: Story = {
 export const PhoneTTY: Story = {
   args: {
     text: 'Call TTY number',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'call TTY', TTYnumber: '711' },
     // a11yLabel: 'Alternate a11y text',
   },
@@ -121,6 +131,7 @@ export const PhoneTTY: Story = {
 export const Text: Story = {
   args: {
     text: 'Text SMS number',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'text', textNumber: '55555' },
     // a11yLabel: 'Alternate a11y text',
   },
@@ -129,6 +140,7 @@ export const Text: Story = {
 export const URL: Story = {
   args: {
     text: 'External link',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: { type: 'url', url: 'https://www.va.gov/' },
     // a11yLabel: 'Alternate a11y text',
   },

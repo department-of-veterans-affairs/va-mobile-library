@@ -1,7 +1,7 @@
 /** A file for functions that leverage OS functionality */
 
 import { Alert, Linking, Platform } from 'react-native'
-// import { logNonFatalErrorToFirebase } from './analytics'
+import { useTranslation } from 'react-i18next'
 
 const isIOS = Platform.OS === 'ios'
 
@@ -31,14 +31,14 @@ export type LocationData = hasAddress | hasLatLong
 const APPLE_MAPS_BASE_URL = 'https://maps.apple.com/'
 const GOOGLE_MAPS_BASE_URL = 'https://www.google.com/maps/dir/'
 
+/** Function to convert location data into a URL for handling by Apple/Google Maps */
 export const FormDirectionsUrl = (location: LocationData): string => {
   const { name, address, latitude, longitude } = location
   const addressString = Object.values(address || {}).join(' ')
 
   if (isIOS) {
     const queryString = new URLSearchParams({
-      // apply type parameter = m (map)
-      t: 'm',
+      t: 'm', // type: map
       daddr: `${addressString}+${name}+${latitude},${longitude}`,
     }).toString()
     return `${APPLE_MAPS_BASE_URL}?${queryString}`
@@ -51,31 +51,45 @@ export const FormDirectionsUrl = (location: LocationData): string => {
   }
 }
 
+export type leaveAppPromptText = {
+  body?: string
+  cancel?: string
+  confirm?: string
+  title?: string
+}
 
 /**
- * Hook to display a warning that the user is leaving the app when tapping an external link
- *
- * @returns an alert showing user they are leaving the app
+ * Hook to handle a link that leaves the app; conditionally displays alert prior to leaving
  */
-export function useExternalLink(): (url: string) => void {
-  // const { t } = useTranslation(NAMESPACE.COMMON)
+export function useExternalLink(): (
+  url: string,
+  text?: leaveAppPromptText,
+) => void {
+  const { t } = useTranslation()
 
-  return (url: string) => {
+  return (url: string, text?: leaveAppPromptText) => {
+    // TODO: Ticket 170
     // logAnalyticsEvent(Events.vama_link_click({ url, ...eventParams }))
 
     const onOKPress = () => {
+      // TODO: Ticket 170
       // logAnalyticsEvent(Events.vama_link_confirm({ url, ...eventParams }))
       return Linking.openURL(url)
     }
 
+    const body = text?.body ? text.body : t('leaveAppAlert.body')
+    const cancel = text?.cancel ? text.cancel : t('cancel')
+    const confirm = text?.confirm ? text.confirm : t('ok')
+    const title = text?.title ? text.title : t('leaveAppAlert.title')
+
     if (url.startsWith('http')) {
-      // Alert.alert(t('leavingApp.title'), t('leavingApp.body'), [
-      Alert.alert("You’re leaving the app", "You're navigating to a website outside of the app.", [
+      Alert.alert(title, body, [
+        { text: cancel, style: 'cancel' },
         {
-          text: 'Cancel',
-          // style: 'cancel',
+          text: confirm,
+          onPress: (): Promise<void> => onOKPress(),
+          style: 'default',
         },
-        { text: 'Ok', onPress: (): Promise<void> => onOKPress(), style: 'default' },
       ])
     } else {
       Linking.openURL(url)
@@ -96,7 +110,9 @@ export type CalendarData = {
   longitude: number
 }
 
-export const onPressCalendar = async (calendarData: CalendarData): Promise<void> => {
+export const OnPressCalendar = async (
+  calendarData: CalendarData,
+): Promise<void> => {
   calendarData
   // const { title, endTime, startTime, location, latitude, longitude } = calendarData
 

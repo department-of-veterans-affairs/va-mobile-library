@@ -1,3 +1,7 @@
 {
-  "listPosition": "{{position}} of {{total}}"
+  "cancel": "Cancel",
+  "leaveAppAlert.body": "You're navigating to a website outside of the app.",
+  "leaveAppAlert.title": "You’re leaving the app",
+  "listPosition": "{{position}} of {{total}}",
+  "ok": "Ok"
 }
