@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { getDefaultConfig } = require('metro-config')
 const path = require('path')
+const { generate } = require('@storybook/react-native/scripts/generate')
 
 // Find the project and workspace directories
 const projectRoot = __dirname
@@ -12,7 +13,7 @@ module.exports = (async () => {
     resolver: { sourceExts, assetExts, resolverMainFields },
   } = await getDefaultConfig()
 
-  return {
+  const config = {
     // Watch all files within the monorepo
     watchFolders: [workspaceRoot],
     // SVG support
@@ -23,7 +24,7 @@ module.exports = (async () => {
     resolver: {
       // SVG support
       assetExts: assetExts.filter((ext) => ext !== 'svg'),
-      sourceExts: [...sourceExts, 'svg'],
+      sourceExts: [...sourceExts, 'svg', '.ttf', 'mjs'],
       // Let Metro know where to resolve packages and in what order
       nodeModulesPaths: [
         path.resolve(projectRoot, 'node_modules'),
@@ -34,4 +35,8 @@ module.exports = (async () => {
       resolverMainFields: ['react-native', ...resolverMainFields],
     },
   }
+
+  console.log(config)
+
+  return config
 })()
