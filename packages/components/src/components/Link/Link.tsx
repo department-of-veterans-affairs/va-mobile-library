@@ -23,7 +23,7 @@ import { Icon, IconProps } from '../Icon/Icon'
 import { webStorybookColorScheme } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
-type allNever = {
+type nullTypeSpecifics = {
   calendarData: never
   locationData: never
   /** Optional onPress override logic */
@@ -34,28 +34,28 @@ type allNever = {
   url: never
 }
 
-type calendar = Omit<allNever, 'calendarData'> & {
+type calendar = Omit<nullTypeSpecifics, 'calendarData'> & {
     type: 'calendar'
     calendarData: CalendarData
   }
 
-type call = Omit<allNever, 'phoneNumber'> & {
+type call = Omit<nullTypeSpecifics, 'phoneNumber'> & {
     type: 'call'
     phoneNumber: string
   }
 
-type callTTY = Omit<allNever, 'TTYnumber'> & {
+type callTTY = Omit<nullTypeSpecifics, 'TTYnumber'> & {
     type: 'call TTY'
     TTYnumber: string
   }
 
-type custom = Omit<allNever, 'onPress'> & {
+type custom = Omit<nullTypeSpecifics, 'onPress'> & {
     type: 'custom'
     /** Required onPress override logic */
     onPress: () => void
   }
 
-type directions = Omit<allNever, 'locationData'> & {
+type directions = Omit<nullTypeSpecifics, 'locationData'> & {
     type: 'directions'
     locationData: LocationData
   }
@@ -73,12 +73,12 @@ type directions = Omit<allNever, 'locationData'> & {
 //   paragraphText: normalText[] | LinkProps[]
 // }
 
-type text = Omit<allNever, 'textNumber'> & {
+type text = Omit<nullTypeSpecifics, 'textNumber'> & {
     type: 'text'
     textNumber: string
   }
 
-type url = Omit<allNever, 'url'> & {
+type url = Omit<nullTypeSpecifics, 'url'> & {
     type: 'url'
     url: string
   }
