@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Check ref
         run: |
-          echo "REF: ${{ github.ref.name }}"
+          echo "REF: ${{ github.ref_name }}"
