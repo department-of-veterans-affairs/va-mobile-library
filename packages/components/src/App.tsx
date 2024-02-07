@@ -40,14 +40,9 @@ export const webStorybookColorScheme = () => {
 const App = () => {
   // Loads in custom fonts async conditionally based on OS. Loading from node
   // module seems to be broken on Android
-  const isAndroid = Platform.OS === 'android'
   const [fontsLoaded, fontError] = useFonts({
-    'SourceSansPro-Bold': isAndroid
-      ? require('./assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf')
-      : require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
-    'SourceSansPro-Regular': isAndroid
-      ? require('./assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf')
-      : require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
+    'SourceSansPro-Bold': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
+    'SourceSansPro-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
   })
 
   // Holds rendering until custom fonts load
