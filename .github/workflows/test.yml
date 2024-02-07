@@ -1,0 +1,14 @@
+# Bump version and release specified package to NPM
+
+name: 'Debug'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check ref
+        run: |
+          echo "REF: ${{ github.ref.name }}"
