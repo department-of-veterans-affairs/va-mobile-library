@@ -11,17 +11,6 @@
     },
     "android": {
       "userInterfaceStyle": "automatic"
-    },
-    "plugins": [
-      [
-        "expo-font",
-        {
-          "fonts": [
-            "./assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf",
-            "./assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf"
-          ]
-        }
-      ]
-    ]
+    }
   }
 }
