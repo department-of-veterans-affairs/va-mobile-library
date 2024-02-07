@@ -24,14 +24,14 @@ import { webStorybookColorScheme } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
 type nullTypeSpecifics = {
-  calendarData: never
-  locationData: never
+  calendarData?: never
+  locationData?: never
   /** Optional onPress override logic */
   onPress?: () => void
-  phoneNumber: never
-  textNumber: never
-  TTYnumber: never
-  url: never
+  phoneNumber?: never
+  textNumber?: never
+  TTYnumber?: never
+  url?: never
 }
 
 type calendar = Omit<nullTypeSpecifics, 'calendarData'> & {
