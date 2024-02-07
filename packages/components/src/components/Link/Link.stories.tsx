@@ -72,16 +72,14 @@ export const Calendar: Story = {
   args: {
     text: 'Add to calendar',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: {
-      type: 'calendar',
-      calendarData: {
-        title: 'Test',
-        startTime: startTime.getTime(),
-        endTime: endTime.getTime(),
-        location: getLocation(),
-        latitude: location.lat,
-        longitude: location.long,
-      },
+    type: 'calendar',
+    calendarData: {
+      title: 'Test',
+      startTime: startTime.getTime(),
+      endTime: endTime.getTime(),
+      location: getLocation(),
+      latitude: location.lat,
+      longitude: location.long,
     },
   },
 }
@@ -90,12 +88,9 @@ export const Custom: Story = {
   name: 'Custom Link w/o Icon',
   args: {
     text: 'Custom Link - no icon',
-    onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: {
-      type: 'custom',
-      onPress: () => {
-        null
-      },
+    type: 'custom',
+    onPress: () => {
+      null
     },
   },
 }
@@ -105,12 +100,9 @@ export const CustomWithIcon: Story = {
   args: {
     text: 'Custom Link',
     icon: { name: 'Truck' },
-    onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: {
-      type: 'custom',
-      onPress: () => {
-        null
-      },
+    type: 'custom',
+    onPress: () => {
+      null
     },
   },
 }
@@ -120,14 +112,12 @@ export const Directions: Story = {
   args: {
     text: 'Get directions',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: {
-      type: 'directions',
-      locationData: {
-        name: 'VA Long Beach Healthcare System',
-        address: location.address,
-        latitude: location.lat,
-        longitude: location.long,
-      },
+    type: 'directions',
+    locationData: {
+      name: 'VA Long Beach Healthcare System',
+      address: location.address,
+      latitude: location.lat,
+      longitude: location.long,
     },
     promptText: {
       body: "You're navigating to your Maps app.",
@@ -136,6 +126,7 @@ export const Directions: Story = {
       title: 'Title override',
     },
     a11yLabel: 'Get directions with Maps app',
+    a11yHint: 'Opens maps app with directions to the location'
   },
 }
 
@@ -143,7 +134,8 @@ export const Phone: Story = {
   args: {
     text: 'Call number',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: { type: 'call', phoneNumber: '555' },
+    type: 'call',
+    phoneNumber: '555',
   },
 }
 
@@ -151,7 +143,8 @@ export const PhoneTTY: Story = {
   args: {
     text: 'Call TTY number',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: { type: 'call TTY', TTYnumber: '711' },
+    type: 'call TTY',
+    TTYnumber: '711',
   },
 }
 
@@ -160,7 +153,8 @@ export const Text: Story = {
     text: 'Text SMS number',
     variant: 'base',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: { type: 'text', textNumber: '55555' },
+    type: 'text',
+    textNumber: '55555',
   },
 }
 
@@ -168,6 +162,7 @@ export const URL: Story = {
   args: {
     text: 'External link',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: { type: 'url', url: 'https://www.va.gov/' },
+    type: 'url',
+    url: 'https://www.va.gov/',
   },
 }

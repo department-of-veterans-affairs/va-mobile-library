@@ -8,7 +8,8 @@ const isIOS = Platform.OS === 'ios'
 type address = {
   street: string
   city: string
-  state: string // 2 letter abbreviation
+  /** 2 letter state abbreviation */
+  state: string
   zipCode: string
 }
 

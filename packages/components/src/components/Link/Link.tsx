@@ -22,30 +22,43 @@ import {
 import { Icon, IconProps } from '../Icon/Icon'
 import { webStorybookColorScheme } from '../../utils'
 
-type calendar = {
-  type: 'calendar'
-  calendarData: CalendarData
+// Convenience type to default type-specific props to not existing/being optional
+type allNever = {
+  calendarData: never
+  locationData: never
+  /** Optional onPress override logic */
+  onPress?: () => void
+  phoneNumber: never
+  textNumber: never
+  TTYnumber: never
+  url: never
 }
 
-type call = {
-  type: 'call'
-  phoneNumber: string
-}
+type calendar = Omit<allNever, 'calendarData'> & {
+    type: 'calendar'
+    calendarData: CalendarData
+  }
 
-type callTTY = {
-  type: 'call TTY'
-  TTYnumber: string
-}
+type call = Omit<allNever, 'phoneNumber'> & {
+    type: 'call'
+    phoneNumber: string
+  }
 
-type custom = {
-  type: 'custom'
-  onPress: () => void
-}
+type callTTY = Omit<allNever, 'TTYnumber'> & {
+    type: 'call TTY'
+    TTYnumber: string
+  }
 
-type directions = {
-  type: 'directions'
-  locationData: LocationData
-}
+type custom = Omit<allNever, 'onPress'> & {
+    type: 'custom'
+    /** Required onPress override logic */
+    onPress: () => void
+  }
+
+type directions = Omit<allNever, 'locationData'> & {
+    type: 'directions'
+    locationData: LocationData
+  }
 
 // TODO: Ticket 168 created for in-line link
 // See lines 373-390 for app code:
@@ -60,17 +73,17 @@ type directions = {
 //   paragraphText: normalText[] | LinkProps[]
 // }
 
-type text = {
-  type: 'text'
-  textNumber: string
-}
+type text = Omit<allNever, 'textNumber'> & {
+    type: 'text'
+    textNumber: string
+  }
 
-type url = {
-  type: 'url'
-  url: string
-}
+type url = Omit<allNever, 'url'> & {
+    type: 'url'
+    url: string
+  }
 
-type linkType = calendar | call | callTTY | custom | directions | text | url
+type linkTypes = calendar | call | callTTY | custom | directions | text | url
 
 // TODO: Ticket 170 created to revisit adding analytics after calendar support added/or deemed infeasible
 // type analytics = {
@@ -82,19 +95,17 @@ type linkType = calendar | call | callTTY | custom | directions | text | url
 //   onCalendarPermissionFailure?: () => void
 // }
 
-export type LinkProps = {
+export type LinkProps = linkTypes & {
   /** Display text for the link */
   text: string
-  /** Preset link types that include default icons and onPress behavior */
-  type: linkType
   /** Color variant */
   variant?: 'default' | 'base'
-  /** Optional onPress override logic */
-  onPress?: () => void
   /** Optional icon override, sized by default to 24x24 */
   icon?: IconProps | 'no icon'
   /** Optional a11yLabel override; should be used for phone numbers */
   a11yLabel?: string
+  /** Optional a11yHint to provide additional context */
+  a11yHint?: string
   /** Optional override text for leaving app confirmation prompt */
   promptText?: leaveAppPromptText
   /** Optional analytics event logging */
@@ -104,15 +115,23 @@ export type LinkProps = {
 }
 
 export const Link: FC<LinkProps> = ({
-  text,
   type,
+  text,
   variant = 'default',
   onPress,
   icon,
   a11yLabel,
+  a11yHint,
   promptText,
   // analytics,
   testID,
+  // Type-specific props
+  calendarData,
+  locationData,
+  phoneNumber,
+  textNumber,
+  TTYnumber,
+  url,
 }) => {
   const colorScheme = webStorybookColorScheme() || useColorScheme()
   const isDarkMode = colorScheme === 'dark'
@@ -122,33 +141,33 @@ export const Link: FC<LinkProps> = ({
     null // Empty function to keep TS happy a function exists
   }
 
-  switch (type.type) {
+  switch (type) {
     case 'calendar':
       icon = icon ? icon : { name: 'Calendar' }
       _onPress = async (): Promise<void> => {
-        await OnPressCalendar(type.calendarData)
+        await OnPressCalendar(calendarData)
         return
       }
       break
     case 'call':
       icon = icon ? icon : { name: 'Phone' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(`tel:${type.phoneNumber}`)
+        launchExternalLink(`tel:${phoneNumber}`)
       }
       break
     case 'call TTY':
       icon = icon ? icon : { name: 'PhoneTTY' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(`tel:${type.TTYnumber}`)
+        launchExternalLink(`tel:${TTYnumber}`)
       }
       break
     case 'custom':
       icon = icon ? icon : 'no icon'
-      onPress = type.onPress
+      onPress = onPress
       break
     case 'directions':
       icon = icon ? icon : { name: 'Directions' }
-      const directions = FormDirectionsUrl(type.locationData)
+      const directions = FormDirectionsUrl(locationData)
       _onPress = async (): Promise<void> => {
         launchExternalLink(directions, promptText)
       }
@@ -156,13 +175,13 @@ export const Link: FC<LinkProps> = ({
     case 'text':
       icon = icon ? icon : { name: 'Text' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(`sms:${type.textNumber}`)
+        launchExternalLink(`sms:${textNumber}`)
       }
       break
     case 'url':
       icon = icon ? icon : { name: 'ExternalLink' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(type.url, promptText)
+        launchExternalLink(url, promptText)
       }
       break
   }
@@ -185,6 +204,7 @@ export const Link: FC<LinkProps> = ({
   const pressableProps: PressableProps = {
     onPress: onPress ? onPress : _onPress,
     'aria-label': a11yLabel,
+    accessibilityHint: a11yHint,
     role: 'link',
     accessible: true,
   }
