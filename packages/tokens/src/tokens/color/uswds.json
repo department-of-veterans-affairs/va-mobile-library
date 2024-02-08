@@ -77,11 +77,11 @@
         "category": "uswds-system-color-red-vivid-80"
       }
     },
-    "uswds-system-color-yellow-vivid-80": {
+    "uswds-system-color-yellow-vivid-70": {
       "value": "#5c4809",
-      "name": "uswds-system-color-yellow-vivid-80",
+      "name": "uswds-system-color-yellow-vivid-70",
       "attributes": {
-        "category": "uswds-system-color-yellow-vivid-80"
+        "category": "uswds-system-color-yellow-vivid-70"
       }
     }
   }
