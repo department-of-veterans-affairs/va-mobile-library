@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-native'
+import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React, { useState } from 'react'
 

@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react-native'
+import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React from 'react'
 
-import * as DesignTokens from '@department-of-veterans-affairs/mobile-tokens'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { Icon, IconProps } from './Icon'
 import { generateDocs } from '../../utils/storybook'
 import CustomSVG from '../../assets/svgs/custom.svg'
@@ -40,7 +40,7 @@ export const _Example: Story = {
   args: {
     width: 50,
     height: 50,
-    fill: DesignTokens.colorGrayMedium,
+    fill: Colors.grayMedium,
     name: 'HomeUnselected',
   },
 }
@@ -49,7 +49,7 @@ export const __Custom: Story = {
   args: {
     width: 50,
     height: 50,
-    fill: DesignTokens.colorGrayMedium,
+    fill: Colors.grayMedium,
     svg: CustomSVG,
   },
 }
