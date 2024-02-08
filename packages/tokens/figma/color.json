@@ -147,6 +147,10 @@
     "$value": "#ecf3ec",
     "$type": "color"
   },
+  "orange": {
+    "$value": "#dd7533",
+    "$type": "color"
+  },
   "gold": {
     "$value": "#ffbe2e",
     "$type": "color"
@@ -181,6 +185,46 @@
   },
   "blueCoolLightest": {
     "$value": "#e6e6e2",
+    "$type": "color"
+  },
+  "hubHealthCare": {
+    "$value": "#3f57a6",
+    "$type": "color"
+  },
+  "hubEducation": {
+    "$value": "#40807e",
+    "$type": "color"
+  },
+  "hubDisability": {
+    "$value": "#a23737",
+    "$type": "color"
+  },
+  "hubCareers": {
+    "$value": "#bd5727",
+    "$type": "color"
+  },
+  "hubPension": {
+    "$value": "#4d8055",
+    "$type": "color"
+  },
+  "hubHousing": {
+    "$value": "#8e704f",
+    "$type": "color"
+  },
+  "hubLifeInsurance": {
+    "$value": "#6f7a41",
+    "$type": "color"
+  },
+  "hubBurials": {
+    "$value": "#2378c3",
+    "$type": "color"
+  },
+  "hubFamilyMember": {
+    "$value": "#162e51",
+    "$type": "color"
+  },
+  "hubServiceMember": {
+    "$value": "#162e51",
     "$type": "color"
   },
   "uswdsBlueVivid5": {
