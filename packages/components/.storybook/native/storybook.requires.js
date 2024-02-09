@@ -3,7 +3,6 @@
 import {
   configure,
   addDecorator,
-  addArgsEnhancer,
   clearDecorators,
 } from '@storybook/react-native'
 
