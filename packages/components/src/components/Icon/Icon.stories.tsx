@@ -4,7 +4,6 @@ import React from 'react'
 
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { Icon, IconProps } from './Icon'
-import { generateDocs } from '../../utils/storybook'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
 const meta: Meta<IconProps> = {

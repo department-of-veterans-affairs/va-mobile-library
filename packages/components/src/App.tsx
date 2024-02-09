@@ -1,5 +1,5 @@
 import * as SplashScreen from 'expo-splash-screen'
-import { ColorSchemeName, Platform, View } from 'react-native'
+import { ColorSchemeName, View } from 'react-native'
 import { I18nextProvider } from 'react-i18next'
 import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
