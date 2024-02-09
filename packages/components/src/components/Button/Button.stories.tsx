@@ -30,7 +30,7 @@ export default meta
 
 type Story = StoryObj<ButtonProps>
 
-export const Primary: Story = {
+export const _Primary: Story = {
   name: 'Primary',
   args: {
     label: 'Button text',
@@ -39,7 +39,7 @@ export const Primary: Story = {
   },
 }
 
-export const Secondary: Story = {
+export const __Secondary: Story = {
   name: 'Secondary',
   args: {
     buttonType: ButtonVariants.Secondary,
@@ -49,7 +49,7 @@ export const Secondary: Story = {
   },
 }
 
-export const Base: Story = {
+export const ___Base: Story = {
   name: 'Base Primary',
   args: {
     buttonType: ButtonVariants.Base,
@@ -59,7 +59,7 @@ export const Base: Story = {
   },
 }
 
-export const BaseSecondary: Story = {
+export const ____BaseSecondary: Story = {
   name: 'Base Secondary',
   args: {
     buttonType: ButtonVariants.BaseSecondary,
@@ -69,7 +69,7 @@ export const BaseSecondary: Story = {
   },
 }
 
-export const Destructive: Story = {
+export const _____Destructive: Story = {
   name: 'Destructive',
   args: {
     buttonType: ButtonVariants.Destructive,
@@ -79,7 +79,7 @@ export const Destructive: Story = {
   },
 }
 
-export const White: Story = {
+export const ______White: Story = {
   name: 'White',
   args: {
     buttonType: ButtonVariants.White,

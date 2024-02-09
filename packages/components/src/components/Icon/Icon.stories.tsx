@@ -28,7 +28,7 @@ export default meta
 
 type Story = StoryObj<IconProps>
 
-export const Preloaded: Story = {
+export const _Preloaded: Story = {
   name: 'Preloaded Icons',
   args: {
     width: 50,
@@ -37,7 +37,7 @@ export const Preloaded: Story = {
     name: 'HomeUnselected',
   },
 }
-export const Custom: Story = {
+export const __Custom: Story = {
   name: 'Custom SVG',
   args: {
     width: 50,

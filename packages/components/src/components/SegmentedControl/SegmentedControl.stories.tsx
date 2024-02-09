@@ -49,7 +49,7 @@ const designParameters = [
   },
 ]
 
-export const TwoSegments: Story = {
+export const _2Segments: Story = {
   render: statefulComponentRenderer,
   args: {
     labels: ['Label 1', 'Label 2'],
@@ -63,7 +63,7 @@ export const TwoSegments: Story = {
   parameters: { design: designParameters },
 }
 
-export const ThreeSegments: Story = {
+export const _3Segments: Story = {
   render: statefulComponentRenderer,
   args: {
     labels: ['Label 1', 'Label 2', 'Label 3'],
@@ -71,7 +71,7 @@ export const ThreeSegments: Story = {
   parameters: { design: designParameters },
 }
 
-export const FourSegments: Story = {
+export const _4Segments: Story = {
   render: statefulComponentRenderer,
   args: {
     labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
