@@ -23,10 +23,14 @@ module.exports = (() => {
 
   config.transformer = {
     ...transformer,
+    // Enables dynamic imports
+    unstable_useRequireContext: true,
+    // SVG Support
     babelTransformerPath: require.resolve('react-native-svg-transformer'),
   }
   config.resolver = {
     ...resolver,
+    // SVG Support
     assetExts: resolver.assetExts.filter((ext) => ext !== 'svg'),
     sourceExts: [...resolver.sourceExts, 'svg'],
     // Let Metro know where to resolve packages and in what order
