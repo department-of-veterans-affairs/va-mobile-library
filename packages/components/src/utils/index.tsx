@@ -5,7 +5,6 @@ import {
   ViewStyle,
 } from 'react-native'
 import { useSyncExternalStore } from 'react'
-// import App from '../main'
 
 /** Function for web Storybook to override setting colorScheme based on UI toggle button */
 export function webStorybookColorScheme(): ColorSchemeName {
@@ -28,8 +27,6 @@ export function webStorybookColorScheme(): ColorSchemeName {
       return colorScheme
     },
   )
-
-  // return App.webStorybookColorScheme()
 }
 
 /**
