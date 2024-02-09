@@ -65,6 +65,7 @@
     "@react-native-community/slider": "^4.4.2",
     "@storybook/addon-actions": "^7.6.10",
     "@storybook/addon-controls": "^7.6.10",
+    "@storybook/addon-designs": "^7.0.9",
     "@storybook/addon-docs": "^7.6.10",
     "@storybook/addon-essentials": "^7.6.10",
     "@storybook/addon-links": "^7.6.10",
