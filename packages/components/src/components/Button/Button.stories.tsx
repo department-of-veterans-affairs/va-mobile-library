@@ -23,6 +23,20 @@ const meta: Meta<ButtonProps> = {
       </View>
     ),
   ],
+  parameters: {
+    design: [
+      {
+        name: 'Figma component overview',
+        type: 'figma',
+        url: 'https://www.figma.com/file/Zzt8z60hCtdEzXx2GFWghH/%F0%9F%93%90-Component-Library?type=design&node-id=224-548&mode=design&t=LVehKHpWhqSKrQMW-4',
+      },
+      {
+        name: 'Figma examples',
+        type: 'figma',
+        url: 'https://www.figma.com/file/Zzt8z60hCtdEzXx2GFWghH/%F0%9F%93%90-Component-Library?type=design&node-id=224-532&mode=design&t=LVehKHpWhqSKrQMW-4',
+      },
+    ],
+  },
 }
 
 export default meta

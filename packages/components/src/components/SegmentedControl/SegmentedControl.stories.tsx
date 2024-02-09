@@ -14,6 +14,20 @@ const meta: Meta<SegmentedControlProps> = {
       </View>
     ),
   ],
+  parameters: {
+    design: [
+      {
+        name: 'Figma component overview',
+        type: 'figma',
+        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11330&mode=design&t=IfpGfogEOoBtNhmN-1',
+      },
+      {
+        name: 'Figma examples',
+        type: 'figma',
+        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11331&mode=design&t=IfpGfogEOoBtNhmN-1',
+      },
+    ],
+  },
 }
 
 export default meta
@@ -35,19 +49,6 @@ const statefulComponentRenderer = (props: SegmentedControlProps) => {
   )
 }
 
-const designParameters = [
-  {
-    name: 'Figma component overview',
-    type: 'figma',
-    url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11330&mode=design&t=IfpGfogEOoBtNhmN-1',
-  },
-  {
-    name: 'Figma examples',
-    type: 'figma',
-    url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11331&mode=design&t=IfpGfogEOoBtNhmN-1',
-  },
-]
-
 export const _2Segments: Story = {
   render: statefulComponentRenderer,
   args: {
@@ -59,7 +60,6 @@ export const _2Segments: Story = {
     ],
     testIDs: ['test-id-1', 'test-id-2'],
   },
-  parameters: { design: designParameters },
 }
 
 export const _3Segments: Story = {
@@ -67,7 +67,6 @@ export const _3Segments: Story = {
   args: {
     labels: ['Label 1', 'Label 2', 'Label 3'],
   },
-  parameters: { design: designParameters },
 }
 
 export const _4Segments: Story = {
@@ -75,5 +74,4 @@ export const _4Segments: Story = {
   args: {
     labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
   },
-  parameters: { design: designParameters },
 }
