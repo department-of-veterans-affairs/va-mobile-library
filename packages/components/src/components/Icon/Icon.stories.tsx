@@ -10,13 +10,6 @@ import CustomSVG from '../../assets/svgs/custom.svg'
 const meta: Meta<IconProps> = {
   title: 'Icon',
   component: Icon,
-  parameters: {
-    docs: generateDocs({
-      name: 'Icon',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Icons%20and%20links/Icon',
-    }),
-  },
   decorators: [
     (Story) => (
       <View
@@ -35,7 +28,7 @@ export default meta
 
 type Story = StoryObj<IconProps>
 
-export const _Example: Story = {
+export const Preloaded: Story = {
   name: 'Preloaded Icons',
   args: {
     width: 50,
@@ -44,7 +37,7 @@ export const _Example: Story = {
     name: 'HomeUnselected',
   },
 }
-export const __Custom: Story = {
+export const Custom: Story = {
   name: 'Custom SVG',
   args: {
     width: 50,

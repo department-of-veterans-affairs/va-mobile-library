@@ -186,6 +186,8 @@ export type IconProps = {
  *    - Duotone: CircleCheckMark.svg
  *    - Stroke: RadioEmpty.svg
  *
+ * [View guidance for the Button component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Icons%20and%20links/Icon)
+
  * @returns Icon component
  */
 export const Icon: FC<IconProps> = ({

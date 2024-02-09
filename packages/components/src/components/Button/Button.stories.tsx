@@ -12,13 +12,6 @@ const meta: Meta<ButtonProps> = {
       action: 'onPress event',
     },
   },
-  parameters: {
-    docs: generateDocs({
-      name: 'Button',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Button',
-    }),
-  },
   decorators: [
     (Story) => (
       <View
@@ -37,7 +30,7 @@ export default meta
 
 type Story = StoryObj<ButtonProps>
 
-export const _Primary: Story = {
+export const Primary: Story = {
   name: 'Primary',
   args: {
     label: 'Button text',
@@ -46,7 +39,7 @@ export const _Primary: Story = {
   },
 }
 
-export const __Secondary: Story = {
+export const Secondary: Story = {
   name: 'Secondary',
   args: {
     buttonType: ButtonVariants.Secondary,
@@ -56,7 +49,7 @@ export const __Secondary: Story = {
   },
 }
 
-export const ___Base: Story = {
+export const Base: Story = {
   name: 'Base Primary',
   args: {
     buttonType: ButtonVariants.Base,
@@ -66,7 +59,7 @@ export const ___Base: Story = {
   },
 }
 
-export const ____BaseSecondary: Story = {
+export const BaseSecondary: Story = {
   name: 'Base Secondary',
   args: {
     buttonType: ButtonVariants.BaseSecondary,
@@ -76,7 +69,7 @@ export const ____BaseSecondary: Story = {
   },
 }
 
-export const _____Destructive: Story = {
+export const Destructive: Story = {
   name: 'Destructive',
   args: {
     buttonType: ButtonVariants.Destructive,
@@ -86,7 +79,7 @@ export const _____Destructive: Story = {
   },
 }
 
-export const ______White: Story = {
+export const White: Story = {
   name: 'White',
   args: {
     buttonType: ButtonVariants.White,

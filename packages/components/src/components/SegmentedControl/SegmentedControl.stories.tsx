@@ -8,13 +8,6 @@ import { generateDocs } from '../../utils/storybook'
 const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',
   component: SegmentedControl,
-  parameters: {
-    docs: generateDocs({
-      name: 'Segmented control',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Navigation/Secondary/SegmentedControl',
-    }),
-  },
   decorators: [
     (Story) => (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -56,7 +49,7 @@ const designParameters = [
   },
 ]
 
-export const _2Segments: Story = {
+export const TwoSegments: Story = {
   render: statefulComponentRenderer,
   args: {
     labels: ['Label 1', 'Label 2'],
@@ -70,7 +63,7 @@ export const _2Segments: Story = {
   parameters: { design: designParameters },
 }
 
-export const _3Segments: Story = {
+export const ThreeSegments: Story = {
   render: statefulComponentRenderer,
   args: {
     labels: ['Label 1', 'Label 2', 'Label 3'],
@@ -78,7 +71,7 @@ export const _3Segments: Story = {
   parameters: { design: designParameters },
 }
 
-export const _4Segments: Story = {
+export const FourSegments: Story = {
   render: statefulComponentRenderer,
   args: {
     labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],

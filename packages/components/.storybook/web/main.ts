@@ -15,9 +15,11 @@ module.exports = {
       },
     },
     '@storybook/addon-react-native-web',
-    'storybook-addon-designs',
     'storybook-dark-mode',
   ],
+  docs: {
+    autodocs: true,
+  },
   core: {
     builder: 'webpack5',
   },
