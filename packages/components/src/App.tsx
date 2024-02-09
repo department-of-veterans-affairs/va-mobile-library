@@ -18,25 +18,6 @@ export const initiateExpo = (expoApp: typeof App) => {
   registerRootComponent(expoApp)
 }
 
-/** Function to initialize listening to light/dark mode toggle in Web Storybook to set color scheme */
-export const webStorybookColorScheme = () => {
-  // Mimics RN useColorScheme hook, but listens to the parent body's class ('light'/'dark' from storybook-dark-mode)
-  return useSyncExternalStore(
-    (callback) => {
-      window.parent.addEventListener('click', callback)
-      return () => window.parent.removeEventListener('click', callback)
-    },
-    (): ColorSchemeName => {
-      const colorScheme = window.parent.document.body.className
-      if (colorScheme !== 'light' && colorScheme !== 'dark') {
-        return null
-      }
-
-      return colorScheme
-    },
-  )
-}
-
 const App = () => {
   // Loads in custom fonts async conditionally based on OS. Loading from node
   // module seems to be broken on Android
