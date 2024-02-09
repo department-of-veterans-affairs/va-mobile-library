@@ -27,9 +27,7 @@ global.STORIES = [
 import '@storybook/addon-ondevice-controls/register'
 import '@storybook/addon-ondevice-actions/register'
 
-// import { argsEnhancers } from '@storybook/addon-actions/dist/modern/preset/addArgs'
-
-import { decorators, parameters } from './preview'
+import { decorators } from './preview'
 
 if (decorators) {
   if (__DEV__) {
@@ -42,10 +40,6 @@ if (decorators) {
   clearDecorators()
   decorators.forEach((decorator) => addDecorator(decorator))
 }
-
-// try {
-//   argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer))
-// } catch {}
 
 const getStories = () => {
   return {
