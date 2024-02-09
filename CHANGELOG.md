@@ -1,5 +1,17 @@
 # Changelog
 
+## [tokens-v0.5.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.5.1) (2024-02-08)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.5.1...tokens-v0.5.1)
+
+**Closed issues:**
+
+- DS - Discovery - Removing Red Button Variant [\#164](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/164)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix yellowVivid70 color name [\#175](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/175) ([narin](https://github.com/narin))
+
 ## [components-v0.5.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.5.1) (2024-02-07)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.5.0...components-v0.5.1)
