@@ -5,6 +5,7 @@ import { view } from './storybook.requires'
 import './storybook.requires'
 
 const StorybookUIRoot = view.getStorybookUI({
+  // Used to persist the selected story between reloads
   storage: {
     getItem: AsyncStorage.getItem,
     setItem: AsyncStorage.setItem,
