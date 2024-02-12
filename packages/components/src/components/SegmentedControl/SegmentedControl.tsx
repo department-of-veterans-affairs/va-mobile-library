@@ -1,18 +1,11 @@
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
-import {
-  Pressable,
-  Text,
-  TextStyle,
-  View,
-  ViewStyle,
-  useColorScheme,
-} from 'react-native'
+import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, webStorybookColorScheme } from '../../utils'
+import { PressableOpacityStyle, useColorScheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -60,7 +53,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   testIDs,
 }) => {
   const { t } = useTranslation()
-  const colorScheme = webStorybookColorScheme() || useColorScheme()
+  const colorScheme = useColorScheme()
 
   useEffect(() => {
     onChange(selected)

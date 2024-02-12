@@ -5,11 +5,10 @@ import {
   Text,
   TextStyle,
   ViewStyle,
-  useColorScheme,
 } from 'react-native'
 import React from 'react'
 
-import { webStorybookColorScheme } from '../../utils'
+import { useColorScheme } from '../../utils'
 
 export enum ButtonVariants {
   Base = 'Base',
@@ -47,7 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
   testID,
   testOnlyPressed,
 }) => {
-  const colorScheme = webStorybookColorScheme() || useColorScheme()
+  const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
 
   let bgColor: string,

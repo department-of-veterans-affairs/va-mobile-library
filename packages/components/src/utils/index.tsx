@@ -3,14 +3,14 @@ import {
   PressableStateCallbackType,
   StyleProp,
   ViewStyle,
+  useColorScheme as RNUseColorScheme,
 } from 'react-native'
-// import { useSyncExternalStore } from 'react'
 
-/** Function for web Storybook to override setting colorScheme based on UI toggle button */
-export function webStorybookColorScheme(): ColorSchemeName {
+/** Handles return of color scheme based on platform */
+export function useColorScheme(): ColorSchemeName {
   // If not web Storybook, set with RN useColorScheme hook
   if (!process.env.STORYBOOK_WEB) {
-    return null
+    return RNUseColorScheme()
   } else {
     try {
       const webStorybookColorScheme =

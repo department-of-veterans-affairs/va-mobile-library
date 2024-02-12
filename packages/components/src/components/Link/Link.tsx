@@ -7,7 +7,6 @@ import {
   TextStyle,
   View,
   ViewProps,
-  useColorScheme,
 } from 'react-native'
 import React, { FC } from 'react'
 
@@ -20,7 +19,7 @@ import {
   useExternalLink,
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
-import { webStorybookColorScheme } from '../../utils'
+import { useColorScheme } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
 type nullTypeSpecifics = {
@@ -35,30 +34,30 @@ type nullTypeSpecifics = {
 }
 
 type calendar = Omit<nullTypeSpecifics, 'calendarData'> & {
-    type: 'calendar'
-    calendarData: CalendarData
-  }
+  type: 'calendar'
+  calendarData: CalendarData
+}
 
 type call = Omit<nullTypeSpecifics, 'phoneNumber'> & {
-    type: 'call'
-    phoneNumber: string
-  }
+  type: 'call'
+  phoneNumber: string
+}
 
 type callTTY = Omit<nullTypeSpecifics, 'TTYnumber'> & {
-    type: 'call TTY'
-    TTYnumber: string
-  }
+  type: 'call TTY'
+  TTYnumber: string
+}
 
 type custom = Omit<nullTypeSpecifics, 'onPress'> & {
-    type: 'custom'
-    /** Required onPress override logic */
-    onPress: () => void
-  }
+  type: 'custom'
+  /** Required onPress override logic */
+  onPress: () => void
+}
 
 type directions = Omit<nullTypeSpecifics, 'locationData'> & {
-    type: 'directions'
-    locationData: LocationData
-  }
+  type: 'directions'
+  locationData: LocationData
+}
 
 // TODO: Ticket 168 created for in-line link
 // See lines 373-390 for app code:
@@ -74,14 +73,14 @@ type directions = Omit<nullTypeSpecifics, 'locationData'> & {
 // }
 
 type text = Omit<nullTypeSpecifics, 'textNumber'> & {
-    type: 'text'
-    textNumber: string
-  }
+  type: 'text'
+  textNumber: string
+}
 
 type url = Omit<nullTypeSpecifics, 'url'> & {
-    type: 'url'
-    url: string
-  }
+  type: 'url'
+  url: string
+}
 
 type linkTypes = calendar | call | callTTY | custom | directions | text | url
 
@@ -134,7 +133,7 @@ export const Link: FC<LinkProps> = ({
   TTYnumber,
   url,
 }) => {
-  const colorScheme = webStorybookColorScheme() || useColorScheme()
+  const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
   const launchExternalLink = useExternalLink()
 
