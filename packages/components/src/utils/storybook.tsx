@@ -7,7 +7,7 @@ import {
   Title,
 } from '@storybook/addon-docs'
 import { ColorSchemeName, Linking, Text, View } from 'react-native'
-import React from 'react'
+import React, { useSyncExternalStore } from 'react'
 
 type DocProps = {
   name: string
@@ -54,8 +54,6 @@ export const generateDocs = ({ name, docUrl }: DocProps) => ({
 
 /** Function to initialize listening to light/dark mode toggle in Web Storybook to set color scheme */
 export const webStorybookColorScheme = () => {
-  const useSyncExternalStore = require('react').useSyncExternalStore
-
   // Mimics RN useColorScheme hook, but listens to the parent body's class ('light'/'dark' from storybook-dark-mode)
   return useSyncExternalStore(
     (callback: () => void) => {

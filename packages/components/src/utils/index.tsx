@@ -12,9 +12,13 @@ export function webStorybookColorScheme(): ColorSchemeName {
   if (!process.env.STORYBOOK_WEB) {
     return null
   } else {
-    const webStorybookColorScheme =
-      require('./storybook').webStorybookColorScheme
-    return webStorybookColorScheme()
+    try {
+      const webStorybookColorScheme =
+        require('./storybook').webStorybookColorScheme
+      return webStorybookColorScheme()
+    } catch (error) {
+      return null
+    }
   }
 }
 
