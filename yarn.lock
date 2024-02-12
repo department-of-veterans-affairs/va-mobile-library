@@ -1949,7 +1949,7 @@ __metadata:
   peerDependencies:
     "@department-of-veterans-affairs/mobile-assets": "*"
     react: ^18.2.0
-    react-native: ~0.71.7
+    react-native: ">=0.71.7"
     react-native-gesture-handler: ^2.12.0
   languageName: unknown
   linkType: soft
