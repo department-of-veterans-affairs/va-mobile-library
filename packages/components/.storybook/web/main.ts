@@ -8,12 +8,7 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-links',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        backgrounds: true,
-      },
-    },
+    '@storybook/addon-essentials',
     '@storybook/addon-react-native-web',
     '@storybook/addon-designs',
     'storybook-dark-mode',
