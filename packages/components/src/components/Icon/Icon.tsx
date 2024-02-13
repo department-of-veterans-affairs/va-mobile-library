@@ -186,7 +186,6 @@ export type IconProps = {
  *    - Duotone: CircleCheckMark.svg
  *    - Stroke: RadioEmpty.svg
  *
-
  * @returns Icon component
  */
 export const Icon: FC<IconProps> = ({
