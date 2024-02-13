@@ -1,9 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react-native'
+import { Meta, StoryObj } from '@storybook/react'
 import { Platform, View } from 'react-native'
 import React from 'react'
 
 import { Link, LinkProps } from './Link'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<LinkProps> = {
   title: 'Link',
@@ -12,13 +11,6 @@ const meta: Meta<LinkProps> = {
     onPress: {
       action: 'onPress event',
     },
-  },
-  parameters: {
-    docs: generateDocs({
-      name: 'Link',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Link',
-    }),
   },
   decorators: [
     (Story) => (
@@ -68,7 +60,7 @@ const getLocation = (): string => {
 }
 
 export const Calendar: Story = {
-  storyName: 'Calendar',
+  name: 'Calendar',
   args: {
     text: 'Add to calendar',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
@@ -108,7 +100,7 @@ export const CustomWithIcon: Story = {
 }
 
 export const Directions: Story = {
-  storyName: 'Directions',
+  name: 'Directions',
   args: {
     text: 'Get directions',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
@@ -126,7 +118,7 @@ export const Directions: Story = {
       title: 'Title override',
     },
     a11yLabel: 'Get directions with Maps app',
-    a11yHint: 'Opens maps app with directions to the location'
+    a11yHint: 'Opens maps app with directions to the location',
   },
 }
 

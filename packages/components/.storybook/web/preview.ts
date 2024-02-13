@@ -1,5 +1,3 @@
-import { withDesign } from 'storybook-addon-designs'
-
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -8,6 +6,7 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  darkMode: {
+    stylePreview: true,
+  },
 }
-
-export const decorators = [withDesign]

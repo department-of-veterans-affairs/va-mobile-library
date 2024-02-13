@@ -1,20 +1,25 @@
 import {
   ColorSchemeName,
   PressableStateCallbackType,
+  useColorScheme as RNUseColorScheme,
   StyleProp,
   ViewStyle,
 } from 'react-native'
 
-import App from '../main'
-
-/** Function for web Storybook to override setting colorScheme based on UI toggle button */
-export function webStorybookColorScheme(): ColorSchemeName {
+/** Handles return of color scheme based on platform */
+export function useColorScheme(): ColorSchemeName {
   // If not web Storybook, set with RN useColorScheme hook
   if (!process.env.STORYBOOK_WEB) {
-    return null
+    return RNUseColorScheme()
+  } else {
+    try {
+      const webStorybookColorScheme =
+        require('./storybook').webStorybookColorScheme // eslint-disable-line
+      return webStorybookColorScheme()
+    } catch (error) {
+      return null
+    }
   }
-
-  return App.webStorybookColorScheme()
 }
 
 /**
