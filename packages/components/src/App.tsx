@@ -23,7 +23,7 @@ const App = () => {
   // module seems to be broken on Android
   const [fontsLoaded, fontError] = useFonts({
     'SourceSansPro-Bold': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
-    'SourceSansPro-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
+    'SourceSansPro-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf'),
   })
 
   // Holds rendering until custom fonts load

@@ -3,7 +3,6 @@ import { Platform, View } from 'react-native'
 import React from 'react'
 
 import { Link, LinkProps } from './Link'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<LinkProps> = {
   title: 'Link',

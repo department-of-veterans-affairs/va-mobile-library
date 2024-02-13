@@ -1,9 +1,9 @@
 import {
   ColorSchemeName,
   PressableStateCallbackType,
+  useColorScheme as RNUseColorScheme,
   StyleProp,
   ViewStyle,
-  useColorScheme as RNUseColorScheme,
 } from 'react-native'
 
 /** Handles return of color scheme based on platform */
@@ -14,7 +14,7 @@ export function useColorScheme(): ColorSchemeName {
   } else {
     try {
       const webStorybookColorScheme =
-        require('./storybook').webStorybookColorScheme
+        require('./storybook').webStorybookColorScheme // eslint-disable-line
       return webStorybookColorScheme()
     } catch (error) {
       return null
