@@ -1901,7 +1901,7 @@ __metadata:
     babel-jest: "npm:^29.7.0"
     babel-loader: "npm:^8.3.0"
     babel-plugin-react-docgen-typescript: "npm:^1.5.1"
-    babel-plugin-react-native-web: "npm:^0.18.12"
+    babel-plugin-react-native-web: "npm:^0.19.10"
     copy-webpack-plugin: "npm:^11.0.0"
     expo: "npm:^50.0.6"
     expo-constants: "npm:~15.4.5"
@@ -1919,8 +1919,8 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-i18next: "npm:^13.5.0"
     react-native: "npm:0.73.4"
-    react-native-gesture-handler: "npm:~2.14.1"
-    react-native-reanimated: "npm:~3.6.2"
+    react-native-gesture-handler: "npm:~2.15.0"
+    react-native-reanimated: "npm:~3.7.0"
     react-native-safe-area-context: "npm:4.9.0"
     react-native-screens: "npm:~3.29.0"
     react-native-svg: "npm:14.1.0"
@@ -7584,7 +7584,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-react-native-web@npm:^0.18.12, babel-plugin-react-native-web@npm:~0.18.10":
+"babel-plugin-react-native-web@npm:^0.19.10":
+  version: 0.19.10
+  resolution: "babel-plugin-react-native-web@npm:0.19.10"
+  checksum: c9599c8d5348f903ece5a720dd6bd4464ce04f7ccbb2e5a8faa64aa6531815d6691e7715dfa8f141e3ad2a470a4094a5c6e27dc8fa45c17277ee7d794fca13a1
+  languageName: node
+  linkType: hard
+
+"babel-plugin-react-native-web@npm:~0.18.10":
   version: 0.18.12
   resolution: "babel-plugin-react-native-web@npm:0.18.12"
   checksum: f04df9a822c207c00b7b66560e6a33a17c922b96471b7da07ca66003a70599f739b4ef6ad9018bc85205783282b85f7fc193b38d85306cc4158e66d328b6f3c4
@@ -16358,9 +16365,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:~2.14.1":
-  version: 2.14.1
-  resolution: "react-native-gesture-handler@npm:2.14.1"
+"react-native-gesture-handler@npm:~2.15.0":
+  version: 2.15.0
+  resolution: "react-native-gesture-handler@npm:2.15.0"
   dependencies:
     "@egjs/hammerjs": "npm:^2.0.17"
     hoist-non-react-statics: "npm:^3.3.0"
@@ -16370,7 +16377,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: f8905498d18b6052b27ab54e33516aa7346d219b847a68ed4ef9ad7286865b8649aa9026b934a192f66472e8ee3efe503698762e90646e67604f9a2b8690e65d
+  checksum: 7c06fa62bc11810f048b68a6b25da288808f9399067507d61b8e0a3b5f7a4bd632f25e3baab0f00857588eece5edfdf7eb40dbb07af54aa8fe557a8bf5b728e3
   languageName: node
   linkType: hard
 
@@ -16395,9 +16402,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-reanimated@npm:~3.6.2":
-  version: 3.6.2
-  resolution: "react-native-reanimated@npm:3.6.2"
+"react-native-reanimated@npm:~3.7.0":
+  version: 3.7.0
+  resolution: "react-native-reanimated@npm:3.7.0"
   dependencies:
     "@babel/plugin-transform-object-assign": "npm:^7.16.7"
     "@babel/preset-typescript": "npm:^7.16.7"
@@ -16412,7 +16419,7 @@ __metadata:
     "@babel/plugin-transform-template-literals": ^7.0.0-0
     react: "*"
     react-native: "*"
-  checksum: d2ec124100a6e0061cbec043b0184f8d2d2c4fa71bc4895b6ed719ff9c5ced206ab6bd880a0f6479a63014b0c93d31c91196c79ec29cdae2d4a92c312fb423c1
+  checksum: 71a5d9c35b7be6d959bd599f280b2bd3c57bf7bbe40cff51b62f476d8a44ea221575321ff8c8f603807aaa0560e9c992b6aa33217246ee46ca7b79b0fc69d2d1
   languageName: node
   linkType: hard
 
