@@ -1,7 +1,6 @@
 import { Button, ButtonProps, ButtonVariants } from './Button'
-import { Meta, StoryObj } from '@storybook/react-native'
+import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
-import { generateDocs } from '../../utils/storybook'
 import React from 'react'
 
 const meta: Meta<ButtonProps> = {
@@ -12,13 +11,6 @@ const meta: Meta<ButtonProps> = {
       action: 'onPress event',
     },
   },
-  parameters: {
-    docs: generateDocs({
-      name: 'Button',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Button',
-    }),
-  },
   decorators: [
     (Story) => (
       <View
@@ -26,12 +18,25 @@ const meta: Meta<ButtonProps> = {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-        }}
-      >
+        }}>
         <Story />
       </View>
     ),
   ],
+  parameters: {
+    design: [
+      {
+        name: 'Figma component overview',
+        type: 'figma',
+        url: 'https://www.figma.com/file/Zzt8z60hCtdEzXx2GFWghH/%F0%9F%93%90-Component-Library?type=design&node-id=224-548&mode=design&t=LVehKHpWhqSKrQMW-4',
+      },
+      {
+        name: 'Figma examples',
+        type: 'figma',
+        url: 'https://www.figma.com/file/Zzt8z60hCtdEzXx2GFWghH/%F0%9F%93%90-Component-Library?type=design&node-id=224-532&mode=design&t=LVehKHpWhqSKrQMW-4',
+      },
+    ],
+  },
 }
 
 export default meta
@@ -39,7 +44,7 @@ export default meta
 type Story = StoryObj<ButtonProps>
 
 export const _Primary: Story = {
-  storyName: 'Primary',
+  name: 'Primary',
   args: {
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
@@ -48,7 +53,7 @@ export const _Primary: Story = {
 }
 
 export const __Secondary: Story = {
-  storyName: 'Secondary',
+  name: 'Secondary',
   args: {
     buttonType: ButtonVariants.Secondary,
     label: 'Button text',
@@ -58,7 +63,7 @@ export const __Secondary: Story = {
 }
 
 export const ___Base: Story = {
-  storyName: 'Base Primary',
+  name: 'Base Primary',
   args: {
     buttonType: ButtonVariants.Base,
     label: 'Button text',
@@ -68,7 +73,7 @@ export const ___Base: Story = {
 }
 
 export const ____BaseSecondary: Story = {
-  storyName: 'Base Secondary',
+  name: 'Base Secondary',
   args: {
     buttonType: ButtonVariants.BaseSecondary,
     label: 'Button text',
@@ -78,7 +83,7 @@ export const ____BaseSecondary: Story = {
 }
 
 export const _____Destructive: Story = {
-  storyName: 'Destructive',
+  name: 'Destructive',
   args: {
     buttonType: ButtonVariants.Destructive,
     label: 'Button text',
@@ -88,7 +93,7 @@ export const _____Destructive: Story = {
 }
 
 export const ______White: Story = {
-  storyName: 'White',
+  name: 'White',
   args: {
     buttonType: ButtonVariants.White,
     label: 'Button text',

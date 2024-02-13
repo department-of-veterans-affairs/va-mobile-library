@@ -1,18 +1,11 @@
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
-import {
-  Pressable,
-  Text,
-  TextStyle,
-  View,
-  ViewStyle,
-  useColorScheme,
-} from 'react-native'
+import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, webStorybookColorScheme } from '../../utils'
+import { PressableOpacityStyle, useColorScheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -48,7 +41,9 @@ const Segment = styled(Pressable)<SegmentProps>`
   elevation: ${(props) => (props.isSelected ? 4 : 0)};
   background-color: ${(props) => props.backgroundColor};
 `
-/** A segmented control is used to switch between related views of information within the same context. */
+/** A segmented control is used to switch between related views of information within the same context.
+ *
+ * [View guidance for the SegmentedControl component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Navigation/Secondary/SegmentedControl)  */
 export const SegmentedControl: FC<SegmentedControlProps> = ({
   labels,
   onChange,
@@ -58,7 +53,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   testIDs,
 }) => {
   const { t } = useTranslation()
-  const colorScheme = webStorybookColorScheme() || useColorScheme()
+  const colorScheme = useColorScheme()
 
   useEffect(() => {
     onChange(selected)
