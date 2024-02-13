@@ -20,9 +20,9 @@ module.exports = {
     builder: 'webpack5',
   },
   framework: '@storybook/react-webpack5',
-  options: { builder: { useSWC: true } },
+  options: { builder: { useSWC: true } }, // improves build performance
   typescript: {
-    reactDocgen: 'react-docgen', // or false if you don't need docgen at all
+    reactDocgen: 'react-docgen',
   },
   staticDirs: ['../../src/assets'],
   webpackFinal: async (config) => {
