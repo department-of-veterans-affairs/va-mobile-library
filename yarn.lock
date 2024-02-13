@@ -1735,7 +1735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.20.0, @babel/runtime@npm:^7.22.5, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.6, @babel/runtime@npm:^7.20.0, @babel/runtime@npm:^7.8.4":
   version: 7.23.2
   resolution: "@babel/runtime@npm:7.23.2"
   dependencies:
@@ -1744,7 +1744,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.23.2":
+"@babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.23.9":
   version: 7.23.9
   resolution: "@babel/runtime@npm:7.23.9"
   dependencies:
@@ -1877,7 +1877,7 @@ __metadata:
     "@expo/webpack-config": "npm:~19.0.1"
     "@os-team/i18next-react-native-language-detector": "npm:^1.0.31"
     "@react-native-async-storage/async-storage": "npm:^1.21.0"
-    "@react-native-community/datetimepicker": "npm:7.6.2"
+    "@react-native-community/datetimepicker": "npm:7.6.1"
     "@react-native-community/slider": "npm:^4.5.0"
     "@storybook/addon-actions": "npm:^7.6.15"
     "@storybook/addon-controls": "npm:^7.6.15"
@@ -1909,7 +1909,7 @@ __metadata:
     expo-linking: "npm:~6.2.2"
     expo-splash-screen: "npm:~0.26.4"
     expo-status-bar: "npm:~1.11.1"
-    gh-pages: "npm:^5.0.0"
+    gh-pages: "npm:^6.1.1"
     i18next: "npm:^23.8.2"
     jest: "npm:^29.7.0"
     jest-expo: "npm:~50.0.2"
@@ -1917,11 +1917,11 @@ __metadata:
     metro-react-native-babel-preset: "npm:^0.77.0"
     react: "npm:^18.2.0"
     react-dom: "npm:18.2.0"
-    react-i18next: "npm:^13.5.0"
+    react-i18next: "npm:^14.0.5"
     react-native: "npm:0.73.4"
-    react-native-gesture-handler: "npm:~2.15.0"
-    react-native-reanimated: "npm:~3.7.0"
-    react-native-safe-area-context: "npm:4.9.0"
+    react-native-gesture-handler: "npm:~2.14.0"
+    react-native-reanimated: "npm:~3.6.2"
+    react-native-safe-area-context: "npm:4.8.2"
     react-native-screens: "npm:~3.29.0"
     react-native-svg: "npm:14.1.0"
     react-native-svg-transformer: "npm:^1.3.0"
@@ -4110,12 +4110,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-community/datetimepicker@npm:7.6.2":
-  version: 7.6.2
-  resolution: "@react-native-community/datetimepicker@npm:7.6.2"
+"@react-native-community/datetimepicker@npm:7.6.1":
+  version: 7.6.1
+  resolution: "@react-native-community/datetimepicker@npm:7.6.1"
   dependencies:
     invariant: "npm:^2.2.4"
-  checksum: 717ab53e9d842d9c7cc5cdd12b348da94b843de45c7e3ad7d5f1bc55e6d26849f0a54afd9b13ce717e311ad6d2770a5b48c47bdebdc6db5ce41e6d70c580a4e2
+  checksum: 20d9b35747532e2031b981305f16998e1bd4c651e2c44cd65c4dd5bd4ebe66fd0ed49292bc6883821faf56c1cb3698b16c2b8fb1e9782b8c6f00f3506cf8ee55
   languageName: node
   linkType: hard
 
@@ -8526,7 +8526,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.18.0, commander@npm:^2.20.0":
+"commander@npm:^11.0.0":
+  version: 11.1.0
+  resolution: "commander@npm:11.1.0"
+  checksum: 13cc6ac875e48780250f723fb81c1c1178d35c5decb1abb1b628b3177af08a8554e76b2c0f29de72d69eef7c864d12613272a71fabef8047922bc622ab75a179
+  languageName: node
+  linkType: hard
+
+"commander@npm:^2.20.0":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: 74c781a5248c2402a0a3e966a0a2bba3c054aad144f5c023364be83265e796b20565aa9feff624132ff629aa64e16999fa40a743c10c12f7c61e96a794b99288
@@ -11009,7 +11016,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.0, fs-extra@npm:^11.2.0":
+"fs-extra@npm:^11.1.0, fs-extra@npm:^11.1.1, fs-extra@npm:^11.2.0":
   version: 11.2.0
   resolution: "fs-extra@npm:11.2.0"
   dependencies:
@@ -11215,21 +11222,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gh-pages@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "gh-pages@npm:5.0.0"
+"gh-pages@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "gh-pages@npm:6.1.1"
   dependencies:
     async: "npm:^3.2.4"
-    commander: "npm:^2.18.0"
+    commander: "npm:^11.0.0"
     email-addresses: "npm:^5.0.0"
     filenamify: "npm:^4.3.0"
     find-cache-dir: "npm:^3.3.1"
-    fs-extra: "npm:^8.1.0"
+    fs-extra: "npm:^11.1.1"
     globby: "npm:^6.1.0"
   bin:
     gh-pages: bin/gh-pages.js
     gh-pages-clean: bin/gh-pages-clean.js
-  checksum: dbd3937758160c33644cd38a69d7896f478d36ab1ba0b5da76f787e21d900b693598c3b4b2a3e9dd07200891811738edf4c61b9ce2bd1831d214f2ca28b85122
+  checksum: 1a0c1843862e3d85cdf7a165e92ab504e14b20d1c59398355cb73602041d8a3d509f9c5d80788628048610b751cb32731ed38079691c2b5f9d720664be3f1fa6
   languageName: node
   linkType: hard
 
@@ -16334,11 +16341,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^13.5.0":
-  version: 13.5.0
-  resolution: "react-i18next@npm:13.5.0"
+"react-i18next@npm:^14.0.5":
+  version: 14.0.5
+  resolution: "react-i18next@npm:14.0.5"
   dependencies:
-    "@babel/runtime": "npm:^7.22.5"
+    "@babel/runtime": "npm:^7.23.9"
     html-parse-stringify: "npm:^3.0.1"
   peerDependencies:
     i18next: ">= 23.2.3"
@@ -16348,7 +16355,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 955db09fb83bc68aa9fe7ed11c95fb3e9dc5ab95e85854f169c07a9e71f9154d2cc01f46e343801e2478d5de86475e7a19ec677bec532c3870cb7a01246a6a86
+  checksum: 60e3bedc6889689cfb96005b134da79d50097d3ff088284b35f213820aacedbdad1ff32e97b8447db70834c16d472ded829675e05c2a099baea9fd96b3a5b72f
   languageName: node
   linkType: hard
 
@@ -16380,9 +16387,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gesture-handler@npm:~2.15.0":
-  version: 2.15.0
-  resolution: "react-native-gesture-handler@npm:2.15.0"
+"react-native-gesture-handler@npm:~2.14.0":
+  version: 2.14.1
+  resolution: "react-native-gesture-handler@npm:2.14.1"
   dependencies:
     "@egjs/hammerjs": "npm:^2.0.17"
     hoist-non-react-statics: "npm:^3.3.0"
@@ -16392,7 +16399,7 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 7c06fa62bc11810f048b68a6b25da288808f9399067507d61b8e0a3b5f7a4bd632f25e3baab0f00857588eece5edfdf7eb40dbb07af54aa8fe557a8bf5b728e3
+  checksum: f8905498d18b6052b27ab54e33516aa7346d219b847a68ed4ef9ad7286865b8649aa9026b934a192f66472e8ee3efe503698762e90646e67604f9a2b8690e65d
   languageName: node
   linkType: hard
 
@@ -16417,9 +16424,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-reanimated@npm:~3.7.0":
-  version: 3.7.0
-  resolution: "react-native-reanimated@npm:3.7.0"
+"react-native-reanimated@npm:~3.6.2":
+  version: 3.6.2
+  resolution: "react-native-reanimated@npm:3.6.2"
   dependencies:
     "@babel/plugin-transform-object-assign": "npm:^7.16.7"
     "@babel/preset-typescript": "npm:^7.16.7"
@@ -16434,17 +16441,17 @@ __metadata:
     "@babel/plugin-transform-template-literals": ^7.0.0-0
     react: "*"
     react-native: "*"
-  checksum: 71a5d9c35b7be6d959bd599f280b2bd3c57bf7bbe40cff51b62f476d8a44ea221575321ff8c8f603807aaa0560e9c992b6aa33217246ee46ca7b79b0fc69d2d1
+  checksum: d2ec124100a6e0061cbec043b0184f8d2d2c4fa71bc4895b6ed719ff9c5ced206ab6bd880a0f6479a63014b0c93d31c91196c79ec29cdae2d4a92c312fb423c1
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:4.9.0":
-  version: 4.9.0
-  resolution: "react-native-safe-area-context@npm:4.9.0"
+"react-native-safe-area-context@npm:4.8.2":
+  version: 4.8.2
+  resolution: "react-native-safe-area-context@npm:4.8.2"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 27bb6b759d4d36f39e4a4a2d7e4d65f2e4e95175fc9ffeac63249680da54fd4cd0a4da064314d9ce579182200327967447da17cf8ea31badbaa4087de3302f42
+  checksum: 5430ef5d4f3510debd964423aa7ae2f9f4f3aea6e928b0dc6f7e63c21e967f3e71377a3b5df0bd5ceca291c4818670ee77afb3fc7a1091061449ae0fd3ed00b2
   languageName: node
   linkType: hard
 
