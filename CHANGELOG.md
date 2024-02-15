@@ -1,5 +1,21 @@
 # Changelog
 
+## [assets-v0.2.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.2.0) (2024-02-15)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.6.0...assets-v0.2.0)
+
+**Fixed bugs:**
+
+- BUG - Sev 3 - Web Storybook - Background Color Override No Longer Works [\#117](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/117)
+
+**Closed issues:**
+
+- Clear out dependency security alerts [\#121](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/121)
+
+**Merged pull requests:**
+
+- \[Feature\] Update icons for link component [\#181](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/181) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.6.0) (2024-02-13)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.5.1...components-v0.6.0)
@@ -8,7 +24,6 @@
 
 - BUG - Sev 3 - iOS \(Storybook only\) - Link Component does not visually indicate being pressed [\#171](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/171)
 - BUG - Sev-3 - \[Android\] - Unable to load fonts from npm module [\#98](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/98)
-- BUG - Sev 3 - Web Storybook - Background Color Override No Longer Works [\#117](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/117)
 
 **Closed issues:**
 
