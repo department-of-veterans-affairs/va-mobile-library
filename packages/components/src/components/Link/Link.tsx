@@ -5,6 +5,7 @@ import {
   PressableStateCallbackType,
   Text,
   TextStyle,
+  TouchableWithoutFeedback,
   View,
   ViewProps,
   useColorScheme,
@@ -28,6 +29,7 @@ type nullTypeSpecifics = {
   locationData?: never
   /** Optional onPress override logic */
   onPress?: () => void
+  paragraphText?: never
   phoneNumber?: never
   textNumber?: never
   TTYnumber?: never
@@ -35,55 +37,63 @@ type nullTypeSpecifics = {
 }
 
 type calendar = Omit<nullTypeSpecifics, 'calendarData'> & {
-    type: 'calendar'
-    calendarData: CalendarData
-  }
+  type: 'calendar'
+  calendarData: CalendarData
+}
 
 type call = Omit<nullTypeSpecifics, 'phoneNumber'> & {
-    type: 'call'
-    phoneNumber: string
-  }
+  type: 'call'
+  phoneNumber: string
+}
 
 type callTTY = Omit<nullTypeSpecifics, 'TTYnumber'> & {
-    type: 'call TTY'
-    TTYnumber: string
-  }
+  type: 'call TTY'
+  TTYnumber: string
+}
 
 type custom = Omit<nullTypeSpecifics, 'onPress'> & {
-    type: 'custom'
-    /** Required onPress override logic */
-    onPress: () => void
-  }
+  type: 'custom'
+  /** Required onPress override logic */
+  onPress: () => void
+}
 
 type directions = Omit<nullTypeSpecifics, 'locationData'> & {
-    type: 'directions'
-    locationData: LocationData
-  }
+  type: 'directions'
+  locationData: LocationData
+}
 
 // TODO: Ticket 168 created for in-line link
 // See lines 373-390 for app code:
 // src/screens/BenefitsScreen/ClaimsScreen/AppealDetailsScreen/AppealStatus/AppealCurrentStatus/AppealCurrentStatus.tsx
-// type normalText = {
-//   text: string
-//   textA11y: string
-// }
+type normalText = {
+  text: string
+  textA11y?: string
+}
 
-// type inLineLink = {
-//   type: 'in line link'
-//   paragraphText: normalText[] | LinkProps[]
-// }
+type inline = Omit<nullTypeSpecifics, 'paragraphText'> & {
+  type: 'inline'
+  paragraphText: normalText[] | LinkProps[]
+}
 
 type text = Omit<nullTypeSpecifics, 'textNumber'> & {
-    type: 'text'
-    textNumber: string
-  }
+  type: 'text'
+  textNumber: string
+}
 
 type url = Omit<nullTypeSpecifics, 'url'> & {
-    type: 'url'
-    url: string
-  }
+  type: 'url'
+  url: string
+}
 
-type linkTypes = calendar | call | callTTY | custom | directions | text | url
+type linkTypes =
+  | calendar
+  | call
+  | callTTY
+  | custom
+  | directions
+  | inline
+  | text
+  | url
 
 // TODO: Ticket 170 created to revisit adding analytics after calendar support added/or deemed infeasible
 // type analytics = {
@@ -128,6 +138,7 @@ export const Link: FC<LinkProps> = ({
   // Type-specific props
   calendarData,
   locationData,
+  paragraphText,
   phoneNumber,
   textNumber,
   TTYnumber,
@@ -172,6 +183,8 @@ export const Link: FC<LinkProps> = ({
         launchExternalLink(directions, promptText)
       }
       break
+    case 'inline':
+      return inlineLink(paragraphText)
     case 'text':
       icon = icon ? icon : { name: 'Text' }
       _onPress = async (): Promise<void> => {
@@ -207,17 +220,37 @@ export const Link: FC<LinkProps> = ({
     accessibilityHint: a11yHint,
     role: 'link',
     accessible: true,
+    style: { flexDirection: 'row' },
   }
 
   const viewStyle: ViewProps['style'] = {
-    alignItems: 'center',
-    flexDirection: 'row',
+    // alignItems: 'center',
+    // flex: 1,
+    // flexDirection: 'row',
+    // flexWrap: 'wrap',
   }
 
   const innerViewStyle: ViewProps['style'] = {
-    flexShrink: 1,
+    // flex: 1,
+    // flexWrap: 'wrap',
+    // flexShrink: 1,
     marginLeft: icon === 'no icon' ? 0 : 5,
   }
+
+  const iconViewStyle: ViewProps['style'] = {
+    // flex: 1,
+    // flexDirection: 'row',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    marginRight: 5,
+  }
+
+  const iconDisplay =
+    icon === 'no icon' ? null : (
+      <View style={iconViewStyle}>
+        <Icon fill={linkColor} {...icon} />
+      </View>
+    )
 
   const getTextStyle = (pressed: boolean): TextStyle => {
     // TODO: Replace with typography tokens
@@ -236,21 +269,130 @@ export const Link: FC<LinkProps> = ({
       color: linkColor,
       textDecorationColor: linkColor,
       textDecorationLine: 'underline',
+      // flex: 1
+      // flexWrap: 'wrap'
     }
 
     return { ...(pressed ? pressedFont : regularFont), ...textStyle }
   }
 
+  // const buildLinkText = text.split(' ').map((word) => {<Text style={getTextStyle(pressed)}>{word}</Text>})
+
+  // return (
+  //   <Text style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+  //     {iconDisplay}
+  //     {text.split(' ').map((word) => {
+  //       return (
+  //         <Pressable {...pressableProps} testID={testID}>
+  //           {({ pressed }: PressableStateCallbackType) => (
+  //             <Text style={getTextStyle(pressed)}>{word + ' '}</Text>
+  //           )}
+  //         </Pressable>
+  //       )
+  //     })}
+  //   </Text>
+  // )
+
   return (
     <Pressable {...pressableProps} testID={testID}>
       {({ pressed }: PressableStateCallbackType) => (
-        <View style={viewStyle}>
-          {icon === 'no icon' ? null : <Icon fill={linkColor} {...icon} />}
-          <View style={innerViewStyle}>
-            <Text style={getTextStyle(pressed)}>{text}</Text>
-          </View>
-        </View>
+        <>
+          {iconDisplay}
+          {/* {text.split(' ').map((word) => {
+            return <Text style={getTextStyle(pressed)}>{word + ' '}</Text>
+          })} */}
+          <Text style={getTextStyle(pressed)}>{text}</Text>
+        </>
       )}
     </Pressable>
   )
+}
+
+const paragraphText: FC<normalText> = ({ text, textA11y }) => {
+  const colorScheme = webStorybookColorScheme() || useColorScheme()
+  const isDarkMode = colorScheme === 'dark'
+
+  // TODO: Replace with typography tokens
+  const regularFont: TextStyle = {
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: 20,
+    lineHeight: 30,
+    color: isDarkMode ? Colors.grayLightest : Colors.grayDark,
+    // flex: 1,
+  }
+
+  return (
+    <Text style={regularFont} aria-label={textA11y}>
+      {text}
+    </Text>
+  )
+}
+
+const inlineLink: FC<inline['paragraphText']> = (paragraphTextArray) => {
+  const viewStyle: ViewProps['style'] = {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+}
+
+  // return (
+  //   <View>
+  //     <Text>
+  // eslint-disable-next-line max-len
+  //       This is a long paragraph of text. <TouchableWithoutFeedback onPress={()=>{}}><Text style={{ fontWeight: 'bold' }}>Pressable text</Text></TouchableWithoutFeedback> embedded within it.
+  //     </Text>
+  //   </View>
+  // );
+  
+  // return (
+  //   <View>
+  //     <Text>
+  //       This is a long paragraph of text.{' '}
+  //       <Pressable onPress={() => {}}>
+  //         <View>
+  // {/* eslint-disable-next-line max-len */}
+  //           <Text style={{ fontWeight: 'bold' }}>Pressable text</Text>
+  //         </View>
+  //       </Pressable>{' '}
+  //       embedded within it.
+  //     </Text>
+  //   </View>
+  // )
+
+  return (
+    <Text>
+      {/* Test {' '} */}
+      {paragraphTextArray.map((item) => {
+        if ('type' in item) {
+          // Link if type prop exists
+          return <Link {...item} />
+        } else {
+          return paragraphText(item)
+        }
+      })}
+      {/* {' '} more words. */}
+    </Text>
+  )
+  return (
+    <View style={viewStyle}>
+      {paragraphTextArray.map((item) => {
+        if ('type' in item) {
+          // Link if type prop exists
+          return <Link {...item} />
+        } else {
+          return paragraphText(item)
+        }
+      })}
+    </View>
+  )
+
+  // return paragraphTextArray.map((item) => {
+  //   let paragraph
+  //   if ('type' in item) { // Link if type prop exists
+  //     paragraph = paragraph + (<Link {...item} />)
+  //   } else {
+  //     paragraph = paragraph + paragraphText({text: item.text, textA11y: item.textA11y})
+  //   }
+
+  //   return paragraph
+  // })
 }
