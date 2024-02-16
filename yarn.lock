@@ -1848,10 +1848,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-assets@npm:0.1.1":
-  version: 0.1.1
-  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.1.1"
-  checksum: b65295421e15fe0876d9de44f270ca503f5ec7d64ead347bf7a77b04d37a70878063ef90ce5ab55d891eb1a8f594442c22101b30dd675820e484599d3d1841e4
+"@department-of-veterans-affairs/mobile-assets@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.2.0"
+  checksum: fa49aef3c232d2be35773ecc8e1d7d44893efd53e9bf9389ebc3a9818202bd2e0834ca525be04de2d0f7be4bbb7e9e1b6461846346619e442467a14f08997d46
   languageName: node
   linkType: hard
 
@@ -1885,7 +1885,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": "npm:^7.22.15"
     "@babel/preset-env": "npm:^7.22.15"
     "@babel/preset-typescript": "npm:^7.22.15"
-    "@department-of-veterans-affairs/mobile-assets": "npm:0.1.1"
+    "@department-of-veterans-affairs/mobile-assets": "npm:0.2.0"
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.5.0"
     "@expo/metro-runtime": "npm:~3.1.3"
     "@expo/webpack-config": "npm:~19.0.1"
