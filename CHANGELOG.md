@@ -1,5 +1,13 @@
 # Changelog
 
+## [components-v0.8.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.8.0) (2024-02-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.7.0...components-v0.8.0)
+
+**Merged pull requests:**
+
+- \[CU\] Fix semver override [\#189](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/189) ([narin](https://github.com/narin))
+
 ## [components-v0.7.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.7.0) (2024-02-15)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.2.0...components-v0.7.0)
