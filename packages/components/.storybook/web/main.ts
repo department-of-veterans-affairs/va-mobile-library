@@ -8,20 +8,22 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-links',
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        backgrounds: false,
-      },
-    },
+    '@storybook/addon-essentials',
     '@storybook/addon-react-native-web',
-    'storybook-addon-designs',
+    '@storybook/addon-designs',
     'storybook-dark-mode',
   ],
+  docs: {
+    autodocs: true,
+  },
   core: {
     builder: 'webpack5',
   },
-  framework: '@storybook/react',
+  framework: '@storybook/react-webpack5',
+  options: { builder: { useSWC: true } }, // improves build performance
+  typescript: {
+    reactDocgen: 'react-docgen',
+  },
   staticDirs: ['../../src/assets'],
   webpackFinal: async (config) => {
     // Copies fonts from mobile-assets to storybook static folder

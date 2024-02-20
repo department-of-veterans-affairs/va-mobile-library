@@ -1,5 +1,58 @@
 # Changelog
 
+## [components-v0.8.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.8.0) (2024-02-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.7.0...components-v0.8.0)
+
+**Merged pull requests:**
+
+- \[CU\] Fix semver override [\#189](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/189) ([narin](https://github.com/narin))
+
+## [components-v0.7.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.7.0) (2024-02-15)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.2.0...components-v0.7.0)
+
+**Merged pull requests:**
+
+- \[CU\] Update dependencies [\#185](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/185) ([narin](https://github.com/narin))
+
+## [assets-v0.2.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.2.0) (2024-02-15)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.6.0...assets-v0.2.0)
+
+**Fixed bugs:**
+
+- BUG - Sev 3 - Web Storybook - Background Color Override No Longer Works [\#117](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/117)
+
+**Closed issues:**
+
+- Clear out dependency security alerts [\#121](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/121)
+
+**Merged pull requests:**
+
+- \[Feature\] Update icons for link component [\#181](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/181) ([TimRoe](https://github.com/TimRoe))
+
+## [components-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.6.0) (2024-02-13)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.5.1...components-v0.6.0)
+
+**Fixed bugs:**
+
+- BUG - Sev 3 - iOS \(Storybook only\) - Link Component does not visually indicate being pressed [\#171](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/171)
+- BUG - Sev-3 - \[Android\] - Unable to load fonts from npm module [\#98](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/98)
+
+**Closed issues:**
+
+- Design Tokens: Create 3-5 semantic color tokens [\#180](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/180)
+- Update DS colors to align with VADS/USWDS [\#119](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/119)
+- Upgrade components package to React Native 0.73  [\#53](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/53)
+- Component Implementation - Link  [\#118](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/118)
+
+**Merged pull requests:**
+
+- \[CU\] Update to Expo 50 and Storybook 7 [\#173](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/173) ([narin](https://github.com/narin))
+- \[Feature\] Create Link Component [\#162](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/162) ([TimRoe](https://github.com/TimRoe))
+
 ## [tokens-v0.5.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.5.1) (2024-02-08)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.5.1...tokens-v0.5.1)
