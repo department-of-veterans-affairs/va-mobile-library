@@ -4,12 +4,11 @@ import {
   PressableProps,
   PressableStateCallbackType,
   Text,
+  TextProps,
   TextStyle,
-  TouchableWithoutFeedback,
   View,
-  ViewProps,
 } from 'react-native'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 import {
   CalendarData,
@@ -119,6 +118,10 @@ export type LinkProps = linkTypes & {
   promptText?: leaveAppPromptText
   /** Optional analytics event logging */
   // analytics?: analytics
+  /** Internally used by 'inline' type. Not recommended for consumer use, but
+   * available to manually insert a link into a paragraph. True builds link
+   * component with RN Text instead of Pressable for improved wrapping behavior */
+  inlineSingle?: boolean
   /** Optional TestID */
   testID?: string
 }
@@ -134,6 +137,7 @@ export const Link: FC<LinkProps> = ({
   a11yHint,
   promptText,
   // analytics,
+  inlineSingle,
   testID,
   // Type-specific props
   calendarData,
@@ -220,34 +224,24 @@ export const Link: FC<LinkProps> = ({
     accessibilityHint: a11yHint,
     role: 'link',
     accessible: true,
-    style: { flexDirection: 'row' },
+    style: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center' },
   }
-
-  const viewStyle: ViewProps['style'] = {
-    // alignItems: 'center',
-    // flex: 1,
-    // flexDirection: 'row',
-    // flexWrap: 'wrap',
-  }
-
-  const innerViewStyle: ViewProps['style'] = {
-    // flex: 1,
-    // flexWrap: 'wrap',
-    // flexShrink: 1,
-    marginLeft: icon === 'no icon' ? 0 : 5,
-  }
-
-  const iconViewStyle: ViewProps['style'] = {
-    // flex: 1,
-    // flexDirection: 'row',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    marginRight: 5,
+  const viewProps: TextProps = {
+    'aria-label': a11yLabel ? a11yLabel : text,
+    accessibilityHint: a11yHint,
+    role: 'link',
+    accessible: true,
   }
 
   const iconDisplay =
-    icon === 'no icon' ? null : (
-      <View style={iconViewStyle}>
+    icon === 'no icon' ? null : inlineSingle ? (
+      <>
+        <Icon fill={linkColor} {...icon} />
+        {/* Space forms padding prior to link text */}
+        <Text> </Text>
+      </>
+    ) : (
+      <View style={{marginRight: 5}}>
         <Icon fill={linkColor} {...icon} />
       </View>
     )
@@ -276,31 +270,32 @@ export const Link: FC<LinkProps> = ({
     return { ...(pressed ? pressedFont : regularFont), ...textStyle }
   }
 
-  // const buildLinkText = text.split(' ').map((word) => {<Text style={getTextStyle(pressed)}>{word}</Text>})
-
-  // return (
-  //   <Text style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-  //     {iconDisplay}
-  //     {text.split(' ').map((word) => {
-  //       return (
-  //         <Pressable {...pressableProps} testID={testID}>
-  //           {({ pressed }: PressableStateCallbackType) => (
-  //             <Text style={getTextStyle(pressed)}>{word + ' '}</Text>
-  //           )}
-  //         </Pressable>
-  //       )
-  //     })}
-  //   </Text>
-  // )
+  if (inlineSingle) {
+    const [pressStyle, setPressStyle] = useState(false)
+    const onPressProps: TextProps = {
+      onPressIn: () => {
+        setPressStyle(true)
+      },
+      onPress: onPress ? onPress : _onPress,
+      onPressOut: () => {
+        setPressStyle(false)
+      },
+    }
+    return (
+      <Text accessible={true}>
+        {iconDisplay}
+        <Text {...onPressProps} {...viewProps} style={getTextStyle(pressStyle)}>
+          {text}
+        </Text>
+      </Text>
+    )
+  }
 
   return (
     <Pressable {...pressableProps} testID={testID}>
       {({ pressed }: PressableStateCallbackType) => (
         <>
           {iconDisplay}
-          {/* {text.split(' ').map((word) => {
-            return <Text style={getTextStyle(pressed)}>{word + ' '}</Text>
-          })} */}
           <Text style={getTextStyle(pressed)}>{text}</Text>
         </>
       )}
@@ -308,8 +303,8 @@ export const Link: FC<LinkProps> = ({
   )
 }
 
-const paragraphText: FC<normalText> = ({ text, textA11y }) => {
-  const colorScheme = webStorybookColorScheme() || useColorScheme()
+const paragraphText: FC<normalText & {key: number}> = ({ text, key, textA11y }) => {
+  const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
 
   // TODO: Replace with typography tokens
@@ -322,77 +317,41 @@ const paragraphText: FC<normalText> = ({ text, textA11y }) => {
   }
 
   return (
-    <Text style={regularFont} aria-label={textA11y}>
+    <Text key={key} style={regularFont} accessible={true} aria-label={textA11y}>
       {text}
     </Text>
   )
 }
 
 const inlineLink: FC<inline['paragraphText']> = (paragraphTextArray) => {
-  const viewStyle: ViewProps['style'] = {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-}
-
+  // Works to split the screen reader to pieces, but also messes up wrapping again
   // return (
-  //   <View>
-  //     <Text>
-  // eslint-disable-next-line max-len
-  //       This is a long paragraph of text. <TouchableWithoutFeedback onPress={()=>{}}><Text style={{ fontWeight: 'bold' }}>Pressable text</Text></TouchableWithoutFeedback> embedded within it.
-  //     </Text>
-  //   </View>
-  // );
-  
-  // return (
-  //   <View>
-  //     <Text>
-  //       This is a long paragraph of text.{' '}
-  //       <Pressable onPress={() => {}}>
-  //         <View>
-  // {/* eslint-disable-next-line max-len */}
-  //           <Text style={{ fontWeight: 'bold' }}>Pressable text</Text>
-  //         </View>
-  //       </Pressable>{' '}
-  //       embedded within it.
-  //     </Text>
+  //   <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+  //     {paragraphTextArray.map((item, index) => {
+  //       if ('type' in item) {
+  //         item.inlineSingle = true
+  //         // Link if type prop exists
+  //         return <Link key={index} {...item} />
+  //       } else {
+  //         const itemWithKey = {...item, key: index}
+  //         return paragraphText(itemWithKey)
+  //       }
+  //     })}
   //   </View>
   // )
-
   return (
     <Text>
-      {/* Test {' '} */}
-      {paragraphTextArray.map((item) => {
+      {paragraphTextArray.map((item, index) => {
+        // key included as this is a list of React components and the renderer worries about losing track
         if ('type' in item) {
           // Link if type prop exists
-          return <Link {...item} />
+          item.inlineSingle = true
+          return <Link {...item} key={index} />
         } else {
-          return paragraphText(item)
+          const itemWithKey = {...item, key: index}
+          return paragraphText(itemWithKey)
         }
       })}
-      {/* {' '} more words. */}
     </Text>
   )
-  return (
-    <View style={viewStyle}>
-      {paragraphTextArray.map((item) => {
-        if ('type' in item) {
-          // Link if type prop exists
-          return <Link {...item} />
-        } else {
-          return paragraphText(item)
-        }
-      })}
-    </View>
-  )
-
-  // return paragraphTextArray.map((item) => {
-  //   let paragraph
-  //   if ('type' in item) { // Link if type prop exists
-  //     paragraph = paragraph + (<Link {...item} />)
-  //   } else {
-  //     paragraph = paragraph + paragraphText({text: item.text, textA11y: item.textA11y})
-  //   }
-
-  //   return paragraph
-  // })
 }
