@@ -15,11 +15,12 @@ import {
   FormDirectionsUrl,
   LocationData,
   OnPressCalendar,
+  isIOS,
   leaveAppPromptText,
   useExternalLink,
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
-import { useColorScheme } from '../../utils'
+import { useColorScheme, useIsScreenReaderEnabled } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
 type nullTypeSpecifics = {
@@ -60,9 +61,6 @@ type directions = Omit<nullTypeSpecifics, 'locationData'> & {
   locationData: LocationData
 }
 
-// TODO: Ticket 168 created for in-line link
-// See lines 373-390 for app code:
-// src/screens/BenefitsScreen/ClaimsScreen/AppealDetailsScreen/AppealStatus/AppealCurrentStatus/AppealCurrentStatus.tsx
 type normalText = {
   text: string
   textA11y?: string
@@ -272,8 +270,8 @@ export const Link: FC<LinkProps> = ({
     return { ...(pressed ? pressedFont : regularFont), ...textStyle }
   }
 
+  const [pressStyle, setPressStyle] = useState(false)
   if (inlineSingle) {
-    const [pressStyle, setPressStyle] = useState(false)
     const onPressProps: TextProps = {
       onPressIn: () => {
         setPressStyle(true)
@@ -305,10 +303,7 @@ export const Link: FC<LinkProps> = ({
   )
 }
 
-const ParagraphText: FC<normalText> = ({
-  text,
-  textA11y
-}) => {
+const ParagraphText: FC<normalText> = ({ text, textA11y }) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
 
@@ -328,6 +323,23 @@ const ParagraphText: FC<normalText> = ({
 }
 
 const inlineLink: FC<inline['paragraphText']> = (paragraphTextArray) => {
+  const screenReaderEnabled = useIsScreenReaderEnabled()
+  if (screenReaderEnabled && isIOS) {
+    return (
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        {paragraphTextArray.map((item, index) => {
+          // key included as this is a list of React components and the renderer worries about losing track
+          if ('type' in item) {
+            // Link if type prop exists
+            item.inlineSingle = undefined
+            return <Link {...item} key={index} />
+          } else {
+            return <ParagraphText {...item} key={index} />
+          }
+        })}
+      </View>
+    )
+  }
   return (
     <Text>
       {paragraphTextArray.map((item, index) => {
