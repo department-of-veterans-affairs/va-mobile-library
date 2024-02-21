@@ -4,6 +4,7 @@ import React, { FC, useEffect, useState } from 'react'
 
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 
+// TODO: Ticket 102 merge Navigation icons into the general icon list below
 // Navigation
 import BenefitsSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsSelected.svg'
 import BenefitsUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsUnselected.svg'
@@ -15,28 +16,17 @@ import PaymentsSelected from '@department-of-veterans-affairs/mobile-assets/svgs
 import PaymentsUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/PaymentsUnselected.svg'
 import ProfileSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/ProfileSelected.svg'
 
-// Chevrons
-import ChevronDown from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronDown.svg'
-import ChevronLeft from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronLeft.svg'
-import ChevronRight from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronRight.svg'
-import ChevronUp from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronUp.svg'
-
-// Branch icons
+// Branch emblems
 import AirForce from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/AirForce.svg'
 import Army from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/Army.svg'
 import CoastGuard from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/CoastGuard.svg'
 import MarineCorps from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/MarineCorps.svg'
 import Navy from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/Navy.svg'
 
-// Links
-import Calendar from '@department-of-veterans-affairs/mobile-assets/svgs/links/Calendar.svg'
-import Chat from '@department-of-veterans-affairs/mobile-assets/svgs/links/Chat.svg'
-import CircleExternalLink from '@department-of-veterans-affairs/mobile-assets/svgs/links/CircleExternalLink.svg'
-import CirclePhone from '@department-of-veterans-affairs/mobile-assets/svgs/links/CirclePhone.svg'
-import Directions from '@department-of-veterans-affairs/mobile-assets/svgs/links/Directions.svg'
-import PhoneTTY from '@department-of-veterans-affairs/mobile-assets/svgs/links/PhoneTTY.svg'
-import Text from '@department-of-veterans-affairs/mobile-assets/svgs/links/Text.svg'
+// VA Logo
+import Logo from '@department-of-veterans-affairs/mobile-assets/svgs/vaParentLogo/Logo.svg'
 
+// TODO: Ticket 102 merge VASelector icons into the general icon list below
 // VASelector
 import CheckBoxEmpty from '@department-of-veterans-affairs/mobile-assets/svgs/checkbox/CheckBoxEmpty.svg'
 import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/svgs/checkbox/CheckBoxError.svg'
@@ -45,13 +35,18 @@ import CheckBoxIntermediate from '@department-of-veterans-affairs/mobile-assets/
 import RadioEmpty from '@department-of-veterans-affairs/mobile-assets/svgs/radio/RadioEmpty.svg'
 import RadioFilled from '@department-of-veterans-affairs/mobile-assets/svgs/radio/RadioFilled.svg'
 
-// Misc
 import Add from '@department-of-veterans-affairs/mobile-assets/svgs/Add.svg'
 import Building from '@department-of-veterans-affairs/mobile-assets/svgs/Building.svg'
 import Bullet from '@department-of-veterans-affairs/mobile-assets/svgs/Bullet.svg'
+import Calendar from '@department-of-veterans-affairs/mobile-assets/svgs/Calendar.svg'
 import CheckMark from '@department-of-veterans-affairs/mobile-assets/svgs/CheckMark.svg'
+import ChevronDown from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronDown.svg'
+import ChevronLeft from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronLeft.svg'
+import ChevronRight from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronRight.svg'
+import ChevronUp from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronUp.svg'
 import CircleCheckMark from '@department-of-veterans-affairs/mobile-assets/svgs/CircleCheckMark.svg'
 import Compose from '@department-of-veterans-affairs/mobile-assets/svgs/Compose.svg'
+import Directions from '@department-of-veterans-affairs/mobile-assets/svgs/Directions.svg'
 import Ellipsis from '@department-of-veterans-affairs/mobile-assets/svgs/Ellipsis.svg'
 import ExclamationTriangle from '@department-of-veterans-affairs/mobile-assets/svgs/ExclamationTriangle.svg'
 import ExternalLink from '@department-of-veterans-affairs/mobile-assets/svgs/ExternalLink.svg'
@@ -59,7 +54,6 @@ import Folder from '@department-of-veterans-affairs/mobile-assets/svgs/Folder.sv
 import Inbox from '@department-of-veterans-affairs/mobile-assets/svgs/Inbox.svg'
 import Info from '@department-of-veterans-affairs/mobile-assets/svgs/Info.svg'
 import Lock from '@department-of-veterans-affairs/mobile-assets/svgs/Lock.svg'
-import Logo from '@department-of-veterans-affairs/mobile-assets/svgs/vaParentLogo/Logo.svg'
 import Minus from '@department-of-veterans-affairs/mobile-assets/svgs/Minus.svg'
 import PaperClip from '@department-of-veterans-affairs/mobile-assets/svgs/PaperClip.svg'
 import Phone from '@department-of-veterans-affairs/mobile-assets/svgs/Phone.svg'
@@ -68,10 +62,11 @@ import Redo from '@department-of-veterans-affairs/mobile-assets/svgs/Redo.svg'
 import Remove from '@department-of-veterans-affairs/mobile-assets/svgs/Remove.svg'
 import Reply from '@department-of-veterans-affairs/mobile-assets/svgs/Reply.svg'
 import Sort from '@department-of-veterans-affairs/mobile-assets/svgs/Sort.svg'
+import TTY from '@department-of-veterans-affairs/mobile-assets/svgs/TTY.svg'
+import Text from '@department-of-veterans-affairs/mobile-assets/svgs/Text.svg'
 import Trash from '@department-of-veterans-affairs/mobile-assets/svgs/Trash.svg'
 import Truck from '@department-of-veterans-affairs/mobile-assets/svgs/Truck.svg'
 import Unread from '@department-of-veterans-affairs/mobile-assets/svgs/Unread.svg'
-import UploadPhoto from '@department-of-veterans-affairs/mobile-assets/svgs/UploadPhoto.svg'
 import VideoCamera from '@department-of-veterans-affairs/mobile-assets/svgs/VideoCamera.svg'
 
 const IconMap = {
@@ -83,7 +78,6 @@ const IconMap = {
   Building,
   Bullet,
   Calendar,
-  Chat,
   CheckBoxEmpty,
   CheckBoxError,
   CheckBoxFilled,
@@ -94,8 +88,6 @@ const IconMap = {
   ChevronRight,
   ChevronUp,
   CircleCheckMark,
-  CircleExternalLink,
-  CirclePhone,
   CoastGuard,
   Compose,
   Directions,
@@ -118,7 +110,6 @@ const IconMap = {
   PaymentsSelected,
   PaymentsUnselected,
   Phone,
-  PhoneTTY,
   ProfileSelected,
   QuestionMark,
   RadioEmpty, // Also used for RadioDisabled content--same icon, different colors
@@ -130,8 +121,8 @@ const IconMap = {
   Text,
   Trash,
   Truck,
+  TTY,
   Unread,
-  UploadPhoto,
   VideoCamera,
 }
 
@@ -203,7 +194,7 @@ export const Icon: FC<IconProps> = ({
   const [fontScale, setFontScale] = useState<number>(PixelRatio.getFontScale())
   const fs = (val: number) => fontScale * val
 
-  let iconProps = {
+  let iconProps: IconProps & SvgProps = {
     name,
     width,
     height,

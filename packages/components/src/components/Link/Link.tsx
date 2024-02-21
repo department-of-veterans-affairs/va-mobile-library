@@ -171,7 +171,7 @@ export const Link: FC<LinkProps> = ({
       }
       break
     case 'call TTY':
-      icon = icon ? icon : { name: 'PhoneTTY' }
+      icon = icon ? icon : { name: 'TTY' }
       _onPress = async (): Promise<void> => {
         launchExternalLink(`tel:${TTYnumber}`)
       }
