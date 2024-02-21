@@ -216,25 +216,6 @@ export const Link: FC<LinkProps> = ({
       linkColor = isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary
   }
 
-  const pressableProps: PressableProps = {
-    onPress: onPress ? onPress : _onPress,
-    'aria-label': a11yLabel,
-    accessibilityHint: a11yHint,
-    role: 'link',
-    accessible: true,
-    style: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  }
-  const viewProps: TextProps = {
-    'aria-label': a11yLabel ? a11yLabel : text,
-    accessibilityHint: a11yHint,
-    role: 'link',
-    accessible: true,
-  }
-
   const iconDisplay =
     icon === 'no icon' ? null : inlineSingle ? (
       <>
@@ -247,6 +228,23 @@ export const Link: FC<LinkProps> = ({
         <Icon fill={linkColor} {...icon} />
       </View>
     )
+
+  const a11yProps: TextProps = {
+    'aria-label': a11yLabel,
+    accessibilityHint: a11yHint,
+    role: 'link',
+    accessible: true,
+  }
+
+  const pressableProps: PressableProps = {
+    onPress: onPress ? onPress : _onPress,
+    ...a11yProps,
+    style: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  }
 
   const getTextStyle = (pressed: boolean): TextStyle => {
     // TODO: Replace with typography tokens
@@ -282,9 +280,9 @@ export const Link: FC<LinkProps> = ({
       },
     }
     return (
-      <Text accessible={true}>
+      <Text>
         {iconDisplay}
-        <Text {...onPressProps} {...viewProps} style={getTextStyle(pressStyle)}>
+        <Text {...onPressProps} {...a11yProps} style={getTextStyle(pressStyle)}>
           {text}
         </Text>
       </Text>
