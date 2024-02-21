@@ -1,10 +1,7 @@
 import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs'
-import { addons } from '@storybook/preview-api'
 import { themes } from '@storybook/theming'
 import { useDarkMode } from 'storybook-dark-mode'
-
-const channel = addons.getChannel()
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
