@@ -224,7 +224,11 @@ export const Link: FC<LinkProps> = ({
     accessibilityHint: a11yHint,
     role: 'link',
     accessible: true,
-    style: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center' },
+    style: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   }
   const viewProps: TextProps = {
     'aria-label': a11yLabel ? a11yLabel : text,
@@ -241,7 +245,7 @@ export const Link: FC<LinkProps> = ({
         <Text> </Text>
       </>
     ) : (
-      <View style={{marginRight: 5}}>
+      <View style={{ marginRight: 5 }}>
         <Icon fill={linkColor} {...icon} />
       </View>
     )
@@ -263,8 +267,6 @@ export const Link: FC<LinkProps> = ({
       color: linkColor,
       textDecorationColor: linkColor,
       textDecorationLine: 'underline',
-      // flex: 1
-      // flexWrap: 'wrap'
     }
 
     return { ...(pressed ? pressedFont : regularFont), ...textStyle }
@@ -303,7 +305,10 @@ export const Link: FC<LinkProps> = ({
   )
 }
 
-const paragraphText: FC<normalText & {key: number}> = ({ text, key, textA11y }) => {
+const ParagraphText: FC<normalText> = ({
+  text,
+  textA11y
+}) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
 
@@ -313,32 +318,16 @@ const paragraphText: FC<normalText & {key: number}> = ({ text, key, textA11y }) 
     fontSize: 20,
     lineHeight: 30,
     color: isDarkMode ? Colors.grayLightest : Colors.grayDark,
-    // flex: 1,
   }
 
   return (
-    <Text key={key} style={regularFont} accessible={true} aria-label={textA11y}>
+    <Text style={regularFont} accessible={true} aria-label={textA11y}>
       {text}
     </Text>
   )
 }
 
 const inlineLink: FC<inline['paragraphText']> = (paragraphTextArray) => {
-  // Works to split the screen reader to pieces, but also messes up wrapping again
-  // return (
-  //   <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-  //     {paragraphTextArray.map((item, index) => {
-  //       if ('type' in item) {
-  //         item.inlineSingle = true
-  //         // Link if type prop exists
-  //         return <Link key={index} {...item} />
-  //       } else {
-  //         const itemWithKey = {...item, key: index}
-  //         return paragraphText(itemWithKey)
-  //       }
-  //     })}
-  //   </View>
-  // )
   return (
     <Text>
       {paragraphTextArray.map((item, index) => {
@@ -348,8 +337,7 @@ const inlineLink: FC<inline['paragraphText']> = (paragraphTextArray) => {
           item.inlineSingle = true
           return <Link {...item} key={index} />
         } else {
-          const itemWithKey = {...item, key: index}
-          return paragraphText(itemWithKey)
+          return <ParagraphText {...item} key={index} />
         }
       })}
     </Text>

@@ -123,13 +123,13 @@ export const Directions: Story = {
 }
 
 const paragraphText: LinkProps['paragraphText'] = [
-  // @ts-ignore: TS being dumb/wrong and thinking all should be LinkProps and none normalText
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
   {text: 'A sentence may include a '},
-  {text: 'link that opens in a full panel', type: 'custom', onPress: () => {null}, a11yLabel: 'a11y override' },
-  // @ts-ignore: TS being dumb/wrong and thinking all should be LinkProps and none normalText
+  {text: 'link that opens in a webview', type: 'custom', onPress: () => {null}, a11yLabel: 'a11y override' },
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
   {text: ' or a '},
-  {text: 'link that opens in a webview', type: 'url', url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro'},
-  // @ts-ignore: TS being dumb/wrong and thinking all should be LinkProps and none normalText
+  {text: 'link that opens in an external app', type: 'url', url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro'},
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
   {text: '.'}
 ]
 
