@@ -186,7 +186,7 @@ export const Link: FC<LinkProps> = ({
       }
       break
     case 'inline':
-      return inlineLink(paragraphText)
+      return <InlineLink paragraphText={paragraphText} />
     case 'text':
       icon = icon ? icon : { name: 'Text' }
       _onPress = async (): Promise<void> => {
@@ -320,12 +320,12 @@ const ParagraphText: FC<normalText> = ({ text, textA11y }) => {
   )
 }
 
-const inlineLink: FC<inline['paragraphText']> = (paragraphTextArray) => {
+const InlineLink: FC<Pick<inline, 'paragraphText'>> = ({ paragraphText }) => {
   const screenReaderEnabled = useIsScreenReaderEnabled()
   if (screenReaderEnabled && isIOS) {
     return (
       <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-        {paragraphTextArray.map((item, index) => {
+        {paragraphText.map((item, index) => {
           // key included as this is a list of React components and the renderer worries about losing track
           if ('type' in item) {
             // Link if type prop exists
@@ -340,7 +340,7 @@ const inlineLink: FC<inline['paragraphText']> = (paragraphTextArray) => {
   }
   return (
     <Text>
-      {paragraphTextArray.map((item, index) => {
+      {paragraphText.map((item, index) => {
         // key included as this is a list of React components and the renderer worries about losing track
         if ('type' in item) {
           // Link if type prop exists
