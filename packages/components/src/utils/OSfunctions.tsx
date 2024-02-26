@@ -3,7 +3,7 @@
 import { Alert, Linking, Platform } from 'react-native'
 import { useTranslation } from 'react-i18next'
 
-const isIOS = Platform.OS === 'ios'
+export const isIOS = Platform.OS === 'ios'
 
 type address = {
   street: string

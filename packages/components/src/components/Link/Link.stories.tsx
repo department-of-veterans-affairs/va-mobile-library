@@ -122,6 +122,26 @@ export const Directions: Story = {
   },
 }
 
+const paragraphText: LinkProps['paragraphText'] = [
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
+  {text: 'A sentence may include a '},
+  {text: 'link that opens in a webview', type: 'custom', onPress: () => {null}, a11yLabel: 'a11y override' },
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
+  {text: ' or a '},
+  {text: 'link that opens in an external app', type: 'url', url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro'},
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
+  {text: '.'}
+]
+
+export const Inline: Story = {
+  args: {
+    text: '',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: 'inline',
+    paragraphText: paragraphText,
+  },
+}
+
 export const Phone: Story = {
   args: {
     text: 'Call number',

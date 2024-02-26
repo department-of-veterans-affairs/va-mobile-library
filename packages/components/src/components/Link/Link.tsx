@@ -4,22 +4,23 @@ import {
   PressableProps,
   PressableStateCallbackType,
   Text,
+  TextProps,
   TextStyle,
   View,
-  ViewProps,
 } from 'react-native'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 import {
   CalendarData,
   FormDirectionsUrl,
   LocationData,
   OnPressCalendar,
+  isIOS,
   leaveAppPromptText,
   useExternalLink,
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
-import { useColorScheme } from '../../utils'
+import { useColorScheme, useIsScreenReaderEnabled } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
 type nullTypeSpecifics = {
@@ -27,6 +28,7 @@ type nullTypeSpecifics = {
   locationData?: never
   /** Optional onPress override logic */
   onPress?: () => void
+  paragraphText?: never
   phoneNumber?: never
   textNumber?: never
   TTYnumber?: never
@@ -59,18 +61,15 @@ type directions = Omit<nullTypeSpecifics, 'locationData'> & {
   locationData: LocationData
 }
 
-// TODO: Ticket 168 created for in-line link
-// See lines 373-390 for app code:
-// src/screens/BenefitsScreen/ClaimsScreen/AppealDetailsScreen/AppealStatus/AppealCurrentStatus/AppealCurrentStatus.tsx
-// type normalText = {
-//   text: string
-//   textA11y: string
-// }
+type normalText = {
+  text: string
+  textA11y?: string
+}
 
-// type inLineLink = {
-//   type: 'in line link'
-//   paragraphText: normalText[] | LinkProps[]
-// }
+type inline = Omit<nullTypeSpecifics, 'paragraphText'> & {
+  type: 'inline'
+  paragraphText: normalText[] | LinkProps[]
+}
 
 type text = Omit<nullTypeSpecifics, 'textNumber'> & {
   type: 'text'
@@ -82,7 +81,15 @@ type url = Omit<nullTypeSpecifics, 'url'> & {
   url: string
 }
 
-type linkTypes = calendar | call | callTTY | custom | directions | text | url
+type linkTypes =
+  | calendar
+  | call
+  | callTTY
+  | custom
+  | directions
+  | inline
+  | text
+  | url
 
 // TODO: Ticket 170 created to revisit adding analytics after calendar support added/or deemed infeasible
 // type analytics = {
@@ -109,6 +116,10 @@ export type LinkProps = linkTypes & {
   promptText?: leaveAppPromptText
   /** Optional analytics event logging */
   // analytics?: analytics
+  /** Internally used by 'inline' type. Not recommended for consumer use, but
+   * available to manually insert a link into a paragraph. True builds link
+   * component with RN Text instead of Pressable for improved wrapping behavior */
+  inlineSingle?: boolean
   /** Optional TestID */
   testID?: string
 }
@@ -124,10 +135,12 @@ export const Link: FC<LinkProps> = ({
   a11yHint,
   promptText,
   // analytics,
+  inlineSingle,
   testID,
   // Type-specific props
   calendarData,
   locationData,
+  paragraphText,
   phoneNumber,
   textNumber,
   TTYnumber,
@@ -172,6 +185,8 @@ export const Link: FC<LinkProps> = ({
         launchExternalLink(directions, promptText)
       }
       break
+    case 'inline':
+      return <InlineLink paragraphText={paragraphText} />
     case 'text':
       icon = icon ? icon : { name: 'Text' }
       _onPress = async (): Promise<void> => {
@@ -201,22 +216,34 @@ export const Link: FC<LinkProps> = ({
       linkColor = isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary
   }
 
-  const pressableProps: PressableProps = {
-    onPress: onPress ? onPress : _onPress,
+  const iconDisplay =
+    icon === 'no icon' ? null : inlineSingle ? (
+      <>
+        <Icon fill={linkColor} {...icon} />
+        {/* Space forms padding prior to link text */}
+        <Text> </Text>
+      </>
+    ) : (
+      <View style={{ marginRight: 5 }}>
+        <Icon fill={linkColor} {...icon} />
+      </View>
+    )
+
+  const a11yProps: TextProps = {
     'aria-label': a11yLabel,
     accessibilityHint: a11yHint,
     role: 'link',
     accessible: true,
   }
 
-  const viewStyle: ViewProps['style'] = {
-    alignItems: 'center',
-    flexDirection: 'row',
-  }
-
-  const innerViewStyle: ViewProps['style'] = {
-    flexShrink: 1,
-    marginLeft: icon === 'no icon' ? 0 : 5,
+  const pressableProps: PressableProps = {
+    onPress: onPress ? onPress : _onPress,
+    ...a11yProps,
+    style: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   }
 
   const getTextStyle = (pressed: boolean): TextStyle => {
@@ -241,16 +268,88 @@ export const Link: FC<LinkProps> = ({
     return { ...(pressed ? pressedFont : regularFont), ...textStyle }
   }
 
+  const [pressStyle, setPressStyle] = useState(false)
+  if (inlineSingle) {
+    const onPressProps: TextProps = {
+      onPressIn: () => {
+        setPressStyle(true)
+      },
+      onPress: onPress ? onPress : _onPress,
+      onPressOut: () => {
+        setPressStyle(false)
+      },
+    }
+    return (
+      <Text>
+        {iconDisplay}
+        <Text {...onPressProps} {...a11yProps} style={getTextStyle(pressStyle)}>
+          {text}
+        </Text>
+      </Text>
+    )
+  }
+
   return (
     <Pressable {...pressableProps} testID={testID}>
       {({ pressed }: PressableStateCallbackType) => (
-        <View style={viewStyle}>
-          {icon === 'no icon' ? null : <Icon fill={linkColor} {...icon} />}
-          <View style={innerViewStyle}>
-            <Text style={getTextStyle(pressed)}>{text}</Text>
-          </View>
-        </View>
+        <>
+          {iconDisplay}
+          <Text style={getTextStyle(pressed)}>{text}</Text>
+        </>
       )}
     </Pressable>
+  )
+}
+
+const ParagraphText: FC<normalText> = ({ text, textA11y }) => {
+  const colorScheme = useColorScheme()
+  const isDarkMode = colorScheme === 'dark'
+
+  // TODO: Replace with typography tokens
+  const regularFont: TextStyle = {
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: 20,
+    lineHeight: 30,
+    color: isDarkMode ? Colors.grayLightest : Colors.grayDark,
+  }
+
+  return (
+    <Text style={regularFont} accessible={true} aria-label={textA11y}>
+      {text}
+    </Text>
+  )
+}
+
+const InlineLink: FC<Pick<inline, 'paragraphText'>> = ({ paragraphText }) => {
+  const screenReaderEnabled = useIsScreenReaderEnabled()
+  if (screenReaderEnabled && isIOS) {
+    return (
+      <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+        {paragraphText.map((item, index) => {
+          // key included as this is a list of React components and the renderer worries about losing track
+          if ('type' in item) {
+            // Link if type prop exists
+            item.inlineSingle = undefined
+            return <Link {...item} key={index} />
+          } else {
+            return <ParagraphText {...item} key={index} />
+          }
+        })}
+      </View>
+    )
+  }
+  return (
+    <Text>
+      {paragraphText.map((item, index) => {
+        // key included as this is a list of React components and the renderer worries about losing track
+        if ('type' in item) {
+          // Link if type prop exists
+          item.inlineSingle = true
+          return <Link {...item} key={index} />
+        } else {
+          return <ParagraphText {...item} key={index} />
+        }
+      })}
+    </Text>
   )
 }
