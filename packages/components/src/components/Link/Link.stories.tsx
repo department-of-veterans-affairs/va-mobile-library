@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Platform, View } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 
 import { Link, LinkProps } from './Link'
@@ -30,8 +30,6 @@ export default meta
 
 type Story = StoryObj<LinkProps>
 
-const startTime = new Date()
-const endTime = new Date(startTime.setMinutes(startTime.getMinutes() + 30))
 const location = {
   lat: 33.7764681,
   long: -118.1189664,
@@ -43,21 +41,6 @@ const location = {
     zipCode: '90822',
   },
 }
-const getLocation = (): string => {
-  const { lat, long, name, address } = location
-  if (Platform.OS === 'ios' && lat && long) {
-    return name || ''
-  } else if (
-    address?.street &&
-    address?.city &&
-    address?.state &&
-    address?.zipCode
-  ) {
-    return `${address.street} ${address.city}, ${address.state} ${address.zipCode}`
-  } else {
-    return name || ''
-  }
-}
 
 export const Calendar: Story = {
   name: 'Calendar',
@@ -65,14 +48,6 @@ export const Calendar: Story = {
     text: 'Add to calendar',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'calendar',
-    calendarData: {
-      title: 'Test',
-      startTime: startTime.getTime(),
-      endTime: endTime.getTime(),
-      location: getLocation(),
-      latitude: location.lat,
-      longitude: location.long,
-    },
   },
 }
 
@@ -83,6 +58,9 @@ export const Custom: Story = {
     type: 'custom',
     onPress: () => {
       null
+    },
+    analytics: {
+      onPress: () => console.log('pressed'),
     },
   },
 }
@@ -124,13 +102,24 @@ export const Directions: Story = {
 
 const paragraphText: LinkProps['paragraphText'] = [
   // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  {text: 'A sentence may include a '},
-  {text: 'link that opens in a webview', type: 'custom', onPress: () => {null}, a11yLabel: 'a11y override' },
+  { text: 'A sentence may include a ' },
+  {
+    text: 'link that opens in a webview',
+    type: 'custom',
+    onPress: () => {
+      null
+    },
+    a11yLabel: 'a11y override',
+  },
   // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  {text: ' or a '},
-  {text: 'link that opens in an external app', type: 'url', url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro'},
+  { text: ' or a ' },
+  {
+    text: 'link that opens in an external app',
+    type: 'url',
+    url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro',
+  },
   // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  {text: '.'}
+  { text: '.' },
 ]
 
 export const Inline: Story = {
@@ -176,5 +165,10 @@ export const URL: Story = {
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'url',
     url: 'https://www.va.gov/',
+    analytics: {
+      onCancel: () => console.log('Analytics event: Canceled'),
+      onPress: () => console.log('Analytics event: Pressed'),
+      onConfirm: () => console.log('Analytics event: Confirmed'),
+    },
   },
 }
