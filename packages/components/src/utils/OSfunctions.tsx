@@ -75,14 +75,14 @@ export function useExternalLink(): (
     analytics?: LinkAnalytics,
     text?: leaveAppPromptText,
   ) => {
-    if (analytics?.onPress) analytics?.onPress()
+    if (analytics?.onPress) analytics.onPress()
 
     const onCancelPress = () => {
-      if (analytics?.onCancel) analytics?.onCancel()
+      if (analytics?.onCancel) analytics.onCancel()
     }
 
     const onOKPress = () => {
-      if (analytics?.onConfirm) analytics?.onConfirm()
+      if (analytics?.onConfirm) analytics.onConfirm()
       return Linking.openURL(url)
     }
 
