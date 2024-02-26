@@ -60,7 +60,7 @@ export const Custom: Story = {
       null
     },
     analytics: {
-      onPress: () => console.log('pressed'),
+      onPress: () => console.log('Analytics event: Pressed'),
     },
   },
 }
