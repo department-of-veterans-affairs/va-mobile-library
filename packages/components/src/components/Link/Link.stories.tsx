@@ -30,6 +30,48 @@ export default meta
 
 type Story = StoryObj<LinkProps>
 
+export const Default: Story = {
+  args: {
+    text: 'Link opens in the app',
+    type: 'custom',
+    onPress: () => {
+      null
+    },
+  },
+}
+
+export const DefaultWithIcon: Story = {
+  name: 'Default (with icon)',
+  args: {
+    text: 'Link opens an external app',
+    icon: { name: 'Truck' },
+    type: 'custom',
+    onPress: () => {
+      null
+    },
+  },
+}
+
+const paragraphText: LinkProps['paragraphText'] = [
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
+  {text: 'A sentence may include a '},
+  {text: 'link that opens in a webview', type: 'custom', onPress: () => {null}, a11yLabel: 'a11y override' },
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
+  {text: ' or a '},
+  {text: 'link that opens in an external app', type: 'url', url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro'},
+  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
+  {text: '.'}
+]
+
+export const Inline: Story = {
+  args: {
+    text: '',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: 'inline',
+    paragraphText: paragraphText,
+  },
+}
+
 const startTime = new Date()
 const endTime = new Date(startTime.setMinutes(startTime.getMinutes() + 30))
 const location = {
@@ -59,8 +101,7 @@ const getLocation = (): string => {
   }
 }
 
-export const Calendar: Story = {
-  name: 'Calendar',
+export const _Calendar: Story = {
   args: {
     text: 'Add to calendar',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
@@ -76,31 +117,7 @@ export const Calendar: Story = {
   },
 }
 
-export const Custom: Story = {
-  name: 'Custom Link w/o Icon',
-  args: {
-    text: 'Custom Link - no icon',
-    type: 'custom',
-    onPress: () => {
-      null
-    },
-  },
-}
-
-export const CustomWithIcon: Story = {
-  name: 'Custom Link with Icon',
-  args: {
-    text: 'Custom Link',
-    icon: { name: 'Truck' },
-    type: 'custom',
-    onPress: () => {
-      null
-    },
-  },
-}
-
-export const Directions: Story = {
-  name: 'Directions',
+export const _Directions: Story = {
   args: {
     text: 'Get directions',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
@@ -122,59 +139,38 @@ export const Directions: Story = {
   },
 }
 
-const paragraphText: LinkProps['paragraphText'] = [
-  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  {text: 'A sentence may include a '},
-  {text: 'link that opens in a webview', type: 'custom', onPress: () => {null}, a11yLabel: 'a11y override' },
-  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  {text: ' or a '},
-  {text: 'link that opens in an external app', type: 'url', url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro'},
-  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  {text: '.'}
-]
-
-export const Inline: Story = {
+export const _ExternalLink: Story = {
   args: {
-    text: '',
+    text: 'Link opens in external browser',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'inline',
-    paragraphText: paragraphText,
+    type: 'url',
+    url: 'https://www.va.gov/',
   },
 }
 
-export const Phone: Story = {
+export const _Phone: Story = {
   args: {
-    text: 'Call number',
+    text: '000-000-0000',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'call',
-    phoneNumber: '555',
+    phoneNumber: '000-000-0000',
   },
 }
 
-export const PhoneTTY: Story = {
+export const _PhoneTTY: Story = {
   args: {
-    text: 'Call TTY number',
+    text: 'TTY: 711',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'call TTY',
     TTYnumber: '711',
   },
 }
 
-export const Text: Story = {
+export const _Text: Story = {
   args: {
-    text: 'Text SMS number',
-    variant: 'base',
+    text: 'Text 000000',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'text',
-    textNumber: '55555',
-  },
-}
-
-export const URL: Story = {
-  args: {
-    text: 'External link',
-    onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'url',
-    url: 'https://www.va.gov/',
+    textNumber: '000000',
   },
 }
