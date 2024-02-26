@@ -1,7 +1,7 @@
 /** A file for functions that leverage OS functionality */
 
 import { Alert, Linking, Platform } from 'react-native'
-import { analytics as analyticsType } from 'components/Link/Link'
+import { LinkAnalytics } from 'components/Link/Link'
 import { useTranslation } from 'react-i18next'
 
 export const isIOS = Platform.OS === 'ios'
@@ -65,14 +65,14 @@ export type leaveAppPromptText = {
  */
 export function useExternalLink(): (
   url: string,
-  analytics?: analyticsType,
+  analytics?: LinkAnalytics,
   text?: leaveAppPromptText,
 ) => void {
   const { t } = useTranslation()
 
   return (
     url: string,
-    analytics?: analyticsType,
+    analytics?: LinkAnalytics,
     text?: leaveAppPromptText,
   ) => {
     if (analytics?.onPress) analytics?.onPress()

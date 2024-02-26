@@ -90,7 +90,7 @@ type linkTypes =
   | text
   | url
 
-export type analytics = {
+export type LinkAnalytics = {
   onPress?: () => void
   onConfirm?: () => void
   onCancel?: () => void
@@ -110,7 +110,7 @@ export type LinkProps = linkTypes & {
   /** Optional override text for leaving app confirmation prompt */
   promptText?: leaveAppPromptText
   /** Optional analytics event logging */
-  analytics?: analytics
+  analytics?: LinkAnalytics
   /** Internally used by 'inline' type. Not recommended for consumer use, but
    * available to manually insert a link into a paragraph. True builds link
    * component with RN Text instead of Pressable for improved wrapping behavior */
