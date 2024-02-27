@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { Platform, View } from 'react-native'
+import { View } from 'react-native'
 import React from 'react'
 
 import { Link, LinkProps } from './Link'
@@ -36,6 +36,9 @@ export const Default: Story = {
     type: 'custom',
     onPress: () => {
       null
+    },
+    analytics: {
+      onPress: () => console.log('Analytics event: Pressed'),
     },
   },
 }
@@ -83,8 +86,6 @@ export const Inline: Story = {
   },
 }
 
-const startTime = new Date()
-const endTime = new Date(startTime.setMinutes(startTime.getMinutes() + 30))
 const location = {
   lat: 33.7764681,
   long: -118.1189664,
@@ -96,35 +97,12 @@ const location = {
     zipCode: '90822',
   },
 }
-const getLocation = (): string => {
-  const { lat, long, name, address } = location
-  if (Platform.OS === 'ios' && lat && long) {
-    return name || ''
-  } else if (
-    address?.street &&
-    address?.city &&
-    address?.state &&
-    address?.zipCode
-  ) {
-    return `${address.street} ${address.city}, ${address.state} ${address.zipCode}`
-  } else {
-    return name || ''
-  }
-}
 
 export const _Calendar: Story = {
   args: {
     text: 'Add to calendar',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'calendar',
-    calendarData: {
-      title: 'Test',
-      startTime: startTime.getTime(),
-      endTime: endTime.getTime(),
-      location: getLocation(),
-      latitude: location.lat,
-      longitude: location.long,
-    },
   },
 }
 
@@ -156,6 +134,11 @@ export const _ExternalLink: Story = {
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'url',
     url: 'https://www.va.gov/',
+    analytics: {
+      onCancel: () => console.log('Analytics event: Canceled'),
+      onPress: () => console.log('Analytics event: Pressed'),
+      onConfirm: () => console.log('Analytics event: Confirmed'),
+    },
   },
 }
 

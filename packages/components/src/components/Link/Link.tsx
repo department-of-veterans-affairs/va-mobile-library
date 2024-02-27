@@ -11,10 +11,8 @@ import {
 import React, { FC, useState } from 'react'
 
 import {
-  CalendarData,
   FormDirectionsUrl,
   LocationData,
-  OnPressCalendar,
   isIOS,
   leaveAppPromptText,
   useExternalLink,
@@ -37,7 +35,8 @@ type nullTypeSpecifics = {
 
 type calendar = Omit<nullTypeSpecifics, 'calendarData'> & {
   type: 'calendar'
-  calendarData: CalendarData
+  /** Required onPress override logic */
+  onPress: () => void
 }
 
 type call = Omit<nullTypeSpecifics, 'phoneNumber'> & {
@@ -91,15 +90,11 @@ type linkTypes =
   | text
   | url
 
-// TODO: Ticket 170 created to revisit adding analytics after calendar support added/or deemed infeasible
-// type analytics = {
-//   onPress?: () => void
-//   onConfirm?: () => void
-//   hasCalendarPermission?: () => void
-//   onRequestCalendarPermission?: () => void
-//   onCalendarPermissionSuccess?: () => void
-//   onCalendarPermissionFailure?: () => void
-// }
+export type LinkAnalytics = {
+  onPress?: () => void
+  onConfirm?: () => void
+  onCancel?: () => void
+}
 
 export type LinkProps = linkTypes & {
   /** Display text for the link */
@@ -115,7 +110,7 @@ export type LinkProps = linkTypes & {
   /** Optional override text for leaving app confirmation prompt */
   promptText?: leaveAppPromptText
   /** Optional analytics event logging */
-  // analytics?: analytics
+  analytics?: LinkAnalytics
   /** Internally used by 'inline' type. Not recommended for consumer use, but
    * available to manually insert a link into a paragraph. True builds link
    * component with RN Text instead of Pressable for improved wrapping behavior */
@@ -134,11 +129,10 @@ export const Link: FC<LinkProps> = ({
   a11yLabel,
   a11yHint,
   promptText,
-  // analytics,
+  analytics,
   inlineSingle,
   testID,
   // Type-specific props
-  calendarData,
   locationData,
   paragraphText,
   phoneNumber,
@@ -150,39 +144,42 @@ export const Link: FC<LinkProps> = ({
   const isDarkMode = colorScheme === 'dark'
   const launchExternalLink = useExternalLink()
 
-  let _onPress: () => Promise<void> = async () => {
+  let _onPress: () => void = async () => {
     null // Empty function to keep TS happy a function exists
+  }
+
+  /** Handler for links not using launchExternalLink prompt */
+  const customOnPress: () => void = () => {
+    if (analytics?.onPress) analytics.onPress()
+    if (onPress) onPress()
   }
 
   switch (type) {
     case 'calendar':
       icon = icon ? icon : { name: 'Calendar' }
-      _onPress = async (): Promise<void> => {
-        await OnPressCalendar(calendarData)
-        return
-      }
+      _onPress = customOnPress
       break
     case 'call':
       icon = icon ? icon : { name: 'Phone' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(`tel:${phoneNumber}`)
+        launchExternalLink(`tel:${phoneNumber}`, analytics)
       }
       break
     case 'call TTY':
       icon = icon ? icon : { name: 'TTY' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(`tel:${TTYnumber}`)
+        launchExternalLink(`tel:${TTYnumber}`, analytics)
       }
       break
     case 'custom':
       icon = icon ? icon : 'no icon'
-      onPress = onPress
+      _onPress = customOnPress
       break
     case 'directions':
       icon = icon ? icon : { name: 'Directions' }
       const directions = FormDirectionsUrl(locationData)
       _onPress = async (): Promise<void> => {
-        launchExternalLink(directions, promptText)
+        launchExternalLink(directions, analytics, promptText)
       }
       break
     case 'inline':
@@ -190,13 +187,13 @@ export const Link: FC<LinkProps> = ({
     case 'text':
       icon = icon ? icon : { name: 'Text' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(`sms:${textNumber}`)
+        launchExternalLink(`sms:${textNumber}`, analytics)
       }
       break
     case 'url':
       icon = icon ? icon : { name: 'ExternalLink' }
       _onPress = async (): Promise<void> => {
-        launchExternalLink(url, promptText)
+        launchExternalLink(url, analytics, promptText)
       }
       break
   }
@@ -237,7 +234,7 @@ export const Link: FC<LinkProps> = ({
   }
 
   const pressableProps: PressableProps = {
-    onPress: onPress ? onPress : _onPress,
+    onPress: _onPress,
     ...a11yProps,
     style: {
       flexDirection: 'row',

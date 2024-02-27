@@ -1,5 +1,24 @@
 # Changelog
 
+## [components-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.9.0) (2024-02-27)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.8.0...components-v0.9.0)
+
+**Closed issues:**
+
+- Link Component - Add in-line variant support [\#168](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/168)
+- Update Icons for Link Component [\#165](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/165)
+- DS - Clear out dependabot alerts [\#142](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/142)
+- DS - Create Tabs Component [\#66](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/66)
+
+**Merged pull requests:**
+
+- \[CU\] Add resolution to force ip to version ^2.0.1 [\#207](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/207) ([narin](https://github.com/narin))
+- \[Feature\] Add Analytics pass through events to Link [\#205](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/205) ([narin](https://github.com/narin))
+- Bump ip from 1.1.8 to 1.1.9 [\#191](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/191) ([dependabot[bot]](https://github.com/apps/dependabot))
+- \[Feature\] Update Icon component to leverage assets v0.2.0 [\#190](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/190) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Link Component - Add Inline Variant Support [\#188](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/188) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.8.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.8.0) (2024-02-16)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.7.0...components-v0.8.0)

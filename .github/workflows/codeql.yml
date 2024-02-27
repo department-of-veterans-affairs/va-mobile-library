@@ -22,7 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         language:
-          - javascript
+          - javascript-typescript
     steps:
       - name: Run Code Scanning
         uses: department-of-veterans-affairs/codeql-tools/codeql-analysis@main
