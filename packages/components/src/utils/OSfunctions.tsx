@@ -1,7 +1,7 @@
 /** A file for functions that leverage OS functionality */
 
 import { Alert, Linking, Platform } from 'react-native'
-import { LinkAnalytics } from 'components/Link/Link'
+import { LinkAnalytics } from '../components/Link/Link'
 import { useTranslation } from 'react-i18next'
 
 export const isIOS = Platform.OS === 'ios'
