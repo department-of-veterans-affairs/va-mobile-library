@@ -30,31 +30,9 @@ export default meta
 
 type Story = StoryObj<LinkProps>
 
-const location = {
-  lat: 33.7764681,
-  long: -118.1189664,
-  name: 'Tibor Rubin VA Medical Center',
-  address: {
-    street: '5901 E 7th St',
-    city: 'Long Beach',
-    state: 'CA',
-    zipCode: '90822',
-  },
-}
-
-export const Calendar: Story = {
-  name: 'Calendar',
+export const Default: Story = {
   args: {
-    text: 'Add to calendar',
-    onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'calendar',
-  },
-}
-
-export const Custom: Story = {
-  name: 'Custom Link w/o Icon',
-  args: {
-    text: 'Custom Link - no icon',
+    text: 'Link opens in the app',
     type: 'custom',
     onPress: () => {
       null
@@ -65,10 +43,10 @@ export const Custom: Story = {
   },
 }
 
-export const CustomWithIcon: Story = {
-  name: 'Custom Link with Icon',
+export const DefaultWithIcon: Story = {
+  name: 'Default (with icon)',
   args: {
-    text: 'Custom Link',
+    text: 'Link opens an external app',
     icon: { name: 'Truck' },
     type: 'custom',
     onPress: () => {
@@ -77,34 +55,11 @@ export const CustomWithIcon: Story = {
   },
 }
 
-export const Directions: Story = {
-  name: 'Directions',
-  args: {
-    text: 'Get directions',
-    onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'directions',
-    locationData: {
-      name: 'VA Long Beach Healthcare System',
-      address: location.address,
-      latitude: location.lat,
-      longitude: location.long,
-    },
-    promptText: {
-      body: "You're navigating to your Maps app.",
-      cancel: 'No thanks',
-      confirm: "Let's go!",
-      title: 'Title override',
-    },
-    a11yLabel: 'Get directions with Maps app',
-    a11yHint: 'Opens maps app with directions to the location',
-  },
-}
-
 const paragraphText: LinkProps['paragraphText'] = [
   // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
   { text: 'A sentence may include a ' },
   {
-    text: 'link that opens in a webview',
+    text: 'link that opens in the app',
     type: 'custom',
     onPress: () => {
       null
@@ -131,37 +86,51 @@ export const Inline: Story = {
   },
 }
 
-export const Phone: Story = {
+export const _Calendar: Story = {
   args: {
-    text: 'Call number',
+    text: 'Add to calendar',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'call',
-    phoneNumber: '555',
+    type: 'calendar',
   },
 }
 
-export const PhoneTTY: Story = {
-  args: {
-    text: 'Call TTY number',
-    onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'call TTY',
-    TTYnumber: '711',
+const location = {
+  lat: 33.7764681,
+  long: -118.1189664,
+  name: 'Tibor Rubin VA Medical Center',
+  address: {
+    street: '5901 E 7th St',
+    city: 'Long Beach',
+    state: 'CA',
+    zipCode: '90822',
   },
 }
 
-export const Text: Story = {
+export const _Directions: Story = {
   args: {
-    text: 'Text SMS number',
-    variant: 'base',
+    text: 'Get directions',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'text',
-    textNumber: '55555',
+    type: 'directions',
+    locationData: {
+      name: 'VA Long Beach Healthcare System',
+      address: location.address,
+      latitude: location.lat,
+      longitude: location.long,
+    },
+    promptText: {
+      body: "You're navigating to your Maps app.",
+      cancel: 'No thanks',
+      confirm: "Let's go!",
+      title: 'Title override',
+    },
+    a11yLabel: 'Get directions with Maps app',
+    a11yHint: 'Opens maps app with directions to the location',
   },
 }
 
-export const URL: Story = {
+export const _ExternalLink: Story = {
   args: {
-    text: 'External link',
+    text: 'Link opens in external browser',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
     type: 'url',
     url: 'https://www.va.gov/',
@@ -170,5 +139,32 @@ export const URL: Story = {
       onPress: () => console.log('Analytics event: Pressed'),
       onConfirm: () => console.log('Analytics event: Confirmed'),
     },
+  },
+}
+
+export const _Phone: Story = {
+  args: {
+    text: '000-000-0000',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: 'call',
+    phoneNumber: '000-000-0000',
+  },
+}
+
+export const _PhoneTTY: Story = {
+  args: {
+    text: 'TTY: 711',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: 'call TTY',
+    TTYnumber: '711',
+  },
+}
+
+export const _Text: Story = {
+  args: {
+    text: 'Text 000000',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: 'text',
+    textNumber: '000000',
   },
 }
