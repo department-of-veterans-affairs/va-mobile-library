@@ -86,6 +86,14 @@ export const Inline: Story = {
   },
 }
 
+export const _Calendar: Story = {
+  args: {
+    text: 'Add to calendar',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: 'calendar',
+  },
+}
+
 const location = {
   lat: 33.7764681,
   long: -118.1189664,
@@ -95,14 +103,6 @@ const location = {
     city: 'Long Beach',
     state: 'CA',
     zipCode: '90822',
-  },
-}
-
-export const _Calendar: Story = {
-  args: {
-    text: 'Add to calendar',
-    onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'calendar',
   },
 }
 
