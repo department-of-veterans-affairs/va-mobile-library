@@ -87,8 +87,8 @@ export function useExternalLink(): (
     }
 
     const body = text?.body ? text.body : t('leaveAppAlert.body')
-    const cancel = text?.cancel ? text.cancel : t('cancel')
-    const confirm = text?.confirm ? text.confirm : t('ok')
+    const cancel = text?.cancel ? text.cancel : t('goBack')
+    const confirm = text?.confirm ? text.confirm : t('leave')
     const title = text?.title ? text.title : t('leaveAppAlert.title')
 
     if (url.startsWith('http')) {
