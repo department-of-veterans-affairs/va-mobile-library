@@ -56,7 +56,7 @@ const paragraphText: LinkProps['paragraphText'] = [
   // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
   { text: 'A sentence may include a ' },
   {
-    text: 'link that opens in a webview',
+    text: 'link that opens in the app',
     type: 'custom',
     onPress: () => {
       null
