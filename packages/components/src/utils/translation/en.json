@@ -1,7 +1,7 @@
 {
-  "cancel": "Cancel",
-  "leaveAppAlert.body": "You're navigating to a website outside of the app.",
-  "leaveAppAlert.title": "You’re leaving the app",
-  "listPosition": "{{position}} of {{total}}",
-  "ok": "Ok"
+  "goBack": "Go back",
+  "leave": "Leave",
+  "leaveAppAlert.body": "You'll go to a website outside of this app.",
+  "leaveAppAlert.title": "Leave the mobile app?",
+  "listPosition": "{{position}} of {{total}}"
 }
