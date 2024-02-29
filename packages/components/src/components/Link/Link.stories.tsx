@@ -86,6 +86,15 @@ export const Inline: Story = {
   },
 }
 
+export const _Attachment: Story = {
+  args: {
+    text: 'Attachment.pdf',
+    onPress: undefined, // Storybook sends a truthy function shell otherwise
+    type: 'attachment',
+    a11yValue: { index: 2, total: 5 },
+  },
+}
+
 export const _Calendar: Story = {
   args: {
     text: 'Add to calendar',

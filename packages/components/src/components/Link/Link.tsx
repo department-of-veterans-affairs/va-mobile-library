@@ -18,6 +18,7 @@ import {
   useExternalLink,
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
+import { t } from 'i18next'
 import { useColorScheme, useIsScreenReaderEnabled } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
@@ -31,6 +32,12 @@ type nullTypeSpecifics = {
   textNumber?: never
   TTYnumber?: never
   url?: never
+}
+
+type attachment = Omit<nullTypeSpecifics, 'onPress'> & {
+  type: 'attachment'
+  /** Required onPress override logic */
+  onPress: () => void
 }
 
 type calendar = Omit<nullTypeSpecifics, 'calendarData'> & {
@@ -81,6 +88,7 @@ type url = Omit<nullTypeSpecifics, 'url'> & {
 }
 
 type linkTypes =
+  | attachment
   | calendar
   | call
   | callTTY
@@ -89,6 +97,12 @@ type linkTypes =
   | inline
   | text
   | url
+
+type a11yValue = {
+  /** Index value of item in list, will have +1 added to */
+  index: number
+  total: number
+}
 
 export type LinkAnalytics = {
   onPress?: () => void
@@ -107,6 +121,8 @@ export type LinkProps = linkTypes & {
   a11yLabel?: string
   /** Optional a11yHint to provide additional context */
   a11yHint?: string
+  /** Optional a11yValue for "[position #] of [list total #]" or a custom value descriptive string */
+  a11yValue?: a11yValue | string
   /** Optional override text for leaving app confirmation prompt */
   promptText?: leaveAppPromptText
   /** Optional analytics event logging */
@@ -128,6 +144,7 @@ export const Link: FC<LinkProps> = ({
   icon,
   a11yLabel,
   a11yHint,
+  a11yValue,
   promptText,
   analytics,
   inlineSingle,
@@ -155,6 +172,10 @@ export const Link: FC<LinkProps> = ({
   }
 
   switch (type) {
+    case 'attachment':
+      icon = icon ? icon : { name: 'PaperClip' }
+      _onPress = customOnPress
+      break
     case 'calendar':
       icon = icon ? icon : { name: 'Calendar' }
       _onPress = customOnPress
@@ -226,9 +247,20 @@ export const Link: FC<LinkProps> = ({
       </View>
     )
 
+  let ariaValue
+  if (typeof a11yValue === 'string') {
+    ariaValue = a11yValue
+  } else if (a11yValue) {
+    ariaValue = t('listPosition', {
+      position: a11yValue.index + 1,
+      total: a11yValue.total,
+    })
+  }
+
   const a11yProps: TextProps = {
-    'aria-label': a11yLabel,
+    'aria-label': a11yLabel || text, // or text for Android not reading text if aria-value set
     accessibilityHint: a11yHint,
+    'aria-valuetext': ariaValue,
     role: 'link',
     accessible: true,
   }
