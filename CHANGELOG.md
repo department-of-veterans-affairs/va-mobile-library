@@ -1,5 +1,27 @@
 # Changelog
 
+## [assets-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.3.0) (2024-03-01)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.9.0...assets-v0.3.0)
+
+**Closed issues:**
+
+- Link - Update docs/Figma to reflect new variants [\#210](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/210)
+- Link - Update copy for leaving app prompt [\#196](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/196)
+- Link component - Add Attachment type support [\#183](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/183)
+- Link component - Add analytics support and remove TODO calendar code [\#170](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/170)
+- Snackbar - Accessibility requirements [\#155](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/155)
+- DS - Make Repo Public [\#141](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/141)
+- Link Component - Storybook [\#135](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/135)
+- Radio Button - Align with VADS and publish documentation [\#110](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/110)
+- Checkbox - Align with VADS and publish documentation [\#109](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/109)
+
+**Merged pull requests:**
+
+- \[Feature\] Link - Add attachment type support [\#215](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/215) ([TimRoe](https://github.com/TimRoe))
+- \[BUG\] Fix TS error – Update LinkAnalytics import to relative [\#209](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/209) ([narin](https://github.com/narin))
+- \[Feature\] Link - Adjustments to stories order/names/text [\#206](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/206) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.9.0) (2024-02-27)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.8.0...components-v0.9.0)
