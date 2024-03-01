@@ -39,7 +39,7 @@ import Add from '@department-of-veterans-affairs/mobile-assets/svgs/Add.svg'
 import Building from '@department-of-veterans-affairs/mobile-assets/svgs/Building.svg'
 import Bullet from '@department-of-veterans-affairs/mobile-assets/svgs/Bullet.svg'
 import Calendar from '@department-of-veterans-affairs/mobile-assets/svgs/Calendar.svg'
-import CheckMark from '@department-of-veterans-affairs/mobile-assets/svgs/CheckMark.svg'
+import Check from '@department-of-veterans-affairs/mobile-assets/svgs/Check.svg'
 import ChevronDown from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronDown.svg'
 import ChevronLeft from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronLeft.svg'
 import ChevronRight from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronRight.svg'
@@ -48,6 +48,7 @@ import CircleCheckMark from '@department-of-veterans-affairs/mobile-assets/svgs/
 import Compose from '@department-of-veterans-affairs/mobile-assets/svgs/Compose.svg'
 import Directions from '@department-of-veterans-affairs/mobile-assets/svgs/Directions.svg'
 import Ellipsis from '@department-of-veterans-affairs/mobile-assets/svgs/Ellipsis.svg'
+import ExclamationCircle from '@department-of-veterans-affairs/mobile-assets/svgs/ExclamationCircle.svg'
 import ExclamationTriangle from '@department-of-veterans-affairs/mobile-assets/svgs/ExclamationTriangle.svg'
 import ExternalLink from '@department-of-veterans-affairs/mobile-assets/svgs/ExternalLink.svg'
 import Folder from '@department-of-veterans-affairs/mobile-assets/svgs/Folder.svg'
@@ -82,7 +83,7 @@ const IconMap = {
   CheckBoxError,
   CheckBoxFilled,
   CheckBoxIntermediate,
-  CheckMark,
+  Check,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -92,6 +93,7 @@ const IconMap = {
   Compose,
   Directions,
   Ellipsis,
+  ExclamationCircle,
   ExclamationTriangle,
   ExternalLink,
   Folder,
