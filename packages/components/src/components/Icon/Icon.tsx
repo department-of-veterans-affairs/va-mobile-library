@@ -141,7 +141,8 @@ export type IconProps = {
   /** Fill color for the icon */
   fill?: string // keyof IconColors | keyof VATextColors | string
 
-  /** Secondary fill color for duotone icons--fills icons inside main fill, defaults white */
+  /** Slated for deprecation. Icon updates eliminating duotone icons over time.
+   * Secondary fill color for duotone icons--fills icons inside main fill, defaults white */
   fill2?: string
 
   /** Stroke color of the icon */
