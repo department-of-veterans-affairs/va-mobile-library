@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -38,7 +38,7 @@
   },
   "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
-    "@department-of-veterans-affairs/mobile-assets": "0.2.0",
+    "@department-of-veterans-affairs/mobile-assets": "^0.3.0",
     "@department-of-veterans-affairs/mobile-tokens": "0.5.1",
     "@os-team/i18next-react-native-language-detector": "^1.0.31",
     "i18next": "^23.8.2",

@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.10.0) (2024-03-04)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.3.0...components-v0.10.0)
+
+**Closed issues:**
+
+- Link - Visual QA [\#166](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/166)
+
+**Merged pull requests:**
+
+- \[Feature\] Update Icons for Alert [\#219](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/219) ([TimRoe](https://github.com/TimRoe))
+
 ## [assets-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.3.0) (2024-03-01)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.9.0...assets-v0.3.0)
