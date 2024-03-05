@@ -2,7 +2,6 @@ import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React from 'react'
 
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { Icon, IconMap, IconProps } from './Icon'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
@@ -35,7 +34,6 @@ export const _Preloaded: Story = {
   args: {
     width: 50,
     height: 50,
-    fill: Colors.grayMedium,
     name: 'HomeUnselected',
   },
 }
@@ -44,7 +42,7 @@ export const __Custom: Story = {
   args: {
     width: 50,
     height: 50,
-    fill: Colors.grayMedium,
+    fill: 'base',
     svg: CustomSVG,
   },
 }

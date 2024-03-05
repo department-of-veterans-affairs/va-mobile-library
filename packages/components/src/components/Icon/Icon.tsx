@@ -1,8 +1,9 @@
-import { AppState, AppStateStatus, PixelRatio } from 'react-native'
+import { AppState, AppStateStatus, ColorValue, PixelRatio } from 'react-native'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { SvgProps } from 'react-native-svg'
 import React, { FC, useEffect, useState } from 'react'
 
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import { useColorScheme } from '../../utils'
 
 // TODO: Ticket 102 merge Navigation icons into the general icon list below
 // Navigation
@@ -152,13 +153,18 @@ type heightAndWidth =
       width?: never
     }
 
+type lightDarkModeFill = {
+  light: string
+  dark: string
+}
+
 /**
  *  Props that need to be passed in to {@link Icon}
  */
 export type IconProps = nameOrSvg &
   heightAndWidth & {
-    /** Fill color for the icon */
-    fill?: string // keyof IconColors | keyof VATextColors | string
+    /** Fill color for the icon, defaults to light/dark mode primary blue */
+    fill?: 'default' | 'base' | ColorValue | lightDarkModeFill
     /** Slated for deprecation. Icon updates eliminating duotone icons over time.
      * Secondary fill color for duotone icons--fills icons inside main fill, defaults white */
     fill2?: string
@@ -195,13 +201,15 @@ export const Icon: FC<IconProps> = ({
   svg,
   width = 24,
   height = 24,
-  fill,
+  fill = 'default',
   fill2 = Colors.white,
   stroke,
   maxWidth,
   preventScaling,
   testID,
 }) => {
+  const colorScheme = useColorScheme()
+  const isDarkMode = colorScheme === 'dark'
   const [fontScale, setFontScale] = useState<number>(PixelRatio.getFontScale())
   const fs = (val: number) => fontScale * val
 
@@ -223,6 +231,14 @@ export const Icon: FC<IconProps> = ({
   }, [fontScale])
 
   const _Icon: FC<SvgProps> = name ? IconMap[name] : svg
+
+  if (typeof fill === 'object') {
+    fill = isDarkMode ? fill.dark : fill.light
+  } else if (fill === 'default') {
+    fill = isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary
+  } else if (fill === 'base') {
+    fill = isDarkMode ? Colors.grayLightest : Colors.grayDark
+  }
 
   let iconProps: SvgProps = {
     fill,
