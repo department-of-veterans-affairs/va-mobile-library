@@ -30,7 +30,7 @@ describe('Icon', () => {
     expect(color).toBe(Colors.secondaryLightest)
     expect(stroke).toBe(Colors.primaryAltLightest)
   })
-  
+
   it('renders correctly at set size despite fontScale 2', async () => {
     component = render(
       <Icon
@@ -71,12 +71,7 @@ describe('Icon', () => {
 
   it('renders correctly with fontScale 2', async () => {
     component = render(
-      <Icon
-        name="HomeSelected"
-        testID="myId"
-        height={50}
-        width={50}
-      />,
+      <Icon name="HomeSelected" testID="myId" height={50} width={50} />,
     )
 
     expect(component).toBeTruthy()
