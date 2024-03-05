@@ -250,11 +250,8 @@ export const Icon: FC<IconProps> = ({
   if (preventScaling) {
     iconProps = { ...iconProps, width, height }
   } else if (maxWidth && fs(width) > maxWidth) {
-    iconProps = {
-      ...iconProps,
-      width: maxWidth,
-      height: (maxWidth / width) * height,
-    }
+    const scaledHeight = (maxWidth / width) * height
+    iconProps = { ...iconProps, width: maxWidth, height: scaledHeight }
   } else {
     iconProps = { ...iconProps, width: fs(width), height: fs(height) }
   }
