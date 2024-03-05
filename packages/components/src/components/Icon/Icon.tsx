@@ -239,7 +239,7 @@ export const Icon: FC<IconProps> = ({
     return (): void => sub?.remove()
   }, [fontScale])
 
-  const _Icon: FC<SvgProps> | undefined = name ? IconMap[name] : svg
+  const _Icon: FC<SvgProps> = name ? IconMap[name] : svg
 
   if (preventScaling) {
     iconProps = { ...iconProps, width, height }
