@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import React from 'react'
 
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
-import { Icon, IconProps } from './Icon'
+import { Icon, IconMap, IconProps } from './Icon'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
 const meta: Meta<IconProps> = {
@@ -21,6 +21,9 @@ const meta: Meta<IconProps> = {
       </View>
     ),
   ],
+  argTypes: {
+    name: { options: Object.keys(IconMap) },
+  },
 }
 
 export default meta
