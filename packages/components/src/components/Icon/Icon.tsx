@@ -205,23 +205,6 @@ export const Icon: FC<IconProps> = ({
   const [fontScale, setFontScale] = useState<number>(PixelRatio.getFontScale())
   const fs = (val: number) => fontScale * val
 
-  let iconProps: IconProps & SvgProps
-
-  if (name) {
-    iconProps = { name }
-  } else {
-    iconProps = { svg }
-  }
-  iconProps = {
-    ...iconProps,
-    width,
-    height,
-    preventScaling,
-    fill,
-    stroke,
-    color: fill2,
-  }
-
   useEffect(() => {
     // Listener for the current app state, updates the font scale when app state
     // is active and the font scale has changed
@@ -241,6 +224,13 @@ export const Icon: FC<IconProps> = ({
 
   const _Icon: FC<SvgProps> = name ? IconMap[name] : svg
 
+  let iconProps: SvgProps = {
+    fill,
+    stroke,
+    color: fill2,
+  }
+
+  // Set height/width
   if (preventScaling) {
     iconProps = { ...iconProps, width, height }
   } else if (maxWidth && fs(width) > maxWidth) {
