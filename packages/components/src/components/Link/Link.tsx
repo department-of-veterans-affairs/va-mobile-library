@@ -239,6 +239,7 @@ export const Link: FC<LinkProps> = ({
 
   const pressableProps: PressableProps = {
     onPress: _onPress,
+    hitSlop: 7,
     ...a11yProps,
     style: {
       flexDirection: 'row',
