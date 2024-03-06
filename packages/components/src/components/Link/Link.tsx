@@ -7,6 +7,7 @@ import {
   TextProps,
   TextStyle,
   View,
+  ViewStyle,
 } from 'react-native'
 import React, { FC } from 'react'
 
@@ -212,9 +213,18 @@ export const Link: FC<LinkProps> = ({
       linkColor = isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary
   }
 
+  const iconViewStyle: ViewStyle = {
+    marginRight: 5, // Spacer to text
+    // Below keeps icon aligned with first row of text, centered, and scalable
+    alignSelf: 'flex-start',
+    minHeight: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
   const iconDisplay =
     icon === 'no icon' ? null : (
-      <View style={{ marginRight: 5 }}>
+      <View style={iconViewStyle}>
         <Icon fill={linkColor} {...icon} />
       </View>
     )
