@@ -165,7 +165,11 @@ export type IconProps = {
 }
 
 /**
- * A common component to display assets (SVGs).
+ * Convenience component to display Icons that are have a .svg fileformat. A set
+ * of pre-loaded Icons can be found in the [mobile-assets](https://www.npmjs.com/package/\@department-of-veterans-affairs/mobile-assets)
+ * package. Custom SVG's can also be used if your project is configured to
+ * import them.See [\@svgr/webpack](https://www.npmjs.com/package/\@svgr/webpack)
+ * for guidance.
  *
  * For all icons in the SVG definitions, on the primary/only path:
  *    - Set `fill` to `#000` to inherit Icon's fill color prop
