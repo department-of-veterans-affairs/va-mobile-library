@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.11.0) (2024-03-06)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.10.0...components-v0.11.0)
+
+**Closed issues:**
+
+- DS - Alert - Update Icons [\#202](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/202)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix Web Storybook Icon Scaling [\#222](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/222) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.10.0) (2024-03-04)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.3.0...components-v0.10.0)
