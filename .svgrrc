@@ -3,5 +3,6 @@
 		"#00F": "{props.stroke}",
 		"#000": "{props.fill}",
 		"#f00": "{props.fillSecondary}"
-	}
+	},
+	"icon": 24
 }
