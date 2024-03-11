@@ -251,11 +251,6 @@ export const Link: FC<LinkProps> = ({
     onPress: _onPress,
     hitSlop: 7,
     ...a11yProps,
-    style: {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
   }
 
   const getTextStyle = (pressed: boolean): TextStyle => {
