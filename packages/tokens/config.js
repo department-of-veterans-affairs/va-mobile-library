@@ -5,6 +5,7 @@ module.exports = {
   source: [
     '../../node_modules/@department-of-veterans-affairs/css-library/dist/tokens/json/variables.json',
     'src/tokens/color/uswds.json',
+    'src/tokens/color/semantic.json',
   ],
   platforms: {
     rn: {
@@ -29,7 +30,7 @@ module.exports = {
       buildPath: './figma/',
       files: tokenCategories.map((tokenCategory) => ({
         destination: `${tokenCategory}.json`,
-        format: 'json/dtcg',
+        format: 'json',
         filter: 'isUniqueColor',
       })),
     },

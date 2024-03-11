@@ -2,6 +2,7 @@
   "color": {
     "test-ref": {
       "name": "test-ref",
+      "group": "dark",
       "value": "{color.uswds-system-color-blue-vivid-5}",
       "attributes": {
         "category": "color"
@@ -10,6 +11,7 @@
     "test-ref-2": {
       "name": "test-ref-2",
       "value": "{color.base}",
+      "group": "light",
       "attributes": {
         "category": "color"
       }
