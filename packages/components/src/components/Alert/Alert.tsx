@@ -1,32 +1,36 @@
-import { AccessibilityRole, ScrollView, View } from 'react-native'
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
-import { HapticFeedbackTypes } from 'react-native-haptic-feedback'
+// import { HapticFeedbackTypes } from 'react-native-haptic-feedback'
+import { ScrollView, Text, TextStyle, View, ViewStyle } from 'react-native'
 import React, { FC, RefObject, useEffect, useState } from 'react'
 
-import { triggerHaptic } from 'utils/haptics'
-import { useAutoScrollToElement } from 'utils/hooks'
+// import { triggerHaptic } from 'utils/haptics'
+// import { useAutoScrollToElement } from 'utils/hooks'
 
-import { Box, BoxProps, TextView } from './index'
+import { ButtonProps, ButtonVariants } from '../Button/Button'
 import { IconProps } from '../Icon/Icon'
 import { useColorScheme } from '../../utils'
 
 export type AlertProps = {
   /** Alert variant */
   variant: 'info' | 'success' | 'warning' | 'error'
+  /**  */
+  header?: string
+  /**  */
+  headerA11yLabel?: string
+  /**  */
+  description?: string
+  /**  */
+  descriptionA11yLabel?: string
+  /**  */
+  children?: React.ReactNode
+  /**  */
+  primaryButton?: ButtonProps
+  /**  */
+  secondaryButton?: ButtonProps
   /** Optional boolean for determining when to focus on error alert boxes (e.g. onSaveClicked). */
   focusOnError?: boolean
   /** Optional ref for the parent scroll view. Used for scrolling to error alert boxes. */
   scrollViewRef?: RefObject<ScrollView>
-  /** body of the alert */
-  text?: string
-  /** optional bolded title text */
-  title?: string
-  /** optional accessibility label for the text */
-  textA11yLabel?: string
-  /** optional accessibility label for the title */
-  titleA11yLabel?: string
-  /** optional accessibility role for the title */
-  titleRole?: AccessibilityRole
   /** optional testID */
   testId?: string
 }
@@ -36,22 +40,43 @@ export type AlertProps = {
  */
 export const Alert: FC<AlertProps> = ({
   variant,
+  header,
+  headerA11yLabel,
+  description,
+  descriptionA11yLabel,
   children,
+  primaryButton,
+  secondaryButton,
   focusOnError = true,
   scrollViewRef,
-  title,
-  text,
-  textA11yLabel,
-  titleA11yLabel,
-  titleRole,
   testId,
 }) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
-  const [scrollRef, viewRef, scrollToAlert] = useAutoScrollToElement()
-  const [shouldFocus, setShouldFocus] = useState(true)
+  // const [scrollRef, viewRef, scrollToAlert] = useAutoScrollToElement()
+  // const [shouldFocus, setShouldFocus] = useState(true)
 
   const boxPadding = 20
+
+  // useEffect(() => {
+  //   if (
+  //     variant === 'error' &&
+  //     scrollViewRef?.current &&
+  //     (header || description)
+  //   ) {
+  //     scrollRef.current = scrollViewRef.current
+  //     scrollToAlert(-boxPadding)
+  //   }
+  //   setShouldFocus(focusOnError)
+  // }, [
+  //   variant,
+  //   header,
+  //   description,
+  //   focusOnError,
+  //   scrollRef,
+  //   scrollToAlert,
+  //   scrollViewRef,
+  // ])
 
   const contentColor = isDarkMode ? Colors.grayLightest : Colors.grayDark
   let backgroundColor, borderColor, iconProps: IconProps
@@ -60,7 +85,7 @@ export const Alert: FC<AlertProps> = ({
     case 'info':
       backgroundColor = Colors.primaryAltLightest
       borderColor = Colors.primaryAltDark
-      iconProps = { name: 'Info', fill: '#000' } // Change fill to 'base'
+      iconProps = { name: 'Info', fill: 'base' }
 
       if (isDarkMode) {
         backgroundColor = Colors.uswdsBlueVivid80
@@ -75,68 +100,71 @@ export const Alert: FC<AlertProps> = ({
       break
   }
 
-  useEffect(() => {
-    if (variant === 'error' && scrollViewRef?.current && (title || text)) {
-      scrollRef.current = scrollViewRef.current
-      scrollToAlert(-boxPadding)
-    }
-    setShouldFocus(focusOnError)
-  }, [
-    variant,
-    focusOnError,
-    scrollRef,
-    scrollToAlert,
-    scrollViewRef,
-    text,
-    title,
-  ])
+  if (primaryButton && isDarkMode) {
+    primaryButton.buttonType = ButtonVariants.Base
+  }
+  if (secondaryButton) {
+    secondaryButton.buttonType = isDarkMode
+      ? ButtonVariants.BaseSecondary
+      : ButtonVariants.Secondary
+  }
 
-  const boxProps: BoxProps = {
+  const contentBox: ViewStyle = {
     backgroundColor: backgroundColor,
     borderLeftWidth: 8, // TODO: Replace with sizing token
     borderLeftColor: borderColor,
-    py: boxPadding,
-    px: boxPadding,
-    testID: testId,
+    padding: boxPadding,
+    // testID: testId,
   }
 
-  const vibrate = (): void => {
-    if (variant === 'error') {
-      triggerHaptic(HapticFeedbackTypes.notificationError)
-    } else if (variant === 'warning') {
-      triggerHaptic(HapticFeedbackTypes.notificationWarning)
-    }
+  // const vibrate = (): void => {
+  //   if (variant === 'error') {
+  //     triggerHaptic(HapticFeedbackTypes.notificationError)
+  //   } else if (variant === 'warning') {
+  //     triggerHaptic(HapticFeedbackTypes.notificationWarning)
+  //   }
+  // }
+
+  // TODO: Replace with typography tokens
+  const headerFont: TextStyle = {
+    color: contentColor,
+    fontFamily: 'SourceSansPro-Bold',
+    fontSize: 20,
+    lineHeight: 30,
+    marginBottom: description ? 20 : 0,
   }
 
-  const titleAccessibilityRole = titleRole
-    ? titleRole
-    : text || children
-      ? 'header'
-      : undefined
+  // TODO: Replace with typography tokens
+  const descriptionFont: TextStyle = {
+    color: contentColor,
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: 20,
+    lineHeight: 30,
+  }
 
   return (
-    <Box {...boxProps}>
-      {!!title && (
+    <View style={contentBox} testID={testId}>
+      <View>
+      {header ? (
         <View
-          ref={viewRef}
+          // ref={viewRef}
           accessible={true}
-          accessibilityLabel={titleA11yLabel || title}
-          accessibilityRole={titleAccessibilityRole}>
-          <TextView variant="MobileBodyBold" mb={text ? 20 : 0}>
-            {title}
-          </TextView>
+          accessibilityLabel={headerA11yLabel || header}
+          role="heading">
+          <Text style={headerFont}>{header}</Text>
         </View>
-      )}
-      {!!text && (
+      ) : null}
+      {description ? (
         <View
-          ref={!title ? viewRef : undefined}
+          // ref={!header ? viewRef : undefined}
           accessible={true}
-          accessibilityLabel={textA11yLabel || text}>
-          <TextView variant="MobileBody">{text}</TextView>
+          accessibilityLabel={descriptionA11yLabel || description}>
+          <Text style={descriptionFont}>{description}</Text>
         </View>
-      )}
+      ) : null}
       {children}
-      {shouldFocus && vibrate()}
-    </Box>
+      {/* {shouldFocus && vibrate()} */}
+      </View>
+    </View>
   )
 }
