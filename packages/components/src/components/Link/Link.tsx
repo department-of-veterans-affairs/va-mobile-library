@@ -253,6 +253,7 @@ export const Link: FC<LinkProps> = ({
     ...a11yProps,
     style: {
       flexDirection: 'row',
+      alignItems: 'center',
     },
   }
 
