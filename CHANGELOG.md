@@ -1,5 +1,13 @@
 # Changelog
 
+## [linting-v0.4.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.4.0) (2024-03-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.12.0...linting-v0.4.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Link component - Update linting package [\#227](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/227) ([narin](https://github.com/narin))
+
 ## [components-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.12.0) (2024-03-14)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.11.0...components-v0.12.0)
