@@ -1,5 +1,28 @@
 # Changelog
 
+## [components-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.12.0) (2024-03-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.11.0...components-v0.12.0)
+
+**Fixed bugs:**
+
+- BUG - Sev-3 - Web - Icon scaling does not work [\#100](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/100)
+
+**Closed issues:**
+
+- Design Tokens: Set up semantic tokens in Figma [\#233](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/233)
+- Link - Visual QA Findings [\#220](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/220)
+- Discovery - Design Tokens: Create structure for semantic tokens [\#163](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/163)
+- DS - Document Icon Component [\#174](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/174)
+- \[CU\] Add conditional typings to Icon [\#99](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/99)
+- Link - Publish component to Figma and Doc Site [\#111](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/111)
+- Move Contributing to the Design System ticket template to the DS repo [\#123](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/123)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix horizontal alignment [\#239](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/239) ([narin](https://github.com/narin))
+- \[Feature\] Link - Visual QA Updates/Fixes [\#224](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/224) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.11.0) (2024-03-06)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.10.0...components-v0.11.0)
