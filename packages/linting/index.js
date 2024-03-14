@@ -1,7 +1,7 @@
 module.exports = {
   plugins: ['deprecate'],
   rules: {
-    'deprecate/import': [
+    'deprecate/import-va-button': [
       'warn',
       {
         name: 'VAButton',
@@ -9,7 +9,7 @@ module.exports = {
         use: 'Button from @department-of-veterans-affairs/mobile-component-library',
       },
     ],
-    'deprecate/import': [
+    'deprecate/import-click-for-action-link': [
       'warn',
       {
         name: 'ClickForActionLink',
@@ -17,7 +17,7 @@ module.exports = {
         use: 'Link from @department-of-veterans-affairs/mobile-component-library',
       },
     ],
-    'deprecate/import': [
+    'deprecate/import-click-to-call-phone-number': [
       'warn',
       {
         name: 'ClickToCallPhoneNumber',
@@ -25,7 +25,7 @@ module.exports = {
         use: 'Link from @department-of-veterans-affairs/mobile-component-library',
       },
     ],
-    'deprecate/import': [
+    'deprecate/import-attachment-link': [
       'warn',
       {
         name: 'AttachmentLink',
