@@ -1,5 +1,7 @@
 import { Alert, AlertProps } from './Alert'
+import { Link } from '../Link/Link'
 import { Meta, StoryObj } from '@storybook/react'
+import { Spacer } from '../../utils/'
 import { View } from 'react-native'
 import React from 'react'
 
@@ -23,31 +25,39 @@ const meta: Meta<AlertProps> = {
       </View>
     ),
   ],
-  parameters: {
-    design: [
-      {
-        name: 'Figma component overview',
-        type: 'figma',
-        url: 'https://www.figma.com/file/Zzt8z60hCtdEzXx2GFWghH/%F0%9F%93%90-Component-Library?type=design&node-id=224-548&mode=design&t=LVehKHpWhqSKrQMW-4',
-      },
-      {
-        name: 'Figma examples',
-        type: 'figma',
-        url: 'https://www.figma.com/file/Zzt8z60hCtdEzXx2GFWghH/%F0%9F%93%90-Component-Library?type=design&node-id=224-532&mode=design&t=LVehKHpWhqSKrQMW-4',
-      },
-    ],
-  },
 }
 
 export default meta
 
 type Story = StoryObj<AlertProps>
 
+const children = (
+    <>
+      <Link type='call' text='000-000-0000' phoneNumber='000-000-0000' />
+      <Spacer />
+      <Link type='call TTY' text='TTY: 711' TTYnumber='711' />
+    </>
+  )
+
 export const Info: Story = {
   args: {
     variant: 'info',
     header: 'header blah blah blah',
-    description: 'description blah blah blah description blah blah blah description blah blah blah'
+    description:
+      'description blah blah blah description blah blah blah description blah blah blah',
+    children: children,
+    primaryButton: {
+      label: 'Button Text',
+      onPress: () => {
+        null
+      },
+    },
+    secondaryButton: {
+      label: 'Button Text',
+      onPress: () => {
+        null
+      },
+    },
   },
 }
 

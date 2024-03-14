@@ -4,9 +4,10 @@ import {
   PressableStateCallbackType,
   useColorScheme as RNUseColorScheme,
   StyleProp,
+  View,
   ViewStyle,
 } from 'react-native'
-import { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 /** Handles return of color scheme based on platform */
 export function useColorScheme(): ColorSchemeName {
@@ -65,4 +66,26 @@ export function PressableOpacityStyle(
   }
 
   return ({ pressed }) => [{ opacity: pressed ? 0.2 : 1 }]
+}
+
+export type SpacerProps = {
+  /** Size of spacer, default 10 */
+  size?: number
+  /** True for horizontal spacing */
+  horizontal?: boolean
+}
+
+/** Convenience component for handling spacing without managing margin/padding between elements */
+export const Spacer: FC<SpacerProps> = ({
+  size = 10,
+  horizontal = false
+}) => {
+  return (
+    <View
+      style={{
+        width: horizontal ? size : 'auto',
+        height: !horizontal ? size : 'auto',
+      }}
+    />
+  )
 }
