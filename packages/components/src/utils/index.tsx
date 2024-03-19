@@ -7,7 +7,15 @@ import {
   View,
   ViewStyle,
 } from 'react-native'
+import { Colors as TokenColors } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC, useEffect, useState } from 'react'
+
+/** Function to prefill base gray colors */
+export function Base() {
+  const colorScheme = useColorScheme()
+
+  return colorScheme === 'dark' ? TokenColors.grayLightest : TokenColors.grayDark
+}
 
 /** Handles return of color scheme based on platform */
 export function useColorScheme(): ColorSchemeName {

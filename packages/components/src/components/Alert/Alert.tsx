@@ -1,41 +1,48 @@
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 // import { HapticFeedbackTypes } from 'react-native-haptic-feedback'
-import { ScrollView, Text, TextStyle, View, ViewStyle } from 'react-native'
-import React, { FC, RefObject, useEffect, useState } from 'react'
+import { Text, TextStyle, View, ViewStyle } from 'react-native'
+//      ^ ScrollView,
+import React, { FC } from 'react'
+//                ^ , RefObject, useEffect, useState
 
 // import { triggerHaptic } from 'utils/haptics'
 // import { useAutoScrollToElement } from 'utils/hooks'
 
+import { Base, Spacer, useColorScheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
 import { Icon, IconProps } from '../Icon/Icon'
-import { Spacer, useColorScheme } from '../../utils'
+
+/** Convenience function to set children content color correctly with light/dark mode */
+export const AlertContentColor = Base
 
 export type AlertProps = {
   /** Alert variant */
   variant: 'info' | 'success' | 'warning' | 'error'
-  /**  */
+  /** Optional header text */
   header?: string
-  /**  */
+  /** Optional a11y override for header */
   headerA11yLabel?: string
-  /**  */
+  /** Optional description text */
   description?: string
-  /**  */
+  /** Optional a11y override for description */
   descriptionA11yLabel?: string
-  /**  */
+  /** Optional custom content to nest inside Alert
+   * Use AlertContentColor or appropriate component props to set light/dark mode 'base' gray colors */
   children?: React.ReactNode
-  /**  */
+  /** Optional primary action button */
   primaryButton?: ButtonProps
-  /**  */
+  /** Optional secondary action button */
   secondaryButton?: ButtonProps
   /** Optional boolean for determining when to focus on error alert boxes (e.g. onSaveClicked). */
-  focusOnError?: boolean
+  // focusOnError?: boolean
   /** Optional ref for the parent scroll view. Used for scrolling to error alert boxes. */
-  scrollViewRef?: RefObject<ScrollView>
+  // scrollViewRef?: RefObject<ScrollView>
   /** optional testID */
   testId?: string
 }
 
 /**
+ * Work in progress:
  * Displays content in a box styled as an alert
  */
 export const Alert: FC<AlertProps> = ({
@@ -47,8 +54,8 @@ export const Alert: FC<AlertProps> = ({
   children,
   primaryButton,
   secondaryButton,
-  focusOnError = true,
-  scrollViewRef,
+  // focusOnError = true,
+  // scrollViewRef,
   testId,
 }) => {
   const colorScheme = useColorScheme()
@@ -81,8 +88,9 @@ export const Alert: FC<AlertProps> = ({
     _8: 8,
     _12: 12,
     _20: 20,
+    _30: 30,
   }
-  const contentColor = isDarkMode ? Colors.grayLightest : Colors.grayDark
+  const contentColor = AlertContentColor()
   let backgroundColor, borderColor, iconProps: IconProps
 
   switch (variant) {
@@ -143,13 +151,14 @@ export const Alert: FC<AlertProps> = ({
     borderLeftWidth: Sizing._8,
     padding: Sizing._20,
     paddingLeft: Sizing._12, // Adds with borderLeftWidth for 20
+    width: '100%' // Ensure Alert fills horizontal space, regardless of flexing content
   }
 
   const iconViewStyle: ViewStyle = {
     flexDirection: 'row',
     // Below keeps icon aligned with first row of text, centered, and scalable
     alignSelf: 'flex-start',
-    minHeight: 30,
+    minHeight: Sizing._30,
     alignItems: 'center',
     justifyContent: 'center',
   }
