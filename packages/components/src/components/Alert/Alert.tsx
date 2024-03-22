@@ -8,12 +8,12 @@ import React, { FC } from 'react'
 // import { triggerHaptic } from 'utils/haptics'
 // import { useAutoScrollToElement } from 'utils/hooks'
 
-import { Base, Spacer, useColorScheme } from '../../utils'
+import { BaseColor, Spacer, useColorScheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
 import { Icon, IconProps } from '../Icon/Icon'
 
 /** Convenience function to set children content color correctly with light/dark mode */
-export const AlertContentColor = Base
+export const AlertContentColor = BaseColor
 
 export type AlertProps = {
   /** Alert variant */

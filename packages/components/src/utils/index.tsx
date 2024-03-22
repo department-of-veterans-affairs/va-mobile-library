@@ -11,7 +11,7 @@ import { Colors as TokenColors } from '@department-of-veterans-affairs/mobile-to
 import React, { FC, useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
-export function Base() {
+export function BaseColor() {
   const colorScheme = useColorScheme()
 
   return colorScheme === 'dark' ? TokenColors.grayLightest : TokenColors.grayDark
