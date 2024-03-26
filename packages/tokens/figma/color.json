@@ -274,5 +274,13 @@
   "uswdsYellowVivid70": {
     "$value": "#5c4809",
     "$type": "color"
+  },
+  "primaryTest": {
+    "$value": "#005ea2",
+    "$type": "color"
+  },
+  "buttonPrimaryBackground": {
+    "$value": "#005ea2",
+    "$type": "color"
   }
 }

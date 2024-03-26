@@ -1,0 +1,11 @@
+{
+  "color": {
+    "button-primary-background": {
+      "name": "button-primary-background",
+      "value": "{color.primary-test}",
+      "attributes": {
+        "category": "color"
+      }
+    }
+  }
+}

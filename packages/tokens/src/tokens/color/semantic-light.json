@@ -1,0 +1,11 @@
+{
+  "color": {
+    "primary-test": {
+      "name": "primary-test",
+      "value": "{uswds-system-color-blue-vivid-60}",
+      "attributes": {
+        "category": "color"
+      }
+    }
+  }
+}
