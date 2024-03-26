@@ -1,4 +1,3 @@
-
 <!-- PR title naming convention:
 '[Issue type] Brief summary of issue suitable for changelog or copy/paste issue title',
 where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
@@ -7,9 +6,6 @@ where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
 '[Issue type]/[Issue #]-[Your name]-[Summary of issue]',
 where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
 
-<!-- Update w/ ticket number to cross-repo link PR and ticket; ZenHub URL does not work -->
-**[Ticket # ](https://github.com/department-of-veterans-affairs/va-mobile-app/issues/# )**
-
 ## Description of Change
 <!-- Describe the change and context with which it was made beyond ACs unless straightforward.
 Consider:
@@ -17,10 +13,13 @@ Consider:
  - What context may be relevant to a future dev or you in 6 months about this PR?
  - Did the course of work lead to notable dead ends? If so, why didn't they pan out?
  - Did the change add new dependencies? Why?
- - Were there important sources to link? Examples: an open bug with a dependency project, an article of someone else solving the same problem that was partially or wholly copied, external documentation relevant to solution -->
+ - Were there important sources to link? Examples: an open bug with a dependency project, an article of someone else solving the same problem that was partially or wholly copied, external documentation relevant to solution
+ -->
+
 
 #### Testing Packages
 <!-- List or range of alpha/beta packages published in association with this PR, if any -->
+
 
 ### Screenshots/Video
 <!-- Add screenshots or video as needed; before/after recommended if appropriate. 
@@ -28,6 +27,7 @@ Convenience side-by-side formatting:
 Before/after: <img src="" width="49%" />&nbsp;&nbsp;<img src="" width="49%" />
 Accordion before/after: <details><summary>Before/after</summary><img src="" width="49%" />&nbsp;&nbsp;<img src="" width="49%" /></details>
 -->
+
 
 ## Testing
 <!-- Describe testing conducted to validate changes.
@@ -61,4 +61,5 @@ Code reviewer validation:
 If changes warrant a new version [per the versioning guidelines](https://github.com/department-of-veterans-affairs/va-mobile-library#versioning-policy) and the PR is approved and ready to merge:
 - [ ] Merge `main` into branch
 - [ ] Merge branch to `main`
+- [ ] Verify that [Check Component Integrations](https://github.com/department-of-veterans-affairs/va-mobile-library/actions/workflows/check-component-integrations.yml) workflow ran successfully
 - [ ] [Publish new version](https://github.com/department-of-veterans-affairs/va-mobile-library/actions/workflows/publish.yml) after merging
