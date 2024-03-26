@@ -1,0 +1,18 @@
+{
+  "color": {
+    "primary-test": {
+      "name": "primary-test",
+      "value": "{uswds-system-color-blue-vivid-60}",
+      "attributes": {
+        "category": "color"
+      }
+    },
+    "primary-test-on-light": {
+      "name": "primary-test-on-light",
+      "value": "{vads-color-base}",
+      "attributes": {
+        "category": "color"
+      }
+    }
+  }
+}
