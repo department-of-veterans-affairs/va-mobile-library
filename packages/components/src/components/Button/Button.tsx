@@ -144,7 +144,7 @@ export const Button: React.FC<ButtonProps> = ({
   const getBackgroundStyle = ({
     pressed,
   }: PressableStateCallbackType): ViewStyle => ({
-    alignSelf: 'stretch',
+    width: '100%', // Ensure Button fills horizontal space, regardless of flexing content
     alignItems: 'center',
     padding: 10,
     backgroundColor: pressed ? bgColorPressed : bgColor,
