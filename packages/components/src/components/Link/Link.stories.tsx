@@ -55,34 +55,12 @@ export const DefaultWithIcon: Story = {
   },
 }
 
-const paragraphText: LinkProps['paragraphText'] = [
-  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  { text: 'A sentence may include a ' },
-  {
-    text: 'link that opens in the app',
-    type: 'custom',
-    onPress: () => {
-      null
-    },
-    a11yLabel: 'a11y override',
-  },
-  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  { text: ' or a ' },
-  {
-    text: 'link that opens in an external app',
-    type: 'url',
-    url: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/intro',
-  },
-  // @ts-ignore: TS being wrong and thinking all should be LinkProps and none normalText
-  { text: '.' },
-]
-
-export const Inline: Story = {
+export const _Attachment: Story = {
   args: {
-    text: '',
+    text: 'Attachment.pdf',
     onPress: undefined, // Storybook sends a truthy function shell otherwise
-    type: 'inline',
-    paragraphText: paragraphText,
+    type: 'attachment',
+    a11yValue: { index: 2, total: 5 },
   },
 }
 

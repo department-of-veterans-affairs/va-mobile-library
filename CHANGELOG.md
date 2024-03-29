@@ -1,5 +1,82 @@
 # Changelog
 
+## [linting-v0.4.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.4.0) (2024-03-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.12.0...linting-v0.4.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Link component - Update linting package [\#227](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/227) ([narin](https://github.com/narin))
+
+## [components-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.12.0) (2024-03-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.11.0...components-v0.12.0)
+
+**Fixed bugs:**
+
+- BUG - Sev-3 - Web - Icon scaling does not work [\#100](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/100)
+
+**Closed issues:**
+
+- Design Tokens: Set up semantic tokens in Figma [\#233](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/233)
+- Link - Visual QA Findings [\#220](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/220)
+- Discovery - Design Tokens: Create structure for semantic tokens [\#163](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/163)
+- DS - Document Icon Component [\#174](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/174)
+- \[CU\] Add conditional typings to Icon [\#99](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/99)
+- Link - Publish component to Figma and Doc Site [\#111](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/111)
+- Move Contributing to the Design System ticket template to the DS repo [\#123](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/123)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix horizontal alignment [\#239](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/239) ([narin](https://github.com/narin))
+- \[Feature\] Link - Visual QA Updates/Fixes [\#224](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/224) ([TimRoe](https://github.com/TimRoe))
+
+## [components-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.11.0) (2024-03-06)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.10.0...components-v0.11.0)
+
+**Closed issues:**
+
+- DS - Alert - Update Icons [\#202](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/202)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix Web Storybook Icon Scaling [\#222](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/222) ([TimRoe](https://github.com/TimRoe))
+
+## [components-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.10.0) (2024-03-04)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.3.0...components-v0.10.0)
+
+**Closed issues:**
+
+- Link - Visual QA [\#166](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/166)
+
+**Merged pull requests:**
+
+- \[Feature\] Update Icons for Alert [\#219](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/219) ([TimRoe](https://github.com/TimRoe))
+
+## [assets-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.3.0) (2024-03-01)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.9.0...assets-v0.3.0)
+
+**Closed issues:**
+
+- Link - Update docs/Figma to reflect new variants [\#210](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/210)
+- Link - Update copy for leaving app prompt [\#196](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/196)
+- Link component - Add Attachment type support [\#183](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/183)
+- Link component - Add analytics support and remove TODO calendar code [\#170](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/170)
+- Snackbar - Accessibility requirements [\#155](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/155)
+- DS - Make Repo Public [\#141](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/141)
+- Link Component - Storybook [\#135](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/135)
+- Radio Button - Align with VADS and publish documentation [\#110](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/110)
+- Checkbox - Align with VADS and publish documentation [\#109](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/109)
+
+**Merged pull requests:**
+
+- \[Feature\] Link - Add attachment type support [\#215](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/215) ([TimRoe](https://github.com/TimRoe))
+- \[BUG\] Fix TS error – Update LinkAnalytics import to relative [\#209](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/209) ([narin](https://github.com/narin))
+- \[Feature\] Link - Adjustments to stories order/names/text [\#206](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/206) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.9.0) (2024-02-27)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.8.0...components-v0.9.0)
