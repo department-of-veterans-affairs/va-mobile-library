@@ -13,7 +13,9 @@ assignees: kellylein
 
 - High level description of the project and what we are trying to solve
 
- 
+### Product Brief:
+- [link to GitHub Product Brief]
+
 ### Current Dependencies / Blockers
 <details>
 <summary>Blockers</summary>
