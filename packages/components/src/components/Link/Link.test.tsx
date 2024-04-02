@@ -1,17 +1,13 @@
 import { RenderAPI, fireEvent, render } from '@testing-library/react-native'
 import React from 'react'
 
-import * as link from './Link'
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
-import { Link, LinkAnalytics, LinkProps } from './Link'
+import { Link, LinkProps } from './Link'
 
 const onPressSpy = jest.fn()
 const mockedColorScheme = jest.fn()
-const mockedUseExternalLink = jest.spyOn(utils, 'useExternalLink')
-// const mocked2UseExternalLink = jest.spyOn(utils, 'useExternalLink')
-  // .mockImplementation((url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => return)
-const mocked2UseExternalLink = mockedUseExternalLink.mockImplementation(() => ((url, analytics, text) => {return url}))
+let mockedUseExternalLink = jest.spyOn(utils, 'useExternalLink')
 
 jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
   return {
@@ -35,10 +31,15 @@ describe('Link', () => {
   const getTextColor = (element: RenderAPI) =>
     element.getByText(defaultProps.text).props.style.color
 
-    afterEach(() => {
-      // restore the spy created with spyOn
-      jest.restoreAllMocks();
-    });
+  beforeEach(() => {
+    mockedUseExternalLink = jest.spyOn(utils, 'useExternalLink')
+  })
+
+  afterEach(() => {
+    // Restore spy mocks for each test
+    jest.restoreAllMocks()
+    onPressSpy.mockReset()
+  })
 
   describe('Default/custom variant and basic tests', () => {
     beforeEach(() => {
@@ -153,6 +154,7 @@ describe('Link', () => {
       fireEvent.press(component.getByText('Calendar Link'))
 
       expect(onPressSpy).toHaveBeenCalled()
+      // expect(mockedUseExternalLink).not.toHaveBeenCalled()
     })
 
     it('renders calendar icon', async () => {
@@ -164,12 +166,9 @@ describe('Link', () => {
   })
 
   describe('call variant tests', () => {
-    // const mockedUseExternalLink = jest.spyOn(utils, 'useExternalLink')
-    // jest.spyOn(utils, 'useExternalLink')
     const callProps: LinkProps = {
       type: 'call',
       phoneNumber: '1234567890',
-      onPress: undefined,
       text: '123-456-7890',
     }
     beforeEach(() => {
@@ -183,27 +182,15 @@ describe('Link', () => {
     })
 
     it('calls useExternalLink hook when tapped', async () => {
-      // const phoneProp = component.UNSAFE_queryByProps({ phoneNumber: '1234567890' })
-      // const LinkComponent = component.root.findByType(Link)
-    
-      console.log('useExternalLink Test start')
-      // const mockedUseExternalLink = jest.spyOn(utils, 'useExternalLink')
-      // jest.spyOn(utils, 'useExternalLink')
+      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+      mockedUseExternalLink.mockRestore()
+      console.log('pre-press')
       fireEvent.press(component.getByText('123-456-7890'))
-
-      console.log('useExternalLink Test middle')
-
-      // await new Promise((resolve) => setTimeout(resolve, 1000))
+      console.log('post-press')
 
       expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
-      // expect(LinkComponent).toBeDefined()
-      // expect(component.UNSAFE_queryByProps({phoneNumber: '1234567890'})).toBe('Truck')
-      // expect(phoneProp).toBe('Truck')
-      // expect(mockedUseExternalLink.mock.results).toHaveBeenLastCalledWith('tel:1234567890')
-      // expect(mockedUseExternalLink).toHaveBeenCalledWith('tel:1234567890')
-      // expect(mocked2UseExternalLink.toString()).toHaveBeenCalledWith('tel:1234567890')
-      // expect(utils.useExternalLink).toHaveBeenLastCalledWith('tel:1234567890')
-      console.log('useExternalLink Test end')
+      // expect(mockedUseExternalLink).toHaveBeenCalledWith({url: 'tel:1234567890'})
+      expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders call icon', async () => {
@@ -214,68 +201,139 @@ describe('Link', () => {
     })
   })
 
-  it('renders call TTY link', async () => {
+  describe('call TTY variant tests', () => {
     const callTTYProps: LinkProps = {
       type: 'call TTY',
-      onPress: jest.fn(),
-      TTYnumber: '1234567890',
-      text: 'Call TTY Link',
+      TTYnumber: '711',
+      text: 'TTY: 711',
     }
+    beforeEach(() => {
+      component = render(<Link {...callTTYProps} />)
+    })
 
-    const { getByText } = render(<Link {...callTTYProps} />)
-    const linkText = getByText('Call TTY Link')
-    expect(linkText).toBeDefined()
+    it('renders call TTY link', async () => {
+      const linkText = component.getByText('TTY: 711')
+
+      expect(linkText).toBeDefined()
+    })
+
+    it('calls useExternalLink hook when tapped', async () => {
+      fireEvent.press(component.getByText('TTY: 711'))
+
+      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+    })
+
+    it('renders TTY icon', async () => {
+      const icon = component.root.findByType(Icon)
+
+      expect(icon).toBeDefined()
+      expect(icon.props.name).toBe('TTY')
+    })
   })
 
-  it('renders custom link', async () => {
-    const customProps: LinkProps = {
-      type: 'custom',
-      onPress: jest.fn(),
-      text: 'Custom Link',
+  describe('directions variant tests', () => {
+    const location = {
+      lat: 33.7764681,
+      long: -118.1189664,
+      name: 'Tibor Rubin VA Medical Center',
+      address: {
+        street: '5901 E 7th St',
+        city: 'Long Beach',
+        state: 'CA',
+        zipCode: '90822',
+      },
     }
-
-    const { getByText } = render(<Link {...customProps} />)
-    const linkText = getByText('Custom Link')
-    expect(linkText).toBeDefined()
-  })
-
-  it('renders directions link', async () => {
     const directionsProps: LinkProps = {
       type: 'directions',
-      onPress: jest.fn(),
-      locationData: { latitude: 123, longitude: 456, name: 'Test Location' },
-      text: 'Directions Link',
+      locationData: {
+        latitude: location.lat,
+        longitude: location.long,
+        name: location.name,
+      },
+      text: 'Get Directions',
     }
+    beforeEach(() => {
+      component = render(<Link {...directionsProps} />)
+    })
 
-    const { getByText } = render(<Link {...directionsProps} />)
-    const linkText = getByText('Directions Link')
-    expect(linkText).toBeDefined()
+    it('renders directions link', async () => {
+      const linkText = component.getByText('Get Directions')
+
+      expect(linkText).toBeDefined()
+    })
+
+    it('calls useExternalLink hook when tapped', async () => {
+      fireEvent.press(component.getByText('Get Directions'))
+
+      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+    })
+
+    it('renders directions icon', async () => {
+      const icon = component.root.findByType(Icon)
+
+      expect(icon).toBeDefined()
+      expect(icon.props.name).toBe('Directions')
+    })
   })
 
-  it('renders text link', async () => {
+  describe('text variant tests', () => {
     const textProps: LinkProps = {
       type: 'text',
-      onPress: jest.fn(),
-      textNumber: '1234567890',
-      text: 'Text Link',
+      textNumber: '123456',
+      text: 'Text 123456',
     }
+    beforeEach(() => {
+      component = render(<Link {...textProps} />)
+    })
 
-    const { getByText } = render(<Link {...textProps} />)
-    const linkText = getByText('Text Link')
-    expect(linkText).toBeDefined()
+    it('renders text link', async () => {
+      const linkText = component.getByText('Text 123456')
+
+      expect(linkText).toBeDefined()
+    })
+
+    it('calls onPress when tapped', async () => {
+      fireEvent.press(component.getByText('Text 123456'))
+
+      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+    })
+
+    it('renders mobile phone icon', async () => {
+      const icon = component.root.findByType(Icon)
+
+      expect(icon).toBeDefined()
+      expect(icon.props.name).toBe('Text')
+    })
   })
 
-  it('renders url link', async () => {
+  describe('url variant tests', () => {
     const urlProps: LinkProps = {
       type: 'url',
-      onPress: jest.fn(),
       url: 'https://www.va.com',
       text: 'URL Link',
     }
+    beforeEach(() => {
+      component = render(<Link {...urlProps} />)
+    })
 
-    const { getByText } = render(<Link {...urlProps} />)
-    const linkText = getByText('URL Link')
-    expect(linkText).toBeDefined()
+    it('renders url link', async () => {
+      const linkText = component.getByText('URL Link')
+
+      expect(linkText).toBeDefined()
+    })
+
+    it('calls onPress when tapped', async () => {
+      fireEvent.press(component.getByText('URL Link'))
+
+      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+    })
+
+    it('renders external link icon', async () => {
+      const icon = component.root.findByType(Icon)
+
+      expect(icon).toBeDefined()
+      expect(icon.props.name).toBe('ExternalLink')
+    })
   })
 
   // Add a11y tests
@@ -285,4 +343,6 @@ describe('Link', () => {
   // Add analytics tests
 
   // Add more test cases as needed
+
+  // Add OSFunctions tests for FormDirectionsUrl and maybe useExternalLink
 })

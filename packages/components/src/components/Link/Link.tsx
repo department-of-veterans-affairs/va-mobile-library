@@ -198,8 +198,6 @@ export const Link: FC<LinkProps> = ({
       break
   }
 
-  console.log('onPress: ' + _onPress)
-
   if (icon !== 'no icon' && (!icon.height || !icon.width)) {
     icon.height = 24
     icon.width = 24
