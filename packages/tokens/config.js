@@ -7,6 +7,8 @@ module.exports = {
     'src/tokens/color/uswds.json',
     'src/tokens/color/semantic-light.json',
     'src/tokens/color/component-light.json',
+    'src/tokens/color/semantic-dark.json',
+    'src/tokens/color/component-dark.json',
   ],
   platforms: {
     rn: {
@@ -29,11 +31,23 @@ module.exports = {
     figma: {
       transformGroup: 'figma',
       buildPath: './figma/',
-      files: tokenCategories.map((tokenCategory) => ({
-        destination: `${tokenCategory}.json`,
-        format: 'json',
-        filter: 'isUniqueColor',
-      })),
+      files: [
+        {
+          destination: `light.json`,
+          format: 'json',
+          filter: 'notDarkMode',
+        },
+        {
+          destination: `dark.json`,
+          format: 'json',
+          filter: 'notLightMode',
+        },
+      ],
+      // tokenCategories.map((tokenCategory) => ({
+      //   destination: `${tokenCategory}.json`,
+      //   format: 'json',
+      //   filter: 'isUniqueColor',
+      // })),
     },
   },
 }
