@@ -1,8 +1,8 @@
 {
   "color": {
-    "button-primary-background": {
-      "name": "button-primary-background",
-      "value": "{color.primary-test}",
+    "button-primary-background-on-light": {
+      "name": "button-primary-background-on-light",
+      "value": "{color.semantic-test-on-light}",
       "attributes": {
         "category": "color"
       }

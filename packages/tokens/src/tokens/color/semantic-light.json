@@ -1,15 +1,15 @@
 {
   "color": {
-    "primary-test": {
-      "name": "primary-test",
+    "semantic-test-on-light": {
+      "name": "semantic-test-on-light",
       "value": "{uswds-system-color-blue-vivid-60}",
       "attributes": {
         "category": "color"
       }
     },
-    "primary-test-on-light": {
-      "name": "primary-test-on-light",
-      "value": "{vads-color-base}",
+    "semantic-test-2-on-light": {
+      "name": "semantic-test-2-on-light",
+      "value": "{vads-color-base.*.value}",
       "attributes": {
         "category": "color"
       }

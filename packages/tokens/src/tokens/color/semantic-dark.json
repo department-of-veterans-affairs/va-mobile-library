@@ -1,15 +1,15 @@
 {
   "color": {
-    "test-ref": {
-      "name": "test-ref",
-      "value": "{color.uswds-system-color-blue-vivid-5}",
+    "semantic-test-on-dark": {
+      "name": "semantic-test-on-dark",
+      "value": "{uswds-system-color-blue-vivid-60}",
       "attributes": {
         "category": "color"
       }
     },
-    "test-ref-2": {
-      "name": "test-ref-2",
-      "value": "{color.base}",
+    "semantic-test-2-on-dark": {
+      "name": "semantic-test-2-on-dark",
+      "value": "{vads-color-base.*.value}",
       "attributes": {
         "category": "color"
       }
