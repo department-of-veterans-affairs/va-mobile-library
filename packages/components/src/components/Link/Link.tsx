@@ -103,7 +103,7 @@ export type LinkProps = linkTypes & {
   /** Color variant */
   variant?: 'default' | 'base'
   /** Optional icon override, sized by default to 24x24 */
-  icon?: IconProps | 'no icon'
+  icon?: Partial<IconProps> | 'no icon'
   /** Optional a11yLabel override; should be used for phone numbers */
   a11yLabel?: string
   /** Optional a11yHint to provide additional context */
@@ -142,6 +142,25 @@ export const Link: FC<LinkProps> = ({
   const isDarkMode = colorScheme === 'dark'
   const launchExternalLink = useExternalLink()
 
+  let _icon: IconProps | 'no icon'
+  
+  /** Function to massage Partial<IconProps> data into IconProps based on variant icon defaults */
+  const setIcon = (name?: IconProps['name']) => {
+    switch (icon) {
+      case 'no icon':
+        return 'no icon'
+      case undefined:
+        if (name) return { name }
+        return 'no icon'
+      default:
+        if (icon.svg) return icon as IconProps
+        if (!name && !icon.name) return 'no icon'
+        
+        if (!icon.name) icon.name = name
+        return icon as IconProps
+    }
+  }
+
   let _onPress: () => void = async () => {
     null // Empty function to keep TS happy a function exists
   }
@@ -154,53 +173,48 @@ export const Link: FC<LinkProps> = ({
 
   switch (type) {
     case 'attachment':
-      icon = icon ? icon : { name: 'PaperClip' }
+      _icon = setIcon('PaperClip')
       _onPress = customOnPress
       break
     case 'calendar':
-      icon = icon ? icon : { name: 'Calendar' }
+      _icon = setIcon('Calendar')
       _onPress = customOnPress
       break
     case 'call':
-      icon = icon ? icon : { name: 'Phone' }
+      _icon = setIcon('Phone')
       _onPress = async (): Promise<void> => {
         launchExternalLink(`tel:${phoneNumber}`, analytics)
       }
       break
     case 'call TTY':
-      icon = icon ? icon : { name: 'TTY' }
+      _icon = setIcon('TTY')
       _onPress = async (): Promise<void> => {
         launchExternalLink(`tel:${TTYnumber}`, analytics)
       }
       break
     case 'custom':
-      icon = icon ? icon : 'no icon'
+      _icon = setIcon()
       _onPress = customOnPress
       break
     case 'directions':
-      icon = icon ? icon : { name: 'Directions' }
+      _icon = setIcon('Directions')
       const directions = FormDirectionsUrl(locationData)
       _onPress = async (): Promise<void> => {
         launchExternalLink(directions, analytics, promptText)
       }
       break
     case 'text':
-      icon = icon ? icon : { name: 'Text' }
+      _icon = setIcon('Text')
       _onPress = async (): Promise<void> => {
         launchExternalLink(`sms:${textNumber}`, analytics)
       }
       break
     case 'url':
-      icon = icon ? icon : { name: 'ExternalLink' }
+      _icon = setIcon('ExternalLink')
       _onPress = async (): Promise<void> => {
         launchExternalLink(url, analytics, promptText)
       }
       break
-  }
-
-  if (icon !== 'no icon' && (!icon.height || !icon.width)) {
-    icon.height = 24
-    icon.width = 24
   }
 
   let linkColor: string
@@ -223,9 +237,9 @@ export const Link: FC<LinkProps> = ({
   }
 
   const iconDisplay =
-    icon === 'no icon' ? null : (
+    _icon === 'no icon' ? null : (
       <View style={iconViewStyle}>
-        <Icon fill={linkColor} {...icon} />
+        <Icon fill={linkColor} {..._icon} />
       </View>
     )
 
