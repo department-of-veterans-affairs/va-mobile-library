@@ -3,16 +3,24 @@ import React from 'react'
 
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
-import { Link, LinkProps } from './Link'
+import { Link, LinkAnalytics, LinkProps } from './Link'
 
 const onPressSpy = jest.fn()
 const mockedColorScheme = jest.fn()
-let mockedUseExternalLink = jest.spyOn(utils, 'useExternalLink')
 
 jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
   return {
     default: mockedColorScheme,
   }
+})
+
+const useExternalLinkHookMock = jest.fn((url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
+  url
+  analytics
+  text
+})
+jest.spyOn(utils, 'useExternalLink').mockImplementation(() => {
+  return useExternalLinkHookMock
 })
 
 describe('Link', () => {
@@ -31,14 +39,9 @@ describe('Link', () => {
   const getTextColor = (element: RenderAPI) =>
     element.getByText(defaultProps.text).props.style.color
 
-  beforeEach(() => {
-    mockedUseExternalLink = jest.spyOn(utils, 'useExternalLink')
-  })
-
   afterEach(() => {
-    // Restore spy mocks for each test
-    jest.restoreAllMocks()
     onPressSpy.mockReset()
+    useExternalLinkHookMock.mockReset()
   })
 
   describe('Default/custom variant and basic tests', () => {
@@ -52,16 +55,20 @@ describe('Link', () => {
 
     it('renders the link text', async () => {
       const linkText = component.getByText('Example Link')
+
       expect(linkText).toBeDefined()
     })
 
     it('calls onPress when tapped', async () => {
       fireEvent.press(component.getByText('Example Link'))
+
       expect(onPressSpy).toHaveBeenCalled()
+      expect(useExternalLinkHookMock).not.toHaveBeenCalled()
     })
 
     it('renders no icon', async () => {
       const icon = component.UNSAFE_queryByType(Icon)
+
       expect(icon).toBeNull()
     })
   })
@@ -70,38 +77,9 @@ describe('Link', () => {
     component = render(<Link {...defaultProps} icon={{ name: 'Truck' }} />)
 
     const icon = component.root.findByType(Icon)
+
     expect(icon).toBeDefined()
     expect(icon.props.name).toBe('Truck')
-  })
-
-  describe('light mode tone tests', () => {
-    it('renders primary tone', async () => {
-      component = render(<Link {...defaultProps} />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#005ea2')
-    })
-
-    it('renders base tone', async () => {
-      component = render(<Link {...defaultProps} variant="base" />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#3d4551')
-    })
-  })
-
-  describe('dark mode tone tests', () => {
-    beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
-
-    it('renders primary tone', async () => {
-      component = render(<Link {...defaultProps} />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#58b4ff')
-    })
-
-    it('renders base tone', async () => {
-      component = render(<Link {...defaultProps} variant="base" />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#f0f0f0')
-    })
   })
 
   describe('attachment variant tests', () => {
@@ -124,6 +102,7 @@ describe('Link', () => {
       fireEvent.press(component.getByText('Attachment Link'))
 
       expect(onPressSpy).toHaveBeenCalled()
+      expect(useExternalLinkHookMock).not.toHaveBeenCalled()
     })
 
     it('renders attachment icon', async () => {
@@ -154,7 +133,7 @@ describe('Link', () => {
       fireEvent.press(component.getByText('Calendar Link'))
 
       expect(onPressSpy).toHaveBeenCalled()
-      // expect(mockedUseExternalLink).not.toHaveBeenCalled()
+      expect(useExternalLinkHookMock).not.toHaveBeenCalled()
     })
 
     it('renders calendar icon', async () => {
@@ -182,14 +161,9 @@ describe('Link', () => {
     })
 
     it('calls useExternalLink hook when tapped', async () => {
-      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
-      mockedUseExternalLink.mockRestore()
-      console.log('pre-press')
       fireEvent.press(component.getByText('123-456-7890'))
-      console.log('post-press')
 
-      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
-      // expect(mockedUseExternalLink).toHaveBeenCalledWith({url: 'tel:1234567890'})
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('tel:1234567890', undefined)
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
@@ -220,7 +194,8 @@ describe('Link', () => {
     it('calls useExternalLink hook when tapped', async () => {
       fireEvent.press(component.getByText('TTY: 711'))
 
-      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('tel:711', undefined)
+      expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders TTY icon', async () => {
@@ -265,7 +240,8 @@ describe('Link', () => {
     it('calls useExternalLink hook when tapped', async () => {
       fireEvent.press(component.getByText('Get Directions'))
 
-      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://maps.apple.com/?t=m&daddr=%2BTibor+Rubin+VA+Medical+Center%2B33.7764681%2C-118.1189664', undefined, undefined)
+      expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders directions icon', async () => {
@@ -295,7 +271,8 @@ describe('Link', () => {
     it('calls onPress when tapped', async () => {
       fireEvent.press(component.getByText('Text 123456'))
 
-      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('sms:123456', undefined)
+      expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders mobile phone icon', async () => {
@@ -310,22 +287,23 @@ describe('Link', () => {
     const urlProps: LinkProps = {
       type: 'url',
       url: 'https://www.va.com',
-      text: 'URL Link',
+      text: 'External Link',
     }
     beforeEach(() => {
       component = render(<Link {...urlProps} />)
     })
 
     it('renders url link', async () => {
-      const linkText = component.getByText('URL Link')
+      const linkText = component.getByText('External Link')
 
       expect(linkText).toBeDefined()
     })
 
     it('calls onPress when tapped', async () => {
-      fireEvent.press(component.getByText('URL Link'))
+      fireEvent.press(component.getByText('External Link'))
 
-      expect(mockedUseExternalLink).toHaveBeenCalledTimes(1)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', undefined, undefined)
+      expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders external link icon', async () => {
@@ -336,7 +314,55 @@ describe('Link', () => {
     })
   })
 
-  // Add a11y tests
+  describe('light mode tone tests', () => {
+    it('renders primary tone', async () => {
+      component = render(<Link {...defaultProps} />)
+      textColor = getTextColor(component)
+      expect(textColor).toBe('#005ea2')
+    })
+
+    it('renders base tone', async () => {
+      component = render(<Link {...defaultProps} variant="base" />)
+      textColor = getTextColor(component)
+      expect(textColor).toBe('#3d4551')
+    })
+  })
+
+  describe('dark mode tone tests', () => {
+    beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
+
+    it('renders primary tone', async () => {
+      component = render(<Link {...defaultProps} />)
+      textColor = getTextColor(component)
+      expect(textColor).toBe('#58b4ff')
+    })
+
+    it('renders base tone', async () => {
+      component = render(<Link {...defaultProps} variant="base" />)
+      textColor = getTextColor(component)
+      expect(textColor).toBe('#f0f0f0')
+    })
+  })
+
+  describe('a11y tests', () => {
+    beforeEach(() => {
+      component = render(<Link {...defaultProps} />)
+    })
+
+    it('includes a11yLabel', async () => {
+      expect(component.root.props.accessibilityLabel).toBe('a11yLabel override')
+    })
+
+    it('includes a11yHint', async () => {
+      expect(component.root.props.accessibilityHint).toBe('a11yHint override')
+    })
+
+    it('includes a11yValue', async () => {
+      expect(component.UNSAFE_root.props.a11yValue).toStrictEqual({ index: 2, total: 5 })
+      // expect(component.root.props).toStrictEqual({ index: 2, total: 5 })
+      // expect(component).tohaveaccessibilityValue({ index: 2, total: 5 })
+    })
+  })
 
   // Add promptText tests
 
