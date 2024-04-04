@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const tokenCategories = require('./src/tokens')
-
 module.exports = {
   source: [
     '../../node_modules/@department-of-veterans-affairs/css-library/dist/tokens/json/variables.json',
@@ -19,12 +16,10 @@ module.exports = {
         {
           destination: 'js/index.js',
           format: 'javascript/es6/vads-colors',
-          filter: 'isUniqueColor',
         },
         {
           destination: 'index.d.ts',
           format: 'typescript/es6-declarations/colors',
-          filter: 'isUniqueColor',
         },
       ],
     },
@@ -34,20 +29,15 @@ module.exports = {
       files: [
         {
           destination: `light.json`,
-          format: 'json',
+          format: 'json/dtcg',
           filter: 'notDarkMode',
         },
         {
           destination: `dark.json`,
-          format: 'json',
+          format: 'json/dtcg',
           filter: 'notLightMode',
         },
       ],
-      // tokenCategories.map((tokenCategory) => ({
-      //   destination: `${tokenCategory}.json`,
-      //   format: 'json',
-      //   filter: 'isUniqueColor',
-      // })),
     },
   },
 }

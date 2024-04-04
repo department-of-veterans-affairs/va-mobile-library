@@ -1,16 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
-/**
- * Custom filter to include only tokens with the 'color' category and
- * exclude uswds primitives from variables.json to avoid collisions since these
- * colors are defined twice in variables.json
- */
-StyleDictionary.registerFilter({
-  name: 'isUniqueColor',
-  matcher: (token) => token.attributes.category.includes('color'),
-})
-
+/** Remove tokens that have the dark mode (OnDark) suffix */
 StyleDictionary.registerFilter({
   name: 'notDarkMode',
   matcher: (token) =>
@@ -18,18 +9,12 @@ StyleDictionary.registerFilter({
     !token.name.includes('OnDark'),
 })
 
+/** Remove tokens that have the light mode (OnLight) suffix */
 StyleDictionary.registerFilter({
   name: 'notLightMode',
   matcher: (token) =>
     token.attributes.category.includes('color') &&
     !token.name.includes('OnLight'),
-})
-
-StyleDictionary.registerFilter({
-  name: 'isUniqueColor',
-  matcher: (token) =>
-    token.attributes.category.includes('color') &&
-    token.filePath !== 'tokens/uswds.json',
 })
 
 /** Custom format for colors. Exports color tokens as single object */
@@ -63,18 +48,26 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
-    const tokensObject = dictionary.allTokens.reduce(
+    const tokens = dictionary.allTokens.reduce(
       (previousTokens, token) => ({
         ...previousTokens,
         [token.name]: {
           $value: token.value,
-          $type: token.path[0], // path[0] is top level token type (e.g. 'color'), should meet: https://tr.designtokens.org/format/#types
+          $type:
+            token.path[0] && token.path[0].includes('color') ? 'color' : '', // path[0] is top level token type (e.g. 'color'), should meet: https://tr.designtokens.org/format/#types
         },
       }),
       {},
     )
 
-    return JSON.stringify(tokensObject, undefined, 2) + `\n`
+    const sorted = Object.keys(tokens)
+      .sort()
+      .reduce((obj, key) => {
+        obj[key] = tokens[key]
+        return obj
+      }, {})
+
+    return JSON.stringify(sorted, undefined, 2) + `\n`
   },
 })
 
@@ -88,13 +81,14 @@ StyleDictionary.registerTransform({
       .replace('color', '')
       .replace('System', '')
       .replace('vads', '')
+      .replace('uswds', 'Uswds')
   },
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: ['name/cti/camel', 'name/color/clean-up', 'color/css'],
+  transforms: ['name/cti/camel', 'name/color/clean-up', 'color/hex'],
 })
 
 /** Registering transform group to massage output as desired for figma */
