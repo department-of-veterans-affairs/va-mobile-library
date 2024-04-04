@@ -76,7 +76,6 @@ export function useExternalLink(): (
     text?: leaveAppPromptText,
   ) => {
     if (analytics?.onPress) analytics.onPress()
-    console.log('useExternalLink: ', url, analytics, text)
 
     const onCancelPress = () => {
       if (analytics?.onCancel) analytics.onCancel()
