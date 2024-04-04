@@ -368,6 +368,9 @@ describe('Link', () => {
 
   // Add analytics tests
 
+  // Add more custom icon tests 
+  // (e.g. adjusting width/height, removing icon from preset, setting preventScaling, etc.)
+
   // Add more test cases as needed
 
   // Add OSFunctions tests for FormDirectionsUrl and maybe useExternalLink
