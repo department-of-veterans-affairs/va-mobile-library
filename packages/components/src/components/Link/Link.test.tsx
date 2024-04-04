@@ -371,4 +371,8 @@ describe('Link', () => {
   // Add more test cases as needed
 
   // Add OSFunctions tests for FormDirectionsUrl and maybe useExternalLink
+
+  // Split ticket to implement better a11y tests using Jest matchers
+  // (https://callstack.github.io/react-native-testing-library/docs/getting-started#jest-matchers)
+  // to actually inspect a11y values properly
 })
