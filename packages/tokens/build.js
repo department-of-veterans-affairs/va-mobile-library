@@ -6,7 +6,8 @@ StyleDictionary.registerFilter({
   name: 'notDarkMode',
   matcher: (token) =>
     token.attributes.category.includes('color') &&
-    !token.name.includes('OnDark'),
+    !token.name.includes('OnDark') &&
+    !token.name.includes('-on-dark'),
 })
 
 /** Remove tokens that have the light mode (OnLight) suffix */
@@ -14,7 +15,8 @@ StyleDictionary.registerFilter({
   name: 'notLightMode',
   matcher: (token) =>
     token.attributes.category.includes('color') &&
-    !token.name.includes('OnLight'),
+    !token.name.includes('OnLight') &&
+    !token.name.includes('-on-light'),
 })
 
 /** Custom format for colors. Exports color tokens as single object */

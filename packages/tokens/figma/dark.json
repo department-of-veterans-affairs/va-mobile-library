@@ -3,10 +3,6 @@
     "$value": "#005ea2",
     "$type": "color"
   },
-  "button-primary-background-on-light": {
-    "$value": "#005ea2",
-    "$type": "color"
-  },
   "link-default-hover": {
     "$value": "rgba(#000000, 0.05)",
     "$type": "color"
@@ -15,15 +11,7 @@
     "$value": "#1b1b1b",
     "$type": "color"
   },
-  "semantic-test-2-on-light": {
-    "$value": "#1b1b1b",
-    "$type": "color"
-  },
   "semantic-test-on-dark": {
-    "$value": "#005ea2",
-    "$type": "color"
-  },
-  "semantic-test-on-light": {
     "$value": "#005ea2",
     "$type": "color"
   },
@@ -475,26 +463,6 @@
     "$value": "#5c4809",
     "$type": "color"
   },
-  "vads-button-color-background-primary-alt-active-on-light": {
-    "$value": "#154c21",
-    "$type": "color"
-  },
-  "vads-button-color-background-secondary-on-light": {
-    "$value": "#ffffff",
-    "$type": "color"
-  },
-  "vads-button-color-text-primary-alt-on-light": {
-    "$value": "#ffffff",
-    "$type": "color"
-  },
-  "vads-button-color-text-primary-on-light": {
-    "$value": "#ffffff",
-    "$type": "color"
-  },
-  "vads-color-action-focus-on-light": {
-    "$value": "#face00",
-    "$type": "color"
-  },
   "vads-color-base": {
     "$value": "#1b1b1b",
     "$type": "color"
@@ -797,18 +765,6 @@
   },
   "vads-color-white": {
     "$value": "#ffffff",
-    "$type": "color"
-  },
-  "vads-input-background-color-on-light": {
-    "$value": "#ffffff",
-    "$type": "color"
-  },
-  "vads-label-hint-text-color-on-light": {
-    "$value": "#757575",
-    "$type": "color"
-  },
-  "vads-process-list-color-text-pending-on-light": {
-    "$value": "#757575",
     "$type": "color"
   }
 }
