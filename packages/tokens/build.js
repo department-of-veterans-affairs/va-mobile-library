@@ -58,8 +58,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
-    // Infers type from name. VADS does not use the type field properly so we need to
-    // infer them from the name. Will need to adjust when they add type and spacing
+    // Infers type from attributes. VADS does not consistently populate the type field properly
     const getType = (attributes) => {
       const { category, type } = attributes
 
