@@ -8,7 +8,7 @@
     "$type": "color"
   },
   "semantic-test-2-on-dark": {
-    "$value": "{vads-color-base.*.value}",
+    "$value": "{vads-color-base}",
     "$type": "color"
   },
   "semantic-test-on-dark": {

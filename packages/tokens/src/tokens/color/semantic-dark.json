@@ -8,7 +8,7 @@
   },
   "semantic-test-2-on-dark": {
     "name": "semantic-test-2-on-dark",
-    "value": "{vads-color-base.*.value}",
+    "value": "{vads-color-base}",
     "attributes": {
       "category": "color"
     }
