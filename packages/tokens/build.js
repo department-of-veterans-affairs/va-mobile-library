@@ -64,8 +64,8 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
+    // Returns proper  value for dtcg aliasing
     const getValue = (value) => {
-      // Return proper  value for dtcg aliasing
       if (value.startsWith('{') && value.includes('.')) {
         return `${value.split('.')[0]}}`
       }
