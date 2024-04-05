@@ -1,18 +1,16 @@
 {
-  "color": {
-    "semantic-test-on-light": {
-      "name": "semantic-test-on-light",
-      "value": "{uswds-system-color-blue-vivid-60}",
-      "attributes": {
-        "category": "color"
-      }
-    },
-    "semantic-test-2-on-light": {
-      "name": "semantic-test-2-on-light",
-      "value": "{vads-color-base.*.value}",
-      "attributes": {
-        "category": "color"
-      }
+  "semantic-test-on-light": {
+    "name": "semantic-test-on-light",
+    "value": "{uswds-system-color-blue-vivid-60}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "semantic-test-2-on-light": {
+    "name": "semantic-test-2-on-light",
+    "value": "{vads-color-base}",
+    "attributes": {
+      "category": "color"
     }
   }
 }

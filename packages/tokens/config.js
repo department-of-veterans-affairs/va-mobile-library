@@ -30,12 +30,12 @@ module.exports = {
         {
           destination: `light.json`,
           format: 'json/dtcg',
-          filter: 'notDarkMode',
+          filter: 'filter/color/light-mode',
         },
         {
           destination: `dark.json`,
           format: 'json/dtcg',
-          filter: 'notLightMode',
+          filter: 'filter/color/dark-mode',
         },
       ],
     },

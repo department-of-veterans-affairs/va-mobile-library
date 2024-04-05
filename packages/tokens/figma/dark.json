@@ -1,18 +1,18 @@
 {
   "button-primary-background-on-dark": {
-    "$value": "#005ea2",
+    "$value": "{semantic-test-on-dark}",
     "$type": "color"
   },
   "link-default-hover": {
-    "$value": "rgba(#000000, 0.05)",
+    "$value": "rgba({uswds-system-color-gray-100}, {color-link-default-hover.alpha})",
     "$type": "color"
   },
   "semantic-test-2-on-dark": {
-    "$value": "#1b1b1b",
+    "$value": "{vads-color-base.*.value}",
     "$type": "color"
   },
   "semantic-test-on-dark": {
-    "$value": "#005ea2",
+    "$value": "{uswds-system-color-blue-vivid-60}",
     "$type": "color"
   },
   "uswds-system-color-blue-10": {
@@ -464,303 +464,303 @@
     "$type": "color"
   },
   "vads-color-base": {
-    "$value": "#1b1b1b",
+    "$value": "{uswds-system-color-gray-90}",
     "$type": "color"
   },
   "vads-color-base-dark": {
-    "$value": "#565c65",
+    "$value": "{uswds-system-color-gray-cool-60}",
     "$type": "color"
   },
   "vads-color-base-darker": {
-    "$value": "#3d4551",
+    "$value": "{uswds-system-color-gray-cool-70}",
     "$type": "color"
   },
   "vads-color-base-darkest": {
-    "$value": "#1b1b1b",
+    "$value": "{uswds-system-color-gray-90}",
     "$type": "color"
   },
   "vads-color-base-light": {
-    "$value": "#a9aeb1",
+    "$value": "{uswds-system-color-gray-cool-30}",
     "$type": "color"
   },
   "vads-color-base-lighter": {
-    "$value": "#dfe1e2",
+    "$value": "{uswds-system-color-gray-cool-10}",
     "$type": "color"
   },
   "vads-color-base-lightest": {
-    "$value": "#f0f0f0",
+    "$value": "{uswds-system-color-gray-5}",
     "$type": "color"
   },
   "vads-color-black": {
-    "$value": "#000000",
+    "$value": "{uswds-system-color-gray-100}",
     "$type": "color"
   },
   "vads-color-blue-cool": {
-    "$value": "#345d96",
+    "$value": "{uswds-system-color-blue-warm-60}",
     "$type": "color"
   },
   "vads-color-blue-cool-light": {
-    "$value": "#4a77b4",
+    "$value": "{uswds-system-color-blue-warm-50}",
     "$type": "color"
   },
   "vads-color-blue-cool-lightest": {
-    "$value": "#98afd2",
+    "$value": "{uswds-system-color-blue-warm-30}",
     "$type": "color"
   },
   "vads-color-emergency": {
-    "$value": "#9c3d10",
+    "$value": "{uswds-system-color-red-warm-vivid-60}",
     "$type": "color"
   },
   "vads-color-emergency-dark": {
-    "$value": "#332d29",
+    "$value": "{uswds-system-color-red-warm-80}",
     "$type": "color"
   },
   "vads-color-error": {
-    "$value": "#d54309",
+    "$value": "{uswds-system-color-red-warm-vivid-50}",
     "$type": "color"
   },
   "vads-color-error-dark": {
-    "$value": "#b21d38",
+    "$value": "{uswds-system-color-red-cool-vivid-60}",
     "$type": "color"
   },
   "vads-color-error-darker": {
-    "$value": "#6f3331",
+    "$value": "{uswds-system-color-red-70}",
     "$type": "color"
   },
   "vads-color-error-light": {
-    "$value": "#f39268",
+    "$value": "{uswds-system-color-red-warm-vivid-30}",
     "$type": "color"
   },
   "vads-color-error-lighter": {
-    "$value": "#f4e3db",
+    "$value": "{uswds-system-color-red-warm-10}",
     "$type": "color"
   },
   "vads-color-gibill-accent": {
-    "$value": "#fef0c8",
+    "$value": "{uswds-system-color-gold-vivid-5}",
     "$type": "color"
   },
   "vads-color-gold-lighter": {
-    "$value": "#ffe396",
+    "$value": "{uswds-system-color-gold-vivid-10}",
     "$type": "color"
   },
   "vads-color-gold-lightest": {
-    "$value": "#fef0c8",
+    "$value": "{uswds-system-color-gold-vivid-5}",
     "$type": "color"
   },
   "vads-color-gray-cool-light": {
-    "$value": "#e1e7f1",
+    "$value": "{uswds-system-color-blue-warm-10}",
     "$type": "color"
   },
   "vads-color-gray-light-alt": {
-    "$value": "#edeff0",
+    "$value": "{uswds-system-color-gray-cool-5}",
     "$type": "color"
   },
   "vads-color-gray-medium": {
-    "$value": "#757575",
+    "$value": "{uswds-system-color-gray-50}",
     "$type": "color"
   },
   "vads-color-gray-warm-dark": {
-    "$value": "#454540",
+    "$value": "{uswds-system-color-gray-warm-70}",
     "$type": "color"
   },
   "vads-color-gray-warm-light": {
-    "$value": "#e6e6e2",
+    "$value": "{uswds-system-color-gray-warm-10}",
     "$type": "color"
   },
   "vads-color-green-light": {
-    "$value": "#5e9f69",
+    "$value": "{uswds-system-color-green-cool-40}",
     "$type": "color"
   },
   "vads-color-green-lighter": {
-    "$value": "#b4d0b9",
+    "$value": "{uswds-system-color-green-cool-20}",
     "$type": "color"
   },
   "vads-color-hub-burials": {
-    "$value": "#2378c3",
+    "$value": "{uswds-system-color-blue-50}",
     "$type": "color"
   },
   "vads-color-hub-careers": {
-    "$value": "#bd5727",
+    "$value": "{uswds-system-color-orange-warm-50}",
     "$type": "color"
   },
   "vads-color-hub-disability": {
-    "$value": "#a23737",
+    "$value": "{uswds-system-color-red-60}",
     "$type": "color"
   },
   "vads-color-hub-education": {
-    "$value": "#162e51",
+    "$value": "{uswds-system-color-blue-warm-vivid-80}",
     "$type": "color"
   },
   "vads-color-hub-family-member": {
-    "$value": "#162e51",
+    "$value": "{uswds-system-color-blue-warm-vivid-80}",
     "$type": "color"
   },
   "vads-color-hub-health-care": {
-    "$value": "#3f57a6",
+    "$value": "{uswds-system-color-indigo-cool-60}",
     "$type": "color"
   },
   "vads-color-hub-housing": {
-    "$value": "#8e704f",
+    "$value": "{uswds-system-color-gold-50}",
     "$type": "color"
   },
   "vads-color-hub-life-insurance": {
-    "$value": "#6f7a41",
+    "$value": "{uswds-system-color-green-warm-50}",
     "$type": "color"
   },
   "vads-color-hub-pension": {
-    "$value": "#4d8055",
+    "$value": "{uswds-system-color-green-cool-50}",
     "$type": "color"
   },
   "vads-color-hub-records": {
-    "$value": "#6f7a41",
+    "$value": "{uswds-system-color-green-warm-50}",
     "$type": "color"
   },
   "vads-color-hub-service-member": {
-    "$value": "#162e51",
+    "$value": "{uswds-system-color-blue-warm-vivid-80}",
     "$type": "color"
   },
   "vads-color-info": {
-    "$value": "#00bde3",
+    "$value": "{uswds-system-color-cyan-vivid-30}",
     "$type": "color"
   },
   "vads-color-info-dark": {
-    "$value": "#009ec1",
+    "$value": "{uswds-system-color-cyan-vivid-40}",
     "$type": "color"
   },
   "vads-color-info-darker": {
-    "$value": "#2e6276",
+    "$value": "{uswds-system-color-blue-cool-60}",
     "$type": "color"
   },
   "vads-color-info-light": {
-    "$value": "#99deea",
+    "$value": "{uswds-system-color-cyan-20}",
     "$type": "color"
   },
   "vads-color-info-lighter": {
-    "$value": "#e7f6f8",
+    "$value": "{uswds-system-color-cyan-5}",
     "$type": "color"
   },
   "vads-color-ink": {
-    "$value": "#1b1b1b",
+    "$value": "{uswds-system-color-gray-90}",
     "$type": "color"
   },
   "vads-color-inset-bg": {
-    "$value": "#e7f6f8",
+    "$value": "{uswds-system-color-cyan-5}",
     "$type": "color"
   },
   "vads-color-link": {
-    "$value": "#005ea2",
+    "$value": "{uswds-system-color-blue-vivid-60}",
     "$type": "color"
   },
   "vads-color-link-active": {
-    "$value": "#0b4778",
+    "$value": "{uswds-system-color-blue-vivid-70}",
     "$type": "color"
   },
   "vads-color-link-visited": {
-    "$value": "#54278f",
+    "$value": "{uswds-system-color-violet-vivid-70}",
     "$type": "color"
   },
   "vads-color-primary": {
-    "$value": "#005ea2",
+    "$value": "{uswds-system-color-blue-vivid-60}",
     "$type": "color"
   },
   "vads-color-primary-alt": {
-    "$value": "#00bde3",
+    "$value": "{uswds-system-color-cyan-vivid-30}",
     "$type": "color"
   },
   "vads-color-primary-alt-dark": {
-    "$value": "#28a0cb",
+    "$value": "{uswds-system-color-blue-cool-vivid-40}",
     "$type": "color"
   },
   "vads-color-primary-alt-darkest": {
-    "$value": "#07648d",
+    "$value": "{uswds-system-color-blue-cool-vivid-60}",
     "$type": "color"
   },
   "vads-color-primary-alt-light": {
-    "$value": "#97d4ea",
+    "$value": "{uswds-system-color-blue-cool-vivid-20}",
     "$type": "color"
   },
   "vads-color-primary-alt-lightest": {
-    "$value": "#e1f3f8",
+    "$value": "{uswds-system-color-blue-cool-vivid-5}",
     "$type": "color"
   },
   "vads-color-primary-dark": {
-    "$value": "#1a4480",
+    "$value": "{uswds-system-color-blue-warm-vivid-70}",
     "$type": "color"
   },
   "vads-color-primary-darker": {
-    "$value": "#162e51",
+    "$value": "{uswds-system-color-blue-warm-vivid-80}",
     "$type": "color"
   },
   "vads-color-primary-light": {
-    "$value": "#73b3e7",
+    "$value": "{uswds-system-color-blue-30}",
     "$type": "color"
   },
   "vads-color-primary-lighter": {
-    "$value": "#d9e8f6",
+    "$value": "{uswds-system-color-blue-10}",
     "$type": "color"
   },
   "vads-color-secondary": {
-    "$value": "#d83933",
+    "$value": "{uswds-system-color-red-50}",
     "$type": "color"
   },
   "vads-color-secondary-dark": {
-    "$value": "#b50909",
+    "$value": "{uswds-system-color-red-vivid-60}",
     "$type": "color"
   },
   "vads-color-secondary-darkest": {
-    "$value": "#8b0a03",
+    "$value": "{uswds-system-color-red-vivid-70}",
     "$type": "color"
   },
   "vads-color-secondary-light": {
-    "$value": "#f2938c",
+    "$value": "{uswds-system-color-red-30}",
     "$type": "color"
   },
   "vads-color-secondary-lightest": {
-    "$value": "#f8dfe2",
+    "$value": "{uswds-system-color-red-cool-10v}",
     "$type": "color"
   },
   "vads-color-success": {
-    "$value": "#00a91c",
+    "$value": "{uswds-system-color-green-cool-vivid-40}",
     "$type": "color"
   },
   "vads-color-success-dark": {
-    "$value": "#008817",
+    "$value": "{uswds-system-color-green-cool-vivid-50}",
     "$type": "color"
   },
   "vads-color-success-darker": {
-    "$value": "#216e1f",
+    "$value": "{uswds-system-color-green-cool-vivid-60}",
     "$type": "color"
   },
   "vads-color-success-light": {
-    "$value": "#70e17b",
+    "$value": "{uswds-system-color-green-cool-vivid-20}",
     "$type": "color"
   },
   "vads-color-success-lighter": {
-    "$value": "#ecf3ec",
+    "$value": "{uswds-system-color-green-cool-5}",
     "$type": "color"
   },
   "vads-color-va-accent": {
-    "$value": "#8a7237",
+    "$value": "{uswds-system-color-yellow-50}",
     "$type": "color"
   },
   "vads-color-warning": {
-    "$value": "#ffbe2e",
+    "$value": "{uswds-system-color-gold-vivid-20}",
     "$type": "color"
   },
   "vads-color-warning-dark": {
-    "$value": "#e5a000",
+    "$value": "{uswds-system-color-gold-vivid-30}",
     "$type": "color"
   },
   "vads-color-warning-darker": {
-    "$value": "#936f38",
+    "$value": "{uswds-system-color-gold-vivid-50}",
     "$type": "color"
   },
   "vads-color-warning-light": {
-    "$value": "#fee685",
+    "$value": "{uswds-system-color-yellow-vivid-10}",
     "$type": "color"
   },
   "vads-color-warning-lighter": {
-    "$value": "#faf3d1",
+    "$value": "{uswds-system-color-yellow-5}",
     "$type": "color"
   },
   "vads-color-white": {

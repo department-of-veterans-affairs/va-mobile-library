@@ -1,11 +1,9 @@
 {
-  "color": {
-    "button-primary-background-on-dark": {
-      "name": "button-primary-background-on-dark",
-      "value": "{color.semantic-test-on-dark}",
-      "attributes": {
-        "category": "color"
-      }
+  "button-primary-background-on-dark": {
+    "name": "button-primary-background-on-dark",
+    "value": "{semantic-test-on-dark}",
+    "attributes": {
+      "category": "color"
     }
   }
 }

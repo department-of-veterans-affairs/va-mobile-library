@@ -1,9 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const StyleDictionary = require('style-dictionary')
 
+/**
+ * Filters
+ */
+
 /** Remove tokens that have the dark mode (OnDark) suffix */
 StyleDictionary.registerFilter({
-  name: 'notDarkMode',
+  name: 'filter/color/light-mode',
   matcher: (token) =>
     token.attributes.category.includes('color') &&
     !token.name.includes('OnDark') &&
@@ -12,12 +16,16 @@ StyleDictionary.registerFilter({
 
 /** Remove tokens that have the light mode (OnLight) suffix */
 StyleDictionary.registerFilter({
-  name: 'notLightMode',
+  name: 'filter/color/dark-mode',
   matcher: (token) =>
     token.attributes.category.includes('color') &&
     !token.name.includes('OnLight') &&
     !token.name.includes('-on-light'),
 })
+
+/**
+ * Formats
+ */
 
 /** Custom format for colors. Exports color tokens as single object */
 StyleDictionary.registerFormat({
@@ -50,18 +58,39 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
+    // Infers type from name. VADS does not use the type field properly so we need to
+    // infer them from the name. Will need to adjust when they add type and spacing
+    const getType = (attributes) => {
+      const { category, type } = attributes
+
+      if (category.includes('color')) {
+        return 'color'
+      } else if (category === 'units') {
+        return 'dimension'
+      } else if (category === 'font' && type === 'family') {
+        return 'fontFamily'
+      } else if (category === 'font' && type === 'weight') {
+        return 'fontWeight'
+      } else if (category === 'font' && type === 'size') {
+        return 'dimension'
+      }
+
+      return ''
+    }
+
+    // Format tokens for dtcg
     const tokens = dictionary.allTokens.reduce(
       (previousTokens, token) => ({
         ...previousTokens,
         [token.name]: {
-          $value: token.value,
-          $type:
-            token.path[0] && token.path[0].includes('color') ? 'color' : '', // path[0] is top level token type (e.g. 'color'), should meet: https://tr.designtokens.org/format/#types
+          $value: token.original.value,
+          $type: getType(token.attributes),
         },
       }),
       {},
     )
 
+    // Sorts token alphabetically
     const sorted = Object.keys(tokens)
       .sort()
       .reduce((obj, key) => {
@@ -72,6 +101,10 @@ StyleDictionary.registerFormat({
     return JSON.stringify(sorted, undefined, 2) + `\n`
   },
 })
+
+/**
+ * Transforms
+ */
 
 /** Registering a transform that strips out category from token name */
 StyleDictionary.registerTransform({
@@ -94,6 +127,10 @@ StyleDictionary.registerTransform({
     return token.name.replace(/^color-/, '')
   },
 })
+
+/**
+ * Transform Groups
+ */
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
