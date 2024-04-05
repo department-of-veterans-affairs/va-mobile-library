@@ -115,7 +115,7 @@ StyleDictionary.registerFormat({
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: ['name/cti/pascal', 'color/hex'],
+  transforms: ['name/cti/camel', 'color/hex'],
 })
 
 /** Registering transform group to massage output as desired for figma */
