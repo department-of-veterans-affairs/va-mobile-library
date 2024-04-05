@@ -7,6 +7,12 @@ const StyleDictionary = require('style-dictionary')
 
 /** Remove tokens that have the dark mode (OnDark) suffix */
 StyleDictionary.registerFilter({
+  name: 'filter/color/is-color',
+  matcher: (token) => token.attributes.category.includes('color'),
+})
+
+/** Remove tokens that have the dark mode (OnDark) suffix */
+StyleDictionary.registerFilter({
   name: 'filter/color/light-mode',
   matcher: (token) =>
     token.attributes.category.includes('color') &&
@@ -36,7 +42,7 @@ StyleDictionary.registerFormat({
       return result
     }, {})
 
-    return `export const Colors = ${JSON.stringify(colorTokens, null, 2)};`
+    return `export const Colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
   },
 })
 
@@ -58,6 +64,15 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
+    const getValue = (value) => {
+      // Return proper  value for dtcg aliasing
+      if (value.startsWith('{') && value.includes('.')) {
+        return `${value.split('.')[0]}}`
+      }
+
+      return value
+    }
+
     // Infers type from attributes. VADS does not consistently populate the type field properly
     const getType = (attributes) => {
       const { category, type } = attributes
@@ -82,48 +97,14 @@ StyleDictionary.registerFormat({
       (previousTokens, token) => ({
         ...previousTokens,
         [token.name]: {
-          $value: token.original.value,
+          $value: getValue(token.original.value),
           $type: getType(token.attributes),
         },
       }),
       {},
     )
 
-    // Sorts token alphabetically
-    const sorted = Object.keys(tokens)
-      .sort()
-      .reduce((obj, key) => {
-        obj[key] = tokens[key]
-        return obj
-      }, {})
-
-    return JSON.stringify(sorted, undefined, 2) + `\n`
-  },
-})
-
-/**
- * Transforms
- */
-
-/** Registering a transform that strips out category from token name */
-StyleDictionary.registerTransform({
-  name: 'name/color/clean-up-camel',
-  type: 'name',
-  transformer: (token) => {
-    return token.name
-      .replace('Color', '')
-      .replace('color', '')
-      .replace('vads', '')
-      .replace('uswds', 'Uswds')
-  },
-})
-
-/** Registering a transform that strips out category from beginning of token name */
-StyleDictionary.registerTransform({
-  name: 'name/color/clean-up-kebab',
-  type: 'name',
-  transformer: (token) => {
-    return token.name.replace(/^color-/, '')
+    return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
   },
 })
 
@@ -134,14 +115,28 @@ StyleDictionary.registerTransform({
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: ['name/cti/camel', 'name/color/clean-up-camel', 'color/hex'],
+  transforms: ['name/cti/pascal', 'color/hex'],
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'figma',
-  transforms: ['name/cti/kebab', 'name/color/clean-up-kebab', 'color/hex'],
+  transforms: ['name/cti/kebab', 'color/hex'],
 })
+
+/**
+ * Utils
+ */
+
+const sortTokensByKey = (obj) => {
+  const sortedKeys = Object.keys(obj).sort()
+  const sortedObj = {}
+  sortedKeys.forEach((key) => {
+    sortedObj[key] = obj[key]
+  })
+
+  return sortedObj
+}
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
 

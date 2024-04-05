@@ -3,7 +3,7 @@
     "$value": "{semantic-test-on-light}",
     "$type": "color"
   },
-  "link-default-hover": {
+  "color-link-default-hover": {
     "$value": "rgba({uswds-system-color-gray-100}, {color-link-default-hover.alpha})",
     "$type": "color"
   },
