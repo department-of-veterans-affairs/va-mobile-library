@@ -5,13 +5,13 @@ const StyleDictionary = require('style-dictionary')
  * Filters
  */
 
-/** Remove tokens that have the dark mode (OnDark) suffix */
+/** Remove tokens that do not have 'color' in the category */
 StyleDictionary.registerFilter({
   name: 'filter/color/is-color',
   matcher: (token) => token.attributes.category.includes('color'),
 })
 
-/** Remove tokens that have the dark mode (OnDark) suffix */
+/** Remove tokens that have the dark mode (OnDark/-on-dark) suffix */
 StyleDictionary.registerFilter({
   name: 'filter/color/light-mode',
   matcher: (token) =>
@@ -20,7 +20,7 @@ StyleDictionary.registerFilter({
     !token.name.includes('-on-dark'),
 })
 
-/** Remove tokens that have the light mode (OnLight) suffix */
+/** Remove tokens that have the light mode (OnLight/-on-light) suffix */
 StyleDictionary.registerFilter({
   name: 'filter/color/dark-mode',
   matcher: (token) =>
