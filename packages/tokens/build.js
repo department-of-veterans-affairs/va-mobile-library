@@ -2,16 +2,36 @@
 const StyleDictionary = require('style-dictionary')
 
 /**
- * Custom filter to include only tokens with the 'color' category and
- * exclude uswds primitives from variables.json to avoid collisions since these
- * colors are defined twice in variables.json
+ * Filters
  */
+
+/** Remove tokens that do not have 'color' in the category */
 StyleDictionary.registerFilter({
-  name: 'isUniqueColor',
+  name: 'filter/color/is-color',
+  matcher: (token) => token.attributes.category.includes('color'),
+})
+
+/** Remove tokens that have the dark mode (OnDark/-on-dark) suffix */
+StyleDictionary.registerFilter({
+  name: 'filter/color/light-mode',
   matcher: (token) =>
     token.attributes.category.includes('color') &&
-    token.filePath !== 'tokens/uswds.json',
+    !token.name.includes('OnDark') &&
+    !token.name.includes('-on-dark'),
 })
+
+/** Remove tokens that have the light mode (OnLight/-on-light) suffix */
+StyleDictionary.registerFilter({
+  name: 'filter/color/dark-mode',
+  matcher: (token) =>
+    token.attributes.category.includes('color') &&
+    !token.name.includes('OnLight') &&
+    !token.name.includes('-on-light'),
+})
+
+/**
+ * Formats
+ */
 
 /** Custom format for colors. Exports color tokens as single object */
 StyleDictionary.registerFormat({
@@ -22,7 +42,7 @@ StyleDictionary.registerFormat({
       return result
     }, {})
 
-    return `export const Colors = ${JSON.stringify(colorTokens, null, 2)};`
+    return `export const Colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
   },
 })
 
@@ -44,41 +64,79 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
-    const tokensObject = dictionary.allTokens.reduce(
+    // Returns proper  value for dtcg aliasing
+    const getValue = (value) => {
+      if (value.startsWith('{') && value.includes('.')) {
+        return `${value.split('.')[0]}}`
+      }
+
+      return value
+    }
+
+    // Infers type from attributes. VADS does not consistently populate the type field properly
+    const getType = (attributes) => {
+      const { category, type } = attributes
+
+      if (category.includes('color')) {
+        return 'color'
+      } else if (category === 'units') {
+        return 'dimension'
+      } else if (category === 'font' && type === 'family') {
+        return 'fontFamily'
+      } else if (category === 'font' && type === 'weight') {
+        return 'fontWeight'
+      } else if (category === 'font' && type === 'size') {
+        return 'dimension'
+      }
+
+      return ''
+    }
+
+    // Format tokens for dtcg
+    const tokens = dictionary.allTokens.reduce(
       (previousTokens, token) => ({
         ...previousTokens,
         [token.name]: {
-          $value: token.value,
-          $type: token.path[0], // path[0] is top level token type (e.g. 'color'), should meet: https://tr.designtokens.org/format/#types
+          $value: getValue(token.original.value),
+          $type: getType(token.attributes),
         },
       }),
       {},
     )
 
-    return JSON.stringify(tokensObject, undefined, 2) + `\n`
+    return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
   },
 })
 
-/** Registering a transform that strips out category from token name */
-StyleDictionary.registerTransform({
-  name: 'name/color/clean-up',
-  type: 'name',
-  transformer: (token) => {
-    return token.name.replace('SystemColor', '')
-  },
-})
+/**
+ * Transform Groups
+ */
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'rn',
-  transforms: ['name/ti/camel', 'name/color/clean-up', 'color/hex'],
+  transforms: ['name/cti/camel', 'color/hex'],
 })
 
 /** Registering transform group to massage output as desired for figma */
 StyleDictionary.registerTransformGroup({
   name: 'figma',
-  transforms: ['name/ti/camel', 'name/color/clean-up', 'color/hex'],
+  transforms: ['name/cti/kebab', 'color/hex'],
 })
+
+/**
+ * Utils
+ */
+
+const sortTokensByKey = (obj) => {
+  const sortedKeys = Object.keys(obj).sort()
+  const sortedObj = {}
+  sortedKeys.forEach((key) => {
+    sortedObj[key] = obj[key]
+  })
+
+  return sortedObj
+}
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
 
