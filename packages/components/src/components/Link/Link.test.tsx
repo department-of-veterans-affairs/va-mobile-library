@@ -14,11 +14,13 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
   }
 })
 
+// Mock the internal function call within the useExternalLink hook
 const useExternalLinkHookMock = jest.fn((url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
   url
   analytics
   text
 })
+// Mock the useExternalLink hook to leverage mock implementation
 jest.spyOn(utils, 'useExternalLink').mockImplementation(() => {
   return useExternalLinkHookMock
 })
@@ -27,6 +29,12 @@ describe('Link', () => {
   let component: RenderAPI
   let textColor: string
 
+  const analytics = {
+    onPress: jest.fn(),
+    onConfirm: jest.fn(),
+    onCancel: jest.fn(),
+  }
+
   const defaultProps: LinkProps = {
     type: 'custom',
     text: 'Example Link',
@@ -34,6 +42,7 @@ describe('Link', () => {
     a11yHint: 'a11yHint override',
     a11yValue: { index: 2, total: 5 },
     onPress: onPressSpy,
+    analytics: analytics,
   }
 
   const getTextColor = (element: RenderAPI) =>
@@ -359,23 +368,53 @@ describe('Link', () => {
 
     it('includes a11yValue', async () => {
       expect(component.UNSAFE_root.props.a11yValue).toStrictEqual({ index: 2, total: 5 })
-      // expect(component.root.props).toStrictEqual({ index: 2, total: 5 })
-      // expect(component).tohaveaccessibilityValue({ index: 2, total: 5 })
     })
   })
 
-  // Add promptText tests
+  describe('promptText tests', () => {
+    const promptText = {
+      body: 'You are navigating to your browser app.',
+      cancel: 'No thanks',
+      confirm: "Let's go!",
+      title: 'Title override',
+    }
 
-  // Add analytics tests
+    it('calls useExternalLink hook with promptText when provided', async () => {
+      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' promptText={promptText} />)
+      fireEvent.press(component.getByText('Example Link'))
 
-  // Add more custom icon tests 
-  // (e.g. adjusting width/height, removing icon from preset, setting preventScaling, etc.)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, promptText)
+    })
 
-  // Add more test cases as needed
+    it('calls useExternalLink hook without promptText when not provided', async () => {
+      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' />)
+      fireEvent.press(component.getByText('Example Link'))
 
-  // Add OSFunctions tests for FormDirectionsUrl and maybe useExternalLink
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, undefined)
+    })
+  })
 
-  // Split ticket to implement better a11y tests using Jest matchers
-  // (https://callstack.github.io/react-native-testing-library/docs/getting-started#jest-matchers)
-  // to actually inspect a11y values properly
+  describe('analytics tests', () => {
+    it('calls useExternalLink hook with analytics when provided', async () => {
+
+      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' analytics={analytics} />)
+      fireEvent.press(component.getByText('Example Link'))
+
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, undefined)
+    })
+
+    it('calls useExternalLink hook without analytics when not provided', async () => {
+      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' analytics={undefined} />)
+      fireEvent.press(component.getByText('Example Link'))
+
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', undefined, undefined)
+    })
+
+    it('calls onPress analytics with custom onPress behavior', async () => {
+      component = render(<Link {...defaultProps} analytics={analytics} />)
+      fireEvent.press(component.getByText('Example Link'))
+
+      expect(analytics.onPress).toHaveBeenCalled()
+    })
+  })
 })
