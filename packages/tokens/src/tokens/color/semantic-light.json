@@ -1,14 +1,14 @@
 {
-  "semantic-test-on-light": {
-    "name": "semantic-test-on-light",
-    "value": "{uswds-system-color-blue-vivid-60}",
+  "vads-color-fg-default-on-light": {
+    "name": "vads-color-fg-default-on-light",
+    "value": "{vads-color-base}",
     "attributes": {
       "category": "color"
     }
   },
-  "semantic-test-2-on-light": {
-    "name": "semantic-test-2-on-light",
-    "value": "{vads-color-base.*.value}",
+  "vads-color-surface-secondary-on-light": {
+    "name": "vads-color-surface-secondary-on-light",
+    "value": "{vads-color-base-lighter}",
     "attributes": {
       "category": "color"
     }
