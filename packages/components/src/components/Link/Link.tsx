@@ -8,6 +8,7 @@ import {
   TextStyle,
   View,
   ViewStyle,
+  useWindowDimensions,
 } from 'react-native'
 import React, { FC } from 'react'
 
@@ -139,6 +140,7 @@ export const Link: FC<LinkProps> = ({
   url,
 }) => {
   const colorScheme = useColorScheme()
+  const fontScale = useWindowDimensions().fontScale
   const isDarkMode = colorScheme === 'dark'
   const launchExternalLink = useExternalLink()
 
@@ -231,7 +233,7 @@ export const Link: FC<LinkProps> = ({
     marginRight: 5, // Spacer to text
     // Below keeps icon aligned with first row of text, centered, and scalable
     alignSelf: 'flex-start',
-    minHeight: 30,
+    minHeight: 30 * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
