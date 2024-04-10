@@ -1,0 +1,9 @@
+{
+  "button-primary-background-on-light": {
+    "name": "button-primary-background-on-light",
+    "value": "{semantic-test-on-light}",
+    "attributes": {
+      "category": "color"
+    }
+  }
+}

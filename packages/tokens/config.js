@@ -1,10 +1,11 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const tokenCategories = require('./src/tokens')
-
 module.exports = {
   source: [
     '../../node_modules/@department-of-veterans-affairs/css-library/dist/tokens/json/variables.json',
     'src/tokens/color/uswds.json',
+    'src/tokens/color/semantic-light.json',
+    'src/tokens/color/component-light.json',
+    'src/tokens/color/semantic-dark.json',
+    'src/tokens/color/component-dark.json',
   ],
   platforms: {
     rn: {
@@ -15,23 +16,30 @@ module.exports = {
         {
           destination: 'js/index.js',
           format: 'javascript/es6/vads-colors',
-          filter: 'isUniqueColor',
+          filter: 'filter/color/is-color',
         },
         {
           destination: 'index.d.ts',
           format: 'typescript/es6-declarations/colors',
-          filter: 'isUniqueColor',
+          filter: 'filter/color/is-color',
         },
       ],
     },
     figma: {
       transformGroup: 'figma',
       buildPath: './figma/',
-      files: tokenCategories.map((tokenCategory) => ({
-        destination: `${tokenCategory}.json`,
-        format: 'json/dtcg',
-        filter: 'isUniqueColor',
-      })),
+      files: [
+        {
+          destination: `light.json`,
+          format: 'json/dtcg',
+          filter: 'filter/color/light-mode',
+        },
+        {
+          destination: `dark.json`,
+          format: 'json/dtcg',
+          filter: 'filter/color/dark-mode',
+        },
+      ],
     },
   },
 }
