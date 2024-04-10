@@ -1,7 +1,7 @@
 {
-  "button-primary-background-on-light": {
-    "name": "button-primary-background-on-light",
-    "value": "{semantic-test-on-light}",
+  "vads-segmented-control-color-surface-selected-on-light": {
+    "name": "vads-segmented-control-color-surface-selected-on-lightt",
+    "value": "{vads-color-white}",
     "attributes": {
       "category": "color"
     }
