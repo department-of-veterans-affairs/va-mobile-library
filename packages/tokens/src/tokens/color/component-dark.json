@@ -1,7 +1,7 @@
 {
-  "button-primary-background-on-dark": {
-    "name": "button-primary-background-on-dark",
-    "value": "{semantic-test-on-dark}",
+  "vads-segmented-control-color-surface-selected-on-dark": {
+    "name": "vads-segmented-control-color-surface-selected-on-dark",
+    "value": "{vads-color-base-dark}",
     "attributes": {
       "category": "color"
     }
