@@ -1,7 +1,7 @@
 {
   "vads-segmented-control-color-surface-selected-on-light": {
     "name": "vads-segmented-control-color-surface-selected-on-lightt",
-    "value": "{vads-color-white}",
+    "value": "{vads-color-white.*.value}",
     "attributes": {
       "category": "color"
     }
