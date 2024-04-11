@@ -1,7 +1,7 @@
 {
   "vads-segmented-control-color-surface-selected-on-dark": {
     "name": "vads-segmented-control-color-surface-selected-on-dark",
-    "value": "{vads-color-base-dark}",
+    "value": "{vads-color-base-dark.*.value}",
     "attributes": {
       "category": "color"
     }
