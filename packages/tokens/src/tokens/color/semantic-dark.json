@@ -1,14 +1,14 @@
 {
   "vads-color-fg-default-on-dark": {
     "name": "vads-color-fg-default-on-dark",
-    "value": "{vads-color-base-lightest}",
+    "value": "{vads-color-base-lightest.*.value}",
     "attributes": {
       "category": "color"
     }
   },
   "vads-color-surface-secondary-on-dark": {
     "name": "vads-color-surface-secondary-on-dark",
-    "value": "{vads-color-base-darker}",
+    "value": "{vads-color-base-darker.*.value}",
     "attributes": {
       "category": "color"
     }
