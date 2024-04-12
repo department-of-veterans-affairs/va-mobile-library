@@ -1,18 +1,6 @@
 {
-  "button-primary-background-on-light": {
-    "$value": "{semantic-test-on-light}",
-    "$type": "color"
-  },
   "color-link-default-hover": {
     "$value": "rgba({uswds-system-color-gray-100}, {color-link-default-hover.alpha})",
-    "$type": "color"
-  },
-  "semantic-test-2-on-light": {
-    "$value": "{vads-color-base}",
-    "$type": "color"
-  },
-  "semantic-test-on-light": {
-    "$value": "{uswds-system-color-blue-vivid-60}",
     "$type": "color"
   },
   "uswds-system-color-blue-10": {
@@ -555,6 +543,10 @@
     "$value": "{uswds-system-color-red-warm-10}",
     "$type": "color"
   },
+  "vads-color-fg-default-on-light": {
+    "$value": "{vads-color-base}",
+    "$type": "color"
+  },
   "vads-color-gibill-accent": {
     "$value": "{uswds-system-color-gold-vivid-5}",
     "$type": "color"
@@ -759,6 +751,10 @@
     "$value": "{uswds-system-color-green-cool-5}",
     "$type": "color"
   },
+  "vads-color-surface-secondary-on-light": {
+    "$value": "{vads-color-base-lighter}",
+    "$type": "color"
+  },
   "vads-color-va-accent": {
     "$value": "{uswds-system-color-yellow-50}",
     "$type": "color"
@@ -797,6 +793,10 @@
   },
   "vads-process-list-color-text-pending-on-light": {
     "$value": "{uswds-system-color-gray-50}",
+    "$type": "color"
+  },
+  "vads-segmented-control-color-surface-selected-on-light": {
+    "$value": "{vads-color-white}",
     "$type": "color"
   }
 }
