@@ -175,18 +175,9 @@ export const Alert: FC<AlertProps> = ({
         ? descriptionA11yLabel || description
         : ''
 
-    const collapseIconDisplay = (
-      <View style={iconViewStyle}>
-        <Spacer horizontal />
-        <Icon
-          fill={contentColor}
-          width={Sizing._16}
-          height={Sizing._16}
-          name={expanded ? 'ChevronUp' : 'ChevronDown'}
-        />
-      </View>
-    )
-
+    /** Wrap header text and expand icon in Pressable if the Alert is expandable
+     * Otherwise wrap in View with accessibility props
+     */
     if (expandable) {
       return (
         <Pressable
@@ -196,20 +187,26 @@ export const Alert: FC<AlertProps> = ({
           aria-label={a11yLabel}
           style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>{headerText}</View>
-          {collapseIconDisplay}
+          <View style={iconViewStyle}>
+            <Spacer horizontal />
+            <Icon
+              fill={contentColor}
+              width={Sizing._16}
+              height={Sizing._16}
+              name={expanded ? 'ChevronUp' : 'ChevronDown'}
+            />
+          </View>
         </Pressable>
       )
     }
 
     return (
-      <View style={{ flexDirection: 'row' }}>
-        <View
-          accessible={true}
-          aria-label={a11yLabel}
-          role="heading"
-          style={{ flex: 1 }}>
-          {headerText}
-        </View>
+      <View
+        accessible={true}
+        aria-label={a11yLabel}
+        role="heading"
+        style={{ flex: 1 }}>
+        {headerText}
       </View>
     )
   }
