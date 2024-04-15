@@ -59,3 +59,25 @@ export const Info: Story = {
     },
   },
 }
+
+export const Collapsible: Story = {
+  args: {
+    variant: 'info',
+    header: 'Header with enough text to wrap',
+    description: 'Description',
+    children: children,
+    collapsible: true,
+    primaryButton: {
+      label: 'Button Text',
+      onPress: () => {
+        null
+      },
+    },
+    secondaryButton: {
+      label: 'Button Text',
+      onPress: () => {
+        null
+      },
+    },
+  },
+}
