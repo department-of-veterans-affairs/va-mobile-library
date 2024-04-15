@@ -170,36 +170,6 @@ export const Alert: FC<AlertProps> = ({
     </View>
   )
 
-  const _primaryButton = () => {
-    if (!primaryButton || collapsed) return null
-
-    primaryButton.buttonType = isDarkMode
-      ? ButtonVariants.Base
-      : ButtonVariants.Primary
-
-    return (
-      <>
-        <Spacer size={Sizing._20} />
-        <Button {...primaryButton} />
-      </>
-    )
-  }
-
-  const _secondaryButton = () => {
-    if (!secondaryButton || collapsed) return null
-
-    secondaryButton.buttonType = isDarkMode
-      ? ButtonVariants.BaseSecondary
-      : ButtonVariants.Secondary
-
-    return (
-      <>
-        <Spacer size={Sizing._20} />
-        <Button {...secondaryButton} />
-      </>
-    )
-  }
-
   const _headerText = () => {
     if (header) {
       return <Text style={headerFont}>{header}</Text>
@@ -243,6 +213,36 @@ export const Alert: FC<AlertProps> = ({
           {_headerText()}
         </View>
       </View>
+    )
+  }
+
+  const _primaryButton = () => {
+    if (!primaryButton || collapsed) return null
+
+    primaryButton.buttonType = isDarkMode
+      ? ButtonVariants.Base
+      : ButtonVariants.Primary
+
+    return (
+      <>
+        <Spacer size={Sizing._20} />
+        <Button {...primaryButton} />
+      </>
+    )
+  }
+
+  const _secondaryButton = () => {
+    if (!secondaryButton || collapsed) return null
+
+    secondaryButton.buttonType = isDarkMode
+      ? ButtonVariants.BaseSecondary
+      : ButtonVariants.Secondary
+
+    return (
+      <>
+        <Spacer size={Sizing._20} />
+        <Button {...secondaryButton} />
+      </>
     )
   }
 
