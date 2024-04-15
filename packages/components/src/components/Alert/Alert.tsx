@@ -26,7 +26,7 @@ export type AlertProps = {
   /** Optional boolean to determine whether the alert should be expandable */
   expandable?: boolean
   /** Optional initial state for expandable alert. Defaults to collapsed */
-  initialExpandedState?: 'expanded' | 'collapsed'
+  initialExpandedState?: 'collapsed' | 'expanded'
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */
