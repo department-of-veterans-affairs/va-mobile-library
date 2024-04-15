@@ -1,12 +1,6 @@
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
-// import { HapticFeedbackTypes } from 'react-native-haptic-feedback'
 import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
-//      ^ ScrollView,
 import React, { FC, useState } from 'react'
-//                ^ , RefObject, useEffect, useState
-
-// import { triggerHaptic } from 'utils/haptics'
-// import { useAutoScrollToElement } from 'utils/hooks'
 
 import { BaseColor, Spacer, useColorScheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
