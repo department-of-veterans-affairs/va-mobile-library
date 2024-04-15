@@ -175,7 +175,8 @@ export const Alert: FC<AlertProps> = ({
         ? descriptionA11yLabel || description
         : ''
 
-    /** Wrap header text and expand icon in Pressable if the Alert is expandable
+    /**
+     * Wrap header text and expand icon in Pressable if the Alert is expandable
      * Otherwise wrap in View with accessibility props
      */
     if (expandable) {
