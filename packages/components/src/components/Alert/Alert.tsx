@@ -25,6 +25,8 @@ export type AlertProps = {
   children?: React.ReactNode
   /** Optional boolean to determine whether the alert should be collapsible */
   collapsible?: boolean
+  /** Optional initial state that determines whether an alert renders expanded for collapsed. Defaults to expanded */
+  initialCollapsedState?: 'expanded' | 'collapsed'
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */
@@ -45,13 +47,14 @@ export const Alert: FC<AlertProps> = ({
   descriptionA11yLabel,
   children,
   collapsible,
+  initialCollapsedState = 'expanded',
   primaryButton,
   secondaryButton,
   testId,
 }) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
-  const [expanded, setExpanded] = useState(true)
+  const [expanded, setExpanded] = useState(initialCollapsedState === 'expanded')
 
   // TODO: Replace with sizing/dimension tokens
   const Sizing = {
