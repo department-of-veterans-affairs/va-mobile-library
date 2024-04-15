@@ -56,35 +56,11 @@ export const Alert: FC<AlertProps> = ({
   collapsible,
   primaryButton,
   secondaryButton,
-  // focusOnError = true,
-  // scrollViewRef,
   testId,
 }) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
   const [expanded, setExpanded] = useState(true)
-  // const [scrollRef, viewRef, scrollToAlert] = useAutoScrollToElement()
-  // const [shouldFocus, setShouldFocus] = useState(true)
-
-  // useEffect(() => {
-  //   if (
-  //     variant === 'error' &&
-  //     scrollViewRef?.current &&
-  //     (header || description)
-  //   ) {
-  //     scrollRef.current = scrollViewRef.current
-  //     scrollToAlert(-boxPadding)
-  //   }
-  //   setShouldFocus(focusOnError)
-  // }, [
-  //   variant,
-  //   header,
-  //   description,
-  //   focusOnError,
-  //   scrollRef,
-  //   scrollToAlert,
-  //   scrollViewRef,
-  // ])
 
   // TODO: Replace with sizing/dimension tokens
   const Sizing = {
@@ -201,13 +177,13 @@ export const Alert: FC<AlertProps> = ({
 
   const collapseIconDisplay = (
     <View style={iconViewStyle}>
+      <Spacer horizontal />
       <Icon
         fill={contentColor}
         width={16}
         height={16}
         name={collapsed ? 'ChevronDown' : 'ChevronUp'}
       />
-      <Spacer horizontal />
     </View>
   )
 
@@ -248,7 +224,6 @@ export const Alert: FC<AlertProps> = ({
         <View style={{ flex: 1 }}>
           {header ? (
             <View
-              // ref={viewRef}
               accessible={true}
               aria-label={headerA11yLabel || header}
               role="heading">
@@ -260,7 +235,6 @@ export const Alert: FC<AlertProps> = ({
               {header && (description || children) ? <Spacer /> : null}
               {description ? (
                 <View
-                  // ref={!header ? viewRef : undefined}
                   accessible={true}
                   aria-label={descriptionA11yLabel || description}>
                   <Text style={descriptionFont}>{description}</Text>
@@ -268,7 +242,6 @@ export const Alert: FC<AlertProps> = ({
               ) : null}
               {description && children ? <Spacer /> : null}
               {children}
-              {/* {shouldFocus && vibrate()} */}
             </View>
           )}
         </View>
