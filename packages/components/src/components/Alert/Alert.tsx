@@ -23,16 +23,13 @@ export type AlertProps = {
   /** Optional custom content to nest inside Alert
    * Use AlertContentColor or appropriate component props to set light/dark mode 'base' gray colors */
   children?: React.ReactNode
+  /** Optional boolean to determine whether the alert should be collapsible */
   collapsible?: boolean
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */
   secondaryButton?: ButtonProps
-  /** Optional boolean for determining when to focus on error alert boxes (e.g. onSaveClicked). */
-  // focusOnError?: boolean
-  /** Optional ref for the parent scroll view. Used for scrolling to error alert boxes. */
-  // scrollViewRef?: RefObject<ScrollView>
-  /** optional testID */
+  /** Optional testID */
   testId?: string
 }
 
