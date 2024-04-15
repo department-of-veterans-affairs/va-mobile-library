@@ -63,7 +63,7 @@ export const Info: Story = {
 export const Collapsible: Story = {
   args: {
     variant: 'info',
-    header: 'Header with enough text to wrap',
+    header: 'Header',
     description: 'Description',
     children: children,
     collapsible: true,
