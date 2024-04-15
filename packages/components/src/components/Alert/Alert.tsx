@@ -202,11 +202,7 @@ export const Alert: FC<AlertProps> = ({
     }
 
     return (
-      <View
-        accessible={true}
-        aria-label={a11yLabel}
-        role="heading"
-        style={{ flex: 1 }}>
+      <View accessible={true} aria-label={a11yLabel} role="heading">
         {headerText}
       </View>
     )
