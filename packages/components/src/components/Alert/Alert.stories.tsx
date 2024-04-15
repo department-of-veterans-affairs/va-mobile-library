@@ -67,7 +67,6 @@ export const Collapsible: Story = {
     description: 'Description',
     children: children,
     collapsible: true,
-    initialCollapsedState: 'expanded',
     primaryButton: {
       label: 'Button Text',
       onPress: () => {
