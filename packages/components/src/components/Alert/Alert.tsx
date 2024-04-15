@@ -156,8 +156,6 @@ export const Alert: FC<AlertProps> = ({
     lineHeight: 30,
   }
 
-  const collapsed = collapsible && !expanded
-
   const collapseIconDisplay = (
     <View style={iconViewStyle}>
       <Spacer horizontal />
@@ -165,7 +163,7 @@ export const Alert: FC<AlertProps> = ({
         fill={contentColor}
         width={16}
         height={16}
-        name={collapsed ? 'ChevronDown' : 'ChevronUp'}
+        name={expanded ? 'ChevronUp' : 'ChevronDown'}
       />
     </View>
   )
@@ -217,7 +215,7 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const _primaryButton = () => {
-    if (!primaryButton || collapsed) return null
+    if (!primaryButton) return null
 
     primaryButton.buttonType = isDarkMode
       ? ButtonVariants.Base
@@ -232,7 +230,7 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const _secondaryButton = () => {
-    if (!secondaryButton || collapsed) return null
+    if (!secondaryButton) return null
 
     secondaryButton.buttonType = isDarkMode
       ? ButtonVariants.BaseSecondary
@@ -252,7 +250,7 @@ export const Alert: FC<AlertProps> = ({
         {iconDisplay}
         <View style={{ flex: 1 }}>
           {_header()}
-          {!collapsed && (
+          {expanded && (
             <View>
               {header && (description || children) ? <Spacer /> : null}
               {header && description ? (
@@ -268,8 +266,12 @@ export const Alert: FC<AlertProps> = ({
           )}
         </View>
       </View>
-      {_primaryButton()}
-      {_secondaryButton()}
+      {expanded && (
+        <>
+          {_primaryButton()}
+          {_secondaryButton()}
+        </>
+      )}
     </View>
   )
 }
