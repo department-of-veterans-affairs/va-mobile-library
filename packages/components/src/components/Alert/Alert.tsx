@@ -1,8 +1,8 @@
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 // import { HapticFeedbackTypes } from 'react-native-haptic-feedback'
-import { Text, TextStyle, View, ViewStyle } from 'react-native'
+import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
 //      ^ ScrollView,
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 //                ^ , RefObject, useEffect, useState
 
 // import { triggerHaptic } from 'utils/haptics'
@@ -29,6 +29,7 @@ export type AlertProps = {
   /** Optional custom content to nest inside Alert
    * Use AlertContentColor or appropriate component props to set light/dark mode 'base' gray colors */
   children?: React.ReactNode
+  collapsible?: boolean
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */
@@ -52,6 +53,7 @@ export const Alert: FC<AlertProps> = ({
   description,
   descriptionA11yLabel,
   children,
+  collapsible,
   primaryButton,
   secondaryButton,
   // focusOnError = true,
@@ -60,6 +62,7 @@ export const Alert: FC<AlertProps> = ({
 }) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
+  const [expanded, setExpanded] = useState(true)
   // const [scrollRef, viewRef, scrollToAlert] = useAutoScrollToElement()
   // const [shouldFocus, setShouldFocus] = useState(true)
 
@@ -151,7 +154,7 @@ export const Alert: FC<AlertProps> = ({
     borderLeftWidth: Sizing._8,
     padding: Sizing._20,
     paddingLeft: Sizing._12, // Adds with borderLeftWidth for 20
-    width: '100%' // Ensure Alert fills horizontal space, regardless of flexing content
+    width: '100%', // Ensure Alert fills horizontal space, regardless of flexing content
   }
 
   const iconViewStyle: ViewStyle = {
@@ -194,8 +197,22 @@ export const Alert: FC<AlertProps> = ({
     lineHeight: 30,
   }
 
+  const collapsed = collapsible && !expanded
+
+  const collapseIconDisplay = (
+    <View style={iconViewStyle}>
+      <Icon
+        fill={contentColor}
+        width={16}
+        height={16}
+        name={collapsed ? 'ChevronDown' : 'ChevronUp'}
+      />
+      <Spacer horizontal />
+    </View>
+  )
+
   const _primaryButton = () => {
-    if (!primaryButton) return null
+    if (!primaryButton || collapsed) return null
 
     primaryButton.buttonType = isDarkMode
       ? ButtonVariants.Base
@@ -210,7 +227,7 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const _secondaryButton = () => {
-    if (!secondaryButton) return null
+    if (!secondaryButton || collapsed) return null
 
     secondaryButton.buttonType = isDarkMode
       ? ButtonVariants.BaseSecondary
@@ -238,19 +255,28 @@ export const Alert: FC<AlertProps> = ({
               <Text style={headerFont}>{header}</Text>
             </View>
           ) : null}
-          {header && (description || children) ? <Spacer /> : null}
-          {description ? (
-            <View
-              // ref={!header ? viewRef : undefined}
-              accessible={true}
-              aria-label={descriptionA11yLabel || description}>
-              <Text style={descriptionFont}>{description}</Text>
+          {!collapsed && (
+            <View>
+              {header && (description || children) ? <Spacer /> : null}
+              {description ? (
+                <View
+                  // ref={!header ? viewRef : undefined}
+                  accessible={true}
+                  aria-label={descriptionA11yLabel || description}>
+                  <Text style={descriptionFont}>{description}</Text>
+                </View>
+              ) : null}
+              {description && children ? <Spacer /> : null}
+              {children}
+              {/* {shouldFocus && vibrate()} */}
             </View>
-          ) : null}
-          {description && children ? <Spacer /> : null}
-          {children}
-          {/* {shouldFocus && vibrate()} */}
+          )}
         </View>
+        {collapsible && (
+          <Pressable onPress={() => setExpanded(!expanded)}>
+            {collapseIconDisplay}
+          </Pressable>
+        )}
       </View>
       {_primaryButton()}
       {_secondaryButton()}
