@@ -60,7 +60,7 @@ export const Info: Story = {
   },
 }
 
-export const Collapsible: Story = {
+export const Expandable: Story = {
   args: {
     variant: 'info',
     header: 'Header',
