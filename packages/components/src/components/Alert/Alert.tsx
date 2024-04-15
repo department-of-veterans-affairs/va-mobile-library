@@ -160,17 +160,11 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const _header = () => {
-    const _headerText = () => {
-      if (header) {
-        return <Text style={headerFont}>{header}</Text>
-      }
-
-      if (description) {
-        return <Text style={descriptionFont}>{description}</Text>
-      }
-
-      return null
-    }
+    const headerText = header ? (
+      <Text style={headerFont}>{header}</Text>
+    ) : description ? (
+      <Text style={descriptionFont}>{description}</Text>
+    ) : null
 
     const a11yLabel = header
       ? headerA11yLabel || header
@@ -198,7 +192,7 @@ export const Alert: FC<AlertProps> = ({
           accessibilityState={{ expanded }}
           aria-label={a11yLabel}
           style={{ flexDirection: 'row' }}>
-          <View style={{ flex: 1 }}>{_headerText()}</View>
+          <View style={{ flex: 1 }}>{headerText}</View>
           {collapseIconDisplay}
         </Pressable>
       )
@@ -211,7 +205,7 @@ export const Alert: FC<AlertProps> = ({
           aria-label={a11yLabel}
           role="heading"
           style={{ flex: 1 }}>
-          {_headerText()}
+          {headerText}
         </View>
       </View>
     )
