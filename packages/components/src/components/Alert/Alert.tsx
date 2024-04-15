@@ -156,36 +156,36 @@ export const Alert: FC<AlertProps> = ({
     lineHeight: 30,
   }
 
-  const collapseIconDisplay = (
-    <View style={iconViewStyle}>
-      <Spacer horizontal />
-      <Icon
-        fill={contentColor}
-        width={16}
-        height={16}
-        name={expanded ? 'ChevronUp' : 'ChevronDown'}
-      />
-    </View>
-  )
-
-  const _headerText = () => {
-    if (header) {
-      return <Text style={headerFont}>{header}</Text>
-    }
-
-    if (description) {
-      return <Text style={descriptionFont}>{description}</Text>
-    }
-
-    return null
-  }
-
   const _header = () => {
+    const _headerText = () => {
+      if (header) {
+        return <Text style={headerFont}>{header}</Text>
+      }
+
+      if (description) {
+        return <Text style={descriptionFont}>{description}</Text>
+      }
+
+      return null
+    }
+
     const a11yLabel = header
       ? headerA11yLabel || header
       : description
         ? descriptionA11yLabel || description
         : ''
+
+    const collapseIconDisplay = (
+      <View style={iconViewStyle}>
+        <Spacer horizontal />
+        <Icon
+          fill={contentColor}
+          width={16}
+          height={16}
+          name={expanded ? 'ChevronUp' : 'ChevronDown'}
+        />
+      </View>
+    )
 
     if (collapsible) {
       return (
