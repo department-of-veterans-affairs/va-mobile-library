@@ -149,14 +149,6 @@ export const Alert: FC<AlertProps> = ({
     </View>
   )
 
-  // const vibrate = (): void => {
-  //   if (variant === 'error') {
-  //     triggerHaptic(HapticFeedbackTypes.notificationError)
-  //   } else if (variant === 'warning') {
-  //     triggerHaptic(HapticFeedbackTypes.notificationWarning)
-  //   }
-  // }
-
   // TODO: Replace with typography tokens
   const headerFont: TextStyle = {
     color: contentColor,
@@ -217,23 +209,62 @@ export const Alert: FC<AlertProps> = ({
     )
   }
 
+  const _headerText = () => {
+    if (header) {
+      return <Text style={headerFont}>{header}</Text>
+    }
+
+    if (description) {
+      return <Text style={descriptionFont}>{description}</Text>
+    }
+
+    return null
+  }
+
+  const _header = () => {
+    const a11yLabel = header
+      ? headerA11yLabel || header
+      : description
+        ? descriptionA11yLabel || description
+        : ''
+
+    if (collapsible) {
+      return (
+        <Pressable
+          onPress={() => setExpanded(!expanded)}
+          accessibilityRole="tab"
+          accessibilityState={{ expanded }}
+          aria-label={a11yLabel}
+          style={{ flexDirection: 'row' }}>
+          <View style={{ flex: 1 }}>{_headerText()}</View>
+          {collapseIconDisplay}
+        </Pressable>
+      )
+    }
+
+    return (
+      <View style={{ flexDirection: 'row' }}>
+        <View
+          accessible={true}
+          aria-label={a11yLabel}
+          role="heading"
+          style={{ flex: 1 }}>
+          {_headerText()}
+        </View>
+      </View>
+    )
+  }
+
   return (
     <View style={contentBox} testID={testId}>
       <View style={{ flexDirection: 'row' }}>
         {iconDisplay}
         <View style={{ flex: 1 }}>
-          {header ? (
-            <View
-              accessible={true}
-              aria-label={headerA11yLabel || header}
-              role="heading">
-              <Text style={headerFont}>{header}</Text>
-            </View>
-          ) : null}
+          {_header()}
           {!collapsed && (
             <View>
               {header && (description || children) ? <Spacer /> : null}
-              {description ? (
+              {header && description ? (
                 <View
                   accessible={true}
                   aria-label={descriptionA11yLabel || description}>
@@ -245,11 +276,6 @@ export const Alert: FC<AlertProps> = ({
             </View>
           )}
         </View>
-        {collapsible && (
-          <Pressable onPress={() => setExpanded(!expanded)}>
-            {collapseIconDisplay}
-          </Pressable>
-        )}
       </View>
       {_primaryButton()}
       {_secondaryButton()}
