@@ -23,10 +23,10 @@ export type AlertProps = {
   /** Optional custom content to nest inside Alert
    * Use AlertContentColor or appropriate component props to set light/dark mode 'base' gray colors */
   children?: React.ReactNode
-  /** Optional boolean to determine whether the alert should be collapsible */
-  collapsible?: boolean
-  /** Optional initial state that determines whether an alert renders expanded for collapsed. Defaults to expanded */
-  initialCollapsedState?: 'expanded' | 'collapsed'
+  /** Optional boolean to determine whether the alert should be expandable */
+  expandable?: boolean
+  /** Optional initial state for expandable alert. Defaults to collapsed */
+  initialExpandedState?: 'expanded' | 'collapsed'
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */
@@ -46,20 +46,23 @@ export const Alert: FC<AlertProps> = ({
   description,
   descriptionA11yLabel,
   children,
-  collapsible,
-  initialCollapsedState = 'expanded',
+  expandable,
+  initialExpandedState = 'collapsed',
   primaryButton,
   secondaryButton,
   testId,
 }) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
-  const [expanded, setExpanded] = useState(initialCollapsedState === 'expanded')
+  const [expanded, setExpanded] = useState(
+    expandable ? initialExpandedState === 'expanded' : true,
+  )
 
   // TODO: Replace with sizing/dimension tokens
   const Sizing = {
     _8: 8,
     _12: 12,
+    _16: 16,
     _20: 20,
     _30: 30,
   }
@@ -177,14 +180,14 @@ export const Alert: FC<AlertProps> = ({
         <Spacer horizontal />
         <Icon
           fill={contentColor}
-          width={16}
-          height={16}
+          width={Sizing._16}
+          height={Sizing._16}
           name={expanded ? 'ChevronUp' : 'ChevronDown'}
         />
       </View>
     )
 
-    if (collapsible) {
+    if (expandable) {
       return (
         <Pressable
           onPress={() => setExpanded(!expanded)}

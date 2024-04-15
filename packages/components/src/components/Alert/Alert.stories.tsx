@@ -66,7 +66,7 @@ export const Collapsible: Story = {
     header: 'Header',
     description: 'Description',
     children: children,
-    collapsible: true,
+    expandable: true,
     primaryButton: {
       label: 'Button Text',
       onPress: () => {
