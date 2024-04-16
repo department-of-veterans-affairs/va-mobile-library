@@ -1,5 +1,9 @@
 # Changelog
 
+## [assets-v0.4.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.4.1) (2024-04-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.4.0...assets-v0.4.1)
+
 ## [assets-v0.4.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.4.0) (2024-04-16)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.12.1...assets-v0.4.0)
