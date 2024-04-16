@@ -1,15 +1,11 @@
 {
   "name": "@department-of-veterans-affairs/mobile-assets",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "VA Design System Mobile Assets",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
   },
-  "files": [
-    "fonts/**/*",
-    "svgs/**/*"
-  ],
   "keywords": [
     "design",
     "system",
