@@ -1,7 +1,7 @@
-import { AppState, AppStateStatus, ColorValue, PixelRatio } from 'react-native'
+import { ColorValue, useWindowDimensions } from 'react-native'
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { SvgProps } from 'react-native-svg'
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC } from 'react'
 
 import { useColorScheme } from '../../utils'
 
@@ -214,25 +214,8 @@ export const Icon: FC<IconProps> = ({
 }) => {
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
-  const [fontScale, setFontScale] = useState<number>(PixelRatio.getFontScale())
+  const fontScale = useWindowDimensions().fontScale
   const fs = (val: number) => fontScale * val
-
-  useEffect(() => {
-    // Listener for the current app state, updates the font scale when app state
-    // is active and the font scale has changed
-    const sub = AppState.addEventListener(
-      'change',
-      (newState: AppStateStatus): void => {
-        if (newState === 'active') {
-          const fontScaleUpdated = PixelRatio.getFontScale()
-          if (fontScale !== fontScaleUpdated) {
-            setFontScale(fontScaleUpdated)
-          }
-        }
-      },
-    )
-    return (): void => sub?.remove()
-  }, [fontScale])
 
   const _Icon: FC<SvgProps> = name ? IconMap[name] : svg
 
