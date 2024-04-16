@@ -6,10 +6,6 @@
     "type": "git",
     "url": "git+https://github.com/department-of-veterans-affairs/va-mobile-library.git"
   },
-  "files": [
-    "fonts/**/*",
-    "svgs/**/*"
-  ],
   "keywords": [
     "design",
     "system",
