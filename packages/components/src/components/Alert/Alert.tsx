@@ -26,7 +26,7 @@ export type AlertProps = {
   /** Optional boolean to determine whether the alert should be expandable */
   expandable?: boolean
   /** Optional initial state for expandable alert. Defaults to collapsed */
-  initialExpandedState?: 'collapsed' | 'expanded'
+  initializeExpanded?: boolean
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */
@@ -47,7 +47,7 @@ export const Alert: FC<AlertProps> = ({
   descriptionA11yLabel,
   children,
   expandable,
-  initialExpandedState = 'collapsed',
+  initializeExpanded,
   primaryButton,
   secondaryButton,
   testId,
@@ -55,7 +55,7 @@ export const Alert: FC<AlertProps> = ({
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
   const [expanded, setExpanded] = useState(
-    expandable ? initialExpandedState === 'expanded' : true,
+    expandable ? initializeExpanded : true,
   )
 
   // TODO: Replace with sizing/dimension tokens
@@ -245,17 +245,20 @@ export const Alert: FC<AlertProps> = ({
         <View style={{ flex: 1 }}>
           {_header()}
           {expanded && (
-            <View>
-              {header && (description || children) ? <Spacer /> : null}
-              {header && description ? (
-                <View
-                  accessible={true}
-                  aria-label={descriptionA11yLabel || description}>
-                  <Text style={descriptionFont}>{description}</Text>
-                </View>
-              ) : null}
-              {description && children ? <Spacer /> : null}
-              {children}
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ flex: 1 }}>
+                {header && (description || children) ? <Spacer /> : null}
+                {header && description ? (
+                  <View
+                    accessible={true}
+                    aria-label={descriptionA11yLabel || description}>
+                    <Text style={descriptionFont}>{description}</Text>
+                  </View>
+                ) : null}
+                {description && children ? <Spacer /> : null}
+                {children}
+              </View>
+              {expandable && <Spacer horizontal size={36} />}
             </View>
           )}
         </View>
