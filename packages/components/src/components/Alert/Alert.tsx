@@ -171,17 +171,8 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const _header = () => {
-    const headerText = header ? (
-      <Text style={headerFont}>{header}</Text>
-    ) : description ? (
-      <Text style={descriptionFont}>{description}</Text>
-    ) : null
-
-    const a11yLabel = header
-      ? headerA11yLabel || header
-      : description
-        ? descriptionA11yLabel || description
-        : ''
+    const headerText = header ? <Text style={headerFont}>{header}</Text> : null
+    const a11yLabel = header ? headerA11yLabel || header : ''
 
     /**
      * Wrap header text and expand icon in Pressable if the Alert is expandable
@@ -256,7 +247,7 @@ export const Alert: FC<AlertProps> = ({
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}>
                 {header && (description || children) ? <Spacer /> : null}
-                {header && description ? (
+                {description ? (
                   <View
                     accessible={true}
                     aria-label={descriptionA11yLabel || description}>
