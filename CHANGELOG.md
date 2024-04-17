@@ -1,5 +1,30 @@
 # Changelog
 
+## [assets-v0.4.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.4.1) (2024-04-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.4.0...assets-v0.4.1)
+
+## [assets-v0.4.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.4.0) (2024-04-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.12.1...assets-v0.4.0)
+
+**Fixed bugs:**
+
+- BUG - 2 - All - Link Component Icon Override Issues [\#274](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/274)
+- BUG - Sev-3 - All - Link Icon is not vertically aligned at larger text sizes [\#240](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/240)
+
+**Merged pull requests:**
+
+- \[CU\] Update assets icon structure and make icon names app agnostic [\#289](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/289) ([TimRoe](https://github.com/TimRoe))
+
+## [components-v0.12.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.12.1) (2024-04-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.6.0...components-v0.12.1)
+
+**Merged pull requests:**
+
+- \[Bug\] Link - Icon Overrides Incorrectly Require Icon Name and Icon not Centered with Font Scaling [\#275](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/275) ([TimRoe](https://github.com/TimRoe))
+
 ## [tokens-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.6.0) (2024-04-15)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.4.0...tokens-v0.6.0)
