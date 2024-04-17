@@ -29,7 +29,7 @@ export type AlertProps = {
   testId?: string
 } & (
   | {
-      /** Boolean to determine whether the alert should be expandable */
+      /** True to make the Alert expandable */
       expandable: true
       /** Header text. Required if expandable. Optional if not */
       header: string
