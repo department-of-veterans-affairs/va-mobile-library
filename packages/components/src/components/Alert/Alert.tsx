@@ -12,8 +12,6 @@ export const AlertContentColor = BaseColor
 export type AlertProps = {
   /** Alert variant */
   variant: 'info' | 'success' | 'warning' | 'error'
-  /** Optional header text */
-  header?: string
   /** Optional a11y override for header */
   headerA11yLabel?: string
   /** Optional description text */
@@ -23,17 +21,27 @@ export type AlertProps = {
   /** Optional custom content to nest inside Alert
    * Use AlertContentColor or appropriate component props to set light/dark mode 'base' gray colors */
   children?: React.ReactNode
-  /** Optional boolean to determine whether the alert should be expandable */
-  expandable?: boolean
-  /** Optional initial state for expandable alert. Defaults to collapsed */
-  initializeExpanded?: boolean
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */
   secondaryButton?: ButtonProps
   /** Optional testID */
   testId?: string
-}
+} & (
+  | {
+      /** Boolean to determine whether the alert should be expandable */
+      expandable: true
+      /** Header text. Required if expandable. Optional if not */
+      header: string
+      /** Determines whether an expandable Alert should start expanded. Defaults to false */
+      initializeExpanded?: boolean
+    }
+  | {
+      expandable?: false
+      header?: string
+      initializeExpanded?: never
+    }
+)
 
 /**
  * Work in progress:
