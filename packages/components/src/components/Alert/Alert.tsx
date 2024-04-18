@@ -82,6 +82,8 @@ export const Alert: FC<AlertProps> = ({
     _12: 12,
     _16: 16,
     _20: 20,
+    _24: 24,
+    _26: 26,
     _30: 30,
   }
   const contentColor = AlertContentColor()
@@ -159,7 +161,7 @@ export const Alert: FC<AlertProps> = ({
 
   const iconDisplay = (
     <View style={iconViewStyle}>
-      <Icon fill={contentColor} {...iconProps} />
+      <Icon fill={contentColor} {...iconProps} preventScaling />
       <Spacer horizontal />
     </View>
   )
@@ -203,6 +205,7 @@ export const Alert: FC<AlertProps> = ({
               fill={contentColor}
               width={Sizing._16}
               height={Sizing._16}
+              maxWidth={Sizing._24}
               name={expanded ? 'ChevronUp' : 'ChevronDown'}
             />
           </View>
@@ -267,7 +270,7 @@ export const Alert: FC<AlertProps> = ({
                 {description && children ? <Spacer /> : null}
                 {children}
               </View>
-              {expandable && <Spacer horizontal size={36} />}
+              {expandable && <Spacer horizontal size={Sizing._26} />}
             </View>
           )}
         </View>
