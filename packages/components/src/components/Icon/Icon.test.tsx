@@ -11,7 +11,7 @@ describe('Icon', () => {
   it('renders correctly at default size', async () => {
     component = render(
       <Icon
-        name="HomeSelected"
+        name="HomeOutline"
         testID="myId"
         fill={Colors.gray}
         fill2={Colors.secondaryLightest}
@@ -34,7 +34,7 @@ describe('Icon', () => {
   it('renders correctly at set size despite fontScale 2', async () => {
     component = render(
       <Icon
-        name="HomeSelected"
+        name="HomeOutline"
         testID="myId"
         height={50}
         width={50}
@@ -53,7 +53,7 @@ describe('Icon', () => {
   it('renders correctly with maxWidth overriding fontScale 2', async () => {
     component = render(
       <Icon
-        name="HomeSelected"
+        name="HomeOutline"
         testID="myId"
         height={50}
         width={50}
@@ -71,7 +71,7 @@ describe('Icon', () => {
 
   it('renders correctly with fontScale 2', async () => {
     component = render(
-      <Icon name="HomeSelected" testID="myId" height={50} width={50} />,
+      <Icon name="HomeOutline" testID="myId" height={50} width={50} />,
     )
 
     expect(component).toBeTruthy()
