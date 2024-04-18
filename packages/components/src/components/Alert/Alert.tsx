@@ -38,13 +38,15 @@ export type AlertProps = {
   | {
       /** True to make the Alert expandable */
       expandable: true
-      /** Header text. Required if expandable. Optional if not */
+      /** Header text. Required when Alert is expandable */
       header: string
       /** True if Alert should start expanded. Defaults to false */
       initializeExpanded?: boolean
     }
   | {
+      /** True to make the Alert expandable */
       expandable?: false
+      /** Header text. Optional when Alert is not expandable */
       header?: string
       initializeExpanded?: never
     }
