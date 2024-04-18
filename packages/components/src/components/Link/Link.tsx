@@ -145,7 +145,7 @@ export const Link: FC<LinkProps> = ({
   const launchExternalLink = useExternalLink()
 
   let _icon: IconProps | 'no icon'
-  
+
   /** Function to massage Partial<IconProps> data into IconProps based on variant icon defaults */
   const setIcon = (name?: IconProps['name']) => {
     switch (icon) {
@@ -157,7 +157,7 @@ export const Link: FC<LinkProps> = ({
       default:
         if (icon.svg) return icon as IconProps
         if (!name && !icon.name) return 'no icon'
-        
+
         if (!icon.name) icon.name = name
         return icon as IconProps
     }
@@ -273,35 +273,31 @@ export const Link: FC<LinkProps> = ({
     },
   }
 
-  const getTextStyle = (pressed: boolean): TextStyle => {
-    // TODO: Replace with typography tokens
-    const regularFont: TextStyle = {
-      fontFamily: 'SourceSansPro-Regular',
-      fontSize: 20,
-      lineHeight: 30,
-    }
-    const pressedFont: TextStyle = {
-      fontFamily: 'SourceSansPro-Bold',
-      fontSize: 20,
-      lineHeight: 30,
+  const textStyle: TextStyle = {
+    color: linkColor,
+    textDecorationColor: linkColor,
+    textDecorationLine: 'underline',
+    fontSize: 20,
+    lineHeight: 30,
+  }
+
+  const getViewStyle = (pressed: boolean): ViewStyle => {
+    const defaultStyle: ViewStyle = {
+      flexDirection: 'row',
     }
 
-    const textStyle: TextStyle = {
-      color: linkColor,
-      textDecorationColor: linkColor,
-      textDecorationLine: 'underline',
-    }
-
-    return { ...(pressed ? pressedFont : regularFont), ...textStyle }
+    return pressed
+      ? { backgroundColor: Colors.grayLighter, ...defaultStyle }
+      : defaultStyle
   }
 
   return (
     <Pressable {...pressableProps} testID={testID}>
       {({ pressed }: PressableStateCallbackType) => (
-        <>
+        <View style={getViewStyle(pressed)}>
           {iconDisplay}
-          <Text style={getTextStyle(pressed)}>{text}</Text>
-        </>
+          <Text style={textStyle}>{text}</Text>
+        </View>
       )}
     </Pressable>
   )
