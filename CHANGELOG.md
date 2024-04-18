@@ -1,5 +1,9 @@
 # Changelog
 
+## [tokens-v0.7.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.7.0) (2024-04-18)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.13.0...tokens-v0.7.0)
+
 ## [components-v0.13.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.13.0) (2024-04-18)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.4.1...components-v0.13.0)
