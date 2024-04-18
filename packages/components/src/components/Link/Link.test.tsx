@@ -4,6 +4,7 @@ import React from 'react'
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
 import { Link, LinkAnalytics, LinkProps } from './Link'
+import { View } from 'react-native'
 
 const onPressSpy = jest.fn()
 const mockedColorScheme = jest.fn()
@@ -47,6 +48,9 @@ describe('Link', () => {
 
   const getTextColor = (element: RenderAPI) =>
     element.getByText(defaultProps.text).props.style.color
+
+  const getBackgroundColor = (element: RenderAPI) =>
+    element.root.findByType(View).props.style.backgroundColor
 
   afterEach(() => {
     onPressSpy.mockReset()
@@ -335,6 +339,11 @@ describe('Link', () => {
       textColor = getTextColor(component)
       expect(textColor).toBe('#3d4551')
     })
+
+    it('renders background color when pressed', async () => {
+      component = render(<Link {...defaultProps} testOnlyPressed />)
+      expect(getBackgroundColor(component)).toBe('#dfe1e2')
+    })
   })
 
   describe('dark mode tone tests', () => {
@@ -350,6 +359,11 @@ describe('Link', () => {
       component = render(<Link {...defaultProps} variant="base" />)
       textColor = getTextColor(component)
       expect(textColor).toBe('#f0f0f0')
+    })
+
+    it('renders background color when pressed', async () => {
+      component = render(<Link {...defaultProps} testOnlyPressed />)
+      expect(getBackgroundColor(component)).toBe('#3d4551')
     })
   })
 

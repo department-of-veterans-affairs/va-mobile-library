@@ -117,6 +117,8 @@ export type LinkProps = linkTypes & {
   analytics?: LinkAnalytics
   /** Optional TestID */
   testID?: string
+  /** Optional for testing pressed state in test suites */
+  testOnlyPressed?: boolean
 }
 
 /** [View guidance for the Link component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Link)  */
@@ -132,6 +134,7 @@ export const Link: FC<LinkProps> = ({
   promptText,
   analytics,
   testID,
+  testOnlyPressed,
   // Type-specific props
   locationData,
   phoneNumber,
@@ -271,14 +274,16 @@ export const Link: FC<LinkProps> = ({
       flexDirection: 'row',
       alignItems: 'center',
     },
+    testOnly_pressed: testOnlyPressed,
   }
 
   const textStyle: TextStyle = {
     color: linkColor,
-    textDecorationColor: linkColor,
-    textDecorationLine: 'underline',
+    fontFamily: 'SourceSansPro-Regular',
     fontSize: 20,
     lineHeight: 30,
+    textDecorationColor: linkColor,
+    textDecorationLine: 'underline',
   }
 
   const getViewStyle = (pressed: boolean): ViewStyle => {
@@ -286,9 +291,9 @@ export const Link: FC<LinkProps> = ({
       flexDirection: 'row',
     }
 
-    return pressed
-      ? { backgroundColor: Colors.grayLighter, ...defaultStyle }
-      : defaultStyle
+    const backgroundColor = isDarkMode ? Colors.grayDark : Colors.grayLighter
+
+    return pressed ? { backgroundColor, ...defaultStyle } : defaultStyle
   }
 
   return (
