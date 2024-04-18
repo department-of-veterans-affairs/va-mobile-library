@@ -5,78 +5,71 @@ import React, { FC } from 'react'
 
 import { useColorScheme } from '../../utils'
 
-// TODO: Ticket 102 merge Navigation icons into the general icon list below
-// Navigation
-import BenefitsSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsSelected.svg'
-import BenefitsUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/BenefitsUnselected.svg'
-import HealthSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/HealthSelected.svg'
-import HealthUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/HealthUnselected.svg'
-import HomeSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/HomeSelected.svg'
-import HomeUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/HomeUnselected.svg'
-import PaymentsSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/PaymentsSelected.svg'
-import PaymentsUnselected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/PaymentsUnselected.svg'
-import ProfileSelected from '@department-of-veterans-affairs/mobile-assets/svgs/navIcon/ProfileSelected.svg'
-
-// Branch emblems
-import AirForce from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/AirForce.svg'
-import Army from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/Army.svg'
-import CoastGuard from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/CoastGuard.svg'
-import MarineCorps from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/MarineCorps.svg'
-import Navy from '@department-of-veterans-affairs/mobile-assets/svgs/dodBranch/Navy.svg'
+// Service emblems
+import AirForce from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/AirForce.svg'
+import Army from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/Army.svg'
+import CoastGuard from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/CoastGuard.svg'
+import MarineCorps from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/MarineCorps.svg'
+import Navy from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/Navy.svg'
 
 // VA Logo
-import Logo from '@department-of-veterans-affairs/mobile-assets/svgs/vaParentLogo/Logo.svg'
+import LogoWhiteText from '@department-of-veterans-affairs/mobile-assets/VALogo/LogoWhiteText.svg'
 
-// TODO: Ticket 102 merge VASelector icons into the general icon list below
-// VASelector
-import CheckBoxEmpty from '@department-of-veterans-affairs/mobile-assets/svgs/checkbox/CheckBoxEmpty.svg'
-import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/svgs/checkbox/CheckBoxError.svg'
-import CheckBoxFilled from '@department-of-veterans-affairs/mobile-assets/svgs/checkbox/CheckBoxFilled.svg'
-import CheckBoxIntermediate from '@department-of-veterans-affairs/mobile-assets/svgs/checkbox/CheckBoxIntermediate.svg'
-import RadioEmpty from '@department-of-veterans-affairs/mobile-assets/svgs/radio/RadioEmpty.svg'
-import RadioFilled from '@department-of-veterans-affairs/mobile-assets/svgs/radio/RadioFilled.svg'
-
-import Add from '@department-of-veterans-affairs/mobile-assets/svgs/Add.svg'
-import Building from '@department-of-veterans-affairs/mobile-assets/svgs/Building.svg'
-import Bullet from '@department-of-veterans-affairs/mobile-assets/svgs/Bullet.svg'
-import Calendar from '@department-of-veterans-affairs/mobile-assets/svgs/Calendar.svg'
-import Check from '@department-of-veterans-affairs/mobile-assets/svgs/Check.svg'
-import ChevronDown from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronDown.svg'
-import ChevronLeft from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronLeft.svg'
-import ChevronRight from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronRight.svg'
-import ChevronUp from '@department-of-veterans-affairs/mobile-assets/svgs/ChevronUp.svg'
-import CircleCheckMark from '@department-of-veterans-affairs/mobile-assets/svgs/CircleCheckMark.svg'
-import Compose from '@department-of-veterans-affairs/mobile-assets/svgs/Compose.svg'
-import Directions from '@department-of-veterans-affairs/mobile-assets/svgs/Directions.svg'
-import Ellipsis from '@department-of-veterans-affairs/mobile-assets/svgs/Ellipsis.svg'
-import ExclamationCircle from '@department-of-veterans-affairs/mobile-assets/svgs/ExclamationCircle.svg'
-import ExclamationTriangle from '@department-of-veterans-affairs/mobile-assets/svgs/ExclamationTriangle.svg'
-import ExternalLink from '@department-of-veterans-affairs/mobile-assets/svgs/ExternalLink.svg'
-import Folder from '@department-of-veterans-affairs/mobile-assets/svgs/Folder.svg'
-import Inbox from '@department-of-veterans-affairs/mobile-assets/svgs/Inbox.svg'
-import Info from '@department-of-veterans-affairs/mobile-assets/svgs/Info.svg'
-import Lock from '@department-of-veterans-affairs/mobile-assets/svgs/Lock.svg'
-import Minus from '@department-of-veterans-affairs/mobile-assets/svgs/Minus.svg'
-import PaperClip from '@department-of-veterans-affairs/mobile-assets/svgs/PaperClip.svg'
-import Phone from '@department-of-veterans-affairs/mobile-assets/svgs/Phone.svg'
-import QuestionMark from '@department-of-veterans-affairs/mobile-assets/svgs/QuestionMark.svg'
-import Redo from '@department-of-veterans-affairs/mobile-assets/svgs/Redo.svg'
-import Remove from '@department-of-veterans-affairs/mobile-assets/svgs/Remove.svg'
-import Reply from '@department-of-veterans-affairs/mobile-assets/svgs/Reply.svg'
-import Sort from '@department-of-veterans-affairs/mobile-assets/svgs/Sort.svg'
-import TTY from '@department-of-veterans-affairs/mobile-assets/svgs/TTY.svg'
-import Text from '@department-of-veterans-affairs/mobile-assets/svgs/Text.svg'
-import Trash from '@department-of-veterans-affairs/mobile-assets/svgs/Trash.svg'
-import Truck from '@department-of-veterans-affairs/mobile-assets/svgs/Truck.svg'
-import Unread from '@department-of-veterans-affairs/mobile-assets/svgs/Unread.svg'
-import VideoCamera from '@department-of-veterans-affairs/mobile-assets/svgs/VideoCamera.svg'
+import AccountCircle from '@department-of-veterans-affairs/mobile-assets/icons/AccountCircle.svg'
+import Add from '@department-of-veterans-affairs/mobile-assets/icons/Add.svg'
+import Building from '@department-of-veterans-affairs/mobile-assets/icons/Building.svg'
+import Bullet from '@department-of-veterans-affairs/mobile-assets/icons/Bullet.svg'
+import Calendar from '@department-of-veterans-affairs/mobile-assets/icons/Calendar.svg'
+import Check from '@department-of-veterans-affairs/mobile-assets/icons/Check.svg'
+import CheckBoxEmpty from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxEmpty.svg'
+import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxError.svg'
+import CheckBoxFilled from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxFilled.svg'
+import CheckBoxIntermediate from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxIntermediate.svg'
+import ChevronDown from '@department-of-veterans-affairs/mobile-assets/icons/ChevronDown.svg'
+import ChevronLeft from '@department-of-veterans-affairs/mobile-assets/icons/ChevronLeft.svg'
+import ChevronRight from '@department-of-veterans-affairs/mobile-assets/icons/ChevronRight.svg'
+import ChevronUp from '@department-of-veterans-affairs/mobile-assets/icons/ChevronUp.svg'
+import CircleCheckMark from '@department-of-veterans-affairs/mobile-assets/icons/CircleCheckMark.svg'
+import Compose from '@department-of-veterans-affairs/mobile-assets/icons/Compose.svg'
+import Description from '@department-of-veterans-affairs/mobile-assets/icons/Description.svg'
+import DescriptionOutline from '@department-of-veterans-affairs/mobile-assets/icons/DescriptionOutline.svg'
+import Directions from '@department-of-veterans-affairs/mobile-assets/icons/Directions.svg'
+import Ellipsis from '@department-of-veterans-affairs/mobile-assets/icons/Ellipsis.svg'
+import ExclamationCircle from '@department-of-veterans-affairs/mobile-assets/icons/ExclamationCircle.svg'
+import ExclamationTriangle from '@department-of-veterans-affairs/mobile-assets/icons/ExclamationTriangle.svg'
+import ExternalLink from '@department-of-veterans-affairs/mobile-assets/icons/ExternalLink.svg'
+import FileInvoiceDollar from '@department-of-veterans-affairs/mobile-assets/icons/FileInvoiceDollar.svg'
+import FileInvoiceDollarOutline from '@department-of-veterans-affairs/mobile-assets/icons/FileInvoiceDollarOutline.svg'
+import Folder from '@department-of-veterans-affairs/mobile-assets/icons/Folder.svg'
+import Home from '@department-of-veterans-affairs/mobile-assets/icons/Home.svg'
+import HomeOutline from '@department-of-veterans-affairs/mobile-assets/icons/HomeOutline.svg'
+import Inbox from '@department-of-veterans-affairs/mobile-assets/icons/Inbox.svg'
+import Info from '@department-of-veterans-affairs/mobile-assets/icons/Info.svg'
+import Lock from '@department-of-veterans-affairs/mobile-assets/icons/Lock.svg'
+import MedicalServices from '@department-of-veterans-affairs/mobile-assets/icons/MedicalServices.svg'
+import MedicalServicesOutline from '@department-of-veterans-affairs/mobile-assets/icons/MedicalServicesOutline.svg'
+import Minus from '@department-of-veterans-affairs/mobile-assets/icons/Minus.svg'
+import PaperClip from '@department-of-veterans-affairs/mobile-assets/icons/PaperClip.svg'
+import Phone from '@department-of-veterans-affairs/mobile-assets/icons/Phone.svg'
+import QuestionMark from '@department-of-veterans-affairs/mobile-assets/icons/QuestionMark.svg'
+import RadioEmpty from '@department-of-veterans-affairs/mobile-assets/icons/RadioEmpty.svg'
+import RadioFilled from '@department-of-veterans-affairs/mobile-assets/icons/RadioFilled.svg'
+import Redo from '@department-of-veterans-affairs/mobile-assets/icons/Redo.svg'
+import Remove from '@department-of-veterans-affairs/mobile-assets/icons/Remove.svg'
+import Reply from '@department-of-veterans-affairs/mobile-assets/icons/Reply.svg'
+import Sort from '@department-of-veterans-affairs/mobile-assets/icons/Sort.svg'
+import TTY from '@department-of-veterans-affairs/mobile-assets/icons/TTY.svg'
+import Text from '@department-of-veterans-affairs/mobile-assets/icons/Text.svg'
+import Trash from '@department-of-veterans-affairs/mobile-assets/icons/Trash.svg'
+import Truck from '@department-of-veterans-affairs/mobile-assets/icons/Truck.svg'
+import Unread from '@department-of-veterans-affairs/mobile-assets/icons/Unread.svg'
+import VideoCamera from '@department-of-veterans-affairs/mobile-assets/icons/VideoCamera.svg'
 
 export const IconMap = {
+  AccountCircle,
   Add,
   AirForce,
   Army,
-  BenefitsSelected,
-  BenefitsUnselected,
   Building,
   Bullet,
   Calendar,
@@ -92,28 +85,29 @@ export const IconMap = {
   CircleCheckMark,
   CoastGuard,
   Compose,
+  Description,
+  DescriptionOutline,
   Directions,
   Ellipsis,
   ExclamationCircle,
   ExclamationTriangle,
   ExternalLink,
+  FileInvoiceDollar,
+  FileInvoiceDollarOutline,
   Folder,
-  HealthSelected,
-  HealthUnselected,
-  HomeSelected,
-  HomeUnselected,
+  Home,
+  HomeOutline,
   Inbox,
   Info,
   Lock,
-  Logo,
+  LogoWhiteText,
   MarineCorps,
+  MedicalServices,
+  MedicalServicesOutline,
   Minus,
   Navy,
   PaperClip,
-  PaymentsSelected,
-  PaymentsUnselected,
   Phone,
-  ProfileSelected,
   QuestionMark,
   RadioEmpty, // Also used for RadioDisabled content--same icon, different colors
   RadioFilled,
