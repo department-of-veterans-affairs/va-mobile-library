@@ -1,5 +1,12 @@
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
-import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
+import {
+  Pressable,
+  Text,
+  TextStyle,
+  View,
+  ViewStyle,
+  useWindowDimensions,
+} from 'react-native'
 import React, { FC, useState } from 'react'
 
 import { BaseColor, Spacer, useColorScheme } from '../../utils'
@@ -61,6 +68,7 @@ export const Alert: FC<AlertProps> = ({
   testId,
 }) => {
   const colorScheme = useColorScheme()
+  const fontScale = useWindowDimensions().fontScale
   const isDarkMode = colorScheme === 'dark'
   const [expanded, setExpanded] = useState(
     expandable ? initializeExpanded : true,
@@ -142,7 +150,7 @@ export const Alert: FC<AlertProps> = ({
     flexDirection: 'row',
     // Below keeps icon aligned with first row of text, centered, and scalable
     alignSelf: 'flex-start',
-    minHeight: Sizing._30,
+    minHeight: Sizing._30 * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
