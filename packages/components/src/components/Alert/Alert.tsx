@@ -161,7 +161,7 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const iconDisplay = (
-    <View style={{ ...iconViewStyle }}>
+    <View style={iconViewStyle}>
       <Icon fill={contentColor} {...iconProps} />
       <Spacer horizontal />
     </View>
