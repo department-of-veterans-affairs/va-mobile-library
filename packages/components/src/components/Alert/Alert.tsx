@@ -197,6 +197,7 @@ export const Alert: FC<AlertProps> = ({
           accessibilityRole="tab"
           accessibilityState={{ expanded }}
           aria-label={a11yLabel}
+          hitSlop={{ left: 54, top: 20, bottom: expanded ? 10 : 20, right: 20 }}
           style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>{headerText}</View>
           <View style={iconViewStyle}>
