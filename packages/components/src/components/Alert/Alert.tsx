@@ -218,7 +218,7 @@ export const Alert: FC<AlertProps> = ({
       // left border + left padding + spacer + icon width
       left: Sizing._8 + Sizing._12 + Sizing._10 + Sizing._24,
       top: Sizing._20,
-      // bottom spacing changes depended on expanded state
+      // bottom spacing changes depending on expanded state
       bottom: expanded ? Sizing._10 : Sizing._20,
       right: Sizing._20,
     }
