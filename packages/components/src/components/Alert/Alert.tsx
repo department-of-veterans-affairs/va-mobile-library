@@ -1,5 +1,6 @@
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
+  Insets,
   Pressable,
   Text,
   TextStyle,
@@ -79,6 +80,7 @@ export const Alert: FC<AlertProps> = ({
   // TODO: Replace with sizing/dimension tokens
   const Sizing = {
     _8: 8,
+    _10: 10,
     _12: 12,
     _16: 16,
     _20: 20,
@@ -160,9 +162,37 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const iconDisplay = (
-    <View style={iconViewStyle}>
-      <Icon fill={contentColor} {...iconProps} preventScaling />
+    <View style={{ ...iconViewStyle }}>
+      <Icon fill={contentColor} {...iconProps} />
       <Spacer horizontal />
+    </View>
+  )
+
+  const expandIconProps: IconProps = {
+    fill: contentColor,
+    width: Sizing._16,
+    height: Sizing._16,
+    maxWidth: Sizing._24,
+    name: expanded ? 'ChevronUp' : 'ChevronDown',
+  }
+
+  const expandableIcon = (
+    <View style={iconViewStyle}>
+      <Spacer horizontal />
+      <Icon {...expandIconProps} />
+    </View>
+  )
+
+  /**
+   * When an alert is expandable, the content should have additional padding on
+   * the right to appear within the expandable icon. Since the expandable icon
+   * has a maxWidth, this hidden icon matches the spacing of the icon insteading
+   * instead of adding a <Spacer /> with a calculated value.
+   */
+  const spacerIcon = (
+    <View style={iconViewStyle} aria-hidden>
+      <Spacer horizontal />
+      <Icon {...expandIconProps} fill={backgroundColor} />
     </View>
   )
 
@@ -185,6 +215,14 @@ export const Alert: FC<AlertProps> = ({
   const _header = () => {
     const headerText = header ? <Text style={headerFont}>{header}</Text> : null
     const a11yLabel = header ? headerA11yLabel || header : ''
+    const hitSlop: Insets = {
+      // left border + left padding + spacer + icon width
+      left: Sizing._8 + Sizing._12 + Sizing._10 + Sizing._24,
+      top: Sizing._20,
+      // bottom spacing changes depended on expanded state
+      bottom: expanded ? Sizing._10 : Sizing._20,
+      right: Sizing._20,
+    }
 
     /**
      * Wrap header text and expand icon in Pressable if the Alert is expandable
@@ -197,19 +235,10 @@ export const Alert: FC<AlertProps> = ({
           accessibilityRole="tab"
           accessibilityState={{ expanded }}
           aria-label={a11yLabel}
-          hitSlop={{ left: 54, top: 20, bottom: expanded ? 10 : 20, right: 20 }}
+          hitSlop={hitSlop}
           style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>{headerText}</View>
-          <View style={iconViewStyle}>
-            <Spacer horizontal />
-            <Icon
-              fill={contentColor}
-              width={Sizing._16}
-              height={Sizing._16}
-              maxWidth={Sizing._24}
-              name={expanded ? 'ChevronUp' : 'ChevronDown'}
-            />
-          </View>
+          {expandableIcon}
         </Pressable>
       )
     }
@@ -252,7 +281,10 @@ export const Alert: FC<AlertProps> = ({
   }
 
   return (
-    <View style={contentBox} testID={testId}>
+    <View
+      style={contentBox}
+      testID={testId}
+      accessibilityRole={expandable ? 'tablist' : 'none'}>
       <View style={{ flexDirection: 'row' }}>
         {iconDisplay}
         <View style={{ flex: 1 }}>
@@ -271,7 +303,7 @@ export const Alert: FC<AlertProps> = ({
                 {description && children ? <Spacer /> : null}
                 {children}
               </View>
-              {expandable && <Spacer horizontal size={Sizing._26} />}
+              {expandable && spacerIcon}
             </View>
           )}
         </View>
