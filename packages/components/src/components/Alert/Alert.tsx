@@ -85,7 +85,6 @@ export const Alert: FC<AlertProps> = ({
     _16: 16,
     _20: 20,
     _24: 24,
-    _26: 26,
     _30: 30,
   }
   const contentColor = AlertContentColor()
