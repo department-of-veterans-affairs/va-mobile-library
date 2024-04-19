@@ -2,7 +2,6 @@ import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Pressable,
   PressableProps,
-  PressableStateCallbackType,
   Text,
   TextProps,
   TextStyle,
@@ -270,10 +269,17 @@ export const Link: FC<LinkProps> = ({
     onPress: _onPress,
     hitSlop: 7,
     ...a11yProps,
-    style: {
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
+    style: ({ pressed }) => [
+      {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: pressed
+          ? isDarkMode
+            ? Colors.grayDark
+            : Colors.grayLighter
+          : 'none',
+      },
+    ],
     testOnly_pressed: testOnlyPressed,
   }
 
@@ -286,24 +292,12 @@ export const Link: FC<LinkProps> = ({
     textDecorationLine: 'underline',
   }
 
-  const getViewStyle = (pressed: boolean): ViewStyle => {
-    const defaultStyle: ViewStyle = {
-      flexDirection: 'row',
-    }
-
-    const backgroundColor = isDarkMode ? Colors.grayDark : Colors.grayLighter
-
-    return pressed ? { backgroundColor, ...defaultStyle } : defaultStyle
-  }
-
   return (
     <Pressable {...pressableProps} testID={testID}>
-      {({ pressed }: PressableStateCallbackType) => (
-        <View style={getViewStyle(pressed)}>
-          {iconDisplay}
-          <Text style={textStyle}>{text}</Text>
-        </View>
-      )}
+      <>
+        {iconDisplay}
+        <Text style={textStyle}>{text}</Text>
+      </>
     </Pressable>
   )
 }
