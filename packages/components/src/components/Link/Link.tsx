@@ -269,17 +269,15 @@ export const Link: FC<LinkProps> = ({
     onPress: _onPress,
     hitSlop: 7,
     ...a11yProps,
-    style: ({ pressed }) => [
-      {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: pressed
-          ? isDarkMode
-            ? Colors.grayDark
-            : Colors.grayLighter
-          : 'none',
-      },
-    ],
+    style: ({ pressed }) => ({
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: pressed
+        ? isDarkMode
+          ? Colors.grayDark
+          : Colors.grayLighter
+        : 'none',
+    }),
     testOnly_pressed: testOnlyPressed,
   }
 

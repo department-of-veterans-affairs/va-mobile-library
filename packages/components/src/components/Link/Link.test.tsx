@@ -4,7 +4,6 @@ import React from 'react'
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
 import { Link, LinkAnalytics, LinkProps } from './Link'
-import { View } from 'react-native'
 
 const onPressSpy = jest.fn()
 const mockedColorScheme = jest.fn()
@@ -16,11 +15,13 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
 })
 
 // Mock the internal function call within the useExternalLink hook
-const useExternalLinkHookMock = jest.fn((url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
-  url
-  analytics
-  text
-})
+const useExternalLinkHookMock = jest.fn(
+  (url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
+    url
+    analytics
+    text
+  },
+)
 // Mock the useExternalLink hook to leverage mock implementation
 jest.spyOn(utils, 'useExternalLink').mockImplementation(() => {
   return useExternalLinkHookMock
@@ -50,7 +51,7 @@ describe('Link', () => {
     element.getByText(defaultProps.text).props.style.color
 
   const getBackgroundColor = (element: RenderAPI) =>
-    element.root.findByType(View).props.style.backgroundColor
+    element.getByRole('link').props.style.backgroundColor
 
   afterEach(() => {
     onPressSpy.mockReset()
@@ -176,7 +177,10 @@ describe('Link', () => {
     it('calls useExternalLink hook when tapped', async () => {
       fireEvent.press(component.getByText('123-456-7890'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('tel:1234567890', undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'tel:1234567890',
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
@@ -253,7 +257,11 @@ describe('Link', () => {
     it('calls useExternalLink hook when tapped', async () => {
       fireEvent.press(component.getByText('Get Directions'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://maps.apple.com/?t=m&daddr=%2BTibor+Rubin+VA+Medical+Center%2B33.7764681%2C-118.1189664', undefined, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://maps.apple.com/?t=m&daddr=%2BTibor+Rubin+VA+Medical+Center%2B33.7764681%2C-118.1189664',
+        undefined,
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
@@ -284,7 +292,10 @@ describe('Link', () => {
     it('calls onPress when tapped', async () => {
       fireEvent.press(component.getByText('Text 123456'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('sms:123456', undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'sms:123456',
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
@@ -315,7 +326,11 @@ describe('Link', () => {
     it('calls onPress when tapped', async () => {
       fireEvent.press(component.getByText('External Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', undefined, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        undefined,
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
@@ -342,6 +357,8 @@ describe('Link', () => {
 
     it('renders background color when pressed', async () => {
       component = render(<Link {...defaultProps} testOnlyPressed />)
+      component.debug()
+      console.log(component.getByRole('link').props.style)
       expect(getBackgroundColor(component)).toBe('#dfe1e2')
     })
   })
@@ -381,7 +398,10 @@ describe('Link', () => {
     })
 
     it('includes a11yValue', async () => {
-      expect(component.UNSAFE_root.props.a11yValue).toStrictEqual({ index: 2, total: 5 })
+      expect(component.UNSAFE_root.props.a11yValue).toStrictEqual({
+        index: 2,
+        total: 5,
+      })
     })
   })
 
@@ -394,34 +414,72 @@ describe('Link', () => {
     }
 
     it('calls useExternalLink hook with promptText when provided', async () => {
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' promptText={promptText} />)
+      component = render(
+        <Link
+          {...defaultProps}
+          type="url"
+          url="https://www.va.com"
+          promptText={promptText}
+        />,
+      )
       fireEvent.press(component.getByText('Example Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, promptText)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        analytics,
+        promptText,
+      )
     })
 
     it('calls useExternalLink hook without promptText when not provided', async () => {
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' />)
+      component = render(
+        <Link {...defaultProps} type="url" url="https://www.va.com" />,
+      )
       fireEvent.press(component.getByText('Example Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        analytics,
+        undefined,
+      )
     })
   })
 
   describe('analytics tests', () => {
     it('calls useExternalLink hook with analytics when provided', async () => {
-
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' analytics={analytics} />)
+      component = render(
+        <Link
+          {...defaultProps}
+          type="url"
+          url="https://www.va.com"
+          analytics={analytics}
+        />,
+      )
       fireEvent.press(component.getByText('Example Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        analytics,
+        undefined,
+      )
     })
 
     it('calls useExternalLink hook without analytics when not provided', async () => {
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' analytics={undefined} />)
+      component = render(
+        <Link
+          {...defaultProps}
+          type="url"
+          url="https://www.va.com"
+          analytics={undefined}
+        />,
+      )
       fireEvent.press(component.getByText('Example Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', undefined, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        undefined,
+        undefined,
+      )
     })
 
     it('calls onPress analytics with custom onPress behavior', async () => {
