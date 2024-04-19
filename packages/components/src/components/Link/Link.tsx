@@ -243,7 +243,7 @@ export const Link: FC<LinkProps> = ({
   const iconDisplay =
     _icon === 'no icon' ? null : (
       <View style={iconViewStyle}>
-        <Icon fill={linkColor} {..._icon} width={50} height={50} />
+        <Icon fill={linkColor} {..._icon} />
       </View>
     )
 
