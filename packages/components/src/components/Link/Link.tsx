@@ -2,7 +2,6 @@ import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Pressable,
   PressableProps,
-  PressableStateCallbackType,
   Text,
   TextProps,
   TextStyle,
@@ -117,6 +116,8 @@ export type LinkProps = linkTypes & {
   analytics?: LinkAnalytics
   /** Optional TestID */
   testID?: string
+  /** Optional for testing pressed state in test suites */
+  testOnlyPressed?: boolean
 }
 
 /** [View guidance for the Link component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Link)  */
@@ -132,6 +133,7 @@ export const Link: FC<LinkProps> = ({
   promptText,
   analytics,
   testID,
+  testOnlyPressed,
   // Type-specific props
   locationData,
   phoneNumber,
@@ -145,7 +147,7 @@ export const Link: FC<LinkProps> = ({
   const launchExternalLink = useExternalLink()
 
   let _icon: IconProps | 'no icon'
-  
+
   /** Function to massage Partial<IconProps> data into IconProps based on variant icon defaults */
   const setIcon = (name?: IconProps['name']) => {
     switch (icon) {
@@ -157,7 +159,7 @@ export const Link: FC<LinkProps> = ({
       default:
         if (icon.svg) return icon as IconProps
         if (!name && !icon.name) return 'no icon'
-        
+
         if (!icon.name) icon.name = name
         return icon as IconProps
     }
@@ -267,42 +269,31 @@ export const Link: FC<LinkProps> = ({
     onPress: _onPress,
     hitSlop: 7,
     ...a11yProps,
-    style: {
+    style: ({ pressed }) => ({
       flexDirection: 'row',
       alignItems: 'center',
-    },
+      backgroundColor: pressed
+        ? isDarkMode
+          ? Colors.grayDark
+          : Colors.grayLighter
+        : 'none',
+    }),
+    testOnly_pressed: testOnlyPressed,
   }
 
-  const getTextStyle = (pressed: boolean): TextStyle => {
-    // TODO: Replace with typography tokens
-    const regularFont: TextStyle = {
-      fontFamily: 'SourceSansPro-Regular',
-      fontSize: 20,
-      lineHeight: 30,
-    }
-    const pressedFont: TextStyle = {
-      fontFamily: 'SourceSansPro-Bold',
-      fontSize: 20,
-      lineHeight: 30,
-    }
-
-    const textStyle: TextStyle = {
-      color: linkColor,
-      textDecorationColor: linkColor,
-      textDecorationLine: 'underline',
-    }
-
-    return { ...(pressed ? pressedFont : regularFont), ...textStyle }
+  const textStyle: TextStyle = {
+    color: linkColor,
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: 20,
+    lineHeight: 30,
+    textDecorationColor: linkColor,
+    textDecorationLine: 'underline',
   }
 
   return (
     <Pressable {...pressableProps} testID={testID}>
-      {({ pressed }: PressableStateCallbackType) => (
-        <>
-          {iconDisplay}
-          <Text style={getTextStyle(pressed)}>{text}</Text>
-        </>
-      )}
+      {iconDisplay}
+      <Text style={textStyle}>{text}</Text>
     </Pressable>
   )
 }
