@@ -234,7 +234,7 @@ export const Alert: FC<AlertProps> = ({
         <Pressable
           onPress={() => setExpanded(!expanded)}
           role="tab"
-          aria-expanded={{ expanded }}
+          aria-expanded={expanded}
           aria-label={a11yLabel}
           hitSlop={hitSlop}
           style={{ flexDirection: 'row' }}>
