@@ -72,13 +72,13 @@ export const Expandable: Story = {
     primaryButton: {
       label: 'Button Text',
       onPress: () => {
-        null
+        console.log('primary button pressed')
       },
     },
     secondaryButton: {
       label: 'Button Text',
       onPress: () => {
-        null
+        console.log('secondary button pressed')
       },
     },
   },

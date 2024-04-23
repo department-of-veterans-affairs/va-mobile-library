@@ -43,9 +43,9 @@ export type AlertProps = {
       header: string
       /** True if Alert should start expanded. Defaults to false */
       initializeExpanded?: boolean
-      /** Optional passthrough fucntion for expand event */
+      /** Optional passthrough function for expand event */
       onExpand?: () => void
-      /** Optional passthrough fucntion for collapse event */
+      /** Optional passthrough function for collapse event */
       onCollapse?: () => void
     }
   | {
