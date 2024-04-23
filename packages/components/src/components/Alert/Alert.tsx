@@ -17,6 +17,11 @@ import { Icon, IconProps } from '../Icon/Icon'
 /** Convenience function to set children content color correctly with light/dark mode */
 export const AlertContentColor = BaseColor
 
+export type AlertAnalytics = {
+  onExpand?: () => void
+  onCollapse?: () => void
+}
+
 export type AlertProps = {
   /** Alert variant */
   variant: 'info' | 'success' | 'warning' | 'error'
@@ -33,6 +38,8 @@ export type AlertProps = {
   primaryButton?: ButtonProps
   /** Optional secondary action button */
   secondaryButton?: ButtonProps
+  /** Optional analytics event logging */
+  analytics?: AlertAnalytics
   /** Optional testID */
   testId?: string
 } & (
@@ -72,8 +79,7 @@ export const Alert: FC<AlertProps> = ({
   children,
   expandable,
   initializeExpanded,
-  onCollapse,
-  onExpand,
+  analytics,
   primaryButton,
   secondaryButton,
   testId,
@@ -86,8 +92,8 @@ export const Alert: FC<AlertProps> = ({
   )
 
   const toggleExpand = () => {
-    if (expanded && onCollapse) onCollapse()
-    if (!expanded && onExpand) onExpand()
+    if (expanded && analytics?.onCollapse) analytics.onCollapse()
+    if (!expanded && analytics?.onExpand) analytics.onExpand()
     setExpanded(!expanded)
   }
 
