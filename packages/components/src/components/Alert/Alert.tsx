@@ -247,8 +247,8 @@ export const Alert: FC<AlertProps> = ({
       return (
         <Pressable
           onPress={toggleExpand}
-          accessibilityRole="tab"
-          accessibilityState={{ expanded }}
+          role="tab"
+          aria-expanded={expanded}
           aria-label={a11yLabel}
           hitSlop={hitSlop}
           style={{ flexDirection: 'row' }}>
@@ -299,7 +299,7 @@ export const Alert: FC<AlertProps> = ({
     <View
       style={contentBox}
       testID={testId}
-      accessibilityRole={expandable ? 'tablist' : 'none'}>
+      role={expandable ? 'tablist' : 'none'}>
       <View style={{ flexDirection: 'row' }}>
         {iconDisplay}
         <View style={{ flex: 1 }}>
