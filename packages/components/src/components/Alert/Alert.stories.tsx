@@ -45,28 +45,69 @@ export const Info: Story = {
     header: 'Header',
     description: 'Description',
     children: children,
+    analytics: {
+      onExpand: () => console.log('expanded'),
+      onCollapse: () => console.log('collapsed'),
+    },
     primaryButton: {
       label: 'Button Text',
-      onPress: () => {
-        null
-      },
+      onPress: () => console.log('primary press'),
     },
     secondaryButton: {
       label: 'Button Text',
-      onPress: () => {
-        null
-      },
+      onPress: () => console.log('secondary press'),
     },
   },
 }
 
-export const Expandable: Story = {
+export const _Success: Story = {
   args: {
-    variant: 'info',
+    variant: 'success',
     header: 'Header',
     description: 'Description',
     children: children,
-    expandable: true,
+    analytics: {
+      onExpand: () => console.log('expanded'),
+      onCollapse: () => console.log('collapsed'),
+    },
+    primaryButton: {
+      label: 'Button Text',
+      onPress: () => console.log('primary press'),
+    },
+    secondaryButton: {
+      label: 'Button Text',
+      onPress: () => console.log('secondary press'),
+    },
+  },
+}
+
+export const __Warning: Story = {
+  args: {
+    variant: 'warning',
+    header: 'Header',
+    description: 'Description',
+    children: children,
+    analytics: {
+      onExpand: () => console.log('expanded'),
+      onCollapse: () => console.log('collapsed'),
+    },
+    primaryButton: {
+      label: 'Button Text',
+      onPress: () => console.log('primary press'),
+    },
+    secondaryButton: {
+      label: 'Button Text',
+      onPress: () => console.log('secondary press'),
+    },
+  },
+}
+
+export const ___Error: Story = {
+  args: {
+    variant: 'error',
+    header: 'Header',
+    description: 'Description',
+    children: children,
     analytics: {
       onExpand: () => console.log('expanded'),
       onCollapse: () => console.log('collapsed'),
