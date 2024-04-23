@@ -67,6 +67,8 @@ export const Expandable: Story = {
     description: 'Description',
     children: children,
     expandable: true,
+    onExpand: () => console.log('expanded'),
+    onCollapse: () => console.log('collapsed'),
     primaryButton: {
       label: 'Button Text',
       onPress: () => {

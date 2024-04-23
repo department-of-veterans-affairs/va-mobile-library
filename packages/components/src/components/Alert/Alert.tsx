@@ -43,6 +43,10 @@ export type AlertProps = {
       header: string
       /** True if Alert should start expanded. Defaults to false */
       initializeExpanded?: boolean
+      /** Optional passthrough fucntion for expand event */
+      onExpand?: () => void
+      /** Optional passthrough fucntion for collapse event */
+      onCollapse?: () => void
     }
   | {
       /** True to make the Alert expandable */
@@ -50,6 +54,8 @@ export type AlertProps = {
       /** Header text. Optional when Alert is not expandable */
       header?: string
       initializeExpanded?: never
+      onExpand?: never
+      onCollapse?: never
     }
 )
 
@@ -66,6 +72,8 @@ export const Alert: FC<AlertProps> = ({
   children,
   expandable,
   initializeExpanded,
+  onCollapse,
+  onExpand,
   primaryButton,
   secondaryButton,
   testId,
@@ -76,6 +84,12 @@ export const Alert: FC<AlertProps> = ({
   const [expanded, setExpanded] = useState(
     expandable ? initializeExpanded : true,
   )
+
+  const toggleExpand = () => {
+    if (expanded && onCollapse) onCollapse()
+    if (!expanded && onExpand) onExpand()
+    setExpanded(!expanded)
+  }
 
   // TODO: Replace with sizing/dimension tokens
   const Sizing = {
@@ -232,7 +246,7 @@ export const Alert: FC<AlertProps> = ({
     if (expandable) {
       return (
         <Pressable
-          onPress={() => setExpanded(!expanded)}
+          onPress={toggleExpand}
           accessibilityRole="tab"
           accessibilityState={{ expanded }}
           aria-label={a11yLabel}
