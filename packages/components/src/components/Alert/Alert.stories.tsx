@@ -59,3 +59,25 @@ export const Info: Story = {
     },
   },
 }
+
+export const Expandable: Story = {
+  args: {
+    variant: 'info',
+    header: 'Header',
+    description: 'Description',
+    children: children,
+    expandable: true,
+    primaryButton: {
+      label: 'Button Text',
+      onPress: () => {
+        null
+      },
+    },
+    secondaryButton: {
+      label: 'Button Text',
+      onPress: () => {
+        null
+      },
+    },
+  },
+}

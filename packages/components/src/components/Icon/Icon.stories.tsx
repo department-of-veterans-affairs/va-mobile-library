@@ -34,7 +34,7 @@ export const _Preloaded: Story = {
   args: {
     width: 50,
     height: 50,
-    name: 'HomeUnselected',
+    name: 'HomeOutline',
   },
 }
 export const __Custom: Story = {
