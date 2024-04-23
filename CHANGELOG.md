@@ -1,5 +1,13 @@
 # Changelog
 
+## [linting-v0.13.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.13.0) (2024-04-23)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.14.0...linting-v0.13.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add linting rules for Alert [\#297](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/297) ([narin](https://github.com/narin))
+
 ## [components-v0.14.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.14.0) (2024-04-23)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.7.0...components-v0.14.0)
