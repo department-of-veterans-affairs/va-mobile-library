@@ -162,7 +162,7 @@ export const Alert: FC<AlertProps> = ({
 
   const iconDisplay = (
     <View style={iconViewStyle}>
-      <Icon fill={contentColor} {...iconProps} />
+      <Icon fill={contentColor} {...iconProps} preventScaling />
       <Spacer horizontal />
     </View>
   )
@@ -191,7 +191,7 @@ export const Alert: FC<AlertProps> = ({
   const spacerIcon = (
     <View style={iconViewStyle} aria-hidden>
       <Spacer horizontal />
-      <Icon {...expandIconProps} fill={backgroundColor} />
+      <Icon {...expandIconProps} fill="none" />
     </View>
   )
 
@@ -212,8 +212,10 @@ export const Alert: FC<AlertProps> = ({
   }
 
   const _header = () => {
-    const headerText = header ? <Text style={headerFont}>{header}</Text> : null
-    const a11yLabel = header ? headerA11yLabel || header : ''
+    if (!header) return null
+
+    const headerText = <Text style={headerFont}>{header}</Text>
+    const a11yLabel = headerA11yLabel || header
     const hitSlop: Insets = {
       // left border + left padding + spacer + icon width
       left: Sizing._8 + Sizing._12 + Sizing._10 + Sizing._24,
