@@ -285,7 +285,7 @@ export const Alert: FC<AlertProps> = ({
     <View
       style={contentBox}
       testID={testId}
-      accessibilityRole={expandable ? 'tablist' : 'none'}>
+      role={expandable ? 'tablist' : 'none'}>
       <View style={{ flexDirection: 'row' }}>
         {iconDisplay}
         <View style={{ flex: 1 }}>
