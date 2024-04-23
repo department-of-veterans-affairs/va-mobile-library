@@ -276,7 +276,7 @@ export const Link: FC<LinkProps> = ({
         ? isDarkMode
           ? Colors.grayDark
           : Colors.grayLighter
-        : 'none',
+        : 'transparent',
     }),
     testOnly_pressed: testOnlyPressed,
   }
