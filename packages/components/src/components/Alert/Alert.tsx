@@ -50,10 +50,6 @@ export type AlertProps = {
       header: string
       /** True if Alert should start expanded. Defaults to false */
       initializeExpanded?: boolean
-      /** Optional passthrough function for expand event */
-      onExpand?: () => void
-      /** Optional passthrough function for collapse event */
-      onCollapse?: () => void
     }
   | {
       /** True to make the Alert expandable */
@@ -61,8 +57,6 @@ export type AlertProps = {
       /** Header text. Optional when Alert is not expandable */
       header?: string
       initializeExpanded?: never
-      onExpand?: never
-      onCollapse?: never
     }
 )
 
