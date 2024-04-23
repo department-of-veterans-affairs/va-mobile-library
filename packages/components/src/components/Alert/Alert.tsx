@@ -233,7 +233,7 @@ export const Alert: FC<AlertProps> = ({
       return (
         <Pressable
           onPress={() => setExpanded(!expanded)}
-          accessibilityRole="tab"
+          role="tab"
           accessibilityState={{ expanded }}
           aria-label={a11yLabel}
           hitSlop={hitSlop}
