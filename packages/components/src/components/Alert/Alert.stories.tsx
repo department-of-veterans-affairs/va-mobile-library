@@ -67,17 +67,17 @@ export const Expandable: Story = {
     description: 'Description',
     children: children,
     expandable: true,
+    analytics: {
+      onExpand: () => console.log('expanded'),
+      onCollapse: () => console.log('collapsed'),
+    },
     primaryButton: {
       label: 'Button Text',
-      onPress: () => {
-        null
-      },
+      onPress: () => console.log('primary press'),
     },
     secondaryButton: {
       label: 'Button Text',
-      onPress: () => {
-        null
-      },
+      onPress: () => console.log('secondary press'),
     },
   },
 }
