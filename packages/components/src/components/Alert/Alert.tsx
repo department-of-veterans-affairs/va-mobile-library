@@ -60,7 +60,7 @@ export type AlertProps = {
     }
 )
 
-/** [View guidance for the Alert component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Alert) */
+/** [View guidance for the Alert component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20progress/Alert) */
 export const Alert: FC<AlertProps> = ({
   variant,
   header,
