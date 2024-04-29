@@ -18,34 +18,41 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
   }
 })
 
+// Test props
+const headerText = 'Header text'
+const descriptionText = 'Description text'
+const testID = 'testAlert'
+
+const children = (
+  <View>
+    <Text>Sample children content</Text>
+  </View>
+)
+
+const primaryButtonProps = {
+  label: 'Primary test button',
+  onPress: () => console.log('primary press'),
+  testID: 'primaryButton',
+}
+
+const secondaryButtonProps = {
+  label: 'Secondary test button',
+  onPress: () => console.log('secondary press'),
+  testID: 'secondaryButton',
+}
+
+// Helper utils
+const getContentStyle = (element: RenderAPI) =>
+  element.getByTestId(testID).props.style
+
+const getTextColor = (element: RenderAPI) =>
+  element.getByText(headerText).props.style.color
+
+const getIconName = (element: RenderAPI) =>
+  element.root.findByType(Icon).props.name
+
 describe('Button', () => {
   let component: RenderAPI
-
-  const headerText = 'Header text'
-  const descriptionText = 'Description text'
-  const testID = 'testAlert'
-  const children = (
-    <View>
-      <Text>Sample children content</Text>
-    </View>
-  )
-  const primaryButtonProps = {
-    label: 'Primary test button',
-    onPress: () => console.log('primary press'),
-    testID: 'primaryButton',
-  }
-  const secondaryButtonProps = {
-    label: 'Secondary test button',
-    onPress: () => console.log('secondary press'),
-    testID: 'secondaryButton',
-  }
-
-  const getContentStyle = (element: RenderAPI) =>
-    element.getByTestId(testID).props.style
-  const getTextColor = (element: RenderAPI) =>
-    element.getByText(headerText).props.style.color
-  const getIconName = (element: RenderAPI) =>
-    element.root.findByType(Icon).props.name
 
   describe('Basic tests', () => {
     beforeEach(() => {
