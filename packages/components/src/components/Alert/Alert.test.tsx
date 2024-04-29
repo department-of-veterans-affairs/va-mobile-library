@@ -47,7 +47,7 @@ describe('Button', () => {
   const getIconName = (element: RenderAPI) =>
     element.root.findByType(Icon).props.name
 
-  describe('Info variant and basic tests', () => {
+  describe('Basic tests', () => {
     beforeEach(() => {
       component = render(
         <Alert
@@ -66,29 +66,36 @@ describe('Button', () => {
       expect(component).toBeTruthy()
     })
 
-    it('should render correct colors and icon', () => {
-      const { backgroundColor, borderLeftColor } = getContentStyle(component)
-      expect(backgroundColor).toBe('#e1f3f8')
-      expect(borderLeftColor).toBe('#28a0cb')
-      expect(getTextColor(component)).toBe('#3d4551')
-      expect(getIconName(component)).toBe('Info')
-    })
-
     it('should render header and description text', () => {
       expect(component.queryByText('Header text')).toBeTruthy()
       expect(component.queryByText('Description text')).toBeTruthy()
     })
 
-    it('should render any children nested within', () => {
+    it('should render children nested within', () => {
       expect(component.queryByText('Sample children content')).toBeTruthy()
     })
 
-    //button
     it('should render primary and secondary buttons passed', async () => {
       const primaryButton = await component.findByTestId('primaryButton')
       expect(primaryButton).toBeTruthy()
       const secondaryButton = await component.findByTestId('secondaryButton')
       expect(secondaryButton).toBeTruthy()
+    })
+  })
+
+  describe('Info variant and basic tests', () => {
+    describe('Light mode', () => {
+      it('should render correct colors and icon', () => {
+        component = render(
+          <Alert variant="info" header={headerText} testID={testID} />,
+        )
+
+        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        expect(backgroundColor).toBe('#e1f3f8')
+        expect(borderLeftColor).toBe('#28a0cb')
+        expect(getTextColor(component)).toBe('#3d4551')
+        expect(getIconName(component)).toBe('Info')
+      })
     })
 
     describe('Dark mode', () => {
@@ -96,12 +103,7 @@ describe('Button', () => {
         mockedColorScheme.mockImplementation(() => 'dark')
 
         component = render(
-          <Alert
-            variant="info"
-            header={headerText}
-            description={descriptionText}
-            testID={testID}
-          />,
+          <Alert variant="info" header={headerText} testID={testID} />,
         )
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#112f4e')
@@ -118,12 +120,7 @@ describe('Button', () => {
         mockedColorScheme.mockImplementation(() => 'light')
 
         component = render(
-          <Alert
-            variant="success"
-            header={headerText}
-            description={descriptionText}
-            testID={testID}
-          />,
+          <Alert variant="success" header={headerText} testID={testID} />,
         )
 
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
@@ -138,12 +135,7 @@ describe('Button', () => {
       it('should render correct colors and icon', () => {
         mockedColorScheme.mockImplementation(() => 'dark')
         component = render(
-          <Alert
-            variant="success"
-            header={headerText}
-            description={descriptionText}
-            testID={testID}
-          />,
+          <Alert variant="success" header={headerText} testID={testID} />,
         )
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#19311e')
@@ -160,12 +152,7 @@ describe('Button', () => {
         mockedColorScheme.mockImplementation(() => 'light')
 
         component = render(
-          <Alert
-            variant="warning"
-            header={headerText}
-            description={descriptionText}
-            testID={testID}
-          />,
+          <Alert variant="warning" header={headerText} testID={testID} />,
         )
 
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
@@ -180,12 +167,7 @@ describe('Button', () => {
       it('should render correct colors and icon', () => {
         mockedColorScheme.mockImplementation(() => 'dark')
         component = render(
-          <Alert
-            variant="warning"
-            header={headerText}
-            description={descriptionText}
-            testID={testID}
-          />,
+          <Alert variant="warning" header={headerText} testID={testID} />,
         )
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#5c4809')
@@ -202,12 +184,7 @@ describe('Button', () => {
         mockedColorScheme.mockImplementation(() => 'light')
 
         component = render(
-          <Alert
-            variant="error"
-            header={headerText}
-            description={descriptionText}
-            testID={testID}
-          />,
+          <Alert variant="error" header={headerText} testID={testID} />,
         )
 
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
@@ -222,12 +199,7 @@ describe('Button', () => {
       it('should render correct colors and icon', () => {
         mockedColorScheme.mockImplementation(() => 'dark')
         component = render(
-          <Alert
-            variant="error"
-            header={headerText}
-            description={descriptionText}
-            testID={testID}
-          />,
+          <Alert variant="error" header={headerText} testID={testID} />,
         )
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#5c1111')
@@ -246,7 +218,6 @@ describe('Button', () => {
             variant="error"
             header={headerText}
             description={descriptionText}
-            testID={testID}
             expandable
             primaryButton={primaryButtonProps}
             secondaryButton={secondaryButtonProps}>
@@ -279,7 +250,6 @@ describe('Button', () => {
             variant="error"
             header={headerText}
             description={descriptionText}
-            testID={testID}
             expandable
             initializeExpanded={true}
             primaryButton={primaryButtonProps}
@@ -313,7 +283,6 @@ describe('Button', () => {
             variant="error"
             header={headerText}
             description={descriptionText}
-            testID={testID}
             expandable
             primaryButton={primaryButtonProps}
             secondaryButton={secondaryButtonProps}>
@@ -344,7 +313,6 @@ describe('Button', () => {
             variant="error"
             header={headerText}
             description={descriptionText}
-            testID={testID}
             expandable
             initializeExpanded={true}
             primaryButton={primaryButtonProps}
@@ -375,7 +343,6 @@ describe('Button', () => {
           <Alert
             variant="error"
             header={headerText}
-            description={descriptionText}
             expandable
             analytics={{
               onExpand: onExpandSpy,
