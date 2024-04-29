@@ -25,7 +25,7 @@ describe('Button', () => {
   const descriptionText = 'Description text'
   const testID = 'testAlert'
   const children = (
-    <View testID="testChild">
+    <View>
       <Text>Sample children content</Text>
     </View>
   )
@@ -227,69 +227,6 @@ describe('Button', () => {
       })
 
       it('should initially render header only', async () => {
-        // Only header should be visible before press
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeNull()
-        expect(component.queryByText('Sample children content')).toBeNull()
-        expect(component.queryByText('Primary test button')).toBeNull()
-        expect(component.queryByText('Secondary test button')).toBeNull()
-
-        fireEvent.press(component.getByRole('tab'))
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeTruthy()
-        expect(component.queryByText('Sample children content')).toBeTruthy()
-        expect(component.queryByText('Primary test button')).toBeTruthy()
-        expect(component.queryByText('Secondary test button')).toBeTruthy()
-      })
-    })
-
-    describe('Initialize expanded', () => {
-      it('should render expanded', () => {
-        component = render(
-          <Alert
-            variant="error"
-            header={headerText}
-            description={descriptionText}
-            expandable
-            initializeExpanded={true}
-            primaryButton={primaryButtonProps}
-            secondaryButton={secondaryButtonProps}>
-            {children}
-          </Alert>,
-        )
-
-        // Only header should be visible before press
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeTruthy()
-        expect(component.queryByText('Sample children content')).toBeTruthy()
-        expect(component.queryByText('Primary test button')).toBeTruthy()
-        expect(component.queryByText('Secondary test button')).toBeTruthy()
-
-        fireEvent.press(component.getByRole('tab'))
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeNull()
-        expect(component.queryByText('Sample children content')).toBeNull()
-        expect(component.queryByText('Primary test button')).toBeNull()
-        expect(component.queryByText('Secondary test button')).toBeNull()
-      })
-    })
-  })
-
-  describe('Expandable variant', () => {
-    describe('Initialize collapsed', () => {
-      it('should initially render header only', async () => {
-        component = render(
-          <Alert
-            variant="error"
-            header={headerText}
-            description={descriptionText}
-            expandable
-            primaryButton={primaryButtonProps}
-            secondaryButton={secondaryButtonProps}>
-            {children}
-          </Alert>,
-        )
-
         // Only header should be visible before press
         expect(component.queryByText('Header text')).toBeTruthy()
         expect(component.queryByText('Description text')).toBeNull()
