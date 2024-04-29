@@ -45,8 +45,8 @@ describe('Button', () => {
       expect(onPressSpy).toBeCalled()
     })
 
-    it('should render label', async () => {
-      expect(component.findByText('Button text')).toBeTruthy()
+    it('should render label', () => {
+      expect(component.queryByText('Button text')).toBeTruthy()
     })
 
     it('should render Primary variant by default', async () => {
