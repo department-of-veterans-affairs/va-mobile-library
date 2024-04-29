@@ -258,13 +258,13 @@ describe('Button', () => {
           </Alert>,
         )
 
-        // Only header should be visible before press
         expect(component.queryByText('Header text')).toBeTruthy()
         expect(component.queryByText('Description text')).toBeTruthy()
         expect(component.queryByText('Sample children content')).toBeTruthy()
         expect(component.queryByText('Primary test button')).toBeTruthy()
         expect(component.queryByText('Secondary test button')).toBeTruthy()
 
+        // Only header should be visible after press
         fireEvent.press(component.getByRole('tab'))
         expect(component.queryByText('Header text')).toBeTruthy()
         expect(component.queryByText('Description text')).toBeNull()
