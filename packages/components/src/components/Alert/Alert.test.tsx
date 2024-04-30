@@ -133,8 +133,8 @@ describe('Alert', () => {
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#ecf3ec')
         expect(borderLeftColor).toBe('#008817')
-        expect(getIconName(component)).toBe('Check')
         expect(getTextColor(component)).toBe('#3d4551')
+        expect(getIconName(component)).toBe('Check')
       })
     })
 
