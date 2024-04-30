@@ -1,7 +1,13 @@
 import 'react-native'
-import { RenderAPI, fireEvent, render } from '@testing-library/react-native'
+import {
+  RenderAPI,
+  fireEvent,
+  render,
+  screen,
+} from '@testing-library/react-native'
 import React from 'react'
 // Note: test renderer must be required after react-native.
+import '@testing-library/react-native/extend-expect'
 import 'jest-styled-components'
 
 import { Alert } from './Alert'
@@ -87,6 +93,29 @@ describe('Button', () => {
       expect(primaryButton).toBeTruthy()
       const secondaryButton = await component.findByTestId('secondaryButton')
       expect(secondaryButton).toBeTruthy()
+    })
+  })
+
+  describe('Accessibility tests', () => {
+    beforeEach(() => {
+      component = render(
+        <Alert
+          variant="info"
+          header={headerText}
+          headerA11yLabel="header test a11y label"
+          descriptionA11yLabel="description test a11y label"
+          description={descriptionText}
+          testID={testID}
+          primaryButton={primaryButtonProps}
+          secondaryButton={secondaryButtonProps}>
+          {children}
+        </Alert>,
+      )
+    })
+
+    it('should have headerA11yLabel', async () => {
+      const header = await component.findByText('Header text')
+      expect(header).toHaveAccessibilityValue('header test a11y label')
     })
   })
 
@@ -219,8 +248,8 @@ describe('Button', () => {
 
   describe('Expandable variant', () => {
     describe('Initialize collapsed', () => {
-      beforeEach(() => {
-        component = render(
+      it.only('should initially render header only', async () => {
+        render(
           <Alert
             variant="error"
             header={headerText}
@@ -231,22 +260,20 @@ describe('Button', () => {
             {children}
           </Alert>,
         )
-      })
 
-      it('should initially render header only', async () => {
         // Only header should be visible before press
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeNull()
-        expect(component.queryByText('Sample children content')).toBeNull()
-        expect(component.queryByText('Primary test button')).toBeNull()
-        expect(component.queryByText('Secondary test button')).toBeNull()
+        expect(screen.getByText('Header text')).toBeTruthy()
+        expect(screen.queryByText('Description text')).toBeNull()
+        expect(screen.queryByText('Sample children content')).toBeNull()
+        expect(screen.queryByText('Primary test button')).toBeNull()
+        expect(screen.queryByText('Secondary test button')).toBeNull()
 
-        fireEvent.press(component.getByRole('tab'))
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeTruthy()
-        expect(component.queryByText('Sample children content')).toBeTruthy()
-        expect(component.queryByText('Primary test button')).toBeTruthy()
-        expect(component.queryByText('Secondary test button')).toBeTruthy()
+        fireEvent.press(screen.getByRole('tab'))
+        expect(screen.getByText('Header text')).toBeTruthy()
+        expect(screen.getByText('Description text')).toBeTruthy()
+        expect(screen.getByText('Sample children content')).toBeTruthy()
+        expect(screen.getByText('Primary test button')).toBeTruthy()
+        expect(screen.getByText('Secondary test button')).toBeTruthy()
       })
     })
 
