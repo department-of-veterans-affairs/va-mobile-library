@@ -90,7 +90,7 @@ describe('Alert', () => {
     })
   })
 
-  describe('Info variant and basic tests', () => {
+  describe('Info variant', () => {
     describe('Light mode', () => {
       it('should render correct colors and icon', () => {
         component = render(
