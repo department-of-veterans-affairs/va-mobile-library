@@ -51,7 +51,7 @@ const getTextColor = (element: RenderAPI) =>
 const getIconName = (element: RenderAPI) =>
   element.root.findByType(Icon).props.name
 
-describe('Button', () => {
+describe('Alert', () => {
   let component: RenderAPI
 
   describe('Basic tests', () => {
@@ -115,8 +115,8 @@ describe('Button', () => {
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#112f4e')
         expect(borderLeftColor).toBe('#97d4ea')
-        expect(getIconName(component)).toBe('Info')
         expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(getIconName(component)).toBe('Info')
       })
     })
   })
@@ -133,8 +133,8 @@ describe('Button', () => {
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#ecf3ec')
         expect(borderLeftColor).toBe('#008817')
-        expect(getTextColor(component)).toBe('#3d4551')
         expect(getIconName(component)).toBe('Check')
+        expect(getTextColor(component)).toBe('#3d4551')
       })
     })
 
@@ -147,8 +147,8 @@ describe('Button', () => {
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#19311e')
         expect(borderLeftColor).toBe('#5e9f69')
-        expect(getIconName(component)).toBe('Check')
         expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(getIconName(component)).toBe('Check')
       })
     })
   })
@@ -179,8 +179,8 @@ describe('Button', () => {
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#5c4809')
         expect(borderLeftColor).toBe('#face00')
-        expect(getIconName(component)).toBe('ExclamationTriangle')
         expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(getIconName(component)).toBe('ExclamationTriangle')
       })
     })
   })
@@ -211,8 +211,8 @@ describe('Button', () => {
         const { backgroundColor, borderLeftColor } = getContentStyle(component)
         expect(backgroundColor).toBe('#5c1111')
         expect(borderLeftColor).toBe('#d83933')
-        expect(getIconName(component)).toBe('ExclamationCircle')
         expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(getIconName(component)).toBe('ExclamationCircle')
       })
     })
   })
@@ -240,7 +240,9 @@ describe('Button', () => {
         expect(component.queryByText('Sample children content')).toBeNull()
         expect(component.queryByText('Primary test button')).toBeNull()
         expect(component.queryByText('Secondary test button')).toBeNull()
+      })
 
+      it('should render everything after press', () => {
         fireEvent.press(component.getByRole('tab'))
         expect(component.queryByText('Header text')).toBeTruthy()
         expect(component.queryByText('Description text')).toBeTruthy()
@@ -251,7 +253,7 @@ describe('Button', () => {
     })
 
     describe('Initialize expanded', () => {
-      it('should render expanded', () => {
+      beforeEach(() => {
         component = render(
           <Alert
             variant="error"
@@ -264,14 +266,17 @@ describe('Button', () => {
             {children}
           </Alert>,
         )
+      })
 
+      it('should render everything when initializeExpanded is set to true', () => {
         expect(component.queryByText('Header text')).toBeTruthy()
         expect(component.queryByText('Description text')).toBeTruthy()
         expect(component.queryByText('Sample children content')).toBeTruthy()
         expect(component.queryByText('Primary test button')).toBeTruthy()
         expect(component.queryByText('Secondary test button')).toBeTruthy()
+      })
 
-        // Only header should be visible after press
+      it('should render only the header after being collapsed', () => {
         fireEvent.press(component.getByRole('tab'))
         expect(component.queryByText('Header text')).toBeTruthy()
         expect(component.queryByText('Description text')).toBeNull()
