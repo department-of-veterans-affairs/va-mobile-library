@@ -41,7 +41,7 @@ export type AlertProps = {
   /** Optional analytics event logging */
   analytics?: AlertAnalytics
   /** Optional testID */
-  testId?: string
+  testID?: string
 } & (
   | {
       /** True to make the Alert expandable */
@@ -73,7 +73,7 @@ export const Alert: FC<AlertProps> = ({
   analytics,
   primaryButton,
   secondaryButton,
-  testId,
+  testID,
 }) => {
   const colorScheme = useColorScheme()
   const fontScale = useWindowDimensions().fontScale
@@ -295,7 +295,7 @@ export const Alert: FC<AlertProps> = ({
   return (
     <View
       style={contentBox}
-      testID={testId}
+      testID={testID}
       role={expandable ? 'tablist' : 'none'}>
       <View style={{ flexDirection: 'row' }}>
         {iconDisplay}
