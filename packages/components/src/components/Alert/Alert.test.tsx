@@ -234,7 +234,6 @@ describe('Alert', () => {
       })
 
       it('should initially render header only', async () => {
-        // Only header should be visible before press
         expect(component.queryByText('Header text')).toBeTruthy()
         expect(component.queryByText('Description text')).toBeNull()
         expect(component.queryByText('Sample children content')).toBeNull()
