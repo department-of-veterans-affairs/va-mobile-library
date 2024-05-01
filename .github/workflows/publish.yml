@@ -16,7 +16,7 @@ on:
           - linting
       version_type:
         description: Version type
-        required: true
+        required: false
         type: choice
         options:
           - alpha
