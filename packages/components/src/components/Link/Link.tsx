@@ -250,10 +250,8 @@ export const Link: FC<LinkProps> = ({
 
   let ariaValue
   if (typeof a11yValue === 'string') {
-    console.log('is string')
     ariaValue = a11yValue
   } else if (a11yValue) {
-    console.log('not string')
     ariaValue = t('listPosition', {
       position: a11yValue.index + 1,
       total: a11yValue.total,
