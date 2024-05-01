@@ -25,6 +25,10 @@ on:
           - minor
           - major
           - new package
+      version_override:
+        description: Version override
+        required: false
+        type: string
 
 jobs:
   publish-package:
@@ -63,7 +67,7 @@ jobs:
           echo "NPM Package name: $NPM_PACKAGE"
           echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
       - name: Increment version
-        if: ${{ inputs.version_type != 'new package' }}
+        if: ${{ inputs.version_override == '' && inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
           BUMP=${{ inputs.version_type }}
@@ -95,16 +99,25 @@ jobs:
           else
             npm version $BUMP
           fi
+      - name: Manually set version
+        if: ${{ inputs.version_override != '' }}
+        run: npm version ${{ inputs.version_override }}
       - name: Publish to NPM
         id: publish
         working-directory: packages/${{ inputs.package }}
         run: |
           BUMP="${{ inputs.version_type }}"
+          VERSION_OVERRIDE="${{ inputs.version_override }}""
+
 
           echo "Publishing to NPM..."
 
-          if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
-            npm publish --access public --tolerate-republish --tag $BUMP
+          if [[ "$BUMP" == "alpha" ]] || \
+              [[ "$BUMP" == "beta" ]] || \
+              [[ $VERSION_OVERRIDE == *"-alpha"* ]] || \
+              [[ $VERSION_OVERRIDE == *"-beta"* ]]; 
+          then            
+             npm publish --access public --tolerate-republish --tag $BUMP
           else
             npm publish --access public --tolerate-republish
           fi
