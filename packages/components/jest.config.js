@@ -1,22 +1,12 @@
 module.exports = {
-  preset: 'react-native',
-  testEnvironment: 'node',
-  transform: {
-    '^.+\\.(ts|tsx)$': [
-      'ts-jest',
-      {
-        babelConfig: 'babel.config.js',
-        tsconfig: 'tsconfig.test.json',
-      },
-    ],
-  },
+  preset: '@testing-library/react-native',
   moduleNameMapper: {
     '\\.svg': '<rootDir>/jest/svgMock.ts',
   },
   setupFiles: [
     '../../node_modules/react-native-gesture-handler/jestSetup.js',
-    './jest/testSetup.ts',
+    './jest/nativeModulesSetup.ts',
   ],
-  setupFilesAfterEnv: ['./jest/jest.setupFilesAfterEnv.ts'],
+  setupFilesAfterEnv: ['./jest/jestSetup.ts'],
   transformIgnorePatterns: ['jest-runner', '/node_modules/(?!native-base)/'],
 }
