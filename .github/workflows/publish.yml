@@ -107,14 +107,14 @@ jobs:
         working-directory: packages/${{ inputs.package }}
         run: |
           BUMP="${{ inputs.version_type }}"
-          VERSION_OVERRIDE="${{ inputs.version_override }}""
+          VERSION_OVERRIDE="${{ inputs.version_override }}"
 
           echo "Publishing to NPM..."
 
           if [[ "$BUMP" == "alpha" ]] || \
-              [[ "$BUMP" == "beta" ]] || \
-              [[ $VERSION_OVERRIDE == *"-alpha"* ]] || \
-              [[ $VERSION_OVERRIDE == *"-beta"* ]]; 
+             [[ "$BUMP" == "beta" ]] || \
+             [[ $VERSION_OVERRIDE == *"-alpha"* ]] || \
+             [[ $VERSION_OVERRIDE == *"-beta"* ]]; 
           then            
              npm publish --access public --tolerate-republish --tag $BUMP
           else
