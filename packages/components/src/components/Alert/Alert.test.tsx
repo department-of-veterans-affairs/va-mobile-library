@@ -1,13 +1,7 @@
 import 'react-native'
-import {
-  RenderAPI,
-  fireEvent,
-  render,
-  screen,
-} from '@testing-library/react-native'
+import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 // Note: test renderer must be required after react-native.
-import '@testing-library/react-native/extend-expect'
 import 'jest-styled-components'
 
 import { Alert } from './Alert'
@@ -23,11 +17,6 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
     default: mockedColorScheme,
   }
 })
-
-// Test props
-const headerText = 'Header text'
-const descriptionText = 'Description text'
-const testID = 'testAlert'
 
 const children = (
   <View>
@@ -47,284 +36,261 @@ const secondaryButtonProps = {
   testID: 'secondaryButton',
 }
 
+const commonProps = {
+  header: 'Header text',
+  description: 'Description text',
+  testID: 'testAlert',
+  primaryButton: primaryButtonProps,
+  secondaryButton: secondaryButtonProps,
+  children,
+}
+
 // Helper utils
-const getContentStyle = (element: RenderAPI) =>
-  element.getByTestId(testID).props.style
+const getContentStyle = () => screen.getByTestId(commonProps.testID).props.style
 
-const getTextColor = (element: RenderAPI) =>
-  element.getByText(headerText).props.style.color
+const getTextColor = () =>
+  screen.getByText(commonProps.header).props.style.color
 
-const getIconName = (element: RenderAPI) =>
-  element.root.findByType(Icon).props.name
+const getIconName = async () => {
+  const icon = await screen.root.findByType(Icon)
+  return icon.props.name
+}
 
 describe('Button', () => {
-  let component: RenderAPI
-
   describe('Basic tests', () => {
-    beforeEach(() => {
-      component = render(
-        <Alert
-          variant="info"
-          header={headerText}
-          description={descriptionText}
-          testID={testID}
-          primaryButton={primaryButtonProps}
-          secondaryButton={secondaryButtonProps}>
-          {children}
-        </Alert>,
-      )
-    })
+    render(<Alert {...commonProps} variant="info" />)
 
     it('initializes correctly', () => {
-      expect(component).toBeTruthy()
+      expect(screen).toBeTruthy()
     })
 
     it('should render header and description text', () => {
-      expect(component.queryByText('Header text')).toBeTruthy()
-      expect(component.queryByText('Description text')).toBeTruthy()
+      render(<Alert {...commonProps} variant="info" />)
+      expect(screen.getByText('Header text')).toBeOnTheScreen()
+      expect(screen.getByText('Description text')).toBeOnTheScreen()
     })
 
     it('should render children nested within', () => {
-      expect(component.queryByText('Sample children content')).toBeTruthy()
+      render(<Alert {...commonProps} variant="info" />)
+      expect(screen.getByText('Sample children content')).toBeOnTheScreen()
     })
 
-    it('should render primary and secondary buttons passed', async () => {
-      const primaryButton = await component.findByTestId('primaryButton')
-      expect(primaryButton).toBeTruthy()
-      const secondaryButton = await component.findByTestId('secondaryButton')
-      expect(secondaryButton).toBeTruthy()
+    it('should render primary and secondary buttons passed', () => {
+      render(<Alert {...commonProps} variant="info" />)
+      const primaryButton = screen.getByTestId('primaryButton')
+      expect(primaryButton).toBeOnTheScreen()
+      const secondaryButton = screen.getByTestId('secondaryButton')
+      expect(secondaryButton).toBeOnTheScreen()
     })
   })
 
   describe('Accessibility tests', () => {
-    beforeEach(() => {
-      component = render(
-        <Alert
-          variant="info"
-          header={headerText}
-          headerA11yLabel="header test a11y label"
-          descriptionA11yLabel="description test a11y label"
-          description={descriptionText}
-          testID={testID}
-          primaryButton={primaryButtonProps}
-          secondaryButton={secondaryButtonProps}>
-          {children}
-        </Alert>,
-      )
+    const a11yProps = {
+      headerA11yLabel: 'header test a11y label',
+      descriptionA11yLabel: 'description test a11y label',
+    }
+
+    it('should have headerA11yLabel', () => {
+      render(<Alert variant="info" {...a11yProps} {...commonProps} />)
+      expect(screen.getByLabelText('header test a11y label')).toBeOnTheScreen()
     })
 
-    it('should have headerA11yLabel', async () => {
-      const header = await component.findByText('Header text')
-      expect(header).toHaveAccessibilityValue('header test a11y label')
+    it('should have descriptionA11yLabel', () => {
+      render(<Alert variant="info" {...a11yProps} {...commonProps} />)
+      expect(
+        screen.getByLabelText('description test a11y label'),
+      ).toBeOnTheScreen()
     })
   })
 
   describe('Info variant and basic tests', () => {
     describe('Light mode', () => {
-      it('should render correct colors and icon', () => {
-        component = render(
-          <Alert variant="info" header={headerText} testID={testID} />,
-        )
+      it('should render correct colors and icon', async () => {
+        render(<Alert variant="info" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#e1f3f8')
         expect(borderLeftColor).toBe('#28a0cb')
-        expect(getTextColor(component)).toBe('#3d4551')
-        expect(getIconName(component)).toBe('Info')
+        expect(getTextColor()).toBe('#3d4551')
+        expect(await getIconName()).toBe('Info')
       })
     })
 
     describe('Dark mode', () => {
-      it('should render correct colors and icon', () => {
+      it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'dark')
 
-        component = render(
-          <Alert variant="info" header={headerText} testID={testID} />,
-        )
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        render(<Alert variant="info" {...commonProps} />)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#112f4e')
         expect(borderLeftColor).toBe('#97d4ea')
-        expect(getIconName(component)).toBe('Info')
-        expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(await getIconName()).toBe('Info')
+        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
 
   describe('Success variant', () => {
     describe('Light mode', () => {
-      it('should render correct colors and icon', () => {
+      it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'light')
 
-        component = render(
-          <Alert variant="success" header={headerText} testID={testID} />,
-        )
+        render(<Alert variant="success" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#ecf3ec')
         expect(borderLeftColor).toBe('#008817')
-        expect(getTextColor(component)).toBe('#3d4551')
-        expect(getIconName(component)).toBe('Check')
+        expect(getTextColor()).toBe('#3d4551')
+        expect(await getIconName()).toBe('Check')
       })
     })
 
     describe('Dark mode', () => {
-      it('should render correct colors and icon', () => {
+      it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'dark')
-        component = render(
-          <Alert variant="success" header={headerText} testID={testID} />,
-        )
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        render(<Alert variant="success" {...commonProps} />)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#19311e')
         expect(borderLeftColor).toBe('#5e9f69')
-        expect(getIconName(component)).toBe('Check')
-        expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(await getIconName()).toBe('Check')
+        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
 
   describe('Warning variant', () => {
     describe('Light mode', () => {
-      it('should render correct colors and icon', () => {
+      it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'light')
 
-        component = render(
-          <Alert variant="warning" header={headerText} testID={testID} />,
-        )
+        render(<Alert variant="warning" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#faf3d1')
         expect(borderLeftColor).toBe('#ffbe2e')
-        expect(getTextColor(component)).toBe('#3d4551')
-        expect(getIconName(component)).toBe('ExclamationTriangle')
+        expect(getTextColor()).toBe('#3d4551')
+        expect(await getIconName()).toBe('ExclamationTriangle')
       })
     })
 
     describe('Dark mode', () => {
-      it('should render correct colors and icon', () => {
+      it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'dark')
-        component = render(
-          <Alert variant="warning" header={headerText} testID={testID} />,
-        )
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        render(<Alert variant="warning" {...commonProps} />)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#5c4809')
         expect(borderLeftColor).toBe('#face00')
-        expect(getIconName(component)).toBe('ExclamationTriangle')
-        expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(await getIconName()).toBe('ExclamationTriangle')
+        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
 
   describe('Error variant', () => {
     describe('Light mode', () => {
-      it('should render correct colors and icon', () => {
+      it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'light')
 
-        component = render(
-          <Alert variant="error" header={headerText} testID={testID} />,
-        )
+        render(<Alert variant="error" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#f8dfe2')
         expect(borderLeftColor).toBe('#b50909')
-        expect(getTextColor(component)).toBe('#3d4551')
-        expect(getIconName(component)).toBe('ExclamationCircle')
+        expect(getTextColor()).toBe('#3d4551')
+        expect(await getIconName()).toBe('ExclamationCircle')
       })
     })
 
     describe('Dark mode', () => {
-      it('should render correct colors and icon', () => {
+      it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'dark')
-        component = render(
-          <Alert variant="error" header={headerText} testID={testID} />,
-        )
-        const { backgroundColor, borderLeftColor } = getContentStyle(component)
+        render(<Alert variant="error" {...commonProps} />)
+        const { backgroundColor, borderLeftColor } = getContentStyle()
         expect(backgroundColor).toBe('#5c1111')
         expect(borderLeftColor).toBe('#d83933')
-        expect(getIconName(component)).toBe('ExclamationCircle')
-        expect(getTextColor(component)).toBe('#f0f0f0')
+        expect(await getIconName()).toBe('ExclamationCircle')
+        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
 
   describe('Expandable variant', () => {
     describe('Initialize collapsed', () => {
-      it.only('should initially render header only', async () => {
+      it('should initially render header only', async () => {
         render(
-          <Alert
-            variant="error"
-            header={headerText}
-            description={descriptionText}
-            expandable
-            primaryButton={primaryButtonProps}
-            secondaryButton={secondaryButtonProps}>
+          <Alert variant="error" expandable {...commonProps}>
             {children}
           </Alert>,
         )
 
         // Only header should be visible before press
-        expect(screen.getByText('Header text')).toBeTruthy()
-        expect(screen.queryByText('Description text')).toBeNull()
-        expect(screen.queryByText('Sample children content')).toBeNull()
-        expect(screen.queryByText('Primary test button')).toBeNull()
-        expect(screen.queryByText('Secondary test button')).toBeNull()
+        expect(screen.getByText('Header text')).toBeOnTheScreen()
+        expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
+        expect(
+          screen.queryByText('Sample children content'),
+        ).not.toBeOnTheScreen()
+        expect(screen.queryByText('Primary test button')).not.toBeOnTheScreen()
+        expect(
+          screen.queryByText('Secondary test button'),
+        ).not.toBeOnTheScreen()
 
         fireEvent.press(screen.getByRole('tab'))
-        expect(screen.getByText('Header text')).toBeTruthy()
-        expect(screen.getByText('Description text')).toBeTruthy()
-        expect(screen.getByText('Sample children content')).toBeTruthy()
-        expect(screen.getByText('Primary test button')).toBeTruthy()
-        expect(screen.getByText('Secondary test button')).toBeTruthy()
+        expect(screen.getByText('Header text')).toBeOnTheScreen()
+        expect(screen.getByText('Description text')).toBeOnTheScreen()
+        expect(screen.getByText('Sample children content')).toBeOnTheScreen()
+        expect(screen.getByText('Primary test button')).toBeOnTheScreen()
+        expect(screen.getByText('Secondary test button')).toBeOnTheScreen()
       })
     })
 
     describe('Initialize expanded', () => {
       it('should render expanded', () => {
-        component = render(
+        render(
           <Alert
             variant="error"
-            header={headerText}
-            description={descriptionText}
             expandable
             initializeExpanded={true}
-            primaryButton={primaryButtonProps}
-            secondaryButton={secondaryButtonProps}>
-            {children}
-          </Alert>,
+            {...commonProps}
+          />,
         )
 
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeTruthy()
-        expect(component.queryByText('Sample children content')).toBeTruthy()
-        expect(component.queryByText('Primary test button')).toBeTruthy()
-        expect(component.queryByText('Secondary test button')).toBeTruthy()
+        expect(screen.getByText('Header text')).toBeOnTheScreen()
+        expect(screen.getByText('Description text')).toBeOnTheScreen()
+        expect(screen.getByText('Sample children content')).toBeOnTheScreen()
+        expect(screen.getByText('Primary test button')).toBeOnTheScreen()
+        expect(screen.getByText('Secondary test button')).toBeOnTheScreen()
 
         // Only header should be visible after press
-        fireEvent.press(component.getByRole('tab'))
-        expect(component.queryByText('Header text')).toBeTruthy()
-        expect(component.queryByText('Description text')).toBeNull()
-        expect(component.queryByText('Sample children content')).toBeNull()
-        expect(component.queryByText('Primary test button')).toBeNull()
-        expect(component.queryByText('Secondary test button')).toBeNull()
+        fireEvent.press(screen.getByRole('tab'))
+        expect(screen.getByText('Header text')).toBeOnTheScreen()
+        expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
+        expect(
+          screen.queryByText('Sample children content'),
+        ).not.toBeOnTheScreen()
+        expect(screen.queryByText('Primary test button')).not.toBeOnTheScreen()
+        expect(
+          screen.queryByText('Secondary test button'),
+        ).not.toBeOnTheScreen()
       })
     })
 
     describe('Analytics', () => {
       it('should fire analytics events', async () => {
-        component = render(
+        render(
           <Alert
             variant="error"
-            header={headerText}
             expandable
             analytics={{
               onExpand: onExpandSpy,
               onCollapse: onCollapseSpy,
             }}
+            {...commonProps}
           />,
         )
 
-        fireEvent.press(component.getByRole('tab'))
+        fireEvent.press(screen.getByRole('tab'))
         expect(onExpandSpy).toHaveBeenCalled()
-        fireEvent.press(component.getByRole('tab'))
+        fireEvent.press(screen.getByRole('tab'))
         expect(onCollapseSpy).toHaveBeenCalled()
       })
     })
