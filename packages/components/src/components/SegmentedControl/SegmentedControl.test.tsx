@@ -80,35 +80,55 @@ describe('SegmentedControl', () => {
 
   it('should render correct styles in light mode', () => {
     initializeTestInstance()
-    const activeSegmentStyle = screen.getAllByRole('tab')[0].props.style[0]
-    const activeSegmentTextStyle = screen.getByText(labels[0]).props.style
-    const inactiveSegmentStyle = screen.getAllByRole('tab')[1].props.style[0]
-    const inactiveSegmentTextStyle = screen.getByText(labels[1]).props.style
+    const activeSegment = screen.getAllByRole('tab')[0]
+    const activeSegmentText = screen.getByText(labels[1])
+    const inactiveSegment = screen.getAllByRole('tab')[1]
+    const inactiveSegmentText = screen.getByText(labels[1])
 
-    expect(activeSegmentStyle.elevation).toEqual(4)
-    expect(activeSegmentStyle.backgroundColor).toEqual(Colors.white)
-    expect(activeSegmentTextStyle.color).toEqual(Colors.grayDark)
+    expect(activeSegment).toHaveStyle({
+      elevation: 4,
+      backgroundColor: '#ffffff',
+    })
 
-    expect(inactiveSegmentStyle.backgroundColor).toEqual(Colors.grayLighter)
-    expect(inactiveSegmentStyle.elevation).toEqual(0)
-    expect(inactiveSegmentTextStyle.color).toEqual(Colors.grayDark)
+    expect(activeSegmentText).toHaveStyle({
+      color: '#3d4551',
+    })
+
+    expect(inactiveSegment).toHaveStyle({
+      elevation: 0,
+      backgroundColor: '#dfe1e2',
+    })
+
+    expect(inactiveSegmentText).toHaveStyle({
+      color: '#3d4551',
+    })
   })
 
   it('should render correct styles in dark mode', () => {
     mockedColorScheme.mockImplementationOnce(() => 'dark')
     initializeTestInstance()
-    const activeSegmentStyle = screen.getAllByRole('tab')[0].props.style[0]
-    const activeSegmentTextStyle = screen.getByText(labels[0]).props.style
-    const inactiveSegmentStyle = screen.getAllByRole('tab')[1].props.style[0]
-    const inactiveSegmentTextStyle = screen.getByText(labels[1]).props.style
+    const activeSegment = screen.getAllByRole('tab')[0]
+    const activeSegmentText = screen.getByText(labels[1])
+    const inactiveSegment = screen.getAllByRole('tab')[1]
+    const inactiveSegmentText = screen.getByText(labels[1])
 
-    expect(activeSegmentStyle.elevation).toEqual(4)
-    expect(activeSegmentStyle.backgroundColor).toEqual(Colors.grayMedium)
-    expect(activeSegmentTextStyle.color).toEqual(Colors.grayLightest)
+    expect(activeSegment).toHaveStyle({
+      elevation: 4,
+      backgroundColor: '#757575',
+    })
 
-    expect(inactiveSegmentStyle.backgroundColor).toEqual(Colors.grayDark)
-    expect(inactiveSegmentStyle.elevation).toEqual(0)
-    expect(inactiveSegmentTextStyle.color).toEqual(Colors.grayLightest)
+    expect(activeSegmentText).toHaveStyle({
+      color: '#f0f0f0',
+    })
+
+    expect(inactiveSegment).toHaveStyle({
+      elevation: 0,
+      backgroundColor: '#3d4551',
+    })
+
+    expect(inactiveSegmentText).toHaveStyle({
+      color: '#f0f0f0',
+    })
   })
 
   describe('Accessibility', () => {
