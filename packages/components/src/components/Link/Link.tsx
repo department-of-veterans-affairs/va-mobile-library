@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import React, { FC } from 'react'
 
+import { ComponentWrapper } from '../../wrapper'
 import {
   FormDirectionsUrl,
   LocationData,
@@ -249,8 +250,10 @@ export const Link: FC<LinkProps> = ({
 
   let ariaValue
   if (typeof a11yValue === 'string') {
+    console.log('is string')
     ariaValue = a11yValue
   } else if (a11yValue) {
+    console.log('not string')
     ariaValue = t('listPosition', {
       position: a11yValue.index + 1,
       total: a11yValue.total,
@@ -264,6 +267,9 @@ export const Link: FC<LinkProps> = ({
     role: 'link',
     accessible: true,
   }
+
+  console.log('a11yProps', a11yProps)
+  console.log('aria-valuetext', a11yProps['aria-valuetext'])
 
   const pressableProps: PressableProps = {
     onPress: _onPress,
@@ -291,9 +297,11 @@ export const Link: FC<LinkProps> = ({
   }
 
   return (
-    <Pressable {...pressableProps} testID={testID}>
-      {iconDisplay}
-      <Text style={textStyle}>{text}</Text>
-    </Pressable>
+    <ComponentWrapper>
+      <Pressable {...pressableProps} testID={testID}>
+        {iconDisplay}
+        <Text style={textStyle}>{text}</Text>
+      </Pressable>
+    </ComponentWrapper>
   )
 }

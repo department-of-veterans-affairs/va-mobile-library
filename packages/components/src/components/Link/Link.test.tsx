@@ -379,9 +379,9 @@ describe('Link', () => {
 
     it('includes a11yValue', async () => {
       render(<Link {...defaultProps} />)
+
       expect(screen.root).toHaveAccessibilityValue({
-        index: 2,
-        total: 5,
+        text: '3 of 5',
       })
     })
   })
