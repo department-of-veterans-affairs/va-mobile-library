@@ -1,4 +1,4 @@
-import { RenderAPI, fireEvent, render } from '@testing-library/react-native'
+import { RenderAPI, fireEvent, render, within } from '@testing-library/react-native'
 import React from 'react'
 
 import * as utils from '../../utils/OSfunctions'
@@ -363,6 +363,62 @@ describe('Link', () => {
     it('renders background color when pressed', async () => {
       component = render(<Link {...defaultProps} testOnlyPressed />)
       expect(getBackgroundColor(component)).toBe('#3d4551')
+    })
+  })
+
+  /**
+   * Icon override tests non-exhaustive, their primary purpose is to validate Link's Partial<IconProps>
+   * correctly allows overriding selective props while also still incorporating Link variant behavior
+   * such as built in icon setting
+   * 
+   * Note: Icon override tests use "within(icon)" to validate internal props of Icon component set
+   *       correctly and not just checking passthrough of props set within Link itself
+   */
+  describe('icon override tests', () => {
+    const iconOverrideProps: LinkProps = {
+      type: 'attachment',
+      onPress: onPressSpy,
+      text: 'Attachment Link',
+    }
+
+    it('should prevent scaling with fontScale 2', () => {
+      component = render(<Link {...iconOverrideProps} icon={{preventScaling: true}} />)
+      const icon = component.root.findByType(Icon)
+
+      expect(icon.props.name).toBe('PaperClip')
+      const width24Exists = within(icon).UNSAFE_getByProps({width: 24})
+      expect(width24Exists).toBeTruthy()
+      const height24Exists = within(icon).UNSAFE_getByProps({height: 24})
+      expect(height24Exists).toBeTruthy()
+    })
+
+    it('should limit max width with fontScale 2', () => {
+      component = render(<Link {...iconOverrideProps} icon={{maxWidth: 36}} />)
+      const icon = component.root.findByType(Icon)
+
+      expect(icon.props.name).toBe('PaperClip')
+      const width36Exists = within(icon).UNSAFE_getByProps({width: 36})
+      expect(width36Exists).toBeTruthy()
+      const height36Exists = within(icon).UNSAFE_getByProps({height: 36})
+      expect(height36Exists).toBeTruthy()
+    })
+
+    it('should allow override of icon and size to fontScale 2', () => {
+      component = render(<Link {...iconOverrideProps} icon={{name: 'Add'}} />)
+      const icon = component.root.findByType(Icon)
+
+      expect(icon.props.name).toBe('Add')
+      const width48Exists = within(icon).UNSAFE_getByProps({width: 48})
+      expect(width48Exists).toBeTruthy()
+      const height48Exists = within(icon).UNSAFE_getByProps({height: 48})
+      expect(height48Exists).toBeTruthy()
+    })
+
+    it('should respect removing the icon', () => {
+      component = render(<Link {...iconOverrideProps} icon={'no icon'} />)
+      const icon = component.UNSAFE_queryByType(Icon)
+
+      expect(icon).toBeFalsy()
     })
   })
 
