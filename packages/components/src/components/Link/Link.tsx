@@ -266,9 +266,6 @@ export const Link: FC<LinkProps> = ({
     accessible: true,
   }
 
-  console.log('a11yProps', a11yProps)
-  console.log('aria-valuetext', a11yProps['aria-valuetext'])
-
   const pressableProps: PressableProps = {
     onPress: _onPress,
     hitSlop: 7,
