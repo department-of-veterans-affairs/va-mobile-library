@@ -109,7 +109,6 @@ jobs:
           BUMP="${{ inputs.version_type }}"
           VERSION_OVERRIDE="${{ inputs.version_override }}""
 
-
           echo "Publishing to NPM..."
 
           if [[ "$BUMP" == "alpha" ]] || \
