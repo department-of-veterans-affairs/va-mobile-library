@@ -1,15 +1,13 @@
 import { Icon } from './Icon'
-import { RenderAPI, render } from '@testing-library/react-native'
+import { render, screen } from '@testing-library/react-native'
 import React from 'react'
 
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
 describe('Icon', () => {
-  let component: RenderAPI
-
   it('renders correctly at default size', async () => {
-    component = render(
+    render(
       <Icon
         name="HomeOutline"
         testID="myId"
@@ -20,8 +18,8 @@ describe('Icon', () => {
       />,
     )
 
-    expect(component).toBeTruthy()
-    const icon = component.getByTestId('myId')
+    const icon = screen.getByTestId('myId')
+    expect(icon).toBeOnTheScreen()
     const { width, height, fill, color, stroke } = icon.props
 
     expect(width).toBe(24)
@@ -32,7 +30,7 @@ describe('Icon', () => {
   })
 
   it('renders correctly at set size despite fontScale 2', async () => {
-    component = render(
+    render(
       <Icon
         name="HomeOutline"
         testID="myId"
@@ -42,8 +40,8 @@ describe('Icon', () => {
       />,
     )
 
-    expect(component).toBeTruthy()
-    const icon = component.getByTestId('myId')
+    expect(screen).toBeTruthy()
+    const icon = screen.getByTestId('myId')
     const { width, height } = icon.props
 
     expect(width).toBe(50)
@@ -51,7 +49,7 @@ describe('Icon', () => {
   })
 
   it('renders correctly with maxWidth overriding fontScale 2', async () => {
-    component = render(
+    render(
       <Icon
         name="HomeOutline"
         testID="myId"
@@ -61,8 +59,8 @@ describe('Icon', () => {
       />,
     )
 
-    expect(component).toBeTruthy()
-    const icon = component.getByTestId('myId')
+    const icon = screen.getByTestId('myId')
+    expect(icon).toBeOnTheScreen()
     const { width, height } = icon.props
 
     expect(width).toBe(75)
@@ -70,12 +68,10 @@ describe('Icon', () => {
   })
 
   it('renders correctly with fontScale 2', async () => {
-    component = render(
-      <Icon name="HomeOutline" testID="myId" height={50} width={50} />,
-    )
+    render(<Icon name="HomeOutline" testID="myId" height={50} width={50} />)
 
-    expect(component).toBeTruthy()
-    const icon = component.getByTestId('myId')
+    const icon = screen.getByTestId('myId')
+    expect(icon).toBeOnTheScreen()
     const { width, height } = icon.props
 
     expect(width).toBe(100)
@@ -83,7 +79,7 @@ describe('Icon', () => {
   })
 
   it('renders custom SVG correctly', async () => {
-    component = render(
+    render(
       <Icon
         svg={CustomSVG}
         testID="myId"
@@ -97,8 +93,8 @@ describe('Icon', () => {
       />,
     )
 
-    expect(component).toBeTruthy()
-    const icon = component.getByTestId('myId')
+    const icon = screen.getByTestId('myId')
+    expect(icon).toBeOnTheScreen()
     const { width, height, fill, color, stroke } = icon.props
 
     expect(width).toBe(100)
