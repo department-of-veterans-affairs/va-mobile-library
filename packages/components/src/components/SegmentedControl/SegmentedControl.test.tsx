@@ -1,10 +1,5 @@
 import 'react-native'
-import {
-  RenderAPI,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react-native'
+import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
@@ -14,7 +9,6 @@ import { ReactTestInstance } from 'react-test-renderer'
 import { SegmentedControl } from './SegmentedControl'
 
 describe('SegmentedControl', () => {
-  let component: RenderAPI
   let testInstance: ReactTestInstance
   let rerender: () => void
 
@@ -27,6 +21,8 @@ describe('SegmentedControl', () => {
   })
 
   const labels = ['segment 0', 'segment 1']
+  const a11yLabels = ['segment 0 a11y label', 'segment 1 a11y label']
+  const a11yHints = ['segment 0 a11y hint', 'segment 1 a11y hint']
 
   const onChangeSpy = jest.fn((selectTab) => {
     selectedTab = selectTab
@@ -35,18 +31,20 @@ describe('SegmentedControl', () => {
 
   const initializeTestInstance = (): void => {
     mockedColorScheme.mockImplementationOnce(() => 'light')
-    component = render(
+    render(
       <SegmentedControl
         labels={labels}
         onChange={onChangeSpy}
         selected={selectedTab}
+        a11yLabels={a11yLabels}
+        a11yHints={a11yHints}
       />,
     )
 
-    testInstance = component.UNSAFE_root
+    testInstance = screen.UNSAFE_root
     // Function to redraw the component for update since test is not stateful
     rerender = () => {
-      component.rerender(
+      screen.rerender(
         <SegmentedControl
           labels={labels}
           onChange={onChangeSpy}
@@ -56,41 +54,36 @@ describe('SegmentedControl', () => {
     }
   }
 
-  beforeEach(() => {
-    initializeTestInstance()
-  })
-
   it('initializes correctly', async () => {
-    expect(component).toBeTruthy()
+    initializeTestInstance()
+    expect(screen).toBeTruthy()
   })
 
   it('should initialize with the 0th index label selected', async () => {
-    await waitFor(() => {
-      expect(testInstance.props.selected).toEqual(0)
-    })
+    initializeTestInstance()
+    expect(testInstance.props.selected).toEqual(0)
   })
 
   it('should change segments when pressing another segment', async () => {
-    await waitFor(() => {
-      fireEvent.press(component.getByText(labels[1]))
-      rerender()
-      expect(testInstance.props.selected).toEqual(1)
-    })
+    initializeTestInstance()
+    fireEvent.press(screen.getByText(labels[1]))
+    rerender()
+    expect(testInstance.props.selected).toEqual(1)
   })
 
   it('should not change segments when pressing the same segment', async () => {
-    await waitFor(() => {
-      fireEvent.press(component.getByText(labels[0]))
-      rerender()
-      expect(testInstance.props.selected).toEqual(0)
-    })
+    initializeTestInstance()
+    fireEvent.press(screen.getByText(labels[0]))
+    rerender()
+    expect(testInstance.props.selected).toEqual(0)
   })
 
   it('should render correct styles in light mode', () => {
-    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style[0]
-    const activeSegmentTextStyle = component.getByText(labels[0]).props.style
-    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style[0]
-    const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
+    initializeTestInstance()
+    const activeSegmentStyle = screen.getAllByRole('tab')[0].props.style[0]
+    const activeSegmentTextStyle = screen.getByText(labels[0]).props.style
+    const inactiveSegmentStyle = screen.getAllByRole('tab')[1].props.style[0]
+    const inactiveSegmentTextStyle = screen.getByText(labels[1]).props.style
 
     expect(activeSegmentStyle.elevation).toEqual(4)
     expect(activeSegmentStyle.backgroundColor).toEqual(Colors.white)
@@ -103,11 +96,11 @@ describe('SegmentedControl', () => {
 
   it('should render correct styles in dark mode', () => {
     mockedColorScheme.mockImplementationOnce(() => 'dark')
-    rerender()
-    const activeSegmentStyle = component.getAllByRole('tab')[0].props.style[0]
-    const activeSegmentTextStyle = component.getByText(labels[0]).props.style
-    const inactiveSegmentStyle = component.getAllByRole('tab')[1].props.style[0]
-    const inactiveSegmentTextStyle = component.getByText(labels[1]).props.style
+    initializeTestInstance()
+    const activeSegmentStyle = screen.getAllByRole('tab')[0].props.style[0]
+    const activeSegmentTextStyle = screen.getByText(labels[0]).props.style
+    const inactiveSegmentStyle = screen.getAllByRole('tab')[1].props.style[0]
+    const inactiveSegmentTextStyle = screen.getByText(labels[1]).props.style
 
     expect(activeSegmentStyle.elevation).toEqual(4)
     expect(activeSegmentStyle.backgroundColor).toEqual(Colors.grayMedium)
@@ -116,5 +109,19 @@ describe('SegmentedControl', () => {
     expect(inactiveSegmentStyle.backgroundColor).toEqual(Colors.grayDark)
     expect(inactiveSegmentStyle.elevation).toEqual(0)
     expect(inactiveSegmentTextStyle.color).toEqual(Colors.grayLightest)
+  })
+
+  describe('Accessibility', () => {
+    it('should include a11y labels when provided', () => {
+      initializeTestInstance()
+      expect(screen.getByLabelText('segment 0 a11y label')).toBeOnTheScreen()
+      expect(screen.getByLabelText('segment 1 a11y label')).toBeOnTheScreen()
+    })
+
+    it('should include a11y hints when provided', () => {
+      initializeTestInstance()
+      expect(screen.getByHintText('segment 0 a11y hint')).toBeOnTheScreen()
+      expect(screen.getByHintText('segment 1 a11y hint')).toBeOnTheScreen()
+    })
   })
 })
