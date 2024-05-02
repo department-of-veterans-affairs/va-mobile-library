@@ -2,31 +2,32 @@ import { Icon } from './Icon'
 import { render, screen } from '@testing-library/react-native'
 import React from 'react'
 
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
 describe('Icon', () => {
+  const getIcon = () => screen.getByTestId('myId')
+
   it('renders correctly at default size', async () => {
     render(
       <Icon
         name="HomeOutline"
         testID="myId"
-        fill={Colors.gray}
-        fill2={Colors.secondaryLightest}
-        stroke={Colors.primaryAltLightest}
+        fill="#565c65"
+        fill2="#f8dfe2"
+        stroke="#e1f3f8"
         preventScaling={true}
       />,
     )
 
-    const icon = screen.getByTestId('myId')
+    const icon = getIcon()
     expect(icon).toBeOnTheScreen()
     const { width, height, fill, color, stroke } = icon.props
 
     expect(width).toBe(24)
     expect(height).toBe(24)
-    expect(fill).toBe(Colors.gray)
-    expect(color).toBe(Colors.secondaryLightest)
-    expect(stroke).toBe(Colors.primaryAltLightest)
+    expect(fill).toBe('#565c65')
+    expect(color).toBe('#f8dfe2')
+    expect(stroke).toBe('#e1f3f8')
   })
 
   it('renders correctly at set size despite fontScale 2', async () => {
@@ -40,7 +41,7 @@ describe('Icon', () => {
       />,
     )
 
-    const icon = screen.getByTestId('myId')
+    const icon = getIcon()
     expect(icon).toBeOnTheScreen()
     const { width, height } = icon.props
 
@@ -59,7 +60,7 @@ describe('Icon', () => {
       />,
     )
 
-    const icon = screen.getByTestId('myId')
+    const icon = getIcon()
     expect(icon).toBeOnTheScreen()
     const { width, height } = icon.props
 
@@ -70,7 +71,7 @@ describe('Icon', () => {
   it('renders correctly with fontScale 2', async () => {
     render(<Icon name="HomeOutline" testID="myId" height={50} width={50} />)
 
-    const icon = screen.getByTestId('myId')
+    const icon = getIcon()
     expect(icon).toBeOnTheScreen()
     const { width, height } = icon.props
 
@@ -85,22 +86,22 @@ describe('Icon', () => {
         testID="myId"
         height={100}
         width={100}
-        fill={Colors.gray}
-        fill2={Colors.secondaryLightest}
-        stroke={Colors.primaryAltLightest}
+        fill="#565c65"
+        fill2="#f8dfe2"
+        stroke="#e1f3f8"
         maxWidth={100}
         preventScaling={true}
       />,
     )
 
-    const icon = screen.getByTestId('myId')
+    const icon = getIcon()
     expect(icon).toBeOnTheScreen()
     const { width, height, fill, color, stroke } = icon.props
 
     expect(width).toBe(100)
     expect(height).toBe(100)
-    expect(fill).toBe(Colors.gray)
-    expect(color).toBe(Colors.secondaryLightest)
-    expect(stroke).toBe(Colors.primaryAltLightest)
+    expect(fill).toBe('#565c65')
+    expect(color).toBe('#f8dfe2')
+    expect(stroke).toBe('#e1f3f8')
   })
 })
