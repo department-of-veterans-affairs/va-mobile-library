@@ -255,11 +255,7 @@ describe('Alert', () => {
   describe('Expandable variant', () => {
     describe('Initialize collapsed', () => {
       it('should initially render header only', async () => {
-        render(
-          <Alert variant="error" expandable {...commonProps}>
-            {children}
-          </Alert>,
-        )
+        render(<Alert variant="error" expandable {...commonProps} />)
 
         expect(screen.getByText('Header text')).toBeOnTheScreen()
         expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
@@ -273,6 +269,8 @@ describe('Alert', () => {
       })
 
       it('should render everything after press', () => {
+        render(<Alert variant="error" expandable {...commonProps} />)
+
         fireEvent.press(screen.getByRole('tab'))
         expect(screen.getByText('Header text')).toBeOnTheScreen()
         expect(screen.getByText('Description text')).toBeOnTheScreen()
@@ -302,6 +300,15 @@ describe('Alert', () => {
     })
 
     it('should render only the header after being collapsed', () => {
+      render(
+        <Alert
+          variant="error"
+          expandable
+          initializeExpanded={true}
+          {...commonProps}
+        />,
+      )
+
       fireEvent.press(screen.getByRole('tab'))
       expect(screen.getByText('Header text')).toBeOnTheScreen()
       expect(screen.queryByText('Description text')).not.toBeOnTheScreen()

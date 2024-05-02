@@ -1,5 +1,15 @@
 module.exports = {
   preset: '@testing-library/react-native',
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        babelConfig: 'babel.config.js',
+        tsconfig: 'tsconfig.test.json',
+      },
+    ],
+  },
   moduleNameMapper: {
     '\\.svg': '<rootDir>/jest/svgMock.ts',
   },
