@@ -73,10 +73,8 @@ describe('Alert', () => {
 
     it('should render primary and secondary buttons passed', () => {
       render(<Alert {...commonProps} variant="info" />)
-      const primaryButton = screen.getByTestId('primaryButton')
-      expect(primaryButton).toBeOnTheScreen()
-      const secondaryButton = screen.getByTestId('secondaryButton')
-      expect(secondaryButton).toBeOnTheScreen()
+      expect(screen.getByTestId('primaryButton')).toBeOnTheScreen()
+      expect(screen.getByTestId('secondaryButton')).toBeOnTheScreen()
     })
   })
 
