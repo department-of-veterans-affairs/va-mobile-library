@@ -2,7 +2,7 @@
 name: Bug report
 about: Template for reporting a bug in the VA mobile design system
 title: BUG - [SEVERITY] - [iOS/Android/All] - [Short description]
-labels: bug, design-system
+labels: design-system, DS-Bug
 assignees: ''
 
 ---

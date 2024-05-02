@@ -1,5 +1,33 @@
 # Changelog
 
+## [components-v0.15.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.1) (2024-05-02)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.0...components-v0.15.1)
+
+**Fixed bugs:**
+
+- BUG - Sev 3 - Web - On press bolding does not work for Inline variant [\#197](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/197)
+
+**Closed issues:**
+
+- Design Tokens: Create and publish documentation [\#291](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/291)
+- DS - Determine naming convention for component variants [\#217](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/217)
+- DS - Alert Storybook [\#199](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/199)
+- DS - Alert - Unit Tests [\#198](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/198)
+- Alert - Visual QA [\#167](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/167)
+- DS - Maintenance & Support - Q1 2024 [\#96](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/96)
+- DS - Component Tracking and Metrics [\#86](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/86)
+- DS - Create Link Component [\#58](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/58)
+- \[Placeholder\] Document Design Token Strategy [\#48](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/48)
+- Alert - Publish component to Figma and Doc Site [\#112](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/112)
+- Component Implementation - Document Alert [\#130](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/130)
+
+**Merged pull requests:**
+
+- \[Bug\] Link - Fix Text Wrapping [\#305](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/305) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Alert unit tests [\#301](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/301) ([narin](https://github.com/narin))
+- \[Feature\] Add Alert Storybook Stories [\#298](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/298) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.15.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.0) (2024-04-23)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.14.0...components-v0.15.0)
