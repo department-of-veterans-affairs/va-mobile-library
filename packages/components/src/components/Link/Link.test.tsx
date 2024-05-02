@@ -28,8 +28,6 @@ jest.spyOn(utils, 'useExternalLink').mockImplementation(() => {
 })
 
 describe('Link', () => {
-  let textColor: string
-
   const analytics = {
     onPress: jest.fn(),
     onConfirm: jest.fn(),
@@ -47,11 +45,7 @@ describe('Link', () => {
     analytics: analytics,
   }
 
-  const getTextColor = () =>
-    screen.getByText(defaultProps.text).props.style.color
-
-  const getBackgroundColor = () =>
-    screen.getByRole('link').props.style.backgroundColor
+  const getLinkText = () => screen.getByText(defaultProps.text)
 
   afterEach(() => {
     onPressSpy.mockReset()
@@ -329,19 +323,17 @@ describe('Link', () => {
   describe('light mode tone tests', () => {
     it('renders primary tone', async () => {
       render(<Link {...defaultProps} />)
-      textColor = getTextColor()
-      expect(textColor).toBe('#005ea2')
+      expect(getLinkText()).toHaveStyle({ color: '#005ea2' })
     })
 
     it('renders base tone', async () => {
       render(<Link {...defaultProps} variant="base" />)
-      textColor = getTextColor()
-      expect(textColor).toBe('#3d4551')
+      expect(getLinkText()).toHaveStyle({ color: '#3d4551' })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...defaultProps} testOnlyPressed />)
-      expect(getBackgroundColor()).toBe('#dfe1e2')
+      expect(screen.root).toHaveStyle({ backgroundColor: '#dfe1e2' })
     })
   })
 
@@ -350,19 +342,17 @@ describe('Link', () => {
 
     it('renders primary tone', async () => {
       render(<Link {...defaultProps} />)
-      textColor = getTextColor()
-      expect(textColor).toBe('#58b4ff')
+      expect(getLinkText()).toHaveStyle({ color: '#58b4ff' })
     })
 
     it('renders base tone', async () => {
       render(<Link {...defaultProps} variant="base" />)
-      textColor = getTextColor()
-      expect(textColor).toBe('#f0f0f0')
+      expect(getLinkText()).toHaveStyle({ color: '#f0f0f0' })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...defaultProps} testOnlyPressed />)
-      expect(getBackgroundColor()).toBe('#3d4551')
+      expect(screen.root).toHaveStyle({ backgroundColor: '#3d4551' })
     })
   })
 
