@@ -51,6 +51,7 @@ describe('Link', () => {
   }
 
   const getLinkText = () => screen.getByText(defaultProps.text)
+  const getIcon = async () => await screen.root.findByType(Icon)
 
   afterEach(() => {
     onPressSpy.mockReset()
@@ -87,7 +88,7 @@ describe('Link', () => {
   it('renders default/custom variant with Truck icon', async () => {
     render(<Link {...defaultProps} icon={{ name: 'Truck' }} />)
 
-    const icon = await screen.root.findByType(Icon)
+    const icon = await getIcon()
 
     expect(icon).toBeDefined()
     expect(icon.props.name).toBe('Truck')
@@ -115,7 +116,7 @@ describe('Link', () => {
 
     it('renders attachment icon', async () => {
       render(<Link {...attachmentProps} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('PaperClip')
@@ -144,7 +145,7 @@ describe('Link', () => {
 
     it('renders calendar icon', async () => {
       render(<Link {...calendarProps} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Calendar')
@@ -176,7 +177,7 @@ describe('Link', () => {
 
     it('renders call icon', async () => {
       render(<Link {...callProps} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Phone')
@@ -205,7 +206,7 @@ describe('Link', () => {
 
     it('renders TTY icon', async () => {
       render(<Link {...callTTYProps} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('TTY')
@@ -253,7 +254,7 @@ describe('Link', () => {
 
     it('renders directions icon', async () => {
       render(<Link {...directionsProps} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Directions')
@@ -285,7 +286,7 @@ describe('Link', () => {
 
     it('renders mobile phone icon', async () => {
       render(<Link {...textProps} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Text')
@@ -318,7 +319,7 @@ describe('Link', () => {
 
     it('renders external link icon', async () => {
       render(<Link {...urlProps} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('ExternalLink')
@@ -378,7 +379,7 @@ describe('Link', () => {
 
     it('should prevent scaling with fontScale 2', async () => {
       render(<Link {...iconOverrideProps} icon={{ preventScaling: true }} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon.props.name).toBe('PaperClip')
       const width24Exists = within(icon).UNSAFE_getByProps({ width: 24 })
@@ -389,7 +390,7 @@ describe('Link', () => {
 
     it('should limit max width with fontScale 2', async () => {
       render(<Link {...iconOverrideProps} icon={{ maxWidth: 36 }} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon.props.name).toBe('PaperClip')
       const width36Exists = within(icon).UNSAFE_getByProps({ width: 36 })
@@ -400,7 +401,7 @@ describe('Link', () => {
 
     it('should allow override of icon and size to fontScale 2', async () => {
       render(<Link {...iconOverrideProps} icon={{ name: 'Add' }} />)
-      const icon = await screen.root.findByType(Icon)
+      const icon = await getIcon()
 
       expect(icon.props.name).toBe('Add')
       const width48Exists = within(icon).UNSAFE_getByProps({ width: 48 })
