@@ -131,7 +131,7 @@ describe('SegmentedControl', () => {
     })
   })
 
-  describe('Accessibility', () => {
+  describe('Accessibility tests', () => {
     it('should include a11y labels when provided', () => {
       initializeTestInstance()
       expect(screen.getByLabelText('segment 0 a11y label')).toBeOnTheScreen()
