@@ -4,8 +4,6 @@ import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
 
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
-
 import { Button, ButtonVariants } from './Button'
 
 const onPressSpy = jest.fn()
@@ -18,20 +16,11 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
 })
 
 describe('Button', () => {
-  let backgroundColor: string,
-    borderColor: string,
-    borderWidth: number,
-    textColor: string
-
   const commonProps = {
     label: 'Button text',
     onPress: onPressSpy,
     testID: 'testButton',
   }
-
-  const getButtonStyle = () => screen.getByRole('button').props.style
-  const getTextColor = () =>
-    screen.getByText(commonProps.label).props.style.color
 
   describe('Basic tests', () => {
     it('initializes correctly', async () => {
@@ -72,25 +61,28 @@ describe('Button', () => {
   describe('Primary variant', () => {
     it('should render Primary variant by default', async () => {
       render(<Button {...commonProps} />)
-      backgroundColor = getButtonStyle().backgroundColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
 
-      expect(backgroundColor).toEqual(Colors.primary)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#005ea2',
+        borderWidth: 0,
+      })
+
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     it('should render Primary variant pressed state', async () => {
       render(<Button {...commonProps} testOnlyPressed={true} />)
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#162e51',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.primaryDarker)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     describe('Dark mode', () => {
@@ -99,25 +91,27 @@ describe('Button', () => {
       it('should render Primary variant in dark mode', async () => {
         render(<Button {...commonProps} />)
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#58b4ff',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsBlueVivid30)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render Primary variant pressed state in dark mode', async () => {
         render(<Button {...commonProps} testOnlyPressed={true} />)
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#e1f3f8',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.primaryAltLightest)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
@@ -126,13 +120,14 @@ describe('Button', () => {
     it('should render Base variant', async () => {
       render(<Button {...commonProps} buttonType={ButtonVariants.Base} />)
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#757575',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.grayMedium)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     it('should render Base variant pressed state', async () => {
@@ -144,13 +139,14 @@ describe('Button', () => {
         />,
       )
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#2e2e2e',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.uswdsGray80)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     describe('Dark mode', () => {
@@ -159,13 +155,14 @@ describe('Button', () => {
       it('should render Base variant in dark mode', async () => {
         render(<Button {...commonProps} buttonType={ButtonVariants.Base} />)
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#f0f0f0',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.grayLightest)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render Base variant pressed state and dark mode', async () => {
@@ -177,13 +174,14 @@ describe('Button', () => {
           />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#adadad',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsGray30)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
@@ -192,15 +190,15 @@ describe('Button', () => {
     it('should render Secondary variant', async () => {
       render(<Button {...commonProps} buttonType={ButtonVariants.Secondary} />)
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderColor = getButtonStyle().borderColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#005ea2',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.primary)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.primary)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#005ea2',
+      })
     })
 
     it('should render Secondary variant pressed state', async () => {
@@ -212,15 +210,15 @@ describe('Button', () => {
         />,
       )
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderColor = getButtonStyle().borderColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#162e51',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.primaryDarker)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.primaryDarker)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#162e51',
+      })
     })
 
     describe('Dark mode', () => {
@@ -231,15 +229,15 @@ describe('Button', () => {
           <Button {...commonProps} buttonType={ButtonVariants.Secondary} />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderColor = getButtonStyle().borderColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#58b4ff',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.uswdsBlueVivid30)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.uswdsBlueVivid30)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#58b4ff',
+        })
       })
 
       it('should render Secondary variant pressed state in dark mode', async () => {
@@ -251,15 +249,15 @@ describe('Button', () => {
           />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderColor = getButtonStyle().borderColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#ffffff',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.white)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.white)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#ffffff',
+        })
       })
     })
   })
@@ -270,15 +268,15 @@ describe('Button', () => {
         <Button {...commonProps} buttonType={ButtonVariants.Destructive} />,
       )
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderColor = getButtonStyle().borderColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#b50909',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.secondaryDark)
-      expect(borderColor).toEqual('none')
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     it('should render Destructive variant pressed state', async () => {
@@ -290,14 +288,15 @@ describe('Button', () => {
         />,
       )
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderColor = getButtonStyle().borderColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#5c1111',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.uswdsRedVivid80)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     describe('Dark mode', () => {
@@ -308,15 +307,15 @@ describe('Button', () => {
           <Button {...commonProps} buttonType={ButtonVariants.Destructive} />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderColor = getButtonStyle().borderColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#fb5a47',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsRedVivid40)
-        expect(borderColor).toEqual('none')
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render Destructive variant pressed state in dark mode', async () => {
@@ -328,13 +327,15 @@ describe('Button', () => {
           />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#f8dfe2',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.secondaryLightest)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
@@ -343,15 +344,15 @@ describe('Button', () => {
     it('should render White variant', async () => {
       render(<Button {...commonProps} buttonType={ButtonVariants.White} />)
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderColor = getButtonStyle().borderColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#f0f0f0',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.grayLightest)
-      expect(borderColor).toEqual('none')
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.black)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#000000',
+      })
     })
 
     it('should render White variant pressed state', async () => {
@@ -363,13 +364,15 @@ describe('Button', () => {
         />,
       )
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#adadad',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.uswdsGray30)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.black)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#000000',
+      })
     })
 
     describe('Dark mode', () => {
@@ -378,15 +381,15 @@ describe('Button', () => {
       it('should render White variant in dark mode', async () => {
         render(<Button {...commonProps} buttonType={ButtonVariants.White} />)
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderColor = getButtonStyle().borderColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#f0f0f0',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.grayLightest)
-        expect(borderColor).toEqual('none')
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render White variant pressed state in dark mode', async () => {
@@ -398,13 +401,15 @@ describe('Button', () => {
           />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#adadad',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsGray30)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
@@ -415,15 +420,15 @@ describe('Button', () => {
         <Button {...commonProps} buttonType={ButtonVariants.BaseSecondary} />,
       )
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderColor = getButtonStyle().borderColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#757575',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.grayMedium)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.grayMedium)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#757575',
+      })
     })
 
     it('should render BaseSecondary variant pressed state', async () => {
@@ -435,15 +440,15 @@ describe('Button', () => {
         />,
       )
 
-      backgroundColor = getButtonStyle().backgroundColor
-      borderColor = getButtonStyle().borderColor
-      borderWidth = getButtonStyle().borderWidth
-      textColor = getTextColor()
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#2e2e2e',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.uswdsGray80)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.uswdsGray80)
+      expect(screen.getByText(commonProps.label)).toHaveStyle({
+        color: '#2e2e2e',
+      })
     })
 
     describe('Dark mode', () => {
@@ -454,15 +459,15 @@ describe('Button', () => {
           <Button {...commonProps} buttonType={ButtonVariants.BaseSecondary} />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderColor = getButtonStyle().borderColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#f0f0f0',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.grayLightest)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.grayLightest)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#f0f0f0',
+        })
       })
 
       it('should render BaseSecondary variant pressed state in dark mode', async () => {
@@ -474,15 +479,15 @@ describe('Button', () => {
           />,
         )
 
-        backgroundColor = getButtonStyle().backgroundColor
-        borderColor = getButtonStyle().borderColor
-        borderWidth = getButtonStyle().borderWidth
-        textColor = getTextColor()
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#adadad',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.uswdsGray30)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.uswdsGray30)
+        expect(screen.getByText(commonProps.label)).toHaveStyle({
+          color: '#adadad',
+        })
       })
     })
   })
