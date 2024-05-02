@@ -40,8 +40,8 @@ describe('Icon', () => {
       />,
     )
 
-    expect(screen).toBeTruthy()
     const icon = screen.getByTestId('myId')
+    expect(icon).toBeOnTheScreen()
     const { width, height } = icon.props
 
     expect(width).toBe(50)
