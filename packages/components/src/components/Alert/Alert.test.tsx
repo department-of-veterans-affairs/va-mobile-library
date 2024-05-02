@@ -52,7 +52,7 @@ const getIconName = async () => {
   return icon.props.name
 }
 
-describe('Button', () => {
+describe('Alert', () => {
   describe('Basic tests', () => {
     render(<Alert {...commonProps} variant="info" />)
 
@@ -99,7 +99,7 @@ describe('Button', () => {
     })
   })
 
-  describe('Info variant and basic tests', () => {
+  describe('Info variant', () => {
     describe('Light mode', () => {
       it('should render correct colors and icon', async () => {
         render(<Alert variant="info" {...commonProps} />)
@@ -295,46 +295,44 @@ describe('Button', () => {
             {...commonProps}
           />,
         )
-
-        expect(screen.getByText('Header text')).toBeOnTheScreen()
-        expect(screen.getByText('Description text')).toBeOnTheScreen()
-        expect(screen.getByText('Sample children content')).toBeOnTheScreen()
-        expect(screen.getByText('Primary test button')).toBeOnTheScreen()
-        expect(screen.getByText('Secondary test button')).toBeOnTheScreen()
-
-        // Only header should be visible after press
-        fireEvent.press(screen.getByRole('tab'))
-        expect(screen.getByText('Header text')).toBeOnTheScreen()
-        expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
-        expect(
-          screen.queryByText('Sample children content'),
-        ).not.toBeOnTheScreen()
-        expect(screen.queryByText('Primary test button')).not.toBeOnTheScreen()
-        expect(
-          screen.queryByText('Secondary test button'),
-        ).not.toBeOnTheScreen()
       })
+
+      expect(screen.getByText('Header text')).toBeOnTheScreen()
+      expect(screen.getByText('Description text')).toBeOnTheScreen()
+      expect(screen.getByText('Sample children content')).toBeOnTheScreen()
+      expect(screen.getByText('Primary test button')).toBeOnTheScreen()
+      expect(screen.getByText('Secondary test button')).toBeOnTheScreen()
+
+      // Only header should be visible after press
+      fireEvent.press(screen.getByRole('tab'))
+      expect(screen.getByText('Header text')).toBeOnTheScreen()
+      expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
+      expect(
+        screen.queryByText('Sample children content'),
+      ).not.toBeOnTheScreen()
+      expect(screen.queryByText('Primary test button')).not.toBeOnTheScreen()
+      expect(screen.queryByText('Secondary test button')).not.toBeOnTheScreen()
     })
+  })
 
-    describe('Analytics', () => {
-      it('should fire analytics events', async () => {
-        render(
-          <Alert
-            variant="error"
-            expandable
-            analytics={{
-              onExpand: onExpandSpy,
-              onCollapse: onCollapseSpy,
-            }}
-            {...commonProps}
-          />,
-        )
+  describe('Analytics', () => {
+    it('should fire analytics events', async () => {
+      render(
+        <Alert
+          variant="error"
+          expandable
+          analytics={{
+            onExpand: onExpandSpy,
+            onCollapse: onCollapseSpy,
+          }}
+          {...commonProps}
+        />,
+      )
 
-        fireEvent.press(screen.getByRole('tab'))
-        expect(onExpandSpy).toHaveBeenCalled()
-        fireEvent.press(screen.getByRole('tab'))
-        expect(onCollapseSpy).toHaveBeenCalled()
-      })
+      fireEvent.press(screen.getByRole('tab'))
+      expect(onExpandSpy).toHaveBeenCalled()
+      fireEvent.press(screen.getByRole('tab'))
+      expect(onCollapseSpy).toHaveBeenCalled()
     })
   })
 })
