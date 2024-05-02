@@ -288,6 +288,7 @@ export const Link: FC<LinkProps> = ({
     lineHeight: 30,
     textDecorationColor: linkColor,
     textDecorationLine: 'underline',
+    flexShrink: 1, // RN Text takes full width in row flexbox; shrink to wrap as appropriate
   }
 
   return (
