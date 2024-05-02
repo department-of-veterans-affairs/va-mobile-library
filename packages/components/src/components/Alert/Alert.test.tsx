@@ -57,7 +57,7 @@ describe('Alert', () => {
     render(<Alert {...commonProps} variant="info" />)
 
     it('initializes correctly', () => {
-      expect(screen).toBeTruthy()
+      expect(screen.getByTestId('testAlert')).toBeTruthy()
     })
 
     it('should render header and description text', () => {
