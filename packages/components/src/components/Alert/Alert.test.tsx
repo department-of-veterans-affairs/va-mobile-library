@@ -263,7 +263,6 @@ describe('Alert', () => {
           </Alert>,
         )
 
-        // Only header should be visible before press
         expect(screen.getByText('Header text')).toBeOnTheScreen()
         expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
         expect(
@@ -273,7 +272,9 @@ describe('Alert', () => {
         expect(
           screen.queryByText('Secondary test button'),
         ).not.toBeOnTheScreen()
+      })
 
+      it('should render everything after press', () => {
         fireEvent.press(screen.getByRole('tab'))
         expect(screen.getByText('Header text')).toBeOnTheScreen()
         expect(screen.getByText('Description text')).toBeOnTheScreen()
@@ -284,7 +285,7 @@ describe('Alert', () => {
     })
 
     describe('Initialize expanded', () => {
-      it('should render expanded', () => {
+      it('should render everything when initializeExpanded is set to true', () => {
         render(
           <Alert
             variant="error"
@@ -300,8 +301,9 @@ describe('Alert', () => {
       expect(screen.getByText('Sample children content')).toBeOnTheScreen()
       expect(screen.getByText('Primary test button')).toBeOnTheScreen()
       expect(screen.getByText('Secondary test button')).toBeOnTheScreen()
+    })
 
-      // Only header should be visible after press
+    it('should render only the header after being collapsed', () => {
       fireEvent.press(screen.getByRole('tab'))
       expect(screen.getByText('Header text')).toBeOnTheScreen()
       expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
