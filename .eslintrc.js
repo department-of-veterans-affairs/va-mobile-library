@@ -54,7 +54,7 @@ module.exports = {
   },
   overrides: [
     {
-      // Test files only
+      // Component test files only
       files: [
         'packages/components/**/__tests__/**/*.[jt]s?(x)',
         'packages/components/**/?(*.)+(spec|test).[jt]s?(x)',
