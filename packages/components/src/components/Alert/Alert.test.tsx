@@ -46,10 +46,6 @@ const commonProps = {
 }
 
 // Helper utils
-const getContentStyle = () => screen.getByTestId(commonProps.testID).props.style
-
-const getTextColor = () =>
-  screen.getByText(commonProps.header).props.style.color
 
 const getIconName = async () => {
   const icon = await screen.root.findByType(Icon)
@@ -108,10 +104,14 @@ describe('Button', () => {
       it('should render correct colors and icon', async () => {
         render(<Alert variant="info" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#e1f3f8')
-        expect(borderLeftColor).toBe('#28a0cb')
-        expect(getTextColor()).toBe('#3d4551')
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#e1f3f8',
+          borderLeftColor: '#28a0cb',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#3d4551',
+        })
         expect(await getIconName()).toBe('Info')
       })
     })
@@ -121,11 +121,17 @@ describe('Button', () => {
         mockedColorScheme.mockImplementation(() => 'dark')
 
         render(<Alert variant="info" {...commonProps} />)
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#112f4e')
-        expect(borderLeftColor).toBe('#97d4ea')
+
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#112f4e',
+          borderLeftColor: '#97d4ea',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#f0f0f0',
+        })
+
         expect(await getIconName()).toBe('Info')
-        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
@@ -137,10 +143,15 @@ describe('Button', () => {
 
         render(<Alert variant="success" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#ecf3ec')
-        expect(borderLeftColor).toBe('#008817')
-        expect(getTextColor()).toBe('#3d4551')
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#ecf3ec',
+          borderLeftColor: '#008817',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#3d4551',
+        })
+
         expect(await getIconName()).toBe('Check')
       })
     })
@@ -148,12 +159,19 @@ describe('Button', () => {
     describe('Dark mode', () => {
       it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'dark')
+
         render(<Alert variant="success" {...commonProps} />)
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#19311e')
-        expect(borderLeftColor).toBe('#5e9f69')
+
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#19311e',
+          borderLeftColor: '#5e9f69',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#f0f0f0',
+        })
+
         expect(await getIconName()).toBe('Check')
-        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
@@ -165,10 +183,15 @@ describe('Button', () => {
 
         render(<Alert variant="warning" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#faf3d1')
-        expect(borderLeftColor).toBe('#ffbe2e')
-        expect(getTextColor()).toBe('#3d4551')
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#faf3d1',
+          borderLeftColor: '#ffbe2e',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#3d4551',
+        })
+
         expect(await getIconName()).toBe('ExclamationTriangle')
       })
     })
@@ -176,12 +199,19 @@ describe('Button', () => {
     describe('Dark mode', () => {
       it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'dark')
+
         render(<Alert variant="warning" {...commonProps} />)
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#5c4809')
-        expect(borderLeftColor).toBe('#face00')
+
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#5c4809',
+          borderLeftColor: '#face00',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#f0f0f0',
+        })
+
         expect(await getIconName()).toBe('ExclamationTriangle')
-        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
@@ -193,10 +223,15 @@ describe('Button', () => {
 
         render(<Alert variant="error" {...commonProps} />)
 
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#f8dfe2')
-        expect(borderLeftColor).toBe('#b50909')
-        expect(getTextColor()).toBe('#3d4551')
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#f8dfe2',
+          borderLeftColor: '#b50909',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#3d4551',
+        })
+
         expect(await getIconName()).toBe('ExclamationCircle')
       })
     })
@@ -204,12 +239,19 @@ describe('Button', () => {
     describe('Dark mode', () => {
       it('should render correct colors and icon', async () => {
         mockedColorScheme.mockImplementation(() => 'dark')
+
         render(<Alert variant="error" {...commonProps} />)
-        const { backgroundColor, borderLeftColor } = getContentStyle()
-        expect(backgroundColor).toBe('#5c1111')
-        expect(borderLeftColor).toBe('#d83933')
+
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#5c1111',
+          borderLeftColor: '#d83933',
+        })
+
+        expect(screen.getByText(commonProps.header)).toHaveStyle({
+          color: '#f0f0f0',
+        })
+
         expect(await getIconName()).toBe('ExclamationCircle')
-        expect(getTextColor()).toBe('#f0f0f0')
       })
     })
   })
