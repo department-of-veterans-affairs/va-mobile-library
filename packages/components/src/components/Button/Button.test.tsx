@@ -22,6 +22,8 @@ describe('Button', () => {
     testID: 'testButton',
   }
 
+  const getButtonText = () => screen.getByText(commonProps.label)
+
   describe('Basic tests', () => {
     it('initializes correctly', async () => {
       render(<Button {...commonProps} />)
@@ -66,7 +68,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#f0f0f0',
       })
     })
@@ -79,7 +81,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#f0f0f0',
       })
     })
@@ -95,7 +97,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -108,7 +110,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -124,7 +126,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#f0f0f0',
       })
     })
@@ -143,7 +145,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#f0f0f0',
       })
     })
@@ -159,7 +161,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -178,7 +180,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -195,7 +197,7 @@ describe('Button', () => {
         borderWidth: 2,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#005ea2',
       })
     })
@@ -215,7 +217,7 @@ describe('Button', () => {
         borderWidth: 2,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#162e51',
       })
     })
@@ -234,7 +236,7 @@ describe('Button', () => {
           borderWidth: 2,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#58b4ff',
         })
       })
@@ -254,7 +256,7 @@ describe('Button', () => {
           borderWidth: 2,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#ffffff',
         })
       })
@@ -273,7 +275,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#f0f0f0',
       })
     })
@@ -293,7 +295,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#f0f0f0',
       })
     })
@@ -312,7 +314,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -332,7 +334,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -349,7 +351,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#000000',
       })
     })
@@ -369,7 +371,7 @@ describe('Button', () => {
         borderWidth: 0,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#000000',
       })
     })
@@ -386,7 +388,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -406,7 +408,7 @@ describe('Button', () => {
           borderWidth: 0,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#000000',
         })
       })
@@ -425,7 +427,7 @@ describe('Button', () => {
         borderWidth: 2,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#757575',
       })
     })
@@ -445,7 +447,7 @@ describe('Button', () => {
         borderWidth: 2,
       })
 
-      expect(screen.getByText(commonProps.label)).toHaveStyle({
+      expect(getButtonText()).toHaveStyle({
         color: '#2e2e2e',
       })
     })
@@ -464,7 +466,7 @@ describe('Button', () => {
           borderWidth: 2,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#f0f0f0',
         })
       })
@@ -484,7 +486,7 @@ describe('Button', () => {
           borderWidth: 2,
         })
 
-        expect(screen.getByText(commonProps.label)).toHaveStyle({
+        expect(getButtonText()).toHaveStyle({
           color: '#adadad',
         })
       })

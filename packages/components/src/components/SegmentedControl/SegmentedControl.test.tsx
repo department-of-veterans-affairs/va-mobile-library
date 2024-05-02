@@ -3,7 +3,6 @@ import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { ReactTestInstance } from 'react-test-renderer'
 
 import { SegmentedControl } from './SegmentedControl'
@@ -27,6 +26,7 @@ describe('SegmentedControl', () => {
   const onChangeSpy = jest.fn((selectTab) => {
     selectedTab = selectTab
   })
+
   let selectedTab = 0
 
   const initializeTestInstance = (): void => {

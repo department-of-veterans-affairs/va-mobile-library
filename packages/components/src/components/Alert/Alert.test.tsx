@@ -18,41 +18,39 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
   }
 })
 
-const children = (
-  <View>
-    <Text>Sample children content</Text>
-  </View>
-)
-
-const primaryButtonProps = {
-  label: 'Primary test button',
-  onPress: () => console.log('primary press'),
-  testID: 'primaryButton',
-}
-
-const secondaryButtonProps = {
-  label: 'Secondary test button',
-  onPress: () => console.log('secondary press'),
-  testID: 'secondaryButton',
-}
-
-const commonProps = {
-  header: 'Header text',
-  description: 'Description text',
-  testID: 'testAlert',
-  primaryButton: primaryButtonProps,
-  secondaryButton: secondaryButtonProps,
-  children,
-}
-
-// Helper utils
-
-const getIconName = async () => {
-  const icon = await screen.root.findByType(Icon)
-  return icon.props.name
-}
-
 describe('Alert', () => {
+  const children = (
+    <View>
+      <Text>Sample children content</Text>
+    </View>
+  )
+
+  const primaryButtonProps = {
+    label: 'Primary test button',
+    onPress: () => console.log('primary press'),
+    testID: 'primaryButton',
+  }
+
+  const secondaryButtonProps = {
+    label: 'Secondary test button',
+    onPress: () => console.log('secondary press'),
+    testID: 'secondaryButton',
+  }
+
+  const commonProps = {
+    header: 'Header text',
+    description: 'Description text',
+    testID: 'testAlert',
+    primaryButton: primaryButtonProps,
+    secondaryButton: secondaryButtonProps,
+    children,
+  }
+
+  const getIconName = async () => {
+    const icon = await screen.root.findByType(Icon)
+    return icon.props.name
+  }
+
   describe('Basic tests', () => {
     render(<Alert {...commonProps} variant="info" />)
 
