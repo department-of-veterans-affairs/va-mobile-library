@@ -376,11 +376,9 @@ describe('Link', () => {
       text: 'Attachment Link',
     }
 
-    it('should prevent scaling with fontScale 2', () => {
-      component = render(
-        <Link {...iconOverrideProps} icon={{ preventScaling: true }} />,
-      )
-      const icon = component.root.findByType(Icon)
+    it('should prevent scaling with fontScale 2', async () => {
+      render(<Link {...iconOverrideProps} icon={{ preventScaling: true }} />)
+      const icon = await screen.root.findByType(Icon)
 
       expect(icon.props.name).toBe('PaperClip')
       const width24Exists = within(icon).UNSAFE_getByProps({ width: 24 })
@@ -389,11 +387,9 @@ describe('Link', () => {
       expect(height24Exists).toBeTruthy()
     })
 
-    it('should limit max width with fontScale 2', () => {
-      component = render(
-        <Link {...iconOverrideProps} icon={{ maxWidth: 36 }} />,
-      )
-      const icon = component.root.findByType(Icon)
+    it('should limit max width with fontScale 2', async () => {
+      render(<Link {...iconOverrideProps} icon={{ maxWidth: 36 }} />)
+      const icon = await screen.root.findByType(Icon)
 
       expect(icon.props.name).toBe('PaperClip')
       const width36Exists = within(icon).UNSAFE_getByProps({ width: 36 })
@@ -402,9 +398,9 @@ describe('Link', () => {
       expect(height36Exists).toBeTruthy()
     })
 
-    it('should allow override of icon and size to fontScale 2', () => {
-      component = render(<Link {...iconOverrideProps} icon={{ name: 'Add' }} />)
-      const icon = component.root.findByType(Icon)
+    it('should allow override of icon and size to fontScale 2', async () => {
+      render(<Link {...iconOverrideProps} icon={{ name: 'Add' }} />)
+      const icon = await screen.root.findByType(Icon)
 
       expect(icon.props.name).toBe('Add')
       const width48Exists = within(icon).UNSAFE_getByProps({ width: 48 })
@@ -414,8 +410,8 @@ describe('Link', () => {
     })
 
     it('should respect removing the icon', () => {
-      component = render(<Link {...iconOverrideProps} icon={'no icon'} />)
-      const icon = component.UNSAFE_queryByType(Icon)
+      render(<Link {...iconOverrideProps} icon={'no icon'} />)
+      const icon = screen.UNSAFE_queryByType(Icon)
 
       expect(icon).toBeFalsy()
     })
