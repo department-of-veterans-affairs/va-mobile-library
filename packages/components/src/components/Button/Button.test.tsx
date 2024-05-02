@@ -25,8 +25,7 @@ describe('Button', () => {
   describe('Basic tests', () => {
     it('initializes correctly', async () => {
       render(<Button {...commonProps} />)
-      const button = screen.getByTestId('testButton')
-      expect(button).toBeOnTheScreen()
+      expect(screen.getByTestId('testButton')).toBeOnTheScreen()
     })
 
     it('should call onChange', async () => {
