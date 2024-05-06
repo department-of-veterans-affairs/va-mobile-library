@@ -290,33 +290,35 @@ describe('Alert', () => {
             {...commonProps}
           />,
         )
+
+        expect(screen.getByText('Header text')).toBeOnTheScreen()
+        expect(screen.getByText('Description text')).toBeOnTheScreen()
+        expect(screen.getByText('Sample children content')).toBeOnTheScreen()
+        expect(screen.getByText('Primary test button')).toBeOnTheScreen()
+        expect(screen.getByText('Secondary test button')).toBeOnTheScreen()
       })
 
-      expect(screen.getByText('Header text')).toBeOnTheScreen()
-      expect(screen.getByText('Description text')).toBeOnTheScreen()
-      expect(screen.getByText('Sample children content')).toBeOnTheScreen()
-      expect(screen.getByText('Primary test button')).toBeOnTheScreen()
-      expect(screen.getByText('Secondary test button')).toBeOnTheScreen()
-    })
+      it('should render only the header after being collapsed', () => {
+        render(
+          <Alert
+            variant="error"
+            expandable
+            initializeExpanded={true}
+            {...commonProps}
+          />,
+        )
 
-    it('should render only the header after being collapsed', () => {
-      render(
-        <Alert
-          variant="error"
-          expandable
-          initializeExpanded={true}
-          {...commonProps}
-        />,
-      )
-
-      fireEvent.press(screen.getByRole('tab'))
-      expect(screen.getByText('Header text')).toBeOnTheScreen()
-      expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
-      expect(
-        screen.queryByText('Sample children content'),
-      ).not.toBeOnTheScreen()
-      expect(screen.queryByText('Primary test button')).not.toBeOnTheScreen()
-      expect(screen.queryByText('Secondary test button')).not.toBeOnTheScreen()
+        fireEvent.press(screen.getByRole('tab'))
+        expect(screen.getByText('Header text')).toBeOnTheScreen()
+        expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
+        expect(
+          screen.queryByText('Sample children content'),
+        ).not.toBeOnTheScreen()
+        expect(screen.queryByText('Primary test button')).not.toBeOnTheScreen()
+        expect(
+          screen.queryByText('Secondary test button'),
+        ).not.toBeOnTheScreen()
+      })
     })
   })
 
