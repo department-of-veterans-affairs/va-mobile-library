@@ -20,7 +20,7 @@ describe('SegmentedControl', () => {
   })
 
   const labels = ['segment 0', 'segment 1']
-  const a11yLabels = ['segment 0 a11y label', 'segment 1 a11y label']
+  const a11yLabels = ['', 'segment 1 a11y label']
   const a11yHints = ['segment 0 a11y hint', 'segment 1 a11y hint']
 
   const onChangeSpy = jest.fn((selectTab) => {
@@ -134,7 +134,7 @@ describe('SegmentedControl', () => {
   describe('Accessibility tests', () => {
     it('should include a11y labels when provided', () => {
       initializeTestInstance()
-      expect(screen.getByLabelText('segment 0 a11y label')).toBeOnTheScreen()
+      expect(screen.getByLabelText('segment 0')).toBeOnTheScreen()
       expect(screen.getByLabelText('segment 1 a11y label')).toBeOnTheScreen()
     })
 
