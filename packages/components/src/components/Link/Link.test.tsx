@@ -39,7 +39,7 @@ describe('Link', () => {
     onCancel: jest.fn(),
   }
 
-  const defaultProps: LinkProps = {
+  const commonProps: LinkProps = {
     type: 'custom',
     text: 'Example Link',
     testID: 'testLink',
@@ -50,7 +50,7 @@ describe('Link', () => {
     analytics: analytics,
   }
 
-  const getLinkText = () => screen.getByText(defaultProps.text)
+  const getLinkText = () => screen.getByText(commonProps.text)
   const getIcon = async () => await screen.root.findByType(Icon)
 
   afterEach(() => {
@@ -60,17 +60,17 @@ describe('Link', () => {
 
   describe('Default/custom variant and basic tests', () => {
     it('initializes correctly', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       expect(screen.getByTestId('testLink')).toBeOnTheScreen()
     })
 
     it('renders the link text', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       expect(screen.getByText('Example Link')).toBeOnTheScreen()
     })
 
     it('calls onPress when tapped', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       fireEvent.press(screen.getByText('Example Link'))
 
       expect(onPressSpy).toHaveBeenCalled()
@@ -78,7 +78,7 @@ describe('Link', () => {
     })
 
     it('renders no icon', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       const icon = screen.UNSAFE_queryByType(Icon)
 
       expect(icon).toBeNull()
@@ -86,7 +86,7 @@ describe('Link', () => {
   })
 
   it('renders default/custom variant with Truck icon', async () => {
-    render(<Link {...defaultProps} icon={{ name: 'Truck' }} />)
+    render(<Link {...commonProps} icon={{ name: 'Truck' }} />)
 
     const icon = await getIcon()
 
@@ -328,17 +328,17 @@ describe('Link', () => {
 
   describe('light mode tone tests', () => {
     it('renders primary tone', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       expect(getLinkText()).toHaveStyle({ color: '#005ea2' })
     })
 
     it('renders base tone', async () => {
-      render(<Link {...defaultProps} variant="base" />)
+      render(<Link {...commonProps} variant="base" />)
       expect(getLinkText()).toHaveStyle({ color: '#3d4551' })
     })
 
     it('renders background color when pressed', async () => {
-      render(<Link {...defaultProps} testOnlyPressed />)
+      render(<Link {...commonProps} testOnlyPressed />)
       expect(screen.root).toHaveStyle({ backgroundColor: '#dfe1e2' })
     })
   })
@@ -347,17 +347,17 @@ describe('Link', () => {
     beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
     it('renders primary tone', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       expect(getLinkText()).toHaveStyle({ color: '#58b4ff' })
     })
 
     it('renders base tone', async () => {
-      render(<Link {...defaultProps} variant="base" />)
+      render(<Link {...commonProps} variant="base" />)
       expect(getLinkText()).toHaveStyle({ color: '#f0f0f0' })
     })
 
     it('renders background color when pressed', async () => {
-      render(<Link {...defaultProps} testOnlyPressed />)
+      render(<Link {...commonProps} testOnlyPressed />)
       expect(screen.root).toHaveStyle({ backgroundColor: '#3d4551' })
     })
   })
@@ -420,20 +420,28 @@ describe('Link', () => {
 
   describe('a11y tests', () => {
     it('includes a11yLabel', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       expect(screen.getByLabelText('a11yLabel override')).toBeOnTheScreen()
     })
 
     it('includes a11yHint', async () => {
-      render(<Link {...defaultProps} />)
+      render(<Link {...commonProps} />)
       expect(screen.getByHintText('a11yHint override')).toBeOnTheScreen()
     })
 
-    it('includes a11yValue', async () => {
-      render(<Link {...defaultProps} />)
+    it('includes index/total a11yValue', async () => {
+      render(<Link {...commonProps} />)
 
       expect(screen.root).toHaveAccessibilityValue({
         text: '3 of 5',
+      })
+    })
+
+    it('includes custom string a11yValue', async () => {
+      render(<Link {...commonProps} a11yValue="test string a11y value" />)
+
+      expect(screen.root).toHaveAccessibilityValue({
+        text: 'test string a11y value',
       })
     })
   })
@@ -449,7 +457,7 @@ describe('Link', () => {
     it('calls useExternalLink hook with promptText when provided', async () => {
       render(
         <Link
-          {...defaultProps}
+          {...commonProps}
           type="url"
           url="https://www.va.com"
           promptText={promptText}
@@ -465,7 +473,7 @@ describe('Link', () => {
     })
 
     it('calls useExternalLink hook without promptText when not provided', async () => {
-      render(<Link {...defaultProps} type="url" url="https://www.va.com" />)
+      render(<Link {...commonProps} type="url" url="https://www.va.com" />)
       fireEvent.press(screen.getByText('Example Link'))
 
       expect(useExternalLinkHookMock).toHaveBeenCalledWith(
@@ -480,7 +488,7 @@ describe('Link', () => {
     it('calls useExternalLink hook with analytics when provided', async () => {
       render(
         <Link
-          {...defaultProps}
+          {...commonProps}
           type="url"
           url="https://www.va.com"
           analytics={analytics}
@@ -498,7 +506,7 @@ describe('Link', () => {
     it('calls useExternalLink hook without analytics when not provided', async () => {
       render(
         <Link
-          {...defaultProps}
+          {...commonProps}
           type="url"
           url="https://www.va.com"
           analytics={undefined}
@@ -514,7 +522,7 @@ describe('Link', () => {
     })
 
     it('calls onPress analytics with custom onPress behavior', async () => {
-      render(<Link {...defaultProps} analytics={analytics} />)
+      render(<Link {...commonProps} analytics={analytics} />)
       fireEvent.press(screen.getByText('Example Link'))
 
       expect(analytics.onPress).toHaveBeenCalled()
