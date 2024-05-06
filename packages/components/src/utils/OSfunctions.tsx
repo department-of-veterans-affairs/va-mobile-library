@@ -4,7 +4,8 @@ import { Alert, Linking, Platform } from 'react-native'
 import { LinkAnalytics } from '../components/Link/Link'
 import { useTranslation } from 'react-i18next'
 
-export const isIOS = Platform.OS === 'ios'
+/** True if iOS; a function to pull real time for unit tests so it can be changed */
+export const isIOS = () => Platform.OS === 'ios'
 
 type address = {
   street: string
@@ -38,7 +39,7 @@ export const FormDirectionsUrl = (location: LocationData): string => {
   const { name, address, latitude, longitude } = location
   const addressString = Object.values(address || {}).join(' ')
 
-  if (isIOS) {
+  if (isIOS()) {
     const queryString = new URLSearchParams({
       t: 'm', // type: map
       daddr: `${addressString}+${name}+${latitude},${longitude}`,
