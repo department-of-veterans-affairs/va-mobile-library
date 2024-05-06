@@ -52,4 +52,14 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      // Component test files only
+      files: [
+        'packages/components/**/__tests__/**/*.[jt]s?(x)',
+        'packages/components/**/?(*.)+(spec|test).[jt]s?(x)',
+      ],
+      extends: ['plugin:testing-library/react'],
+    },
+  ],
 }

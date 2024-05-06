@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import React, { FC } from 'react'
 
+import { ComponentWrapper } from '../../wrapper'
 import {
   FormDirectionsUrl,
   LocationData,
@@ -292,9 +293,11 @@ export const Link: FC<LinkProps> = ({
   }
 
   return (
-    <Pressable {...pressableProps} testID={testID}>
-      {iconDisplay}
-      <Text style={textStyle}>{text}</Text>
-    </Pressable>
+    <ComponentWrapper>
+      <Pressable {...pressableProps} testID={testID}>
+        {iconDisplay}
+        <Text style={textStyle}>{text}</Text>
+      </Pressable>
+    </ComponentWrapper>
   )
 }

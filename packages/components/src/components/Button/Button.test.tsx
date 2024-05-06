@@ -1,10 +1,8 @@
 import 'react-native'
-import { RenderAPI, fireEvent, render } from '@testing-library/react-native'
+import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 // Note: test renderer must be required after react-native.
 import 'jest-styled-components'
-
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 
 import { Button, ButtonVariants } from './Button'
 
@@ -18,513 +16,479 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
 })
 
 describe('Button', () => {
-  let component: RenderAPI
-  let backgroundColor: string,
-    borderColor: string,
-    borderWidth: number,
-    textColor: string
+  const commonProps = {
+    label: 'Button text',
+    onPress: onPressSpy,
+    testID: 'testButton',
+  }
 
-  const label = 'Button text'
+  const getButtonText = () => screen.getByText(commonProps.label)
 
-  const getButtonStyle = (element: RenderAPI) =>
-    element.getByRole('button').props.style
-  const getTextColor = (element: RenderAPI) =>
-    element.getByText(label).props.style.color
-
-  describe('Primary variant and basic tests', () => {
-    beforeEach(() => {
-      component = render(<Button label={label} onPress={onPressSpy} />)
-    })
-
+  describe('Basic tests', () => {
     it('initializes correctly', async () => {
-      expect(component).toBeTruthy()
+      render(<Button {...commonProps} />)
+      expect(screen.getByTestId('testButton')).toBeOnTheScreen()
     })
 
     it('should call onChange', async () => {
-      fireEvent.press(component.getByRole('button'))
-      expect(onPressSpy).toBeCalled()
+      render(<Button {...commonProps} />)
+      fireEvent.press(screen.getByRole('button'))
+      expect(onPressSpy).toHaveBeenCalled()
     })
 
     it('should render label', () => {
-      expect(component.queryByText('Button text')).toBeTruthy()
+      render(<Button {...commonProps} />)
+      expect(screen.getByText('Button text')).toBeTruthy()
+    })
+  })
+
+  describe('Accessibility', () => {
+    const a11yProps = {
+      a11yHint: 'Test a11y hint',
+      a11yLabel: 'Test a11y label',
+    }
+
+    it('should have a11yHint when provided', () => {
+      render(<Button {...commonProps} {...a11yProps} />)
+      expect(screen.getByHintText('Test a11y hint')).toBeOnTheScreen()
     })
 
-    it('should render Primary variant by default', async () => {
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+    it('should have a11yLabel when provided', () => {
+      render(<Button {...commonProps} {...a11yProps} />)
+      expect(screen.getByLabelText('Test a11y label')).toBeOnTheScreen()
+    })
+  })
 
-      expect(backgroundColor).toEqual(Colors.primary)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+  describe('Primary variant', () => {
+    it('should render Primary variant by default', async () => {
+      render(<Button {...commonProps} />)
+
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#005ea2',
+        borderWidth: 0,
+      })
+
+      expect(getButtonText()).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     it('should render Primary variant pressed state', async () => {
-      component = render(
-        <Button label={label} onPress={onPressSpy} testOnlyPressed={true} />,
-      )
+      render(<Button {...commonProps} testOnlyPressed={true} />)
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#162e51',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.primaryDarker)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(getButtonText()).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     describe('Dark mode', () => {
       beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
       it('should render Primary variant in dark mode', async () => {
-        component = render(<Button label={label} onPress={onPressSpy} />)
+        render(<Button {...commonProps} />)
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#58b4ff',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsBlueVivid30)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render Primary variant pressed state in dark mode', async () => {
-        component = render(
-          <Button label={label} onPress={onPressSpy} testOnlyPressed={true} />,
-        )
+        render(<Button {...commonProps} testOnlyPressed={true} />)
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#e1f3f8',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.primaryAltLightest)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
 
   describe('Base Variant', () => {
     it('should render Base variant', async () => {
-      component = render(
-        <Button
-          label={label}
-          onPress={onPressSpy}
-          buttonType={ButtonVariants.Base}
-        />,
-      )
+      render(<Button {...commonProps} buttonType={ButtonVariants.Base} />)
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#757575',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.grayMedium)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(getButtonText()).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     it('should render Base variant pressed state', async () => {
-      component = render(
+      render(
         <Button
-          label={label}
-          onPress={onPressSpy}
+          {...commonProps}
           buttonType={ButtonVariants.Base}
           testOnlyPressed={true}
         />,
       )
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#2e2e2e',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.uswdsGray80)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(getButtonText()).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     describe('Dark mode', () => {
       beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
       it('should render Base variant in dark mode', async () => {
-        component = render(
-          <Button
-            label={label}
-            onPress={onPressSpy}
-            buttonType={ButtonVariants.Base}
-          />,
-        )
+        render(<Button {...commonProps} buttonType={ButtonVariants.Base} />)
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#f0f0f0',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.grayLightest)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render Base variant pressed state and dark mode', async () => {
-        component = render(
+        render(
           <Button
-            label={label}
-            onPress={onPressSpy}
+            {...commonProps}
             buttonType={ButtonVariants.Base}
             testOnlyPressed={true}
           />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#adadad',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsGray30)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
 
   describe('Secondary Variant', () => {
     it('should render Secondary variant', async () => {
-      component = render(
-        <Button
-          label={label}
-          onPress={onPressSpy}
-          buttonType={ButtonVariants.Secondary}
-        />,
-      )
+      render(<Button {...commonProps} buttonType={ButtonVariants.Secondary} />)
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderColor = getButtonStyle(component).borderColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#005ea2',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.primary)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.primary)
+      expect(getButtonText()).toHaveStyle({
+        color: '#005ea2',
+      })
     })
 
     it('should render Secondary variant pressed state', async () => {
-      component = render(
+      render(
         <Button
-          label={label}
-          onPress={onPressSpy}
+          {...commonProps}
           buttonType={ButtonVariants.Secondary}
           testOnlyPressed={true}
         />,
       )
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderColor = getButtonStyle(component).borderColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#162e51',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.primaryDarker)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.primaryDarker)
+      expect(getButtonText()).toHaveStyle({
+        color: '#162e51',
+      })
     })
 
     describe('Dark mode', () => {
       beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
       it('should render Secondary variant in dark mode', async () => {
-        component = render(
-          <Button
-            label={label}
-            onPress={onPressSpy}
-            buttonType={ButtonVariants.Secondary}
-          />,
+        render(
+          <Button {...commonProps} buttonType={ButtonVariants.Secondary} />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderColor = getButtonStyle(component).borderColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#58b4ff',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.uswdsBlueVivid30)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.uswdsBlueVivid30)
+        expect(getButtonText()).toHaveStyle({
+          color: '#58b4ff',
+        })
       })
 
       it('should render Secondary variant pressed state in dark mode', async () => {
-        component = render(
+        render(
           <Button
-            label={label}
-            onPress={onPressSpy}
+            {...commonProps}
             buttonType={ButtonVariants.Secondary}
             testOnlyPressed={true}
           />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderColor = getButtonStyle(component).borderColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#ffffff',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.white)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.white)
+        expect(getButtonText()).toHaveStyle({
+          color: '#ffffff',
+        })
       })
     })
   })
 
   describe('Destructive Variant', () => {
     it('should render Destructive variant', async () => {
-      component = render(
-        <Button
-          label={label}
-          onPress={onPressSpy}
-          buttonType={ButtonVariants.Destructive}
-        />,
+      render(
+        <Button {...commonProps} buttonType={ButtonVariants.Destructive} />,
       )
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderColor = getButtonStyle(component).borderColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#b50909',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.secondaryDark)
-      expect(borderColor).toEqual('none')
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(getButtonText()).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     it('should render Destructive variant pressed state', async () => {
-      component = render(
+      render(
         <Button
-          label={label}
-          onPress={onPressSpy}
+          {...commonProps}
           buttonType={ButtonVariants.Destructive}
           testOnlyPressed={true}
         />,
       )
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderColor = getButtonStyle(component).borderColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#5c1111',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.uswdsRedVivid80)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.grayLightest)
+      expect(getButtonText()).toHaveStyle({
+        color: '#f0f0f0',
+      })
     })
 
     describe('Dark mode', () => {
       beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
       it('should render Destructive variant in dark mode', async () => {
-        component = render(
-          <Button
-            label={label}
-            onPress={onPressSpy}
-            buttonType={ButtonVariants.Destructive}
-          />,
+        render(
+          <Button {...commonProps} buttonType={ButtonVariants.Destructive} />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderColor = getButtonStyle(component).borderColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#fb5a47',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsRedVivid40)
-        expect(borderColor).toEqual('none')
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render Destructive variant pressed state in dark mode', async () => {
-        component = render(
+        render(
           <Button
-            label={label}
-            onPress={onPressSpy}
+            {...commonProps}
             buttonType={ButtonVariants.Destructive}
             testOnlyPressed={true}
           />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#f8dfe2',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.secondaryLightest)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
 
   describe('White Variant', () => {
     it('should render White variant', async () => {
-      component = render(
-        <Button
-          label={label}
-          onPress={onPressSpy}
-          buttonType={ButtonVariants.White}
-        />,
-      )
+      render(<Button {...commonProps} buttonType={ButtonVariants.White} />)
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderColor = getButtonStyle(component).borderColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#f0f0f0',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.grayLightest)
-      expect(borderColor).toEqual('none')
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.black)
+      expect(getButtonText()).toHaveStyle({
+        color: '#000000',
+      })
     })
 
     it('should render White variant pressed state', async () => {
-      component = render(
+      render(
         <Button
-          label={label}
-          onPress={onPressSpy}
+          {...commonProps}
           buttonType={ButtonVariants.White}
           testOnlyPressed={true}
         />,
       )
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: '#adadad',
+        borderColor: 'none',
+        borderWidth: 0,
+      })
 
-      expect(backgroundColor).toEqual(Colors.uswdsGray30)
-      expect(borderWidth).toEqual(0)
-      expect(textColor).toEqual(Colors.black)
+      expect(getButtonText()).toHaveStyle({
+        color: '#000000',
+      })
     })
 
     describe('Dark mode', () => {
       beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
       it('should render White variant in dark mode', async () => {
-        component = render(
-          <Button
-            label={label}
-            onPress={onPressSpy}
-            buttonType={ButtonVariants.White}
-          />,
-        )
+        render(<Button {...commonProps} buttonType={ButtonVariants.White} />)
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderColor = getButtonStyle(component).borderColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#f0f0f0',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.grayLightest)
-        expect(borderColor).toEqual('none')
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
 
       it('should render White variant pressed state in dark mode', async () => {
-        component = render(
+        render(
           <Button
-            label={label}
-            onPress={onPressSpy}
+            {...commonProps}
             buttonType={ButtonVariants.White}
             testOnlyPressed={true}
           />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: '#adadad',
+          borderColor: 'none',
+          borderWidth: 0,
+        })
 
-        expect(backgroundColor).toEqual(Colors.uswdsGray30)
-        expect(borderWidth).toEqual(0)
-        expect(textColor).toEqual(Colors.black)
+        expect(getButtonText()).toHaveStyle({
+          color: '#000000',
+        })
       })
     })
   })
 
   describe('BaseSecondary Variant', () => {
     it('should render BaseSecondary variant', async () => {
-      component = render(
-        <Button
-          label={label}
-          onPress={onPressSpy}
-          buttonType={ButtonVariants.BaseSecondary}
-        />,
+      render(
+        <Button {...commonProps} buttonType={ButtonVariants.BaseSecondary} />,
       )
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderColor = getButtonStyle(component).borderColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#757575',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.grayMedium)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.grayMedium)
+      expect(getButtonText()).toHaveStyle({
+        color: '#757575',
+      })
     })
 
     it('should render BaseSecondary variant pressed state', async () => {
-      component = render(
+      render(
         <Button
-          label={label}
-          onPress={onPressSpy}
+          {...commonProps}
           buttonType={ButtonVariants.BaseSecondary}
           testOnlyPressed={true}
         />,
       )
 
-      backgroundColor = getButtonStyle(component).backgroundColor
-      borderColor = getButtonStyle(component).borderColor
-      borderWidth = getButtonStyle(component).borderWidth
-      textColor = getTextColor(component)
+      expect(screen.root).toHaveStyle({
+        backgroundColor: 'transparent',
+        borderColor: '#2e2e2e',
+        borderWidth: 2,
+      })
 
-      expect(backgroundColor).toEqual('transparent')
-      expect(borderColor).toEqual(Colors.uswdsGray80)
-      expect(borderWidth).toEqual(2)
-      expect(textColor).toEqual(Colors.uswdsGray80)
+      expect(getButtonText()).toHaveStyle({
+        color: '#2e2e2e',
+      })
     })
 
     describe('Dark mode', () => {
       beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
       it('should render BaseSecondary variant in dark mode', async () => {
-        component = render(
-          <Button
-            label={label}
-            onPress={onPressSpy}
-            buttonType={ButtonVariants.BaseSecondary}
-          />,
+        render(
+          <Button {...commonProps} buttonType={ButtonVariants.BaseSecondary} />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderColor = getButtonStyle(component).borderColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#f0f0f0',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.grayLightest)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.grayLightest)
+        expect(getButtonText()).toHaveStyle({
+          color: '#f0f0f0',
+        })
       })
 
       it('should render BaseSecondary variant pressed state in dark mode', async () => {
-        component = render(
+        render(
           <Button
-            label={label}
-            onPress={onPressSpy}
+            {...commonProps}
             buttonType={ButtonVariants.BaseSecondary}
             testOnlyPressed={true}
           />,
         )
 
-        backgroundColor = getButtonStyle(component).backgroundColor
-        borderColor = getButtonStyle(component).borderColor
-        borderWidth = getButtonStyle(component).borderWidth
-        textColor = getTextColor(component)
+        expect(screen.root).toHaveStyle({
+          backgroundColor: 'transparent',
+          borderColor: '#adadad',
+          borderWidth: 2,
+        })
 
-        expect(backgroundColor).toEqual('transparent')
-        expect(borderColor).toEqual(Colors.uswdsGray30)
-        expect(borderWidth).toEqual(2)
-        expect(textColor).toEqual(Colors.uswdsGray30)
+        expect(getButtonText()).toHaveStyle({
+          color: '#adadad',
+        })
       })
     })
   })
