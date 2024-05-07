@@ -1,7 +1,7 @@
 import {
-  RenderAPI,
   fireEvent,
   render,
+  screen,
   within,
 } from '@testing-library/react-native'
 import React from 'react'
@@ -20,29 +20,29 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
 })
 
 // Mock the internal function call within the useExternalLink hook
-const useExternalLinkHookMock = jest.fn((url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
-  url
-  analytics
-  text
-})
+const useExternalLinkHookMock = jest.fn(
+  (url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
+    url
+    analytics
+    text
+  },
+)
 // Mock the useExternalLink hook to leverage mock implementation
 jest.spyOn(utils, 'useExternalLink').mockImplementation(() => {
   return useExternalLinkHookMock
 })
 
 describe('Link', () => {
-  let component: RenderAPI
-  let textColor: string
-
   const analytics = {
     onPress: jest.fn(),
     onConfirm: jest.fn(),
     onCancel: jest.fn(),
   }
 
-  const defaultProps: LinkProps = {
+  const commonProps: LinkProps = {
     type: 'custom',
     text: 'Example Link',
+    testID: 'testLink',
     a11yLabel: 'a11yLabel override',
     a11yHint: 'a11yHint override',
     a11yValue: { index: 2, total: 5 },
@@ -50,11 +50,8 @@ describe('Link', () => {
     analytics: analytics,
   }
 
-  const getTextColor = (element: RenderAPI) =>
-    element.getByText(defaultProps.text).props.style.color
-
-  const getBackgroundColor = (element: RenderAPI) =>
-    element.getByRole('link').props.style.backgroundColor
+  const getLinkText = () => screen.getByText(commonProps.text)
+  const getIcon = async () => await screen.root.findByType(Icon)
 
   afterEach(() => {
     onPressSpy.mockReset()
@@ -62,38 +59,36 @@ describe('Link', () => {
   })
 
   describe('Default/custom variant and basic tests', () => {
-    beforeEach(() => {
-      component = render(<Link {...defaultProps} />)
-    })
-
     it('initializes correctly', async () => {
-      expect(component).toBeTruthy()
+      render(<Link {...commonProps} />)
+      expect(screen.getByTestId('testLink')).toBeOnTheScreen()
     })
 
     it('renders the link text', async () => {
-      const linkText = component.getByText('Example Link')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...commonProps} />)
+      expect(screen.getByText('Example Link')).toBeOnTheScreen()
     })
 
     it('calls onPress when tapped', async () => {
-      fireEvent.press(component.getByText('Example Link'))
+      render(<Link {...commonProps} />)
+      fireEvent.press(screen.getByText('Example Link'))
 
       expect(onPressSpy).toHaveBeenCalled()
       expect(useExternalLinkHookMock).not.toHaveBeenCalled()
     })
 
     it('renders no icon', async () => {
-      const icon = component.UNSAFE_queryByType(Icon)
+      render(<Link {...commonProps} />)
+      const icon = screen.UNSAFE_queryByType(Icon)
 
       expect(icon).toBeNull()
     })
   })
 
   it('renders default/custom variant with Truck icon', async () => {
-    component = render(<Link {...defaultProps} icon={{ name: 'Truck' }} />)
+    render(<Link {...commonProps} icon={{ name: 'Truck' }} />)
 
-    const icon = component.root.findByType(Icon)
+    const icon = await getIcon()
 
     expect(icon).toBeDefined()
     expect(icon.props.name).toBe('Truck')
@@ -105,25 +100,23 @@ describe('Link', () => {
       onPress: onPressSpy,
       text: 'Attachment Link',
     }
-    beforeEach(() => {
-      component = render(<Link {...attachmentProps} />)
-    })
 
     it('renders attachment link', async () => {
-      const linkText = component.getByText('Attachment Link')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...attachmentProps} />)
+      expect(screen.getByText('Attachment Link')).toBeOnTheScreen()
     })
 
     it('calls custom onPress when tapped', async () => {
-      fireEvent.press(component.getByText('Attachment Link'))
+      render(<Link {...attachmentProps} />)
+      fireEvent.press(screen.getByText('Attachment Link'))
 
       expect(onPressSpy).toHaveBeenCalled()
       expect(useExternalLinkHookMock).not.toHaveBeenCalled()
     })
 
     it('renders attachment icon', async () => {
-      const icon = component.root.findByType(Icon)
+      render(<Link {...attachmentProps} />)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('PaperClip')
@@ -136,25 +129,23 @@ describe('Link', () => {
       onPress: onPressSpy,
       text: 'Calendar Link',
     }
-    beforeEach(() => {
-      component = render(<Link {...calendarProps} />)
-    })
 
     it('renders calendar link', async () => {
-      const linkText = component.getByText('Calendar Link')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...calendarProps} />)
+      expect(screen.getByText('Calendar Link')).toBeOnTheScreen()
     })
 
     it('calls custom onPress when tapped', async () => {
-      fireEvent.press(component.getByText('Calendar Link'))
+      render(<Link {...calendarProps} />)
+      fireEvent.press(screen.getByText('Calendar Link'))
 
       expect(onPressSpy).toHaveBeenCalled()
       expect(useExternalLinkHookMock).not.toHaveBeenCalled()
     })
 
     it('renders calendar icon', async () => {
-      const icon = component.root.findByType(Icon)
+      render(<Link {...calendarProps} />)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Calendar')
@@ -167,25 +158,26 @@ describe('Link', () => {
       phoneNumber: '1234567890',
       text: '123-456-7890',
     }
-    beforeEach(() => {
-      component = render(<Link {...callProps} />)
-    })
 
     it('renders call link', async () => {
-      const linkText = component.getByText('123-456-7890')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...callProps} />)
+      expect(screen.getByText('123-456-7890')).toBeOnTheScreen()
     })
 
     it('calls useExternalLink hook when tapped', async () => {
-      fireEvent.press(component.getByText('123-456-7890'))
+      render(<Link {...callProps} />)
+      fireEvent.press(screen.getByText('123-456-7890'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('tel:1234567890', undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'tel:1234567890',
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders call icon', async () => {
-      const icon = component.root.findByType(Icon)
+      render(<Link {...callProps} />)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Phone')
@@ -198,25 +190,23 @@ describe('Link', () => {
       TTYnumber: '711',
       text: 'TTY: 711',
     }
-    beforeEach(() => {
-      component = render(<Link {...callTTYProps} />)
-    })
 
     it('renders call TTY link', async () => {
-      const linkText = component.getByText('TTY: 711')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...callTTYProps} />)
+      expect(screen.getByText('TTY: 711')).toBeOnTheScreen()
     })
 
     it('calls useExternalLink hook when tapped', async () => {
-      fireEvent.press(component.getByText('TTY: 711'))
+      render(<Link {...callTTYProps} />)
+      fireEvent.press(screen.getByText('TTY: 711'))
 
       expect(useExternalLinkHookMock).toHaveBeenCalledWith('tel:711', undefined)
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders TTY icon', async () => {
-      const icon = component.root.findByType(Icon)
+      render(<Link {...callTTYProps} />)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('TTY')
@@ -244,25 +234,27 @@ describe('Link', () => {
       },
       text: 'Get Directions',
     }
-    beforeEach(() => {
-      component = render(<Link {...directionsProps} />)
-    })
 
     it('renders directions link', async () => {
-      const linkText = component.getByText('Get Directions')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...directionsProps} />)
+      expect(screen.getByText('Get Directions')).toBeOnTheScreen()
     })
 
     it('calls useExternalLink hook when tapped', async () => {
-      fireEvent.press(component.getByText('Get Directions'))
+      render(<Link {...directionsProps} />)
+      fireEvent.press(screen.getByText('Get Directions'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://maps.apple.com/?t=m&daddr=%2BTibor+Rubin+VA+Medical+Center%2B33.7764681%2C-118.1189664', undefined, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://maps.apple.com/?t=m&daddr=%2BTibor+Rubin+VA+Medical+Center%2B33.7764681%2C-118.1189664',
+        undefined,
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders directions icon', async () => {
-      const icon = component.root.findByType(Icon)
+      render(<Link {...directionsProps} />)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Directions')
@@ -275,25 +267,26 @@ describe('Link', () => {
       textNumber: '123456',
       text: 'Text 123456',
     }
-    beforeEach(() => {
-      component = render(<Link {...textProps} />)
-    })
 
     it('renders text link', async () => {
-      const linkText = component.getByText('Text 123456')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...textProps} />)
+      expect(screen.getByText('Text 123456')).toBeOnTheScreen()
     })
 
     it('calls onPress when tapped', async () => {
-      fireEvent.press(component.getByText('Text 123456'))
+      render(<Link {...textProps} />)
+      fireEvent.press(screen.getByText('Text 123456'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('sms:123456', undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'sms:123456',
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders mobile phone icon', async () => {
-      const icon = component.root.findByType(Icon)
+      render(<Link {...textProps} />)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('Text')
@@ -306,25 +299,27 @@ describe('Link', () => {
       url: 'https://www.va.com',
       text: 'External Link',
     }
-    beforeEach(() => {
-      component = render(<Link {...urlProps} />)
-    })
 
     it('renders url link', async () => {
-      const linkText = component.getByText('External Link')
-
-      expect(linkText).toBeDefined()
+      render(<Link {...urlProps} />)
+      expect(screen.getByText('External Link')).toBeOnTheScreen()
     })
 
     it('calls onPress when tapped', async () => {
-      fireEvent.press(component.getByText('External Link'))
+      render(<Link {...urlProps} />)
+      fireEvent.press(screen.getByText('External Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', undefined, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        undefined,
+        undefined,
+      )
       expect(onPressSpy).not.toHaveBeenCalled()
     })
 
     it('renders external link icon', async () => {
-      const icon = component.root.findByType(Icon)
+      render(<Link {...urlProps} />)
+      const icon = await getIcon()
 
       expect(icon).toBeDefined()
       expect(icon.props.name).toBe('ExternalLink')
@@ -333,20 +328,18 @@ describe('Link', () => {
 
   describe('light mode tone tests', () => {
     it('renders primary tone', async () => {
-      component = render(<Link {...defaultProps} />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#005ea2')
+      render(<Link {...commonProps} />)
+      expect(getLinkText()).toHaveStyle({ color: '#005ea2' })
     })
 
     it('renders base tone', async () => {
-      component = render(<Link {...defaultProps} variant="base" />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#3d4551')
+      render(<Link {...commonProps} variant="base" />)
+      expect(getLinkText()).toHaveStyle({ color: '#3d4551' })
     })
 
     it('renders background color when pressed', async () => {
-      component = render(<Link {...defaultProps} testOnlyPressed />)
-      expect(getBackgroundColor(component)).toBe('#dfe1e2')
+      render(<Link {...commonProps} testOnlyPressed />)
+      expect(screen.root).toHaveStyle({ backgroundColor: '#dfe1e2' })
     })
   })
 
@@ -354,20 +347,18 @@ describe('Link', () => {
     beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
 
     it('renders primary tone', async () => {
-      component = render(<Link {...defaultProps} />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#58b4ff')
+      render(<Link {...commonProps} />)
+      expect(getLinkText()).toHaveStyle({ color: '#58b4ff' })
     })
 
     it('renders base tone', async () => {
-      component = render(<Link {...defaultProps} variant="base" />)
-      textColor = getTextColor(component)
-      expect(textColor).toBe('#f0f0f0')
+      render(<Link {...commonProps} variant="base" />)
+      expect(getLinkText()).toHaveStyle({ color: '#f0f0f0' })
     })
 
     it('renders background color when pressed', async () => {
-      component = render(<Link {...defaultProps} testOnlyPressed />)
-      expect(getBackgroundColor(component)).toBe('#3d4551')
+      render(<Link {...commonProps} testOnlyPressed />)
+      expect(screen.root).toHaveStyle({ backgroundColor: '#3d4551' })
     })
   })
 
@@ -386,11 +377,9 @@ describe('Link', () => {
       text: 'Attachment Link',
     }
 
-    it('should prevent scaling with fontScale 2', () => {
-      component = render(
-        <Link {...iconOverrideProps} icon={{ preventScaling: true }} />,
-      )
-      const icon = component.root.findByType(Icon)
+    it('should prevent scaling with fontScale 2', async () => {
+      render(<Link {...iconOverrideProps} icon={{ preventScaling: true }} />)
+      const icon = await getIcon()
 
       expect(icon.props.name).toBe('PaperClip')
       const width24Exists = within(icon).UNSAFE_getByProps({ width: 24 })
@@ -399,11 +388,9 @@ describe('Link', () => {
       expect(height24Exists).toBeTruthy()
     })
 
-    it('should limit max width with fontScale 2', () => {
-      component = render(
-        <Link {...iconOverrideProps} icon={{ maxWidth: 36 }} />,
-      )
-      const icon = component.root.findByType(Icon)
+    it('should limit max width with fontScale 2', async () => {
+      render(<Link {...iconOverrideProps} icon={{ maxWidth: 36 }} />)
+      const icon = await getIcon()
 
       expect(icon.props.name).toBe('PaperClip')
       const width36Exists = within(icon).UNSAFE_getByProps({ width: 36 })
@@ -412,9 +399,9 @@ describe('Link', () => {
       expect(height36Exists).toBeTruthy()
     })
 
-    it('should allow override of icon and size to fontScale 2', () => {
-      component = render(<Link {...iconOverrideProps} icon={{ name: 'Add' }} />)
-      const icon = component.root.findByType(Icon)
+    it('should allow override of icon and size to fontScale 2', async () => {
+      render(<Link {...iconOverrideProps} icon={{ name: 'Add' }} />)
+      const icon = await getIcon()
 
       expect(icon.props.name).toBe('Add')
       const width48Exists = within(icon).UNSAFE_getByProps({ width: 48 })
@@ -424,28 +411,38 @@ describe('Link', () => {
     })
 
     it('should respect removing the icon', () => {
-      component = render(<Link {...iconOverrideProps} icon={'no icon'} />)
-      const icon = component.UNSAFE_queryByType(Icon)
+      render(<Link {...iconOverrideProps} icon={'no icon'} />)
+      const icon = screen.UNSAFE_queryByType(Icon)
 
       expect(icon).toBeFalsy()
     })
   })
 
   describe('a11y tests', () => {
-    beforeEach(() => {
-      component = render(<Link {...defaultProps} />)
-    })
-
     it('includes a11yLabel', async () => {
-      expect(component.root.props.accessibilityLabel).toBe('a11yLabel override')
+      render(<Link {...commonProps} />)
+      expect(screen.getByLabelText('a11yLabel override')).toBeOnTheScreen()
     })
 
     it('includes a11yHint', async () => {
-      expect(component.root.props.accessibilityHint).toBe('a11yHint override')
+      render(<Link {...commonProps} />)
+      expect(screen.getByHintText('a11yHint override')).toBeOnTheScreen()
     })
 
-    it('includes a11yValue', async () => {
-      expect(component.UNSAFE_root.props.a11yValue).toStrictEqual({ index: 2, total: 5 })
+    it('includes index/total a11yValue', async () => {
+      render(<Link {...commonProps} />)
+
+      expect(screen.root).toHaveAccessibilityValue({
+        text: '3 of 5',
+      })
+    })
+
+    it('includes custom string a11yValue', async () => {
+      render(<Link {...commonProps} a11yValue="test string a11y value" />)
+
+      expect(screen.root).toHaveAccessibilityValue({
+        text: 'test string a11y value',
+      })
     })
   })
 
@@ -458,39 +455,75 @@ describe('Link', () => {
     }
 
     it('calls useExternalLink hook with promptText when provided', async () => {
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' promptText={promptText} />)
-      fireEvent.press(component.getByText('Example Link'))
+      render(
+        <Link
+          {...commonProps}
+          type="url"
+          url="https://www.va.com"
+          promptText={promptText}
+        />,
+      )
+      fireEvent.press(screen.getByText('Example Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, promptText)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        analytics,
+        promptText,
+      )
     })
 
     it('calls useExternalLink hook without promptText when not provided', async () => {
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' />)
-      fireEvent.press(component.getByText('Example Link'))
+      render(<Link {...commonProps} type="url" url="https://www.va.com" />)
+      fireEvent.press(screen.getByText('Example Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        analytics,
+        undefined,
+      )
     })
   })
 
   describe('analytics tests', () => {
     it('calls useExternalLink hook with analytics when provided', async () => {
+      render(
+        <Link
+          {...commonProps}
+          type="url"
+          url="https://www.va.com"
+          analytics={analytics}
+        />,
+      )
+      fireEvent.press(screen.getByText('Example Link'))
 
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' analytics={analytics} />)
-      fireEvent.press(component.getByText('Example Link'))
-
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', analytics, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        analytics,
+        undefined,
+      )
     })
 
     it('calls useExternalLink hook without analytics when not provided', async () => {
-      component = render(<Link {...defaultProps} type="url" url='https://www.va.com' analytics={undefined} />)
-      fireEvent.press(component.getByText('Example Link'))
+      render(
+        <Link
+          {...commonProps}
+          type="url"
+          url="https://www.va.com"
+          analytics={undefined}
+        />,
+      )
+      fireEvent.press(screen.getByText('Example Link'))
 
-      expect(useExternalLinkHookMock).toHaveBeenCalledWith('https://www.va.com', undefined, undefined)
+      expect(useExternalLinkHookMock).toHaveBeenCalledWith(
+        'https://www.va.com',
+        undefined,
+        undefined,
+      )
     })
 
     it('calls onPress analytics with custom onPress behavior', async () => {
-      component = render(<Link {...defaultProps} analytics={analytics} />)
-      fireEvent.press(component.getByText('Example Link'))
+      render(<Link {...commonProps} analytics={analytics} />)
+      fireEvent.press(screen.getByText('Example Link'))
 
       expect(analytics.onPress).toHaveBeenCalled()
     })
