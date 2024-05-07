@@ -4,7 +4,8 @@ import { FormDirectionsUrl } from './OSfunctions'
 
 /** Jest mock to change Platform.OS return
  *    - Defaults 'ios'
- *    - Change with `Platform.OS = 'android'` in a test */
+ *    - Change with `Platform.OS = 'android'` in a test
+ */
 jest.doMock('react-native/Libraries/Utilities/Platform.ios.js', () => ({
   OS: 'ios',
   select: jest.fn(),
@@ -26,7 +27,7 @@ describe('OSFunctions', () => {
     }
 
     describe('Apple Maps tests', () => {
-      it('forms Apple Maps URL with just name/address', () => {
+      it('forms URL with just name/address', () => {
         url = FormDirectionsUrl({
           name: location.name,
           address: location.address,
@@ -37,7 +38,7 @@ describe('OSFunctions', () => {
         )
       })
 
-      it('forms Apple Maps URL with just name/latitude/longitude', () => {
+      it('forms URL with just name/latitude/longitude', () => {
         url = FormDirectionsUrl({
           name: location.name,
           latitude: location.lat,
@@ -49,7 +50,7 @@ describe('OSFunctions', () => {
         )
       })
 
-      it('forms Apple Maps URL with all props', () => {
+      it('forms URL with all props', () => {
         url = FormDirectionsUrl({
           name: location.name,
           address: location.address,
@@ -64,7 +65,7 @@ describe('OSFunctions', () => {
     })
 
     describe('Google Maps tests', () => {
-      it('forms Google Maps URL with just name/address', () => {
+      it('forms URL with just name/address', () => {
         Platform.OS = 'android'
         url = FormDirectionsUrl({
           name: location.name,
@@ -76,7 +77,7 @@ describe('OSFunctions', () => {
         )
       })
 
-      it('forms Google Maps URL with just name/latitude/longitude', () => {
+      it('forms URL with just name/latitude/longitude', () => {
         url = FormDirectionsUrl({
           name: location.name,
           latitude: location.lat,
@@ -88,7 +89,7 @@ describe('OSFunctions', () => {
         )
       })
 
-      it('forms Google Maps URL with all props', () => {
+      it('forms URL with all props', () => {
         url = FormDirectionsUrl({
           name: location.name,
           address: location.address,
@@ -102,4 +103,8 @@ describe('OSFunctions', () => {
       })
     })
   })
+
+  // describe('useExternalLink tests', () => {
+    
+  // })
 })
