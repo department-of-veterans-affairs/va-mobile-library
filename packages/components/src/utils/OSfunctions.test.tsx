@@ -182,7 +182,7 @@ describe('OSFunctions', () => {
       jest.resetAllMocks()
     })
 
-    it('should call RN Linking with no RN Alert prompt on non-URL variety', () => {
+    it('should call RN Linking with no RN Alert prompt on non-HTTP variety', () => {
       render(<UseExternalLinkButton url="tel:555-867-5309" />)
 
       fireEvent.press(screen.getByTestId('useExternalLinkButton'))
