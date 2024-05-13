@@ -10,9 +10,10 @@ import {
 } from 'react-native'
 import React, { FC, useState } from 'react'
 
-import { BaseColor, Spacer, useColorScheme } from '../../utils'
+import { BaseColor, useColorScheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
 import { Icon, IconProps } from '../Icon/Icon'
+import { Spacer } from '../Spacer/Spacer'
 
 /** Convenience function to set children content color correctly with light/dark mode */
 export const AlertContentColor = BaseColor

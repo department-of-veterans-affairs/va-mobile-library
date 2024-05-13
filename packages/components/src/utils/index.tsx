@@ -4,11 +4,10 @@ import {
   PressableStateCallbackType,
   useColorScheme as RNUseColorScheme,
   StyleProp,
-  View,
   ViewStyle,
 } from 'react-native'
 import { Colors as TokenColors } from '@department-of-veterans-affairs/mobile-tokens'
-import React, { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
@@ -74,26 +73,4 @@ export function PressableOpacityStyle(
   }
 
   return ({ pressed }) => [{ opacity: pressed ? 0.2 : 1 }]
-}
-
-export type SpacerProps = {
-  /** Size of spacer, default 10 */
-  size?: number
-  /** True for horizontal spacing */
-  horizontal?: boolean
-}
-
-/** Convenience component for handling spacing without managing margin/padding between elements */
-export const Spacer: FC<SpacerProps> = ({
-  size = 10,
-  horizontal = false
-}) => {
-  return (
-    <View
-      style={{
-        width: horizontal ? size : 'auto',
-        height: !horizontal ? size : 'auto',
-      }}
-    />
-  )
 }
