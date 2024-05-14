@@ -11,8 +11,11 @@ import Army from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/A
 import CoastGuard from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/CoastGuard.svg'
 import MarineCorps from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/MarineCorps.svg'
 import Navy from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/Navy.svg'
+import SpaceForceDark from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/SpaceForceDark.svg'
+import SpaceForceLight from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/SpaceForceLight.svg'
 
 // VA Logo
+import LogoDarkText from '@department-of-veterans-affairs/mobile-assets/VALogo/LogoDarkText.svg'
 import LogoWhiteText from '@department-of-veterans-affairs/mobile-assets/VALogo/LogoWhiteText.svg'
 
 import AccountCircle from '@department-of-veterans-affairs/mobile-assets/icons/AccountCircle.svg'
@@ -100,6 +103,7 @@ export const IconMap = {
   Inbox,
   Info,
   Lock,
+  LogoDarkText,
   LogoWhiteText,
   MarineCorps,
   MedicalServices,
@@ -115,6 +119,8 @@ export const IconMap = {
   Remove,
   Reply,
   Sort,
+  SpaceForceDark,
+  SpaceForceLight,
   Text,
   Trash,
   Truck,
