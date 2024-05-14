@@ -1,5 +1,13 @@
 # Changelog
 
+## [components-v0.15.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.3) (2024-05-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.2...components-v0.15.3)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix TS complaint in Icon [\#318](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/318) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.15.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.2) (2024-05-14)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.1...components-v0.15.2)
