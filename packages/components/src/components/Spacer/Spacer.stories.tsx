@@ -29,15 +29,6 @@ export default meta
 
 type Story = StoryObj<SpacerProps>
 
-const iconViewStyle: ViewStyle = {
-  flexDirection: 'row',
-  // Below keeps icon aligned with first row of text, centered, and scalable
-  alignSelf: 'flex-start',
-  minHeight: 30,
-  alignItems: 'center',
-  justifyContent: 'center',
-}
-
 export const Horizontal: Story = {
   name: 'Horizontal',
   args: {
@@ -50,11 +41,15 @@ export const Horizontal: Story = {
           ...centerProps,
           flexDirection: 'row',
         }}>
-        <View {...iconViewStyle} >
-          <Icon name="Info" preventScaling />
-        </View>
+        <Icon name="Info" preventScaling />
         <Story />
-        <Link text='Link text after Spacer' type='custom' onPress={() => { null }} />
+        <Link
+          text="Link text after Spacer"
+          type="custom"
+          onPress={() => {
+            null
+          }}
+        />
       </View>
     ),
   ],
