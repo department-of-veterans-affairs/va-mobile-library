@@ -1,5 +1,13 @@
 # Changelog
 
+## [linting-v0.15.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.15.0) (2024-05-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.5.0...linting-v0.15.0)
+
+**Merged pull requests:**
+
+- \[Patch\] Remove ClickToCallPhoneNumber and AttachmentLink from rules [\#316](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/316) ([narin](https://github.com/narin))
+
 ## [assets-v0.5.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.5.0) (2024-05-14)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.3...assets-v0.5.0)
