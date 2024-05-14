@@ -1,5 +1,25 @@
 # Changelog
 
+## [components-v0.15.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.2) (2024-05-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.1...components-v0.15.2)
+
+**Closed issues:**
+
+- Designer onboarding [\#312](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/312)
+- BUG - Sev 2 - iOS/Android - Link - Text wrap goes off visible screen [\#303](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/303)
+- VA Figma transition [\#299](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/299)
+- Jest Matchers - Enhance Accessibility Unit Tests [\#279](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/279)
+- Link - Enhance Unit Tests for OSFunction Calls [\#278](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/278)
+- Link - Add Icon Override Unit Tests [\#277](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/277)
+- DS - Tech Discovery for Loading Component [\#248](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/248)
+- DS - Create Alert Component [\#61](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/61)
+
+**Merged pull requests:**
+
+- \[CU\] Update to Expo SDK 51 [\#314](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/314) ([narin](https://github.com/narin))
+- \[Tests\] Update to use React Native Testing Library Jest Matchers and add accessibility tests [\#307](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/307) ([narin](https://github.com/narin))
+
 ## [components-v0.15.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.1) (2024-05-02)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.0...components-v0.15.1)
