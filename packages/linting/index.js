@@ -14,11 +14,6 @@ module.exports = {
         use: 'Link from @department-of-veterans-affairs/mobile-component-library',
       },
       {
-        name: 'AttachmentLink',
-        module: 'components',
-        use: 'Link from @department-of-veterans-affairs/mobile-component-library',
-      },
-      {
         name: 'AlertBox',
         module: 'components',
         use: 'Alert from @department-of-veterans-affairs/mobile-component-library',
