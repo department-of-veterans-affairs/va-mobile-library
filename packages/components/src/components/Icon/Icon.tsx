@@ -211,7 +211,8 @@ export const Icon: FC<IconProps> = ({
   const fontScale = useWindowDimensions().fontScale
   const fs = (val: number) => fontScale * val
 
-  const _Icon: FC<SvgProps> = name ? IconMap[name] : svg
+  // ! to override TS incorrectly thinking svg can be undefined after update
+  const _Icon: FC<SvgProps> = name ? IconMap[name] : svg!
 
   if (typeof fill === 'object') {
     fill = isDarkMode ? fill.dark : fill.light
