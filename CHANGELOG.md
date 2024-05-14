@@ -1,5 +1,13 @@
 # Changelog
 
+## [assets-v0.5.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.5.0) (2024-05-14)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.3...assets-v0.5.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add Space Force and Dark VA text logo to assets package [\#320](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/320) ([narin](https://github.com/narin))
+
 ## [components-v0.15.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.3) (2024-05-14)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.2...components-v0.15.3)
