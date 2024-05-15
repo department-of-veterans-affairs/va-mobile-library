@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.16.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.16.0) (2024-05-15)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.15.0...components-v0.16.0)
+
+**Closed issues:**
+
+- BUG - Sev 2 - All - TS upgrade causes incorrect TS error [\#317](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/317)
+
+**Merged pull requests:**
+
+- \[Feature\] Standalone Spacer component [\#322](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/322) ([TimRoe](https://github.com/TimRoe))
+
 ## [linting-v0.15.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.15.0) (2024-05-14)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.5.0...linting-v0.15.0)
