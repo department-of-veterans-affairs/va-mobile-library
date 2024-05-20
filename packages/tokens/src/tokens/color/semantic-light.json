@@ -12,5 +12,12 @@
     "attributes": {
       "category": "color"
     }
+  },
+  "vads-color-action-fg-default-on-light": {
+    "name": "vads-color-action-fg-default-on-light",
+    "value": "{vads-color-primary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
   }
 }

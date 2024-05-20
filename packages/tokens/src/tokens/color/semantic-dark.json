@@ -12,5 +12,12 @@
     "attributes": {
       "category": "color"
     }
+  },
+  "vads-color-action-fg-default-on-dark": {
+    "name": "vads-color-action-fg-default-on-dark",
+    "value": "{uswds-system-color-blue-vivid-30.*.value}",
+    "attributes": {
+      "category": "color"
+    }
   }
 }
