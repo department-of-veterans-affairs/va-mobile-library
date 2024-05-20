@@ -1,7 +1,7 @@
 import { Alert, AlertProps } from './Alert'
 import { Link } from '../Link/Link'
 import { Meta, StoryObj } from '@storybook/react'
-import { Spacer } from '../../utils/'
+import { Spacer } from '../Spacer/Spacer'
 import { View } from 'react-native'
 import React from 'react'
 

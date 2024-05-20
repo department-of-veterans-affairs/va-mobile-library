@@ -16,6 +16,17 @@ assignees: kellylein
 ### Product Brief:
 - [link to GitHub Product Brief]
 
+
+### Monthly Update for Stakeholders
+
+|Date| Progress & Key Accomplishments| Issues/Risks/Blockers|
+|-------|--------|---------|
+|Month Year | 
+|Month Year| .....
+|Month Year|
+|Month Year|
+
+
 ### Current Dependencies / Blockers
 <details>
 <summary>Blockers</summary>
@@ -29,39 +40,3 @@ assignees: kellylein
 
 </details>
 
-### Monthly Update for Stakeholders
-<details>
-<summary>Updates</summary>
-
-|Month| Project Health | Progress & Key Accomplishments| Issues/Risks/Blockers|
-|-------| ---------|--------|---------|
-|Month Year | 
-|Month Year| .....
-|Month Year|
-|Month Year|
-</details>
-
-### Team Members
-
-<details>
-<summary>Contact List</summary>
-
-**VA:**
-- **Mobile OCTO Product Leads:** Rachel Han or  Ryan Thurlwell
-- **VA OCTO Product Leads:** 
-- **External Team 1 & Role:**
-- **External Team 1 & Role:**
-
-
-**Ad Hoc:** 
-- **Mobile Team**: Global, Health and Benefits, Design System, QA, API 
-- **Mobile Team Lead:** 
-- **FE Engineering:**
-- **BE Engineering:** 
-- **Design:**
-- **Content**
-- **QA:**
-- **Mobile Teams that are involved:** Global, Health and Benefits, Design System, QA, API 
-
-
-</details>
