@@ -15,9 +15,6 @@ export const parameters = {
     stylePreview: true,
   },
   docs: {
-    // canvas: {
-    //   sourceState: ''
-    // },
     container: (props) => {
       const isDark = useDarkMode()
       const currentProps = { ...props }

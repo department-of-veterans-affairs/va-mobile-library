@@ -1,7 +1,9 @@
-import { Button, ButtonProps, ButtonVariants } from './Button'
 import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React from 'react'
+
+import { Button, ButtonProps, ButtonVariants } from './Button'
+import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<ButtonProps> = {
   title: 'Button',
@@ -36,6 +38,11 @@ const meta: Meta<ButtonProps> = {
         url: 'https://www.figma.com/file/Zzt8z60hCtdEzXx2GFWghH/%F0%9F%93%90-Component-Library?type=design&node-id=224-532&mode=design&t=LVehKHpWhqSKrQMW-4',
       },
     ],
+    docs: generateDocs({
+      name: 'Button',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Button',
+    }),
   },
 }
 

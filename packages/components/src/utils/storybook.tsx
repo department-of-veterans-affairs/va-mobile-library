@@ -1,9 +1,7 @@
 import {
   ArgsTable,
-  // Canvas,
   Description,
   Primary,
-  Source,
   Stories,
   Subtitle,
   Title,
@@ -12,9 +10,8 @@ import { ColorSchemeName, Linking, Text, View } from 'react-native'
 import React, { useSyncExternalStore } from 'react'
 
 type DocProps = {
-  name: string
-  docUrl: string
-  // code?: any
+  name?: string
+  docUrl?: string
 }
 
 /**
@@ -23,7 +20,7 @@ type DocProps = {
  * @param docUrl - URL for the component's documentation on the docs site
  * @returns
  */
-export const DocLink = ({ name, docUrl }: DocProps): JSX.Element => (
+export const DocLink = ({ name, docUrl }: Required<DocProps>): JSX.Element => (
   <View style={{ marginVertical: 10 }}>
     <Text
       style={{ color: 'blue', textDecorationLine: 'underline', lineHeight: 20 }}
@@ -46,7 +43,7 @@ export const generateDocs = ({ name, docUrl }: DocProps) => ({
     <>
       <Title />
       <Subtitle />
-      <DocLink name={name} docUrl={docUrl} />
+      {name && docUrl ? <DocLink name={name} docUrl={docUrl} /> : null}
       <Description />
       <Primary />
       <ArgsTable />

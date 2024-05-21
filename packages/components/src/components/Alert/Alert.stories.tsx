@@ -1,25 +1,16 @@
-import { Alert, AlertProps } from './Alert'
-import { Link } from '../Link/Link'
 import { Meta, StoryObj } from '@storybook/react'
-import { Spacer } from '../Spacer/Spacer'
 import { View } from 'react-native'
 import React from 'react'
 
+import { Alert, AlertProps } from './Alert'
+import { Link } from '../Link/Link'
+import { Spacer } from '../Spacer/Spacer'
 import { generateDocs } from '../../utils/storybook'
 
-export default {
+const meta: Meta<AlertProps> = {
   title: 'Alert',
   component: Alert,
-  parameters: {
-    docs: generateDocs({
-      name: 'Alert',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Button',
-      // code: (<Alert variant='info' />)
-    }),
-  },
   decorators: [
-    // @ts-ignore
     (Story) => (
       <View
         style={{
@@ -31,9 +22,16 @@ export default {
       </View>
     ),
   ],
+  parameters: {
+    docs: generateDocs({
+      name: 'Alert',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20Progress/Alert',
+    }),
+  },
 }
 
-// export default meta
+export default meta
 
 type Story = StoryObj<AlertProps>
 
