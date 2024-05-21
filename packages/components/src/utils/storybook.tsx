@@ -1,7 +1,9 @@
 import {
   ArgsTable,
+  // Canvas,
   Description,
   Primary,
+  Source,
   Stories,
   Subtitle,
   Title,
@@ -12,6 +14,7 @@ import React, { useSyncExternalStore } from 'react'
 type DocProps = {
   name: string
   docUrl: string
+  // code?: any
 }
 
 /**

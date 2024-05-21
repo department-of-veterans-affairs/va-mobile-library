@@ -5,10 +5,21 @@ import { Spacer } from '../Spacer/Spacer'
 import { View } from 'react-native'
 import React from 'react'
 
-const meta: Meta<AlertProps> = {
+import { generateDocs } from '../../utils/storybook'
+
+export default {
   title: 'Alert',
   component: Alert,
+  parameters: {
+    docs: generateDocs({
+      name: 'Alert',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Button',
+      // code: (<Alert variant='info' />)
+    }),
+  },
   decorators: [
+    // @ts-ignore
     (Story) => (
       <View
         style={{
@@ -22,7 +33,7 @@ const meta: Meta<AlertProps> = {
   ],
 }
 
-export default meta
+// export default meta
 
 type Story = StoryObj<AlertProps>
 
@@ -39,7 +50,14 @@ const children = (
   </>
 )
 
+// export const Info = () => {
+//   return(
+//       <Alert variant='info' header='Header' description='Desc' />
+//   )
+// }
+
 export const Info: Story = {
+  // render: () => <Alert variant='info' />,
   args: {
     variant: 'info',
     header: 'Header',

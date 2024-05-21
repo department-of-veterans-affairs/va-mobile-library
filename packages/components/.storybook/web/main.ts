@@ -3,6 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   stories: [
+    '../../src/**/*.mdx',
     '../../src/components/**/*.stories.mdx',
     '../../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
@@ -11,6 +12,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-react-native-web',
     '@storybook/addon-designs',
+    '@storybook/addon-docs',
     'storybook-dark-mode',
   ],
   docs: {
