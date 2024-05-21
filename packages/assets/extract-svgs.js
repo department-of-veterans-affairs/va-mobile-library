@@ -1,4 +1,7 @@
-// Adapted from https://gist.github.com/mhmdnsr/18343cceb12858c8b148ef31d1e5a32b
+/**
+ * Extracts icons from VADS icon sprite as single svgs
+ * Adapted from https://gist.github.com/mhmdnsr/18343cceb12858c8b148ef31d1e5a32b
+ */
 
 import * as fs from 'fs'
 import { parse } from 'svg-parser'
