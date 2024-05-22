@@ -5,8 +5,6 @@ import React, { FC } from 'react'
 
 import { useColorScheme } from '../../utils'
 
-import AccessibilityNew from '@department-of-veterans-affairs/mobile-assets/icons/vads/accessibility_new.svg'
-
 // Service emblems
 import AirForce from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/AirForce.svg'
 import Army from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/Army.svg'
@@ -117,7 +115,6 @@ export const IconMap = {
   Remove,
   Reply,
   Sort,
-  AccessibilityNew,
   Text,
   Trash,
   Truck,
