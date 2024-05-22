@@ -1,5 +1,20 @@
 # Changelog
 
+## [assets-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.6.0) (2024-05-22)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.16.0...assets-v0.6.0)
+
+**Closed issues:**
+
+- DS - Remove ClickToCallPhoneNumber from linting rules [\#319](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/319)
+- Design Tokens: Update components to use semantic tokens [\#286](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/286)
+- DS - Update Spacer convenience component to be a standalone component [\#257](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/257)
+- DS - Loading Component Analytics Support [\#252](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/252)
+
+**Merged pull requests:**
+
+- \[Feature\] Replace service emblems and VA SVGs with png. Add Space Force emblems. [\#327](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/327) ([narin](https://github.com/narin))
+
 ## [components-v0.16.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.16.0) (2024-05-15)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.15.0...components-v0.16.0)
