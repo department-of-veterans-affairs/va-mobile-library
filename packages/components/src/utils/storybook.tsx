@@ -1,12 +1,12 @@
+import { ColorSchemeName, Linking, Text, View } from 'react-native'
 import {
-  ArgsTable,
+  Controls,
   Description,
   Primary,
   Stories,
   Subtitle,
   Title,
 } from '@storybook/addon-docs'
-import { ColorSchemeName, Linking, Text, View } from 'react-native'
 import React, { useSyncExternalStore } from 'react'
 
 type DocProps = {
@@ -46,7 +46,7 @@ export const generateDocs = ({ name, docUrl }: DocProps) => ({
       {name && docUrl ? <DocLink name={name} docUrl={docUrl} /> : null}
       <Description />
       <Primary />
-      <ArgsTable />
+      <Controls />
       <Stories />
     </>
   ),

@@ -30,8 +30,9 @@ const meta: Meta<SegmentedControlProps> = {
     ],
     docs: generateDocs({
       name: 'Segmented control',
-      docUrl: 'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Navigation/Secondary/SegmentedControl'
-    })
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Navigation/Secondary/SegmentedControl',
+    }),
   },
 }
 

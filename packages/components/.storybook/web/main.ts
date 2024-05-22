@@ -3,8 +3,6 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   stories: [
-    '../../src/**/*.mdx',
-    '../../src/components/**/*.stories.mdx',
     '../../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
@@ -12,7 +10,6 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-react-native-web',
     '@storybook/addon-designs',
-    '@storybook/addon-docs',
     'storybook-dark-mode',
   ],
   docs: {
@@ -23,9 +20,6 @@ module.exports = {
   },
   framework: '@storybook/react-webpack5',
   options: { builder: { useSWC: true } }, // improves build performance
-  typescript: {
-    reactDocgen: 'react-docgen',
-  },
   staticDirs: ['../../src/assets'],
   webpackFinal: async (config) => {
     // Copies fonts from mobile-assets to storybook static folder

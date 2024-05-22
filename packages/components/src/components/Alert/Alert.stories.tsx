@@ -48,14 +48,7 @@ const children = (
   </>
 )
 
-// export const Info = () => {
-//   return(
-//       <Alert variant='info' header='Header' description='Desc' />
-//   )
-// }
-
 export const Info: Story = {
-  // render: () => <Alert variant='info' />,
   args: {
     variant: 'info',
     header: 'Header',
