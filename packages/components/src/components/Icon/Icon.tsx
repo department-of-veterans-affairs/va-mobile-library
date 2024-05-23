@@ -5,16 +5,6 @@ import React, { FC } from 'react'
 
 import { useColorScheme } from '../../utils'
 
-// Service emblems
-import AirForce from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/AirForce.svg'
-import Army from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/Army.svg'
-import CoastGuard from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/CoastGuard.svg'
-import MarineCorps from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/MarineCorps.svg'
-import Navy from '@department-of-veterans-affairs/mobile-assets/serviceEmblems/Navy.svg'
-
-// VA Logo
-import LogoWhiteText from '@department-of-veterans-affairs/mobile-assets/VALogo/LogoWhiteText.svg'
-
 import AccountCircle from '@department-of-veterans-affairs/mobile-assets/icons/AccountCircle.svg'
 import Add from '@department-of-veterans-affairs/mobile-assets/icons/Add.svg'
 import Building from '@department-of-veterans-affairs/mobile-assets/icons/Building.svg'
@@ -68,8 +58,6 @@ import VideoCamera from '@department-of-veterans-affairs/mobile-assets/icons/Vid
 export const IconMap = {
   AccountCircle,
   Add,
-  AirForce,
-  Army,
   Building,
   Bullet,
   Calendar,
@@ -83,7 +71,6 @@ export const IconMap = {
   ChevronRight,
   ChevronUp,
   CircleCheckMark,
-  CoastGuard,
   Compose,
   Description,
   DescriptionOutline,
@@ -100,12 +87,9 @@ export const IconMap = {
   Inbox,
   Info,
   Lock,
-  LogoWhiteText,
-  MarineCorps,
   MedicalServices,
   MedicalServicesOutline,
   Minus,
-  Navy,
   PaperClip,
   Phone,
   QuestionMark,
