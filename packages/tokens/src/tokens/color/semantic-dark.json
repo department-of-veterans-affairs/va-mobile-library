@@ -1,5 +1,5 @@
 {
-  "vads-color-fg-default-on-dark": {
+  "vads-color-foreground-default-on-dark": {
     "name": "vads-color-fg-default-on-dark",
     "value": "{vads-color-base-lightest.*.value}",
     "attributes": {
