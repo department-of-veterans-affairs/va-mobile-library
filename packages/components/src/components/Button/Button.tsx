@@ -36,7 +36,6 @@ export type ButtonProps = {
   testOnlyPressed?: boolean
 }
 
-/** [View guidance for the Button component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Button)  */
 export const Button: React.FC<ButtonProps> = ({
   label,
   onPress,

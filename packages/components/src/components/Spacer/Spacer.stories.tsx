@@ -6,6 +6,7 @@ import { Button, ButtonVariants } from '../Button/Button'
 import { Icon } from '../Icon/Icon'
 import { Link } from '../Link/Link'
 import { Spacer, SpacerProps } from './Spacer'
+import { generateDocs } from '../../utils/storybook'
 
 const centerProps: ViewStyle = {
   flex: 1,
@@ -23,6 +24,9 @@ const meta: Meta<SpacerProps> = {
       </View>
     ),
   ],
+  parameters: {
+    docs: generateDocs({})
+  }
 }
 
 export default meta
