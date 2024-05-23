@@ -30,7 +30,7 @@
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "packageManager": "yarn@3.6.1",
   "devDependencies": {
-    "@department-of-veterans-affairs/css-library": "^0.5.1",
+    "@department-of-veterans-affairs/css-library": "0.7.0",
     "style-dictionary": "^3.9.2"
   }
 }
