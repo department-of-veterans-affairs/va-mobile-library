@@ -1,6 +1,6 @@
 {
   "vads-color-foreground-default-on-dark": {
-    "name": "vads-color-fg-default-on-dark",
+    "name": "vads-color-foreground-default-on-dark",
     "value": "{vads-color-base-lightest.*.value}",
     "attributes": {
       "category": "color"
@@ -13,8 +13,8 @@
       "category": "color"
     }
   },
-  "vads-color-action-fg-default-on-dark": {
-    "name": "vads-color-action-fg-default-on-dark",
+  "vads-color-action-foreground-default-on-dark": {
+    "name": "vads-color-action-foreground-default-on-dark",
     "value": "{uswds-system-color-blue-vivid-30.*.value}",
     "attributes": {
       "category": "color"
