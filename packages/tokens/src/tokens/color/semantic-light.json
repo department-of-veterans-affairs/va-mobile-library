@@ -1,5 +1,5 @@
 {
-  "vads-color-fg-default-on-light": {
+  "vads-color-foreground-default-on-light": {
     "name": "vads-color-fg-default-on-light",
     "value": "{vads-color-base.*.value}",
     "attributes": {
@@ -13,7 +13,7 @@
       "category": "color"
     }
   },
-  "vads-color-action-fg-default-on-light": {
+  "vads-color-action-foreground-default-on-light": {
     "name": "vads-color-action-fg-default-on-light",
     "value": "{vads-color-primary.*.value}",
     "attributes": {
