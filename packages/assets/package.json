@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/department-of-veterans-affairs/va-mobile-library/issues"
   },
-  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme"
+  "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
+  "devDependencies": {
+    "@department-of-veterans-affairs/component-library": "^42.0.0"
+  }
 }
