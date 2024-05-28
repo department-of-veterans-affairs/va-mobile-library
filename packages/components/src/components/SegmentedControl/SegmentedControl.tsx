@@ -41,9 +41,7 @@ const Segment = styled(Pressable)<SegmentProps>`
   elevation: ${(props) => (props.isSelected ? 4 : 0)};
   background-color: ${(props) => props.backgroundColor};
 `
-/** A segmented control is used to switch between related views of information within the same context.
- *
- * [View guidance for the SegmentedControl component on the VA Mobile Documentation Site](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Navigation/Secondary/SegmentedControl)  */
+/** A segmented control is used to switch between related views of information within the same context. */
 export const SegmentedControl: FC<SegmentedControlProps> = ({
   labels,
   onChange,

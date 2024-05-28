@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import React from 'react'
 
 import { Link, LinkProps } from './Link'
+import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<LinkProps> = {
   title: 'Link',
@@ -24,6 +25,13 @@ const meta: Meta<LinkProps> = {
       </View>
     ),
   ],
+  parameters: {
+    docs: generateDocs({
+      name: 'Link',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Link',
+    }),
+  },
 }
 
 export default meta
