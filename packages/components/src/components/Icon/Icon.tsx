@@ -12,7 +12,6 @@ import Bullet from '@department-of-veterans-affairs/mobile-assets/icons/Bullet.s
 import Calendar from '@department-of-veterans-affairs/mobile-assets/icons/Calendar.svg'
 import Check from '@department-of-veterans-affairs/mobile-assets/icons/Check.svg'
 import CheckBoxEmpty from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxEmpty.svg'
-import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxError.svg'
 import CheckBoxFilled from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxFilled.svg'
 import CheckBoxIntermediate from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxIntermediate.svg'
 import ChevronDown from '@department-of-veterans-affairs/mobile-assets/icons/ChevronDown.svg'
@@ -54,18 +53,37 @@ import Trash from '@department-of-veterans-affairs/mobile-assets/icons/Trash.svg
 import Truck from '@department-of-veterans-affairs/mobile-assets/icons/Truck.svg'
 import Unread from '@department-of-veterans-affairs/mobile-assets/icons/Unread.svg'
 import VideoCamera from '@department-of-veterans-affairs/mobile-assets/icons/VideoCamera.svg'
+import _CheckBox from '@department-of-veterans-affairs/mobile-assets/icons/check_box.svg'
+import _CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/check_box_error.svg'
+import _CheckBoxOutlineBlank from '@department-of-veterans-affairs/mobile-assets/icons/check_box_outline_blank.svg'
+import _DescriptionOutlined from '@department-of-veterans-affairs/mobile-assets/icons/description_outlined.svg'
+import _HomeOutlined from '@department-of-veterans-affairs/mobile-assets/icons/home_outlined.svg'
+import _IndeterminateCheckBox from '@department-of-veterans-affairs/mobile-assets/icons/indeterminate_check_box.svg'
+import _MedicalServicesOutlined from '@department-of-veterans-affairs/mobile-assets/icons/medical_services_outlined.svg'
+import _RadioButtonChecked from '@department-of-veterans-affairs/mobile-assets/icons/radio_button_checked.svg'
+import _RadioButtonUnchecked from '@department-of-veterans-affairs/mobile-assets/icons/radio_button_unchecked.svg'
+import _RequestQuoteOutlined from '@department-of-veterans-affairs/mobile-assets/icons/request_quote_outlined.svg'
 
 export const IconMap = {
+  _CheckBox,
+  _CheckBoxError,
+  _CheckBoxOutlineBlank,
+  _DescriptionOutlined,
+  _HomeOutlined,
+  _IndeterminateCheckBox,
+  _MedicalServicesOutlined,
+  _RadioButtonChecked,
+  _RadioButtonUnchecked,
+  _RequestQuoteOutlined,
   AccountCircle,
   Add,
   Building,
   Bullet,
   Calendar,
+  Check,
   CheckBoxEmpty,
-  CheckBoxError,
   CheckBoxFilled,
   CheckBoxIntermediate,
-  Check,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
