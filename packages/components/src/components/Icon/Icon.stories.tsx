@@ -2,7 +2,8 @@ import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React from 'react'
 
-import { Icon, IconMap, IconProps } from './Icon'
+import { Icon, IconProps } from './Icon'
+import { IconMap } from '.'
 import { generateDocs } from '../../utils/storybook'
 import CustomSVG from '../../assets/svgs/custom.svg'
 

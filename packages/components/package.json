@@ -6,6 +6,7 @@
   "scripts": {
     "start": "sb-rn-get-stories --config-path .storybook/native && expo start",
     "android": "expo start --android",
+    "buildIcons": "node buildIconListFromAssets.js",
     "ios": "expo start --ios",
     "publish-package": "npm publish --access public --tolerate-republish",
     "storybook:build": "STORYBOOK_WEB=true storybook build --config-dir .storybook/web",
