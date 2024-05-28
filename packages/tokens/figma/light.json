@@ -63,20 +63,8 @@
     "$value": "#07648d",
     "$type": "color"
   },
-  "uswds-system-color-blue-vivid-10": {
-    "$value": "#cfe8ff",
-    "$type": "color"
-  },
-  "uswds-system-color-blue-vivid-20": {
-    "$value": "#a1d3ff",
-    "$type": "color"
-  },
   "uswds-system-color-blue-vivid-30": {
     "$value": "#58b4ff",
-    "$type": "color"
-  },
-  "uswds-system-color-blue-vivid-5": {
-    "$value": "#e8f5ff",
     "$type": "color"
   },
   "uswds-system-color-blue-vivid-50": {
@@ -441,10 +429,6 @@
   },
   "uswds-system-color-yellow-vivid-20": {
     "$value": "#face00",
-    "$type": "color"
-  },
-  "uswds-system-color-yellow-vivid-70": {
-    "$value": "#5c4809",
     "$type": "color"
   },
   "uswds-system-color-yellow-vivid-80": {
