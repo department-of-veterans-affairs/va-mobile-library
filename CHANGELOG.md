@@ -1,5 +1,17 @@
 # Changelog
 
+## [tokens-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.9.0) (2024-05-28)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.8.0...tokens-v0.9.0)
+
+**Closed issues:**
+
+- Design Tokens: Create semantic color tokens - loading indicator [\#272](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/272)
+
+**Merged pull requests:**
+
+- \[Feature\] Updated css-library and generated tokens [\#332](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/332) ([jessicawoodin](https://github.com/jessicawoodin))
+
 ## [assets-v0.8.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.8.0) (2024-05-28)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.6.0...assets-v0.8.0)
