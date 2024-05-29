@@ -15,7 +15,7 @@
   },
   "vads-color-action-foreground-default-on-dark": {
     "name": "vads-color-action-foreground-default-on-dark",
-    "value": "{uswds-system-color-blue-vivid-30.*.value}",
+    "value": "{uswds-system-color-blue-vivid-30}",
     "attributes": {
       "category": "color"
     }
