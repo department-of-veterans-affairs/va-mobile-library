@@ -1,5 +1,47 @@
 # Changelog
 
+## [tokens-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.9.0) (2024-05-28)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.8.0...tokens-v0.9.0)
+
+**Closed issues:**
+
+- Design Tokens: Create semantic color tokens - loading indicator [\#272](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/272)
+
+**Merged pull requests:**
+
+- \[Feature\] Updated css-library and generated tokens [\#332](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/332) ([jessicawoodin](https://github.com/jessicawoodin))
+
+## [assets-v0.8.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.8.0) (2024-05-28)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.6.0...assets-v0.8.0)
+
+**Closed issues:**
+
+- DS - Replace VA Logo and service emblems SVGs with PNGs. Add Space Force and VA dark text logo [\#304](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/304)
+- BUG - Sev-3 - Storybook - Fix Code Snippets [\#261](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/261)
+- BUG - Sev-3 - Web - Fix custom docs template [\#176](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/176)
+
+**Merged pull requests:**
+
+- \[Feature\] Add script to extract SVGs from VADS sprite sheet [\#329](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/329) ([narin](https://github.com/narin))
+- \[Feature\] Remove service emblems and VA logo from Icon component [\#321](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/321) ([narin](https://github.com/narin))
+
+## [assets-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.6.0) (2024-05-22)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.16.0...assets-v0.6.0)
+
+**Closed issues:**
+
+- DS - Remove ClickToCallPhoneNumber from linting rules [\#319](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/319)
+- Design Tokens: Update components to use semantic tokens [\#286](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/286)
+- DS - Update Spacer convenience component to be a standalone component [\#257](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/257)
+- DS - Loading Component Analytics Support [\#252](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/252)
+
+**Merged pull requests:**
+
+- \[Feature\] Replace service emblems and VA SVGs with png. Add Space Force emblems. [\#327](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/327) ([narin](https://github.com/narin))
+
 ## [components-v0.16.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.16.0) (2024-05-15)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.15.0...components-v0.16.0)

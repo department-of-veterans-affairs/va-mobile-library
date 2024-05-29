@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import React from 'react'
 
 import { Icon, IconMap, IconProps } from './Icon'
+import { generateDocs } from '../../utils/storybook'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
 const meta: Meta<IconProps> = {
@@ -23,6 +24,9 @@ const meta: Meta<IconProps> = {
   argTypes: {
     name: { options: Object.keys(IconMap) },
   },
+  parameters: {
+    docs: generateDocs({})
+  }
 }
 
 export default meta
