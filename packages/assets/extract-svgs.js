@@ -18,6 +18,7 @@ fs.readFile(
       const name = symbol.properties.id
       symbol.tagName = 'svg'
       let newIcon = toHtml(symbol)
+      newIcon = newIcon.replace('viewBox="0 0 24 24"', 'viewBox="2 2 20 20"')
       fs.writeFile(`icons/vads/${name}.svg`, newIcon, () => {
         console.log(name)
         length += 1
