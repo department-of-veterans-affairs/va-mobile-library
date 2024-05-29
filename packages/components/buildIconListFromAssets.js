@@ -1,32 +1,38 @@
 /**
  * A script to perform the following:
  *   1. Read icons from department-of-veterans-affairs/mobile-assets package 'icons' folder
- *   2. Process them into named import SVGs
- *   3. Add the named imports to IconMap object
- *   4. Output the results as src/components/Icon/iconList.ts file that is pulled into Icon.tsx
+ *   2. Process the icons into UpperCamelCase and arrange data for writing
+ *   3. Output the results as src/components/Icon/iconList.ts file that is pulled into Icon.tsx
  */
 
 // eslint-disable-next-line
 const fs = require('fs')
+
 const importLocation = '@department-of-veterans-affairs/mobile-assets/icons'
 
 const importArray = []
-const iconMap = []
-let fileContent = ''
+let iconMap = []
+// const icons = {}
 
 /**
- * Function to convert a kebab-case-name to UpperCamelCaseName
- * @param name - String of SVG icon name
+ * Function to massage SVG file name to an UpperCamelCase icon name
+ * @param name - String of SVG file name
  * @returns UpperCamelCaseName of SVG icon name
  */
-function kebabToCamel(name) {
+function parseName(name) {
+  if (name === 'vads') return '' // Remove 'vads' from list; it is a folder, not file
+  if (name.startsWith('vads/')) name = name.replace('vads/', '') // Remove 'vads/' folder prefix
+  // Convert name to UpperCamelCase
+  name =
+    name.charAt(0).toUpperCase() +
+    name.substring(1).replace(/_./g, (letter) => letter[1].toUpperCase())
+  name = name.replace('.svg', '') // Remove file type
+
   return name
-    .replace(/-./g, (letter) => letter[1].toUpperCase())
-    .replace('.svg', '')
 }
 
 /**
- *
+ * Function to read the files from the icons folder of the assets package and form up data for use
  * @param error - Error if one occurred attempting to read the directory
  * @param files - List of icon files in the assets package
  * @returns Error or writes src/components/Icon/iconList.ts file without return
@@ -35,20 +41,33 @@ function processIconDirectory(error, files) {
   if (error) return console.log('readdir error: ', error)
 
   files.forEach((file) => {
-    const iconName = kebabToCamel(file)
+    const iconName = parseName(file)
     const importPath = `${importLocation}/${file}`
 
+    if (!iconName) return
+
+    // TODO: Move import/from text to writing the file once icons do not contain duplicates
     importArray.push(`import ${iconName} from '${importPath}'`)
     iconMap.push(iconName)
+    // TODO: Shift to using an object {iconName: importPath} once icons do not contain duplicates
+    // icons[iconName] = importPath
   })
 
-  // console.log(importArray)
-  // console.log(iconMap)
+  importArray.sort()
+  iconMap.sort()
+  // TODO: Remove below once the icons are cleaned up to not have duplicates
+  // Below line removes duplicates per https://stackoverflow.com/a/9229821/13261302
+  iconMap = [...new Set(iconMap)]
 }
 
+/**
+ * Function to build the content of the output file
+ */
 function formIconListFile() {
   if (importArray.length === 0 || iconMap.length === 0)
     throw Error('importArray or iconMap missing')
+
+  let fileContent = ''
 
   // Set file header
   fileContent +=
@@ -69,10 +88,14 @@ function formIconListFile() {
   return fileContent
 }
 
-fs.readdir('../../node_modules/' + importLocation, 'utf8', (error, files) =>
-  processIconDirectory(error, files),
+// Reads icon folder
+fs.readdir(
+  '../../node_modules/' + importLocation,
+  { recursive: true },
+  (error, files) => processIconDirectory(error, files),
 )
 
+// Writes iconList.ts file after delay (since fs.readdir is async)
 setTimeout(
   () =>
     fs.writeFile(
