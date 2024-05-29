@@ -6,6 +6,13 @@
       "category": "color"
     }
   },
+  "vads-color-foreground-inverse-on-dark": {
+    "name": "vads-color-foreground-inverse-on-dark",
+    "value": "{vads-color-base-darkest.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-surface-secondary-on-dark": {
     "name": "vads-color-surface-secondary-on-dark",
     "value": "{vads-color-base-darker.*.value}",
@@ -13,9 +20,37 @@
       "category": "color"
     }
   },
+  "vads-color-surface-inverse-on-dark": {
+    "name": "vads-color-surface-inverse-on-dark",
+    "value": "{vads-color-base-lightest.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-action-foreground-default-on-dark": {
     "name": "vads-color-action-foreground-default-on-dark",
     "value": "{uswds-system-color-blue-vivid-30}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-border-info-on-dark": {
+    "name": "vads-color-feedback-border-info-on-dark",
+    "value": "{vads-color-primary-alt-light.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-border-success-on-dark": {
+    "name": "vads-color-feedback-border-success-on-dark",
+    "value": "{vads-color-green-light.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-border-error-on-dark": {
+    "name": "vads-color-feedback-border-error-on-dark",
+    "value": "{vads-color-secondary.*.value}",
     "attributes": {
       "category": "color"
     }
