@@ -1,6 +1,6 @@
 {
-  "vads-color-fg-default-on-light": {
-    "name": "vads-color-fg-default-on-light",
+  "vads-color-foreground-default-on-light": {
+    "name": "vads-color-foreground-default-on-light",
     "value": "{vads-color-base.*.value}",
     "attributes": {
       "category": "color"
@@ -9,6 +9,13 @@
   "vads-color-surface-secondary-on-light": {
     "name": "vads-color-surface-secondary-on-light",
     "value": "{vads-color-base-lighter.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-default-on-light": {
+    "name": "vads-color-action-foreground-default-on-light",
+    "value": "{vads-color-primary.*.value}",
     "attributes": {
       "category": "color"
     }

@@ -2068,16 +2068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/css-library@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.5.1"
-  dependencies:
-    "@divriots/style-dictionary-to-figma": "npm:^0.4.0"
-  checksum: 0d61cc026d86c203fbf2f09c4b8d56fb3cf69abe19d25ccf85df776f35bdbce22f053cf6021546b92fc1665aedfe2c5542e0a8761e61b010aaf331aaee910889
-  languageName: node
-  linkType: hard
-
-"@department-of-veterans-affairs/css-library@npm:^0.7.0":
+"@department-of-veterans-affairs/css-library@npm:0.7.0, @department-of-veterans-affairs/css-library@npm:^0.7.0":
   version: 0.7.0
   resolution: "@department-of-veterans-affairs/css-library@npm:0.7.0"
   dependencies:
@@ -2217,7 +2208,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens"
   dependencies:
-    "@department-of-veterans-affairs/css-library": "npm:^0.5.1"
+    "@department-of-veterans-affairs/css-library": "npm:0.7.0"
     style-dictionary: "npm:^3.9.2"
   languageName: unknown
   linkType: soft
