@@ -17,7 +17,7 @@ let iconMap = []
 /**
  * Function to massage SVG file name to an UpperCamelCase icon name
  * @param name - String of SVG file name
- * @returns UpperCamelCaseName of SVG icon name
+ * @returns UpperCamelCase icon name
  */
 function parseName(name) {
   if (name === 'vads') return '' // Remove 'vads' from list; it is a folder, not file
@@ -29,35 +29,6 @@ function parseName(name) {
   name = name.replace('.svg', '') // Remove file type
 
   return name
-}
-
-/**
- * Function to read the files from the icons folder of the assets package and form up data for use
- * @param error - Error if one occurred attempting to read the directory
- * @param files - List of icon files in the assets package
- * @returns Error or writes src/components/Icon/iconList.ts file without return
- */
-function processIconDirectory(error, files) {
-  if (error) return console.log('readdir error: ', error)
-
-  files.forEach((file) => {
-    const iconName = parseName(file)
-    const importPath = `${importLocation}/${file}`
-
-    if (!iconName) return
-
-    // TODO: Move import/from text to writing the file once icons do not contain duplicates
-    importArray.push(`import ${iconName} from '${importPath}'`)
-    iconMap.push(iconName)
-    // TODO: Shift to using an object {iconName: importPath} once icons do not contain duplicates
-    // icons[iconName] = importPath
-  })
-
-  importArray.sort()
-  iconMap.sort()
-  // TODO: Remove below once the icons are cleaned up to not have duplicates
-  // Below line removes duplicates per https://stackoverflow.com/a/9229821/13261302
-  iconMap = [...new Set(iconMap)]
 }
 
 /**
@@ -75,7 +46,7 @@ function formIconListFile() {
 
   // Build named import list
   importArray.forEach((importItem) => {
-    fileContent += importItem + '\n'
+    fileContent += `${importItem}\n`
   })
 
   // Build IconMap object
@@ -88,23 +59,38 @@ function formIconListFile() {
   return fileContent
 }
 
-// Reads icon folder
-fs.readdir(
-  '../../node_modules/' + importLocation,
-  { recursive: true },
-  (error, files) => processIconDirectory(error, files),
-)
+/** Begin script */
 
-// Writes iconList.ts file after delay (since fs.readdir is async)
-setTimeout(
-  () =>
-    fs.writeFile(
-      './src/components/Icon/iconList.ts',
-      formIconListFile(),
-      (error) => {
-        if (error) return console.log('writeFile error: ', error)
-        return console.log('Successfully created iconList.ts!')
-      },
-    ),
-  1000,
+// Retrieve icon files from assets package
+const icons = fs.readdirSync('../../node_modules/' + importLocation, {
+  recursive: true,
+})
+
+// Process icons list into requisite icon data
+for (const icon of icons) {
+  const iconName = parseName(icon)
+  const importPath = `${importLocation}/${icon}`
+
+  if (!iconName) continue
+
+  // TODO: Move import/from text to writing the file once icons do not contain duplicates
+  importArray.push(`import ${iconName} from '${importPath}'`)
+  iconMap.push(iconName)
+}
+
+// Sort icon data
+importArray.sort()
+iconMap.sort()
+// TODO: Remove below once the icons are cleaned up to not have duplicates
+// Remove duplicates from iconMap array (https://stackoverflow.com/a/9229821/13261302)
+iconMap = [...new Set(iconMap)]
+
+// Form file content and create iconList.ts
+fs.writeFile(
+  './src/components/Icon/iconList.ts',
+  formIconListFile(),
+  (error) => {
+    if (error) return console.log('writeFile error: ', error)
+    return console.log('Successfully created iconList.ts!')
+  },
 )

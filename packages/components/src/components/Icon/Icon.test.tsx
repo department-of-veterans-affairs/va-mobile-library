@@ -13,21 +13,17 @@ describe('Icon', () => {
         name="HomeOutline"
         testID="myId"
         fill="#565c65"
-        fill2="#f8dfe2"
-        stroke="#e1f3f8"
         preventScaling={true}
       />,
     )
 
     const icon = getIcon()
     expect(icon).toBeOnTheScreen()
-    const { width, height, fill, color, stroke } = icon.props
+    const { width, height, fill } = icon.props
 
     expect(width).toBe(24)
     expect(height).toBe(24)
     expect(fill).toBe('#565c65')
-    expect(color).toBe('#f8dfe2')
-    expect(stroke).toBe('#e1f3f8')
   })
 
   it('renders correctly at set size despite fontScale 2', async () => {
@@ -87,8 +83,6 @@ describe('Icon', () => {
         height={100}
         width={100}
         fill="#565c65"
-        fill2="#f8dfe2"
-        stroke="#e1f3f8"
         maxWidth={100}
         preventScaling={true}
       />,
@@ -96,12 +90,10 @@ describe('Icon', () => {
 
     const icon = getIcon()
     expect(icon).toBeOnTheScreen()
-    const { width, height, fill, color, stroke } = icon.props
+    const { width, height, fill } = icon.props
 
     expect(width).toBe(100)
     expect(height).toBe(100)
     expect(fill).toBe('#565c65')
-    expect(color).toBe('#f8dfe2')
-    expect(stroke).toBe('#e1f3f8')
   })
 })

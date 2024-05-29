@@ -44,10 +44,13 @@ import Cancel from '@department-of-veterans-affairs/mobile-assets/icons/vads/can
 import Chat from '@department-of-veterans-affairs/mobile-assets/icons/vads/chat.svg'
 // import Check from '@department-of-veterans-affairs/mobile-assets/icons/Check.svg'
 import Check from '@department-of-veterans-affairs/mobile-assets/icons/vads/check.svg'
+import CheckBox from '@department-of-veterans-affairs/mobile-assets/icons/check_box.svg'
 import CheckBoxEmpty from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxEmpty.svg'
-import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxError.svg'
+// import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxError.svg'
+import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/check_box_error.svg'
 import CheckBoxFilled from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxFilled.svg'
 import CheckBoxIntermediate from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxIntermediate.svg'
+// import CheckBoxOutlineBlank from '@department-of-veterans-affairs/mobile-assets/icons/check_box_outline_blank.svg'
 import CheckBoxOutlineBlank from '@department-of-veterans-affairs/mobile-assets/icons/vads/check_box_outline_blank.svg'
 import CheckCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/check_circle.svg'
 import CheckCircleOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/check_circle_outline.svg'
@@ -76,9 +79,10 @@ import Coronavirus from '@department-of-veterans-affairs/mobile-assets/icons/vad
 import CreditCard from '@department-of-veterans-affairs/mobile-assets/icons/vads/credit_card.svg'
 import Deck from '@department-of-veterans-affairs/mobile-assets/icons/vads/deck.svg'
 import Delete from '@department-of-veterans-affairs/mobile-assets/icons/vads/delete.svg'
-import Description from '@department-of-veterans-affairs/mobile-assets/icons/Description.svg'
-// import Description from '@department-of-veterans-affairs/mobile-assets/icons/vads/description.svg'
+// import Description from '@department-of-veterans-affairs/mobile-assets/icons/Description.svg'
+import Description from '@department-of-veterans-affairs/mobile-assets/icons/vads/description.svg'
 import DescriptionOutline from '@department-of-veterans-affairs/mobile-assets/icons/DescriptionOutline.svg'
+import DescriptionOutlined from '@department-of-veterans-affairs/mobile-assets/icons/description_outlined.svg'
 import DeviceThermostat from '@department-of-veterans-affairs/mobile-assets/icons/vads/device_thermostat.svg'
 // import Directions from '@department-of-veterans-affairs/mobile-assets/icons/Directions.svg'
 import Directions from '@department-of-veterans-affairs/mobile-assets/icons/vads/directions.svg'
@@ -140,9 +144,10 @@ import Help from '@department-of-veterans-affairs/mobile-assets/icons/vads/help.
 import HelpOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/help_outline.svg'
 import HighlightOff from '@department-of-veterans-affairs/mobile-assets/icons/vads/highlight_off.svg'
 import History from '@department-of-veterans-affairs/mobile-assets/icons/vads/history.svg'
-import Home from '@department-of-veterans-affairs/mobile-assets/icons/Home.svg'
-// import Home from '@department-of-veterans-affairs/mobile-assets/icons/vads/home.svg'
+// import Home from '@department-of-veterans-affairs/mobile-assets/icons/Home.svg'
+import Home from '@department-of-veterans-affairs/mobile-assets/icons/vads/home.svg'
 import HomeOutline from '@department-of-veterans-affairs/mobile-assets/icons/HomeOutline.svg'
+import HomeOutlined from '@department-of-veterans-affairs/mobile-assets/icons/home_outlined.svg'
 import Hospital from '@department-of-veterans-affairs/mobile-assets/icons/vads/hospital.svg'
 import Hotel from '@department-of-veterans-affairs/mobile-assets/icons/vads/hotel.svg'
 import HourglassEmpty from '@department-of-veterans-affairs/mobile-assets/icons/vads/hourglass_empty.svg'
@@ -151,6 +156,7 @@ import Hurricane from '@department-of-veterans-affairs/mobile-assets/icons/vads/
 import Identification from '@department-of-veterans-affairs/mobile-assets/icons/vads/identification.svg'
 import Image from '@department-of-veterans-affairs/mobile-assets/icons/vads/image.svg'
 import Inbox from '@department-of-veterans-affairs/mobile-assets/icons/Inbox.svg'
+import IndeterminateCheckBox from '@department-of-veterans-affairs/mobile-assets/icons/indeterminate_check_box.svg'
 // import Info from '@department-of-veterans-affairs/mobile-assets/icons/Info.svg'
 import Info from '@department-of-veterans-affairs/mobile-assets/icons/vads/info.svg'
 import InfoOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/info_outline.svg'
@@ -192,9 +198,10 @@ import Mail from '@department-of-veterans-affairs/mobile-assets/icons/vads/mail.
 import MailOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/mail_outline.svg'
 import Map from '@department-of-veterans-affairs/mobile-assets/icons/vads/map.svg'
 import Masks from '@department-of-veterans-affairs/mobile-assets/icons/vads/masks.svg'
-import MedicalServices from '@department-of-veterans-affairs/mobile-assets/icons/MedicalServices.svg'
-// import MedicalServices from '@department-of-veterans-affairs/mobile-assets/icons/vads/medical_services.svg'
+// import MedicalServices from '@department-of-veterans-affairs/mobile-assets/icons/MedicalServices.svg'
+import MedicalServices from '@department-of-veterans-affairs/mobile-assets/icons/vads/medical_services.svg'
 import MedicalServicesOutline from '@department-of-veterans-affairs/mobile-assets/icons/MedicalServicesOutline.svg'
+import MedicalServicesOutlined from '@department-of-veterans-affairs/mobile-assets/icons/medical_services_outlined.svg'
 import Medication from '@department-of-veterans-affairs/mobile-assets/icons/vads/medication.svg'
 import Menu from '@department-of-veterans-affairs/mobile-assets/icons/vads/menu.svg'
 import MilitaryTech from '@department-of-veterans-affairs/mobile-assets/icons/vads/military_tech.svg'
@@ -227,6 +234,8 @@ import PriorityHigh from '@department-of-veterans-affairs/mobile-assets/icons/va
 import Public from '@department-of-veterans-affairs/mobile-assets/icons/vads/public.svg'
 import PushPin from '@department-of-veterans-affairs/mobile-assets/icons/vads/push_pin.svg'
 import QuestionMark from '@department-of-veterans-affairs/mobile-assets/icons/QuestionMark.svg'
+import RadioButtonChecked from '@department-of-veterans-affairs/mobile-assets/icons/radio_button_checked.svg'
+// import RadioButtonUnchecked from '@department-of-veterans-affairs/mobile-assets/icons/radio_button_unchecked.svg'
 import RadioButtonUnchecked from '@department-of-veterans-affairs/mobile-assets/icons/vads/radio_button_unchecked.svg'
 import RadioEmpty from '@department-of-veterans-affairs/mobile-assets/icons/RadioEmpty.svg'
 import RadioFilled from '@department-of-veterans-affairs/mobile-assets/icons/RadioFilled.svg'
@@ -239,6 +248,7 @@ import RemoveCircle from '@department-of-veterans-affairs/mobile-assets/icons/va
 import Reply from '@department-of-veterans-affairs/mobile-assets/icons/Reply.svg'
 import Report from '@department-of-veterans-affairs/mobile-assets/icons/vads/report.svg'
 import RequestQuote from '@department-of-veterans-affairs/mobile-assets/icons/vads/request_quote.svg'
+import RequestQuoteOutlined from '@department-of-veterans-affairs/mobile-assets/icons/request_quote_outlined.svg'
 import Restaurant from '@department-of-veterans-affairs/mobile-assets/icons/vads/restaurant.svg'
 import RssFeed from '@department-of-veterans-affairs/mobile-assets/icons/vads/rss_feed.svg'
 import SafetyDivider from '@department-of-veterans-affairs/mobile-assets/icons/vads/safety_divider.svg'
@@ -354,6 +364,7 @@ export const IconMap = {
   Cancel,
   Chat,
   Check,
+  CheckBox,
   CheckBoxEmpty,
   CheckBoxError,
   CheckBoxFilled,
@@ -386,6 +397,7 @@ export const IconMap = {
   Delete,
   Description,
   DescriptionOutline,
+  DescriptionOutlined,
   DeviceThermostat,
   Directions,
   DirectionsBike,
@@ -447,6 +459,7 @@ export const IconMap = {
   History,
   Home,
   HomeOutline,
+  HomeOutlined,
   Hospital,
   Hotel,
   HourglassEmpty,
@@ -455,6 +468,7 @@ export const IconMap = {
   Identification,
   Image,
   Inbox,
+  IndeterminateCheckBox,
   Info,
   InfoOutline,
   Insights,
@@ -496,6 +510,7 @@ export const IconMap = {
   Masks,
   MedicalServices,
   MedicalServicesOutline,
+  MedicalServicesOutlined,
   Medication,
   Menu,
   MilitaryTech,
@@ -527,6 +542,7 @@ export const IconMap = {
   Public,
   PushPin,
   QuestionMark,
+  RadioButtonChecked,
   RadioButtonUnchecked,
   RadioEmpty,
   RadioFilled,
@@ -538,6 +554,7 @@ export const IconMap = {
   Reply,
   Report,
   RequestQuote,
+  RequestQuoteOutlined,
   Restaurant,
   RssFeed,
   SafetyDivider,

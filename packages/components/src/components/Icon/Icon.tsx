@@ -3,10 +3,6 @@ import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { SvgProps } from 'react-native-svg'
 import React, { FC } from 'react'
 
-// import './iconImport'
-// import { IconMap } from './iconImport'
-// import * as Test from './index'
-// import './index'
 import { IconMap } from './index'
 import { useColorScheme } from '../../utils'
 
@@ -46,11 +42,6 @@ export type IconProps = nameOrSvg &
   heightAndWidth & {
     /** Fill color for the icon, defaults to light/dark mode primary blue */
     fill?: 'default' | 'base' | ColorValue | lightDarkModeFill
-    /** Slated for deprecation. Icon updates eliminating duotone icons over time.
-     * Secondary fill color for duotone icons--fills icons inside main fill, defaults white */
-    fill2?: string
-    /** Stroke color of the icon */
-    stroke?: string
     /** Optional maximum width when scaled */
     maxWidth?: number
     /** True to prevent icon from being scaled */
@@ -66,19 +57,6 @@ export type IconProps = nameOrSvg &
  * import them. See [\@svgr/webpack](https://www.npmjs.com/package/\@svgr/webpack)
  * for webpack setup guidance.
  *
- * For all icons in the SVG definitions, on the primary/only path:
- *    - Set `fill` to `#000` to inherit Icon's fill color prop
- * If the SVG icon is duotone, additionally:
- *    - Set `color` to `#fff` on the top level svg (not path)
- *    - Set `fill` to `currentColor` on the secondary path to inherit Icon's fill2 color prop
- * If the SVG icon uses stroke, additionally:
- *    - Set `stroke` to `#00F` to inherit Icon's stroke color prop
- *
- * Example icons of each classification:
- *    - One layer: HomeSelected.svg
- *    - Duotone: CircleCheckMark.svg
- *    - Stroke: RadioEmpty.svg
- *
  * @returns Icon component
  */
 export const Icon: FC<IconProps> = ({
@@ -87,8 +65,6 @@ export const Icon: FC<IconProps> = ({
   width = 24,
   height = 24,
   fill = 'default',
-  fill2 = Colors.white,
-  stroke,
   maxWidth,
   preventScaling,
   testID,
@@ -109,11 +85,7 @@ export const Icon: FC<IconProps> = ({
     fill = isDarkMode ? Colors.grayLightest : Colors.grayDark
   }
 
-  let iconProps: SvgProps = {
-    fill,
-    stroke,
-    color: fill2,
-  }
+  let iconProps: SvgProps = { fill }
 
   // Set height/width
   if (preventScaling) {
