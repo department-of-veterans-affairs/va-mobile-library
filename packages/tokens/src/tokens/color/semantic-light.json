@@ -78,7 +78,7 @@
   },
   "vads-color-feedback-surface-warning-on-light": {
     "name": "vads-color-feedback-warning-success-on-light",
-    "value": "{vads-color-success-warning.*.value}",
+    "value": "{vads-color-warning-lighter.*.value}",
     "attributes": {
       "category": "color"
     }
