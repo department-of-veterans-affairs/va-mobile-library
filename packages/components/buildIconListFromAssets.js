@@ -62,7 +62,7 @@ function formIconListFile() {
 /** Begin script */
 
 // Retrieve icon files from assets package
-const icons = fs.readdirSync('../../node_modules/' + importLocation, {
+const icons = fs.readdirSync(`../../node_modules/${importLocation}`, {
   recursive: true,
 })
 
