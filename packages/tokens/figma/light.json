@@ -459,6 +459,10 @@
     "$value": "{uswds-system-color-yellow-vivid-20}",
     "$type": "color"
   },
+  "vads-color-action-foreground-default-on-light": {
+    "$value": "{vads-color-primary}",
+    "$type": "color"
+  },
   "vads-color-base": {
     "$value": "{uswds-system-color-gray-90}",
     "$type": "color"
@@ -531,7 +535,7 @@
     "$value": "{uswds-system-color-red-warm-10}",
     "$type": "color"
   },
-  "vads-color-fg-default-on-light": {
+  "vads-color-foreground-default-on-light": {
     "$value": "{vads-color-base}",
     "$type": "color"
   },

@@ -439,6 +439,10 @@
     "$value": "{uswds-system-color-gray-30}",
     "$type": "color"
   },
+  "vads-color-action-foreground-default-on-dark": {
+    "$value": "{uswds-system-color-blue-vivid-30}",
+    "$type": "color"
+  },
   "vads-color-action-surface-default-on-dark": {
     "$value": "{uswds-system-color-blue-vivid-30}",
     "$type": "color"
@@ -543,7 +547,7 @@
     "$value": "{uswds-system-color-yellow-vivid-80}",
     "$type": "color"
   },
-  "vads-color-fg-default-on-dark": {
+  "vads-color-foreground-default-on-dark": {
     "$value": "{vads-color-base-lightest}",
     "$type": "color"
   },
