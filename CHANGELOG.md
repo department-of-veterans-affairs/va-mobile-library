@@ -1,12 +1,22 @@
 # Changelog
 
-## [tokens-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.9.0) (2024-05-28)
+## [tokens-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.10.0) (2024-05-29)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.8.0...tokens-v0.9.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.9.0...tokens-v0.10.0)
 
 **Closed issues:**
 
-- Design Tokens: Create semantic color tokens - loading indicator [\#272](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/272)
+- Design Tokens: Create semantic color tokens - alert [\#271](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/271)
+- Design Tokens: Create semantic color tokens - link [\#270](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/270)
+- DS - Script to import VADS Icons into assets package [\#244](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/244)
+
+**Merged pull requests:**
+
+- \[Feature\] Add color tokens for Loading Indicator component [\#335](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/335) ([jessicawoodin](https://github.com/jessicawoodin))
+
+## [tokens-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.9.0) (2024-05-28)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.8.0...tokens-v0.9.0)
 
 **Merged pull requests:**
 
