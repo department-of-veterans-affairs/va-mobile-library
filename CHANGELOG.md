@@ -1,5 +1,17 @@
 # Changelog
 
+## [assets-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.9.0) (2024-05-30)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.11.0...assets-v0.9.0)
+
+**Closed issues:**
+
+- Design Tokens: Create semantic color tokens - loading indicator [\#272](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/272)
+
+**Merged pull requests:**
+
+- \[Feature\] Add mobile-only Nav and Form icons to mobile-assets [\#333](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/333) ([narin](https://github.com/narin))
+
 ## [tokens-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.11.0) (2024-05-30)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.10.0...tokens-v0.11.0)
