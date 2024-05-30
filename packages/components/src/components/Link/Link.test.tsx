@@ -119,7 +119,7 @@ describe('Link', () => {
       const icon = await getIcon()
 
       expect(icon).toBeDefined()
-      expect(icon.props.name).toBe('PaperClip')
+      expect(icon.props.name).toBe('AttachFile')
     })
   })
 
@@ -148,7 +148,7 @@ describe('Link', () => {
       const icon = await getIcon()
 
       expect(icon).toBeDefined()
-      expect(icon.props.name).toBe('Calendar')
+      expect(icon.props.name).toBe('CalendarToday')
     })
   })
 
@@ -289,7 +289,7 @@ describe('Link', () => {
       const icon = await getIcon()
 
       expect(icon).toBeDefined()
-      expect(icon.props.name).toBe('Text')
+      expect(icon.props.name).toBe('PhoneIphone')
     })
   })
 
@@ -322,7 +322,7 @@ describe('Link', () => {
       const icon = await getIcon()
 
       expect(icon).toBeDefined()
-      expect(icon.props.name).toBe('ExternalLink')
+      expect(icon.props.name).toBe('Launch')
     })
   })
 
@@ -381,7 +381,7 @@ describe('Link', () => {
       render(<Link {...iconOverrideProps} icon={{ preventScaling: true }} />)
       const icon = await getIcon()
 
-      expect(icon.props.name).toBe('PaperClip')
+      expect(icon.props.name).toBe('AttachFile')
       const width24Exists = within(icon).UNSAFE_getByProps({ width: 24 })
       expect(width24Exists).toBeTruthy()
       const height24Exists = within(icon).UNSAFE_getByProps({ height: 24 })
@@ -392,7 +392,7 @@ describe('Link', () => {
       render(<Link {...iconOverrideProps} icon={{ maxWidth: 36 }} />)
       const icon = await getIcon()
 
-      expect(icon.props.name).toBe('PaperClip')
+      expect(icon.props.name).toBe('AttachFile')
       const width36Exists = within(icon).UNSAFE_getByProps({ width: 36 })
       expect(width36Exists).toBeTruthy()
       const height36Exists = within(icon).UNSAFE_getByProps({ height: 36 })

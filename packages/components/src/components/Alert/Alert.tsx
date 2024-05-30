@@ -125,7 +125,7 @@ export const Alert: FC<AlertProps> = ({
     case 'warning':
       backgroundColor = Colors.warningMessage
       borderColor = Colors.gold
-      iconProps = { name: 'ExclamationTriangle', fill: 'base' }
+      iconProps = { name: 'Warning', fill: 'base' }
 
       if (isDarkMode) {
         backgroundColor = Colors.uswdsYellowVivid70
@@ -135,7 +135,7 @@ export const Alert: FC<AlertProps> = ({
     case 'error':
       backgroundColor = Colors.secondaryLightest
       borderColor = Colors.secondaryDark
-      iconProps = { name: 'ExclamationCircle', fill: 'base' }
+      iconProps = { name: 'Error', fill: 'base' }
 
       if (isDarkMode) {
         backgroundColor = Colors.uswdsRedVivid80
@@ -183,7 +183,7 @@ export const Alert: FC<AlertProps> = ({
     width: Sizing._16,
     height: Sizing._16,
     maxWidth: Sizing._24,
-    name: expanded ? 'ChevronUp' : 'ChevronDown',
+    name: expanded ? 'ExpandLess' : 'ExpandMore',
   }
 
   const expandableIcon = (

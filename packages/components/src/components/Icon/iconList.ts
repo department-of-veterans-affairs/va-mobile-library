@@ -282,7 +282,8 @@ import StarOutline from '@department-of-veterans-affairs/mobile-assets/icons/vad
 import Store from '@department-of-veterans-affairs/mobile-assets/icons/vads/store.svg'
 import Support from '@department-of-veterans-affairs/mobile-assets/icons/vads/support.svg'
 import SupportAgent from '@department-of-veterans-affairs/mobile-assets/icons/vads/support_agent.svg'
-import TTY from '@department-of-veterans-affairs/mobile-assets/icons/TTY.svg'
+// import TTY from '@department-of-veterans-affairs/mobile-assets/icons/TTY.svg'
+import TTY from '@department-of-veterans-affairs/mobile-assets/icons/vads/tty.svg'
 import Text from '@department-of-veterans-affairs/mobile-assets/icons/Text.svg'
 import TextFields from '@department-of-veterans-affairs/mobile-assets/icons/vads/text_fields.svg'
 import ThumbDownAlt from '@department-of-veterans-affairs/mobile-assets/icons/vads/thumb_down_alt.svg'
@@ -297,7 +298,6 @@ import Trash from '@department-of-veterans-affairs/mobile-assets/icons/Trash.svg
 import TrendingDown from '@department-of-veterans-affairs/mobile-assets/icons/vads/trending_down.svg'
 import TrendingUp from '@department-of-veterans-affairs/mobile-assets/icons/vads/trending_up.svg'
 import Truck from '@department-of-veterans-affairs/mobile-assets/icons/Truck.svg'
-import Tty from '@department-of-veterans-affairs/mobile-assets/icons/vads/tty.svg'
 import Twitter from '@department-of-veterans-affairs/mobile-assets/icons/vads/twitter.svg'
 import Undo from '@department-of-veterans-affairs/mobile-assets/icons/vads/undo.svg'
 import UnfoldLess from '@department-of-veterans-affairs/mobile-assets/icons/vads/unfold_less.svg'
@@ -603,7 +603,6 @@ export const IconMap = {
   TrendingDown,
   TrendingUp,
   Truck,
-  Tty,
   Twitter,
   Undo,
   UnfoldLess,

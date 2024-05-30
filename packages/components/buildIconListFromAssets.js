@@ -28,6 +28,8 @@ function parseName(name) {
     name.substring(1).replace(/_./g, (letter) => letter[1].toUpperCase())
   name = name.replace('.svg', '') // Remove file type
 
+  if (name === 'Tty') return 'TTY' // Correction for acronym name
+
   return name
 }
 

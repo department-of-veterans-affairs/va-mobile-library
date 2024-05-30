@@ -188,7 +188,7 @@ describe('Alert', () => {
           color: '#3d4551',
         })
 
-        expect(await getIconName()).toBe('ExclamationTriangle')
+        expect(await getIconName()).toBe('Warning')
       })
     })
 
@@ -207,7 +207,7 @@ describe('Alert', () => {
           color: '#f0f0f0',
         })
 
-        expect(await getIconName()).toBe('ExclamationTriangle')
+        expect(await getIconName()).toBe('Warning')
       })
     })
   })
@@ -228,7 +228,7 @@ describe('Alert', () => {
           color: '#3d4551',
         })
 
-        expect(await getIconName()).toBe('ExclamationCircle')
+        expect(await getIconName()).toBe('Error')
       })
     })
 
@@ -247,7 +247,7 @@ describe('Alert', () => {
           color: '#f0f0f0',
         })
 
-        expect(await getIconName()).toBe('ExclamationCircle')
+        expect(await getIconName()).toBe('Error')
       })
     })
   })
