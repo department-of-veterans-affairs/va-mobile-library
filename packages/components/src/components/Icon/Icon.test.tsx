@@ -10,7 +10,7 @@ describe('Icon', () => {
   it('renders correctly at default size', async () => {
     render(
       <Icon
-        name="HomeOutline"
+        name="HomeOutlined"
         testID="myId"
         fill="#565c65"
         preventScaling={true}
@@ -29,7 +29,7 @@ describe('Icon', () => {
   it('renders correctly at set size despite fontScale 2', async () => {
     render(
       <Icon
-        name="HomeOutline"
+        name="HomeOutlined"
         testID="myId"
         height={50}
         width={50}
@@ -48,7 +48,7 @@ describe('Icon', () => {
   it('renders correctly with maxWidth overriding fontScale 2', async () => {
     render(
       <Icon
-        name="HomeOutline"
+        name="HomeOutlined"
         testID="myId"
         height={50}
         width={50}
@@ -65,7 +65,7 @@ describe('Icon', () => {
   })
 
   it('renders correctly with fontScale 2', async () => {
-    render(<Icon name="HomeOutline" testID="myId" height={50} width={50} />)
+    render(<Icon name="HomeOutlined" testID="myId" height={50} width={50} />)
 
     const icon = getIcon()
     expect(icon).toBeOnTheScreen()

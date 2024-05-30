@@ -86,12 +86,12 @@ describe('Link', () => {
   })
 
   it('renders default/custom variant with Truck icon', async () => {
-    render(<Link {...commonProps} icon={{ name: 'Truck' }} />)
+    render(<Link {...commonProps} icon={{ name: 'CleanHands' }} />)
 
     const icon = await getIcon()
 
     expect(icon).toBeDefined()
-    expect(icon.props.name).toBe('Truck')
+    expect(icon.props.name).toBe('CleanHands')
   })
 
   describe('attachment variant tests', () => {

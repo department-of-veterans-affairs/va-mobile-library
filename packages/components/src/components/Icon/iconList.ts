@@ -4,9 +4,7 @@ import AccessibilityNew from '@department-of-veterans-affairs/mobile-assets/icon
 import AccessibleForward from '@department-of-veterans-affairs/mobile-assets/icons/vads/accessible_forward.svg'
 import AccountBalance from '@department-of-veterans-affairs/mobile-assets/icons/vads/account_balance.svg'
 import AccountBox from '@department-of-veterans-affairs/mobile-assets/icons/vads/account_box.svg'
-// import AccountCircle from '@department-of-veterans-affairs/mobile-assets/icons/AccountCircle.svg'
 import AccountCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/account_circle.svg'
-// import Add from '@department-of-veterans-affairs/mobile-assets/icons/Add.svg'
 import Add from '@department-of-veterans-affairs/mobile-assets/icons/vads/add.svg'
 import AddCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/add_circle.svg'
 import AddCircleOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/add_circle_outline.svg'
@@ -34,34 +32,19 @@ import Bedding from '@department-of-veterans-affairs/mobile-assets/icons/vads/be
 import Bookmark from '@department-of-veterans-affairs/mobile-assets/icons/vads/bookmark.svg'
 import BugReport from '@department-of-veterans-affairs/mobile-assets/icons/vads/bug_report.svg'
 import Build from '@department-of-veterans-affairs/mobile-assets/icons/vads/build.svg'
-import Building from '@department-of-veterans-affairs/mobile-assets/icons/Building.svg'
-import Bullet from '@department-of-veterans-affairs/mobile-assets/icons/Bullet.svg'
-import Calendar from '@department-of-veterans-affairs/mobile-assets/icons/Calendar.svg'
 import CalendarToday from '@department-of-veterans-affairs/mobile-assets/icons/vads/calendar_today.svg'
 import Campaign from '@department-of-veterans-affairs/mobile-assets/icons/vads/campaign.svg'
 import Camping from '@department-of-veterans-affairs/mobile-assets/icons/vads/camping.svg'
 import Cancel from '@department-of-veterans-affairs/mobile-assets/icons/vads/cancel.svg'
 import Chat from '@department-of-veterans-affairs/mobile-assets/icons/vads/chat.svg'
-// import Check from '@department-of-veterans-affairs/mobile-assets/icons/Check.svg'
 import Check from '@department-of-veterans-affairs/mobile-assets/icons/vads/check.svg'
 import CheckBox from '@department-of-veterans-affairs/mobile-assets/icons/check_box.svg'
-import CheckBoxEmpty from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxEmpty.svg'
-// import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxError.svg'
-import CheckBoxError from '@department-of-veterans-affairs/mobile-assets/icons/check_box_error.svg'
-import CheckBoxFilled from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxFilled.svg'
-import CheckBoxIntermediate from '@department-of-veterans-affairs/mobile-assets/icons/CheckBoxIntermediate.svg'
-// import CheckBoxOutlineBlank from '@department-of-veterans-affairs/mobile-assets/icons/check_box_outline_blank.svg'
 import CheckBoxOutlineBlank from '@department-of-veterans-affairs/mobile-assets/icons/vads/check_box_outline_blank.svg'
 import CheckCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/check_circle.svg'
 import CheckCircleOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/check_circle_outline.svg'
 import Checkroom from '@department-of-veterans-affairs/mobile-assets/icons/vads/checkroom.svg'
-import ChevronDown from '@department-of-veterans-affairs/mobile-assets/icons/ChevronDown.svg'
-// import ChevronLeft from '@department-of-veterans-affairs/mobile-assets/icons/ChevronLeft.svg'
 import ChevronLeft from '@department-of-veterans-affairs/mobile-assets/icons/vads/chevron_left.svg'
-// import ChevronRight from '@department-of-veterans-affairs/mobile-assets/icons/ChevronRight.svg'
 import ChevronRight from '@department-of-veterans-affairs/mobile-assets/icons/vads/chevron_right.svg'
-import ChevronUp from '@department-of-veterans-affairs/mobile-assets/icons/ChevronUp.svg'
-import CircleCheckMark from '@department-of-veterans-affairs/mobile-assets/icons/CircleCheckMark.svg'
 import CleanHands from '@department-of-veterans-affairs/mobile-assets/icons/vads/clean_hands.svg'
 import Close from '@department-of-veterans-affairs/mobile-assets/icons/vads/close.svg'
 import ClosedCaption from '@department-of-veterans-affairs/mobile-assets/icons/vads/closed_caption.svg'
@@ -69,7 +52,6 @@ import Clothes from '@department-of-veterans-affairs/mobile-assets/icons/vads/cl
 import Cloud from '@department-of-veterans-affairs/mobile-assets/icons/vads/cloud.svg'
 import Code from '@department-of-veterans-affairs/mobile-assets/icons/vads/code.svg'
 import Comment from '@department-of-veterans-affairs/mobile-assets/icons/vads/comment.svg'
-import Compose from '@department-of-veterans-affairs/mobile-assets/icons/Compose.svg'
 import ConnectWithoutContact from '@department-of-veterans-affairs/mobile-assets/icons/vads/connect_without_contact.svg'
 import Construction from '@department-of-veterans-affairs/mobile-assets/icons/vads/construction.svg'
 import ConstructionWorker from '@department-of-veterans-affairs/mobile-assets/icons/vads/construction_worker.svg'
@@ -77,14 +59,12 @@ import ContactPage from '@department-of-veterans-affairs/mobile-assets/icons/vad
 import ContentCopy from '@department-of-veterans-affairs/mobile-assets/icons/vads/content_copy.svg'
 import Coronavirus from '@department-of-veterans-affairs/mobile-assets/icons/vads/coronavirus.svg'
 import CreditCard from '@department-of-veterans-affairs/mobile-assets/icons/vads/credit_card.svg'
+import CropSquare from '@department-of-veterans-affairs/mobile-assets/icons/crop_square.svg'
 import Deck from '@department-of-veterans-affairs/mobile-assets/icons/vads/deck.svg'
 import Delete from '@department-of-veterans-affairs/mobile-assets/icons/vads/delete.svg'
-// import Description from '@department-of-veterans-affairs/mobile-assets/icons/Description.svg'
 import Description from '@department-of-veterans-affairs/mobile-assets/icons/vads/description.svg'
-import DescriptionOutline from '@department-of-veterans-affairs/mobile-assets/icons/DescriptionOutline.svg'
 import DescriptionOutlined from '@department-of-veterans-affairs/mobile-assets/icons/description_outlined.svg'
 import DeviceThermostat from '@department-of-veterans-affairs/mobile-assets/icons/vads/device_thermostat.svg'
-// import Directions from '@department-of-veterans-affairs/mobile-assets/icons/Directions.svg'
 import Directions from '@department-of-veterans-affairs/mobile-assets/icons/vads/directions.svg'
 import DirectionsBike from '@department-of-veterans-affairs/mobile-assets/icons/vads/directions_bike.svg'
 import DirectionsBus from '@department-of-veterans-affairs/mobile-assets/icons/vads/directions_bus.svg'
@@ -96,17 +76,13 @@ import DragHandle from '@department-of-veterans-affairs/mobile-assets/icons/vads
 import Eco from '@department-of-veterans-affairs/mobile-assets/icons/vads/eco.svg'
 import Edit from '@department-of-veterans-affairs/mobile-assets/icons/vads/edit.svg'
 import ElectricalServices from '@department-of-veterans-affairs/mobile-assets/icons/vads/electrical_services.svg'
-import Ellipsis from '@department-of-veterans-affairs/mobile-assets/icons/Ellipsis.svg'
 import EmojiEvents from '@department-of-veterans-affairs/mobile-assets/icons/vads/emoji_events.svg'
 import Error from '@department-of-veterans-affairs/mobile-assets/icons/vads/error.svg'
 import ErrorOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/error_outline.svg'
 import Event from '@department-of-veterans-affairs/mobile-assets/icons/vads/event.svg'
 import EventAvailable from '@department-of-veterans-affairs/mobile-assets/icons/vads/event_available.svg'
-import ExclamationCircle from '@department-of-veterans-affairs/mobile-assets/icons/ExclamationCircle.svg'
-import ExclamationTriangle from '@department-of-veterans-affairs/mobile-assets/icons/ExclamationTriangle.svg'
 import ExpandLess from '@department-of-veterans-affairs/mobile-assets/icons/vads/expand_less.svg'
 import ExpandMore from '@department-of-veterans-affairs/mobile-assets/icons/vads/expand_more.svg'
-import ExternalLink from '@department-of-veterans-affairs/mobile-assets/icons/ExternalLink.svg'
 import Facebook from '@department-of-veterans-affairs/mobile-assets/icons/vads/facebook.svg'
 import FastForward from '@department-of-veterans-affairs/mobile-assets/icons/vads/fast_forward.svg'
 import FastRewind from '@department-of-veterans-affairs/mobile-assets/icons/vads/fast_rewind.svg'
@@ -114,8 +90,6 @@ import Favorite from '@department-of-veterans-affairs/mobile-assets/icons/vads/f
 import FavoriteBorder from '@department-of-veterans-affairs/mobile-assets/icons/vads/favorite_border.svg'
 import Fax from '@department-of-veterans-affairs/mobile-assets/icons/vads/fax.svg'
 import FileDownload from '@department-of-veterans-affairs/mobile-assets/icons/vads/file_download.svg'
-import FileInvoiceDollar from '@department-of-veterans-affairs/mobile-assets/icons/FileInvoiceDollar.svg'
-import FileInvoiceDollarOutline from '@department-of-veterans-affairs/mobile-assets/icons/FileInvoiceDollarOutline.svg'
 import FilePresent from '@department-of-veterans-affairs/mobile-assets/icons/vads/file_present.svg'
 import FileUpload from '@department-of-veterans-affairs/mobile-assets/icons/vads/file_upload.svg'
 import FilterAlt from '@department-of-veterans-affairs/mobile-assets/icons/vads/filter_alt.svg'
@@ -126,7 +100,6 @@ import Flag from '@department-of-veterans-affairs/mobile-assets/icons/vads/flag.
 import Flickr from '@department-of-veterans-affairs/mobile-assets/icons/vads/flickr.svg'
 import Flight from '@department-of-veterans-affairs/mobile-assets/icons/vads/flight.svg'
 import Flooding from '@department-of-veterans-affairs/mobile-assets/icons/vads/flooding.svg'
-// import Folder from '@department-of-veterans-affairs/mobile-assets/icons/Folder.svg'
 import Folder from '@department-of-veterans-affairs/mobile-assets/icons/vads/folder.svg'
 import FolderOpen from '@department-of-veterans-affairs/mobile-assets/icons/vads/folder_open.svg'
 import FormatQuote from '@department-of-veterans-affairs/mobile-assets/icons/vads/format_quote.svg'
@@ -144,9 +117,7 @@ import Help from '@department-of-veterans-affairs/mobile-assets/icons/vads/help.
 import HelpOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/help_outline.svg'
 import HighlightOff from '@department-of-veterans-affairs/mobile-assets/icons/vads/highlight_off.svg'
 import History from '@department-of-veterans-affairs/mobile-assets/icons/vads/history.svg'
-// import Home from '@department-of-veterans-affairs/mobile-assets/icons/Home.svg'
 import Home from '@department-of-veterans-affairs/mobile-assets/icons/vads/home.svg'
-import HomeOutline from '@department-of-veterans-affairs/mobile-assets/icons/HomeOutline.svg'
 import HomeOutlined from '@department-of-veterans-affairs/mobile-assets/icons/home_outlined.svg'
 import Hospital from '@department-of-veterans-affairs/mobile-assets/icons/vads/hospital.svg'
 import Hotel from '@department-of-veterans-affairs/mobile-assets/icons/vads/hotel.svg'
@@ -155,9 +126,7 @@ import HowToReg from '@department-of-veterans-affairs/mobile-assets/icons/vads/h
 import Hurricane from '@department-of-veterans-affairs/mobile-assets/icons/vads/hurricane.svg'
 import Identification from '@department-of-veterans-affairs/mobile-assets/icons/vads/identification.svg'
 import Image from '@department-of-veterans-affairs/mobile-assets/icons/vads/image.svg'
-import Inbox from '@department-of-veterans-affairs/mobile-assets/icons/Inbox.svg'
 import IndeterminateCheckBox from '@department-of-veterans-affairs/mobile-assets/icons/indeterminate_check_box.svg'
-// import Info from '@department-of-veterans-affairs/mobile-assets/icons/Info.svg'
 import Info from '@department-of-veterans-affairs/mobile-assets/icons/vads/info.svg'
 import InfoOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/info_outline.svg'
 import Insights from '@department-of-veterans-affairs/mobile-assets/icons/vads/insights.svg'
@@ -187,7 +156,6 @@ import LocalPolice from '@department-of-veterans-affairs/mobile-assets/icons/vad
 import LocalTaxi from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_taxi.svg'
 import LocationCity from '@department-of-veterans-affairs/mobile-assets/icons/vads/location_city.svg'
 import LocationOn from '@department-of-veterans-affairs/mobile-assets/icons/vads/location_on.svg'
-// import Lock from '@department-of-veterans-affairs/mobile-assets/icons/Lock.svg'
 import Lock from '@department-of-veterans-affairs/mobile-assets/icons/vads/lock.svg'
 import LockOpen from '@department-of-veterans-affairs/mobile-assets/icons/vads/lock_open.svg'
 import LockOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/lock_outline.svg'
@@ -198,14 +166,11 @@ import Mail from '@department-of-veterans-affairs/mobile-assets/icons/vads/mail.
 import MailOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/mail_outline.svg'
 import Map from '@department-of-veterans-affairs/mobile-assets/icons/vads/map.svg'
 import Masks from '@department-of-veterans-affairs/mobile-assets/icons/vads/masks.svg'
-// import MedicalServices from '@department-of-veterans-affairs/mobile-assets/icons/MedicalServices.svg'
 import MedicalServices from '@department-of-veterans-affairs/mobile-assets/icons/vads/medical_services.svg'
-import MedicalServicesOutline from '@department-of-veterans-affairs/mobile-assets/icons/MedicalServicesOutline.svg'
 import MedicalServicesOutlined from '@department-of-veterans-affairs/mobile-assets/icons/medical_services_outlined.svg'
 import Medication from '@department-of-veterans-affairs/mobile-assets/icons/vads/medication.svg'
 import Menu from '@department-of-veterans-affairs/mobile-assets/icons/vads/menu.svg'
 import MilitaryTech from '@department-of-veterans-affairs/mobile-assets/icons/vads/military_tech.svg'
-import Minus from '@department-of-veterans-affairs/mobile-assets/icons/Minus.svg'
 import MoreHoriz from '@department-of-veterans-affairs/mobile-assets/icons/vads/more_horiz.svg'
 import MoreVert from '@department-of-veterans-affairs/mobile-assets/icons/vads/more_vert.svg'
 import MyLocation from '@department-of-veterans-affairs/mobile-assets/icons/vads/my_location.svg'
@@ -219,12 +184,10 @@ import Notifications from '@department-of-veterans-affairs/mobile-assets/icons/v
 import NotificationsActive from '@department-of-veterans-affairs/mobile-assets/icons/vads/notifications_active.svg'
 import NotificationsNone from '@department-of-veterans-affairs/mobile-assets/icons/vads/notifications_none.svg'
 import NotificationsOff from '@department-of-veterans-affairs/mobile-assets/icons/vads/notifications_off.svg'
-import PaperClip from '@department-of-veterans-affairs/mobile-assets/icons/PaperClip.svg'
 import Park from '@department-of-veterans-affairs/mobile-assets/icons/vads/park.svg'
 import People from '@department-of-veterans-affairs/mobile-assets/icons/vads/people.svg'
 import Person from '@department-of-veterans-affairs/mobile-assets/icons/vads/person.svg'
 import Pets from '@department-of-veterans-affairs/mobile-assets/icons/vads/pets.svg'
-// import Phone from '@department-of-veterans-affairs/mobile-assets/icons/Phone.svg'
 import Phone from '@department-of-veterans-affairs/mobile-assets/icons/vads/phone.svg'
 import PhoneIphone from '@department-of-veterans-affairs/mobile-assets/icons/vads/phone_iphone.svg'
 import PhotoCamera from '@department-of-veterans-affairs/mobile-assets/icons/vads/photo_camera.svg'
@@ -233,19 +196,12 @@ import Print from '@department-of-veterans-affairs/mobile-assets/icons/vads/prin
 import PriorityHigh from '@department-of-veterans-affairs/mobile-assets/icons/vads/priority_high.svg'
 import Public from '@department-of-veterans-affairs/mobile-assets/icons/vads/public.svg'
 import PushPin from '@department-of-veterans-affairs/mobile-assets/icons/vads/push_pin.svg'
-import QuestionMark from '@department-of-veterans-affairs/mobile-assets/icons/QuestionMark.svg'
 import RadioButtonChecked from '@department-of-veterans-affairs/mobile-assets/icons/radio_button_checked.svg'
-// import RadioButtonUnchecked from '@department-of-veterans-affairs/mobile-assets/icons/radio_button_unchecked.svg'
 import RadioButtonUnchecked from '@department-of-veterans-affairs/mobile-assets/icons/vads/radio_button_unchecked.svg'
-import RadioEmpty from '@department-of-veterans-affairs/mobile-assets/icons/RadioEmpty.svg'
-import RadioFilled from '@department-of-veterans-affairs/mobile-assets/icons/RadioFilled.svg'
 import Rain from '@department-of-veterans-affairs/mobile-assets/icons/vads/rain.svg'
-import Redo from '@department-of-veterans-affairs/mobile-assets/icons/Redo.svg'
 import ReduceCapacity from '@department-of-veterans-affairs/mobile-assets/icons/vads/reduce_capacity.svg'
-// import Remove from '@department-of-veterans-affairs/mobile-assets/icons/Remove.svg'
 import Remove from '@department-of-veterans-affairs/mobile-assets/icons/vads/remove.svg'
 import RemoveCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/remove_circle.svg'
-import Reply from '@department-of-veterans-affairs/mobile-assets/icons/Reply.svg'
 import Report from '@department-of-veterans-affairs/mobile-assets/icons/vads/report.svg'
 import RequestQuote from '@department-of-veterans-affairs/mobile-assets/icons/vads/request_quote.svg'
 import RequestQuoteOutlined from '@department-of-veterans-affairs/mobile-assets/icons/request_quote_outlined.svg'
@@ -273,7 +229,6 @@ import ShoppingBasket from '@department-of-veterans-affairs/mobile-assets/icons/
 import Snow from '@department-of-veterans-affairs/mobile-assets/icons/vads/snow.svg'
 import Soap from '@department-of-veterans-affairs/mobile-assets/icons/vads/soap.svg'
 import SocialDistance from '@department-of-veterans-affairs/mobile-assets/icons/vads/social_distance.svg'
-import Sort from '@department-of-veterans-affairs/mobile-assets/icons/Sort.svg'
 import SortArrow from '@department-of-veterans-affairs/mobile-assets/icons/vads/sort_arrow.svg'
 import Spellcheck from '@department-of-veterans-affairs/mobile-assets/icons/vads/spellcheck.svg'
 import Star from '@department-of-veterans-affairs/mobile-assets/icons/vads/star.svg'
@@ -282,9 +237,7 @@ import StarOutline from '@department-of-veterans-affairs/mobile-assets/icons/vad
 import Store from '@department-of-veterans-affairs/mobile-assets/icons/vads/store.svg'
 import Support from '@department-of-veterans-affairs/mobile-assets/icons/vads/support.svg'
 import SupportAgent from '@department-of-veterans-affairs/mobile-assets/icons/vads/support_agent.svg'
-// import TTY from '@department-of-veterans-affairs/mobile-assets/icons/TTY.svg'
 import TTY from '@department-of-veterans-affairs/mobile-assets/icons/vads/tty.svg'
-import Text from '@department-of-veterans-affairs/mobile-assets/icons/Text.svg'
 import TextFields from '@department-of-veterans-affairs/mobile-assets/icons/vads/text_fields.svg'
 import ThumbDownAlt from '@department-of-veterans-affairs/mobile-assets/icons/vads/thumb_down_alt.svg'
 import ThumbUpAlt from '@department-of-veterans-affairs/mobile-assets/icons/vads/thumb_up_alt.svg'
@@ -294,20 +247,16 @@ import ToggleOn from '@department-of-veterans-affairs/mobile-assets/icons/vads/t
 import Topic from '@department-of-veterans-affairs/mobile-assets/icons/vads/topic.svg'
 import Tornado from '@department-of-veterans-affairs/mobile-assets/icons/vads/tornado.svg'
 import Translate from '@department-of-veterans-affairs/mobile-assets/icons/vads/translate.svg'
-import Trash from '@department-of-veterans-affairs/mobile-assets/icons/Trash.svg'
 import TrendingDown from '@department-of-veterans-affairs/mobile-assets/icons/vads/trending_down.svg'
 import TrendingUp from '@department-of-veterans-affairs/mobile-assets/icons/vads/trending_up.svg'
-import Truck from '@department-of-veterans-affairs/mobile-assets/icons/Truck.svg'
 import Twitter from '@department-of-veterans-affairs/mobile-assets/icons/vads/twitter.svg'
 import Undo from '@department-of-veterans-affairs/mobile-assets/icons/vads/undo.svg'
 import UnfoldLess from '@department-of-veterans-affairs/mobile-assets/icons/vads/unfold_less.svg'
 import UnfoldMore from '@department-of-veterans-affairs/mobile-assets/icons/vads/unfold_more.svg'
-import Unread from '@department-of-veterans-affairs/mobile-assets/icons/Unread.svg'
 import Update from '@department-of-veterans-affairs/mobile-assets/icons/vads/update.svg'
 import UploadFile from '@department-of-veterans-affairs/mobile-assets/icons/vads/upload_file.svg'
 import Verified from '@department-of-veterans-affairs/mobile-assets/icons/vads/verified.svg'
 import VerifiedUser from '@department-of-veterans-affairs/mobile-assets/icons/vads/verified_user.svg'
-import VideoCamera from '@department-of-veterans-affairs/mobile-assets/icons/VideoCamera.svg'
 import Videocam from '@department-of-veterans-affairs/mobile-assets/icons/vads/videocam.svg'
 import Visibility from '@department-of-veterans-affairs/mobile-assets/icons/vads/visibility.svg'
 import VisibilityOff from '@department-of-veterans-affairs/mobile-assets/icons/vads/visibility_off.svg'
@@ -355,9 +304,6 @@ export const IconMap = {
   Bookmark,
   BugReport,
   Build,
-  Building,
-  Bullet,
-  Calendar,
   CalendarToday,
   Campaign,
   Camping,
@@ -365,19 +311,12 @@ export const IconMap = {
   Chat,
   Check,
   CheckBox,
-  CheckBoxEmpty,
-  CheckBoxError,
-  CheckBoxFilled,
-  CheckBoxIntermediate,
   CheckBoxOutlineBlank,
   CheckCircle,
   CheckCircleOutline,
   Checkroom,
-  ChevronDown,
   ChevronLeft,
   ChevronRight,
-  ChevronUp,
-  CircleCheckMark,
   CleanHands,
   Close,
   ClosedCaption,
@@ -385,7 +324,6 @@ export const IconMap = {
   Cloud,
   Code,
   Comment,
-  Compose,
   ConnectWithoutContact,
   Construction,
   ConstructionWorker,
@@ -393,10 +331,10 @@ export const IconMap = {
   ContentCopy,
   Coronavirus,
   CreditCard,
+  CropSquare,
   Deck,
   Delete,
   Description,
-  DescriptionOutline,
   DescriptionOutlined,
   DeviceThermostat,
   Directions,
@@ -410,17 +348,13 @@ export const IconMap = {
   Eco,
   Edit,
   ElectricalServices,
-  Ellipsis,
   EmojiEvents,
   Error,
   ErrorOutline,
   Event,
   EventAvailable,
-  ExclamationCircle,
-  ExclamationTriangle,
   ExpandLess,
   ExpandMore,
-  ExternalLink,
   Facebook,
   FastForward,
   FastRewind,
@@ -428,8 +362,6 @@ export const IconMap = {
   FavoriteBorder,
   Fax,
   FileDownload,
-  FileInvoiceDollar,
-  FileInvoiceDollarOutline,
   FilePresent,
   FileUpload,
   FilterAlt,
@@ -458,7 +390,6 @@ export const IconMap = {
   HighlightOff,
   History,
   Home,
-  HomeOutline,
   HomeOutlined,
   Hospital,
   Hotel,
@@ -467,7 +398,6 @@ export const IconMap = {
   Hurricane,
   Identification,
   Image,
-  Inbox,
   IndeterminateCheckBox,
   Info,
   InfoOutline,
@@ -509,12 +439,10 @@ export const IconMap = {
   Map,
   Masks,
   MedicalServices,
-  MedicalServicesOutline,
   MedicalServicesOutlined,
   Medication,
   Menu,
   MilitaryTech,
-  Minus,
   MoreHoriz,
   MoreVert,
   MyLocation,
@@ -528,7 +456,6 @@ export const IconMap = {
   NotificationsActive,
   NotificationsNone,
   NotificationsOff,
-  PaperClip,
   Park,
   People,
   Person,
@@ -541,17 +468,12 @@ export const IconMap = {
   PriorityHigh,
   Public,
   PushPin,
-  QuestionMark,
   RadioButtonChecked,
   RadioButtonUnchecked,
-  RadioEmpty,
-  RadioFilled,
   Rain,
-  Redo,
   ReduceCapacity,
   Remove,
   RemoveCircle,
-  Reply,
   Report,
   RequestQuote,
   RequestQuoteOutlined,
@@ -579,7 +501,6 @@ export const IconMap = {
   Snow,
   Soap,
   SocialDistance,
-  Sort,
   SortArrow,
   Spellcheck,
   Star,
@@ -589,7 +510,6 @@ export const IconMap = {
   Support,
   SupportAgent,
   TTY,
-  Text,
   TextFields,
   ThumbDownAlt,
   ThumbUpAlt,
@@ -599,20 +519,16 @@ export const IconMap = {
   Topic,
   Tornado,
   Translate,
-  Trash,
   TrendingDown,
   TrendingUp,
-  Truck,
   Twitter,
   Undo,
   UnfoldLess,
   UnfoldMore,
-  Unread,
   Update,
   UploadFile,
   Verified,
   VerifiedUser,
-  VideoCamera,
   Videocam,
   Visibility,
   VisibilityOff,

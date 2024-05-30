@@ -39,7 +39,7 @@ export const _Preloaded: Story = {
   args: {
     width: 50,
     height: 50,
-    name: 'HomeOutline',
+    name: 'HomeOutlined',
   },
 }
 export const __Custom: Story = {
