@@ -180,9 +180,6 @@ export const Alert: FC<AlertProps> = ({
 
   const expandIconProps: IconProps = {
     fill: contentColor,
-    width: Sizing._16,
-    height: Sizing._16,
-    maxWidth: Sizing._24,
     name: expanded ? 'ExpandLess' : 'ExpandMore',
   }
 
@@ -190,19 +187,6 @@ export const Alert: FC<AlertProps> = ({
     <View style={iconViewStyle}>
       <Spacer horizontal />
       <Icon {...expandIconProps} />
-    </View>
-  )
-
-  /**
-   * When an alert is expandable, the content should have additional padding on
-   * the right to appear within the expandable icon. Since the expandable icon
-   * has a maxWidth, this hidden icon matches the spacing of the icon insteading
-   * instead of adding a <Spacer /> with a calculated value.
-   */
-  const spacerIcon = (
-    <View style={iconViewStyle} aria-hidden>
-      <Spacer horizontal />
-      <Icon {...expandIconProps} fill="none" />
     </View>
   )
 
@@ -315,7 +299,7 @@ export const Alert: FC<AlertProps> = ({
                 {description && children ? <Spacer /> : null}
                 {children}
               </View>
-              {expandable && spacerIcon}
+              {expandable ? <Spacer size={Sizing._24} horizontal /> : null}
             </View>
           )}
         </View>
