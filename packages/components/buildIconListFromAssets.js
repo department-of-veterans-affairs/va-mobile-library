@@ -64,7 +64,7 @@ const files = fs.readdirSync(`../../node_modules/${importLocation}`, {
   recursive: true,
 })
 
-// Process icons list into requisite icon data
+// Process icon files list into requisite icon data
 for (const file of files) {
   const iconName = parseName(file)
   const importPath = `${importLocation}/${file}`
