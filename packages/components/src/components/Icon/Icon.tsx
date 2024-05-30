@@ -3,7 +3,7 @@ import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { SvgProps } from 'react-native-svg'
 import React, { FC } from 'react'
 
-import { IconMap } from './index'
+import { IconMap } from './iconList'
 import { useColorScheme } from '../../utils'
 
 type nameOrSvg =
