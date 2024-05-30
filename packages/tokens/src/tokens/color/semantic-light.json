@@ -1,7 +1,14 @@
 {
-  "vads-color-fg-default-on-light": {
-    "name": "vads-color-fg-default-on-light",
+  "vads-color-foreground-default-on-light": {
+    "name": "vads-color-foreground-default-on-light",
     "value": "{vads-color-base.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-foreground-inverse-on-light": {
+    "name": "vads-color-foreground-inverse-on-light",
+    "value": "{vads-color-base-lightest.*.value}",
     "attributes": {
       "category": "color"
     }
@@ -9,6 +16,76 @@
   "vads-color-surface-secondary-on-light": {
     "name": "vads-color-surface-secondary-on-light",
     "value": "{vads-color-base-lighter.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-surface-inverse-on-light": {
+    "name": "vads-color-surface-inverse-on-light",
+    "value": "{vads-color-base-darkest.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-default-on-light": {
+    "name": "vads-color-action-foreground-default-on-light",
+    "value": "{vads-color-primary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-border-info-on-light": {
+    "name": "vads-color-feedback-border-info-on-light",
+    "value": "{vads-color-info.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-border-success-on-light": {
+    "name": "vads-color-feedback-border-success-on-light",
+    "value": "{vads-color-success.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-border-warning-on-light": {
+    "name": "vads-color-feedback-border-warning-on-light",
+    "value": "{vads-color-warning.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },  
+  "vads-color-feedback-border-error-on-light": {
+    "name": "vads-color-feedback-border-error-on-light",
+    "value": "{vads-color-error.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-surface-info-on-light": {
+    "name": "vads-color-feedback-surface-info-on-light",
+    "value": "{vads-color-info-lighter.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-surface-success-on-light": {
+    "name": "vads-color-feedback-surface-success-on-light",
+    "value": "{vads-color-success-lighter.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-surface-warning-on-light": {
+    "name": "vads-color-feedback-warning-success-on-light",
+    "value": "{vads-color-warning-lighter.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-surface-error-on-light": {
+    "name": "vads-color-feedback-surface-error-on-light",
+    "value": "{vads-color-error-lighter.*.value}",
     "attributes": {
       "category": "color"
     }
