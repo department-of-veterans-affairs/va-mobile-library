@@ -1,5 +1,18 @@
 # Changelog
 
+## [tokens-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.11.0) (2024-05-30)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.10.0...tokens-v0.11.0)
+
+**Closed issues:**
+
+- Design Tokens: Create semantic color tokens - snackbar and alert [\#331](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/331)
+- Copy of Design Tokens: Create semantic color tokens - link [\#330](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/330)
+
+**Merged pull requests:**
+
+- \[Feature\] Add tokens for Snackbar and Alert components [\#337](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/337) ([jessicawoodin](https://github.com/jessicawoodin))
+
 ## [tokens-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.10.0) (2024-05-29)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.9.0...tokens-v0.10.0)
