@@ -535,8 +535,44 @@
     "$value": "{uswds-system-color-red-warm-10}",
     "$type": "color"
   },
+  "vads-color-feedback-border-error-on-light": {
+    "$value": "{vads-color-error}",
+    "$type": "color"
+  },
+  "vads-color-feedback-border-info-on-light": {
+    "$value": "{vads-color-info}",
+    "$type": "color"
+  },
+  "vads-color-feedback-border-success-on-light": {
+    "$value": "{vads-color-success}",
+    "$type": "color"
+  },
+  "vads-color-feedback-border-warning-on-light": {
+    "$value": "{vads-color-warning}",
+    "$type": "color"
+  },
+  "vads-color-feedback-surface-error-on-light": {
+    "$value": "{vads-color-error-lighter}",
+    "$type": "color"
+  },
+  "vads-color-feedback-surface-info-on-light": {
+    "$value": "{vads-color-info-lighter}",
+    "$type": "color"
+  },
+  "vads-color-feedback-surface-success-on-light": {
+    "$value": "{vads-color-success-lighter}",
+    "$type": "color"
+  },
+  "vads-color-feedback-surface-warning-on-light": {
+    "$value": "{vads-color-warning-lighter}",
+    "$type": "color"
+  },
   "vads-color-foreground-default-on-light": {
     "$value": "{vads-color-base}",
+    "$type": "color"
+  },
+  "vads-color-foreground-inverse-on-light": {
+    "$value": "{vads-color-base-lightest}",
     "$type": "color"
   },
   "vads-color-gibill-accent": {
@@ -741,6 +777,10 @@
   },
   "vads-color-success-lighter": {
     "$value": "{uswds-system-color-green-cool-5}",
+    "$type": "color"
+  },
+  "vads-color-surface-inverse-on-light": {
+    "$value": "{vads-color-base-darkest}",
     "$type": "color"
   },
   "vads-color-surface-secondary-on-light": {
