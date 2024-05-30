@@ -181,7 +181,11 @@ export const Alert: FC<AlertProps> = ({
   const expandableIcon = (
     <View style={iconViewStyle}>
       <Spacer horizontal />
-      <Icon fill={contentColor} name={expanded ? 'ExpandLess' : 'ExpandMore'} preventScaling />
+      <Icon
+        fill={contentColor}
+        name={expanded ? 'ExpandLess' : 'ExpandMore'}
+        preventScaling
+      />
     </View>
   )
 
@@ -294,7 +298,10 @@ export const Alert: FC<AlertProps> = ({
                 {description && children ? <Spacer /> : null}
                 {children}
               </View>
-              {expandable ? <Spacer size={Sizing._10 + Sizing._24} horizontal /> : null}
+              {/* When expandable, prevent body content extending below the expand icon and padding for it */}
+              {expandable ? (
+                <Spacer size={Sizing._10 + Sizing._24} horizontal />
+              ) : null}
             </View>
           )}
         </View>
