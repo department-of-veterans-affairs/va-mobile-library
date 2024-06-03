@@ -55,6 +55,13 @@
       "category": "color"
     }
   },
+  "vads-color-action-foreground-base-active-on-dark": {
+    "name": "vads-color-action-foreground-base-active-on-dark",
+    "value": "{uswds-system-color-gray-30}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-action-surface-default-active-on-dark": {
     "name": "vads-color-action-surface-default-active-on-dark",
     "value": "{vads-color-primary-alt-lightest.*.value}",
