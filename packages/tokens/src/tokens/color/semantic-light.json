@@ -27,6 +27,27 @@
       "category": "color"
     }
   },
+  "vads-color-action-border-default-on-light": {
+    "name": "vads-color-action-border-default-on-light",
+    "value": "{vads-color-primary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-border-default-active-on-light": {
+    "name": "vads-color-action-border-default-active-on-light",
+    "value": "{vads-color-primary-darker.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-border-base-on-light": {
+    "name": "vads-color-action-border-base-on-light",
+    "value": "{vads-color-gray-medium.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-action-foreground-inverse-on-light": {
     "name": "vads-color-action-foreground-inverse-on-light",
     "value": "{vads-color-white.*.value}",
