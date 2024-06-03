@@ -1,4 +1,11 @@
 {
+  "vads-color-surface-default-on-dark": {
+    "name": "vads-color-surface-default-on-dark",
+    "value": "{uswds-system-color-gray-80}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-foreground-default-on-dark": {
     "name": "vads-color-foreground-default-on-dark",
     "value": "{vads-color-base-lightest.*.value}",

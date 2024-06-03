@@ -1,4 +1,18 @@
 {
+  "vads-color-background-default-on-light": {
+    "name": "vads-color-background-default-on-light",
+    "value": "{vads-color-base-lightest.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-surface-default-on-light": {
+    "name": "vads-color-surface-default-on-light",
+    "value": "{vads-color-white.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-foreground-default-on-light": {
     "name": "vads-color-foreground-default-on-light",
     "value": "{vads-color-base.*.value}",
