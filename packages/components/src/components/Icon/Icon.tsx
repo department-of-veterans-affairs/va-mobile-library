@@ -191,10 +191,11 @@ export const Icon: FC<IconProps> = ({
   preventScaling,
   testID,
 }) => {
-  const { Icon: IconSettings, allowDarkMode } = useContext(SettingsContext)
+  const context = useContext(SettingsContext)
+  console.log(context)
 
-  const globalMaxWidth = IconSettings?.maxWidth || 10
-  console.log('allowDarkMode', allowDarkMode)
+  const globalMaxWidth = context?.Icon?.maxWidth || 10
+  console.log('allowDarkMode', context?.allowDarkMode)
   console.log('globalMaxWidth', globalMaxWidth)
 
   const colorScheme = useColorScheme()
