@@ -192,11 +192,11 @@ export const Icon: FC<IconProps> = ({
   testID,
 }) => {
   const context = useContext(SettingsContext)
-  console.log(context)
+  console.log('VA-MOBILE-LIBRARY – SettingsContext: ', context)
 
   const globalMaxWidth = context?.Icon?.maxWidth || 10
-  console.log('allowDarkMode', context?.allowDarkMode)
-  console.log('globalMaxWidth', globalMaxWidth)
+  console.log('VA-MOBILE-LIBRARY – allowDarkMode', context?.allowDarkMode)
+  console.log('VA-MOBILE-LIBRARY – globalMaxWidth', globalMaxWidth)
 
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
