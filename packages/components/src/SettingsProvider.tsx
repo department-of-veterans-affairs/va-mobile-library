@@ -9,6 +9,7 @@ const SettingsContext = createContext({
 })
 
 function SettingsProvider({ children, initialSettings }) {
+  console.log('SettingsProvider: initialSettings', initialSettings)
   const [settings, updateSettings] = useState(initialSettings)
 
   const updateSetting = (property, value) =>
