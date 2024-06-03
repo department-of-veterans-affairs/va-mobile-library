@@ -27,6 +27,13 @@
       "category": "color"
     }
   },
+  "vads-color-action-foreground-inverse-on-light": {
+    "name": "vads-color-action-foreground-inverse-on-light",
+    "value": "{vads-color-white.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-action-foreground-default-on-light": {
     "name": "vads-color-action-foreground-default-on-light",
     "value": "{vads-color-primary.*.value}",
@@ -34,9 +41,23 @@
       "category": "color"
     }
   },
-  "vads-color-action-foreground-inverse-on-light": {
-    "name": "vads-color-action-foreground-inverse-on-light",
-    "value": "{vads-color-white.*.value}",
+  "vads-color-action-foreground-default-active-on-light": {
+    "name": "vads-color-action-foreground-default-active-on-light",
+    "value": "{vads-color-primary-darker.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-base-on-light": {
+    "name": "vads-color-action-foreground-base-on-light",
+    "value": "{vads-color-gray-medium.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-base-active-on-light": {
+    "name": "vads-color-action-foreground-base-active-on-light",
+    "value": "{uswds-system-color-gray-80}",
     "attributes": {
       "category": "color"
     }
