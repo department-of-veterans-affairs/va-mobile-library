@@ -1,8 +1,9 @@
 import { ColorValue, useWindowDimensions } from 'react-native'
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { SvgProps } from 'react-native-svg'
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 
+import { SettingsContext } from '../../SettingsProvider'
 import { useColorScheme } from '../../utils'
 
 import AccountCircle from '@department-of-veterans-affairs/mobile-assets/icons/AccountCircle.svg'
@@ -190,6 +191,12 @@ export const Icon: FC<IconProps> = ({
   preventScaling,
   testID,
 }) => {
+  const { Icon: IconSettings, allowDarkMode } = useContext(SettingsContext)
+
+  const globalMaxWidth = IconSettings.maxWidth
+  console.log('allowDarkMode', allowDarkMode)
+  console.log('globalMaxWidth', globalMaxWidth)
+
   const colorScheme = useColorScheme()
   const isDarkMode = colorScheme === 'dark'
   const fontScale = useWindowDimensions().fontScale
@@ -212,12 +219,16 @@ export const Icon: FC<IconProps> = ({
     color: fill2,
   }
 
+  const _maxWidth = globalMaxWidth || maxWidth
+
+  console.log(_maxWidth)
+
   // Set height/width
   if (preventScaling) {
     iconProps = { ...iconProps, width, height }
-  } else if (maxWidth && fs(width) > maxWidth) {
-    const scaledHeight = (maxWidth / width) * height
-    iconProps = { ...iconProps, width: maxWidth, height: scaledHeight }
+  } else if (_maxWidth && fs(width) > _maxWidth) {
+    const scaledHeight = (_maxWidth / width) * height
+    iconProps = { ...iconProps, width: _maxWidth, height: scaledHeight }
   } else {
     iconProps = { ...iconProps, width: fs(width), height: fs(height) }
   }
