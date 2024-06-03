@@ -1,5 +1,17 @@
 # Changelog
 
+## [tokens-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.12.0) (2024-06-03)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.9.0...tokens-v0.12.0)
+
+**Closed issues:**
+
+- Establish process and guidelines around ticket management [\#122](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/122)
+
+**Merged pull requests:**
+
+- \[Feature\] Add semantic tokens for button [\#342](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/342) ([jessicawoodin](https://github.com/jessicawoodin))
+
 ## [assets-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.9.0) (2024-05-30)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.11.0...assets-v0.9.0)
