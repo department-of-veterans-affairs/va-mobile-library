@@ -33,7 +33,7 @@ function SettingsProvider({ children, initialSettings }) {
 
   return (
     <SettingsContext.Provider
-      value={{ settings, updateSetting, updateComponentSetting }}>
+      value={{ ...settings, updateSetting, updateComponentSetting }}>
       {children}
     </SettingsContext.Provider>
   )
