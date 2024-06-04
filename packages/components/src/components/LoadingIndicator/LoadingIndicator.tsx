@@ -6,7 +6,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 
 import Loading from './loading.svg'
 
@@ -16,7 +16,7 @@ export type LoadingIndicatorProps = {
 }
 
 export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ text }) => {
-  const rotation = useRef(new Animated.Value(0)).current
+  const rotation = new Animated.Value(0)
 
   useEffect(() => {
     const animate = () => {
@@ -41,6 +41,14 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ text }) => {
     alignItems: 'center',
   }
 
+  const indicatorStyle: ViewStyle = {
+    width: 50,
+    height: 50,
+    transform: [{ rotate }],
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
   const textStyle: TextStyle = {
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 20,
@@ -50,14 +58,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ text }) => {
 
   return (
     <View style={containerStyle}>
-      <Animated.View
-        style={{
-          width: 50,
-          height: 50,
-          transform: [{ rotate }],
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <Animated.View style={indicatorStyle}>
         <Loading width="50" height="50" />
       </Animated.View>
       {text && <Text style={textStyle}>{text}</Text>}
