@@ -12,6 +12,7 @@ import React, { useSyncExternalStore } from 'react'
 type DocProps = {
   name?: string
   docUrl?: string
+  icons?: React.JSX.Element
 }
 
 /**
@@ -20,7 +21,10 @@ type DocProps = {
  * @param docUrl - URL for the component's documentation on the docs site
  * @returns
  */
-export const DocLink = ({ name, docUrl }: Required<DocProps>): JSX.Element => (
+export const DocLink = ({
+  name,
+  docUrl,
+}: Required<Pick<DocProps, 'name' | 'docUrl'>>): JSX.Element => (
   <View style={{ marginVertical: 10 }}>
     <Text
       style={{ color: 'blue', textDecorationLine: 'underline', lineHeight: 20 }}
@@ -36,9 +40,10 @@ export const DocLink = ({ name, docUrl }: Required<DocProps>): JSX.Element => (
  *
  * @param name - Name of the component
  * @param docUrl - URL for the component's documentation on the docs site
+ * @param icons - IconGallery documentation section passthrough
  * @returns
  */
-export const generateDocs = ({ name, docUrl }: DocProps) => ({
+export const generateDocs = ({ name, docUrl, icons }: DocProps) => ({
   page: () => (
     <>
       <Title />
@@ -47,6 +52,7 @@ export const generateDocs = ({ name, docUrl }: DocProps) => ({
       <Description />
       <Primary />
       <Controls />
+      {icons ? icons : null}
       <Stories />
     </>
   ),
