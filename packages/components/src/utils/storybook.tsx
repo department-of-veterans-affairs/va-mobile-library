@@ -28,16 +28,11 @@ export const DocLink = ({ name, docUrl }: DocProps) => {
   return (
     <View style={{ marginVertical: 10 }}>
       <Text
-        style={{
-          color: 'blue',
-          textDecorationLine: 'underline',
-          lineHeight: 20,
-        }}
+        style={{ color: 'blue', textDecorationLine: 'underline', lineHeight: 20 }}
         onPress={() => {
           Linking.openURL(docUrl)
         }}>
-        View guidance for the {name} component on the VA Mobile Documentation
-        Site
+        View guidance for the {name} component on the VA Mobile Documentation Site
       </Text>
     </View>
   )

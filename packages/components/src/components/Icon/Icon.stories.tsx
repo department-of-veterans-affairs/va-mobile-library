@@ -18,7 +18,7 @@ const buildIconGallery = () => {
 
   for (const icon of iconMapArray) {
     iconItems.push(
-      <IconItem name={icon}>
+      <IconItem name={icon} key={icon}>
         {/* @ts-ignore - Typed as string, but derived from IconMap names */}
         <Icon name={icon} />
       </IconItem>,
