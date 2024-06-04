@@ -76,6 +76,7 @@
     "@storybook/react": "7.6.19",
     "@storybook/react-native": "^7.6.18",
     "@storybook/react-webpack5": "7.6.19",
+    "@storybook/theming": "7.6.19",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/react-native": "^12.4.5",
     "@types/jest": "^29.5.12",
