@@ -68,6 +68,7 @@ yarn tokens:build
 | -------------------- | ----------- |
 | `start`              | Starts Metro Bundler with options to run app on different platforms. **Note:** To run on web, use `yarn storybook:web` command below |
 | `android `           | Run app on last used Android emulator/device |
+| `buildIcons `        | Run script to build icons from assets package |
 | `ios`                | Run app on last used iOS simulator/device |
 | `storybook:build`    | Generates static version of Storybook for deployment |
 | `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json` |

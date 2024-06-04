@@ -1,4 +1,18 @@
 {
+  "vads-color-background-default-on-light": {
+    "name": "vads-color-background-default-on-light",
+    "value": "{vads-color-base-lightest.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-surface-default-on-light": {
+    "name": "vads-color-surface-default-on-light",
+    "value": "{vads-color-white.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-foreground-default-on-light": {
     "name": "vads-color-foreground-default-on-light",
     "value": "{vads-color-base.*.value}",
@@ -27,9 +41,100 @@
       "category": "color"
     }
   },
+  "vads-color-action-border-default-on-light": {
+    "name": "vads-color-action-border-default-on-light",
+    "value": "{vads-color-primary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-border-default-active-on-light": {
+    "name": "vads-color-action-border-default-active-on-light",
+    "value": "{vads-color-primary-darker.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-border-base-on-light": {
+    "name": "vads-color-action-border-base-on-light",
+    "value": "{vads-color-gray-medium.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-inverse-on-light": {
+    "name": "vads-color-action-foreground-inverse-on-light",
+    "value": "{vads-color-white.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-action-foreground-default-on-light": {
     "name": "vads-color-action-foreground-default-on-light",
     "value": "{vads-color-primary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-default-active-on-light": {
+    "name": "vads-color-action-foreground-default-active-on-light",
+    "value": "{vads-color-primary-darker.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-base-on-light": {
+    "name": "vads-color-action-foreground-base-on-light",
+    "value": "{vads-color-gray-medium.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-foreground-base-active-on-light": {
+    "name": "vads-color-action-foreground-base-active-on-light",
+    "value": "{uswds-system-color-gray-80}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-surface-default-on-light": {
+    "name": "vads-color-action-surface-default-on-light",
+    "value": "{vads-color-primary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-surface-default-active-on-light": {
+    "name": "vads-color-action-surface-default-active-on-light",
+    "value": "{vads-color-primary-darker.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-surface-base-on-light": {
+    "name": "vads-color-action-surface-base-on-light",
+    "value": "{vads-color-gray-medium.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-surface-base-active-on-light": {
+    "name": "vads-color-action-surface-base-active-on-light",
+    "value": "{uswds-system-color-gray-80}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-surface-destructive-on-light": {
+    "name": "vads-color-action-surface-destructive-on-light",
+    "value": "{vads-color-secondary-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-action-surface-destructive-active-on-light": {
+    "name": "vads-color-action-surface-destructive-active-on-light",
+    "value": "{uswds-system-color-red-vivid-80}",
     "attributes": {
       "category": "color"
     }

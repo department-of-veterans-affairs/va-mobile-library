@@ -1,5 +1,31 @@
 # Changelog
 
+## [components-v0.17.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.17.0) (2024-06-04)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.12.0...components-v0.17.0)
+
+**Closed issues:**
+
+- \[Design System\] Assets: Update logos and emblems in flagship mobile app [\#341](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/341)
+- Spike - Explore ability for consumers to set global values for components [\#256](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/256)
+- Design Tokens: Create semantic color tokens - button [\#178](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/178)
+
+**Merged pull requests:**
+
+- \[Enhancement\] Update Icon component with VADS icons [\#334](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/334) ([TimRoe](https://github.com/TimRoe))
+
+## [tokens-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.12.0) (2024-06-03)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.9.0...tokens-v0.12.0)
+
+**Closed issues:**
+
+- Establish process and guidelines around ticket management [\#122](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/122)
+
+**Merged pull requests:**
+
+- \[Feature\] Add semantic tokens for button [\#342](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/342) ([jessicawoodin](https://github.com/jessicawoodin))
+
 ## [assets-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.9.0) (2024-05-30)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.11.0...assets-v0.9.0)
