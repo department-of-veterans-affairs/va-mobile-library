@@ -60,13 +60,13 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = Colors.grayDark
-    activeBgColor = Colors.white
-    inactiveBgColor = Colors.grayLighter
+    textColor = Colors.vadsColorForegroundDefaultOnLight
+    activeBgColor = Colors.vadsSegmentedControlColorSurfaceSelectedOnLight
+    inactiveBgColor = Colors.vadsColorSurfaceSecondaryOnLight
   } else {
-    textColor = Colors.grayLightest
-    activeBgColor = Colors.grayMedium
-    inactiveBgColor = Colors.grayDark
+    textColor = Colors.vadsColorForegroundDefaultOnDark
+    activeBgColor = Colors.vadsSegmentedControlColorSurfaceSelectedOnDark
+    inactiveBgColor = Colors.vadsColorSurfaceSecondaryOnDark
   }
 
   const viewStyle: ViewStyle = {
