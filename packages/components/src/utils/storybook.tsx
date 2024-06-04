@@ -12,6 +12,7 @@ import React, { useSyncExternalStore } from 'react'
 type DocProps = {
   name?: string
   docUrl?: string
+  /** IconGallery documentation section passthrough */
   icons?: React.JSX.Element
 }
 
@@ -21,20 +22,26 @@ type DocProps = {
  * @param docUrl - URL for the component's documentation on the docs site
  * @returns
  */
-export const DocLink = ({
-  name,
-  docUrl,
-}: Required<Pick<DocProps, 'name' | 'docUrl'>>): JSX.Element => (
-  <View style={{ marginVertical: 10 }}>
-    <Text
-      style={{ color: 'blue', textDecorationLine: 'underline', lineHeight: 20 }}
-      onPress={() => {
-        Linking.openURL(docUrl)
-      }}>
-      View guidance for the {name} component on the VA Mobile Documentation Site
-    </Text>
-  </View>
-)
+export const DocLink = ({ name, docUrl }: DocProps) => {
+  if (!name || !docUrl) return null
+
+  return (
+    <View style={{ marginVertical: 10 }}>
+      <Text
+        style={{
+          color: 'blue',
+          textDecorationLine: 'underline',
+          lineHeight: 20,
+        }}
+        onPress={() => {
+          Linking.openURL(docUrl)
+        }}>
+        View guidance for the {name} component on the VA Mobile Documentation
+        Site
+      </Text>
+    </View>
+  )
+}
 
 /**
  *
@@ -48,7 +55,7 @@ export const generateDocs = ({ name, docUrl, icons }: DocProps) => ({
     <>
       <Title />
       <Subtitle />
-      {name && docUrl ? <DocLink name={name} docUrl={docUrl} /> : null}
+      <DocLink name={name} docUrl={docUrl} />
       <Description />
       <Primary />
       <Controls />

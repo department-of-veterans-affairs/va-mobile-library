@@ -2149,7 +2149,6 @@ __metadata:
     "@storybook/react": "npm:7.6.19"
     "@storybook/react-native": "npm:^7.6.18"
     "@storybook/react-webpack5": "npm:7.6.19"
-    "@storybook/theming": "npm:7.6.19"
     "@svgr/webpack": "npm:^8.1.0"
     "@testing-library/react-native": "npm:^12.4.5"
     "@types/jest": "npm:^29.5.12"
