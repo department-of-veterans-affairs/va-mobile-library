@@ -99,13 +99,13 @@ export const Alert: FC<AlertProps> = ({
     _30: 30,
   }
   const contentColor = AlertContentColor()
-  let backgroundColor, borderColor, iconProps: IconProps
+  let backgroundColor, borderColor, iconName: IconProps['name']
 
   switch (variant) {
     case 'info':
       backgroundColor = Colors.primaryAltLightest
       borderColor = Colors.primaryAltDark
-      iconProps = { name: 'Info', fill: 'base' }
+      iconName = 'Info'
 
       if (isDarkMode) {
         backgroundColor = Colors.uswdsBlueVivid80
@@ -115,7 +115,7 @@ export const Alert: FC<AlertProps> = ({
     case 'success':
       backgroundColor = Colors.greenLightest
       borderColor = Colors.green
-      iconProps = { name: 'Check', fill: 'base' }
+      iconName = 'Check'
 
       if (isDarkMode) {
         backgroundColor = Colors.uswdsGreenCoolVivid80
@@ -125,7 +125,7 @@ export const Alert: FC<AlertProps> = ({
     case 'warning':
       backgroundColor = Colors.warningMessage
       borderColor = Colors.gold
-      iconProps = { name: 'ExclamationTriangle', fill: 'base' }
+      iconName = 'Warning'
 
       if (isDarkMode) {
         backgroundColor = Colors.uswdsYellowVivid70
@@ -135,7 +135,7 @@ export const Alert: FC<AlertProps> = ({
     case 'error':
       backgroundColor = Colors.secondaryLightest
       borderColor = Colors.secondaryDark
-      iconProps = { name: 'ExclamationCircle', fill: 'base' }
+      iconName = 'Error'
 
       if (isDarkMode) {
         backgroundColor = Colors.uswdsRedVivid80
@@ -173,36 +173,19 @@ export const Alert: FC<AlertProps> = ({
 
   const iconDisplay = (
     <View style={iconViewStyle}>
-      <Icon fill={contentColor} {...iconProps} preventScaling />
+      <Icon fill={contentColor} name={iconName} preventScaling />
       <Spacer horizontal />
     </View>
   )
-
-  const expandIconProps: IconProps = {
-    fill: contentColor,
-    width: Sizing._16,
-    height: Sizing._16,
-    maxWidth: Sizing._24,
-    name: expanded ? 'ChevronUp' : 'ChevronDown',
-  }
 
   const expandableIcon = (
     <View style={iconViewStyle}>
       <Spacer horizontal />
-      <Icon {...expandIconProps} />
-    </View>
-  )
-
-  /**
-   * When an alert is expandable, the content should have additional padding on
-   * the right to appear within the expandable icon. Since the expandable icon
-   * has a maxWidth, this hidden icon matches the spacing of the icon insteading
-   * instead of adding a <Spacer /> with a calculated value.
-   */
-  const spacerIcon = (
-    <View style={iconViewStyle} aria-hidden>
-      <Spacer horizontal />
-      <Icon {...expandIconProps} fill="none" />
+      <Icon
+        fill={contentColor}
+        name={expanded ? 'ExpandLess' : 'ExpandMore'}
+        preventScaling
+      />
     </View>
   )
 
@@ -315,7 +298,10 @@ export const Alert: FC<AlertProps> = ({
                 {description && children ? <Spacer /> : null}
                 {children}
               </View>
-              {expandable && spacerIcon}
+              {/* When expandable, prevent body content extending below the expand icon and padding for it */}
+              {expandable ? (
+                <Spacer size={Sizing._10 + Sizing._24} horizontal />
+              ) : null}
             </View>
           )}
         </View>

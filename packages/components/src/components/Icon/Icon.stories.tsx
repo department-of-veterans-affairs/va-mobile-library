@@ -2,7 +2,8 @@ import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React from 'react'
 
-import { Icon, IconMap, IconProps } from './Icon'
+import { Icon, IconProps } from './Icon'
+import { IconMap } from './iconList'
 import { generateDocs } from '../../utils/storybook'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
@@ -38,7 +39,7 @@ export const _Preloaded: Story = {
   args: {
     width: 50,
     height: 50,
-    name: 'HomeOutline',
+    name: 'HomeOutlined',
   },
 }
 export const __Custom: Story = {
