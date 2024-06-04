@@ -13,9 +13,14 @@ import Loading from './loading.svg'
 export type LoadingIndicatorProps = {
   /** Optional text appearing below indicator */
   text?: string
+  /** Optional custom content to display below indicator */
+  children?: React.ReactNode
 }
 
-export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ text }) => {
+export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
+  text,
+  children,
+}) => {
   const rotation = new Animated.Value(0)
 
   useEffect(() => {
@@ -62,6 +67,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ text }) => {
         <Loading width="50" height="50" />
       </Animated.View>
       {text && <Text style={textStyle}>{text}</Text>}
+      {children}
     </View>
   )
 }
