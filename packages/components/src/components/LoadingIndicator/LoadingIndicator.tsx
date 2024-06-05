@@ -14,13 +14,22 @@ import { Spacer } from '../..'
 import { useColorScheme } from '../../utils'
 
 export type LoadingIndicatorProps = {
-  /** Optional text appearing below indicator */
-  text?: string
   /** AccessibilityLabel for the text */
   a11yLabel?: string
-  /** Optional custom content to display below indicator */
-  children?: React.ReactNode
-}
+} & (
+  | {
+      /** Text appearing below indicator. Required if no children included */
+      text: string
+      /** Optional custom content to display below indicator */
+      children?: React.ReactNode
+    }
+  | {
+      /** Text appearing below indicator. Optional if children included */
+      text?: string
+      /** Optional custom content to display below indicator */
+      children: React.ReactNode
+    }
+)
 
 export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
   text,
