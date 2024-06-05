@@ -118,8 +118,8 @@ export const Button: React.FC<ButtonProps> = ({
     case ButtonVariants.White:
       bgColor = Colors.vadsColorBaseLightest
       bgColorPressed = Colors.uswdsSystemColorGray30
-      textColor = Colors.vadsColorForegroundInverseOnDark
-      textColorPressed = Colors.vadsColorForegroundInverseOnDark
+      textColor = Colors.vadsColorBlack
+      textColorPressed = Colors.vadsColorBlack
       break
     default:
       bgColor = Colors.vadsColorActionSurfaceDefaultOnLight
