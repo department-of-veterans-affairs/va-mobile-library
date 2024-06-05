@@ -184,7 +184,7 @@ export const Icon: FC<IconProps> = ({
   width = 24,
   height = 24,
   fill = 'default',
-  fill2 = Colors.white,
+  fill2 = Colors.vadsColorWhite,
   stroke,
   maxWidth,
   preventScaling,
@@ -201,9 +201,9 @@ export const Icon: FC<IconProps> = ({
   if (typeof fill === 'object') {
     fill = isDarkMode ? fill.dark : fill.light
   } else if (fill === 'default') {
-    fill = isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary
+    fill = isDarkMode ? Colors.vadsColorActionForegroundDefaultOnDark : Colors.vadsColorActionForegroundDefaultOnLight
   } else if (fill === 'base') {
-    fill = isDarkMode ? Colors.grayLightest : Colors.grayDark
+    fill = isDarkMode ? Colors.vadsColorForegroundDefaultOnDark : Colors.vadsColorForegroundDefaultOnLight
   }
 
   let iconProps: SvgProps = {
