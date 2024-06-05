@@ -8,6 +8,8 @@ import {
 } from 'react-native'
 import React, { useEffect } from 'react'
 
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import { useColorScheme } from '../../utils'
 import Loading from './loading.svg'
 
 export type LoadingIndicatorProps = {
@@ -21,6 +23,8 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
   text,
   children,
 }) => {
+  const colorScheme = useColorScheme()
+  const isDarkMode = colorScheme === 'dark'
   const rotation = new Animated.Value(0)
 
   useEffect(() => {
@@ -59,6 +63,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     fontSize: 20,
     lineHeight: 30,
     marginTop: 10,
+    color: isDarkMode ? Colors.grayLightest : Colors.base,
   }
 
   return (
