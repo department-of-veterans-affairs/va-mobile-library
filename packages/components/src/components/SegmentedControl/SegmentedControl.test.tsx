@@ -88,20 +88,20 @@ describe('SegmentedControl', () => {
 
     expect(activeSegment).toHaveStyle({
       elevation: 4,
-      backgroundColor: 'vadsSegmentedControlColorSurfaceSelectedOnLight',
+      backgroundColor: Colors.vadsSegmentedControlColorSurfaceSelectedOnLight,
     })
 
     expect(activeSegmentText).toHaveStyle({
-      color: 'vadsColorForegroundDefaultOnLight',
+      color: Colors.vadsColorForegroundDefaultOnLight,
     })
 
     expect(inactiveSegment).toHaveStyle({
       elevation: 0,
-      backgroundColor: 'vadsColorSurfaceSecondaryOnLight',
+      backgroundColor: Colors.vadsColorSurfaceSecondaryOnLight,
     })
 
     expect(inactiveSegmentText).toHaveStyle({
-      color: 'vadsColorForegroundDefaultOnLight',
+      color: Colors.vadsColorForegroundDefaultOnLight,
     })
   })
 
