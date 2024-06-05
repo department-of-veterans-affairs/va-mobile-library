@@ -16,12 +16,15 @@ import { useColorScheme } from '../../utils'
 export type LoadingIndicatorProps = {
   /** Optional text appearing below indicator */
   text?: string
+  /** AccessibilityLabel for the text */
+  a11yLabel?: string
   /** Optional custom content to display below indicator */
   children?: React.ReactNode
 }
 
 export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
   text,
+  a11yLabel,
   children,
 }) => {
   const colorScheme = useColorScheme()
@@ -82,7 +85,9 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
       {text && (
         <>
           <Spacer />
-          <Text style={textStyle}>{text}</Text>
+          <Text style={textStyle} accessibilityLabel={a11yLabel}>
+            {text}
+          </Text>
         </>
       )}
       {children && (
