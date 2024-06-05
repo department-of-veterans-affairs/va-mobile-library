@@ -1,10 +1,10 @@
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   fireEvent,
   render,
   screen,
   within,
 } from '@testing-library/react-native'
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import React from 'react'
 
 import * as utils from '../../utils/OSfunctions'
