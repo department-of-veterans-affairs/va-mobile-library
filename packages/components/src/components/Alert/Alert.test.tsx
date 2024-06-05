@@ -101,12 +101,12 @@ describe('Alert', () => {
         render(<Alert variant="info" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#e1f3f8',
-          borderLeftColor: '#28a0cb',
+          backgroundColor: 'vadsColorFeedbackSurfaceInfoOnLight',
+          borderLeftColor: 'vadsColorFeedbackBorderInfoOnLight',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: 'vadsColorForegroundDefaultOnLight',
         })
         expect(await getIconName()).toBe('Info')
       })
@@ -119,12 +119,12 @@ describe('Alert', () => {
         render(<Alert variant="info" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#112f4e',
-          borderLeftColor: '#97d4ea',
+          backgroundColor: 'vadsColorFeedbackSurfaceInfoOnDark',
+          borderLeftColor: 'vadsColorFeedbackBorderInfoOnDark',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#f0f0f0',
+          color: 'vadsColorForegroundDefaultOnDark',
         })
 
         expect(await getIconName()).toBe('Info')
@@ -140,12 +140,12 @@ describe('Alert', () => {
         render(<Alert variant="success" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#ecf3ec',
-          borderLeftColor: '#008817',
+          backgroundColor: 'vadsColorFeedbackSurfaceSuccessOnLight',
+          borderLeftColor: 'vadsColorFeedbackBorderSuccessOnLight',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: 'vadsColorForegroundDefaultOnLight',
         })
 
         expect(await getIconName()).toBe('Check')
@@ -159,12 +159,12 @@ describe('Alert', () => {
         render(<Alert variant="success" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#19311e',
-          borderLeftColor: '#5e9f69',
+          backgroundColor: 'vadsColorFeedbackSurfaceSuccessOnDark',
+          borderLeftColor: 'vadsColorFeedbackBorderSuccessOnDark',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#f0f0f0',
+          color: 'vadsColorForegroundDefaultOnDark',
         })
 
         expect(await getIconName()).toBe('Check')
@@ -180,12 +180,12 @@ describe('Alert', () => {
         render(<Alert variant="warning" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#faf3d1',
-          borderLeftColor: '#ffbe2e',
+          backgroundColor: 'vadsColorFeedbackSurfaceWarningOnLight',
+          borderLeftColor: 'vadsColorFeedbackBorderWarningOnLight',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: 'vadsColorForegroundDefaultOnLight',
         })
 
         expect(await getIconName()).toBe('ExclamationTriangle')
@@ -199,12 +199,12 @@ describe('Alert', () => {
         render(<Alert variant="warning" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#5c4809',
-          borderLeftColor: '#face00',
+          backgroundColor: 'vadsColorFeedbackSurfaceWarningOnDark',
+          borderLeftColor: 'vadsColorFeedbackBorderWarningOnDark',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#f0f0f0',
+          color: 'vadsColorForegroundDefaultOnDark',
         })
 
         expect(await getIconName()).toBe('ExclamationTriangle')
@@ -220,12 +220,12 @@ describe('Alert', () => {
         render(<Alert variant="error" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#f8dfe2',
-          borderLeftColor: '#b50909',
+          backgroundColor: 'vadsColorFeedbackSurfaceErrorOnLight',
+          borderLeftColor: 'vadsColorFeedbackBorderErrorOnLight',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: 'vadsColorForegroundDefaultOnLight',
         })
 
         expect(await getIconName()).toBe('ExclamationCircle')
@@ -239,12 +239,12 @@ describe('Alert', () => {
         render(<Alert variant="error" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#5c1111',
-          borderLeftColor: '#d83933',
+          backgroundColor: 'vadsColorFeedbackSurfaceErrorOnDark',
+          borderLeftColor: 'vadsColorFeedbackBorderErrorOnDark',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#f0f0f0',
+          color: 'vadsColorForegroundDefaultOnDark',
         })
 
         expect(await getIconName()).toBe('ExclamationCircle')
