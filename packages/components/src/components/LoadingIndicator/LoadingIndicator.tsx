@@ -9,8 +9,9 @@ import {
 import React, { useEffect } from 'react'
 
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import { Icon, IconProps } from '../Icon/Icon'
+import { Spacer } from '../..'
 import { useColorScheme } from '../../utils'
-import Loading from './loading.svg'
 
 export type LoadingIndicatorProps = {
   /** Optional text appearing below indicator */
@@ -58,21 +59,38 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     alignItems: 'center',
   }
 
+  const iconProps: IconProps = {
+    name: 'LoadingIndicator',
+    width: 50,
+    height: 50,
+    fill: isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary,
+  }
+
   const textStyle: TextStyle = {
     fontFamily: 'SourceSansPro-Regular',
     fontSize: 20,
     lineHeight: 30,
-    marginTop: 10,
+    textAlign: 'center',
     color: isDarkMode ? Colors.grayLightest : Colors.base,
   }
 
   return (
     <View style={containerStyle}>
       <Animated.View style={indicatorStyle}>
-        <Loading width="50" height="50" />
+        <Icon {...iconProps} />
       </Animated.View>
-      {text && <Text style={textStyle}>{text}</Text>}
-      {children}
+      {text && (
+        <>
+          <Spacer />
+          <Text style={textStyle}>{text}</Text>
+        </>
+      )}
+      {children && (
+        <>
+          <Spacer />
+          {children}
+        </>
+      )}
     </View>
   )
 }
