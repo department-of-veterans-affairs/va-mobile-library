@@ -1,4 +1,5 @@
 import 'react-native'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 // Note: test renderer must be required after react-native.
@@ -114,20 +115,20 @@ describe('SegmentedControl', () => {
 
     expect(activeSegment).toHaveStyle({
       elevation: 4,
-      backgroundColor: 'vadsSegmentedControlColorSurfaceSelectedOnDark',
+      backgroundColor: Colors.vadsSegmentedControlColorSurfaceSelectedOnDark,
     })
 
     expect(activeSegmentText).toHaveStyle({
-      color: 'vadsColorForegroundDefaultOnDark',
+      color: Colors.vadsColorForegroundDefaultOnDark,
     })
 
     expect(inactiveSegment).toHaveStyle({
       elevation: 0,
-      backgroundColor: 'vadsColorSurfaceSecondaryOnDark',
+      backgroundColor: Colors.vadsColorSurfaceSecondaryOnDark,
     })
 
     expect(inactiveSegmentText).toHaveStyle({
-      color: 'vadsColorForegroundDefaultOnDark',
+      color: Colors.vadsColorForegroundDefaultOnDark,
     })
   })
 
