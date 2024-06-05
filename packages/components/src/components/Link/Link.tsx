@@ -225,10 +225,14 @@ export const Link: FC<LinkProps> = ({
 
   switch (variant) {
     case 'base':
-      linkColor = isDarkMode ? Colors.vadsColorForegroundDefaultOnDark : Colors.vadsColorForegroundDefaultOnLight
+      linkColor = isDarkMode 
+        ? Colors.vadsColorForegroundDefaultOnDark 
+        : Colors.vadsColorForegroundDefaultOnLight
       break
     default:
-      linkColor = isDarkMode ? Colors.vadsColorActionForegroundDefaultOnDark : Colors.vadsColorActionForegroundDefaultOnLight
+      linkColor = isDarkMode 
+        ? Colors.vadsColorActionForegroundDefaultOnDark 
+        : Colors.vadsColorActionForegroundDefaultOnLight
   }
 
   const iconViewStyle: ViewStyle = {
