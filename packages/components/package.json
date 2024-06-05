@@ -1,11 +1,12 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
     "start": "sb-rn-get-stories --config-path .storybook/native && expo start",
     "android": "expo start --android",
+    "buildIcons": "node buildIconListFromAssets.js",
     "ios": "expo start --ios",
     "publish-package": "npm publish --access public --tolerate-republish",
     "storybook:build": "STORYBOOK_WEB=true storybook build --config-dir .storybook/web",
@@ -38,7 +39,7 @@
   },
   "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
-    "@department-of-veterans-affairs/mobile-assets": "0.6.0",
+    "@department-of-veterans-affairs/mobile-assets": "0.9.0",
     "@department-of-veterans-affairs/mobile-tokens": "0.12.0",
     "@os-team/i18next-react-native-language-detector": "^1.0.31",
     "i18next": "^23.8.2",

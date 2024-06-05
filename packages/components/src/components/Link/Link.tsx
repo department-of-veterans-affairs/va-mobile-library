@@ -177,11 +177,11 @@ export const Link: FC<LinkProps> = ({
 
   switch (type) {
     case 'attachment':
-      _icon = setIcon('PaperClip')
+      _icon = setIcon('AttachFile')
       _onPress = customOnPress
       break
     case 'calendar':
-      _icon = setIcon('Calendar')
+      _icon = setIcon('CalendarToday')
       _onPress = customOnPress
       break
     case 'call':
@@ -208,13 +208,13 @@ export const Link: FC<LinkProps> = ({
       }
       break
     case 'text':
-      _icon = setIcon('Text')
+      _icon = setIcon('PhoneIphone')
       _onPress = async (): Promise<void> => {
         launchExternalLink(`sms:${textNumber}`, analytics)
       }
       break
     case 'url':
-      _icon = setIcon('ExternalLink')
+      _icon = setIcon('Launch')
       _onPress = async (): Promise<void> => {
         launchExternalLink(url, analytics, promptText)
       }

@@ -55,7 +55,7 @@ export const DefaultWithIcon: Story = {
   name: 'Default (with icon)',
   args: {
     text: 'Link opens an external app',
-    icon: { name: 'Truck' },
+    icon: { name: 'CleanHands' },
     type: 'custom',
     onPress: () => {
       null
