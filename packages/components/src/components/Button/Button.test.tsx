@@ -352,7 +352,7 @@ describe('Button', () => {
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnDark',
+        color: 'vadsColorBlack',
       })
     })
 
@@ -372,7 +372,7 @@ describe('Button', () => {
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnDark',
+        color: 'vadsColorBlack',
       })
     })
 
