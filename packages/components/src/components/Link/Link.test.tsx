@@ -329,17 +329,17 @@ describe('Link', () => {
   describe('light mode tone tests', () => {
     it('renders primary tone', async () => {
       render(<Link {...commonProps} />)
-      expect(getLinkText()).toHaveStyle({ color: '#005ea2' })
+      expect(getLinkText()).toHaveStyle({ color: 'vadsColorActionForegroundDefaultOnLight' })
     })
 
     it('renders base tone', async () => {
       render(<Link {...commonProps} variant="base" />)
-      expect(getLinkText()).toHaveStyle({ color: '#3d4551' })
+      expect(getLinkText()).toHaveStyle({ color: 'vadsColorForegroundDefaultOnLight' })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...commonProps} testOnlyPressed />)
-      expect(screen.root).toHaveStyle({ backgroundColor: '#dfe1e2' })
+      expect(screen.root).toHaveStyle({ backgroundColor: 'vadsColorSurfaceSecondaryOnLight' })
     })
   })
 
@@ -348,17 +348,17 @@ describe('Link', () => {
 
     it('renders primary tone', async () => {
       render(<Link {...commonProps} />)
-      expect(getLinkText()).toHaveStyle({ color: '#58b4ff' })
+      expect(getLinkText()).toHaveStyle({ color: 'vadsColorActionForegroundDefaultOnDark' })
     })
 
     it('renders base tone', async () => {
       render(<Link {...commonProps} variant="base" />)
-      expect(getLinkText()).toHaveStyle({ color: '#f0f0f0' })
+      expect(getLinkText()).toHaveStyle({ color: 'vadsColorForegroundDefaultOnDark' })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...commonProps} testOnlyPressed />)
-      expect(screen.root).toHaveStyle({ backgroundColor: '#3d4551' })
+      expect(screen.root).toHaveStyle({ backgroundColor: 'vadsColorSurfaceSecondaryOnDark' })
     })
   })
 
