@@ -1,5 +1,5 @@
-import { Icon } from './Icon'
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import { Icon } from './Icon'
 import { render, screen } from '@testing-library/react-native'
 import React from 'react'
 
