@@ -5,6 +5,7 @@ import {
   within,
 } from '@testing-library/react-native'
 import React from 'react'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
@@ -329,17 +330,17 @@ describe('Link', () => {
   describe('light mode tone tests', () => {
     it('renders primary tone', async () => {
       render(<Link {...commonProps} />)
-      expect(getLinkText()).toHaveStyle({ color: 'vadsColorActionForegroundDefaultOnLight' })
+      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorActionForegroundDefaultOnLight })
     })
 
     it('renders base tone', async () => {
       render(<Link {...commonProps} variant="base" />)
-      expect(getLinkText()).toHaveStyle({ color: 'vadsColorForegroundDefaultOnLight' })
+      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorForegroundDefaultOnLight })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...commonProps} testOnlyPressed />)
-      expect(screen.root).toHaveStyle({ backgroundColor: 'vadsColorSurfaceSecondaryOnLight' })
+      expect(screen.root).toHaveStyle({ backgroundColor: Colors.vadsColorSurfaceSecondaryOnLight })
     })
   })
 
@@ -348,17 +349,17 @@ describe('Link', () => {
 
     it('renders primary tone', async () => {
       render(<Link {...commonProps} />)
-      expect(getLinkText()).toHaveStyle({ color: 'vadsColorActionForegroundDefaultOnDark' })
+      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorActionForegroundDefaultOnDark })
     })
 
     it('renders base tone', async () => {
       render(<Link {...commonProps} variant="base" />)
-      expect(getLinkText()).toHaveStyle({ color: 'vadsColorForegroundDefaultOnDark' })
+      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorForegroundDefaultOnDark })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...commonProps} testOnlyPressed />)
-      expect(screen.root).toHaveStyle({ backgroundColor: 'vadsColorSurfaceSecondaryOnDark' })
+      expect(screen.root).toHaveStyle({ backgroundColor: Colors.vadsColorSurfaceSecondaryOnDark })
     })
   })
 
