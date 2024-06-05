@@ -10,7 +10,7 @@ import React, { useEffect } from 'react'
 
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { Icon, IconProps } from '../Icon/Icon'
-import { Spacer } from '../..'
+import { Spacer } from '../Spacer/Spacer'
 import { useColorScheme } from '../../utils'
 
 export type LoadingIndicatorProps = {
