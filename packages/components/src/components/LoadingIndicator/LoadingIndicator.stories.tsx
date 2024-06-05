@@ -45,12 +45,9 @@ export const _WithText: Story = {
     text: 'Loading your appointments...',
   },
 }
-export const __WithoutText: Story = {
-  name: 'Without Text',
-}
 
-export const ___WithChildren: Story = {
-  name: 'With Children',
+export const __WithChildren: Story = {
+  name: 'With Text and Children',
   args: {
     text: 'Loading your appointments. Call one of the numbers below for support.',
     children,
