@@ -4,8 +4,8 @@ import {
   screen,
   within,
 } from '@testing-library/react-native'
-import React from 'react'
 import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
+import React from 'react'
 
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
