@@ -1,4 +1,5 @@
 import 'react-native'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 // Note: test renderer must be required after react-native.
@@ -64,12 +65,12 @@ describe('Button', () => {
       render(<Button {...commonProps} />)
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'vadsColorActionSurfaceDefaultOnLight',
+        backgroundColor: Colors.vadsColorActionSurfaceDefaultOnLight,
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnLight',
+        color: Colors.vadsColorForegroundInverseOnLight,
       })
     })
 
@@ -77,12 +78,12 @@ describe('Button', () => {
       render(<Button {...commonProps} testOnlyPressed={true} />)
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'vadsColorActionSurfaceDefaultActiveOnLight',
+        backgroundColor: Colors.vadsColorActionSurfaceDefaultActiveOnLight,
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnLight',
+        color: Colors.vadsColorForegroundInverseOnLight,
       })
     })
 
@@ -93,12 +94,12 @@ describe('Button', () => {
         render(<Button {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'vadsColorActionSurfaceDefaultOnDark',
+          backgroundColor: Colors.vadsColorActionSurfaceDefaultOnDark,
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorForegroundInverseOnDark',
+          color: Colors.vadsColorForegroundInverseOnDark,
         })
       })
 
@@ -106,12 +107,12 @@ describe('Button', () => {
         render(<Button {...commonProps} testOnlyPressed={true} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'vadsColorActionSurfaceDefaultActiveOnDark',
+          backgroundColor: Colors.vadsColorActionSurfaceDefaultActiveOnDark,
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorForegroundInverseOnDark',
+          color: Colors.vadsColorForegroundInverseOnDark,
         })
       })
     })
@@ -122,12 +123,12 @@ describe('Button', () => {
       render(<Button {...commonProps} buttonType={ButtonVariants.Base} />)
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'vadsColorActionSurfaceBaseOnLight',
+        backgroundColor: Colors.vadsColorActionSurfaceBaseOnLight,
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnLight',
+        color: Colors.vadsColorForegroundInverseOnLight,
       })
     })
 
@@ -141,12 +142,12 @@ describe('Button', () => {
       )
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'vadsColorActionSurfaceBaseActiveOnLight',
+        backgroundColor: Colors.vadsColorActionSurfaceBaseActiveOnLight,
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnLight',
+        color: Colors.vadsColorForegroundInverseOnLight,
       })
     })
 
@@ -157,12 +158,12 @@ describe('Button', () => {
         render(<Button {...commonProps} buttonType={ButtonVariants.Base} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'vadsColorActionSurfaceBaseOnDark',
+          backgroundColor: Colors.vadsColorActionSurfaceBaseOnDark,
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorForegroundInverseOnDark',
+          color: Colors.vadsColorForegroundInverseOnDark,
         })
       })
 
@@ -176,12 +177,12 @@ describe('Button', () => {
         )
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'vadsColorActionSurfaceBaseActiveOnDark',
+          backgroundColor: Colors.vadsColorActionSurfaceBaseActiveOnDark,
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorForegroundInverseOnDark',
+          color: Colors.vadsColorForegroundInverseOnDark,
         })
       })
     })
@@ -193,12 +194,12 @@ describe('Button', () => {
 
       expect(screen.root).toHaveStyle({
         backgroundColor: 'transparent',
-        borderColor: 'vadsColorActionBorderDefaultOnLight',
+        borderColor: Colors.vadsColorActionBorderDefaultOnLight,
         borderWidth: 2,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorActionForegroundDefaultOnLight',
+        color: Colors.vadsColorActionForegroundDefaultOnLight,
       })
     })
 
@@ -213,12 +214,12 @@ describe('Button', () => {
 
       expect(screen.root).toHaveStyle({
         backgroundColor: 'transparent',
-        borderColor: 'vadsColorActionBorderDefaultActiveOnLight',
+        borderColor: Colors.vadsColorActionBorderDefaultActiveOnLight,
         borderWidth: 2,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorActionForegroundDefaultActiveOnLight',
+        color: Colors.vadsColorActionForegroundDefaultActiveOnLight,
       })
     })
 
@@ -232,12 +233,12 @@ describe('Button', () => {
 
         expect(screen.root).toHaveStyle({
           backgroundColor: 'transparent',
-          borderColor: 'vadsColorActionBorderDefaultOnDark',
+          borderColor: Colors.vadsColorActionBorderDefaultOnDark,
           borderWidth: 2,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorActionForegroundDefaultOnDark',
+          color: Colors.vadsColorActionForegroundDefaultOnDark,
         })
       })
 
@@ -252,12 +253,12 @@ describe('Button', () => {
 
         expect(screen.root).toHaveStyle({
           backgroundColor: 'transparent',
-          borderColor: 'vadsColorActionBorderDefaultActiveOnDark',
+          borderColor: Colors.vadsColorActionBorderDefaultActiveOnDark,
           borderWidth: 2,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorActionForegroundDefaultActiveOnDark',
+          color: Colors.vadsColorActionForegroundDefaultActiveOnDark,
         })
       })
     })
@@ -270,13 +271,13 @@ describe('Button', () => {
       )
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'vadsColorActionSurfaceDestructiveOnLight',
+        backgroundColor: Colors.vadsColorActionSurfaceDestructiveOnLight,
         borderColor: 'none',
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnLight',
+        color: Colors.vadsColorForegroundInverseOnLight,
       })
     })
 
@@ -290,13 +291,13 @@ describe('Button', () => {
       )
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'vadsColorActionSurfaceDestructiveActiveOnLight',
+        backgroundColor: Colors.vadsColorActionSurfaceDestructiveActiveOnLight,
         borderColor: 'none',
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorForegroundInverseOnLight',
+        color: Colors.vadsColorForegroundInverseOnLight,
       })
     })
 
@@ -309,13 +310,13 @@ describe('Button', () => {
         )
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'vadsColorActionSurfaceDestructiveOnDark',
+          backgroundColor: Colors.vadsColorActionSurfaceDestructiveOnDark,
           borderColor: 'none',
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorForegroundInverseOnDark',
+          color: Colors.vadsColorForegroundInverseOnDark,
         })
       })
 
@@ -329,13 +330,13 @@ describe('Button', () => {
         )
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'vadsColorActionSurfaceDestructiveActiveOnDark',
+          backgroundColor: Colors.vadsColorActionSurfaceDestructiveActiveOnDark,
           borderColor: 'none',
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorForegroundInverseOnDark',
+          color: Colors.vadsColorForegroundInverseOnDark,
         })
       })
     })
@@ -346,13 +347,13 @@ describe('Button', () => {
       render(<Button {...commonProps} buttonType={ButtonVariants.White} />)
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'vadsColorBaseLightest',
+        backgroundColor: Colors.vadsColorBaseLightest,
         borderColor: 'none',
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorBlack',
+        color: Colors.vadsColorBlack,
       })
     })
 
@@ -366,13 +367,13 @@ describe('Button', () => {
       )
 
       expect(screen.root).toHaveStyle({
-        backgroundColor: 'uswdsSystemColorGray30',
+        backgroundColor: Colors.uswdsSystemColorGray30,
         borderColor: 'none',
         borderWidth: 0,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorBlack',
+        color: Colors.vadsColorBlack,
       })
     })
 
@@ -383,13 +384,13 @@ describe('Button', () => {
         render(<Button {...commonProps} buttonType={ButtonVariants.White} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'vadsColorBaseLightest',
+          backgroundColor: Colors.vadsColorBaseLightest,
           borderColor: 'none',
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorBlack',
+          color: Colors.vadsColorBlack,
         })
       })
 
@@ -403,13 +404,13 @@ describe('Button', () => {
         )
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: 'uswdsSystemColorGray30',
+          backgroundColor: Colors.uswdsSystemColorGray30,
           borderColor: 'none',
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorBlack',
+          color: Colors.vadsColorBlack,
         })
       })
     })
@@ -423,12 +424,12 @@ describe('Button', () => {
 
       expect(screen.root).toHaveStyle({
         backgroundColor: 'transparent',
-        borderColor: 'vadsColorActionBorderBaseOnLight',
+        borderColor: Colors.vadsColorActionBorderBaseOnLight,
         borderWidth: 2,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorActionForegroundBaseOnLight',
+        color: Colors.vadsColorActionForegroundBaseOnLight,
       })
     })
 
@@ -443,12 +444,12 @@ describe('Button', () => {
 
       expect(screen.root).toHaveStyle({
         backgroundColor: 'transparent',
-        borderColor: 'vadsColorActionBorderBaseActiveOnLight',
+        borderColor: Colors.vadsColorActionBorderBaseActiveOnLight,
         borderWidth: 2,
       })
 
       expect(getButtonText()).toHaveStyle({
-        color: 'vadsColorActionForegroundBaseActiveOnLight',
+        color: Colors.vadsColorActionForegroundBaseActiveOnLight,
       })
     })
 
@@ -462,12 +463,12 @@ describe('Button', () => {
 
         expect(screen.root).toHaveStyle({
           backgroundColor: 'transparent',
-          borderColor: 'vadsColorActionBorderBaseOnDark',
+          borderColor: Colors.vadsColorActionBorderBaseOnDark,
           borderWidth: 2,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorActionForegroundBaseOnDark',
+          color: Colors.vadsColorActionForegroundBaseOnDark,
         })
       })
 
@@ -482,12 +483,12 @@ describe('Button', () => {
 
         expect(screen.root).toHaveStyle({
           backgroundColor: 'transparent',
-          borderColor: 'vadsColorActionBorderBaseActiveOnDark',
+          borderColor: Colors.vadsColorActionBorderBaseActiveOnDark,
           borderWidth: 2,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: 'vadsColorActionForegroundBaseActiveOnDark',
+          color: Colors.vadsColorActionForegroundBaseActiveOnDark,
         })
       })
     })
