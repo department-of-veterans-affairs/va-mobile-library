@@ -1,4 +1,5 @@
 import { Icon } from './Icon'
+import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { render, screen } from '@testing-library/react-native'
 import React from 'react'
 
@@ -12,7 +13,7 @@ describe('Icon', () => {
       <Icon
         name="HomeOutlined"
         testID="myId"
-        fill="#565c65"
+        fill={Colors.vadsColorForegroundDefaultOnLight}
         preventScaling={true}
       />,
     )
@@ -23,7 +24,7 @@ describe('Icon', () => {
 
     expect(width).toBe(24)
     expect(height).toBe(24)
-    expect(fill).toBe('#565c65')
+    expect(fill).toBe(Colors.vadsColorForegroundDefaultOnLight)
   })
 
   it('renders correctly at set size despite fontScale 2', async () => {
@@ -82,7 +83,7 @@ describe('Icon', () => {
         testID="myId"
         height={100}
         width={100}
-        fill="#565c65"
+        fill={Colors.vadsColorForegroundDefaultOnLight}
         maxWidth={100}
         preventScaling={true}
       />,
@@ -94,6 +95,6 @@ describe('Icon', () => {
 
     expect(width).toBe(100)
     expect(height).toBe(100)
-    expect(fill).toBe('#565c65')
+    expect(fill).toBe(Colors.vadsColorForegroundDefaultOnLight)
   })
 })
