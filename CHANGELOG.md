@@ -1,5 +1,25 @@
 # Changelog
 
+## [assets-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.11.0) (2024-06-06)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.10.0...assets-v0.11.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add loading indicator icon to assets package [\#348](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/348) ([narin](https://github.com/narin))
+
+## [assets-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.10.0) (2024-06-06)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.0...assets-v0.10.0)
+
+**Closed issues:**
+
+- \[stub\] Update assets package and Icon component once VADS has added icons to sprite [\#340](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/340)
+- \[stub\] Create PR to add inbox, refresh and local\_shipping to VADS sprite sheet [\#339](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/339)
+- DS - Update storybook to display all icons [\#258](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/258)
+- DS - Update Icon component to support SVG sprites [\#245](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/245)
+- Icon Library: Update Figma icons [\#146](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/146)
+
 ## [components-v0.17.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.17.0) (2024-06-04)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.12.0...components-v0.17.0)
