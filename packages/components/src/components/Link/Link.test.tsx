@@ -334,7 +334,7 @@ describe('Link', () => {
 
     it('renders base tone', async () => {
       render(<Link {...commonProps} variant="base" />)
-      expect(getLinkText()).toHaveStyle({ color: '#3d4551' })
+      expect(getLinkText()).toHaveStyle({ color: '#1b1b1b' })
     })
 
     it('renders background color when pressed', async () => {
