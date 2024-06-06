@@ -101,12 +101,12 @@ describe('Alert', () => {
         render(<Alert variant="info" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#e1f3f8',
-          borderLeftColor: '#28a0cb',
+          backgroundColor: '#e7f6f8',
+          borderLeftColor: '#00bde3',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: '#1b1b1b',
         })
         expect(await getIconName()).toBe('Info')
       })
@@ -141,11 +141,11 @@ describe('Alert', () => {
 
         expect(screen.root).toHaveStyle({
           backgroundColor: '#ecf3ec',
-          borderLeftColor: '#008817',
+          borderLeftColor: '#00a91c',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: '#1b1b1b',
         })
 
         expect(await getIconName()).toBe('Check')
@@ -185,7 +185,7 @@ describe('Alert', () => {
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: '#1b1b1b',
         })
 
         expect(await getIconName()).toBe('Warning')
@@ -199,7 +199,7 @@ describe('Alert', () => {
         render(<Alert variant="warning" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#5c4809',
+          backgroundColor: '#422d19',
           borderLeftColor: '#face00',
         })
 
@@ -220,12 +220,12 @@ describe('Alert', () => {
         render(<Alert variant="error" {...commonProps} />)
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#f8dfe2',
-          borderLeftColor: '#b50909',
+          backgroundColor: '#f4e3db',
+          borderLeftColor: '#d54309',
         })
 
         expect(screen.getByText(commonProps.header)).toHaveStyle({
-          color: '#3d4551',
+          color: '#1b1b1b',
         })
 
         expect(await getIconName()).toBe('Error')
