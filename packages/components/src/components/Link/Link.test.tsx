@@ -1,4 +1,3 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   fireEvent,
   render,
@@ -330,17 +329,17 @@ describe('Link', () => {
   describe('light mode tone tests', () => {
     it('renders primary tone', async () => {
       render(<Link {...commonProps} />)
-      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorActionForegroundDefaultOnLight })
+      expect(getLinkText()).toHaveStyle({ color: '#005ea2' })
     })
 
     it('renders base tone', async () => {
       render(<Link {...commonProps} variant="base" />)
-      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorForegroundDefaultOnLight })
+      expect(getLinkText()).toHaveStyle({ color: '#3d4551' })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...commonProps} testOnlyPressed />)
-      expect(screen.root).toHaveStyle({ backgroundColor: Colors.vadsColorSurfaceSecondaryOnLight })
+      expect(screen.root).toHaveStyle({ backgroundColor: '#dfe1e2' })
     })
   })
 
@@ -349,17 +348,17 @@ describe('Link', () => {
 
     it('renders primary tone', async () => {
       render(<Link {...commonProps} />)
-      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorActionForegroundDefaultOnDark })
+      expect(getLinkText()).toHaveStyle({ color: '#58b4ff' })
     })
 
     it('renders base tone', async () => {
       render(<Link {...commonProps} variant="base" />)
-      expect(getLinkText()).toHaveStyle({ color: Colors.vadsColorForegroundDefaultOnDark })
+      expect(getLinkText()).toHaveStyle({ color: '#f0f0f0' })
     })
 
     it('renders background color when pressed', async () => {
       render(<Link {...commonProps} testOnlyPressed />)
-      expect(screen.root).toHaveStyle({ backgroundColor: Colors.vadsColorSurfaceSecondaryOnDark })
+      expect(screen.root).toHaveStyle({ backgroundColor: '#3d4551' })
     })
   })
 
