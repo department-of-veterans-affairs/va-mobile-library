@@ -103,43 +103,43 @@ export const Alert: FC<AlertProps> = ({
 
   switch (variant) {
     case 'info':
-      backgroundColor = Colors.primaryAltLightest
-      borderColor = Colors.primaryAltDark
+      backgroundColor = Colors.vadsColorFeedbackSurfaceInfoOnLight
+      borderColor = Colors.vadsColorFeedbackBorderInfoOnLight
       iconName = 'Info'
 
       if (isDarkMode) {
-        backgroundColor = Colors.uswdsBlueVivid80
-        borderColor = Colors.primaryAltLight
+        backgroundColor = Colors.vadsColorFeedbackSurfaceInfoOnDark
+        borderColor = Colors.vadsColorFeedbackBorderInfoOnDark
       }
       break
     case 'success':
-      backgroundColor = Colors.greenLightest
-      borderColor = Colors.green
+      backgroundColor = Colors.vadsColorFeedbackSurfaceSuccessOnLight
+      borderColor = Colors.vadsColorFeedbackBorderSuccessOnLight
       iconName = 'Check'
 
       if (isDarkMode) {
-        backgroundColor = Colors.uswdsGreenCoolVivid80
-        borderColor = Colors.greenLight
+        backgroundColor = Colors.vadsColorFeedbackSurfaceSuccessOnDark
+        borderColor = Colors.vadsColorFeedbackBorderSuccessOnDark
       }
       break
     case 'warning':
-      backgroundColor = Colors.warningMessage
-      borderColor = Colors.gold
+      backgroundColor = Colors.vadsColorFeedbackSurfaceWarningOnLight
+      borderColor = Colors.vadsColorFeedbackBorderWarningOnLight
       iconName = 'Warning'
 
       if (isDarkMode) {
-        backgroundColor = Colors.uswdsYellowVivid70
-        borderColor = Colors.goldLight
+        backgroundColor = Colors.vadsColorFeedbackSurfaceWarningOnDark
+        borderColor = Colors.vadsColorFeedbackBorderWarningOnDark
       }
       break
     case 'error':
-      backgroundColor = Colors.secondaryLightest
-      borderColor = Colors.secondaryDark
+      backgroundColor = Colors.vadsColorFeedbackSurfaceErrorOnLight
+      borderColor = Colors.vadsColorFeedbackBorderErrorOnLight
       iconName = 'Error'
 
       if (isDarkMode) {
-        backgroundColor = Colors.uswdsRedVivid80
-        borderColor = Colors.secondary
+        backgroundColor = Colors.vadsColorFeedbackSurfaceErrorOnDark
+        borderColor = Colors.vadsColorFeedbackBorderErrorOnDark
       }
       break
   }

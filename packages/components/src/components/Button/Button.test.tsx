@@ -98,7 +98,7 @@ describe('Button', () => {
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: '#000000',
+          color: '#1b1b1b',
         })
       })
 
@@ -111,7 +111,7 @@ describe('Button', () => {
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: '#000000',
+          color: '#1b1b1b',
         })
       })
     })
@@ -162,7 +162,7 @@ describe('Button', () => {
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: '#000000',
+          color: '#1b1b1b',
         })
       })
 
@@ -181,7 +181,7 @@ describe('Button', () => {
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: '#000000',
+          color: '#1b1b1b',
         })
       })
     })
@@ -252,12 +252,12 @@ describe('Button', () => {
 
         expect(screen.root).toHaveStyle({
           backgroundColor: 'transparent',
-          borderColor: '#ffffff',
+          borderColor: '#e1f3f8',
           borderWidth: 2,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: '#ffffff',
+          color: '#e1f3f8',
         })
       })
     })
@@ -315,7 +315,7 @@ describe('Button', () => {
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: '#000000',
+          color: '#1b1b1b',
         })
       })
 
@@ -329,13 +329,13 @@ describe('Button', () => {
         )
 
         expect(screen.root).toHaveStyle({
-          backgroundColor: '#f8dfe2',
+          backgroundColor: '#f4e3db',
           borderColor: 'none',
           borderWidth: 0,
         })
 
         expect(getButtonText()).toHaveStyle({
-          color: '#000000',
+          color: '#1b1b1b',
         })
       })
     })
