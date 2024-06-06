@@ -8,7 +8,7 @@ import { Spacer } from '../Spacer/Spacer'
 import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<LoadingIndicatorProps> = {
-  title: 'LoadingIndicator',
+  title: 'Loading indicator',
   component: LoadingIndicator,
   decorators: [
     (Story) => (
@@ -24,7 +24,7 @@ const meta: Meta<LoadingIndicatorProps> = {
   ],
   parameters: {
     docs: generateDocs({
-      name: 'LoadingIndicator',
+      name: 'Loading indicator',
       docUrl:
         'https://department-of-veterans-affairs.github.io/va-mobile-app/docs/Flagship%20design%20library/Components/Alerts%20and%20Progress/LoadingComponent',
     }),

@@ -6,7 +6,7 @@ import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
 import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<SegmentedControlProps> = {
-  title: 'SegmentedControl',
+  title: 'Segmented control',
   component: SegmentedControl,
   decorators: [
     (Story) => (
