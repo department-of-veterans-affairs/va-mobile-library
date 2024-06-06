@@ -2089,10 +2089,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-assets@npm:0.9.1-alpha.0":
-  version: 0.9.1-alpha.0
-  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.9.1-alpha.0"
-  checksum: bdfac13fd8980576a165266545796850efe742175a95cb3b91cd059da03fccb5532d3621c428b23fae4bdb405bc205c2d84dffc9ff65d462902ed75fb6552b76
+"@department-of-veterans-affairs/mobile-assets@npm:0.11.0":
+  version: 0.11.0
+  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.11.0"
+  checksum: aaa7b3bcf81e0221bd4ba6bb414e416ef92974d9f132d86bce85ef14ac6ec2d8da38fd38752e66f475188661868db5417880c79ed6567a24dc2fbfbd180feffe
   languageName: node
   linkType: hard
 
@@ -2128,8 +2128,8 @@ __metadata:
     "@babel/plugin-transform-react-jsx": "npm:^7.23.4"
     "@babel/preset-env": "npm:^7.23.9"
     "@babel/preset-typescript": "npm:^7.23.3"
-    "@department-of-veterans-affairs/mobile-assets": "npm:0.9.1-alpha.0"
-    "@department-of-veterans-affairs/mobile-tokens": "npm:0.5.1"
+    "@department-of-veterans-affairs/mobile-assets": "npm:0.11.0"
+    "@department-of-veterans-affairs/mobile-tokens": "npm:0.12.0"
     "@expo/metro-runtime": "npm:~3.2.1"
     "@expo/webpack-config": "npm:~19.0.1"
     "@os-team/i18next-react-native-language-detector": "npm:^1.0.31"
@@ -2197,10 +2197,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-tokens@npm:0.5.1":
-  version: 0.5.1
-  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.5.1"
-  checksum: 7ceecead91ee157ea186f5568d82b1f04da40a9f04e717357bf149deb9917d6e296f8f3de6018eb7131cce6ed667120699a63673ab96e157655e86d12c058a6a
+"@department-of-veterans-affairs/mobile-tokens@npm:0.12.0":
+  version: 0.12.0
+  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.12.0"
+  checksum: ec146ef6f9ce0b87b055b12ee66474192df9102a38ceb56944f0d49c959bf4cbe02054847d9916a2b6c69e5438898857545d3efdda85023ea95a6eaf043ed429
   languageName: node
   linkType: hard
 

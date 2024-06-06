@@ -63,19 +63,13 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     alignItems: 'center',
   }
 
-  const indicatorStyle: ViewStyle = {
-    width: 50,
-    height: 50,
-    transform: [{ rotate }],
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-
   const iconProps: IconProps = {
     name: 'LoadingIndicator',
     width: 50,
     height: 50,
-    fill: isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary,
+    fill: isDarkMode
+      ? Colors.vadsColorActionForegroundDefaultOnDark
+      : Colors.vadsColorActionForegroundDefaultOnLight,
   }
 
   const textStyle: TextStyle = {
@@ -83,12 +77,14 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     fontSize: 20,
     lineHeight: 30,
     textAlign: 'center',
-    color: isDarkMode ? Colors.grayLightest : Colors.base,
+    color: isDarkMode
+      ? Colors.vadsColorForegroundDefaultOnDark
+      : Colors.vadsColorForegroundDefaultOnLight,
   }
 
   return (
     <View style={containerStyle}>
-      <Animated.View style={indicatorStyle}>
+      <Animated.View style={{ transform: [{ rotate }] }}>
         <Icon {...iconProps} />
       </Animated.View>
       <Spacer />
