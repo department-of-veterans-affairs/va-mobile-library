@@ -1,5 +1,13 @@
 # Changelog
 
+## [assets-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.11.0) (2024-06-06)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.10.0...assets-v0.11.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add loading indicator icon to assets package [\#348](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/348) ([narin](https://github.com/narin))
+
 ## [assets-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.10.0) (2024-06-06)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.0...assets-v0.10.0)
