@@ -115,7 +115,7 @@ export const Alert: FC<AlertProps> = ({
     case 'success':
       backgroundColor = Colors.vadsColorFeedbackSurfaceSuccessOnLight
       borderColor = Colors.vadsColorFeedbackBorderSuccessOnLight
-      iconName = 'Check'
+      iconName = 'CheckCircle'
 
       if (isDarkMode) {
         backgroundColor = Colors.vadsColorFeedbackSurfaceSuccessOnDark
