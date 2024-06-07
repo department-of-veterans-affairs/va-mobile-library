@@ -142,6 +142,7 @@ import Link from '@department-of-veterans-affairs/mobile-assets/icons/vads/link.
 import LinkOff from '@department-of-veterans-affairs/mobile-assets/icons/vads/link_off.svg'
 import Linkedin from '@department-of-veterans-affairs/mobile-assets/icons/vads/linkedin.svg'
 import List from '@department-of-veterans-affairs/mobile-assets/icons/vads/list.svg'
+import LoadingIndicator from '@department-of-veterans-affairs/mobile-assets/icons/loading_indicator.svg'
 import LocalCafe from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_cafe.svg'
 import LocalFireDepartment from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_fire_department.svg'
 import LocalGasStation from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_gas_station.svg'
@@ -414,6 +415,7 @@ export const IconMap = {
   LinkOff,
   Linkedin,
   List,
+  LoadingIndicator,
   LocalCafe,
   LocalFireDepartment,
   LocalGasStation,
