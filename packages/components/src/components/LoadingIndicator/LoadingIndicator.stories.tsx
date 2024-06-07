@@ -26,7 +26,7 @@ const meta: Meta<LoadingIndicatorProps> = {
     docs: generateDocs({
       name: 'Loading indicator',
       docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/docs/Flagship%20design%20library/Components/Alerts%20and%20Progress/LoadingComponent',
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20Progress/LoadingIndicator',
     }),
   },
 }
