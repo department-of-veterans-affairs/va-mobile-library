@@ -32,11 +32,11 @@ jobs:
 
       - name: Install dependencies (va-mobile-library)
         working-directory: va-mobile-library
-        run: yarn install --immutable
+        run: yarn install --immutable --check-cache
 
       - name: Install dependencies (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
-        run: yarn install
+        run: yarn install --check-cache
 
       - name: Install local component library
         working-directory: va-mobile-app/VAMobile
@@ -54,3 +54,8 @@ jobs:
           command: |
             cd va-mobile-app/VAMobile
             yarn test --testTimeout=30000
+
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
