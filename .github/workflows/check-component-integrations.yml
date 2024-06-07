@@ -34,13 +34,9 @@ jobs:
         working-directory: va-mobile-library
         run: yarn install --immutable --check-cache
 
-      - name: Install dependencies (va-mobile-app)
+      - name: Install local mobile-components and dependencies (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
-        run: yarn install --check-cache
-
-      - name: Install local component library
-        working-directory: va-mobile-app/VAMobile
-        run: yarn add file:../../va-mobile-library/packages/components
+        run: yarn add file:../../va-mobile-library/packages/components && yarn install
 
       - name: Compile TypeScript (va-mobile-app)
         working-directory: va-mobile-app/VAMobile
