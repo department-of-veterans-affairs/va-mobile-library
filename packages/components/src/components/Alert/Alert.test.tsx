@@ -148,7 +148,7 @@ describe('Alert', () => {
           color: '#1b1b1b',
         })
 
-        expect(await getIconName()).toBe('Check')
+        expect(await getIconName()).toBe('CheckCircle')
       })
     })
 
@@ -167,7 +167,7 @@ describe('Alert', () => {
           color: '#f0f0f0',
         })
 
-        expect(await getIconName()).toBe('Check')
+        expect(await getIconName()).toBe('CheckCircle')
       })
     })
   })
