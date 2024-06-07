@@ -1,5 +1,20 @@
 # Changelog
 
+## [components-v0.17.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.17.1) (2024-06-07)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.11.0...components-v0.17.1)
+
+**Closed issues:**
+
+- Loading Indicator - Visual QA [\#251](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/251)
+- DS - Update component-library to support semantic and component tokens [\#237](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/237)
+
+**Merged pull requests:**
+
+- \[Enhancement\] Update Alert success icon to align with VADS [\#350](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/350) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Update components with tokens [\#349](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/349) ([jessicawoodin](https://github.com/jessicawoodin))
+- \[Feature\] Implement LoadingIndicator Component [\#347](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/347) ([narin](https://github.com/narin))
+
 ## [assets-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.11.0) (2024-06-06)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.10.0...assets-v0.11.0)
