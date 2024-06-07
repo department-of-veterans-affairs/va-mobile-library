@@ -225,10 +225,14 @@ export const Link: FC<LinkProps> = ({
 
   switch (variant) {
     case 'base':
-      linkColor = isDarkMode ? Colors.grayLightest : Colors.grayDark
+      linkColor = isDarkMode 
+        ? Colors.vadsColorForegroundDefaultOnDark 
+        : Colors.vadsColorForegroundDefaultOnLight
       break
     default:
-      linkColor = isDarkMode ? Colors.uswdsBlueVivid30 : Colors.primary
+      linkColor = isDarkMode 
+        ? Colors.vadsColorActionForegroundDefaultOnDark 
+        : Colors.vadsColorActionForegroundDefaultOnLight
   }
 
   const iconViewStyle: ViewStyle = {
@@ -274,8 +278,8 @@ export const Link: FC<LinkProps> = ({
       alignItems: 'center',
       backgroundColor: pressed
         ? isDarkMode
-          ? Colors.grayDark
-          : Colors.grayLighter
+          ? Colors.vadsColorSurfaceSecondaryOnDark
+          : Colors.vadsColorSurfaceSecondaryOnLight
         : 'transparent',
     }),
     testOnly_pressed: testOnlyPressed,

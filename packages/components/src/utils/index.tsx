@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react'
 export function BaseColor() {
   const colorScheme = useColorScheme()
 
-  return colorScheme === 'dark' ? TokenColors.grayLightest : TokenColors.grayDark
+  return colorScheme === 'dark' ? TokenColors.vadsColorForegroundDefaultOnDark : TokenColors.vadsColorForegroundDefaultOnLight
 }
 
 /** Handles return of color scheme based on platform */

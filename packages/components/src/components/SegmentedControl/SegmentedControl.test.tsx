@@ -91,7 +91,7 @@ describe('SegmentedControl', () => {
     })
 
     expect(activeSegmentText).toHaveStyle({
-      color: '#3d4551',
+      color: '#1b1b1b',
     })
 
     expect(inactiveSegment).toHaveStyle({
@@ -100,7 +100,7 @@ describe('SegmentedControl', () => {
     })
 
     expect(inactiveSegmentText).toHaveStyle({
-      color: '#3d4551',
+      color: '#1b1b1b',
     })
   })
 
@@ -114,7 +114,7 @@ describe('SegmentedControl', () => {
 
     expect(activeSegment).toHaveStyle({
       elevation: 4,
-      backgroundColor: '#757575',
+      backgroundColor: '#565c65',
     })
 
     expect(activeSegmentText).toHaveStyle({
