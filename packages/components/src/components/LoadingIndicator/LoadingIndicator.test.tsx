@@ -107,7 +107,7 @@ describe('Loading indicator', () => {
 
       expect(screen.getByText('Children content')).toBeOnTheScreen()
       expect(screen.queryByText('Loading indicator text')).not.toBeOnTheScreen()
-      expect(spacers.length).toBe(1) // Just Spacer between icon and text
+      expect(spacers.length).toBe(1) // Just Spacer between icon and children
     })
 
     it('should render with both text and children', async () => {
