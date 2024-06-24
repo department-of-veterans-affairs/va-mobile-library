@@ -14,29 +14,37 @@ module.exports = {
       prefix: '',
       files: [
         {
-          destination: 'js/index.js',
+          destination: 'js/colors.js',
           format: 'javascript/es6/vads-colors',
           filter: 'filter/color/is-color',
         },
         {
-          destination: 'index.d.ts',
-          format: 'typescript/es6-declarations/colors',
-          filter: 'filter/color/is-color',
-        },
-        {
-          destination: 'js/light.js',
+          destination: 'js/themes/light.js',
           format: 'javascript/es6/vads-colors-theme',
           filter: 'filter/color/light-mode',
         },
         {
-          destination: 'js/dark.js',
+          destination: 'js/themes/dark.js',
           format: 'javascript/es6/vads-colors-theme',
           filter: 'filter/color/dark-mode',
         },
         {
-          destination: 'theme.d.ts',
+          destination: 'js/index.js',
+          format: 'javascript/es6/vads-module-export',
+        },
+        {
+          destination: 'types/colors.d.ts',
+          format: 'typescript/es6-declarations/colors',
+          filter: 'filter/color/is-color',
+        },
+        {
+          destination: 'types/theme.d.ts',
           format: 'typescript/es6-declarations/theme',
           filter: 'filter/color/light-mode',
+        },
+        {
+          destination: 'index.d.ts',
+          format: 'typescript/es6-declarations/module',
         },
       ],
     },
