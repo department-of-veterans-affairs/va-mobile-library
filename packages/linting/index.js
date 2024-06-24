@@ -23,6 +23,11 @@ module.exports = {
         module: 'components',
         use: 'Alert from @department-of-veterans-affairs/mobile-component-library',
       },
+      {
+        name: 'LoadingComponent',
+        module: 'components',
+        use: 'LoadingIndicator from @department-of-veterans-affairs/mobile-component-library',
+      },
     ],
   },
 }
