@@ -46,6 +46,19 @@ StyleDictionary.registerFormat({
   },
 })
 
+/** Custom format for themes. Exports color tokens as single object */
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/vads-colors-theme',
+  formatter: function (dictionary) {
+    const colorTokens = dictionary.allProperties.reduce((result, token) => {
+      result[stripMode(token.name)] = token.value
+      return result
+    }, {})
+
+    return `export const Theme = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
+  },
+})
+
 /** Creates named type declaration for Colors. Allows for TypeScript autocomplete */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
@@ -53,6 +66,20 @@ StyleDictionary.registerFormat({
     let declaration = 'export declare const Colors: {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
+    })
+
+    declaration += `}`
+    return declaration
+  },
+})
+
+/** Creates named type declaration for Themes. Allows for TypeScript autocomplete */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/theme',
+  formatter: function (dictionary) {
+    let declaration = 'export declare const Theme: {\n'
+    dictionary.allProperties.forEach((token) => {
+      declaration += `  ${stripMode(token.name)}: string;\n`
     })
 
     declaration += `}`
@@ -137,6 +164,8 @@ const sortTokensByKey = (obj) => {
 
   return sortedObj
 }
+
+const stripMode = (name) => name.replace('OnDark', '').replace('OnLight', '')
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
 

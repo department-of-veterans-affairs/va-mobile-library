@@ -23,6 +23,21 @@ module.exports = {
           format: 'typescript/es6-declarations/colors',
           filter: 'filter/color/is-color',
         },
+        {
+          destination: 'js/light.js',
+          format: 'javascript/es6/vads-colors-theme',
+          filter: 'filter/color/light-mode',
+        },
+        {
+          destination: 'js/dark.js',
+          format: 'javascript/es6/vads-colors-theme',
+          filter: 'filter/color/dark-mode',
+        },
+        {
+          destination: 'theme.d.ts',
+          format: 'typescript/es6-declarations/theme',
+          filter: 'filter/color/light-mode',
+        },
       ],
     },
     figma: {
