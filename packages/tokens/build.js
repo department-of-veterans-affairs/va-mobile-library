@@ -74,7 +74,7 @@ export { LightTheme } from './themes/light'
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
-    let declaration = 'export type Colors = {\n'
+    let declaration = 'export declare const Colors: {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
     })
@@ -102,13 +102,12 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/module',
   formatter: function () {
-    return `import { Colors } from './types/colors';
-import { Theme } from './types/theme';
+    return `import { Theme } from './types/theme'
 
-export declare const Colors: Colors;
-export declare const DarkTheme: Theme;
-export declare const LightTheme: Theme;
-`
+export declare const DarkTheme: Theme
+export declare const LightTheme: Theme
+export * from './types/theme'
+export * from './types/colors'`
   },
 })
 
