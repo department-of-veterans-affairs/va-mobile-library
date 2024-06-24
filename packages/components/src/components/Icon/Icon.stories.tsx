@@ -47,7 +47,12 @@ const meta: Meta<IconProps> = {
     name: { options: Object.keys(IconMap) },
   },
   parameters: {
-    docs: generateDocs({ icons: buildIconGallery() }),
+    docs: generateDocs({
+      name: 'Icon',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Foundation/Icons/',
+      icons: buildIconGallery(),
+    }),
   },
 }
 
