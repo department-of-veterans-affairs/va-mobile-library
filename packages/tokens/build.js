@@ -59,11 +59,22 @@ StyleDictionary.registerFormat({
   },
 })
 
+/** Custom format to generate index js with exports */
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/vads-module-export',
+  formatter: function () {
+    return `export { Colors } from 'colors'
+export { DarkTheme } from './themes/dark'
+export { LightTheme } from './themes/light'
+`
+  },
+})
+
 /** Creates named type declaration for Colors. Allows for TypeScript autocomplete */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
-    let declaration = 'export declare const Colors: {\n'
+    let declaration = 'export type Colors = {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
     })
@@ -77,13 +88,27 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/theme',
   formatter: function (dictionary) {
-    let declaration = 'export declare const Theme: {\n'
+    let declaration = 'export type Theme = {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${stripMode(token.name)}: string;\n`
     })
 
     declaration += `}`
     return declaration
+  },
+})
+
+/** Custom format to generate index.d.ts with exports */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/module',
+  formatter: function () {
+    return `import { Colors } from './types/colors';
+import { Theme } from './types/theme';
+
+export declare const Colors: Colors;
+export declare const DarkTheme: Theme;
+export declare const LightTheme: Theme;
+`
   },
 })
 
