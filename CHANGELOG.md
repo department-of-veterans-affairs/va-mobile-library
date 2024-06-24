@@ -1,5 +1,17 @@
 # Changelog
 
+## [assets-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.12.0) (2024-06-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.18.0...assets-v0.12.0)
+
+**Closed issues:**
+
+- DS - Loading Component - Add to linting pkg [\#253](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/253)
+
+**Merged pull requests:**
+
+- \[Feature\] Update component-library and extract new icons [\#355](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/355) ([narin](https://github.com/narin))
+
 ## [linting-v0.18.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.18.0) (2024-06-24)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.17.0...linting-v0.18.0)
