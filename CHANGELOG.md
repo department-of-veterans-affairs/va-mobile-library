@@ -1,5 +1,24 @@
 # Changelog
 
+## [components-v0.18.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.18.0) (2024-06-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.1...components-v0.18.0)
+
+**Closed issues:**
+
+- Icon Library: Create documentation [\#313](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/313)
+- DS - Loading Component Unit Tests [\#254](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/254)
+- DS - Loading Component Storybook [\#249](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/249)
+- DS - Loading Component Implementation [\#247](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/247)
+- DS - Update Icon Storybook to link to VADS docs [\#234](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/234)
+- Icon Library: Update icons to align with VADS [\#144](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/144)
+- Loading Indicator - Publish component to Figma and Doc Site [\#114](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/114)
+
+**Merged pull requests:**
+
+- \[Linting\] Add Loading indicator linting rule [\#356](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/356) ([TimRoe](https://github.com/TimRoe))
+- \[Bug\] Fix URL for loading indicator docs [\#351](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/351) ([narin](https://github.com/narin))
+
 ## [components-v0.17.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.17.1) (2024-06-07)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.11.0...components-v0.17.1)
