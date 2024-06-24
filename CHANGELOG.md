@@ -1,5 +1,9 @@
 # Changelog
 
+## [linting-v0.16.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.16.0) (2024-06-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.18.0...linting-v0.16.0)
+
 ## [components-v0.18.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.18.0) (2024-06-24)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.1...components-v0.18.0)
