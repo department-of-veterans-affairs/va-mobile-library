@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-assets",
-  "version": "0.11.0",
+  "version": "0.11.1-alpha.0",
   "description": "VA Design System Mobile Assets",
   "type": "module",
   "repository": {
@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "devDependencies": {
-    "@department-of-veterans-affairs/component-library": "^42.0.0"
+    "@department-of-veterans-affairs/component-library": "^42.2.1",
+    "hast-util-to-html": "^9.0.1"
   }
 }
