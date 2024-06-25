@@ -14,26 +14,20 @@ StyleDictionary.registerFilter({
 /** Remove tokens that have the dark mode (OnDark/-on-dark) suffix */
 StyleDictionary.registerFilter({
   name: 'filter/color/light-mode',
-  matcher: (token) =>
-    token.attributes.category.includes('color') &&
-    !token.name.includes('OnDark') &&
-    !token.name.includes('-on-dark'),
+  matcher: filterLight,
 })
 
 /** Remove tokens that have the light mode (OnLight/-on-light) suffix */
 StyleDictionary.registerFilter({
   name: 'filter/color/dark-mode',
-  matcher: (token) =>
-    token.attributes.category.includes('color') &&
-    !token.name.includes('OnLight') &&
-    !token.name.includes('-on-light'),
+  matcher: filterDark,
 })
 
 /**
  * Formats
  */
 
-/** Custom format for colors. Exports color tokens as single object */
+/** Custom format for colors. Exports all color tokens as single object */
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-colors',
   formatter: function (dictionary) {
@@ -46,46 +40,18 @@ StyleDictionary.registerFormat({
   },
 })
 
-// /** Custom format for themes. Exports color tokens as single object */
-// StyleDictionary.registerFormat({
-//   name: 'javascript/es6/vads-colors-theme',
-//   formatter: function (dictionary) {
-//     const colorTokens = dictionary.allProperties.reduce((result, token) => {
-//       result[stripMode(token.name)] = token.value
-//       return result
-//     }, {})
-
-//     return `export const Theme = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
-//   },
-// })
-
-/** Custom format for themes. Exports color tokens as single object */
+/** Custom format for themes. Filters light and dark mode themes into properties
+ *  and exports them as a single themes object */
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-colors-themes',
   formatter: function (dictionary) {
     const light = dictionary.allProperties
-      .filter(
-        (token) =>
-          token.attributes.category.includes('color') &&
-          !token.name.includes('OnDark') &&
-          !token.name.includes('-on-dark'),
-      )
-      .reduce((result, token) => {
-        result[stripMode(token.name)] = token.value
-        return result
-      }, {})
+      .filter(filterLight)
+      .reduce(stripModeReducer, {})
 
     const dark = dictionary.allProperties
-      .filter(
-        (token) =>
-          token.attributes.category.includes('color') &&
-          !token.name.includes('OnLight') &&
-          !token.name.includes('-on-light'),
-      )
-      .reduce((result, token) => {
-        result[stripMode(token.name)] = token.value
-        return result
-      }, {})
+      .filter(filterDark)
+      .reduce(stripModeReducer, {})
 
     return `export const themes = {
   light: ${JSON.stringify(sortTokensByKey(light), null, 4)},
@@ -216,6 +182,7 @@ StyleDictionary.registerTransformGroup({
  * Utils
  */
 
+/** Sort function to alphabetize token objects */
 const sortTokensByKey = (obj) => {
   const sortedKeys = Object.keys(obj).sort()
   const sortedObj = {}
@@ -226,7 +193,26 @@ const sortTokensByKey = (obj) => {
   return sortedObj
 }
 
+/** Reusable filter function that returns only non-dark-mode tokens */
+const filterLight = (token) =>
+  token.attributes.category.includes('color') &&
+  !token.name.includes('OnDark') &&
+  !token.name.includes('-on-dark')
+
+/** Reusable filter function that returns only non-light-mode tokens */
+const filterDark = (token) =>
+  token.attributes.category.includes('color') &&
+  !token.name.includes('OnLight') &&
+  !token.name.includes('-on-light')
+
+/** Removes OnDark and OnLight mode suffixes for themes */
 const stripMode = (name) => name.replace('OnDark', '').replace('OnLight', '')
+
+/** Reusable reducer function that creates tokens with the mode removed from their name */
+const stripModeReducer = (result, token) => {
+  result[stripMode(token.name)] = token.value
+  return result
+}
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
 
