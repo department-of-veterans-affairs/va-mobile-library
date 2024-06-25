@@ -137,7 +137,7 @@ describe('Icon', () => {
     describe('Custom light/dark mode colors', () => {
       const lightDarkModeFill: IconProps['fill'] = {
         light: '#f0f',
-        dark: '#0f0'
+        dark: '#0f0',
       }
 
       it('renders correctly in light mode', async () => {
