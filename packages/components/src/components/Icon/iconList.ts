@@ -5,6 +5,7 @@ import AccessibleForward from '@department-of-veterans-affairs/mobile-assets/ico
 import AccountBalance from '@department-of-veterans-affairs/mobile-assets/icons/vads/account_balance.svg'
 import AccountBox from '@department-of-veterans-affairs/mobile-assets/icons/vads/account_box.svg'
 import AccountCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/account_circle.svg'
+import Acute from '@department-of-veterans-affairs/mobile-assets/icons/vads/acute.svg'
 import Add from '@department-of-veterans-affairs/mobile-assets/icons/vads/add.svg'
 import AddCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/add_circle.svg'
 import AddCircleOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/add_circle_outline.svg'
@@ -84,6 +85,7 @@ import EventAvailable from '@department-of-veterans-affairs/mobile-assets/icons/
 import ExpandLess from '@department-of-veterans-affairs/mobile-assets/icons/vads/expand_less.svg'
 import ExpandMore from '@department-of-veterans-affairs/mobile-assets/icons/vads/expand_more.svg'
 import Facebook from '@department-of-veterans-affairs/mobile-assets/icons/vads/facebook.svg'
+import FactCheck from '@department-of-veterans-affairs/mobile-assets/icons/vads/fact_check.svg'
 import FastForward from '@department-of-veterans-affairs/mobile-assets/icons/vads/fast_forward.svg'
 import FastRewind from '@department-of-veterans-affairs/mobile-assets/icons/vads/fast_rewind.svg'
 import Favorite from '@department-of-veterans-affairs/mobile-assets/icons/vads/favorite.svg'
@@ -126,11 +128,13 @@ import HowToReg from '@department-of-veterans-affairs/mobile-assets/icons/vads/h
 import Hurricane from '@department-of-veterans-affairs/mobile-assets/icons/vads/hurricane.svg'
 import Identification from '@department-of-veterans-affairs/mobile-assets/icons/vads/identification.svg'
 import Image from '@department-of-veterans-affairs/mobile-assets/icons/vads/image.svg'
+import Inbox from '@department-of-veterans-affairs/mobile-assets/icons/vads/inbox.svg'
 import IndeterminateCheckBox from '@department-of-veterans-affairs/mobile-assets/icons/indeterminate_check_box.svg'
 import Info from '@department-of-veterans-affairs/mobile-assets/icons/vads/info.svg'
 import InfoOutline from '@department-of-veterans-affairs/mobile-assets/icons/vads/info_outline.svg'
 import Insights from '@department-of-veterans-affairs/mobile-assets/icons/vads/insights.svg'
 import Instagram from '@department-of-veterans-affairs/mobile-assets/icons/vads/instagram.svg'
+import Key from '@department-of-veterans-affairs/mobile-assets/icons/vads/key.svg'
 import Keyboard from '@department-of-veterans-affairs/mobile-assets/icons/vads/keyboard.svg'
 import Label from '@department-of-veterans-affairs/mobile-assets/icons/vads/label.svg'
 import Language from '@department-of-veterans-affairs/mobile-assets/icons/vads/language.svg'
@@ -143,6 +147,7 @@ import LinkOff from '@department-of-veterans-affairs/mobile-assets/icons/vads/li
 import Linkedin from '@department-of-veterans-affairs/mobile-assets/icons/vads/linkedin.svg'
 import List from '@department-of-veterans-affairs/mobile-assets/icons/vads/list.svg'
 import LoadingIndicator from '@department-of-veterans-affairs/mobile-assets/icons/loading_indicator.svg'
+import Local from '@department-of-veterans-affairs/mobile-assets/icons/vads/local.svg'
 import LocalCafe from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_cafe.svg'
 import LocalFireDepartment from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_fire_department.svg'
 import LocalGasStation from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_gas_station.svg'
@@ -154,6 +159,7 @@ import LocalOffer from '@department-of-veterans-affairs/mobile-assets/icons/vads
 import LocalParking from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_parking.svg'
 import LocalPharmacy from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_pharmacy.svg'
 import LocalPolice from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_police.svg'
+import LocalShipping from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_shipping.svg'
 import LocalTaxi from '@department-of-veterans-affairs/mobile-assets/icons/vads/local_taxi.svg'
 import LocationCity from '@department-of-veterans-affairs/mobile-assets/icons/vads/location_city.svg'
 import LocationOn from '@department-of-veterans-affairs/mobile-assets/icons/vads/location_on.svg'
@@ -192,6 +198,7 @@ import Pets from '@department-of-veterans-affairs/mobile-assets/icons/vads/pets.
 import Phone from '@department-of-veterans-affairs/mobile-assets/icons/vads/phone.svg'
 import PhoneIphone from '@department-of-veterans-affairs/mobile-assets/icons/vads/phone_iphone.svg'
 import PhotoCamera from '@department-of-veterans-affairs/mobile-assets/icons/vads/photo_camera.svg'
+import Pill from '@department-of-veterans-affairs/mobile-assets/icons/vads/pill.svg'
 import PlayCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/play_circle.svg'
 import Print from '@department-of-veterans-affairs/mobile-assets/icons/vads/print.svg'
 import PriorityHigh from '@department-of-veterans-affairs/mobile-assets/icons/vads/priority_high.svg'
@@ -201,6 +208,7 @@ import RadioButtonChecked from '@department-of-veterans-affairs/mobile-assets/ic
 import RadioButtonUnchecked from '@department-of-veterans-affairs/mobile-assets/icons/vads/radio_button_unchecked.svg'
 import Rain from '@department-of-veterans-affairs/mobile-assets/icons/vads/rain.svg'
 import ReduceCapacity from '@department-of-veterans-affairs/mobile-assets/icons/vads/reduce_capacity.svg'
+import Refresh from '@department-of-veterans-affairs/mobile-assets/icons/vads/refresh.svg'
 import Remove from '@department-of-veterans-affairs/mobile-assets/icons/vads/remove.svg'
 import RemoveCircle from '@department-of-veterans-affairs/mobile-assets/icons/vads/remove_circle.svg'
 import Report from '@department-of-veterans-affairs/mobile-assets/icons/vads/report.svg'
@@ -216,6 +224,7 @@ import School from '@department-of-veterans-affairs/mobile-assets/icons/vads/sch
 import Science from '@department-of-veterans-affairs/mobile-assets/icons/vads/science.svg'
 import Search from '@department-of-veterans-affairs/mobile-assets/icons/vads/search.svg'
 import Security from '@department-of-veterans-affairs/mobile-assets/icons/vads/security.svg'
+import Sell from '@department-of-veterans-affairs/mobile-assets/icons/vads/sell.svg'
 import Send from '@department-of-veterans-affairs/mobile-assets/icons/vads/send.svg'
 import SentimentDissatisfied from '@department-of-veterans-affairs/mobile-assets/icons/vads/sentiment_dissatisfied.svg'
 import SentimentNeutral from '@department-of-veterans-affairs/mobile-assets/icons/vads/sentiment_neutral.svg'
@@ -278,6 +287,7 @@ export const IconMap = {
   AccountBalance,
   AccountBox,
   AccountCircle,
+  Acute,
   Add,
   AddCircle,
   AddCircleOutline,
@@ -357,6 +367,7 @@ export const IconMap = {
   ExpandLess,
   ExpandMore,
   Facebook,
+  FactCheck,
   FastForward,
   FastRewind,
   Favorite,
@@ -399,11 +410,13 @@ export const IconMap = {
   Hurricane,
   Identification,
   Image,
+  Inbox,
   IndeterminateCheckBox,
   Info,
   InfoOutline,
   Insights,
   Instagram,
+  Key,
   Keyboard,
   Label,
   Language,
@@ -416,6 +429,7 @@ export const IconMap = {
   Linkedin,
   List,
   LoadingIndicator,
+  Local,
   LocalCafe,
   LocalFireDepartment,
   LocalGasStation,
@@ -427,6 +441,7 @@ export const IconMap = {
   LocalParking,
   LocalPharmacy,
   LocalPolice,
+  LocalShipping,
   LocalTaxi,
   LocationCity,
   LocationOn,
@@ -465,6 +480,7 @@ export const IconMap = {
   Phone,
   PhoneIphone,
   PhotoCamera,
+  Pill,
   PlayCircle,
   Print,
   PriorityHigh,
@@ -474,6 +490,7 @@ export const IconMap = {
   RadioButtonUnchecked,
   Rain,
   ReduceCapacity,
+  Refresh,
   Remove,
   RemoveCircle,
   Report,
@@ -489,6 +506,7 @@ export const IconMap = {
   Science,
   Search,
   Security,
+  Sell,
   Send,
   SentimentDissatisfied,
   SentimentNeutral,

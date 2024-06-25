@@ -1,5 +1,18 @@
 # Changelog
 
+## [components-v0.19.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.19.0) (2024-06-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.12.0...components-v0.19.0)
+
+**Closed issues:**
+
+- Logos - Create documentation [\#326](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/326)
+- DS - Add missing icons from updated Icon Library [\#255](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/255)
+
+**Merged pull requests:**
+
+- \[Feature\] Update Icon component for new Icons [\#358](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/358) ([narin](https://github.com/narin))
+
 ## [assets-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.12.0) (2024-06-24)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.18.0...assets-v0.12.0)
