@@ -62,7 +62,7 @@ describe('Icon', () => {
     })
 
     it('renders correctly with fontScale 2', async () => {
-      render(<Icon name="HomeOutlined" testID="myId" height={50} width={50} />)
+      render(<Icon {...commonProps} height={50} width={50} />)
 
       const icon = getIcon()
       const { width, height } = icon.props
