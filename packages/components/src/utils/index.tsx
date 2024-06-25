@@ -6,14 +6,21 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import { Colors as TokenColors } from '@department-of-veterans-affairs/mobile-tokens'
+import {
+  DarkTheme,
+  LightTheme,
+  Theme,
+  Colors as TokenColors,
+} from '@department-of-veterans-affairs/mobile-tokens'
 import { useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
   const colorScheme = useColorScheme()
 
-  return colorScheme === 'dark' ? TokenColors.vadsColorForegroundDefaultOnDark : TokenColors.vadsColorForegroundDefaultOnLight
+  return colorScheme === 'dark'
+    ? TokenColors.vadsColorForegroundDefaultOnDark
+    : TokenColors.vadsColorForegroundDefaultOnLight
 }
 
 /** Handles return of color scheme based on platform */
@@ -32,6 +39,10 @@ export function useColorScheme(): ColorSchemeName {
   }
 }
 
+export function useTheme(): Theme {
+  return useColorScheme() == 'dark' ? DarkTheme : LightTheme
+}
+
 /**
  * Hook to monitor screen reader status
  * @returns True when the screen reader is on, else false
@@ -42,8 +53,8 @@ export function useIsScreenReaderEnabled(): boolean {
   useEffect(() => {
     // Function to update state based on the screen reader status
     const updateScreenReaderStatus = (isEnabled: boolean) => {
-      setScreenReaderEnabled(isEnabled);
-    };
+      setScreenReaderEnabled(isEnabled)
+    }
 
     // Initiate with current screen reader status
     AccessibilityInfo.isScreenReaderEnabled().then(updateScreenReaderStatus)
@@ -51,7 +62,7 @@ export function useIsScreenReaderEnabled(): boolean {
     // Subscribe to screen reader status changes
     const subscription = AccessibilityInfo.addEventListener(
       'screenReaderChanged',
-      updateScreenReaderStatus
+      updateScreenReaderStatus,
     )
 
     // Cleanup subscription on component unmount

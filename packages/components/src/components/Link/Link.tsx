@@ -20,7 +20,7 @@ import {
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
 import { t } from 'i18next'
-import { useColorScheme } from '../../utils'
+import { useColorScheme, useTheme } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
 type nullTypeSpecifics = {
@@ -141,9 +141,8 @@ export const Link: FC<LinkProps> = ({
   TTYnumber,
   url,
 }) => {
-  const colorScheme = useColorScheme()
+  const theme = useTheme()
   const fontScale = useWindowDimensions().fontScale
-  const isDarkMode = colorScheme === 'dark'
   const launchExternalLink = useExternalLink()
 
   let _icon: IconProps | 'no icon'
@@ -225,14 +224,10 @@ export const Link: FC<LinkProps> = ({
 
   switch (variant) {
     case 'base':
-      linkColor = isDarkMode 
-        ? Colors.vadsColorForegroundDefaultOnDark 
-        : Colors.vadsColorForegroundDefaultOnLight
+      linkColor = theme.vadsColorForegroundDefault
       break
     default:
-      linkColor = isDarkMode 
-        ? Colors.vadsColorActionForegroundDefaultOnDark 
-        : Colors.vadsColorActionForegroundDefaultOnLight
+      linkColor = theme.vadsColorActionForegroundDefault
   }
 
   const iconViewStyle: ViewStyle = {
@@ -277,9 +272,7 @@ export const Link: FC<LinkProps> = ({
       flexDirection: 'row',
       alignItems: 'center',
       backgroundColor: pressed
-        ? isDarkMode
-          ? Colors.vadsColorSurfaceSecondaryOnDark
-          : Colors.vadsColorSurfaceSecondaryOnLight
+        ? theme.vadsColorSurfaceSecondary
         : 'transparent',
     }),
     testOnly_pressed: testOnlyPressed,
