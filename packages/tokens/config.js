@@ -18,15 +18,19 @@ module.exports = {
           format: 'javascript/es6/vads-colors',
           filter: 'filter/color/is-color',
         },
+        // {
+        //   destination: 'js/themes/light.js',
+        //   format: 'javascript/es6/vads-colors-theme',
+        //   filter: 'filter/color/light-mode',
+        // },
+        // {
+        //   destination: 'js/themes/dark.js',
+        //   format: 'javascript/es6/vads-colors-theme',
+        //   filter: 'filter/color/dark-mode',
+        // },
         {
-          destination: 'js/themes/light.js',
-          format: 'javascript/es6/vads-colors-theme',
-          filter: 'filter/color/light-mode',
-        },
-        {
-          destination: 'js/themes/dark.js',
-          format: 'javascript/es6/vads-colors-theme',
-          filter: 'filter/color/dark-mode',
+          destination: 'js/themes.js',
+          format: 'javascript/es6/vads-colors-themes',
         },
         {
           destination: 'js/index.js',
