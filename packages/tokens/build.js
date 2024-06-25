@@ -46,16 +46,51 @@ StyleDictionary.registerFormat({
   },
 })
 
+// /** Custom format for themes. Exports color tokens as single object */
+// StyleDictionary.registerFormat({
+//   name: 'javascript/es6/vads-colors-theme',
+//   formatter: function (dictionary) {
+//     const colorTokens = dictionary.allProperties.reduce((result, token) => {
+//       result[stripMode(token.name)] = token.value
+//       return result
+//     }, {})
+
+//     return `export const Theme = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
+//   },
+// })
+
 /** Custom format for themes. Exports color tokens as single object */
 StyleDictionary.registerFormat({
-  name: 'javascript/es6/vads-colors-theme',
+  name: 'javascript/es6/vads-colors-themes',
   formatter: function (dictionary) {
-    const colorTokens = dictionary.allProperties.reduce((result, token) => {
-      result[stripMode(token.name)] = token.value
-      return result
-    }, {})
+    const light = dictionary.allProperties
+      .filter(
+        (token) =>
+          token.attributes.category.includes('color') &&
+          !token.name.includes('OnDark') &&
+          !token.name.includes('-on-dark'),
+      )
+      .reduce((result, token) => {
+        result[stripMode(token.name)] = token.value
+        return result
+      }, {})
 
-    return `export const Theme = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
+    const dark = dictionary.allProperties
+      .filter(
+        (token) =>
+          token.attributes.category.includes('color') &&
+          !token.name.includes('OnLight') &&
+          !token.name.includes('-on-light'),
+      )
+      .reduce((result, token) => {
+        result[stripMode(token.name)] = token.value
+        return result
+      }, {})
+
+    return `export const themes = {
+  light: ${JSON.stringify(sortTokensByKey(light), null, 4)},
+  dark: ${JSON.stringify(sortTokensByKey(dark), null, 4)}
+    }`
   },
 })
 
@@ -63,9 +98,8 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-module-export',
   formatter: function () {
-    return `export { Colors } from 'colors'
-export { DarkTheme } from './themes/dark'
-export { LightTheme } from './themes/light'
+    return `export { Colors } from './colors'
+export { themes } from './themes'
 `
   },
 })
@@ -88,12 +122,18 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/theme',
   formatter: function (dictionary) {
-    let declaration = 'export type Theme = {\n'
+    let declaration = 'export declare type Theme = {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${stripMode(token.name)}: string;\n`
     })
 
-    declaration += `}`
+    declaration += `}
+
+export declare const themes: {
+  light: Theme;
+  dark: Theme;
+}`
+
     return declaration
   },
 })
@@ -102,10 +142,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/module',
   formatter: function () {
-    return `import { Theme } from './types/theme'
-
-export declare const DarkTheme: Theme
-export declare const LightTheme: Theme
+    return `
 export * from './types/theme'
 export * from './types/colors'`
   },
