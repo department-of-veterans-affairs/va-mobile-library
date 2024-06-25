@@ -2,6 +2,42 @@
 const StyleDictionary = require('style-dictionary')
 
 /**
+ * Utils
+ */
+
+/** Sort function to alphabetize token objects */
+const sortTokensByKey = (obj) => {
+  const sortedKeys = Object.keys(obj).sort()
+  const sortedObj = {}
+  sortedKeys.forEach((key) => {
+    sortedObj[key] = obj[key]
+  })
+
+  return sortedObj
+}
+
+/** Reusable filter function that returns only non-dark-mode tokens */
+const filterLight = (token) =>
+  token.attributes.category.includes('color') &&
+  !token.name.includes('OnDark') &&
+  !token.name.includes('-on-dark')
+
+/** Reusable filter function that returns only non-light-mode tokens */
+const filterDark = (token) =>
+  token.attributes.category.includes('color') &&
+  !token.name.includes('OnLight') &&
+  !token.name.includes('-on-light')
+
+/** Removes OnDark and OnLight mode suffixes for themes */
+const stripMode = (name) => name.replace('OnDark', '').replace('OnLight', '')
+
+/** Reusable reducer function that creates tokens with the mode removed from their name */
+const stripModeReducer = (result, token) => {
+  result[stripMode(token.name)] = token.value
+  return result
+}
+
+/**
  * Filters
  */
 
@@ -177,42 +213,6 @@ StyleDictionary.registerTransformGroup({
   name: 'figma',
   transforms: ['name/cti/kebab', 'color/hex'],
 })
-
-/**
- * Utils
- */
-
-/** Sort function to alphabetize token objects */
-const sortTokensByKey = (obj) => {
-  const sortedKeys = Object.keys(obj).sort()
-  const sortedObj = {}
-  sortedKeys.forEach((key) => {
-    sortedObj[key] = obj[key]
-  })
-
-  return sortedObj
-}
-
-/** Reusable filter function that returns only non-dark-mode tokens */
-const filterLight = (token) =>
-  token.attributes.category.includes('color') &&
-  !token.name.includes('OnDark') &&
-  !token.name.includes('-on-dark')
-
-/** Reusable filter function that returns only non-light-mode tokens */
-const filterDark = (token) =>
-  token.attributes.category.includes('color') &&
-  !token.name.includes('OnLight') &&
-  !token.name.includes('-on-light')
-
-/** Removes OnDark and OnLight mode suffixes for themes */
-const stripMode = (name) => name.replace('OnDark', '').replace('OnLight', '')
-
-/** Reusable reducer function that creates tokens with the mode removed from their name */
-const stripModeReducer = (result, token) => {
-  result[stripMode(token.name)] = token.value
-  return result
-}
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
 
