@@ -5,8 +5,8 @@
   "main": "dist/js/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "tokens:build": "node ./build.js",
-    "prepack": "node ./build.js",
+    "tokens:build": "node ./build.js && prettier dist/ --write",
+    "prepack": "yarn run tokens:build",
     "publish-package": "npm publish --access public --tolerate-republish"
   },
   "repository": {
@@ -31,6 +31,7 @@
   "packageManager": "yarn@3.6.1",
   "devDependencies": {
     "@department-of-veterans-affairs/css-library": "0.7.0",
+    "prettier": "^3.3.2",
     "style-dictionary": "^3.9.2"
   }
 }
