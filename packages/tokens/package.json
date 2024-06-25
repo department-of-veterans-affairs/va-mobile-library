@@ -6,7 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "tokens:build": "node ./build.js && prettier dist/ --write",
-    "prepack": "yarn run tokens:build",
+    "prepack": "npm run tokens:build",
     "publish-package": "npm publish --access public --tolerate-republish"
   },
   "repository": {
