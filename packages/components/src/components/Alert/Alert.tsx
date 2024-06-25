@@ -1,4 +1,3 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Insets,
   Pressable,

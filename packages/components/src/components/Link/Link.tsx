@@ -1,4 +1,3 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Pressable,
   PressableProps,
@@ -20,7 +19,7 @@ import {
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
 import { t } from 'i18next'
-import { useColorScheme, useTheme } from '../../utils'
+import { useTheme } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
 type nullTypeSpecifics = {
