@@ -6,21 +6,13 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import {
-  DarkTheme,
-  LightTheme,
-  Theme,
-  Colors as TokenColors,
-} from '@department-of-veterans-affairs/mobile-tokens'
+import { themes, Theme } from '@department-of-veterans-affairs/mobile-tokens'
 import { useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
-  const colorScheme = useColorScheme()
-
-  return colorScheme === 'dark'
-    ? TokenColors.vadsColorForegroundDefaultOnDark
-    : TokenColors.vadsColorForegroundDefaultOnLight
+  const theme = useTheme()
+  return theme.vadsColorForegroundDefault
 }
 
 /** Handles return of color scheme based on platform */
@@ -39,8 +31,10 @@ export function useColorScheme(): ColorSchemeName {
   }
 }
 
+/** Returns light/dark theme based on useColorScheme */
 export function useTheme(): Theme {
-  return useColorScheme() == 'dark' ? DarkTheme : LightTheme
+  const themeName: ColorSchemeName = useColorScheme() || 'light'
+  return themes[themeName]
 }
 
 /**

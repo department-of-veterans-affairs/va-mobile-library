@@ -2141,7 +2141,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.9"
     "@babel/preset-typescript": "npm:^7.23.3"
     "@department-of-veterans-affairs/mobile-assets": "npm:0.11.0"
-    "@department-of-veterans-affairs/mobile-tokens": "npm:0.12.1-alpha.2"
+    "@department-of-veterans-affairs/mobile-tokens": "npm:0.12.1-alpha.3"
     "@expo/metro-runtime": "npm:~3.2.1"
     "@expo/webpack-config": "npm:~19.0.1"
     "@os-team/i18next-react-native-language-detector": "npm:^1.0.31"
@@ -2209,10 +2209,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-tokens@npm:0.12.1-alpha.2":
-  version: 0.12.1-alpha.2
-  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.12.1-alpha.2"
-  checksum: e91e3dc6df9b2ae55a48dc31680ce97e385638d9ebad676bd7f12fdbe306ce54ba551d637ca0e9f5412faf0aae18856446f8429c26970ccee6669956efccdd23
+"@department-of-veterans-affairs/mobile-tokens@npm:0.12.1-alpha.3":
+  version: 0.12.1-alpha.3
+  resolution: "@department-of-veterans-affairs/mobile-tokens@npm:0.12.1-alpha.3"
+  checksum: 574a92f58b25ae03f26f2fed588a63e93be772ffbc5eb0da06eda1692a9f1cddc6d0789294fa764c2de790a1dc0d7facb9aa9c90a7c6b79842c915f869aad877
   languageName: node
   linkType: hard
 
