@@ -6,7 +6,7 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import { themes, Theme } from '@department-of-veterans-affairs/mobile-tokens'
+import { Theme, themes } from '@department-of-veterans-affairs/mobile-tokens'
 import { useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
