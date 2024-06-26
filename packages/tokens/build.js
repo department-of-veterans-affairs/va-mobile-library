@@ -2,6 +2,42 @@
 const StyleDictionary = require('style-dictionary')
 
 /**
+ * Utils
+ */
+
+/** Sort function to alphabetize token objects */
+const sortTokensByKey = (obj) => {
+  const sortedKeys = Object.keys(obj).sort()
+  const sortedObj = {}
+  sortedKeys.forEach((key) => {
+    sortedObj[key] = obj[key]
+  })
+
+  return sortedObj
+}
+
+/** Reusable filter function that returns only non-dark-mode tokens */
+const filterLight = (token) =>
+  token.attributes.category.includes('color') &&
+  !token.name.includes('OnDark') &&
+  !token.name.includes('-on-dark')
+
+/** Reusable filter function that returns only non-light-mode tokens */
+const filterDark = (token) =>
+  token.attributes.category.includes('color') &&
+  !token.name.includes('OnLight') &&
+  !token.name.includes('-on-light')
+
+/** Removes OnDark and OnLight mode suffixes for themes */
+const stripMode = (name) => name.replace('OnDark', '').replace('OnLight', '')
+
+/** Reusable reducer function that creates tokens with the mode removed from their name */
+const stripModeReducer = (result, token) => {
+  result[stripMode(token.name)] = token.value
+  return result
+}
+
+/**
  * Filters
  */
 
@@ -14,26 +50,20 @@ StyleDictionary.registerFilter({
 /** Remove tokens that have the dark mode (OnDark/-on-dark) suffix */
 StyleDictionary.registerFilter({
   name: 'filter/color/light-mode',
-  matcher: (token) =>
-    token.attributes.category.includes('color') &&
-    !token.name.includes('OnDark') &&
-    !token.name.includes('-on-dark'),
+  matcher: filterLight,
 })
 
 /** Remove tokens that have the light mode (OnLight/-on-light) suffix */
 StyleDictionary.registerFilter({
   name: 'filter/color/dark-mode',
-  matcher: (token) =>
-    token.attributes.category.includes('color') &&
-    !token.name.includes('OnLight') &&
-    !token.name.includes('-on-light'),
+  matcher: filterDark,
 })
 
 /**
  * Formats
  */
 
-/** Custom format for colors. Exports color tokens as single object */
+/** Custom format for colors. Exports all color tokens as single object */
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-colors',
   formatter: function (dictionary) {
@@ -42,20 +72,82 @@ StyleDictionary.registerFormat({
       return result
     }, {})
 
-    return `export const Colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
+    return `export const colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
   },
 })
 
-/** Creates named type declaration for Colors. Allows for TypeScript autocomplete */
+/** Custom format for themes. Filters light and dark mode themes into properties
+ *  and exports them as a single themes object */
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/vads-colors-themes',
+  formatter: function (dictionary) {
+    const light = dictionary.allProperties
+      .filter(filterLight)
+      .reduce(stripModeReducer, {})
+
+    const dark = dictionary.allProperties
+      .filter(filterDark)
+      .reduce(stripModeReducer, {})
+
+    return (
+      'export const themes = {\n' +
+      `  light: ${JSON.stringify(sortTokensByKey(light), null, 4)},\n` +
+      `  dark: ${JSON.stringify(sortTokensByKey(dark), null, 4)}\n` +
+      '}'
+    )
+  },
+})
+
+/** Custom format to generate index js with exports */
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/vads-module-export',
+  formatter: function () {
+    return (
+      "export { colors } from './colors'\n" +
+      "export { themes } from './themes'"
+    )
+  },
+})
+
+/** Creates named type declaration for colors. Allows for TypeScript autocomplete */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
-    let declaration = 'export declare const Colors: {\n'
+    let declaration = 'export declare const colors: {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
     })
+    declaration += '}'
+    return declaration
+  },
+})
 
-    declaration += `}`
+/** Creates named type declaration for Themes. Allows for TypeScript autocomplete */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/theme',
+  formatter: function (dictionary) {
+    let declaration = 'export declare type Theme = {\n'
+    dictionary.allProperties.forEach((token) => {
+      declaration += `  ${stripMode(token.name)}: string;\n`
+    })
+    declaration += '}\n\n'
+
+    declaration +=
+      'export declare const themes: {\n' +
+      '  light: Theme;\n' +
+      '  dark: Theme;\n' +
+      '}'
+    return declaration
+  },
+})
+
+/** Custom format to generate index.d.ts with exports */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/module',
+  formatter: function () {
+    let declaration = "export * from './types/theme'\n"
+    declaration += "export * from './types/colors'"
+
     return declaration
   },
 })
@@ -123,20 +215,6 @@ StyleDictionary.registerTransformGroup({
   name: 'figma',
   transforms: ['name/cti/kebab', 'color/hex'],
 })
-
-/**
- * Utils
- */
-
-const sortTokensByKey = (obj) => {
-  const sortedKeys = Object.keys(obj).sort()
-  const sortedObj = {}
-  sortedKeys.forEach((key) => {
-    sortedObj[key] = obj[key]
-  })
-
-  return sortedObj
-}
 
 const StyleDictionaryExtended = StyleDictionary.extend(__dirname + '/config.js')
 
