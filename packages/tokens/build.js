@@ -145,9 +145,10 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/module',
   formatter: function () {
-    return `
-export * from './types/theme'
-export * from './types/colors'`
+    let declaration = "export * from './types/theme'\n"
+    declaration += "export * from './types/colors'"
+
+    return declaration
   },
 })
 
