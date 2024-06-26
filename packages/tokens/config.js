@@ -14,17 +14,21 @@ module.exports = {
       prefix: '',
       files: [
         {
+          destination: 'index.d.ts',
+          format: 'typescript/es6-declarations/module',
+        },
+        {
           destination: 'js/colors.js',
           format: 'javascript/es6/vads-colors',
           filter: 'filter/color/is-color',
         },
         {
-          destination: 'js/themes.js',
-          format: 'javascript/es6/vads-colors-themes',
-        },
-        {
           destination: 'js/index.js',
           format: 'javascript/es6/vads-module-export',
+        },
+        {
+          destination: 'js/themes.js',
+          format: 'javascript/es6/vads-colors-themes',
         },
         {
           destination: 'types/colors.d.ts',
@@ -36,10 +40,6 @@ module.exports = {
           format: 'typescript/es6-declarations/theme',
           filter: 'filter/color/light-mode',
         },
-        {
-          destination: 'index.d.ts',
-          format: 'typescript/es6-declarations/module',
-        },
       ],
     },
     figma: {
@@ -47,14 +47,14 @@ module.exports = {
       buildPath: './figma/',
       files: [
         {
-          destination: `light.json`,
-          format: 'json/dtcg',
-          filter: 'filter/color/light-mode',
-        },
-        {
           destination: `dark.json`,
           format: 'json/dtcg',
           filter: 'filter/color/dark-mode',
+        },
+        {
+          destination: `light.json`,
+          format: 'json/dtcg',
+          filter: 'filter/color/light-mode',
         },
       ],
     },
