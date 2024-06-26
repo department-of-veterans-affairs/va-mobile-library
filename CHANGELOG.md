@@ -1,5 +1,13 @@
 # Changelog
 
+## [tokens-v0.13.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.13.0) (2024-06-26)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.0...tokens-v0.13.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Update style-dictionary config to generate themes [\#360](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/360) ([narin](https://github.com/narin))
+
 ## [components-v0.19.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.19.0) (2024-06-24)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.12.0...components-v0.19.0)
