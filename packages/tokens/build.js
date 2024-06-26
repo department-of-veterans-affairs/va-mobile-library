@@ -72,7 +72,7 @@ StyleDictionary.registerFormat({
       return result
     }, {})
 
-    return `export const Colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
+    return `export const colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
   },
 })
 
@@ -89,10 +89,12 @@ StyleDictionary.registerFormat({
       .filter(filterDark)
       .reduce(stripModeReducer, {})
 
-    return `export const themes = {
-  light: ${JSON.stringify(sortTokensByKey(light), null, 4)},
-  dark: ${JSON.stringify(sortTokensByKey(dark), null, 4)}
-    }`
+    return (
+      'export const themes = {\n' +
+      `  light: ${JSON.stringify(sortTokensByKey(light), null, 4)},\n` +
+      `  dark: ${JSON.stringify(sortTokensByKey(dark), null, 4)}\n` +
+      '}'
+    )
   },
 })
 
@@ -100,22 +102,22 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-module-export',
   formatter: function () {
-    return `export { Colors } from './colors'
-export { themes } from './themes'
-`
+    return (
+      "export { colors } from './colors'\n" +
+      "export { themes } from './themes'"
+    )
   },
 })
 
-/** Creates named type declaration for Colors. Allows for TypeScript autocomplete */
+/** Creates named type declaration for colors. Allows for TypeScript autocomplete */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
-    let declaration = 'export declare const Colors: {\n'
+    let declaration = 'export declare const colors: {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
     })
-
-    declaration += `}`
+    declaration += '}'
     return declaration
   },
 })
@@ -128,14 +130,13 @@ StyleDictionary.registerFormat({
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${stripMode(token.name)}: string;\n`
     })
+    declaration += '}\n\n'
 
-    declaration += `}
-
-export declare const themes: {
-  light: Theme;
-  dark: Theme;
-}`
-
+    declaration +=
+      'export declare const themes: {\n' +
+      '  light: Theme;\n' +
+      '  dark: Theme;\n' +
+      '}'
     return declaration
   },
 })
