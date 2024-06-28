@@ -3,6 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   stories: [
+    '../../storybook/*.stories.mdx',
     '../../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
