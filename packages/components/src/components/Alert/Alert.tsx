@@ -124,15 +124,6 @@ export const Alert: FC<AlertProps> = ({
       break
   }
 
-  if (primaryButton && isDarkMode) {
-    primaryButton.buttonType = ButtonVariants.Base
-  }
-  if (secondaryButton) {
-    secondaryButton.buttonType = isDarkMode
-      ? ButtonVariants.BaseSecondary
-      : ButtonVariants.Secondary
-  }
-
   const contentBox: ViewStyle = {
     backgroundColor: backgroundColor,
     borderLeftColor: borderColor,
