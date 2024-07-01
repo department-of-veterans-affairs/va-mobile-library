@@ -1,5 +1,18 @@
 # Changelog
 
+## [components-v0.20.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.0) (2024-07-01)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.13.0...components-v0.20.0)
+
+**Closed issues:**
+
+- Icon - Enhance Unit Tests [\#223](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/223)
+- DS - Icon Library [\#82](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/82)
+
+**Merged pull requests:**
+
+- \[Feature\] Add useTheme hook. Update Link and Alert to use themes [\#361](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/361) ([narin](https://github.com/narin))
+
 ## [tokens-v0.13.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.13.0) (2024-06-26)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.0...tokens-v0.13.0)
