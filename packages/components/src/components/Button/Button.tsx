@@ -1,4 +1,3 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Pressable,
   PressableStateCallbackType,
@@ -6,6 +5,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native'
+import { colors } from '@department-of-veterans-affairs/mobile-tokens'
 import React from 'react'
 
 import { useColorScheme } from '../../utils'
@@ -58,80 +58,80 @@ export const Button: React.FC<ButtonProps> = ({
 
   switch (buttonType) {
     case ButtonVariants.Base:
-      bgColor = Colors.vadsColorActionSurfaceBaseOnLight
-      bgColorPressed = Colors.vadsColorActionSurfaceBaseActiveOnLight
-      textColor = Colors.vadsColorForegroundInverseOnLight
-      textColorPressed = Colors.vadsColorForegroundInverseOnLight
+      bgColor = colors.vadsColorActionSurfaceBaseOnLight
+      bgColorPressed = colors.vadsColorActionSurfaceBaseActiveOnLight
+      textColor = colors.vadsColorForegroundInverseOnLight
+      textColorPressed = colors.vadsColorForegroundInverseOnLight
 
       if (isDarkMode) {
-        bgColor = Colors.vadsColorActionSurfaceBaseOnDark
-        bgColorPressed = Colors.vadsColorActionSurfaceBaseActiveOnDark
-        textColor = Colors.vadsColorForegroundInverseOnDark
-        textColorPressed = Colors.vadsColorForegroundInverseOnDark
+        bgColor = colors.vadsColorActionSurfaceBaseOnDark
+        bgColorPressed = colors.vadsColorActionSurfaceBaseActiveOnDark
+        textColor = colors.vadsColorForegroundInverseOnDark
+        textColorPressed = colors.vadsColorForegroundInverseOnDark
       }
       break
     case ButtonVariants.BaseSecondary:
       bgColor = 'transparent'
       bgColorPressed = 'transparent'
-      borderColor = Colors.vadsColorActionBorderBaseOnLight
-      borderColorPressed = Colors.vadsColorActionBorderBaseActiveOnLight
-      textColor = Colors.vadsColorActionForegroundBaseOnLight
-      textColorPressed = Colors.vadsColorActionForegroundBaseActiveOnLight
+      borderColor = colors.vadsColorActionBorderBaseOnLight
+      borderColorPressed = colors.vadsColorActionBorderBaseActiveOnLight
+      textColor = colors.vadsColorActionForegroundBaseOnLight
+      textColorPressed = colors.vadsColorActionForegroundBaseActiveOnLight
       borderWidth = 2
 
       if (isDarkMode) {
-        borderColor = Colors.vadsColorActionBorderBaseOnDark
-        borderColorPressed = Colors.vadsColorActionBorderBaseActiveOnDark
-        textColor = Colors.vadsColorActionForegroundBaseOnDark
-        textColorPressed = Colors.vadsColorActionForegroundBaseActiveOnDark
+        borderColor = colors.vadsColorActionBorderBaseOnDark
+        borderColorPressed = colors.vadsColorActionBorderBaseActiveOnDark
+        textColor = colors.vadsColorActionForegroundBaseOnDark
+        textColorPressed = colors.vadsColorActionForegroundBaseActiveOnDark
       }
       break
     case ButtonVariants.Destructive:
-      bgColor = Colors.vadsColorActionSurfaceDestructiveOnLight
-      bgColorPressed = Colors.vadsColorActionSurfaceDestructiveActiveOnLight
-      textColor = Colors.vadsColorForegroundInverseOnLight
-      textColorPressed = Colors.vadsColorForegroundInverseOnLight
+      bgColor = colors.vadsColorActionSurfaceDestructiveOnLight
+      bgColorPressed = colors.vadsColorActionSurfaceDestructiveActiveOnLight
+      textColor = colors.vadsColorForegroundInverseOnLight
+      textColorPressed = colors.vadsColorForegroundInverseOnLight
 
       if (isDarkMode) {
-        bgColor = Colors.vadsColorActionSurfaceDestructiveOnDark
-        bgColorPressed = Colors.vadsColorActionSurfaceDestructiveActiveOnDark
-        textColor = Colors.vadsColorForegroundInverseOnDark
-        textColorPressed = Colors.vadsColorForegroundInverseOnDark
+        bgColor = colors.vadsColorActionSurfaceDestructiveOnDark
+        bgColorPressed = colors.vadsColorActionSurfaceDestructiveActiveOnDark
+        textColor = colors.vadsColorForegroundInverseOnDark
+        textColorPressed = colors.vadsColorForegroundInverseOnDark
       }
       break
     case ButtonVariants.Secondary:
       bgColor = 'transparent'
       bgColorPressed = 'transparent'
-      borderColor = Colors.vadsColorActionBorderDefaultOnLight
-      borderColorPressed = Colors.vadsColorActionBorderDefaultActiveOnLight
-      textColor = Colors.vadsColorActionForegroundDefaultOnLight
-      textColorPressed = Colors.vadsColorActionForegroundDefaultActiveOnLight
+      borderColor = colors.vadsColorActionBorderDefaultOnLight
+      borderColorPressed = colors.vadsColorActionBorderDefaultActiveOnLight
+      textColor = colors.vadsColorActionForegroundDefaultOnLight
+      textColorPressed = colors.vadsColorActionForegroundDefaultActiveOnLight
       borderWidth = 2
 
       if (isDarkMode) {
-        borderColor = Colors.vadsColorActionBorderDefaultOnDark
-        borderColorPressed = Colors.vadsColorActionBorderDefaultActiveOnDark
-        textColor = Colors.vadsColorActionForegroundDefaultOnDark
-        textColorPressed = Colors.vadsColorActionForegroundDefaultActiveOnDark
+        borderColor = colors.vadsColorActionBorderDefaultOnDark
+        borderColorPressed = colors.vadsColorActionBorderDefaultActiveOnDark
+        textColor = colors.vadsColorActionForegroundDefaultOnDark
+        textColorPressed = colors.vadsColorActionForegroundDefaultActiveOnDark
       }
       break
     case ButtonVariants.White:
-      bgColor = Colors.vadsColorBaseLightest
-      bgColorPressed = Colors.uswdsSystemColorGray30
-      textColor = Colors.vadsColorBlack
-      textColorPressed = Colors.vadsColorBlack
+      bgColor = colors.vadsColorBaseLightest
+      bgColorPressed = colors.uswdsSystemColorGray30
+      textColor = colors.vadsColorBlack
+      textColorPressed = colors.vadsColorBlack
       break
     default:
-      bgColor = Colors.vadsColorActionSurfaceDefaultOnLight
-      bgColorPressed = Colors.vadsColorActionSurfaceDefaultActiveOnLight
-      textColor = Colors.vadsColorForegroundInverseOnLight
-      textColorPressed = Colors.vadsColorForegroundInverseOnLight
+      bgColor = colors.vadsColorActionSurfaceDefaultOnLight
+      bgColorPressed = colors.vadsColorActionSurfaceDefaultActiveOnLight
+      textColor = colors.vadsColorForegroundInverseOnLight
+      textColorPressed = colors.vadsColorForegroundInverseOnLight
 
       if (isDarkMode) {
-        bgColor = Colors.vadsColorActionSurfaceDefaultOnDark
-        bgColorPressed = Colors.vadsColorActionSurfaceDefaultActiveOnDark
-        textColor = Colors.vadsColorForegroundInverseOnDark
-        textColorPressed = Colors.vadsColorForegroundInverseOnDark
+        bgColor = colors.vadsColorActionSurfaceDefaultOnDark
+        bgColorPressed = colors.vadsColorActionSurfaceDefaultActiveOnDark
+        textColor = colors.vadsColorForegroundInverseOnDark
+        textColorPressed = colors.vadsColorForegroundInverseOnDark
       }
   }
 

@@ -1,4 +1,3 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import {
   Insets,
   Pressable,
@@ -10,7 +9,7 @@ import {
 } from 'react-native'
 import React, { FC, useState } from 'react'
 
-import { BaseColor, useColorScheme } from '../../utils'
+import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
@@ -76,6 +75,7 @@ export const Alert: FC<AlertProps> = ({
   testID,
 }) => {
   const colorScheme = useColorScheme()
+  const theme = useTheme()
   const fontScale = useWindowDimensions().fontScale
   const isDarkMode = colorScheme === 'dark'
   const [expanded, setExpanded] = useState(
@@ -103,54 +103,25 @@ export const Alert: FC<AlertProps> = ({
 
   switch (variant) {
     case 'info':
-      backgroundColor = Colors.vadsColorFeedbackSurfaceInfoOnLight
-      borderColor = Colors.vadsColorFeedbackBorderInfoOnLight
+      backgroundColor = theme.vadsColorFeedbackSurfaceInfo
+      borderColor = theme.vadsColorFeedbackBorderInfo
       iconName = 'Info'
-
-      if (isDarkMode) {
-        backgroundColor = Colors.vadsColorFeedbackSurfaceInfoOnDark
-        borderColor = Colors.vadsColorFeedbackBorderInfoOnDark
-      }
       break
     case 'success':
-      backgroundColor = Colors.vadsColorFeedbackSurfaceSuccessOnLight
-      borderColor = Colors.vadsColorFeedbackBorderSuccessOnLight
+      backgroundColor = theme.vadsColorFeedbackSurfaceSuccess
+      borderColor = theme.vadsColorFeedbackBorderSuccess
       iconName = 'CheckCircle'
-
-      if (isDarkMode) {
-        backgroundColor = Colors.vadsColorFeedbackSurfaceSuccessOnDark
-        borderColor = Colors.vadsColorFeedbackBorderSuccessOnDark
-      }
       break
     case 'warning':
-      backgroundColor = Colors.vadsColorFeedbackSurfaceWarningOnLight
-      borderColor = Colors.vadsColorFeedbackBorderWarningOnLight
+      backgroundColor = theme.vadsColorFeedbackSurfaceWarning
+      borderColor = theme.vadsColorFeedbackBorderWarning
       iconName = 'Warning'
-
-      if (isDarkMode) {
-        backgroundColor = Colors.vadsColorFeedbackSurfaceWarningOnDark
-        borderColor = Colors.vadsColorFeedbackBorderWarningOnDark
-      }
       break
     case 'error':
-      backgroundColor = Colors.vadsColorFeedbackSurfaceErrorOnLight
-      borderColor = Colors.vadsColorFeedbackBorderErrorOnLight
+      backgroundColor = theme.vadsColorFeedbackSurfaceError
+      borderColor = theme.vadsColorFeedbackBorderError
       iconName = 'Error'
-
-      if (isDarkMode) {
-        backgroundColor = Colors.vadsColorFeedbackSurfaceErrorOnDark
-        borderColor = Colors.vadsColorFeedbackBorderErrorOnDark
-      }
       break
-  }
-
-  if (primaryButton && isDarkMode) {
-    primaryButton.buttonType = ButtonVariants.Base
-  }
-  if (secondaryButton) {
-    secondaryButton.buttonType = isDarkMode
-      ? ButtonVariants.BaseSecondary
-      : ButtonVariants.Secondary
   }
 
   const contentBox: ViewStyle = {

@@ -1,5 +1,5 @@
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
+import { colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
@@ -60,13 +60,13 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   let textColor: string, activeBgColor: string, inactiveBgColor: string
 
   if (colorScheme === 'light') {
-    textColor = Colors.vadsColorForegroundDefaultOnLight
-    activeBgColor = Colors.vadsSegmentedControlColorSurfaceSelectedOnLight
-    inactiveBgColor = Colors.vadsColorSurfaceSecondaryOnLight
+    textColor = colors.vadsColorForegroundDefaultOnLight
+    activeBgColor = colors.vadsSegmentedControlColorSurfaceSelectedOnLight
+    inactiveBgColor = colors.vadsColorSurfaceSecondaryOnLight
   } else {
-    textColor = Colors.vadsColorForegroundDefaultOnDark
-    activeBgColor = Colors.vadsSegmentedControlColorSurfaceSelectedOnDark
-    inactiveBgColor = Colors.vadsColorSurfaceSecondaryOnDark
+    textColor = colors.vadsColorForegroundDefaultOnDark
+    activeBgColor = colors.vadsSegmentedControlColorSurfaceSelectedOnDark
+    inactiveBgColor = colors.vadsColorSurfaceSecondaryOnDark
   }
 
   const viewStyle: ViewStyle = {
