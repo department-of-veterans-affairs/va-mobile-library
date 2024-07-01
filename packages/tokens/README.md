@@ -10,7 +10,7 @@ Direct consumption of the tokens package is optional, but recommended. The token
 To use the tokens, simply:
 1. Add `@department-of-veterans-affairs/mobile-tokens` to your project via your package manager (e.g. yarn)
 2. Add `import { colors } from '@department-of-veterans-affairs/mobile-tokens` to files you wish to use them in. 
-3. Reference colors in your code: e.g. `buttonColor = colors.grayMedium`
+3. Reference colors in your code: e.g. `buttonColor = colors.vadsColorGrayMedium`
 
 ### Themes
 
