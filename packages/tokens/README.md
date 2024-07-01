@@ -5,11 +5,25 @@ The Tokens package contains the design tokens for the VA Mobile Design Library. 
 ## For consumers
 Direct consumption of the tokens package is optional, but recommended. The tokens package contains the same building blocks used to build the design system components which will more easily allow screen content and app-level custom components to follow design system conventions, helping maintain consistency in experience for users. It is also recommended to match the tokens package version to the version of tokens used by the components package you are leveraging, to ensure consistency.
 
+### Token Usage
+
 To use the tokens, simply:
 1. Add `@department-of-veterans-affairs/mobile-tokens` to your project via your package manager (e.g. yarn)
-2. Add `import { Colors } from '@department-of-veterans-affairs/mobile-tokens` to files you wish to use them in. 
-  - Note: `Colors` are the only tokens available for now.
-3. Reference colors in your code: e.g. `buttonColor = Colors.grayMedium`
+2. Add `import { colors } from '@department-of-veterans-affairs/mobile-tokens` to files you wish to use them in. 
+3. Reference colors in your code: e.g. `buttonColor = colors.vadsColorGrayMedium`
+
+### Themes
+
+The tokens package also has light and dark themes available. These themes are a subset of the `colors` tokens above, containing primitive colors, semantic tokens without an `OnLight` or `OnDark` mode specified, and the colors for only the light or dark themes respectively. The `OnLight` and `OnDark` mode suffixes are also removed.
+
+The purpose of themes is to allow for assignment of color tokens without the need to specify the light or dark mode, and let your theme provider or handler return the correct theme. For example: instead of having a conditional where you'd assign either the `colors.vadsColorForegroundDefaultOnLight` or `colors.vadsColorForegroundDefaultOnDark` token, you could instead use `theme.vadsColorForegroundDefault` if your app already knows which color scheme it wants to use.
+
+To use the themes:
+1. Add `@department-of-veterans-affairs/mobile-tokens` to your project via your package manager (e.g. yarn)
+2. Add `import { themes } from '@department-of-veterans-affairs/mobile-tokens` to files you wish to use them in. 
+3. Reference the theme in your code using either `themes.light` or `themes.dark`
+
+We will potentially be making hook available in the future that will auto-detect the theme based on the device's dark mode setting and return the appropriate theme.
 
 ## For contributors
 Depending on what is being contributed, the recommendation for how to proceed differs.

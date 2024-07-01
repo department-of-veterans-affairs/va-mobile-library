@@ -1,6 +1,6 @@
 import { ColorValue, useWindowDimensions } from 'react-native'
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { SvgProps } from 'react-native-svg'
+import { colors } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
 import { IconMap } from './iconList'
@@ -80,9 +80,13 @@ export const Icon: FC<IconProps> = ({
   if (typeof fill === 'object') {
     fill = isDarkMode ? fill.dark : fill.light
   } else if (fill === 'default') {
-    fill = isDarkMode ? Colors.vadsColorActionForegroundDefaultOnDark : Colors.vadsColorActionForegroundDefaultOnLight
+    fill = isDarkMode
+      ? colors.vadsColorActionForegroundDefaultOnDark
+      : colors.vadsColorActionForegroundDefaultOnLight
   } else if (fill === 'base') {
-    fill = isDarkMode ? Colors.vadsColorForegroundDefaultOnDark : Colors.vadsColorForegroundDefaultOnLight
+    fill = isDarkMode
+      ? colors.vadsColorForegroundDefaultOnDark
+      : colors.vadsColorForegroundDefaultOnLight
   }
 
   let iconProps: SvgProps = { fill }

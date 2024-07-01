@@ -8,9 +8,9 @@ import {
 } from 'react-native'
 import React, { useEffect } from 'react'
 
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { useColorScheme } from '../../utils'
 
 export type LoadingIndicatorProps = {
@@ -68,8 +68,8 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     width: 50,
     height: 50,
     fill: isDarkMode
-      ? Colors.vadsColorActionForegroundDefaultOnDark
-      : Colors.vadsColorActionForegroundDefaultOnLight,
+      ? colors.vadsColorActionForegroundDefaultOnDark
+      : colors.vadsColorActionForegroundDefaultOnLight,
   }
 
   const textStyle: TextStyle = {
@@ -78,8 +78,8 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     lineHeight: 30,
     textAlign: 'center',
     color: isDarkMode
-      ? Colors.vadsColorForegroundDefaultOnDark
-      : Colors.vadsColorForegroundDefaultOnLight,
+      ? colors.vadsColorForegroundDefaultOnDark
+      : colors.vadsColorForegroundDefaultOnLight,
   }
 
   return (
