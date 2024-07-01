@@ -1,11 +1,10 @@
 import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
-import { colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, useColorScheme } from '../../utils'
+import { PressableOpacityStyle, useTheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -51,23 +50,14 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   testIDs,
 }) => {
   const { t } = useTranslation()
-  const colorScheme = useColorScheme()
+  const theme = useTheme()
 
   useEffect(() => {
     onChange(selected)
   }, [selected, onChange])
 
-  let textColor: string, activeBgColor: string, inactiveBgColor: string
-
-  if (colorScheme === 'light') {
-    textColor = colors.vadsColorForegroundDefaultOnLight
-    activeBgColor = colors.vadsSegmentedControlColorSurfaceSelectedOnLight
-    inactiveBgColor = colors.vadsColorSurfaceSecondaryOnLight
-  } else {
-    textColor = colors.vadsColorForegroundDefaultOnDark
-    activeBgColor = colors.vadsSegmentedControlColorSurfaceSelectedOnDark
-    inactiveBgColor = colors.vadsColorSurfaceSecondaryOnDark
-  }
+  const activeBgColor = theme.vadsSegmentedControlColorSurfaceSelected
+  const inactiveBgColor = theme.vadsColorSurfaceSecondary
 
   const viewStyle: ViewStyle = {
     alignSelf: 'stretch',
@@ -106,7 +96,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
 
     const textStyle: TextStyle = {
       ...font,
-      color: textColor,
+      color: theme.vadsColorForegroundDefault,
       textAlign: 'center',
     }
 

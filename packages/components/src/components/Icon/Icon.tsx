@@ -1,10 +1,9 @@
 import { ColorValue, useWindowDimensions } from 'react-native'
 import { SvgProps } from 'react-native-svg'
-import { colors } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
 import { IconMap } from './iconList'
-import { useColorScheme } from '../../utils'
+import { useColorScheme, useTheme } from '../../utils'
 
 type nameOrSvg =
   | {
@@ -69,8 +68,8 @@ export const Icon: FC<IconProps> = ({
   preventScaling,
   testID,
 }) => {
+  const theme = useTheme()
   const colorScheme = useColorScheme()
-  const isDarkMode = colorScheme === 'dark'
   const fontScale = useWindowDimensions().fontScale
   const fs = (val: number) => fontScale * val
 
@@ -78,15 +77,11 @@ export const Icon: FC<IconProps> = ({
   const _Icon: FC<SvgProps> = name ? IconMap[name] : svg!
 
   if (typeof fill === 'object') {
-    fill = isDarkMode ? fill.dark : fill.light
+    fill = colorScheme === 'dark' ? fill.dark : fill.light
   } else if (fill === 'default') {
-    fill = isDarkMode
-      ? colors.vadsColorActionForegroundDefaultOnDark
-      : colors.vadsColorActionForegroundDefaultOnLight
+    fill = theme.vadsColorActionForegroundDefault
   } else if (fill === 'base') {
-    fill = isDarkMode
-      ? colors.vadsColorForegroundDefaultOnDark
-      : colors.vadsColorForegroundDefaultOnLight
+    fill = theme.vadsColorForegroundDefault
   }
 
   let iconProps: SvgProps = { fill }
