@@ -2,7 +2,7 @@ name: Check for token changes
 
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened]
 
 defaults:
   run:
@@ -27,7 +27,7 @@ jobs:
           git config --global user.email 'va-mobileapp@adhocteam.us'
           yarn && yarn tokens:build
           cd ../..
-          git add .
+          git add yarn.lock
           git commit -m 'Regenerate yarn.lock'
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
       - name: Compare tokens
@@ -58,7 +58,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library*"
+                    "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*"
                   }
                 },
                 {
@@ -66,11 +66,11 @@ jobs:
                   "elements": [
                     {
                       "type": "mrkdwn",
-                      "text": "*Tokens changed:* ${{ env.TOKENS_CHANGED }}"
+                      "text": "<${{ github.event.pull_request.html_url }}|Pull Request>"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "<${{ github.event.pull_request.html_url }}|Pull Request>"
+                      "text": "*Tokens changed:* ${{ env.TOKENS_CHANGED }}"
                     }
                   ]
                 }
