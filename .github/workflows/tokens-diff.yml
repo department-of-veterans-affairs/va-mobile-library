@@ -14,7 +14,7 @@ env:
 jobs:
   compare-tokens:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.ref, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library') }}
+    if: ${{ contains(github.ref, 'packages/tokens/department-of-veterans-affairs/css-library') }}
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
