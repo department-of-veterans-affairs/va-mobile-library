@@ -21,8 +21,10 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-      - name: Regenerate and commit yarn.lock
+      - name: Set git credentials and regenerate yarn.lock
         run: |
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
           yarn && yarn tokens:build
           cd ../..
           git add .
