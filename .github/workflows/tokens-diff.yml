@@ -13,7 +13,7 @@ env:
 
 jobs:
   compare-tokens:
-    # if: contains(github.ref_name, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library')
+    if: contains(github.event.pull_request.head.ref, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library')
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
@@ -23,56 +23,55 @@ jobs:
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Regenerate and commit yarn.lock
         run: |
-          echo "github.event.pull_request.head.ref: ${{ github.event.pull_request.head.ref }}"
-          echo "contains dependabot: ${{ contains(github.ref_name, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library') }}"
-      #     yarn && yarn tokens:build
-      #     cd ../..
-      #     git add .
-      #     git commit -m 'Regenerate yarn.lock'
-      # - name: Compare tokens
-      #   run: |
-      #     cd dist/js
-      #     cp colors.js colors_new.js
-      #     git checkout main
-      #     yarn && yarn tokens:build
+          yarn && yarn tokens:build
+          cd ../..
+          git add .
+          git commit -m 'Regenerate yarn.lock'
+          # git push
+      - name: Compare tokens
+        run: |
+          cd dist/js
+          cp colors.js colors_new.js
+          git checkout main
+          yarn && yarn tokens:build
 
-      #     if diff -q colors.js colors_new.js > /dev/null; then
-      #       echo "Files have the same contents."
-      #     else
-      #       echo "Files have different contents."
-      #       echo "TOKENS_CHANGED=true" >> $GITHUB_ENV
-      #     fi
-      # - name: Send slack message
-      #   id: slack
-      #   uses: slackapi/slack-github-action@v1.24.0
-      #   env:
-      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
-      #   with:
-      #     channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
-      #     payload: |
-      #       {
-      #         "blocks": [
-      #           {
-      #             "type": "section",
-      #             "text": {
-      #               "type": "mrkdwn",
-      #               "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library}*"
-      #             }
-      #           },
-      #           {
-      #             "type": "context",
-      #             "elements": [
-      #               {
-      #                 "type": "mrkdwn",
-      #                 "text": "*Tokens changed:* ${{ env.TOKENS_CHANGED }}"
-      #               },
-      #               {
-      #                 "type": "mrkdwn",
-      #                 "text": "<${{ github.event.pull_request.html_url }}|Pull Request>"
-      #               }
-      #             ]
-      #           }
-      #         ],
-      #         "unfurl_links": false,
-      #         "unfurl_media": false
-      #       }
+          if diff -q colors.js colors_new.js > /dev/null; then
+            echo "Files have the same contents."
+          else
+            echo "Files have different contents."
+            echo "TOKENS_CHANGED=true" >> $GITHUB_ENV
+          fi
+      - name: Send slack message
+        id: slack
+        uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+        with:
+          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library}*"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Tokens changed:* ${{ env.TOKENS_CHANGED }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.event.pull_request.html_url }}|Pull Request>"
+                    }
+                  ]
+                }
+              ],
+              "unfurl_links": false,
+              "unfurl_media": false
+            }
