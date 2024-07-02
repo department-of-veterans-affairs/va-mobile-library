@@ -23,7 +23,7 @@ jobs:
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Regenerate and commit yarn.lock
         run: |
-          echo "github.ref_name: ${{ github.ref_name }}"
+          echo "github.event.pull_request.head.ref: ${{ github.event.pull_request.head.ref }}"
           echo "contains dependabot: ${{ contains(github.ref_name, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library') }}"
       #     yarn && yarn tokens:build
       #     cd ../..
