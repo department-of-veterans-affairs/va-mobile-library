@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Compare tokens
-        if: ${{ contains(github.event.pull_request.title, '@department-of-veterans-affairs/css-library') }}
+        if: ${{ contains(github.ref, 'packages/tokens/department-of-veterans-affairs/css-library') }}
         run: |
           yarn && yarn tokens:build
           cd dist/js
