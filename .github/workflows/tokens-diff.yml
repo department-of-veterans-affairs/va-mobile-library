@@ -29,7 +29,7 @@ jobs:
           cd ../..
           git add .
           git commit -m 'Regenerate yarn.lock'
-          git push
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
       - name: Compare tokens
         run: |
           cd dist/js
