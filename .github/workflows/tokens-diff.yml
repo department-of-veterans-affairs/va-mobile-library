@@ -1,8 +1,9 @@
-name: PR Title Check
+name: Compare tokens
 
 on:
   pull_request:
     types: [opened, edited]
+  push:
 
 jobs:
   check-title:
@@ -14,6 +15,6 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Compare tokens
-        if: ${{ github.event.pull_request.user.login == 'dependabot' && contains(github.event.pull_request.title, '@department-of-veterans-affairs/css-library') }}
+        if: ${{ contains(github.event.pull_request.title, '@department-of-veterans-affairs/css-library') }}
         run: |
           echo 'true'
