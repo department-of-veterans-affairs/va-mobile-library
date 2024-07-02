@@ -1,9 +1,13 @@
-name: Compare tokens
+name: Check for token changes
 
 on:
   pull_request:
     types: [opened, edited]
   push:
+
+defaults:
+  run:
+    working-directory: packages/tokens
 
 jobs:
   check-title:
@@ -17,4 +21,14 @@ jobs:
       - name: Compare tokens
         if: ${{ contains(github.event.pull_request.title, '@department-of-veterans-affairs/css-library') }}
         run: |
-          echo 'true'
+          yarn && yarn tokens:build
+          cd dist/js
+          cp colors.js colors_new.js
+          git checkout main
+          yarn && yarn tokens:build
+
+          if diff -q colors.js colors_new.js > /dev/null; then
+            echo "Files have the same contents."
+          else
+            echo "Files have different contents."
+          fi
