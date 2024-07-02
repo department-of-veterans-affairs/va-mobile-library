@@ -3,7 +3,6 @@ name: Check for token changes
 on:
   pull_request:
     types: [opened, edited]
-  push:
 
 defaults:
   run:
@@ -11,20 +10,26 @@ defaults:
 
 env:
   YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  DEPENDABOT_PR: ${{ contains(github.ref, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library') }}
 
 jobs:
-  check-title:
+  compare-tokens:
     runs-on: ubuntu-latest
+    if: ${{ env.DEPENDABOT_PR == 'true' }}
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-      - name: Compare tokens
-        if: ${{ contains(github.ref, 'packages/tokens/department-of-veterans-affairs/css-library') }}
+      - name: Regenerate and commit yarn.lock
         run: |
           yarn && yarn tokens:build
+          cd ../..
+          git add .
+          git commit -m 'Regenerate yarn.lock'
+      - name: Compare tokens
+        run: |
           cd dist/js
           cp colors.js colors_new.js
           git checkout main
@@ -34,4 +39,39 @@ jobs:
             echo "Files have the same contents."
           else
             echo "Files have different contents."
+            echo "TOKENS_CHANGED=true" >> $GITHUB_ENV
           fi
+      - name: Send slack message
+        id: slack
+        uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+        with:
+          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library}*"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Tokens changed:* ${{ env.TOKENS_CHANGED }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.event.pull_request.html_url }}|Pull Request>"
+                    }      
+                  ]
+                }
+              ],
+              "unfurl_links": false,
+              "unfurl_media": false
+            }
