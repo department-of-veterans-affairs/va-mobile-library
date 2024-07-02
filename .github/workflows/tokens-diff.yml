@@ -10,12 +10,11 @@ defaults:
 
 env:
   YARN_ENABLE_IMMUTABLE_INSTALLS: false
-  DEPENDABOT_PR: ${{ contains(github.ref, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library') }}
 
 jobs:
   compare-tokens:
     runs-on: ubuntu-latest
-    if: ${{ env.DEPENDABOT_PR == 'true' }}
+    if: ${{ contains(github.ref, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library') }}
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
