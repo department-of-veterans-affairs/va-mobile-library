@@ -1941,11 +1941,11 @@ __metadata:
   linkType: hard
 
 "@babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.23.9":
-  version: 7.23.9
-  resolution: "@babel/runtime@npm:7.23.9"
+  version: 7.24.7
+  resolution: "@babel/runtime@npm:7.24.7"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
-  checksum: e71205fdd7082b2656512cc98e647d9ea7e222e4fe5c36e9e5adc026446fcc3ba7b3cdff8b0b694a0b78bb85db83e7b1e3d4c56ef90726682b74f13249cf952d
+  checksum: b6fa3ec61a53402f3c1d75f4d808f48b35e0dfae0ec8e2bb5c6fc79fb95935da75766e0ca534d0f1c84871f6ae0d2ebdd950727cfadb745a2cdbef13faef5513
   languageName: node
   linkType: hard
 
@@ -2179,14 +2179,14 @@ __metadata:
     expo-splash-screen: "npm:~0.27.4"
     expo-status-bar: "npm:~1.12.1"
     gh-pages: "npm:^6.1.1"
-    i18next: "npm:^23.8.2"
+    i18next: "npm:^23.11.5"
     jest: "npm:^29.7.0"
     jest-expo: "npm:~51.0.1"
     jest-styled-components: "npm:^7.2.0"
     metro-react-native-babel-preset: "npm:^0.77.0"
     react: "npm:^18.2.0"
     react-dom: "npm:18.2.0"
-    react-i18next: "npm:^14.0.5"
+    react-i18next: "npm:^14.1.2"
     react-native: "npm:0.74.1"
     react-native-gesture-handler: "npm:~2.16.1"
     react-native-reanimated: "npm:3.10.1"
@@ -2203,7 +2203,9 @@ __metadata:
     typescript: "npm:^5.3.3"
   peerDependencies:
     "@department-of-veterans-affairs/mobile-assets": "*"
+    i18next: ">=23.0.0"
     react: ^18.2.0
+    react-i18next: ">=14.0.0"
     react-native: ">=0.71.7"
     react-native-gesture-handler: ^2.12.0
   languageName: unknown
@@ -12752,12 +12754,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.8.2":
-  version: 23.8.2
-  resolution: "i18next@npm:23.8.2"
+"i18next@npm:^23.11.5":
+  version: 23.11.5
+  resolution: "i18next@npm:23.11.5"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: c16ccee81bc1e096fec8d10000de42f10137f7cd27b295eca22492cb174b364ebca72327b2e6be066c4308c79bf72c8585d1c7cde2aedf556e3f423af60cd66c
+  checksum: b0bec64250a3e529d4c51e2fc511406a85c5dde3d005d3aabe919551ca31dfc0a8f5490bf6e44649822e895a1fa91a58092d112367669cd11b2eb89e6ba90d1a
   languageName: node
   linkType: hard
 
@@ -17398,9 +17400,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^14.0.5":
-  version: 14.0.5
-  resolution: "react-i18next@npm:14.0.5"
+"react-i18next@npm:^14.1.2":
+  version: 14.1.2
+  resolution: "react-i18next@npm:14.1.2"
   dependencies:
     "@babel/runtime": "npm:^7.23.9"
     html-parse-stringify: "npm:^3.0.1"
@@ -17412,7 +17414,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 60e3bedc6889689cfb96005b134da79d50097d3ff088284b35f213820aacedbdad1ff32e97b8447db70834c16d472ded829675e05c2a099baea9fd96b3a5b72f
+  checksum: cb8a83b3696639f083dc9f770d9d9e0681c0fe56f6b5fe24cd6facce08d363c37bd3440078e9d63abacabd7037b783e6b4e4d0c935de9c8dda7820bd4ef7e329
   languageName: node
   linkType: hard
 
