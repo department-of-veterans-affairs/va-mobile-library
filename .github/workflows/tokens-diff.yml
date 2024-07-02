@@ -9,6 +9,9 @@ defaults:
   run:
     working-directory: packages/tokens
 
+env:
+  YARN_ENABLE_IMMUTABLE_INSTALLS: false
+
 jobs:
   check-title:
     runs-on: ubuntu-latest
