@@ -29,7 +29,7 @@ jobs:
           cd ../..
           git add .
           git commit -m 'Regenerate yarn.lock'
-          # git push
+          git push
       - name: Compare tokens
         run: |
           cd dist/js
@@ -39,6 +39,7 @@ jobs:
 
           if diff -q colors.js colors_new.js > /dev/null; then
             echo "Files have the same contents."
+            echo "TOKENS_CHANGED=false" >> $GITHUB_ENV
           else
             echo "Files have different contents."
             echo "TOKENS_CHANGED=true" >> $GITHUB_ENV
@@ -57,7 +58,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library}*"
+                    "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library*"
                   }
                 },
                 {
