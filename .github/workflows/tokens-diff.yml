@@ -2,7 +2,7 @@ name: Check for token changes
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, edited]
 
 defaults:
   run:
@@ -19,17 +19,19 @@ jobs:
       - name: Check out the code
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Set git credentials and regenerate yarn.lock
         run: |
+          git status
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
           yarn && yarn tokens:build
           cd ../..
           git add yarn.lock
           git commit -m 'Regenerate yarn.lock'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          git push
       - name: Compare tokens
         run: |
           cd dist/js
