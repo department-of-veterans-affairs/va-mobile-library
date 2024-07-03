@@ -1,15 +1,15 @@
-name: Check for token changes
+name: Check for token changes from css-library
 
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened]
 
 defaults:
   run:
     working-directory: packages/tokens
 
 env:
-  YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  YARN_ENABLE_IMMUTABLE_INSTALLS: false # Allows CI to modify yarn.lock
 
 jobs:
   compare-tokens:
@@ -28,6 +28,7 @@ jobs:
           git config --global user.email 'va-mobileapp@adhocteam.us'
           yarn install
 
+          # Commits yarn.lock if yarn install resulted in changes
           if git status --porcelain | grep -q '^[ MARC].*yarn.lock'; then
             echo "yarn.lock has unstaged changes."
             cd ../..
@@ -38,15 +39,19 @@ jobs:
       - name: Build and compare tokens
         run: |
           echo NEW_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' package.json) >> $GITHUB_ENV
+
+          # Build new tokens and make a temporary copy
           yarn tokens:build
           cd dist/js
           cp colors.js colors_new.js
 
+          # Switch to main branch and rebuild
           git checkout main
-          echo PREV_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' ../../package.json) >> $GITHUB_ENV
-
           yarn && yarn tokens:build
 
+          echo PREV_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' ../../package.json) >> $GITHUB_ENV
+
+          # Compare old colors vs new
           if diff -q colors.js colors_new.js > /dev/null; then
             echo "Files have the same contents."
             echo "TOKENS_CHANGED=false" >> $GITHUB_ENV
@@ -60,7 +65,7 @@ jobs:
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
         with:
-          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
+          channel-id: C062TM03HN2 # DSVA va-mobile-library-alerts channel
           payload: |
             {
               "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*",
@@ -69,7 +74,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library*"
+                    "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*"
                   }
                 },
                 {
