@@ -37,10 +37,15 @@ jobs:
           fi
       - name: Build and compare tokens
         run: |
+          echo NEW_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' package.json) >> $GITHUB_ENV
           yarn tokens:build
           cd dist/js
           cp colors.js colors_new.js
+
+
           git checkout main
+          echo PREV_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' package.json) >> $GITHUB_ENV
+
           yarn && yarn tokens:build
 
           if diff -q colors.js colors_new.js > /dev/null; then
@@ -59,6 +64,7 @@ jobs:
           channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
           payload: |
             {
+              "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*"
               "blocks": [
                 {
                   "type": "section",
@@ -69,7 +75,19 @@ jobs:
                 },
                 {
                   "type": "context",
-                  "elements": [
+                  "elements": [,
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Previous version:* ${{ env.PREV_VERSION }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*New version:* ${{ env.NEW_VERSION }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<https://github.com/department-of-veterans-affairs/component-library/releases|Changelog>"
+                    },
                     {
                       "type": "mrkdwn",
                       "text": "<${{ github.event.pull_request.html_url }}|Pull Request>"
