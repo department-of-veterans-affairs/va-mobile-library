@@ -15,10 +15,8 @@ if (process.env.STORYBOOK_WEB !== 'true') {
   i18n.use(RNLanguageDetector)
 }
 
-
-i18n
-  .use(initReactI18next)
-  .init({
+if (i18n.isInitializing || i18n.isInitialized) {
+  i18n.use(initReactI18next).createInstance({
     resources,
     keySeparator: false,
     fallbackLng: 'en',
@@ -32,4 +30,21 @@ i18n
       useSuspense: true,
     },
   })
+} else {
+  i18n.use(initReactI18next).init({
+    resources,
+    keySeparator: false,
+    fallbackLng: 'en',
+    compatibilityJSON: 'v3',
+    debug: true,
+    interpolation: {
+      escapeValue: false,
+      formatSeparator: ',',
+    },
+    react: {
+      useSuspense: true,
+    },
+  })
+}
+
 export default i18n
