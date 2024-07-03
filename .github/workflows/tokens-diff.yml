@@ -63,7 +63,7 @@ jobs:
           channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
           payload: |
             {
-              "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*"
+              "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*",
               "blocks": [
                 {
                   "type": "section",
