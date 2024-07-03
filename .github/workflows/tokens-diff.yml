@@ -24,16 +24,20 @@ jobs:
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Set git credentials and regenerate yarn.lock
         run: |
-          git status
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
-          yarn && yarn tokens:build
-          cd ../..
-          git add yarn.lock
-          git commit -m 'Regenerate yarn.lock'
-          git push
-      - name: Compare tokens
+          yarn install
+
+          if git status --porcelain | grep -q '^[ MARC].*yarn.lock'; then
+            echo "yarn.lock has unstaged changes."
+            cd ../..
+            git add yarn.lock
+            git commit -m 'Regenerate yarn.lock'
+            git push
+          fi
+      - name: Build and compare tokens
         run: |
+          yarn tokens:build
           cd dist/js
           cp colors.js colors_new.js
           git checkout main
@@ -60,7 +64,7 @@ jobs:
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*"
+                    "text": "*TEST* Dependabot found an update to *@department-of-veterans-affairs/css-library*"
                   }
                 },
                 {
