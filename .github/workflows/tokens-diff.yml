@@ -42,9 +42,8 @@ jobs:
           cd dist/js
           cp colors.js colors_new.js
 
-
           git checkout main
-          echo PREV_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' package.json) >> $GITHUB_ENV
+          echo PREV_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' ../../package.json) >> $GITHUB_ENV
 
           yarn && yarn tokens:build
 
