@@ -74,7 +74,7 @@ jobs:
                 },
                 {
                   "type": "context",
-                  "elements": [,
+                  "elements": [
                     {
                       "type": "mrkdwn",
                       "text": "*Previous version:* ${{ env.PREV_VERSION }}"
