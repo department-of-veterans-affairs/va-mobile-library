@@ -4,6 +4,7 @@
   "description": "VA Design System Mobile Token Library",
   "main": "dist/js/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "tokens:build": "node ./build.js && prettier dist/ --write",
     "prepack": "npm run tokens:build",
