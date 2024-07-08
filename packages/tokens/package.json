@@ -3,8 +3,7 @@
   "version": "0.13.1-alpha.3",
   "description": "VA Design System Mobile Token Library",
   "main": "./dist/js/index.js",
-  "exports": "./dist/js/index.js",
-  "types": "./dist/js/index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "tokens:build": "node ./build.js && prettier dist/ --write",
     "prepack": "npm run tokens:build",
