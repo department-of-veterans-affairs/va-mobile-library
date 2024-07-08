@@ -31,12 +31,12 @@ module.exports = {
           format: 'javascript/es6/vads-colors-themes',
         },
         {
-          destination: 'js/types/colors.d.ts',
+          destination: 'types/colors.d.ts',
           format: 'typescript/es6-declarations/colors',
           filter: 'filter/color/is-color',
         },
         {
-          destination: 'js/types/theme.d.ts',
+          destination: 'types/theme.d.ts',
           format: 'typescript/es6-declarations/theme',
           filter: 'filter/color/light-mode',
         },
