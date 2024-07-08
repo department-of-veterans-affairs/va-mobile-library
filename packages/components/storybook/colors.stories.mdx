@@ -7,73 +7,85 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 
 <ColorPalette>
   <ColorItem
-    title="colors.vadsColorGray"
-    subtitle="Grays from VADS"
+    title="Base"
+    subtitle=""
     colors={{
-      CoolLight: Colors.vadsColorGrayCoolLight,
-      LightAlt: Colors.vadsColorGrayLightAlt,
-      WarmLight: Colors.vadsColorGrayWarmLight,
-      Medium: Colors.vadsColorGrayMedium,
-      WarmDark: Colors.vadsColorGrayWarmDark,
+      Black: Colors.vadsColorBlack,
+      Darkest: Colors.vadsColorBaseDarkest,
+      Darker: Colors.vadsColorBaseDarker,
+      Dark: Colors.vadsColorBaseDark,
+      Light: Colors.vadsColorBaseLight,
+      Lighter: Colors.vadsColorBaseLighter,
+      Lightest: Colors.vadsColorBaseLightest,
+      White: Colors.vadsColorWhite,
     }}
   />
   <ColorItem
-    title="vadsColorActionForegroundDefault"
-    subtitle="Subtitle here"
+    title="Primary"
+    subtitle=""
     colors={{
-      OnLight: Colors.vadsColorActionForegroundDefaultOnLight,
-      OnDark: Colors.vadsColorActionForegroundDefaultOnDark,
+      Darker: Colors.vadsColorPrimaryDarker,
+      Dark: Colors.vadsColorPrimaryDark,
+      Primary: Colors.vadsColorPrimary,
+      Light: Colors.vadsColorPrimaryLight,
+      Lighter: Colors.vadsColorPrimaryLighter,
     }}
   />
   <ColorItem
-    title="theme.color.positive"
-    subtitle="Green"
+    title="Primary Alt"
+    subtitle=""
     colors={{
-      Apple: 'rgba(102,191,60,1)',
-      Apple80: 'rgba(102,191,60,.8)',
-      Apple60: 'rgba(102,191,60,.6)',
-      Apple30: 'rgba(102,191,60,.3)',
+      Darkest: Colors.vadsColorPrimaryAltDarkest,
+      Dark: Colors.vadsColorPrimaryAltDark,
+      Primary Alt: Colors.vadsColorPrimaryAlt,
+      Light: Colors.vadsColorPrimaryAltLight,
+      Lightest: Colors.vadsColorPrimaryAltLightest,
+    }}
+  />
+  <ColorItem
+    title="Blue Cool"
+    subtitle=""
+    colors={{
+      BlueCool: Colors.vadsColorBlueCool,
+      BlueCoolLight: Colors.vadsColorBlueCoolLight,
+      BlueCoolLightest: Colors.vadsColorBlueCoolLightest,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle=""
+    colors={{
+      BlueVivid80: Colors.uswdsSystemColorBlueVivid80,
+      BlueVivid30: Colors.uswdsSystemColorBlueVivid30,
     }}
   />
 </ColorPalette>
+
+## Gray
+
+## Red
+
+## Yellow
+
+## Green
+
+## Other
 
 # Semantic
 
-<ColorPalette>
-  <ColorItem
-    title="colors.vadsColorGray"
-    subtitle="Grays from VADS"
-    colors={{
-      CoolLight: Colors.vadsColorGrayCoolLight,
-      LightAlt: Colors.vadsColorGrayLightAlt,
-      WarmLight: Colors.vadsColorGrayWarmLight,
-      Medium: Colors.vadsColorGrayMedium,
-      WarmDark: Colors.vadsColorGrayWarmDark,
-    }}
-  />
-  <ColorItem
-    title="theme.color.greyscale"
-    subtitle="Some of the greys"
-    colors={{ White: '#FFFFFF', Alabaster: '#F8F8F8', Concrete: '#F3F3F3' }}
-  />
-  <ColorItem
-    title="theme.color.primary"
-    subtitle="Coral"
-    colors={{ WildWatermelon: '#FF4785' }}
-  />
-  <ColorItem
-    title="theme.color.secondary"
-    subtitle="Ocean"
-    colors={{ DodgerBlue: '#1EA7FD' }}
-  />
-  <ColorItem
-    title="theme.color.positive"
-    subtitle="Green"
-    colors={{
-      Apple: 'rgba(102,191,60,1)',
-      Apple80: 'rgba(102,191,60,.8)',
-      Apple60: 'rgba(102,191,60,.6)',
-      Apple30: 'rgba(102,191,60,.3)',
-    }}
-  />
-</ColorPalette>
+## Background
+
+## Foreground
+
+## Surface
+
+## Action
+### Default
+### Base
+### Destructive
+
+## Feedback
+### Informational
+### Success
+### Warning
+### Error
