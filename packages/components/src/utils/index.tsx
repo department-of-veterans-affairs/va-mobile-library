@@ -6,7 +6,7 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import { Theme, themes } from '@department-of-veterans-affairs/mobile-tokens'
+import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
 import { useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
@@ -32,9 +32,9 @@ export function useColorScheme(): ColorSchemeName {
 }
 
 /** Returns light/dark theme based on useColorScheme */
-export function useTheme(): Theme {
+export function useTheme(): Tokens.Theme {
   const themeName: ColorSchemeName = useColorScheme() || 'light'
-  return themes[themeName]
+  return Tokens.themes[themeName]
 }
 
 /**
