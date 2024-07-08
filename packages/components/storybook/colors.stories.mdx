@@ -5,28 +5,59 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 
 # Primitive
 
+## Gray
 <ColorPalette>
   <ColorItem
     title="Base"
     subtitle=""
     colors={{
       Black: Colors.vadsColorBlack,
+      White: Colors.vadsColorWhite,
+    }}
+  />
+  <ColorItem
+    title="Base"
+    subtitle=""
+    colors={{
       Darkest: Colors.vadsColorBaseDarkest,
       Darker: Colors.vadsColorBaseDarker,
       Dark: Colors.vadsColorBaseDark,
       Light: Colors.vadsColorBaseLight,
       Lighter: Colors.vadsColorBaseLighter,
       Lightest: Colors.vadsColorBaseLightest,
-      White: Colors.vadsColorWhite,
     }}
   />
+  <ColorItem
+    title="Gray"
+    subtitle=""
+    colors={{
+      WarmDark: Colors.vadsColorGrayWarmDark,
+      Medium: Colors.vadsColorGrayMedium,
+      WarmLight: Colors.vadsColorGrayWarmLight,
+      LightAlt: Colors.vadsColorGrayLightAlt,
+      CoolLight: Colors.vadsColorGrayCoolLight,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle=""
+    colors={{
+      Gray90: Colors.uswdsSystemColorGray90,
+      Gray80: Colors.uswdsSystemColorGray80,
+      Gray30: Colors.uswdsSystemColorGray30,
+    }}
+  />
+</ColorPalette>
+
+## Blue
+<ColorPalette>
   <ColorItem
     title="Primary"
     subtitle=""
     colors={{
       Darker: Colors.vadsColorPrimaryDarker,
       Dark: Colors.vadsColorPrimaryDark,
-      Primary: Colors.vadsColorPrimary,
+      Default: Colors.vadsColorPrimary,
       Light: Colors.vadsColorPrimaryLight,
       Lighter: Colors.vadsColorPrimaryLighter,
     }}
@@ -37,7 +68,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
     colors={{
       Darkest: Colors.vadsColorPrimaryAltDarkest,
       Dark: Colors.vadsColorPrimaryAltDark,
-      Primary Alt: Colors.vadsColorPrimaryAlt,
+      Default: Colors.vadsColorPrimaryAlt,
       Light: Colors.vadsColorPrimaryAltLight,
       Lightest: Colors.vadsColorPrimaryAltLightest,
     }}
@@ -61,25 +92,142 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
   />
 </ColorPalette>
 
-## Gray
-
 ## Red
+<ColorPalette>
+  <ColorItem
+    title="Secondary"
+    subtitle=""
+    colors={{
+      Darkest: Colors.vadsColorSecondaryDarkest,
+      Dark: Colors.vadsColorSecondaryDark,
+      Default: Colors.vadsColorSecondary,
+      Light: Colors.vadsColorSecondaryLight,
+      Lightest: Colors.vadsColorSecondaryLightest,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle=""
+    colors={{
+      RedVivid80: Colors.uswdsSystemColorRedVivid80,
+      RedVivid40: Colors.uswdsSystemColorRedVivid40,
+    }}
+  />
+</ColorPalette>
 
 ## Yellow
+<ColorPalette>
+  <ColorItem
+    title="Gold"
+    subtitle=""
+    colors={{
+      Lighter: Colors.vadsColorGoldLighter,
+      Lightest: Colors.vadsColorGoldLightest,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle=""
+    colors={{
+      YellowVivid80: Colors.uswdsSystemColorYellowVivid80,
+      YellwoVivid20: Colors.uswdsSystemColorYellowVivid20,
+    }}
+  />
+</ColorPalette>
 
 ## Green
-
-## Other
+<ColorPalette>
+  <ColorItem
+    title="Green"
+    subtitle=""
+    colors={{
+      Lighter: Colors.vadsColorGreenLight,
+      Lightest: Colors.vadsColorGreenLighter,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle=""
+    colors={{
+      GreenCoolVivid80: Colors.uswdsSystemColorGreenCoolVivid80,
+    }}
+  />
+</ColorPalette>
 
 # Semantic
 
 ## Background
+<ColorPalette>
+  <ColorItem
+    title="vadsColorBackgroundDefault"
+    subtitle=""
+    colors={{
+      OnLight: Colors.vadsColorBackgroundDefaultOnLight,
+      OnDark: Colors.vadsColorBgDefaultOnDark,
+    }}
+  />
+</ColorPalette>
 
 ## Foreground
+<ColorPalette>
+  <ColorItem
+    title="vadsColorForegroundDefault"
+    subtitle=""
+    colors={{
+      OnLight: Colors.vadsColorForegroundDefaultOnLight,
+      OnDark: Colors.vadsColorForegroundDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="vadsColorForegroundInverse"
+    subtitle=""
+    colors={{
+      OnLight: Colors.vadsColorForegroundInverseOnLight,
+      OnDark: Colors.vadsColorForegroundInverseOnDark,
+    }}
+  />
+</ColorPalette>
 
 ## Surface
+<ColorPalette>
+  <ColorItem
+    title="vadsColorSurfaceDefault"
+    subtitle=""
+    colors={{
+      OnLight: Colors.vadsColorSurfaceDefaultOnLight,
+      OnDark: Colors.vadsColorSurfaceDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="vadsColorSurfaceInverse"
+    subtitle=""
+    colors={{
+      OnLight: Colors.vadsColorSurfaceInverseOnLight,
+      OnDark: Colors.vadsColorSurfaceInverseOnDark,
+    }}
+  />
+  <ColorItem
+    title="vadsColorSurfaceSecondary"
+    subtitle=""
+    colors={{
+      OnLight: Colors.vadsColorSurfaceSecondaryOnLight,
+      OnDark: Colors.vadsColorSurfaceSecondaryOnDark,
+    }}
+  />
+</ColorPalette>
 
 ## Action
+<ColorPalette>
+  <ColorItem
+    title="vadsColorActionForegroundInverse"
+    subtitle=""
+    colors={{
+      OnLight: Colors.vadsColorActionForegroundInverseOnLight,
+      OnDark: Colors.vadsColorActionForegroundInverseOnDark,
+    }}
+  />
+</ColorPalette>
+
 ### Default
 ### Base
 ### Destructive
@@ -89,3 +237,5 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Success
 ### Warning
 ### Error
+
+## Component
