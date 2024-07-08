@@ -9,7 +9,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 <ColorPalette>
   <ColorItem
     title="Base"
-    subtitle=""
+    subtitle="vadsColor"
     colors={{
       Black: Colors.vadsColorBlack,
       White: Colors.vadsColorWhite,
@@ -17,7 +17,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
   />
   <ColorItem
     title="Base"
-    subtitle=""
+    subtitle="vadsColorBase"
     colors={{
       Darkest: Colors.vadsColorBaseDarkest,
       Darker: Colors.vadsColorBaseDarker,
@@ -29,7 +29,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
   />
   <ColorItem
     title="Gray"
-    subtitle=""
+    subtitle="vadsColorGray"
     colors={{
       WarmDark: Colors.vadsColorGrayWarmDark,
       Medium: Colors.vadsColorGrayMedium,
@@ -40,7 +40,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
   />
   <ColorItem
     title="USWDS"
-    subtitle=""
+    subtitle="uswdsSystemColor"
     colors={{
       Gray90: Colors.uswdsSystemColorGray90,
       Gray80: Colors.uswdsSystemColorGray80,
@@ -53,38 +53,38 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 <ColorPalette>
   <ColorItem
     title="Primary"
-    subtitle=""
+    subtitle="vadsColorPrimary"
     colors={{
       Darker: Colors.vadsColorPrimaryDarker,
       Dark: Colors.vadsColorPrimaryDark,
-      Default: Colors.vadsColorPrimary,
+      "—": Colors.vadsColorPrimary,
       Light: Colors.vadsColorPrimaryLight,
       Lighter: Colors.vadsColorPrimaryLighter,
     }}
   />
   <ColorItem
     title="Primary Alt"
-    subtitle=""
+    subtitle="vadsColorPrimaryAlt"
     colors={{
       Darkest: Colors.vadsColorPrimaryAltDarkest,
       Dark: Colors.vadsColorPrimaryAltDark,
-      Default: Colors.vadsColorPrimaryAlt,
+      "—": Colors.vadsColorPrimaryAlt,
       Light: Colors.vadsColorPrimaryAltLight,
       Lightest: Colors.vadsColorPrimaryAltLightest,
     }}
   />
   <ColorItem
     title="Blue Cool"
-    subtitle=""
+    subtitle="vadsColorBlueCool"
     colors={{
-      BlueCool: Colors.vadsColorBlueCool,
-      BlueCoolLight: Colors.vadsColorBlueCoolLight,
-      BlueCoolLightest: Colors.vadsColorBlueCoolLightest,
+      "—": Colors.vadsColorBlueCool,
+      Light: Colors.vadsColorBlueCoolLight,
+      Lightest: Colors.vadsColorBlueCoolLightest,
     }}
   />
   <ColorItem
     title="USWDS"
-    subtitle=""
+    subtitle="uswdsSystemColor"
     colors={{
       BlueVivid80: Colors.uswdsSystemColorBlueVivid80,
       BlueVivid30: Colors.uswdsSystemColorBlueVivid30,
@@ -96,18 +96,18 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 <ColorPalette>
   <ColorItem
     title="Secondary"
-    subtitle=""
+    subtitle="vadsColorSecondary"
     colors={{
       Darkest: Colors.vadsColorSecondaryDarkest,
       Dark: Colors.vadsColorSecondaryDark,
-      Default: Colors.vadsColorSecondary,
+      "—": Colors.vadsColorSecondary,
       Light: Colors.vadsColorSecondaryLight,
       Lightest: Colors.vadsColorSecondaryLightest,
     }}
   />
   <ColorItem
     title="USWDS"
-    subtitle=""
+    subtitle="uswdsSystemColor"
     colors={{
       RedVivid80: Colors.uswdsSystemColorRedVivid80,
       RedVivid40: Colors.uswdsSystemColorRedVivid40,
@@ -119,7 +119,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 <ColorPalette>
   <ColorItem
     title="Gold"
-    subtitle=""
+    subtitle="vadsColorGold"
     colors={{
       Lighter: Colors.vadsColorGoldLighter,
       Lightest: Colors.vadsColorGoldLightest,
@@ -127,7 +127,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
   />
   <ColorItem
     title="USWDS"
-    subtitle=""
+    subtitle="uswdsSystemColor"
     colors={{
       YellowVivid80: Colors.uswdsSystemColorYellowVivid80,
       YellwoVivid20: Colors.uswdsSystemColorYellowVivid20,
@@ -139,7 +139,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 <ColorPalette>
   <ColorItem
     title="Green"
-    subtitle=""
+    subtitle="vadsColorGreen"
     colors={{
       Lighter: Colors.vadsColorGreenLight,
       Lightest: Colors.vadsColorGreenLighter,
@@ -147,7 +147,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
   />
   <ColorItem
     title="USWDS"
-    subtitle=""
+    subtitle="uswdsSystemColor"
     colors={{
       GreenCoolVivid80: Colors.uswdsSystemColorGreenCoolVivid80,
     }}
@@ -159,8 +159,8 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ## Background
 <ColorPalette>
   <ColorItem
-    title="vadsColorBackgroundDefault"
-    subtitle=""
+    title="Default"
+    subtitle="vadsColorBackgroundDefault"
     colors={{
       OnLight: Colors.vadsColorBackgroundDefaultOnLight,
       OnDark: Colors.vadsColorBgDefaultOnDark,
@@ -171,16 +171,16 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ## Foreground
 <ColorPalette>
   <ColorItem
-    title="vadsColorForegroundDefault"
-    subtitle=""
+    title="Default"
+    subtitle="vadsColorForegroundDefault"
     colors={{
       OnLight: Colors.vadsColorForegroundDefaultOnLight,
       OnDark: Colors.vadsColorForegroundDefaultOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorForegroundInverse"
-    subtitle=""
+    title="Inverse"
+    subtitle="vadsColorForegroundInverse"
     colors={{
       OnLight: Colors.vadsColorForegroundInverseOnLight,
       OnDark: Colors.vadsColorForegroundInverseOnDark,
@@ -191,24 +191,24 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ## Surface
 <ColorPalette>
   <ColorItem
-    title="vadsColorSurfaceDefault"
-    subtitle=""
+    title="Default"
+    subtitle="vadsColorSurfaceDefault"
     colors={{
       OnLight: Colors.vadsColorSurfaceDefaultOnLight,
       OnDark: Colors.vadsColorSurfaceDefaultOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorSurfaceInverse"
-    subtitle=""
+    title="Inverse"
+    subtitle="vadsColorSurfaceInverse"
     colors={{
       OnLight: Colors.vadsColorSurfaceInverseOnLight,
       OnDark: Colors.vadsColorSurfaceInverseOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorSurfaceSecondary"
-    subtitle=""
+    title="Secondary"
+    subtitle="vadsColorSurfaceSecondary"
     colors={{
       OnLight: Colors.vadsColorSurfaceSecondaryOnLight,
       OnDark: Colors.vadsColorSurfaceSecondaryOnDark,
@@ -219,8 +219,8 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ## Action
 <ColorPalette>
   <ColorItem
-    title="vadsColorActionForegroundInverse"
-    subtitle=""
+    title=""
+    subtitle="vadsColorActionForegroundInverse"
     colors={{
       OnLight: Colors.vadsColorActionForegroundInverseOnLight,
       OnDark: Colors.vadsColorActionForegroundInverseOnDark,
@@ -231,48 +231,48 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Default
 <ColorPalette>
   <ColorItem
-    title="vadsColorActionForegroundDefault"
-    subtitle=""
+    title="Foreground"
+    subtitle="vadsColorActionForegroundDefault"
     colors={{
       OnLight: Colors.vadsColorActionForegroundDefaultOnLight,
       OnDark: Colors.vadsColorActionForegroundDefaultOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionForegroundDefaultActive"
-    subtitle=""
+    title="Foreground (active)"
+    subtitle="vadsColorActionForegroundDefaultActive"
     colors={{
       OnLight: Colors.vadsColorActionForegroundDefaultActiveOnLight,
       OnDark: Colors.vadsColorActionForegroundDefaultActiveOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionSurfaceDefault"
-    subtitle=""
+    title="Surface"
+    subtitle="vadsColorActionSurfaceDefault"
     colors={{
       OnLight: Colors.vadsColorActionSurfaceDefaultOnLight,
       OnDark: Colors.vadsColorActionSurfaceDefaultOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionSurfaceDefaultActive"
-    subtitle=""
+    title="Surface (active)"
+    subtitle="vadsColorActionSurfaceDefaultActive"
     colors={{
       OnLight: Colors.vadsColorActionSurfaceDefaultActiveOnLight,
       OnDark: Colors.vadsColorActionSurfaceDefaultActiveOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionBorderDefault"
-    subtitle=""
+    title="Border"
+    subtitle="vadsColorActionBorderDefault"
     colors={{
       OnLight: Colors.vadsColorActionBorderDefaultOnLight,
       OnDark: Colors.vadsColorActionBorderDefaultOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionBorderDefaultActive"
-    subtitle=""
+    title="Border (active)"
+    subtitle="vadsColorActionBorderDefaultActive"
     colors={{
       OnLight: Colors.vadsColorActionBorderDefaultActiveOnLight,
       OnDark: Colors.vadsColorActionBorderDefaultActiveOnDark,
@@ -283,48 +283,48 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Base
 <ColorPalette>
   <ColorItem
-    title="vadsColorActionForegroundBase"
-    subtitle=""
+    title="Foreground"
+    subtitle="vadsColorActionForegroundBase"
     colors={{
       OnLight: Colors.vadsColorActionForegroundBaseOnLight,
       OnDark: Colors.vadsColorActionForegroundBaseOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionForegroundBaseActive"
-    subtitle=""
+    title="Foreground (active)"
+    subtitle="vadsColorActionForegroundBaseActive"
     colors={{
       OnLight: Colors.vadsColorActionForegroundBaseActiveOnLight,
       OnDark: Colors.vadsColorActionForegroundBaseActiveOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionSurfaceBase"
-    subtitle=""
+    title="Surface"
+    subtitle="vadsColorActionSurfaceBase"
     colors={{
       OnLight: Colors.vadsColorActionSurfaceBaseOnLight,
       OnDark: Colors.vadsColorActionSurfaceBaseOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionSurfaceBaseActive"
-    subtitle=""
+    title="Surface (active)"
+    subtitle="vadsColorActionSurfaceBaseActive"
     colors={{
       OnLight: Colors.vadsColorActionSurfaceBaseActiveOnLight,
       OnDark: Colors.vadsColorActionSurfaceBaseActiveOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionBorderBase"
-    subtitle=""
+    title="Border"
+    subtitle="vadsColorActionBorderBase"
     colors={{
       OnLight: Colors.vadsColorActionBorderBaseOnLight,
       OnDark: Colors.vadsColorActionBorderBaseOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionBorderBaseActive"
-    subtitle=""
+    title="Border (active)"
+    subtitle="vadsColorActionBorderBaseActive"
     colors={{
       OnLight: Colors.vadsColorActionBorderBaseActiveOnLight,
       OnDark: Colors.vadsColorActionBorderBaseActiveOnDark,
@@ -335,16 +335,16 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Destructive
 <ColorPalette>
   <ColorItem
-    title="vadsColorActionSurfaceDestructive"
-    subtitle=""
+    title="Surface"
+    subtitle="vadsColorActionSurfaceDestructive"
     colors={{
       OnLight: Colors.vadsColorActionSurfaceDestructiveOnLight,
       OnDark: Colors.vadsColorActionSurfaceDestructiveOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorActionSurfaceDestructiveActive"
-    subtitle=""
+    title="Surface (active)"
+    subtitle="vadsColorActionSurfaceDestructiveActive"
     colors={{
       OnLight: Colors.vadsColorActionSurfaceDestructiveActiveOnLight,
       OnDark: Colors.vadsColorActionSurfaceDestructiveActiveOnDark,
@@ -356,16 +356,16 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Informational
 <ColorPalette>
   <ColorItem
-    title="vadsColorFeedbackSurfaceInfo"
-    subtitle=""
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceInfo"
     colors={{
       OnLight: Colors.vadsColorFeedbackSurfaceInfoOnLight,
       OnDark: Colors.vadsColorFeedbackSurfaceInfoOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorFeedbackBorderInfo"
-    subtitle=""
+    title="Border"
+    subtitle="vadsColorFeedbackBorderInfo"
     colors={{
       OnLight: Colors.vadsColorFeedbackBorderInfoOnLight,
       OnDark: Colors.vadsColorFeedbackBorderInfoOnDark,
@@ -376,16 +376,16 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Success
 <ColorPalette>
   <ColorItem
-    title="vadsColorFeedbackSurfaceSuccess"
-    subtitle=""
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceSuccess"
     colors={{
       OnLight: Colors.vadsColorFeedbackSurfaceSuccessOnLight,
       OnDark: Colors.vadsColorFeedbackSurfaceSuccessOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorFeedbackBorderSuccess"
-    subtitle=""
+    title="Border"
+    subtitle="vadsColorFeedbackBorderSuccess"
     colors={{
       OnLight: Colors.vadsColorFeedbackBorderSuccessOnLight,
       OnDark: Colors.vadsColorFeedbackBorderSuccessOnDark,
@@ -396,16 +396,16 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Warning
 <ColorPalette>
   <ColorItem
-    title="vadsColorFeedbackSurfaceWarning"
-    subtitle=""
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceWarning"
     colors={{
       OnLight: Colors.vadsColorFeedbackSurfaceWarningOnLight,
       OnDark: Colors.vadsColorFeedbackSurfaceWarningOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorFeedbackBorderWarning"
-    subtitle=""
+    title="Border"
+    subtitle="vadsColorFeedbackBorderWarning"
     colors={{
       OnLight: Colors.vadsColorFeedbackBorderWarningOnLight,
       OnDark: Colors.vadsColorFeedbackBorderWarningOnDark,
@@ -416,16 +416,16 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 ### Error
 <ColorPalette>
   <ColorItem
-    title="vadsColorFeedbackSurfaceError"
-    subtitle=""
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceError"
     colors={{
       OnLight: Colors.vadsColorFeedbackSurfaceErrorOnLight,
       OnDark: Colors.vadsColorFeedbackSurfaceErrorOnDark,
     }}
   />
   <ColorItem
-    title="vadsColorFeedbackBorderError"
-    subtitle=""
+    title="Border"
+    subtitle="vadsColorFeedbackBorderError"
     colors={{
       OnLight: Colors.vadsColorFeedbackBorderErrorOnLight,
       OnDark: Colors.vadsColorFeedbackBorderErrorOnDark,
@@ -435,10 +435,12 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 
 
 ## Component
+
+### Segmented Control
 <ColorPalette>
   <ColorItem
-    title="vadsSegmentedControlColorSurfaceSelected"
-    subtitle=""
+    title="Surface (selected)"
+    subtitle="vadsSegmentedControlColorSurfaceSelected"
     colors={{
       OnLight: Colors.vadsSegmentedControlColorSurfaceSelectedOnLight,
       OnDark: Colors.vadsSegmentedControlColorSurfaceSelectedOnDark,
