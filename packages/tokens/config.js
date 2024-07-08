@@ -14,10 +14,6 @@ module.exports = {
       prefix: '',
       files: [
         {
-          destination: 'index.d.ts',
-          format: 'typescript/es6-declarations/module',
-        },
-        {
           destination: 'js/colors.js',
           format: 'javascript/es6/vads-colors',
           filter: 'filter/color/is-color',
@@ -27,16 +23,20 @@ module.exports = {
           format: 'javascript/es6/vads-module-export',
         },
         {
+          destination: 'js/index.d.ts',
+          format: 'typescript/es6-declarations/module',
+        },
+        {
           destination: 'js/themes.js',
           format: 'javascript/es6/vads-colors-themes',
         },
         {
-          destination: 'types/colors.d.ts',
+          destination: 'js/types/colors.d.ts',
           format: 'typescript/es6-declarations/colors',
           filter: 'filter/color/is-color',
         },
         {
-          destination: 'types/theme.d.ts',
+          destination: 'js/types/theme.d.ts',
           format: 'typescript/es6-declarations/theme',
           filter: 'filter/color/light-mode',
         },
