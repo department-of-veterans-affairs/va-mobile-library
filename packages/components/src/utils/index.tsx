@@ -6,8 +6,8 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
 import { useEffect, useState } from 'react'
+import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
