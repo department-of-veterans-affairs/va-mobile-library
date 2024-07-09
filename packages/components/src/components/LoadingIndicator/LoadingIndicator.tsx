@@ -8,10 +8,9 @@ import {
 } from 'react-native'
 import React, { useEffect } from 'react'
 
-import { Colors } from '@department-of-veterans-affairs/mobile-tokens'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { useColorScheme } from '../../utils'
+import { useTheme } from '../../utils'
 
 export type LoadingIndicatorProps = {
   /** AccessibilityLabel for the text */
@@ -36,8 +35,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
   a11yLabel,
   children,
 }) => {
-  const colorScheme = useColorScheme()
-  const isDarkMode = colorScheme === 'dark'
+  const theme = useTheme()
   const rotation = new Animated.Value(0)
 
   useEffect(() => {
@@ -67,9 +65,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     name: 'LoadingIndicator',
     width: 50,
     height: 50,
-    fill: isDarkMode
-      ? Colors.vadsColorActionForegroundDefaultOnDark
-      : Colors.vadsColorActionForegroundDefaultOnLight,
+    fill: theme.vadsColorActionForegroundDefault,
   }
 
   const textStyle: TextStyle = {
@@ -77,9 +73,7 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     fontSize: 20,
     lineHeight: 30,
     textAlign: 'center',
-    color: isDarkMode
-      ? Colors.vadsColorForegroundDefaultOnDark
-      : Colors.vadsColorForegroundDefaultOnLight,
+    color: theme.vadsColorForegroundDefault,
   }
 
   return (
