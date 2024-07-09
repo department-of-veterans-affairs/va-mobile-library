@@ -1,4 +1,6 @@
+// Namespace import is required. Destructuring causes error in va-mobile-app See #390.
 import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
+
 import {
   AccessibilityInfo,
   ColorSchemeName,
