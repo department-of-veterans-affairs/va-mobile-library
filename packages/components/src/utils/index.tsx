@@ -1,3 +1,4 @@
+import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
 import {
   AccessibilityInfo,
   ColorSchemeName,
@@ -7,7 +8,6 @@ import {
   ViewStyle,
 } from 'react-native'
 import { useEffect, useState } from 'react'
-import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
