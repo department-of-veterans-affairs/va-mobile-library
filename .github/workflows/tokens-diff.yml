@@ -1,0 +1,115 @@
+name: Check for token changes from css-library
+
+on:
+  pull_request:
+    types: [opened]
+
+defaults:
+  run:
+    working-directory: packages/tokens
+
+env:
+  YARN_ENABLE_IMMUTABLE_INSTALLS: false # Allows CI to modify yarn.lock
+
+jobs:
+  compare-tokens:
+    if: contains(github.event.pull_request.head.ref, 'dependabot/npm_and_yarn/packages/tokens/department-of-veterans-affairs/css-library')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+      - name: Set git credentials
+        run: |
+          git config --global user.name 'VA Automation Bot'
+          git config --global user.email 'va-mobileapp@adhocteam.us'
+      - name: Regenerate yarn.lock
+        run: |
+          yarn install
+
+          # Commits yarn.lock if yarn install resulted in changes
+          if git status --porcelain | grep -q '^[ MARC].*yarn.lock'; then
+            echo "yarn.lock has unstaged changes."
+            cd ../..
+            git add yarn.lock
+            git commit -m 'Regenerate yarn.lock'
+            git push
+          fi
+      - name: Build and compare tokens
+        run: |
+          echo NEW_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' package.json) >> $GITHUB_ENV
+
+          # Build new tokens and make a temporary copy
+          yarn tokens:build
+          cd dist/js
+          cp colors.js colors_new.js
+
+          # Switch to main branch and rebuild
+          git checkout main
+          yarn && yarn tokens:build
+
+          echo PREV_VERSION=$(jq -r '.devDependencies["@department-of-veterans-affairs/css-library"]' ../../package.json) >> $GITHUB_ENV
+
+          # Compare old colors vs new
+          if diff -q colors.js colors_new.js > /dev/null; then
+            echo "Files have the same contents."
+            echo "TOKENS_CHANGED=false" >> $GITHUB_ENV
+          else
+            echo "Files have different contents."
+            echo "TOKENS_CHANGED=true" >> $GITHUB_ENV
+          fi
+      - name: Send slack message
+        id: slack
+        uses: slackapi/slack-github-action@v1.24.0
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
+        with:
+          channel-id: C062TM03HN2 # DSVA va-mobile-library-alerts channel
+          payload: |
+            {
+              "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Dependabot found an update to *@department-of-veterans-affairs/css-library*"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Previous version:* ${{ env.PREV_VERSION }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*New version:* ${{ env.NEW_VERSION }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<https://github.com/department-of-veterans-affairs/component-library/releases|Changelog>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "<${{ github.event.pull_request.html_url }}|Pull Request>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Tokens changed:* ${{ env.TOKENS_CHANGED }}"
+                    }
+                  ]
+                }
+              ],
+              "unfurl_links": false,
+              "unfurl_media": false
+            }
+      - name: Close PR if no changes
+        if: env.TOKENS_CHANGED == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+        run: gh pr close ${{ github.event.pull_request.number }}
