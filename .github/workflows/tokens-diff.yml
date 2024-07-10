@@ -2,7 +2,7 @@ name: Check for token changes from css-library
 
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened]
 
 defaults:
   run:
