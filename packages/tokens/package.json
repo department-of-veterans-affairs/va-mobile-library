@@ -32,6 +32,6 @@
   "devDependencies": {
     "@department-of-veterans-affairs/css-library": "0.8.4",
     "prettier": "^3.3.2",
-    "style-dictionary": "^3.9.2"
+    "style-dictionary": "^4.0.0"
   }
 }
