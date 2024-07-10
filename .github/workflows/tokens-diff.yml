@@ -110,4 +110,6 @@ jobs:
             }
       - name: Close PR if no changes
         if: env.TOKENS_CHANGED == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
         run: gh pr close ${{ github.event.pull_request.id }}
