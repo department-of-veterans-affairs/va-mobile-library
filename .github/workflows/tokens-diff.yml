@@ -2,7 +2,7 @@ name: Check for token changes from css-library
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, edited]
 
 defaults:
   run:
@@ -22,10 +22,12 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
-      - name: Set git credentials and regenerate yarn.lock
+      - name: Set git credentials
         run: |
           git config --global user.name 'VA Automation Bot'
           git config --global user.email 'va-mobileapp@adhocteam.us'
+      - name: Regenerate yarn.lock
+        run: |
           yarn install
 
           # Commits yarn.lock if yarn install resulted in changes
@@ -106,3 +108,6 @@ jobs:
               "unfurl_links": false,
               "unfurl_media": false
             }
+      - name: Close PR if no changes
+        if: env.TOKENS_CHANGED == 'false'
+        run: gh pr close ${{ github.event.pull_request.id }}
