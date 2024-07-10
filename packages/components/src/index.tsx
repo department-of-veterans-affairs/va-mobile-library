@@ -14,4 +14,6 @@ export { Link } from './components/Link/Link'
 export { LoadingIndicator } from './components/LoadingIndicator/LoadingIndicator'
 export { SegmentedControl } from './components/SegmentedControl/SegmentedControl'
 export { Spacer } from './components/Spacer/Spacer'
+
+// Export consumer available utilities here so they are exported through npm
 export { useTheme } from './utils'
