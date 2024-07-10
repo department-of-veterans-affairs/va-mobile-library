@@ -7,6 +7,7 @@
 coverage/
 jest/
 node_modules/
+storybook/
 storybook-static/
 
 # Config
