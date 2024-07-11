@@ -1,0 +1,453 @@
+import { colors } from '@department-of-veterans-affairs/mobile-tokens'
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
+
+<Meta title="Design Tokens/Colors" />
+
+# Colors
+Our color palette is organized into semantic color tokens, which have specific meaning within the system, and primitive color tokens, which establish a subset of colors that the VA uses from the U.S. Web Design System.
+
+## Primitive
+
+### Gray
+<ColorPalette>
+  <ColorItem
+    title="Black & White"
+    subtitle="vadsColor"
+    colors={{
+      Black: colors.vadsColorBlack,
+      White: colors.vadsColorWhite,
+    }}
+  />
+  <ColorItem
+    title="Base"
+    subtitle="vadsColorBase"
+    colors={{
+      Darkest: colors.vadsColorBaseDarkest,
+      Darker: colors.vadsColorBaseDarker,
+      Dark: colors.vadsColorBaseDark,
+      Light: colors.vadsColorBaseLight,
+      Lighter: colors.vadsColorBaseLighter,
+      Lightest: colors.vadsColorBaseLightest,
+    }}
+  />
+  <ColorItem
+    title="Gray"
+    subtitle="vadsColorGray"
+    colors={{
+      WarmDark: colors.vadsColorGrayWarmDark,
+      Medium: colors.vadsColorGrayMedium,
+      WarmLight: colors.vadsColorGrayWarmLight,
+      LightAlt: colors.vadsColorGrayLightAlt,
+      CoolLight: colors.vadsColorGrayCoolLight,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle="uswdsSystemColor"
+    colors={{
+      Gray90: colors.uswdsSystemColorGray90,
+      Gray80: colors.uswdsSystemColorGray80,
+      Gray30: colors.uswdsSystemColorGray30,
+    }}
+  />
+</ColorPalette>
+
+### Blue
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="vadsColorPrimary"
+    colors={{
+      Darker: colors.vadsColorPrimaryDarker,
+      Dark: colors.vadsColorPrimaryDark,
+      "—": colors.vadsColorPrimary,
+      Light: colors.vadsColorPrimaryLight,
+      Lighter: colors.vadsColorPrimaryLighter,
+    }}
+  />
+  <ColorItem
+    title="Alternative"
+    subtitle="vadsColorPrimaryAlt"
+    colors={{
+      Darkest: colors.vadsColorPrimaryAltDarkest,
+      Dark: colors.vadsColorPrimaryAltDark,
+      "—": colors.vadsColorPrimaryAlt,
+      Light: colors.vadsColorPrimaryAltLight,
+      Lightest: colors.vadsColorPrimaryAltLightest,
+    }}
+  />
+  <ColorItem
+    title="Cool"
+    subtitle="vadsColorBlueCool"
+    colors={{
+      "—": colors.vadsColorBlueCool,
+      Light: colors.vadsColorBlueCoolLight,
+      Lightest: colors.vadsColorBlueCoolLightest,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle="uswdsSystemColor"
+    colors={{
+      BlueVivid80: colors.uswdsSystemColorBlueVivid80,
+      BlueVivid30: colors.uswdsSystemColorBlueVivid30,
+    }}
+  />
+</ColorPalette>
+
+### Red
+<ColorPalette>
+  <ColorItem
+    title="Secondary"
+    subtitle="vadsColorSecondary"
+    colors={{
+      Darkest: colors.vadsColorSecondaryDarkest,
+      Dark: colors.vadsColorSecondaryDark,
+      "—": colors.vadsColorSecondary,
+      Light: colors.vadsColorSecondaryLight,
+      Lightest: colors.vadsColorSecondaryLightest,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle="uswdsSystemColor"
+    colors={{
+      RedVivid80: colors.uswdsSystemColorRedVivid80,
+      RedVivid40: colors.uswdsSystemColorRedVivid40,
+    }}
+  />
+</ColorPalette>
+
+### Yellow
+<ColorPalette>
+  <ColorItem
+    title="Gold"
+    subtitle="vadsColorGold"
+    colors={{
+      Lighter: colors.vadsColorGoldLighter,
+      Lightest: colors.vadsColorGoldLightest,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle="uswdsSystemColor"
+    colors={{
+      YellowVivid80: colors.uswdsSystemColorYellowVivid80,
+      YellwoVivid20: colors.uswdsSystemColorYellowVivid20,
+    }}
+  />
+</ColorPalette>
+
+### Green
+<ColorPalette>
+  <ColorItem
+    title="Green"
+    subtitle="vadsColorGreen"
+    colors={{
+      Light: colors.vadsColorGreenLight,
+      Lighter: colors.vadsColorGreenLighter,
+    }}
+  />
+  <ColorItem
+    title="USWDS"
+    subtitle="uswdsSystemColor"
+    colors={{
+      GreenCoolVivid80: colors.uswdsSystemColorGreenCoolVivid80,
+    }}
+  />
+</ColorPalette>
+
+## Semantic
+
+### Background
+<ColorPalette>
+  <ColorItem
+    title="Default"
+    subtitle="vadsColorBackgroundDefault"
+    colors={{
+      OnLight: colors.vadsColorBackgroundDefaultOnLight,
+      OnDark: colors.vadsColorBgDefaultOnDark,
+    }}
+  />
+</ColorPalette>
+
+### Foreground
+<ColorPalette>
+  <ColorItem
+    title="Default"
+    subtitle="vadsColorForegroundDefault"
+    colors={{
+      OnLight: colors.vadsColorForegroundDefaultOnLight,
+      OnDark: colors.vadsColorForegroundDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="Inverse"
+    subtitle="vadsColorForegroundInverse"
+    colors={{
+      OnLight: colors.vadsColorForegroundInverseOnLight,
+      OnDark: colors.vadsColorForegroundInverseOnDark,
+    }}
+  />
+</ColorPalette>
+
+### Surface
+<ColorPalette>
+  <ColorItem
+    title="Default"
+    subtitle="vadsColorSurfaceDefault"
+    colors={{
+      OnLight: colors.vadsColorSurfaceDefaultOnLight,
+      OnDark: colors.vadsColorSurfaceDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="Inverse"
+    subtitle="vadsColorSurfaceInverse"
+    colors={{
+      OnLight: colors.vadsColorSurfaceInverseOnLight,
+      OnDark: colors.vadsColorSurfaceInverseOnDark,
+    }}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="vadsColorSurfaceSecondary"
+    colors={{
+      OnLight: colors.vadsColorSurfaceSecondaryOnLight,
+      OnDark: colors.vadsColorSurfaceSecondaryOnDark,
+    }}
+  />
+</ColorPalette>
+
+### Action
+<ColorPalette>
+  <ColorItem
+    title=""
+    subtitle="vadsColorActionForegroundInverse"
+    colors={{
+      OnLight: colors.vadsColorActionForegroundInverseOnLight,
+      OnDark: colors.vadsColorActionForegroundInverseOnDark,
+    }}
+  />
+</ColorPalette>
+
+#### Default
+<ColorPalette>
+  <ColorItem
+    title="Foreground"
+    subtitle="vadsColorActionForegroundDefault"
+    colors={{
+      OnLight: colors.vadsColorActionForegroundDefaultOnLight,
+      OnDark: colors.vadsColorActionForegroundDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="Foreground (active)"
+    subtitle="vadsColorActionForegroundDefaultActive"
+    colors={{
+      OnLight: colors.vadsColorActionForegroundDefaultActiveOnLight,
+      OnDark: colors.vadsColorActionForegroundDefaultActiveOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="vadsColorActionSurfaceDefault"
+    colors={{
+      OnLight: colors.vadsColorActionSurfaceDefaultOnLight,
+      OnDark: colors.vadsColorActionSurfaceDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface (active)"
+    subtitle="vadsColorActionSurfaceDefaultActive"
+    colors={{
+      OnLight: colors.vadsColorActionSurfaceDefaultActiveOnLight,
+      OnDark: colors.vadsColorActionSurfaceDefaultActiveOnDark,
+    }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="vadsColorActionBorderDefault"
+    colors={{
+      OnLight: colors.vadsColorActionBorderDefaultOnLight,
+      OnDark: colors.vadsColorActionBorderDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="Border (active)"
+    subtitle="vadsColorActionBorderDefaultActive"
+    colors={{
+      OnLight: colors.vadsColorActionBorderDefaultActiveOnLight,
+      OnDark: colors.vadsColorActionBorderDefaultActiveOnDark,
+    }}
+  />
+</ColorPalette>
+
+#### Base
+<ColorPalette>
+  <ColorItem
+    title="Foreground"
+    subtitle="vadsColorActionForegroundBase"
+    colors={{
+      OnLight: colors.vadsColorActionForegroundBaseOnLight,
+      OnDark: colors.vadsColorActionForegroundBaseOnDark,
+    }}
+  />
+  <ColorItem
+    title="Foreground (active)"
+    subtitle="vadsColorActionForegroundBaseActive"
+    colors={{
+      OnLight: colors.vadsColorActionForegroundBaseActiveOnLight,
+      OnDark: colors.vadsColorActionForegroundBaseActiveOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="vadsColorActionSurfaceBase"
+    colors={{
+      OnLight: colors.vadsColorActionSurfaceBaseOnLight,
+      OnDark: colors.vadsColorActionSurfaceBaseOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface (active)"
+    subtitle="vadsColorActionSurfaceBaseActive"
+    colors={{
+      OnLight: colors.vadsColorActionSurfaceBaseActiveOnLight,
+      OnDark: colors.vadsColorActionSurfaceBaseActiveOnDark,
+    }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="vadsColorActionBorderBase"
+    colors={{
+      OnLight: colors.vadsColorActionBorderBaseOnLight,
+      OnDark: colors.vadsColorActionBorderBaseOnDark,
+    }}
+  />
+  <ColorItem
+    title="Border (active)"
+    subtitle="vadsColorActionBorderBaseActive"
+    colors={{
+      OnLight: colors.vadsColorActionBorderBaseActiveOnLight,
+      OnDark: colors.vadsColorActionBorderBaseActiveOnDark,
+    }}
+  />
+</ColorPalette>
+
+#### Destructive
+<ColorPalette>
+  <ColorItem
+    title="Surface"
+    subtitle="vadsColorActionSurfaceDestructive"
+    colors={{
+      OnLight: colors.vadsColorActionSurfaceDestructiveOnLight,
+      OnDark: colors.vadsColorActionSurfaceDestructiveOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface (active)"
+    subtitle="vadsColorActionSurfaceDestructiveActive"
+    colors={{
+      OnLight: colors.vadsColorActionSurfaceDestructiveActiveOnLight,
+      OnDark: colors.vadsColorActionSurfaceDestructiveActiveOnDark,
+    }}
+  />
+</ColorPalette>
+
+### Feedback
+
+#### Informational
+<ColorPalette>
+  <ColorItem
+    title="Border"
+    subtitle="vadsColorFeedbackBorderInfo"
+    colors={{
+      OnLight: colors.vadsColorFeedbackBorderInfoOnLight,
+      OnDark: colors.vadsColorFeedbackBorderInfoOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceInfo"
+    colors={{
+      OnLight: colors.vadsColorFeedbackSurfaceInfoOnLight,
+      OnDark: colors.vadsColorFeedbackSurfaceInfoOnDark,
+    }}
+  />
+</ColorPalette>
+
+#### Success
+<ColorPalette>
+  <ColorItem
+    title="Border"
+    subtitle="vadsColorFeedbackBorderSuccess"
+    colors={{
+      OnLight: colors.vadsColorFeedbackBorderSuccessOnLight,
+      OnDark: colors.vadsColorFeedbackBorderSuccessOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceSuccess"
+    colors={{
+      OnLight: colors.vadsColorFeedbackSurfaceSuccessOnLight,
+      OnDark: colors.vadsColorFeedbackSurfaceSuccessOnDark,
+    }}
+  />
+</ColorPalette>
+
+#### Warning
+<ColorPalette>
+  <ColorItem
+    title="Border"
+    subtitle="vadsColorFeedbackBorderWarning"
+    colors={{
+      OnLight: colors.vadsColorFeedbackBorderWarningOnLight,
+      OnDark: colors.vadsColorFeedbackBorderWarningOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceWarning"
+    colors={{
+      OnLight: colors.vadsColorFeedbackSurfaceWarningOnLight,
+      OnDark: colors.vadsColorFeedbackSurfaceWarningOnDark,
+    }}
+  />
+</ColorPalette>
+
+#### Error
+<ColorPalette>
+  <ColorItem
+    title="Border"
+    subtitle="vadsColorFeedbackBorderError"
+    colors={{
+      OnLight: colors.vadsColorFeedbackBorderErrorOnLight,
+      OnDark: colors.vadsColorFeedbackBorderErrorOnDark,
+    }}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="vadsColorFeedbackSurfaceError"
+    colors={{
+      OnLight: colors.vadsColorFeedbackSurfaceErrorOnLight,
+      OnDark: colors.vadsColorFeedbackSurfaceErrorOnDark,
+    }}
+  />
+</ColorPalette>
+
+
+## Component
+
+### Segmented Control
+<ColorPalette>
+  <ColorItem
+    title="Surface (selected)"
+    subtitle="vadsSegmentedControlColorSurfaceSelected"
+    colors={{
+      OnLight: colors.vadsSegmentedControlColorSurfaceSelectedOnLight,
+      OnDark: colors.vadsSegmentedControlColorSurfaceSelectedOnDark,
+    }}
+  />
+</ColorPalette>

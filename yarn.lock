@@ -2068,13 +2068,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/css-library@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.7.0"
+"@department-of-veterans-affairs/css-library@npm:0.8.4":
+  version: 0.8.4
+  resolution: "@department-of-veterans-affairs/css-library@npm:0.8.4"
   dependencies:
     "@divriots/style-dictionary-to-figma": "npm:^0.4.0"
+    "@uswds/uswds": "npm:^3.7.1"
     rimraf: "npm:^5.0.5"
-  checksum: 52169e2e44e3b6a978a98e7111c7fd2870684a6bdceaffad2ad4c22ee314b7f4cfb547ef8d7763f7fb38537767d22148d3c8e2756ae6ff97591e825075be5383
+  checksum: a06641bb18ad8615b9db83c6cf35a628fc8e9fcd2335543bcaa9e200ab14c3621b59c9e33223029ae4d1f9e7f55ca51f52396dbdbf52ea7555c4107cfd889f9b
   languageName: node
   linkType: hard
 
@@ -2202,7 +2203,8 @@ __metadata:
     ts-jest: "npm:^29.1.2"
     typescript: "npm:^5.3.3"
   peerDependencies:
-    "@department-of-veterans-affairs/mobile-assets": "*"
+    "@department-of-veterans-affairs/mobile-assets": ^0.12.0
+    "@department-of-veterans-affairs/mobile-tokens": ^0.13.0
     react: ^18.2.0
     react-native: ">=0.71.7"
     react-native-gesture-handler: ^2.12.0
@@ -2220,7 +2222,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens"
   dependencies:
-    "@department-of-veterans-affairs/css-library": "npm:0.7.0"
+    "@department-of-veterans-affairs/css-library": "npm:0.8.4"
     prettier: "npm:^3.3.2"
     style-dictionary: "npm:^3.9.2"
   languageName: unknown
