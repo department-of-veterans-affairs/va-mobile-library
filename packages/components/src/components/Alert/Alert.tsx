@@ -258,7 +258,9 @@ export const Alert: FC<AlertProps> = ({
           {expanded && (
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}>
-                {header && (description || children) ? <Spacer /> : null}
+                {header && (description || children) ? (
+                  <Spacer size={Sizing._20} />
+                ) : null}
                 {description ? (
                   <View
                     accessible={true}
@@ -266,7 +268,7 @@ export const Alert: FC<AlertProps> = ({
                     <Text style={descriptionFont}>{description}</Text>
                   </View>
                 ) : null}
-                {description && children ? <Spacer /> : null}
+                {description && children ? <Spacer size={Sizing._20} /> : null}
                 {children}
               </View>
               {/* When expandable, prevent body content extending below the expand icon and padding for it */}
