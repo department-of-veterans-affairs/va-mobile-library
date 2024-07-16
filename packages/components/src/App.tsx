@@ -5,6 +5,7 @@ import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import React, { useCallback } from 'react'
 
+import { SnackbarProvider } from './components/Snackbar/Snackbar'
 import StorybookUI from '../.storybook/native'
 import i18n from './utils/translation/i18n'
 
@@ -42,6 +43,7 @@ const App = () => {
       <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
         <StorybookUI />
       </View>
+      <SnackbarProvider />
     </I18nextProvider>
   )
 }

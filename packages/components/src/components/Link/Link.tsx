@@ -170,6 +170,7 @@ export const Link: FC<LinkProps> = ({
   /** Handler for links not using launchExternalLink prompt */
   const customOnPress: () => void = () => {
     if (analytics?.onPress) analytics.onPress()
+    snackbar.show('Test')
     if (onPress) onPress()
   }
 
