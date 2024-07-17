@@ -1,6 +1,6 @@
 # Release process
 
-Production eleases for libraries within va-mobile-library are currently
+Production releases for libraries within va-mobile-library are currently
 triggered manually by engineers after each merge into the `main` branch. We have
 a [Publish Workflow in GitHub Actions](https://github.com/department-of-veterans-affairs/va-mobile-library/actions/workflows/publish.yml) 
 which automatically increments the specified package's version, creates a git 
