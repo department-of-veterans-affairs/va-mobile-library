@@ -12,13 +12,3 @@ declare module '*.svg' {
 type SnackbarType = import('./src/components/Snackbar/Snackbar').SnackbarType
 // eslint-disable-next-line no-var
 declare var snackbar: SnackbarType
-
-// export declare const snackbar: SnackbarType
-
-// eslint-disable-next-line
-// var global: any
-
-// declare module globalThis {
-//   // eslint-disable-next-line no-var
-//   var snackbar: SnackbarType
-// }
