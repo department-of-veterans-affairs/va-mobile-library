@@ -7,7 +7,7 @@ which automatically increments the specified package's version, creates a git
 tag, and publishes a new version to NPM. 
 
 Alpha and beta releases are also released using the same workflow, but are 
-typicall triggered from a development branch. See the [Versioning Policy](./versioning.md) 
+typically triggered from a development branch. See the [Versioning Policy](./versioning.md) 
 for an explanation on how we handle versioning.
 
 ## Git tags
