@@ -7,7 +7,7 @@ which automatically increments the specified package's version, creates a git
 tag, and publishes a new version to NPM. 
 
 Alpha and beta releases are also released using the same workflow, but are 
-triggered from the development branch. See the [Versioning Policy](./versioning.md) 
+typicall triggered from a development branch. See the [Versioning Policy](./versioning.md) 
 for an explanation on how we handle versioning.
 
 ## Git tags
@@ -21,7 +21,8 @@ example:
 - tokens-v0.12.0
 - linting-v0.19.0
 
-Alpha and beta builds have `-[alpha/beta].[number]` appended to the tag. e.g.:
+Alpha and beta builds have `-[alpha/beta].[number]` appended to the tag. For 
+example:
 - components-v0.19.0-alpha.1
 
 ## Sign-off process
