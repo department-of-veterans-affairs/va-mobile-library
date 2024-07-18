@@ -4,6 +4,7 @@
 .expo
 .storybook
 .yarn
+buildIconListFromAssets.js
 coverage/
 jest/
 node_modules/
