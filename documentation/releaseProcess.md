@@ -7,7 +7,7 @@ which automatically increments the specified package's version, creates a git
 tag, and publishes a new version to NPM. 
 
 Alpha and beta releases are also released using the same workflow, but are 
-typically triggered from a development branch. See the [Versioning Policy](./versioning.md) 
+typically triggered from a development branch. See the [Versioning Policy](https://department-of-veterans-affairs.github.io/va-mobile-app/design/About/versioning.md) 
 for an explanation on how we handle versioning.
 
 ## Git tags
@@ -34,7 +34,7 @@ library, we may explore adding a sign-off process and extending our release
 cadence.
 
 ## Release notes
-A [changelog](changelog.md) is automatically generated upon each release which 
+A [changelog](https://department-of-veterans-affairs.github.io/va-mobile-app/design/About/changelog.md) is automatically generated upon each release which 
 notes the merged pulled requests and closed issues since the last release. A 
 slack notification is also sent to the [#va-mobile-library-alerts](https://dsva.slack.com/archives/C062TM03HN2) 
 channel in DSVA slack.
