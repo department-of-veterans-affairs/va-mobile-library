@@ -2927,12 +2927,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.23.9":
+"@babel/runtime@npm:^7.23.2":
   version: 7.24.7
   resolution: "@babel/runtime@npm:7.24.7"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
   checksum: b6fa3ec61a53402f3c1d75f4d808f48b35e0dfae0ec8e2bb5c6fc79fb95935da75766e0ca534d0f1c84871f6ae0d2ebdd950727cfadb745a2cdbef13faef5513
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.24.8":
+  version: 7.24.8
+  resolution: "@babel/runtime@npm:7.24.8"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: f24b30af6b3ecae19165b3b032f9bc37b2d1769677bd63b69a6f81061967cfc847aa822518402ea6616b1d301d7eb46986b99c9f69cdb5880834fca2e6b34881
   languageName: node
   linkType: hard
 
@@ -3132,7 +3141,7 @@ __metadata:
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.13.0"
     "@expo/metro-runtime": "npm:~3.2.1"
     "@expo/webpack-config": "npm:~19.0.1"
-    "@os-team/i18next-react-native-language-detector": "npm:^1.0.31"
+    "@os-team/i18next-react-native-language-detector": "npm:^1.0.34"
     "@react-native-async-storage/async-storage": "npm:1.23.1"
     "@react-native-community/datetimepicker": "npm:8.0.1"
     "@react-native-community/slider": "npm:4.5.2"
@@ -3167,14 +3176,14 @@ __metadata:
     expo-splash-screen: "npm:~0.27.5"
     expo-status-bar: "npm:~1.12.1"
     gh-pages: "npm:^6.1.1"
-    i18next: "npm:^23.11.5"
+    i18next: "npm:^23.12.2"
     jest: "npm:^29.7.0"
     jest-expo: "npm:~51.0.3"
     jest-styled-components: "npm:^7.2.0"
     metro-react-native-babel-preset: "npm:^0.77.0"
     react: "npm:^18.2.0"
     react-dom: "npm:18.2.0"
-    react-i18next: "npm:^14.1.2"
+    react-i18next: "npm:^15.0.0"
     react-native: "npm:0.74.3"
     react-native-gesture-handler: "npm:~2.16.1"
     react-native-reanimated: "npm:3.10.1"
@@ -4618,13 +4627,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@os-team/i18next-react-native-language-detector@npm:^1.0.31":
-  version: 1.0.31
-  resolution: "@os-team/i18next-react-native-language-detector@npm:1.0.31"
+"@os-team/i18next-react-native-language-detector@npm:^1.0.34":
+  version: 1.0.34
+  resolution: "@os-team/i18next-react-native-language-detector@npm:1.0.34"
   peerDependencies:
     i18next: "*"
     react-native: "*"
-  checksum: 56f404d94c8f7cb418c12fb8e312c906301c81c3545d67a11c33e7d084d6f88e20dbe1dba853d27e58c117c47c06133384799c3f7dbe101b60ff8e6fcb4dc502
+  checksum: 76d044e0b406368cc8d3ac80b0ee94a925b9319629009c1802ec1bed8fdf9cdbbd70360f0c6c9778fe4faf41ff53f4f498242f956c4a21b851f4f11536eab94f
   languageName: node
   linkType: hard
 
@@ -13806,12 +13815,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.11.5":
-  version: 23.11.5
-  resolution: "i18next@npm:23.11.5"
+"i18next@npm:^23.12.2":
+  version: 23.12.2
+  resolution: "i18next@npm:23.12.2"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: b0bec64250a3e529d4c51e2fc511406a85c5dde3d005d3aabe919551ca31dfc0a8f5490bf6e44649822e895a1fa91a58092d112367669cd11b2eb89e6ba90d1a
+  checksum: aa7654afefc3f5383513563226401994558675a57eb562f0c4580d573d8410d24954f25112d45f9b6b1ca3f88c7beea1ac802ed50ad4081a06a17d08857e3c5d
   languageName: node
   linkType: hard
 
@@ -18477,11 +18486,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^14.1.2":
-  version: 14.1.2
-  resolution: "react-i18next@npm:14.1.2"
+"react-i18next@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "react-i18next@npm:15.0.0"
   dependencies:
-    "@babel/runtime": "npm:^7.23.9"
+    "@babel/runtime": "npm:^7.24.8"
     html-parse-stringify: "npm:^3.0.1"
   peerDependencies:
     i18next: ">= 23.2.3"
@@ -18491,7 +18500,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: cb8a83b3696639f083dc9f770d9d9e0681c0fe56f6b5fe24cd6facce08d363c37bd3440078e9d63abacabd7037b783e6b4e4d0c935de9c8dda7820bd4ef7e329
+  checksum: d62a817818f8b16c87b68b3c2563a628d983e6ecbe37d9baa29f276dd8fdfee180abc101efa551a13f1c4839dd2c5bc9b2b24996d231686d9e5e79d9327900a7
   languageName: node
   linkType: hard
 
