@@ -36,5 +36,5 @@ cadence.
 ## Release notes
 A [changelog](changelog.md) is automatically generated upon each release which 
 notes the merged pulled requests and closed issues since the last release. A 
-slack notification is also sent to the [#va-mobile-library](https://dsva.slack.com/archives/C062TM03HN2) 
+slack notification is also sent to the [#va-mobile-library-alerts](https://dsva.slack.com/archives/C062TM03HN2) 
 channel in DSVA slack.
