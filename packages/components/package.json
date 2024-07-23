@@ -44,7 +44,7 @@
     "react-i18next": "^15.0.0",
     "react-native-svg": "15.2.0",
     "react-native-toast-notifications": "^3.4.0",
-    "styled-components": "^6.1.8"
+    "styled-components": "^6.1.12"
   },
   "peerDependencies": {
     "@department-of-veterans-affairs/mobile-assets": "^0.12.0",
@@ -113,6 +113,6 @@
     "storybook": "7.6.19",
     "storybook-dark-mode": "^3.0.3",
     "ts-jest": "^29.2.3",
-    "typescript": "^5.3.3"
+    "typescript": "^5.5.3"
   }
 }
