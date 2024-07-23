@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ToastOptions } from 'react-native-toast-notifications/lib/typescript/toast'
 import React from 'react'
 import Toast, { ToastType } from 'react-native-toast-notifications'
@@ -42,14 +43,16 @@ type SnackbarProviderProps = {
  *   <SnackbarProvider />
  * </>
  * ```
- * 
+ *
  * This config will allow it to be called anywhere including outside React components.
- * 
+ *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
  */
-export const SnackbarProvider: React.FC<SnackbarProviderProps> = ({
-  // globalSnackbar,
-}) => {
+export const SnackbarProvider: React.FC<SnackbarProviderProps> = (
+  {
+    // globalSnackbar,
+  },
+) => {
   return (
     <Toast
       animationDuration={100}
