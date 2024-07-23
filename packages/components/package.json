@@ -73,7 +73,7 @@
     "@storybook/addon-links": "7.6.20",
     "@storybook/addon-ondevice-actions": "^7.6.20",
     "@storybook/addon-ondevice-controls": "^7.6.20",
-    "@storybook/addon-react-native-web": "^0.0.23",
+    "@storybook/addon-react-native-web": "^0.0.24",
     "@storybook/builder-webpack5": "7.6.20",
     "@storybook/react": "7.6.20",
     "@storybook/react-native": "^7.6.20",
