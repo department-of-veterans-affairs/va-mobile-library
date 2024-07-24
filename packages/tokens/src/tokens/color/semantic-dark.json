@@ -62,6 +62,13 @@
       "category": "color"
     }
   },
+  "vads-color-action-foreground-inverse-active-on-dark": {
+    "name": "vads-color-action-foreground-inverse-active-on-dark",
+    "value": "{vads-color-base-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-action-foreground-default-on-dark": {
     "name": "vads-color-action-foreground-default-on-dark",
     "value": "{uswds-system-color-blue-vivid-30}",
