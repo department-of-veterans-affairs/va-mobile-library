@@ -487,6 +487,10 @@
     "$value": "{vads-color-primary}",
     "$type": "color"
   },
+  "vads-color-action-foreground-inverse-active-on-light": {
+    "$value": "{vads-color-base-light}",
+    "$type": "color"
+  },
   "vads-color-action-foreground-inverse-on-light": {
     "$value": "{vads-color-white}",
     "$type": "color"
