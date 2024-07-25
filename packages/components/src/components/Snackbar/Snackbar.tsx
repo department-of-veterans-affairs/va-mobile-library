@@ -29,15 +29,13 @@ type snackbarData = {
     messageA11y?: string
     /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
     onActionPressed?: () => void
-    /** optional custom logic for "Dismiss" button, else just closes snackbar  */
-    onDismissPressed?: () => void
   }
 }
 
-/** 
+/**
  * Structured to allow modification of `react-native-toast-notifications` ToastOptions
  * type, but Snackbar component locks down all non-data options presently
- * 
+ *
  * In the future, this may change (e.g. allowing non-indefinite `duration`)
  */
 type modifyToastOptions = snackbarData
@@ -164,8 +162,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   }
   // console.log('offset var: ' + globalThis.snackbarOffset)
 
-  const { isError, messageA11y, onActionPressed, onDismissPressed } =
-    toast.data || {}
+  const { isError, messageA11y, onActionPressed } = toast.data || {}
   const contentColor = theme.vadsColorForegroundInverse
 
   // if (offset) {
@@ -240,16 +237,15 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const actionButton = () => {
     if (!onActionPressed) return null
 
-    const action =
-      onActionPressed ||
-      (() => {
-        null
-      })
+    const onPress = () => {
+      onActionPressed()
+      toast.onHide()
+    }
     const actionText = isError ? t('tryAgain') : t('undo')
 
     return (
       <>
-        <SnackbarButton text={actionText} onPress={action} />
+        <SnackbarButton text={actionText} onPress={onPress} />
         <Spacer size={sizing._24} horizontal />
       </>
     )
@@ -266,10 +262,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       </View>
       <View {...buttonContainer}>
         {actionButton()}
-        <SnackbarButton
-          text={t('dismiss')}
-          onPress={onDismissPressed || toast.onHide}
-        />
+        <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
       </View>
     </View>
   )
@@ -278,11 +271,14 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
 /**
  * Convenience handling function to show snackbar
  * @param message - message text to display on snackbar
- * @param snackbarData - data to customize snackbar behavior for more than standard dismissible success
+ * @param snackbarOptions - data to customize snackbar behavior for more than standard dismissible success
  */
-export const ShowSnackbar = (message: string, snackbarData?: snackbarData['data']) => {
+export const ShowSnackbar = (
+  message: string,
+  snackbarOptions?: snackbarData['data'],
+) => {
   snackbar.hideAll() // Remove any existing snackbars
-  snackbar.show(message, { data: snackbarData })
+  snackbar.show(message, { data: snackbarOptions })
 }
 
 /**
