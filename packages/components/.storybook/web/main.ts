@@ -18,6 +18,7 @@ module.exports = {
   },
   core: {
     builder: 'webpack5',
+    disableWhatsNewNotifications: true,
   },
   framework: '@storybook/react-webpack5',
   options: { builder: { useSWC: true } }, // improves build performance
