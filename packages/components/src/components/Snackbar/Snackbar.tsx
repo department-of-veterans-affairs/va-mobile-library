@@ -177,8 +177,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
       borderRadius: sizing._4,
-      // bottom: 40,
-      // flexGrow: 1,
+      // bottom: offset,
       flexDirection: 'row',
       flexWrap: 'wrap',
       gap: 5,
@@ -224,14 +223,11 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
 
   const buttonContainer: ViewProps = {
     style: {
-      // alignContent: 'flex-end',
       flex: 0,
       flexDirection: 'row',
       flexWrap: 'wrap',
       marginLeft: 'auto', // Maintains alignment to right side
       paddingLeft: sizing._16, // Minimum spacing to message text
-      // alignSelf: 'flex-end',
-      // justifyContent: 'flex-end'
     },
   }
 
