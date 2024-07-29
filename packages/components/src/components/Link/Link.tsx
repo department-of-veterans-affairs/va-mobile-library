@@ -18,7 +18,6 @@ import {
   useExternalLink,
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
-import { ShowSnackbar } from '../Snackbar/Snackbar'
 import { t } from 'i18next'
 import { useTheme } from '../../utils'
 
@@ -167,19 +166,10 @@ export const Link: FC<LinkProps> = ({
   let _onPress: () => void = async () => {
     null // Empty function to keep TS happy a function exists
   }
-  // let offset = globalThis.snackbarOffset
 
   /** Handler for links not using launchExternalLink prompt */
   const customOnPress: () => void = () => {
     if (analytics?.onPress) analytics.onPress()
-    // const snackbarText = 'Message moved to Custom Folder'
-    // snackbar.show('Test', {data: {}})
-    // ShowSnackbar(snackbarText, {
-    //   isError: true,
-    //   onActionPressed: () => {
-    //     null
-    //   },
-    // })
     if (onPress) onPress()
   }
 
