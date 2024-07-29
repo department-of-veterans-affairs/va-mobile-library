@@ -172,13 +172,14 @@ export const Link: FC<LinkProps> = ({
   /** Handler for links not using launchExternalLink prompt */
   const customOnPress: () => void = () => {
     if (analytics?.onPress) analytics.onPress()
-    const snackbarText = 'Message moved to Custom Folder'
-    ShowSnackbar(snackbarText, {
-      isError: true,
-      onActionPressed: () => {
-        null
-      },
-    })
+    // const snackbarText = 'Message moved to Custom Folder'
+    // snackbar.show('Test', {data: {}})
+    // ShowSnackbar(snackbarText, {
+    //   isError: true,
+    //   onActionPressed: () => {
+    //     null
+    //   },
+    // })
     if (onPress) onPress()
   }
 

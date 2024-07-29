@@ -40,10 +40,10 @@ type snackbarData = {
  */
 type modifyToastOptions = snackbarData
 
-export type SnackbarType = Omit<ToastType, 'show'> & {
+export type SnackbarType = Omit<ToastType, 'show' | 'update'> & {
   /** Shows a new toast. Returns id */
   show: (
-    message: string | JSX.Element,
+    message: string,
     snackbarOptions?: modifyToastOptions | undefined,
   ) => string
 }
