@@ -69,6 +69,13 @@
       "category": "color"
     }
   },
+  "vads-color-action-foreground-inverse-active-on-light": {
+    "name": "vads-color-action-foreground-inverse-active-on-light",
+    "value": "{vads-color-base-light.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-action-foreground-default-on-light": {
     "name": "vads-color-action-foreground-default-on-light",
     "value": "{vads-color-primary.*.value}",
