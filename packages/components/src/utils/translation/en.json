@@ -1,7 +1,10 @@
 {
+  "dismiss": "Dismiss",
   "goBack": "Go back",
   "leave": "Leave",
   "leaveAppAlert.body": "You'll go to a website outside of this app.",
   "leaveAppAlert.title": "Leave the mobile app?",
-  "listPosition": "{{position}} of {{total}}"
+  "listPosition": "{{position}} of {{total}}",
+  "tryAgain": "Try again",
+  "undo": "Undo"
 }
