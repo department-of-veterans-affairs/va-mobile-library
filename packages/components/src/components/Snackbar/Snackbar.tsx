@@ -115,14 +115,13 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
     fontSize: 16,
     lineHeight: 22,
   }
-  const typography = { helperTextBold }
 
   const getTextStyle = (pressed: boolean): TextStyle => {
     return {
       color: pressed
         ? theme.vadsColorActionForegroundInverseActive
         : theme.vadsColorActionForegroundInverse,
-      ...typography.helperTextBold,
+      ...helperTextBold,
     }
   }
 
@@ -151,7 +150,6 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     fontSize: 16,
     lineHeight: 22,
   }
-  const typography = { helperText }
 
   const sizing = {
     _4: 4,
@@ -217,7 +215,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     style: {
       color: contentColor,
       flexShrink: 1,
-      ...typography.helperText,
+      ...helperText,
     },
   }
 
@@ -283,11 +281,4 @@ export const ShowSnackbar = (
  */
 export const CloseSnackbar = () => {
   snackbar.hideAll() // Remove any existing snackbars
-}
-
-/**
- * Convenience handling function to close snackbar(s) on navigation
- */
-export const CloseSnackbarOnNavigation = () => {
-  CloseSnackbar()
 }
