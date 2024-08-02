@@ -50,7 +50,7 @@ const mobileComponentRenderer = (props: SnackbarProps) => {
 export const _Snackbar: Story = {
   render: Platform.OS !== 'web' ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
-    message: 'Message moved to Custom Folder',
+    message: 'Message moved to Test Folder',
     data: {
       isError: false,
       messageA11y: 'Message moved to Custom Folder with a11y',
