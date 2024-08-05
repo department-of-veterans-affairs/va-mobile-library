@@ -49,29 +49,6 @@ export type SnackbarType = Omit<ToastType, 'show' | 'update'> & {
   ) => string
 }
 
-//
-// TODO: May need to move the following doc to the custom render to show in Storybook
-//
-
-/**
- * To use SnackbarProvider, your app must have a global.d.ts which you can copy the following into:
- * ```
- * type SnackbarType = import('@department-of-veterans-affairs/mobile-component-library').SnackbarType
- * // eslint-disable-next-line no-var
- * declare var snackbar: SnackbarType
- * ```
- * then add SnackbarProvider in App.tsx (or similar foundational file) level with your app rendering:
- * ```
- * <>
- *   <App />
- *   <SnackbarProvider />
- * </>
- * ```
- *
- * This config will allow it to be called anywhere including outside React components.
- *
- * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
- */
 export const SnackbarProvider: React.FC = () => {
   // const forceUpdate = useReducer(x => x + 1, 0)[1]
   // const [offset, setOffset] = useState(10)
@@ -136,6 +113,25 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
 
 export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
 
+/**
+ * To use SnackbarProvider, your app must have a global.d.ts which you can copy the following into:
+ * ```
+ * type SnackbarType = import('@department-of-veterans-affairs/mobile-component-library').SnackbarType
+ * // eslint-disable-next-line no-var
+ * declare var snackbar: SnackbarType
+ * ```
+ * then add SnackbarProvider in App.tsx (or similar foundational file) level with your app rendering:
+ * ```
+ * <>
+ *   <App />
+ *   <SnackbarProvider />
+ * </>
+ * ```
+ *
+ * This config will allow it to be called anywhere including outside React components.
+ *
+ * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
+ */
 export const Snackbar: FC<SnackbarProps> = (toast) => {
   const fontScale = useWindowDimensions().fontScale
   const theme = useTheme()
@@ -221,7 +217,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
 
   const buttonContainer: ViewProps = {
     style: {
-      flex: 0,
+      flexGrow: 0,
       flexDirection: 'row',
       flexWrap: 'wrap',
       marginLeft: 'auto', // Maintains alignment to right side
