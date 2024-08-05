@@ -11,9 +11,9 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
+import { ToastProvider, ToastType } from 'react-native-toast-notifications'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
-import Toast, { ToastType } from 'react-native-toast-notifications'
 import ToastContainer from 'react-native-toast-notifications'
 
 import { Icon, IconProps } from '../Icon/Icon'
@@ -49,7 +49,7 @@ export type SnackbarType = Omit<ToastType, 'show' | 'update'> & {
   ) => string
 }
 
-export const SnackbarProvider: React.FC = () => {
+export const SnackbarProvider: React.FC = ({ children }) => {
   // const forceUpdate = useReducer(x => x + 1, 0)[1]
   // const [offset, setOffset] = useState(10)
   // useEffect(
@@ -67,15 +67,16 @@ export const SnackbarProvider: React.FC = () => {
   // )
 
   return (
-    <Toast
+    <ToastProvider
       animationDuration={100}
       duration={1000000000000} // Essentially indefinite until dismissed
       offset={50}
       placement="bottom"
       ref={(ref) => ((globalThis.snackbar as ToastContainer | null) = ref)}
       renderToast={(toast) => <Snackbar {...toast} />}
-      swipeEnabled={false}
-    />
+      swipeEnabled={false}>
+      {children}
+    </ToastProvider>
   )
 }
 
