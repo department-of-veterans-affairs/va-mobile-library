@@ -1,7 +1,7 @@
 // Namespace import is required. Destructuring causes error in va-mobile-app See #390.
 import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
 import { SnackbarType } from '../components/Snackbar/Snackbar'
-import { useToast } from 'react-native-toast-notifications'
+import * as Toast from 'react-native-toast-notifications'
 
 import {
   AccessibilityInfo,
@@ -85,5 +85,5 @@ export function PressableOpacityStyle(
 }
 
 export function useSnackbar(): SnackbarType {
-  return useToast()
+  return Toast.useToast()
 }
