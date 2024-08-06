@@ -3,7 +3,7 @@ import { Platform, View } from 'react-native'
 import React from 'react'
 
 import { Button } from '../Button/Button'
-import { ShowSnackbar, Snackbar, SnackbarProps } from './Snackbar'
+import { Snackbar, SnackbarProps, useSnackbar } from './Snackbar'
 import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<SnackbarProps> = {
@@ -36,15 +36,29 @@ type Story = StoryObj<SnackbarProps>
 
 const mobileComponentRenderer = (props: SnackbarProps) => {
   const { isError, messageA11y, onActionPressed } = props.data || {}
+  const { show } = useSnackbar()
+  const onPressSnackbarOffset = () => {
+    show(props.message as string, {
+      isError,
+      messageA11y,
+      onActionPressed,
+      offset: 500,
+    })
+  }
+
   const onPressSnackbar = () => {
-    ShowSnackbar(props.message as string, {
+    show(props.message as string, {
       isError,
       messageA11y,
       onActionPressed,
     })
   }
-
-  return <Button label="Press for Snackbar" onPress={onPressSnackbar} />
+  return (
+    <>
+      <Button label="500 Offset" onPress={onPressSnackbarOffset} />
+      <Button label="Default Offset" onPress={onPressSnackbar} />
+    </>
+  )
 }
 
 export const _Snackbar: Story = {

@@ -40,10 +40,11 @@ const App = () => {
 
   return (
     <I18nextProvider i18n={i18n}>
-      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
-        <StorybookUI />
-      </View>
-      <SnackbarProvider />
+      <SnackbarProvider>
+        <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+          <StorybookUI />
+        </View>
+      </SnackbarProvider>
     </I18nextProvider>
   )
 }
