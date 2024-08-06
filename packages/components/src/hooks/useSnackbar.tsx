@@ -6,6 +6,10 @@ import {
 } from '../components/Snackbar/Snackbar'
 import { SnackbarContext } from '../components/Snackbar/SnackbarProvider'
 
+/**
+ * Passthrough of useToast hook which has been modified to allow for optional
+ * offset setting
+ */
 export function useSnackbar() {
   const toast = Toast.useToast()
   const context = useContext(SnackbarContext)
@@ -16,21 +20,23 @@ export function useSnackbar() {
 
   const { offset, setOffset } = context
 
-  /** Modified toast.show() function that sets the offset if passed */
   const show = (
     message: string,
     snackbarOptions?: modifyToastOptions['data'],
   ) => {
+    toast.hideAll()
+
     if (snackbarOptions?.offset) {
       setOffset(snackbarOptions.offset)
     } else if (offset !== DEFAULT_OFFSET) {
       setOffset(DEFAULT_OFFSET)
     }
-    toast.show(message, { data: snackbarOptions })
+    return toast.show(message, { data: snackbarOptions })
   }
 
   return {
     show,
-    hide: toast.hide,
+    hide: toast.hideAll,
+    isOpen: toast.isOpen,
   }
 }

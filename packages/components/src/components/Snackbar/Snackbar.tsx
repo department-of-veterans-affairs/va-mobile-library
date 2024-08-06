@@ -223,23 +223,3 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     </View>
   )
 }
-
-/**
- * Convenience handling function to show snackbar
- * @param message - message text to display on snackbar
- * @param snackbarOptions - data to customize snackbar behavior for more than standard dismissible success
- */
-export const ShowSnackbar = (
-  message: string,
-  snackbarOptions?: snackbarData['data'],
-) => {
-  snackbar.hideAll() // Remove any existing snackbars
-  snackbar.show(message, { data: snackbarOptions })
-}
-
-/**
- * Convenience handling function to close snackbar(s)
- */
-export const CloseSnackbar = () => {
-  snackbar.hideAll() // Remove any existing snackbars
-}

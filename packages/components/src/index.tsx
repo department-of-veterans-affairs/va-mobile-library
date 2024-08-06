@@ -13,11 +13,6 @@ export { Icon } from './components/Icon/Icon'
 export { Link } from './components/Link/Link'
 export { LoadingIndicator } from './components/LoadingIndicator/LoadingIndicator'
 export { SegmentedControl } from './components/SegmentedControl/SegmentedControl'
-export {
-  CloseSnackbar,
-  ShowSnackbar,
-  type SnackbarType,
-} from './components/Snackbar/Snackbar'
 export { SnackbarProvider } from './components/Snackbar/SnackbarProvider'
 export { Spacer } from './components/Spacer/Spacer'
 
