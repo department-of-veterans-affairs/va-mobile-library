@@ -5,7 +5,7 @@ import { registerRootComponent } from 'expo'
 import { useFonts } from 'expo-font'
 import React, { useCallback } from 'react'
 
-import { SnackbarProvider } from './components/Snackbar/Snackbar'
+import { SnackbarProvider } from './components/Snackbar/SnackbarProvider'
 import StorybookUI from '../.storybook/native'
 import i18n from './utils/translation/i18n'
 

@@ -11,18 +11,16 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
-import { ToastProvider, ToastType } from 'react-native-toast-notifications'
+import { ToastType } from 'react-native-toast-notifications'
 import { useTranslation } from 'react-i18next'
-import React, { FC, createContext, useContext, useState } from 'react'
-import ToastContainer from 'react-native-toast-notifications'
-import * as Toast from 'react-native-toast-notifications'
+import React, { FC } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 // let snackbarOffset: number = 10
-const DEFAULT_OFFSET = 50
+export const DEFAULT_OFFSET: number = 50
 
 type snackbarData = {
   data?: {
@@ -32,6 +30,7 @@ type snackbarData = {
     messageA11y?: string
     /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
     onActionPressed?: () => void
+    /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
     offset?: number
   }
 }
@@ -42,7 +41,7 @@ type snackbarData = {
  *
  * In the future, this may change (e.g. allowing non-indefinite `duration`)
  */
-type modifyToastOptions = snackbarData
+export type modifyToastOptions = snackbarData
 
 export type SnackbarType = Omit<ToastType, 'show' | 'update'> & {
   /** Shows a new toast. Returns id */
@@ -128,23 +127,16 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     _20: 20,
     _24: 24,
   }
-  // console.log('offset var: ' + globalThis.snackbarOffset)
 
   const { isError, messageA11y, onActionPressed } = toast.data || {}
-  const contentColor = theme.vadsColorForegroundInverse
 
-  // if (offset) {
-  //   globalThis.snackbarOffset = offset
-  // } else {
-  //   globalThis.snackbarOffset = 10
-  // }
+  const contentColor = theme.vadsColorForegroundInverse
 
   const containerProps: ViewProps = {
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
       borderRadius: sizing._4,
-      // bottom: offset,
       flexDirection: 'row',
       flexWrap: 'wrap',
       gap: 5,
@@ -250,76 +242,4 @@ export const ShowSnackbar = (
  */
 export const CloseSnackbar = () => {
   snackbar.hideAll() // Remove any existing snackbars
-}
-
-export const SnackbarContext = createContext()
-
-export const SnackbarProvider: React.FC = ({ children }) => {
-  // const forceUpdate = useReducer(x => x + 1, 0)[1]
-  const [offset, setOffset] = useState(DEFAULT_OFFSET)
-
-  const updateOffset = (num) => {
-    console.log(`setting offset to ${num}`)
-    setOffset(num)
-  }
-  // useEffect(
-  //   () => {
-  //     if (offset != globalThis.snackbarOffset) {
-  //       globalThis.updateSnackbarOffset(globalThis.snackbarOffset)
-  //       forceUpdate()
-  //       return
-  //     }
-  //   }, [offset]
-  // )
-
-  // useEffect(() =>
-  //   AccessibilityInfo.announceForAccessibility('Test announce provider'),
-  // )
-
-  return (
-    <SnackbarContext.Provider value={{ offset, updateOffset }}>
-      <ToastProvider
-        animationDuration={100}
-        duration={1000000000000} // Essentially indefinite until dismissed
-        offset={offset}
-        placement="bottom"
-        onClose={() => {
-          console.log('onClose')
-          updateOffset(DEFAULT_OFFSET)
-        }}
-        onPress={() => {
-          console.log('onClose')
-          updateOffset(DEFAULT_OFFSET)
-        }}
-        // ref={(ref) => ((globalThis.snackbar as ToastContainer | null) = ref)}
-        renderToast={(toast) => <Snackbar {...toast} />}
-        swipeEnabled={false}>
-        {children}
-      </ToastProvider>
-    </SnackbarContext.Provider>
-  )
-}
-
-export function useSnackbar() {
-  const { offset, updateOffset } = useContext(SnackbarContext)
-  const toast = Toast.useToast()
-
-  const show = (message: string, snackbarOptions?: snackbarData['data']) => {
-    console.log('message', message)
-    console.log('snackbarOptions', snackbarOptions)
-    if (snackbarOptions.offset) {
-      console.log('offset provided', snackbarOptions.offset)
-      updateOffset(snackbarOptions.offset)
-    } else if (offset !== DEFAULT_OFFSET) {
-      updateOffset(DEFAULT_OFFSET)
-    }
-    toast.show(message, { data: snackbarOptions })
-  }
-
-  const hide = toast.hide
-
-  return {
-    show,
-    hide,
-  }
 }

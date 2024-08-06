@@ -3,7 +3,8 @@ import { Platform, View } from 'react-native'
 import React from 'react'
 
 import { Button } from '../Button/Button'
-import { Snackbar, SnackbarProps, useSnackbar } from './Snackbar'
+import { Snackbar, SnackbarProps } from './Snackbar'
+import { useSnackbar } from '../../hooks/useSnackbar'
 import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<SnackbarProps> = {

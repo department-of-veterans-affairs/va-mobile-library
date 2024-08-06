@@ -1,7 +1,5 @@
 // Namespace import is required. Destructuring causes error in va-mobile-app See #390.
 import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
-import { SnackbarType, SnackbarContext } from '../components/Snackbar/Snackbar'
-import * as Toast from 'react-native-toast-notifications'
 
 import {
   AccessibilityInfo,
@@ -11,7 +9,7 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
