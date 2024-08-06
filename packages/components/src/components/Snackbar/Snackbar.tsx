@@ -70,18 +70,11 @@ export const SnackbarProvider: React.FC = () => {
     <Toast
       animationDuration={100}
       duration={1000000000000} // Essentially indefinite until dismissed
-      offset={-20}
+      offset={50}
       placement="bottom"
       ref={(ref) => ((globalThis.snackbar as ToastContainer | null) = ref)}
       renderToast={(toast) => <Snackbar {...toast} />}
       swipeEnabled={false}
-      // style={{
-      //   accessible: true,
-      //   pointerEvents: 'auto',
-      //   importantForAccessibility: 'yes',
-      //   'aria-labelledby': 'gogo',
-      //   role: 'alert',
-      // }}
     />
   )
 }
@@ -174,12 +167,9 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   // }
 
   const containerProps: ViewProps = {
-    // accessible: true,
-    // pointerEvents: 'auto',
-    // importantForAccessibility: 'yes',
-    // 'aria-labelledby': 'gogo',
-    // role: 'alert',
-    tabIndex: 0,
+    accessibilityViewIsModal: true, // iOS only
+    tabIndex: 0, // Android only
+    // Above props prevent screen reader from tap focusing elements behind the Snackbar
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
@@ -190,14 +180,12 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       gap: 5,
       minHeight: 44,
       padding: sizing._12,
-      // pointerEvents: 'auto', // Override library so Snackbar is touchable
       marginHorizontal: sizing._20,
     },
   }
 
   const iconAndMessageContainer: ViewProps = {
     accessible: true,
-    // nativeID: 'gogo',
     role: 'alert',
     style: {
       flexDirection: 'row',
