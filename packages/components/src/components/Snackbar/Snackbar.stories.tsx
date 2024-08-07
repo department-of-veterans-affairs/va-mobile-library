@@ -56,7 +56,7 @@ const mobileComponentRenderer = (props: SnackbarProps) => {
   )
 }
 
-export const _Snackbar: Story = {
+export const _Default: Story = {
   name: 'Default',
   render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
@@ -69,7 +69,7 @@ export const _Snackbar: Story = {
   },
 }
 
-export const __SnackbarWithCustomOffset: Story = {
+export const __CustomOffset: Story = {
   name: 'Custom offset',
   render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
