@@ -1,7 +1,7 @@
-import React, { createContext, useState, ReactNode } from 'react'
+import React, { ReactNode, createContext, useState } from 'react'
 
+import { DEFAULT_OFFSET, Snackbar } from './Snackbar'
 import { ToastProvider } from 'react-native-toast-notifications'
-import { Snackbar, DEFAULT_OFFSET } from './Snackbar'
 
 type SnackbarContextType = {
   offset: number

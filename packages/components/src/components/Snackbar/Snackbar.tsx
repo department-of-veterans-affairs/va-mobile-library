@@ -19,7 +19,7 @@ import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
-// let snackbarOffset: number = 10
+// TODO: Replace with global setting
 export const DEFAULT_OFFSET: number = 50
 
 type snackbarData = {

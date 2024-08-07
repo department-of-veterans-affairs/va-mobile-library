@@ -1,5 +1,7 @@
 import { useContext } from 'react'
+
 import * as Toast from 'react-native-toast-notifications'
+
 import {
   DEFAULT_OFFSET,
   modifyToastOptions,
@@ -15,7 +17,7 @@ export function useSnackbar() {
   const context = useContext(SnackbarContext)
 
   if (!context) {
-    throw new Error('useSnackbar must be used within an SnackbarProvider')
+    throw new Error('useSnackbar must be used within a SnackbarProvider')
   }
 
   const { offset, setOffset } = context
