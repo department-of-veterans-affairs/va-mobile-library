@@ -42,14 +42,6 @@ type snackbarData = {
  */
 export type modifyToastOptions = snackbarData
 
-export type SnackbarType = Omit<ToastType, 'show' | 'update'> & {
-  /** Shows a new toast. Returns id */
-  show: (
-    message: string,
-    snackbarOptions?: modifyToastOptions | undefined,
-  ) => string
-}
-
 type SnackbarButtonProps = {
   text: string
   onPress: () => void
@@ -85,21 +77,27 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
 export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
 
 /**
- * To use SnackbarProvider, your app must have a global.d.ts which you can copy the following into:
- * ```
- * type SnackbarType = import('@department-of-veterans-affairs/mobile-component-library').SnackbarType
- * // eslint-disable-next-line no-var
- * declare var snackbar: SnackbarType
- * ```
- * then add SnackbarProvider in App.tsx (or similar foundational file) level with your app rendering:
- * ```
- * <>
- *   <App />
- *   <SnackbarProvider />
- * </>
+ * To use SnackbarProvider, import SnackbarProvider in App.tsx (or similar foundational file) and
+ * surround any components or screens that need to trigger a snackbar:
+ *
+ * ```jsx
+ * return (
+ *   <SnackbarProvider>
+ *     <App />
+ *   </SnackbarProvider>
+ * )
  * ```
  *
- * This config will allow it to be called anywhere including outside React components.
+ * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
+ * methods to display a Snackbar:
+ *
+ * ```jsx
+ * import { useSnackbar } from '@department-of-veterans-affairs/mobile-component-library'
+ *
+ * const snackbar = useSnackbar()
+ *
+ * <Button onPress={() => snackbar.show('Hello world')} />
+ *```
  *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
  */
