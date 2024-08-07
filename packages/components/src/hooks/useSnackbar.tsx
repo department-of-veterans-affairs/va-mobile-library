@@ -33,6 +33,7 @@ export function useSnackbar() {
     } else if (offset !== DEFAULT_OFFSET) {
       setOffset(DEFAULT_OFFSET)
     }
+
     return toast.show(message, { data: snackbarOptions })
   }
 
