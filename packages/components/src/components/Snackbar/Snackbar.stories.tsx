@@ -69,7 +69,6 @@ export const _Default: Story = {
 }
 
 export const __CustomOffset: Story = {
-  render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
     message: 'Message moved to Test Folder',
     data: {
@@ -79,4 +78,5 @@ export const __CustomOffset: Story = {
       offset: 200,
     },
   },
+  tags: ['mobile-only'],
 }
