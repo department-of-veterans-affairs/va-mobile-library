@@ -195,7 +195,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
 
     const onPress = () => {
       onActionPressed()
-      toast.toast.onHide()
+      toast.onHide()
     }
     const actionText = isError ? t('tryAgain') : t('undo')
 

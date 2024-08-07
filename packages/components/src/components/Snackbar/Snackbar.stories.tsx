@@ -35,41 +35,50 @@ export default meta
 
 type Story = StoryObj<SnackbarProps>
 
-const mobileComponentRenderer = (props: SnackbarProps) => {
-  const { isError, messageA11y, onActionPressed } = props.data || {}
-  const { show } = useSnackbar()
-  const onPressSnackbarOffset = () => {
-    show(props.message as string, {
-      isError,
-      messageA11y,
-      onActionPressed,
-      offset: 500,
-    })
-  }
+const isWeb = Platform.OS !== 'web'
 
+const mobileComponentRenderer = (props: SnackbarProps) => {
+  const { isError, messageA11y, onActionPressed, offset } = props.data || {}
+  const { show } = useSnackbar()
   const onPressSnackbar = () => {
     show(props.message as string, {
       isError,
       messageA11y,
       onActionPressed,
+      offset,
     })
   }
+
   return (
     <>
-      <Button label="500 Offset" onPress={onPressSnackbarOffset} />
-      <Button label="Default Offset" onPress={onPressSnackbar} />
+      <Button label="Press for Snackbar" onPress={onPressSnackbar} />
     </>
   )
 }
 
 export const _Snackbar: Story = {
-  render: Platform.OS !== 'web' ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
+  name: 'Default',
+  render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
     message: 'Message moved to Test Folder',
     data: {
       isError: false,
       messageA11y: 'Message moved to Custom Folder with a11y',
       onActionPressed: () => console.log('Action pressed'),
+    },
+  },
+}
+
+export const __SnackbarWithCustomOffset: Story = {
+  name: 'Custom offset',
+  render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
+  args: {
+    message: 'Message moved to Test Folder',
+    data: {
+      isError: false,
+      messageA11y: 'Message moved to Custom Folder with a11y',
+      onActionPressed: () => console.log('Action pressed'),
+      offset: 200,
     },
   },
 }

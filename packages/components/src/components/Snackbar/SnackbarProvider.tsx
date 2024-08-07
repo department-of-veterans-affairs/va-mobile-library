@@ -8,7 +8,6 @@ type SnackbarContextType = {
   setOffset: (newOffset: number) => void
 }
 
-// Create the context without default values
 export const SnackbarContext = createContext<SnackbarContextType | undefined>(
   undefined,
 )
