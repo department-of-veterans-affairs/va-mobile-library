@@ -10,7 +10,6 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
-import { ToastType } from 'react-native-toast-notifications'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
