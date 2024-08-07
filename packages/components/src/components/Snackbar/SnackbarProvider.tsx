@@ -1,6 +1,6 @@
 import React, { ReactNode, createContext, useState } from 'react'
 
-import { DEFAULT_OFFSET, Snackbar } from './Snackbar'
+import { SNACKBAR_DEFAULT_OFFSET, Snackbar } from './Snackbar'
 import { ToastProvider } from 'react-native-toast-notifications'
 
 type SnackbarContextType = {
@@ -15,7 +15,7 @@ export const SnackbarContext = createContext<SnackbarContextType | undefined>(
 export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [offset, setOffset] = useState(DEFAULT_OFFSET)
+  const [offset, setOffset] = useState(SNACKBAR_DEFAULT_OFFSET)
 
   return (
     <SnackbarContext.Provider value={{ offset, setOffset }}>

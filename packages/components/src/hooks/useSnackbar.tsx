@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import * as Toast from 'react-native-toast-notifications'
 
 import {
-  DEFAULT_OFFSET,
+  SNACKBAR_DEFAULT_OFFSET,
   modifyToastOptions,
 } from '../components/Snackbar/Snackbar'
 import { SnackbarContext } from '../components/Snackbar/SnackbarProvider'
@@ -30,8 +30,8 @@ export function useSnackbar() {
 
     if (snackbarOptions?.offset) {
       setOffset(snackbarOptions.offset)
-    } else if (offset !== DEFAULT_OFFSET) {
-      setOffset(DEFAULT_OFFSET)
+    } else if (offset !== SNACKBAR_DEFAULT_OFFSET) {
+      setOffset(SNACKBAR_DEFAULT_OFFSET)
     }
 
     return toast.show(message, { data: snackbarOptions })

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   Pressable,
   PressableStateCallbackType,
@@ -20,7 +19,7 @@ import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 // TODO: Replace with global setting
-export const DEFAULT_OFFSET: number = 50
+export const SNACKBAR_DEFAULT_OFFSET: number = 50
 
 type snackbarData = {
   data?: {
