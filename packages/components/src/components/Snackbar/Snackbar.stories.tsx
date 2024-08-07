@@ -57,7 +57,6 @@ const mobileComponentRenderer = (props: SnackbarProps) => {
 }
 
 export const _Default: Story = {
-  name: 'Default',
   render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
     message: 'Message moved to Test Folder',
@@ -70,7 +69,6 @@ export const _Default: Story = {
 }
 
 export const __CustomOffset: Story = {
-  name: 'Custom offset',
   render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
     message: 'Message moved to Test Folder',
