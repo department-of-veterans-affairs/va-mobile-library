@@ -27,10 +27,10 @@ type snackbarData = {
     isError?: boolean
     /** message text A11y label override */
     messageA11y?: string
-    /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
-    onActionPressed?: () => void
     /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
     offset?: number
+    /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
+    onActionPressed?: () => void
   }
 }
 
