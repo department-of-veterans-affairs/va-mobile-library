@@ -8,11 +8,3 @@ declare module '*.svg' {
   const content: React.FC<SvgProps>
   export default content
 }
-
-type SnackbarType = import('./src/components/Snackbar/Snackbar').SnackbarType
-// eslint-disable-next-line no-var
-declare var snackbar: SnackbarType
-// eslint-disable-next-line no-var
-// declare var snackbarOffset: number = 10
-// eslint-disable-next-line no-var
-// declare var [snackbarOffset, updateSnackbarOffset] = import('react').useState(10)

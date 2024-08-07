@@ -3,8 +3,9 @@ import { Platform, View } from 'react-native'
 import React from 'react'
 
 import { Button } from '../Button/Button'
-import { ShowSnackbar, Snackbar, SnackbarProps } from './Snackbar'
+import { Snackbar, SnackbarProps } from './Snackbar'
 import { generateDocs } from '../../utils/storybook'
+import { useSnackbar } from '../../hooks/useSnackbar'
 
 const meta: Meta<SnackbarProps> = {
   title: 'Snackbar',
@@ -34,21 +35,29 @@ export default meta
 
 type Story = StoryObj<SnackbarProps>
 
+const isWeb = Platform.OS !== 'web'
+
 const mobileComponentRenderer = (props: SnackbarProps) => {
-  const { isError, messageA11y, onActionPressed } = props.data || {}
+  const { isError, messageA11y, onActionPressed, offset } = props.data || {}
+  const { show } = useSnackbar()
   const onPressSnackbar = () => {
-    ShowSnackbar(props.message as string, {
+    show(props.message as string, {
       isError,
       messageA11y,
       onActionPressed,
+      offset,
     })
   }
 
-  return <Button label="Press for Snackbar" onPress={onPressSnackbar} />
+  return (
+    <>
+      <Button label="Press for Snackbar" onPress={onPressSnackbar} />
+    </>
+  )
 }
 
-export const _Snackbar: Story = {
-  render: Platform.OS !== 'web' ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
+export const _Default: Story = {
+  render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
     message: 'Message moved to Test Folder',
     data: {
@@ -57,4 +66,17 @@ export const _Snackbar: Story = {
       onActionPressed: () => console.log('Action pressed'),
     },
   },
+}
+
+export const __CustomOffset: Story = {
+  args: {
+    message: 'Message moved to Test Folder',
+    data: {
+      isError: false,
+      messageA11y: 'Message moved to Custom Folder with a11y',
+      onActionPressed: () => console.log('Action pressed'),
+      offset: 200,
+    },
+  },
+  tags: ['mobile-only'],
 }
