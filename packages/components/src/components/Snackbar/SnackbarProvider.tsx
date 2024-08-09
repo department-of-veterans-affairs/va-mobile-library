@@ -1,6 +1,7 @@
 import React, { ReactNode, createContext, useState } from 'react'
 
 import { SNACKBAR_DEFAULT_OFFSET, Snackbar } from './Snackbar'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ToastProvider } from 'react-native-toast-notifications'
 
 type SnackbarContextType = {
@@ -19,15 +20,17 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
 
   return (
     <SnackbarContext.Provider value={{ offset, setOffset }}>
-      <ToastProvider
-        animationDuration={100}
-        duration={1000000000000} // Essentially indefinite until dismissed
-        offset={offset}
-        placement="bottom"
-        renderToast={(toast) => <Snackbar {...toast} />}
-        swipeEnabled={false}>
-        {children}
-      </ToastProvider>
+      <SafeAreaProvider>
+        <ToastProvider
+          animationDuration={100}
+          duration={1000000000000} // Essentially indefinite until dismissed
+          offset={offset}
+          placement="bottom"
+          renderToast={(toast) => <Snackbar {...toast} />}
+          swipeEnabled={false}>
+          {children}
+        </ToastProvider>
+      </SafeAreaProvider>
     </SnackbarContext.Provider>
   )
 }

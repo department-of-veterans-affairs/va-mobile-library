@@ -1,4 +1,5 @@
 import {
+  Platform,
   Pressable,
   PressableStateCallbackType,
   Text,
@@ -18,7 +19,7 @@ import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 // TODO: Replace with global setting
-export const SNACKBAR_DEFAULT_OFFSET: number = 50
+export const SNACKBAR_DEFAULT_OFFSET: number = Platform.OS === 'ios' ? 25 : 0
 
 type snackbarData = {
   data?: {
@@ -86,6 +87,10 @@ export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
  *   </SnackbarProvider>
  * )
  * ```
+ * **Note:** If your project is using [react-native-safe-area-context](https://www.npmjs.com/package/react-native-safe-area-context)
+ * we recommend that you place the `<SnackbarProvider>` within `<SafeAreaProvider>`. This will provide
+ * default offsets adjusted to iOS and Android. Otherwise, you may have to provide
+ * an `offset` each time you want to show a Snackbar.
  *
  * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
  * methods to display a Snackbar:
@@ -99,6 +104,7 @@ export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
  *```
  *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
+ *
  */
 export const Snackbar: FC<SnackbarProps> = (toast) => {
   const fontScale = useWindowDimensions().fontScale
