@@ -35,8 +35,11 @@ export default meta
 
 type Story = StoryObj<SnackbarProps>
 
-const isWeb = Platform.OS !== 'web'
-
+/**
+ * Handles rendering the story in non-web platforms to have functional Snackbar
+ * @param props - Arguments from `args` list
+ * @returns Flat Button display with onPress logic to pull up the Snackbar
+ */
 const mobileComponentRenderer = (props: SnackbarProps) => {
   const { isError, messageA11y, onActionPressed, offset } = props.data || {}
   const { show } = useSnackbar()
@@ -49,15 +52,11 @@ const mobileComponentRenderer = (props: SnackbarProps) => {
     })
   }
 
-  return (
-    <>
-      <Button label="Press for Snackbar" onPress={onPressSnackbar} />
-    </>
-  )
+  return <Button label="Press for Snackbar" onPress={onPressSnackbar} />
 }
 
 export const _Snackbar: Story = {
-  render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
+  render: Platform.OS !== 'web' ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
     message: 'Message moved to Test Folder',
     data: {
