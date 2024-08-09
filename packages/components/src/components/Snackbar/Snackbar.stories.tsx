@@ -5,7 +5,7 @@ import React from 'react'
 import { Button } from '../Button/Button'
 import { Snackbar, SnackbarProps } from './Snackbar'
 import { generateDocs } from '../../utils/storybook'
-import { useSnackbar } from '../../hooks/useSnackbar'
+import { useSnackbar } from '../Snackbar/useSnackbar'
 
 const meta: Meta<SnackbarProps> = {
   title: 'Snackbar',
@@ -56,7 +56,7 @@ const mobileComponentRenderer = (props: SnackbarProps) => {
   )
 }
 
-export const _Default: Story = {
+export const _Snackbar: Story = {
   render: isWeb ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
   args: {
     message: 'Message moved to Test Folder',
@@ -66,17 +66,4 @@ export const _Default: Story = {
       onActionPressed: () => console.log('Action pressed'),
     },
   },
-}
-
-export const __CustomOffset: Story = {
-  args: {
-    message: 'Message moved to Test Folder',
-    data: {
-      isError: false,
-      messageA11y: 'Message moved to Custom Folder with a11y',
-      onActionPressed: () => console.log('Action pressed'),
-      offset: 200,
-    },
-  },
-  tags: ['mobile-only'],
 }

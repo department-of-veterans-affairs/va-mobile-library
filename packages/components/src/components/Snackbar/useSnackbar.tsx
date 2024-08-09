@@ -1,12 +1,9 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 import * as Toast from 'react-native-toast-notifications'
 
-import {
-  SNACKBAR_DEFAULT_OFFSET,
-  modifyToastOptions,
-} from '../components/Snackbar/Snackbar'
-import { SnackbarContext } from '../components/Snackbar/SnackbarProvider'
+import { SNACKBAR_DEFAULT_OFFSET, modifyToastOptions } from './Snackbar'
+import { SnackbarContext } from './SnackbarProvider'
 
 /**
  * Passthrough of useToast hook which has been modified to allow for optional
