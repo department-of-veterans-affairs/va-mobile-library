@@ -87,10 +87,6 @@ export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
  *   </SnackbarProvider>
  * )
  * ```
- * **Note:** If your project is using [react-native-safe-area-context](https://www.npmjs.com/package/react-native-safe-area-context)
- * we recommend that you place the `<SnackbarProvider>` within `<SafeAreaProvider>`. This will provide
- * default offsets adjusted to iOS and Android. Otherwise, you may have to provide
- * an `offset` each time you want to show a Snackbar.
  *
  * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
  * methods to display a Snackbar:
