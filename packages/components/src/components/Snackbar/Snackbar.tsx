@@ -1,4 +1,5 @@
 import {
+  AccessibilityInfo,
   Pressable,
   PressableStateCallbackType,
   Text,
@@ -11,7 +12,7 @@ import {
 } from 'react-native'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
 import { useTranslation } from 'react-i18next'
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
@@ -101,13 +102,25 @@ export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
  */
 export const Snackbar: FC<SnackbarProps> = (toast) => {
+  const [initialRender, setInitialRender] = useState(true)
   const fontScale = useWindowDimensions().fontScale
   const theme = useTheme()
   const { t } = useTranslation()
-  // const a11yAnnounce =
-  //   AccessibilityInfo.announceForAccessibility('Test announce two')
 
-  // useEffect(() => a11yAnnounce, [a11yAnnounce])
+  /**
+   * useEffect to handle announcing the Snackbar appearing to the screen reader
+   */
+  useEffect(() => {
+    // Conditional prevents occasional duplication of the announcement
+    if (initialRender) {
+      setInitialRender(false)
+      // Delay to prevent iOS from instantly refocusing the action prompting the Snackbar if synchronous
+      setTimeout(
+        () => AccessibilityInfo.announceForAccessibility('Test announce'),
+        100,
+      )
+    }
+  })
 
   const helperText: TextStyle = {
     fontFamily: 'SourceSansPro-Regular',
