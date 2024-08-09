@@ -61,7 +61,7 @@ export const _Snackbar: Story = {
     message: 'Message moved to Test Folder',
     data: {
       isError: false,
-      messageA11y: 'Message moved to Custom Folder with a11y',
+      messageA11y: 'Message moved to Test Folder with accessibility override',
       onActionPressed: () => console.log('Action pressed'),
     },
   },
