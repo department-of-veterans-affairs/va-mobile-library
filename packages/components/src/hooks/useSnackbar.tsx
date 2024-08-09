@@ -9,8 +9,9 @@ import {
 import { SnackbarContext } from '../components/Snackbar/SnackbarProvider'
 
 /**
- * Passthrough of useToast hook which has been modified to allow for optional
- * offset setting
+ * Hook to manipulate the Snackbar with `show`, `hide`, or `isOpen` to query if already present
+ *
+ * Must be wrapped in `SnackbarProvider` to function
  */
 export function useSnackbar() {
   const toast = Toast.useToast()
