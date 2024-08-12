@@ -1,6 +1,5 @@
 import {
   AccessibilityInfo,
-  Platform,
   Pressable,
   PressableStateCallbackType,
   Text,
@@ -17,10 +16,11 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
 // TODO: Replace with global setting
-export const SNACKBAR_DEFAULT_OFFSET: number = Platform.OS === 'ios' ? 25 : 0
+export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? 25 : 0
 
 type snackbarData = {
   data?: {
