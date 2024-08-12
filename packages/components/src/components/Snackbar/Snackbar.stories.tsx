@@ -3,8 +3,9 @@ import { Platform, View } from 'react-native'
 import React from 'react'
 
 import { Button } from '../Button/Button'
-import { ShowSnackbar, Snackbar, SnackbarProps } from './Snackbar'
+import { Snackbar, SnackbarProps } from './Snackbar'
 import { generateDocs } from '../../utils/storybook'
+import { useSnackbar } from './useSnackbar'
 
 const meta: Meta<SnackbarProps> = {
   title: 'Snackbar',
@@ -40,12 +41,14 @@ type Story = StoryObj<SnackbarProps>
  * @returns Flat Button display with onPress logic to pull up the Snackbar
  */
 const mobileComponentRenderer = (props: SnackbarProps) => {
-  const { isError, messageA11y, onActionPressed } = props.data || {}
+  const { isError, messageA11y, onActionPressed, offset } = props.data || {}
+  const { show } = useSnackbar()
   const onPressSnackbar = () => {
-    ShowSnackbar(props.message as string, {
+    show(props.message as string, {
       isError,
       messageA11y,
       onActionPressed,
+      offset,
     })
   }
 

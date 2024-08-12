@@ -1,4 +1,3 @@
-// @ts-nocheck
 import {
   Pressable,
   PressableStateCallbackType,
@@ -13,14 +12,14 @@ import {
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
-import Toast, { ToastType } from 'react-native-toast-notifications'
-import ToastContainer from 'react-native-toast-notifications'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
-// let snackbarOffset: number = 10
+// TODO: Replace with global setting
+export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? 25 : 0
 
 type snackbarData = {
   data?: {
@@ -28,6 +27,8 @@ type snackbarData = {
     isError?: boolean
     /** message text A11y label override */
     messageA11y?: string
+    /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
+    offset?: number
     /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
     onActionPressed?: () => void
   }
@@ -39,45 +40,7 @@ type snackbarData = {
  *
  * In the future, this may change (e.g. allowing non-indefinite `duration`)
  */
-type modifyToastOptions = snackbarData
-
-export type SnackbarType = Omit<ToastType, 'show' | 'update'> & {
-  /** Shows a new toast. Returns id */
-  show: (
-    message: string,
-    snackbarOptions?: modifyToastOptions | undefined,
-  ) => string
-}
-
-export const SnackbarProvider: React.FC = () => {
-  // const forceUpdate = useReducer(x => x + 1, 0)[1]
-  // const [offset, setOffset] = useState(10)
-  // useEffect(
-  //   () => {
-  //     if (offset != globalThis.snackbarOffset) {
-  //       globalThis.updateSnackbarOffset(globalThis.snackbarOffset)
-  //       forceUpdate()
-  //       return
-  //     }
-  //   }, [offset]
-  // )
-
-  // useEffect(() =>
-  //   AccessibilityInfo.announceForAccessibility('Test announce provider'),
-  // )
-
-  return (
-    <Toast
-      animationDuration={100}
-      duration={1000000000000} // Essentially indefinite until dismissed
-      offset={50}
-      placement="bottom"
-      ref={(ref) => ((globalThis.snackbar as ToastContainer | null) = ref)}
-      renderToast={(toast) => <Snackbar {...toast} />}
-      swipeEnabled={false}
-    />
-  )
-}
+export type modifyToastOptions = snackbarData
 
 type SnackbarButtonProps = {
   text: string
@@ -114,23 +77,30 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
 export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
 
 /**
- * To use SnackbarProvider, your app must have a global.d.ts which you can copy the following into:
- * ```
- * type SnackbarType = import('@department-of-veterans-affairs/mobile-component-library').SnackbarType
- * // eslint-disable-next-line no-var
- * declare var snackbar: SnackbarType
- * ```
- * then add SnackbarProvider in App.tsx (or similar foundational file) level with your app rendering:
- * ```
- * <>
- *   <App />
- *   <SnackbarProvider />
- * </>
+ * To use SnackbarProvider, import SnackbarProvider in App.tsx (or similar foundational file) and
+ * surround any components or screens that need to trigger a snackbar:
+ *
+ * ```jsx
+ * return (
+ *   <SnackbarProvider>
+ *     <App />
+ *   </SnackbarProvider>
+ * )
  * ```
  *
- * This config will allow it to be called anywhere including outside React components.
+ * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
+ * methods to display a Snackbar:
+ *
+ * ```jsx
+ * import { useSnackbar } from '@department-of-veterans-affairs/mobile-component-library'
+ *
+ * const snackbar = useSnackbar()
+ *
+ * <Button onPress={() => snackbar.show('Hello world')} />
+ *```
  *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
+ *
  */
 export const Snackbar: FC<SnackbarProps> = (toast) => {
   const fontScale = useWindowDimensions().fontScale
@@ -155,16 +125,10 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     _20: 20,
     _24: 24,
   }
-  // console.log('offset var: ' + globalThis.snackbarOffset)
 
   const { isError, messageA11y, onActionPressed } = toast.data || {}
-  const contentColor = theme.vadsColorForegroundInverse
 
-  // if (offset) {
-  //   globalThis.snackbarOffset = offset
-  // } else {
-  //   globalThis.snackbarOffset = 10
-  // }
+  const contentColor = theme.vadsColorForegroundInverse
 
   const containerProps: ViewProps = {
     accessibilityViewIsModal: true, // iOS only
@@ -174,7 +138,6 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
       borderRadius: sizing._4,
-      // bottom: offset,
       flexDirection: 'row',
       flexWrap: 'wrap',
       gap: 5,
@@ -260,24 +223,4 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       </View>
     </View>
   )
-}
-
-/**
- * Convenience handling function to show snackbar
- * @param message - message text to display on snackbar
- * @param snackbarOptions - data to customize snackbar behavior for more than standard dismissible success
- */
-export const ShowSnackbar = (
-  message: string,
-  snackbarOptions?: snackbarData['data'],
-) => {
-  snackbar.hideAll() // Remove any existing snackbars
-  snackbar.show(message, { data: snackbarOptions })
-}
-
-/**
- * Convenience handling function to close snackbar(s)
- */
-export const CloseSnackbar = () => {
-  snackbar.hideAll() // Remove any existing snackbars
 }
