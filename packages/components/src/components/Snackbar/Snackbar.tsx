@@ -120,7 +120,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
         100,
       )
     }
-  })
+  }, [initialRender])
 
   const helperText: TextStyle = {
     fontFamily: 'SourceSansPro-Regular',
