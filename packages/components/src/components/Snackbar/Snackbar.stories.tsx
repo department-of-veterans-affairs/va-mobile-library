@@ -5,7 +5,7 @@ import React from 'react'
 import { Button } from '../Button/Button'
 import { Snackbar, SnackbarProps } from './Snackbar'
 import { generateDocs } from '../../utils/storybook'
-import { useSnackbar } from '../Snackbar/useSnackbar'
+import { useSnackbar } from './useSnackbar'
 
 const meta: Meta<SnackbarProps> = {
   title: 'Snackbar',
