@@ -17,5 +17,5 @@ export { SnackbarProvider } from './components/Snackbar/SnackbarProvider'
 export { Spacer } from './components/Spacer/Spacer'
 
 // Export consumer available utilities here so they are exported through npm
-export { useSnackbar } from './hooks/useSnackbar'
+export { useSnackbar } from './components/Snackbar/useSnackbar'
 export { useTheme } from './utils'

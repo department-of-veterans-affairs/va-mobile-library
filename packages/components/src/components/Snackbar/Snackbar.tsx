@@ -1,5 +1,6 @@
 import {
   AccessibilityInfo,
+  Platform,
   Pressable,
   PressableStateCallbackType,
   Text,
@@ -19,7 +20,7 @@ import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 // TODO: Replace with global setting
-export const SNACKBAR_DEFAULT_OFFSET: number = 50
+export const SNACKBAR_DEFAULT_OFFSET: number = Platform.OS === 'ios' ? 25 : 0
 
 type snackbarData = {
   data?: {
@@ -100,6 +101,7 @@ export type SnackbarProps = Omit<ToastProps, 'data'> & snackbarData
  *```
  *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
+ *
  */
 export const Snackbar: FC<SnackbarProps> = (toast) => {
   const [initialRender, setInitialRender] = useState(true)
@@ -142,6 +144,9 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const contentColor = theme.vadsColorForegroundInverse
 
   const containerProps: ViewProps = {
+    accessibilityViewIsModal: true, // iOS only
+    tabIndex: 0, // Android only
+    // Above props prevent screen reader from tap focusing elements behind the Snackbar
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
