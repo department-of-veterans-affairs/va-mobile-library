@@ -2,7 +2,6 @@ import {
   AccessibilityInfo,
   Pressable,
   PressableStateCallbackType,
-  SafeAreaView,
   Text,
   TextProps,
   TextStyle,
@@ -17,11 +16,13 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { isIOS } from '../../utils/OSfunctions'
+import { hasHomeButton, isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
 // TODO: Replace with global setting and spacing tokens
-export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? 94 : 66
+const hasHomeBtn = hasHomeButton()
+console.log('hasHomeButton', hasHomeBtn)
+export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? hasHomeBtn ? 60: 94 : 66
 
 type snackbarData = {
   data?: {
@@ -238,7 +239,6 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   }
 
   return (
-    <SafeAreaView>
       <View {...containerProps}>
         <View {...iconAndMessageContainer}>
           <View style={iconViewStyle}>
@@ -252,6 +252,5 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
           <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
         </View>
       </View>
-    </SafeAreaView>
   )
 }

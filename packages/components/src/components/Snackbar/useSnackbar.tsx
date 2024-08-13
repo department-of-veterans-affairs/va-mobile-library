@@ -25,7 +25,7 @@ export function useSnackbar() {
     snackbarOptions?: modifyToastOptions['data'],
   ) => {
     toast.hideAll()
-
+    console.log('SNACKBAR_DEFAULT_OFFSET', SNACKBAR_DEFAULT_OFFSET)
     if (snackbarOptions?.offset) {
       setOffset(snackbarOptions.offset)
     } else if (offset !== SNACKBAR_DEFAULT_OFFSET) {
