@@ -111,24 +111,28 @@ export function useExternalLink(): (
   }
 }
 
+/**
+ * Returns whether or not the device has a home button
+ */
 export const hasHomeButton = () => {
-  const { height, width } = Dimensions.get('window');
-
+  const { height, width } = Dimensions.get('window')
 
   if (Platform.OS !== 'ios') {
     // Only iOS devices have this concern
-    return false;
+    return false
   }
 
   const devicesWithHomeButton = [
-    { height: 667, width: 375 },  // iPhone 6, 6s, 7, 8, SE (2nd gen)
-    { height: 736, width: 414 },  // iPhone 6+, 6s+, 7+, 8+
-    { height: 568, width: 320 },  // iPhone 5, 5s, 5c, SE (1st gen)
-  ];
+    { height: 667, width: 375 }, // iPhone 6, 6s, 7, 8, SE (2nd gen)
+    { height: 736, width: 414 }, // iPhone 6+, 6s+, 7+, 8+
+    { height: 568, width: 320 }, // iPhone 5, 5s, 5c, SE (1st gen)
+  ]
 
-  const currentDevice = { height, width };
+  const currentDevice = { height, width }
 
   return devicesWithHomeButton.some(
-    device => device.height === currentDevice.height && device.width === currentDevice.width
-  );
-};
+    (device) =>
+      device.height === currentDevice.height &&
+      device.width === currentDevice.width,
+  )
+}
