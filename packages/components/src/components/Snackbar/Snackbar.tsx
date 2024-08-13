@@ -2,6 +2,7 @@ import {
   AccessibilityInfo,
   Pressable,
   PressableStateCallbackType,
+  SafeAreaView,
   Text,
   TextProps,
   TextStyle,
@@ -237,18 +238,20 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   }
 
   return (
-    <View {...containerProps}>
-      <View {...iconAndMessageContainer}>
-        <View style={iconViewStyle}>
-          <Icon {...iconProps} />
+    <SafeAreaView>
+      <View {...containerProps}>
+        <View {...iconAndMessageContainer}>
+          <View style={iconViewStyle}>
+            <Icon {...iconProps} />
+          </View>
+          <Spacer size={sizing._8} horizontal />
+          <Text {...messageProps}>{toast.message}</Text>
         </View>
-        <Spacer size={sizing._8} horizontal />
-        <Text {...messageProps}>{toast.message}</Text>
+        <View {...buttonContainer}>
+          {actionButton()}
+          <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
+        </View>
       </View>
-      <View {...buttonContainer}>
-        {actionButton()}
-        <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
-      </View>
-    </View>
+    </SafeAreaView>
   )
 }
