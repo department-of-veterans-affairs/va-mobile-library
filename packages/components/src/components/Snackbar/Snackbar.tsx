@@ -19,8 +19,8 @@ import { Spacer } from '../Spacer/Spacer'
 import { isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
-// TODO: Replace with global setting
-export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? 25 : 0
+// TODO: Replace with global setting and spacing tokens
+export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? 94 : 66
 
 type snackbarData = {
   data?: {
@@ -117,7 +117,10 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   useEffect(() => {
     // Delay to prevent iOS from instantly refocusing the action prompting the Snackbar if synchronous
     setTimeout(
-      () => AccessibilityInfo.announceForAccessibility(messageA11y || toast.message),
+      () =>
+        AccessibilityInfo.announceForAccessibility(
+          messageA11y || toast.message,
+        ),
       50,
     )
     // Empty dependency array so useEffect only runs on initial render
