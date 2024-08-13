@@ -91,6 +91,12 @@ export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
  *   </SnackbarProvider>
  * )
  * ```
+ * 
+ * **Note:** If you are using safe area helpers such as [SafeAreaView](https://reactnative.dev/docs/safeareaview) 
+ * from React Native or SafeAreaProvider
+ * from [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context)
+ * we recommend you place the SnackbarProvider within these safe area views, otherwise default 
+ * offset from the bottom of the screen may not display as expected.
  *
  * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
  * methods to display a Snackbar:
@@ -104,6 +110,13 @@ export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
  *```
  *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
+ * 
+ * ### Offset
+ * The default offset assumes there is a nav bar and the snackbar should display above it. On iOS, 
+ * it also assumes the device is a more modern devices without a home screen button. You will have to
+ * adjust the offset to account for these devices and for scenarios where a snackbar is displayed without
+ * a nav bar. You can adjust offset by passing `offset` with an integer along with the options in the
+ * `.show()` method.
  *
  */
 export const Snackbar: FC<SnackbarProps> = (toast) => {
