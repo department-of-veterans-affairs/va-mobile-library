@@ -20,9 +20,11 @@ import { hasHomeButton, isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
 // TODO: Replace with global setting and spacing tokens
-const hasHomeBtn = hasHomeButton()
-console.log('hasHomeButton', hasHomeBtn)
-export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? hasHomeBtn ? 60: 94 : 66
+export const SNACKBAR_DEFAULT_OFFSET: number = isIOS()
+  ? hasHomeButton()
+    ? 60
+    : 94
+  : 66
 
 type snackbarData = {
   data?: {
@@ -93,11 +95,11 @@ export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
  *   </SnackbarProvider>
  * )
  * ```
- * 
- * **Note:** If you are using safe area helpers such as [SafeAreaView](https://reactnative.dev/docs/safeareaview) 
+ *
+ * **Note:** If you are using safe area helpers such as [SafeAreaView](https://reactnative.dev/docs/safeareaview)
  * from React Native or SafeAreaProvider
  * from [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context)
- * we recommend you place the SnackbarProvider within these safe area views, otherwise default 
+ * we recommend you place the SnackbarProvider within these safe area views, otherwise default
  * offset from the bottom of the screen may not display as expected.
  *
  * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
@@ -112,12 +114,10 @@ export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
  *```
  *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
- * 
+ *
  * ### Offset
- * The default offset assumes there is a nav bar and the snackbar should display above it. On iOS, 
- * it also assumes the device is a more modern devices without a home screen button. You will have to
- * adjust the offset to account for these devices and for scenarios where a snackbar is displayed without
- * a nav bar. You can adjust offset by passing `offset` with an integer along with the options in the
+ * The default offset assumes there is a nav bar and the snackbar should display above it.
+ * You can adjust offset by passing `offset` with an integer along with the options in the
  * `.show()` method.
  *
  */
@@ -239,18 +239,18 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   }
 
   return (
-      <View {...containerProps}>
-        <View {...iconAndMessageContainer}>
-          <View style={iconViewStyle}>
-            <Icon {...iconProps} />
-          </View>
-          <Spacer size={sizing._8} horizontal />
-          <Text {...messageProps}>{toast.message}</Text>
+    <View {...containerProps}>
+      <View {...iconAndMessageContainer}>
+        <View style={iconViewStyle}>
+          <Icon {...iconProps} />
         </View>
-        <View {...buttonContainer}>
-          {actionButton()}
-          <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
-        </View>
+        <Spacer size={sizing._8} horizontal />
+        <Text {...messageProps}>{toast.message}</Text>
       </View>
+      <View {...buttonContainer}>
+        {actionButton()}
+        <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
+      </View>
+    </View>
   )
 }
