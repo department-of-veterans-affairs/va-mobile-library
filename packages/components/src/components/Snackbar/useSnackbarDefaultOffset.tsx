@@ -10,6 +10,5 @@ export function useSnackbarDefaultOffset() {
     )
   }
 
-  const hasHomeButton = isIOS() && insets.bottom === 0
-  return isIOS() ? (hasHomeButton ? 60 : 94) : 60
+  return isIOS() ? (insets.bottom === 0 ? 60 : 94) : 60
 }
