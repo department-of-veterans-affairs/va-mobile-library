@@ -16,15 +16,7 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { hasHomeButton, isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
-
-// TODO: Replace with global setting and spacing tokens
-export const SNACKBAR_DEFAULT_OFFSET: number = isIOS()
-  ? hasHomeButton()
-    ? 60
-    : 94
-  : 66
 
 type snackbarData = {
   data?: {
