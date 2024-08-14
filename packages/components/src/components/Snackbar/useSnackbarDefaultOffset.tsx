@@ -1,6 +1,8 @@
-import { isIOS } from '../../utils/OSfunctions'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+/**
+ * Returns default Snackbar offset depending on safe area bottom inset
+ */
 export function useSnackbarDefaultOffset() {
   const insets = useSafeAreaInsets()
 
@@ -10,5 +12,6 @@ export function useSnackbarDefaultOffset() {
     )
   }
 
-  return isIOS() ? (insets.bottom === 0 ? 60 : 94) : 60
+  const { bottom } = insets
+  return bottom === 0 ? 60 : 60 + bottom
 }
