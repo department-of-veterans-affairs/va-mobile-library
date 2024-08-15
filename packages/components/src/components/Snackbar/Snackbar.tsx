@@ -16,6 +16,7 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
 type SnackbarButtonProps = {
@@ -157,7 +158,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
 
   const containerProps: ViewProps = {
     accessibilityViewIsModal: true, // iOS only
-    tabIndex: 0, // Android only
+    tabIndex: !isIOS() ? 0 : undefined, // Android only
     // Above props prevent screen reader from tap focusing elements behind the Snackbar
     style: {
       alignItems: 'center',
