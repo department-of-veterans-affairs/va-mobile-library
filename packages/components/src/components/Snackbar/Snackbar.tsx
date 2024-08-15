@@ -92,7 +92,7 @@ export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
  *
  * **Note:** The snackbar requires [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context).
  * SnackbarProvider should be placed within SafeAreaProvider. If you do not have a SafeAreaProvider, you can use
- * SnackbarWithSafeAreaProvider instead.
+ * SnackbarProviderWithSafeArea instead.
  *
  * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
  * methods to display a Snackbar:
