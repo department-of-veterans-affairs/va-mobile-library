@@ -2,7 +2,7 @@ import { useContext } from 'react'
 
 import * as Toast from 'react-native-toast-notifications'
 
-import { SNACKBAR_DEFAULT_OFFSET, modifyToastOptions } from './Snackbar'
+import { SNACKBAR_DEFAULT_OFFSET, SnackbarOptions } from './Snackbar'
 import { SnackbarContext } from './SnackbarProvider'
 
 /**
@@ -20,10 +20,7 @@ export function useSnackbar() {
 
   const { offset, setOffset } = context
 
-  const show = (
-    message: string,
-    snackbarOptions?: modifyToastOptions['data'],
-  ) => {
+  const show = (message: string, snackbarOptions?: SnackbarOptions) => {
     toast.hideAll()
 
     if (snackbarOptions?.offset) {

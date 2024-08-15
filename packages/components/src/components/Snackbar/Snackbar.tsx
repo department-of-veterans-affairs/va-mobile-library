@@ -22,27 +22,6 @@ import { useTheme } from '../../utils'
 // TODO: Replace with global setting
 export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? 25 : 0
 
-type snackbarData = {
-  data?: {
-    /** true if snackbar represents an error state */
-    isError?: boolean
-    /** message text A11y label override */
-    messageA11y?: string
-    /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
-    offset?: number
-    /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
-    onActionPressed?: () => void
-  }
-}
-
-/**
- * Structured to allow modification of `react-native-toast-notifications` ToastOptions
- * type, but Snackbar component locks down all non-data options presently
- *
- * In the future, this may change (e.g. allowing non-indefinite `duration`)
- */
-export type modifyToastOptions = snackbarData
-
 type SnackbarButtonProps = {
   text: string
   onPress: () => void
@@ -75,10 +54,36 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
   )
 }
 
-export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
-  snackbarData & {
-    message: string
-  }
+/**
+ * All options associated with the useSnackbar.show function
+ */
+export type SnackbarOptions = SnackbarData & {
+  /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
+  offset?: number
+}
+
+/**
+ * Optional data passed into Snackbar component
+ */
+export type SnackbarData = {
+  /** true if snackbar represents an error state */
+  isError?: boolean
+  /** message text A11y label override */
+  messageA11y?: string
+  /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
+  onActionPressed?: () => void
+}
+
+// List of ToastProps needed within Snackbar
+type activeToastProps = 'onHide'
+
+/**
+ * Properties used by Snackbar component
+ */
+export type SnackbarProps = Pick<ToastProps, activeToastProps> & {
+  data?: SnackbarData
+  message: string
+}
 
 /**
  * To use SnackbarProvider, import SnackbarProvider in App.tsx (or similar foundational file) and
@@ -115,9 +120,10 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
    * useEffect to handle announcing the Snackbar appearing to the screen reader
    */
   useEffect(() => {
+    const announcement = messageA11y || toast.message
     // Delay to prevent iOS from instantly refocusing the action prompting the Snackbar if synchronous
     setTimeout(
-      () => AccessibilityInfo.announceForAccessibility(messageA11y || toast.message),
+      () => AccessibilityInfo.announceForAccessibility(announcement),
       50,
     )
     // Empty dependency array so useEffect only runs on initial render

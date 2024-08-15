@@ -3,7 +3,7 @@ import { Platform, View } from 'react-native'
 import React from 'react'
 
 import { Button } from '../Button/Button'
-import { Snackbar, SnackbarProps } from './Snackbar'
+import { Snackbar, SnackbarOptions, SnackbarProps } from './Snackbar'
 import { generateDocs } from '../../utils/storybook'
 import { useSnackbar } from './useSnackbar'
 
@@ -33,24 +33,18 @@ const meta: Meta<SnackbarProps> = {
 
 export default meta
 
-type Story = StoryObj<SnackbarProps>
+type storyArgs = { message: string; data?: SnackbarOptions }
+
+type Story = StoryObj<storyArgs>
 
 /**
  * Handles rendering the story in non-web platforms to have functional Snackbar
  * @param props - Arguments from `args` list
  * @returns Flat Button display with onPress logic to pull up the Snackbar
  */
-const mobileComponentRenderer = (props: SnackbarProps) => {
-  const { isError, messageA11y, onActionPressed, offset } = props.data || {}
+const mobileComponentRenderer = (props: storyArgs) => {
   const { show } = useSnackbar()
-  const onPressSnackbar = () => {
-    show(props.message as string, {
-      isError,
-      messageA11y,
-      onActionPressed,
-      offset,
-    })
-  }
+  const onPressSnackbar = () => show(props.message, props.data)
 
   return <Button label="Press for Snackbar" onPress={onPressSnackbar} />
 }
