@@ -120,12 +120,10 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
    * useEffect to handle announcing the Snackbar appearing to the screen reader
    */
   useEffect(() => {
+    const announcement = messageA11y || toast.message
     // Delay to prevent iOS from instantly refocusing the action prompting the Snackbar if synchronous
     setTimeout(
-      () =>
-        AccessibilityInfo.announceForAccessibility(
-          messageA11y || toast.message,
-        ),
+      () => AccessibilityInfo.announceForAccessibility(announcement),
       50,
     )
     // Empty dependency array so useEffect only runs on initial render
