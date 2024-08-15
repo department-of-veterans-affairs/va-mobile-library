@@ -7,6 +7,9 @@ import { useTranslation } from 'react-i18next'
 /** True if iOS; a function to pull real time for unit tests so it can be changed */
 export const isIOS = () => Platform.OS === 'ios'
 
+/** True if Android; a function to pull real time for unit tests so it can be changed */
+export const isAndroid = () => Platform.OS === 'android'
+
 type address = {
   street: string
   city: string
