@@ -1,8 +1,8 @@
+import { ToastProvider } from 'react-native-toast-notifications'
 import React, { ReactNode, createContext, useState } from 'react'
 
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Snackbar, SnackbarProps } from './Snackbar'
-import { ToastProvider } from 'react-native-toast-notifications'
 import { useSnackbarDefaultOffset } from './useSnackbarDefaultOffset'
 
 type SnackbarContextType = {
