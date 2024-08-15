@@ -16,11 +16,8 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { isIOS } from '../../utils/OSfunctions'
+import { isAndroid } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
-
-// TODO: Replace with global setting
-export const SNACKBAR_DEFAULT_OFFSET: number = isIOS() ? 25 : 0
 
 type SnackbarButtonProps = {
   text: string
@@ -91,11 +88,17 @@ export type SnackbarProps = Pick<ToastProps, activeToastProps> & {
  *
  * ```jsx
  * return (
- *   <SnackbarProvider>
- *     <App />
- *   </SnackbarProvider>
+ *   <SafeAreaProvider
+ *     <SnackbarProvider>
+ *       <App />
+ *     </SnackbarProvider>
+ *   </SafeAreaProvider
  * )
  * ```
+ *
+ * **Note:** The snackbar requires [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context).
+ * SnackbarProvider should be placed within SafeAreaProvider. If you do not have a SafeAreaProvider, you can use
+ * SnackbarProviderWithSafeArea instead.
  *
  * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
  * methods to display a Snackbar:
@@ -109,6 +112,11 @@ export type SnackbarProps = Pick<ToastProps, activeToastProps> & {
  *```
  *
  * The Snackbar remains open indefinitely. App configuration should ensure it is dismissed on navigation.
+ *
+ * ### Offset
+ * The default offset assumes there is a nav bar and the snackbar should display above it.
+ * You can adjust offset by passing `offset` with an integer along with the options in the
+ * `.show()` method.
  *
  */
 export const Snackbar: FC<SnackbarProps> = (toast) => {
@@ -149,9 +157,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const contentColor = theme.vadsColorForegroundInverse
 
   const containerProps: ViewProps = {
-    accessibilityViewIsModal: true, // iOS only
-    tabIndex: 0, // Android only
-    // Above props prevent screen reader from tap focusing elements behind the Snackbar
+    accessibilityViewIsModal: true, // Prevents screen reader from tap focusing elements behind the Snackbar on iOS
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
@@ -163,6 +169,11 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       padding: sizing._12,
       marginHorizontal: sizing._20,
     },
+  }
+
+  if (isAndroid()) {
+    // Prevents screen reader from tap focusing elements behind the Snackbar on Android
+    containerProps.tabIndex = 0
   }
 
   const iconAndMessageContainer: ViewProps = {
