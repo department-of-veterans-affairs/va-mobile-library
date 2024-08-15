@@ -158,7 +158,6 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
 
   const containerProps: ViewProps = {
     accessibilityViewIsModal: true, // iOS only
-    tabIndex: isAndroid() ? 0 : undefined, // Android only
     // Above props prevent screen reader from tap focusing elements behind the Snackbar
     style: {
       alignItems: 'center',
@@ -171,6 +170,10 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       padding: sizing._12,
       marginHorizontal: sizing._20,
     },
+  }
+
+  if (isAndroid()) {
+    containerProps.tabIndex = 0
   }
 
   const iconAndMessageContainer: ViewProps = {
