@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import * as Toast from 'react-native-toast-notifications'
 
 import { SnackbarContext } from './SnackbarProvider'
-import { modifyToastOptions } from './Snackbar'
+import { SnackbarOptions } from './Snackbar'
 import { useSnackbarDefaultOffset } from './useSnackbarDefaultOffset'
 
 /**
@@ -20,11 +20,9 @@ export function useSnackbar() {
     throw new Error('useSnackbar must be used within a SnackbarProvider')
   }
 
-  const show = (
-    message: string,
-    snackbarOptions?: modifyToastOptions['data'],
-  ) => {
-    const { offset, setOffset } = context
+  const { offset, setOffset } = context
+
+  const show = (message: string, snackbarOptions?: SnackbarOptions) => {
     toast.hideAll()
 
     if (snackbarOptions?.offset) {

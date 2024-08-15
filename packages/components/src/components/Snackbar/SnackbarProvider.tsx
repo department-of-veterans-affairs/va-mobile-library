@@ -28,7 +28,7 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
         duration={1000000000000} // Essentially indefinite until dismissed
         offset={offset}
         placement="bottom"
-        renderToast={(toast: SnackbarProps) => <Snackbar {...toast} />}
+        renderToast={(toast) => <Snackbar {...(toast as SnackbarProps)} />}
         swipeEnabled={false}>
         {children}
       </ToastProvider>
