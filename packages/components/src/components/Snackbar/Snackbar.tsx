@@ -16,7 +16,7 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { isAndroid, isIOS } from '../../utils/OSfunctions'
+import { isAndroid } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
 type SnackbarButtonProps = {
