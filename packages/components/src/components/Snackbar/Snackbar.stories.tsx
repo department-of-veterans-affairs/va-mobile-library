@@ -49,8 +49,11 @@ const mobileComponentRenderer = (props: storyArgs) => {
   return <Button label="Press for Snackbar" onPress={onPressSnackbar} />
 }
 
+// Render Snackbar flat in web
+const render = Platform.OS !== 'web' ? mobileComponentRenderer : undefined
+
 export const _Default: Story = {
-  render: Platform.OS !== 'web' ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
+  render,
   args: {
     message: 'Message moved to Test Folder',
     data: {
@@ -61,7 +64,7 @@ export const _Default: Story = {
 }
 
 export const _WithAction: Story = {
-  render: Platform.OS !== 'web' ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
+  render,
   args: {
     message: 'Message moved to Test Folder',
     data: {
