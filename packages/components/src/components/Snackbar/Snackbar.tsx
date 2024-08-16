@@ -157,6 +157,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const contentColor = theme.vadsColorForegroundInverse
 
   const containerProps: ViewProps = {
+    accessibilityViewIsModal: true, // Prevents screen reader from tap focusing elements behind the Snackbar on iOS
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
@@ -170,10 +171,8 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     },
   }
 
-  // Prevents screen reader from tap focusing elements behind the Snackbar
-  if (isIOS()) {
-    containerProps.accessibilityViewIsModal = true
-  } else if (isAndroid()) {
+  if (isAndroid()) {
+    // Prevents screen reader from tap focusing elements behind the Snackbar on Android
     containerProps.tabIndex = 0
   }
 
