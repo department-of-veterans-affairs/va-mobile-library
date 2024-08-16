@@ -8,13 +8,14 @@ import { useSnackbarDefaultOffset } from './useSnackbarDefaultOffset'
 
 type SnackbarContextType = {
   offset: number
-  setOffset: (newOffset: number) => void
+  duration: number
   setDuration: (newDuration: number) => void
+  setOffset: (newOffset: number) => void
 }
 
 export const SNACKBAR_DURATIONS = {
-  DEFAULT: 1000000000000,
-  SCREEN_READER: 5000
+  DEFAULT: 1000000000000, // Essentially indefinite until dismissed
+  SCREEN_READER: 5000,
 }
 
 export const SnackbarContext = createContext<SnackbarContextType | undefined>(
@@ -25,18 +26,18 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   // TODO: Check global default setting
-  const defaultOffset = useSnackbarDefaultOffset()
-  const [offset, setOffset] = useState(defaultOffset)
+  const [offset, setOffset] = useState(useSnackbarDefaultOffset())
   const [duration, setDuration] = useState(SNACKBAR_DURATIONS.DEFAULT)
 
   return (
-    <SnackbarContext.Provider value={{ offset, setOffset, setDuration }}>
+    <SnackbarContext.Provider
+      value={{ offset, duration, setDuration, setOffset }}>
       <ToastProvider
         animationDuration={100}
-        duration={duration} // Essentially indefinite until dismissed
+        duration={duration}
         offset={offset}
         placement="bottom"
-        renderToast={(toast) => <Snackbar {...toast as SnackbarProps} />}
+        renderToast={(toast) => <Snackbar {...(toast as SnackbarProps)} />}
         swipeEnabled={false}>
         {children}
       </ToastProvider>
