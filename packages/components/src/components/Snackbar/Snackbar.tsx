@@ -16,7 +16,7 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { isAndroid } from '../../utils/OSfunctions'
+import { isAndroid, isIOS } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
 
 type SnackbarButtonProps = {
@@ -157,7 +157,6 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const contentColor = theme.vadsColorForegroundInverse
 
   const containerProps: ViewProps = {
-    accessibilityViewIsModal: true, // Prevents screen reader from tap focusing elements behind the Snackbar on iOS
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
@@ -171,8 +170,13 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     },
   }
 
+  // Prevents screen reader from tap focusing elements behind the Snackbar on iOS
+  if (isIOS()) {
+    containerProps.accessibilityViewIsModal = true
+  }
+
+  // Prevents screen reader from tap focusing elements behind the Snackbar on Android
   if (isAndroid()) {
-    // Prevents screen reader from tap focusing elements behind the Snackbar on Android
     containerProps.tabIndex = 0
   }
 
