@@ -7,8 +7,8 @@ import { Snackbar, SnackbarProps } from './Snackbar'
 import { useSnackbarDefaultOffset } from './useSnackbarDefaultOffset'
 
 type SnackbarContextType = {
-  offset: number
   duration: number
+  offset: number
   setDuration: (newDuration: number) => void
   setOffset: (newOffset: number) => void
 }
@@ -26,8 +26,8 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   // TODO: Check global default setting
-  const [offset, setOffset] = useState(useSnackbarDefaultOffset())
   const [duration, setDuration] = useState(SNACKBAR_DURATIONS.DEFAULT)
+  const [offset, setOffset] = useState(useSnackbarDefaultOffset())
 
   return (
     <SnackbarContext.Provider
