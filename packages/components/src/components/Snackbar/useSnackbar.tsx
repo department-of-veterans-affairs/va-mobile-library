@@ -22,20 +22,22 @@ export function useSnackbar() {
     throw new Error('useSnackbar must be used within a SnackbarProvider')
   }
 
-  const { setOffset, setDuration } = context
-
   const show = (message: string, snackbarOptions?: SnackbarOptions) => {
+    const { offset, onActionPressed } = snackbarOptions || {}
+    const { setOffset, setDuration } = context
+
+    // Adjust offset if provided, otherwise set to default
+    setOffset(offset ? offset : defaultOffset)
+
+    // Auto-dismiss if screen reader is on and there is no action button
+    setDuration(
+      screenReaderEnabled && !onActionPressed
+        ? SNACKBAR_DURATIONS.SCREEN_READER
+        : SNACKBAR_DURATIONS.DEFAULT,
+    )
+
     toast.hideAll()
-
-    setOffset(snackbarOptions?.offset ? snackbarOptions.offset : defaultOffset)
-
-    if (screenReaderEnabled) {
-      setDuration(
-        screenReaderEnabled
-          ? SNACKBAR_DURATIONS.SCREEN_READER
-          : SNACKBAR_DURATIONS.DEFAULT,
-      )
-    } else return toast.show(message, { data: snackbarOptions })
+    toast.show(message, { data: snackbarOptions })
   }
 
   return {
