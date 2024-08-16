@@ -170,13 +170,10 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     },
   }
 
-  // Prevents screen reader from tap focusing elements behind the Snackbar on iOS
+  // Prevents screen reader from tap focusing elements behind the Snackbar
   if (isIOS()) {
     containerProps.accessibilityViewIsModal = true
-  }
-
-  // Prevents screen reader from tap focusing elements behind the Snackbar on Android
-  if (isAndroid()) {
+  } else if (isAndroid()) {
     containerProps.tabIndex = 0
   }
 
