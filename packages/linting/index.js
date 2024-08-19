@@ -34,9 +34,19 @@ module.exports = {
       },
       {
         name: 'ToastType',
+        module: 'react-native-toast-notifications/lib/typescript/toast',
       },
       {
         name: 'ToastOptions',
+        module: 'react-native-toast-notifications/lib/typescript/toast',
+      },
+      {
+        name: 'ToastContainer',
+        module: 'react-native-toast-notifications',
+      },
+      {
+        name: 'Toast',
+        module: 'react-native-toast-notifications/lib',
       },
     ],
   },
