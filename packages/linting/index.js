@@ -28,6 +28,16 @@ module.exports = {
         module: 'components',
         use: 'LoadingIndicator from @department-of-veterans-affairs/mobile-component-library',
       },
+      {
+        name: 'snackbar',
+        use: 'useSnackbar hook from @department-of-veterans-affairs/mobile-component-library',
+      },
+      {
+        name: 'ToastType',
+      },
+      {
+        name: 'ToastOptions',
+      },
     ],
   },
 }
