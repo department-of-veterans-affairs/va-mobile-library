@@ -49,13 +49,27 @@ const mobileComponentRenderer = (props: storyArgs) => {
   return <Button label="Press for Snackbar" onPress={onPressSnackbar} />
 }
 
-export const _Snackbar: Story = {
-  render: Platform.OS !== 'web' ? mobileComponentRenderer : undefined, // Render Snackbar flat in web
+// Render Snackbar flat in web
+const render = Platform.OS !== 'web' ? mobileComponentRenderer : undefined
+
+export const _Default: Story = {
+  render,
   args: {
     message: 'Message moved to Test Folder',
     data: {
       isError: false,
       messageA11y: 'Message moved to Test Folder with accessibility override',
+    },
+  },
+}
+
+export const _WithAction: Story = {
+  render,
+  args: {
+    message: 'Message sent',
+    data: {
+      isError: false,
+      messageA11y: 'Message sent with accessibility override',
       onActionPressed: () => console.log('Action pressed'),
     },
   },
