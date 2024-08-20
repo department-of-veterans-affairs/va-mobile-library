@@ -29,14 +29,6 @@ module.exports = {
         use: 'LoadingIndicator from @department-of-veterans-affairs/mobile-component-library',
       },
       {
-        name: 'snackbar',
-        use: 'useSnackbar hook from @department-of-veterans-affairs/mobile-component-library',
-      },
-      {
-        name: 'ToastType',
-        module: 'react-native-toast-notifications/lib/typescript/toast',
-      },
-      {
         nameRegExp: 'react-native-toast-notifications',
         use: 'Snackbar from @department-of-veterans-affairs/mobile-component-library',
       },
