@@ -58,7 +58,7 @@ export const _Default: Story = {
     message: 'Message moved to Test Folder',
     data: {
       isError: false,
-      messageA11y: 'Message sent',
+      messageA11y: 'Message moved to Test Folder with accessibility override',
     },
   },
 }
@@ -66,10 +66,10 @@ export const _Default: Story = {
 export const _WithAction: Story = {
   render,
   args: {
-    message: 'Message moved to Test Folder',
+    message: 'Message sent',
     data: {
       isError: false,
-      messageA11y: 'Message moved to Test Folder with accessibility override',
+      messageA11y: 'Message sent with accessibility override',
       onActionPressed: () => console.log('Action pressed'),
     },
   },

@@ -23,7 +23,7 @@ export function useSnackbar() {
   }
 
   const show = (message: string, snackbarOptions?: SnackbarOptions) => {
-    const { offset, setOffset, duration, setDuration } = context
+    const { offset, setOffset } = context
 
     // Adjust offset if provided or reset to default
     const newOffset = snackbarOptions?.offset || defaultOffset
@@ -39,13 +39,8 @@ export function useSnackbar() {
         ? SNACKBAR_DURATIONS.SCREEN_READER
         : SNACKBAR_DURATIONS.DEFAULT
 
-    // Only call setDuration if different from current to avoid re-render
-    if (newDuration !== duration) {
-      setDuration(newDuration)
-    }
-
     toast.hideAll()
-    toast.show(message, { data: snackbarOptions })
+    toast.show(message, { data: snackbarOptions, duration: newDuration })
   }
 
   return {
