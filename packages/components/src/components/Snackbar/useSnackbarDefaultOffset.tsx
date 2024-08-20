@@ -1,5 +1,7 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+const NAV_BAR_HEIGHT = 60
+
 /**
  * Returns default Snackbar offset depending on safe area bottom inset
  */
@@ -12,6 +14,5 @@ export function useSnackbarDefaultOffset() {
     )
   }
 
-  const { bottom } = insets
-  return bottom === 0 ? 60 : 60 + bottom
+  return NAV_BAR_HEIGHT + insets.bottom
 }

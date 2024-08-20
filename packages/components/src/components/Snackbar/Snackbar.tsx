@@ -16,28 +16,8 @@ import React, { FC, useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { isAndroid } from '../../utils/OSfunctions'
 import { useTheme } from '../../utils'
-
-type snackbarData = {
-  data?: {
-    /** true if snackbar represents an error state */
-    isError?: boolean
-    /** message text A11y label override */
-    messageA11y?: string
-    /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
-    offset?: number
-    /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
-    onActionPressed?: () => void
-  }
-}
-
-/**
- * Structured to allow modification of `react-native-toast-notifications` ToastOptions
- * type, but Snackbar component locks down all non-data options presently
- *
- * In the future, this may change (e.g. allowing non-indefinite `duration`)
- */
-export type modifyToastOptions = snackbarData
 
 type SnackbarButtonProps = {
   text: string
@@ -71,10 +51,36 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
   )
 }
 
-export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
-  snackbarData & {
-    message: string
-  }
+/**
+ * All options associated with the useSnackbar.show function
+ */
+export type SnackbarOptions = SnackbarData & {
+  /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
+  offset?: number
+}
+
+/**
+ * Optional data passed into Snackbar component
+ */
+export type SnackbarData = {
+  /** true if snackbar represents an error state */
+  isError?: boolean
+  /** message text A11y label override */
+  messageA11y?: string
+  /** action button onPress logic for "Try again" (isError=true) or "Undo" button */
+  onActionPressed?: () => void
+}
+
+// List of ToastProps needed within Snackbar
+type activeToastProps = 'onHide'
+
+/**
+ * Properties used by Snackbar component
+ */
+export type SnackbarProps = Pick<ToastProps, activeToastProps> & {
+  data?: SnackbarData
+  message: string
+}
 
 /**
  * To use SnackbarProvider, import SnackbarProvider in App.tsx (or similar foundational file) and
@@ -92,7 +98,7 @@ export type SnackbarProps = Omit<ToastProps, 'data' | 'message'> &
  *
  * **Note:** The snackbar requires [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context).
  * SnackbarProvider should be placed within SafeAreaProvider. If you do not have a SafeAreaProvider, you can use
- * SnackbarWithSafeAreaProvider instead.
+ * SnackbarProviderWithSafeArea instead.
  *
  * Then within any component, import the `useSnackbar` hook and use the .show() or .hide()
  * methods to display a Snackbar:
@@ -122,12 +128,10 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
    * useEffect to handle announcing the Snackbar appearing to the screen reader
    */
   useEffect(() => {
+    const announcement = messageA11y || toast.message
     // Delay to prevent iOS from instantly refocusing the action prompting the Snackbar if synchronous
     setTimeout(
-      () =>
-        AccessibilityInfo.announceForAccessibility(
-          messageA11y || toast.message,
-        ),
+      () => AccessibilityInfo.announceForAccessibility(announcement),
       50,
     )
     // Empty dependency array so useEffect only runs on initial render
@@ -153,9 +157,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const contentColor = theme.vadsColorForegroundInverse
 
   const containerProps: ViewProps = {
-    accessibilityViewIsModal: true, // iOS only
-    tabIndex: 0, // Android only
-    // Above props prevent screen reader from tap focusing elements behind the Snackbar
+    accessibilityViewIsModal: true, // Prevents screen reader from tap focusing elements behind the Snackbar on iOS
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
@@ -167,6 +169,11 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       padding: sizing._12,
       marginHorizontal: sizing._20,
     },
+  }
+
+  if (isAndroid()) {
+    // Prevents screen reader from tap focusing elements behind the Snackbar on Android
+    containerProps.tabIndex = 0
   }
 
   const iconAndMessageContainer: ViewProps = {
