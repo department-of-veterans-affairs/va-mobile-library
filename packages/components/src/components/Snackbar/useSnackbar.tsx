@@ -34,13 +34,13 @@ export function useSnackbar() {
     }
 
     // Auto-dismiss if screen reader is on and there is no action button
-    const newDuration =
+    const duration =
       screenReaderEnabled && !snackbarOptions?.onActionPressed
         ? SNACKBAR_DURATIONS.SCREEN_READER
         : SNACKBAR_DURATIONS.DEFAULT
 
     toast.hideAll()
-    toast.show(message, { data: snackbarOptions, duration: newDuration })
+    toast.show(message, { data: snackbarOptions, duration })
   }
 
   return {
