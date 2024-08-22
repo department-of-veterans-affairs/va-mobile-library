@@ -1,20 +1,18 @@
-import {
-  fireEvent,
-  render,
-  screen,
-  within,
-} from '@testing-library/react-native'
+import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 
-import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
 import { Snackbar, SnackbarProps } from './Snackbar'
 
+// Set so setTimeout for `announceForAccessibility` doesn't persist rendering after the jest test
+jest.useFakeTimers()
+
 /** Tests
  * - Snackbar UI
- *    - Standard happy path
- *    - Light/dark
- *    - Action button w/ and w/o error
+ *    - Standard happy path CHECK
+ *    - Light/dark CHECK
+ *    - Action button w/ and w/o error CHECK
+ *    - Accessibility labels/roles CHECK
  * - SnackbarProvider
  *    - default offset
  *    - custom offset
@@ -25,7 +23,8 @@ import { Snackbar, SnackbarProps } from './Snackbar'
  *        - Trying to use `useSnackbar` hook without provider
  */
 
-const onPressSpy = jest.fn()
+const onPressHideSpy = jest.fn()
+const onPressActionSpy = jest.fn()
 const mockedColorScheme = jest.fn()
 
 jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
@@ -34,507 +33,216 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
   }
 })
 
-// Mock the internal function call within the useExternalLink hook
-// const useExternalLinkHookMock = jest.fn(
-//   (url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
+// Mock the internal function call within the useExternalSnackbar hook
+// const useExternalSnackbarHookMock = jest.fn(
+//   (url: string, analytics?: SnackbarAnalytics, text?: utils.leaveAppPromptText) => {
 //     url
 //     analytics
 //     text
 //   },
 // )
-// Mock the useExternalLink hook to leverage mock implementation
-// jest.spyOn(utils, 'useExternalLink').mockImplementation(() => {
-//   return useExternalLinkHookMock
+// Mock the useExternalSnackbar hook to leverage mock implementation
+// jest.spyOn(utils, 'useExternalSnackbar').mockImplementation(() => {
+//   return useExternalSnackbarHookMock
 // })
 
 describe('Snackbar', () => {
-  // const analytics = {
-  //   onPress: jest.fn(),
-  //   onConfirm: jest.fn(),
-  //   onCancel: jest.fn(),
-  // }
-
   const commonProps: SnackbarProps = {
     message: 'Test Snackbar Text',
-    data: {},
+    data: {
+      isError: false,
+      messageA11y: 'message a11y',
+      onActionPressed: onPressActionSpy,
+    },
+    onHide: onPressHideSpy,
   }
 
-  // const getLinkText = () => screen.getByText(commonProps.message)
+  const errorProps: SnackbarProps = {
+    ...commonProps,
+    data: {
+      ...commonProps.data,
+      isError: true,
+    },
+  }
+
+  const getMessageText = () => screen.getByText(commonProps.message)
+  const getDismissText = () => screen.getByText('Dismiss')
   const getIcon = async () => await screen.root.findByType(Icon)
 
   afterEach(() => {
-    onPressSpy.mockReset()
-    // useExternalLinkHookMock.mockReset()
+    onPressHideSpy.mockReset()
+    // useExternalSnackbarHookMock.mockReset()
   })
 
-  describe('Basic Snackbar UI tests', () => {
-    it('initializes correctly', async () => {
+  describe('Basic UI tests', () => {
+    it('initializes correctly with `message` text', () => {
       render(<Snackbar {...commonProps} />)
-      expect(screen.getByTestId('testLink')).toBeOnTheScreen()
+
+      expect(getMessageText()).toBeOnTheScreen()
     })
 
-    // it('renders the link text', async () => {
-    //   render(<Link {...commonProps} />)
-    //   expect(screen.getByText('Example Link')).toBeOnTheScreen()
-    // })
+    it('renders the `Dismiss` button text', () => {
+      render(<Snackbar {...commonProps} />)
 
-    // it('calls onPress when tapped', async () => {
-    //   render(<Link {...commonProps} />)
-    //   fireEvent.press(screen.getByText('Example Link'))
+      expect(getDismissText()).toBeOnTheScreen()
+    })
 
-    //   expect(onPressSpy).toHaveBeenCalled()
-    //   expect(useExternalLinkHookMock).not.toHaveBeenCalled()
-    // })
+    it('calls onHide when `Dismiss` tapped', () => {
+      render(<Snackbar {...commonProps} />)
+      fireEvent.press(getDismissText())
 
-    // it('renders no icon', async () => {
-    //   render(<Link {...commonProps} />)
-    //   const icon = screen.UNSAFE_queryByType(Icon)
+      expect(onPressHideSpy).toHaveBeenCalled()
+      expect(onPressActionSpy).not.toHaveBeenCalled()
+    })
 
-    //   expect(icon).toBeNull()
-    // })
+    it('renders default `CheckCircle` icon', async () => {
+      render(<Snackbar {...commonProps} />)
+      const icon = await getIcon()
+
+      expect(icon).toBeDefined()
+      expect(icon.props.name).toBe('CheckCircle')
+    })
   })
 
-  // it('renders default/custom variant with Truck icon', async () => {
-  //   render(<Link {...commonProps} icon={{ name: 'CleanHands' }} />)
-
-  //   const icon = await getIcon()
-
-  //   expect(icon).toBeDefined()
-  //   expect(icon.props.name).toBe('CleanHands')
-  // })
-
-  // describe('attachment variant tests', () => {
-  //   const attachmentProps: LinkProps = {
-  //     type: 'attachment',
-  //     onPress: onPressSpy,
-  //     text: 'Attachment Link',
-  //   }
-
-  //   it('renders attachment link', async () => {
-  //     render(<Link {...attachmentProps} />)
-  //     expect(screen.getByText('Attachment Link')).toBeOnTheScreen()
-  //   })
-
-  //   it('calls custom onPress when tapped', async () => {
-  //     render(<Link {...attachmentProps} />)
-  //     fireEvent.press(screen.getByText('Attachment Link'))
-
-  //     expect(onPressSpy).toHaveBeenCalled()
-  //     expect(useExternalLinkHookMock).not.toHaveBeenCalled()
-  //   })
-
-  //   it('renders attachment icon', async () => {
-  //     render(<Link {...attachmentProps} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon).toBeDefined()
-  //     expect(icon.props.name).toBe('AttachFile')
-  //   })
-  // })
-
-  // describe('calendar variant tests', () => {
-  //   const calendarProps: LinkProps = {
-  //     type: 'calendar',
-  //     onPress: onPressSpy,
-  //     text: 'Calendar Link',
-  //   }
-
-  //   it('renders calendar link', async () => {
-  //     render(<Link {...calendarProps} />)
-  //     expect(screen.getByText('Calendar Link')).toBeOnTheScreen()
-  //   })
-
-  //   it('calls custom onPress when tapped', async () => {
-  //     render(<Link {...calendarProps} />)
-  //     fireEvent.press(screen.getByText('Calendar Link'))
-
-  //     expect(onPressSpy).toHaveBeenCalled()
-  //     expect(useExternalLinkHookMock).not.toHaveBeenCalled()
-  //   })
-
-  //   it('renders calendar icon', async () => {
-  //     render(<Link {...calendarProps} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon).toBeDefined()
-  //     expect(icon.props.name).toBe('CalendarToday')
-  //   })
-  // })
-
-  // describe('call variant tests', () => {
-  //   const callProps: LinkProps = {
-  //     type: 'call',
-  //     phoneNumber: '1234567890',
-  //     text: '123-456-7890',
-  //   }
-
-  //   it('renders call link', async () => {
-  //     render(<Link {...callProps} />)
-  //     expect(screen.getByText('123-456-7890')).toBeOnTheScreen()
-  //   })
-
-  //   it('calls useExternalLink hook when tapped', async () => {
-  //     render(<Link {...callProps} />)
-  //     fireEvent.press(screen.getByText('123-456-7890'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'tel:1234567890',
-  //       undefined,
-  //     )
-  //     expect(onPressSpy).not.toHaveBeenCalled()
-  //   })
-
-  //   it('renders call icon', async () => {
-  //     render(<Link {...callProps} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon).toBeDefined()
-  //     expect(icon.props.name).toBe('Phone')
-  //   })
-  // })
-
-  // describe('call TTY variant tests', () => {
-  //   const callTTYProps: LinkProps = {
-  //     type: 'call TTY',
-  //     TTYnumber: '711',
-  //     text: 'TTY: 711',
-  //   }
-
-  //   it('renders call TTY link', async () => {
-  //     render(<Link {...callTTYProps} />)
-  //     expect(screen.getByText('TTY: 711')).toBeOnTheScreen()
-  //   })
-
-  //   it('calls useExternalLink hook when tapped', async () => {
-  //     render(<Link {...callTTYProps} />)
-  //     fireEvent.press(screen.getByText('TTY: 711'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith('tel:711', undefined)
-  //     expect(onPressSpy).not.toHaveBeenCalled()
-  //   })
-
-  //   it('renders TTY icon', async () => {
-  //     render(<Link {...callTTYProps} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon).toBeDefined()
-  //     expect(icon.props.name).toBe('TTY')
-  //   })
-  // })
-
-  // describe('directions variant tests', () => {
-  //   const location = {
-  //     lat: 33.7764681,
-  //     long: -118.1189664,
-  //     name: 'Tibor Rubin VA Medical Center',
-  //     address: {
-  //       street: '5901 E 7th St',
-  //       city: 'Long Beach',
-  //       state: 'CA',
-  //       zipCode: '90822',
-  //     },
-  //   }
-  //   const directionsProps: LinkProps = {
-  //     type: 'directions',
-  //     locationData: {
-  //       latitude: location.lat,
-  //       longitude: location.long,
-  //       name: location.name,
-  //     },
-  //     text: 'Get Directions',
-  //   }
-
-  //   it('renders directions link', async () => {
-  //     render(<Link {...directionsProps} />)
-  //     expect(screen.getByText('Get Directions')).toBeOnTheScreen()
-  //   })
-
-  //   it('calls useExternalLink hook when tapped', async () => {
-  //     render(<Link {...directionsProps} />)
-  //     fireEvent.press(screen.getByText('Get Directions'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'https://maps.apple.com/?t=m&daddr=%2BTibor+Rubin+VA+Medical+Center%2B33.7764681%2C-118.1189664',
-  //       undefined,
-  //       undefined,
-  //     )
-  //     expect(onPressSpy).not.toHaveBeenCalled()
-  //   })
-
-  //   it('renders directions icon', async () => {
-  //     render(<Link {...directionsProps} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon).toBeDefined()
-  //     expect(icon.props.name).toBe('Directions')
-  //   })
-  // })
-
-  // describe('text variant tests', () => {
-  //   const textProps: LinkProps = {
-  //     type: 'text',
-  //     textNumber: '123456',
-  //     text: 'Text 123456',
-  //   }
-
-  //   it('renders text link', async () => {
-  //     render(<Link {...textProps} />)
-  //     expect(screen.getByText('Text 123456')).toBeOnTheScreen()
-  //   })
-
-  //   it('calls onPress when tapped', async () => {
-  //     render(<Link {...textProps} />)
-  //     fireEvent.press(screen.getByText('Text 123456'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'sms:123456',
-  //       undefined,
-  //     )
-  //     expect(onPressSpy).not.toHaveBeenCalled()
-  //   })
-
-  //   it('renders mobile phone icon', async () => {
-  //     render(<Link {...textProps} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon).toBeDefined()
-  //     expect(icon.props.name).toBe('PhoneIphone')
-  //   })
-  // })
-
-  // describe('url variant tests', () => {
-  //   const urlProps: LinkProps = {
-  //     type: 'url',
-  //     url: 'https://www.va.com',
-  //     text: 'External Link',
-  //   }
-
-  //   it('renders url link', async () => {
-  //     render(<Link {...urlProps} />)
-  //     expect(screen.getByText('External Link')).toBeOnTheScreen()
-  //   })
-
-  //   it('calls onPress when tapped', async () => {
-  //     render(<Link {...urlProps} />)
-  //     fireEvent.press(screen.getByText('External Link'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'https://www.va.com',
-  //       undefined,
-  //       undefined,
-  //     )
-  //     expect(onPressSpy).not.toHaveBeenCalled()
-  //   })
-
-  //   it('renders external link icon', async () => {
-  //     render(<Link {...urlProps} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon).toBeDefined()
-  //     expect(icon.props.name).toBe('Launch')
-  //   })
-  // })
-
-  // describe('light mode tone tests', () => {
-  //   it('renders primary tone', async () => {
-  //     render(<Link {...commonProps} />)
-  //     expect(getLinkText()).toHaveStyle({ color: '#005ea2' })
-  //   })
-
-  //   it('renders base tone', async () => {
-  //     render(<Link {...commonProps} variant="base" />)
-  //     expect(getLinkText()).toHaveStyle({ color: '#1b1b1b' })
-  //   })
-
-  //   it('renders background color when pressed', async () => {
-  //     render(<Link {...commonProps} testOnlyPressed />)
-  //     expect(screen.root).toHaveStyle({ backgroundColor: '#dfe1e2' })
-  //   })
-  // })
-
-  // describe('dark mode tone tests', () => {
-  //   beforeEach(() => mockedColorScheme.mockImplementationOnce(() => 'dark'))
-
-  //   it('renders primary tone', async () => {
-  //     render(<Link {...commonProps} />)
-  //     expect(getLinkText()).toHaveStyle({ color: '#58b4ff' })
-  //   })
-
-  //   it('renders base tone', async () => {
-  //     render(<Link {...commonProps} variant="base" />)
-  //     expect(getLinkText()).toHaveStyle({ color: '#f0f0f0' })
-  //   })
-
-  //   it('renders background color when pressed', async () => {
-  //     render(<Link {...commonProps} testOnlyPressed />)
-  //     expect(screen.root).toHaveStyle({ backgroundColor: '#3d4551' })
-  //   })
-  // })
-
-  // /**
-  //  * Icon override tests non-exhaustive, their primary purpose is to validate Link's Partial<IconProps>
-  //  * correctly allows overriding selective props while also still incorporating Link variant behavior
-  //  * such as built in icon setting
-  //  *
-  //  * Note: Icon override tests use "within(icon)" to validate internal props of Icon component set
-  //  *       correctly and not just checking passthrough of props set within Link itself
-  //  */
-  // describe('icon override tests', () => {
-  //   const iconOverrideProps: LinkProps = {
-  //     type: 'attachment',
-  //     onPress: onPressSpy,
-  //     text: 'Attachment Link',
-  //   }
-
-  //   it('should prevent scaling with fontScale 2', async () => {
-  //     render(<Link {...iconOverrideProps} icon={{ preventScaling: true }} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon.props.name).toBe('AttachFile')
-  //     const width24Exists = within(icon).UNSAFE_getByProps({ width: 24 })
-  //     expect(width24Exists).toBeTruthy()
-  //     const height24Exists = within(icon).UNSAFE_getByProps({ height: 24 })
-  //     expect(height24Exists).toBeTruthy()
-  //   })
-
-  //   it('should limit max width with fontScale 2', async () => {
-  //     render(<Link {...iconOverrideProps} icon={{ maxWidth: 36 }} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon.props.name).toBe('AttachFile')
-  //     const width36Exists = within(icon).UNSAFE_getByProps({ width: 36 })
-  //     expect(width36Exists).toBeTruthy()
-  //     const height36Exists = within(icon).UNSAFE_getByProps({ height: 36 })
-  //     expect(height36Exists).toBeTruthy()
-  //   })
-
-  //   it('should allow override of icon and size to fontScale 2', async () => {
-  //     render(<Link {...iconOverrideProps} icon={{ name: 'Add' }} />)
-  //     const icon = await getIcon()
-
-  //     expect(icon.props.name).toBe('Add')
-  //     const width48Exists = within(icon).UNSAFE_getByProps({ width: 48 })
-  //     expect(width48Exists).toBeTruthy()
-  //     const height48Exists = within(icon).UNSAFE_getByProps({ height: 48 })
-  //     expect(height48Exists).toBeTruthy()
-  //   })
-
-  //   it('should respect removing the icon', () => {
-  //     render(<Link {...iconOverrideProps} icon={'no icon'} />)
-  //     const icon = screen.UNSAFE_queryByType(Icon)
-
-  //     expect(icon).toBeFalsy()
-  //   })
-  // })
-
-  // describe('a11y tests', () => {
-  //   it('includes a11yLabel', async () => {
-  //     render(<Link {...commonProps} />)
-  //     expect(screen.getByLabelText('a11yLabel override')).toBeOnTheScreen()
-  //   })
-
-  //   it('includes a11yHint', async () => {
-  //     render(<Link {...commonProps} />)
-  //     expect(screen.getByHintText('a11yHint override')).toBeOnTheScreen()
-  //   })
-
-  //   it('includes index/total a11yValue', async () => {
-  //     render(<Link {...commonProps} />)
-
-  //     expect(screen.root).toHaveAccessibilityValue({
-  //       text: '3 of 5',
-  //     })
-  //   })
-
-  //   it('includes custom string a11yValue', async () => {
-  //     render(<Link {...commonProps} a11yValue="test string a11y value" />)
-
-  //     expect(screen.root).toHaveAccessibilityValue({
-  //       text: 'test string a11y value',
-  //     })
-  //   })
-  // })
-
-  // describe('promptText tests', () => {
-  //   const promptText = {
-  //     body: 'You are navigating to your browser app.',
-  //     cancel: 'No thanks',
-  //     confirm: "Let's go!",
-  //     title: 'Title override',
-  //   }
-
-  //   it('calls useExternalLink hook with promptText when provided', async () => {
-  //     render(
-  //       <Link
-  //         {...commonProps}
-  //         type="url"
-  //         url="https://www.va.com"
-  //         promptText={promptText}
-  //       />,
-  //     )
-  //     fireEvent.press(screen.getByText('Example Link'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'https://www.va.com',
-  //       analytics,
-  //       promptText,
-  //     )
-  //   })
-
-  //   it('calls useExternalLink hook without promptText when not provided', async () => {
-  //     render(<Link {...commonProps} type="url" url="https://www.va.com" />)
-  //     fireEvent.press(screen.getByText('Example Link'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'https://www.va.com',
-  //       analytics,
-  //       undefined,
-  //     )
-  //   })
-  // })
-
-  // describe('analytics tests', () => {
-  //   it('calls useExternalLink hook with analytics when provided', async () => {
-  //     render(
-  //       <Link
-  //         {...commonProps}
-  //         type="url"
-  //         url="https://www.va.com"
-  //         analytics={analytics}
-  //       />,
-  //     )
-  //     fireEvent.press(screen.getByText('Example Link'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'https://www.va.com',
-  //       analytics,
-  //       undefined,
-  //     )
-  //   })
-
-  //   it('calls useExternalLink hook without analytics when not provided', async () => {
-  //     render(
-  //       <Link
-  //         {...commonProps}
-  //         type="url"
-  //         url="https://www.va.com"
-  //         analytics={undefined}
-  //       />,
-  //     )
-  //     fireEvent.press(screen.getByText('Example Link'))
-
-  //     expect(useExternalLinkHookMock).toHaveBeenCalledWith(
-  //       'https://www.va.com',
-  //       undefined,
-  //       undefined,
-  //     )
-  //   })
-
-  //   it('calls onPress analytics with custom onPress behavior', async () => {
-  //     render(<Link {...commonProps} analytics={analytics} />)
-  //     fireEvent.press(screen.getByText('Example Link'))
-
-  //     expect(analytics.onPress).toHaveBeenCalled()
-  //   })
-  // })
+  describe('Light mode', () => {
+    it('renders background color', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(screen.root).toHaveStyle({ backgroundColor: '#1b1b1b' })
+    })
+
+    it('renders `message` text and icon color', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(getMessageText()).toHaveStyle({ color: '#f0f0f0' })
+    })
+
+    it('renders button text color', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(getDismissText()).toHaveStyle({ color: '#ffffff' })
+    })
+
+    it('renders alternate button text color when pressed', () => {
+      render(<Snackbar {...commonProps} />)
+      const longPress = getDismissText()
+      fireEvent(longPress, 'onResponderGrant', {
+        persist: jest.fn(),
+        nativeEvent: {
+          timestamp: Date.now(),
+        },
+      })
+
+      expect(longPress).toHaveStyle({ color: '#a9aeb1' })
+    })
+  })
+
+  describe('Dark mode', () => {
+    beforeAll(() => mockedColorScheme.mockImplementation(() => 'dark'))
+
+    afterAll(() => mockedColorScheme.mockReset())
+
+    it('renders background color', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(screen.root).toHaveStyle({ backgroundColor: '#f0f0f0' })
+    })
+
+    it('renders `message` text and icon color', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(getMessageText()).toHaveStyle({ color: '#1b1b1b' })
+    })
+
+    it('renders button text color', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(getDismissText()).toHaveStyle({ color: '#000000' })
+    })
+
+    it('renders alternate button text color when pressed', () => {
+      render(<Snackbar {...commonProps} />)
+      const longPress = getDismissText()
+      fireEvent(longPress, 'onResponderGrant', {
+        persist: jest.fn(),
+        nativeEvent: {
+          timestamp: Date.now(),
+        },
+      })
+
+      expect(longPress).toHaveStyle({ color: '#565c65' })
+    })
+  })
+
+  describe('Action button', () => {
+    it('renders `Undo` button by default', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(screen.getByText('Undo')).toBeOnTheScreen()
+      expect(screen.queryByText('Try again')).not.toBeOnTheScreen()
+    })
+
+    it('renders `CheckCircle` icon by default', async () => {
+      render(<Snackbar {...commonProps} />)
+      const icon = await getIcon()
+
+      expect(icon).toBeDefined()
+      expect(icon.props.name).toBe('CheckCircle')
+    })
+
+    it('error renders `Try again` button', () => {
+      render(<Snackbar {...errorProps} />)
+
+      expect(screen.getByText('Try again')).toBeOnTheScreen()
+      expect(screen.queryByText('Undo')).not.toBeOnTheScreen()
+    })
+
+    it('error renders `Warning` icon', async () => {
+      render(<Snackbar {...errorProps} />)
+      const icon = await getIcon()
+
+      expect(icon).toBeDefined()
+      expect(icon.props.name).toBe('Warning')
+    })
+
+    it('calls action button and onHide logic when pressed', () => {
+      render(<Snackbar {...commonProps} />)
+      fireEvent.press(getDismissText())
+
+      expect(onPressHideSpy).toHaveBeenCalledTimes(1)
+      expect(onPressActionSpy).toHaveBeenCalledTimes(0)
+
+      fireEvent.press(screen.getByText('Undo'))
+
+      expect(onPressHideSpy).toHaveBeenCalledTimes(2)
+      expect(onPressActionSpy).toHaveBeenCalledTimes(1)
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('message has aria-label override when present', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(getMessageText()).toHaveAccessibleName('message a11y')
+    })
+
+    it('message defers to text displayed when no aria-label', () => {
+      render(<Snackbar {...commonProps} data={{}} />)
+
+      expect(getMessageText()).not.toHaveAccessibleName('message a11y')
+      expect(getMessageText()).toHaveAccessibleName('Test Snackbar Text')
+    })
+
+    it('Snackbar has `alert` accessibility role', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(screen.getByRole('alert')).toBeOnTheScreen()
+    })
+
+    it('buttons have `button` accessibility role', () => {
+      render(<Snackbar {...commonProps} />)
+
+      expect(screen.getAllByRole('button').length).toEqual(2)
+    })
+  })
 })
