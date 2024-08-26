@@ -31,11 +31,11 @@ module.exports = {
       {
         name: 'showSnackBar',
         module: 'utils/common',
-        use: 'useSnackbar hook from @department-of-veterans-affairs/mobile-component-library',
+        use: 'SnackbarProvider with useSnackbar hook from @department-of-veterans-affairs/mobile-component-library',
       },
       {
         nameRegExp: 'react-native-toast-notifications',
-        use: 'useSnackbar hook from @department-of-veterans-affairs/mobile-component-library',
+        use: 'SnackbarProvider with useSnackbar hook from @department-of-veterans-affairs/mobile-component-library',
       },
     ],
   },
