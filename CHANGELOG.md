@@ -1,5 +1,133 @@
 # Changelog
 
+## [components-v0.22.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.22.0) (2024-08-26)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.21.0...components-v0.22.0)
+
+**Closed issues:**
+
+- DS - Snackbar - Improve screen reader behavior [\#440](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/440)
+- DS - Snackbar: Simplify types [\#439](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/439)
+- DS - Snackbar: Default offset [\#438](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/438)
+- BUG - \[3\] - All - Update Figma access instructions on Doc Site  [\#436](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/436)
+- Snackbar - Prevent Google TalkBack from focusing/reading items behind the Snackbar [\#417](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/417)
+- Snackbar - Announce Snackbar for accessibility [\#416](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/416)
+- Snackbar - Add mechanism for adjusting Snackbar offset from bottom [\#415](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/415)
+- DS -  SnackBar Global typescript declaration [\#412](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/412)
+- BUG - Sev-2 - GHA - Changelog generation is broken [\#410](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/410)
+- \[Design Tokens\] Typography: Set up tokens and styles in Figma [\#408](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/408)
+- Add new token for Snackbar component [\#406](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/406)
+- Design Tokens: Technical discovery for typography tokens [\#374](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/374)
+- Design Tokens: Determine design requirements for typography tokens [\#373](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/373)
+- DS - SnackBar Component Analytics Support [\#367](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/367)
+- DS - Snackbar Component Storybook [\#365](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/365)
+- DS - SnackBar Component Implementation [\#364](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/364)
+- Platform Support - DS [\#292](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/292)
+- Platform - Service Blueprint [\#287](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/287)
+- Q2 Bug & Maintenance Mgmt - Design System [\#269](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/269)
+- DS - Determine scope of form system [\#231](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/231)
+- Feature - Automate Syncing Tokens to Figma [\#52](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/52)
+- Design Tokens: Spacing - Discovery and Ideation [\#116](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/116)
+
+**Merged pull requests:**
+
+- \[Feature\] Add 'react-native-toast-notifications' to linter deprecation warnings [\#450](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/450) ([narin](https://github.com/narin))
+- \[Feature\] Snackbar – Add auto-dismiss logic for screen readers when no action provided [\#444](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/444) ([narin](https://github.com/narin))
+- \[Feature\] Snackbar - Simplify Typing [\#443](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/443) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Snackbar – Update default offset to assume nav bar [\#442](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/442) ([narin](https://github.com/narin))
+- \[Feature\] Announce Snackbar appearance to screen reader [\#437](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/437) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Snackbar – Add mechanism for adjusting bottom offset [\#423](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/423) ([narin](https://github.com/narin))
+- \[Feature\] Prevent screen reader from focusing content behind Snackbar [\#422](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/422) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Add Snackbar to Storybook [\#421](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/421) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Create Snackbar component [\#414](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/414) ([TimRoe](https://github.com/TimRoe))
+
+## [components-v0.21.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.21.0) (2024-07-25)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.14.0...components-v0.21.0)
+
+**Closed issues:**
+
+- DS - July dependency updates [\#378](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/378)
+
+**Merged pull requests:**
+
+- \[CU\] July Dependency Updates [\#405](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/405) ([narin](https://github.com/narin))
+
+## [tokens-v0.14.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.14.0) (2024-07-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.3...tokens-v0.14.0)
+
+**Closed issues:**
+
+- Alert - Increase spacing [\#394](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/394)
+- Design Tokens: Discovery for typography tokens [\#372](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/372)
+- DS - Tech Discovery for SnackBar [\#363](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/363)
+- Assets - Update documentation for VADS icons script [\#359](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/359)
+- DS - Loading Indicator Functional QA [\#311](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/311)
+- DS - Create Large Nav Button Component [\#92](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/92)
+- DS - Design Tokens - Colors [\#78](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/78)
+- DS - Create Loading Component [\#71](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/71)
+
+**Merged pull requests:**
+
+- \[Feature\] Add tokens for Snackbar active states [\#407](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/407) ([jessicawoodin](https://github.com/jessicawoodin))
+- \[Spike\] Snackbar proof of concept [\#399](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/399) ([TimRoe](https://github.com/TimRoe))
+- \[Docs\] Update assets docs to mention icon svg extraction and adding icons to… [\#398](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/398) ([narin](https://github.com/narin))
+
+## [components-v0.20.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.3) (2024-07-15)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.2...components-v0.20.3)
+
+**Closed issues:**
+
+- BUG - Sev-2 - All - Fix broken themes module import [\#386](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/386)
+- Design Tokens: Add color tokens to Storybook [\#376](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/376)
+- DS - GitHub Action to check VADS tokens [\#266](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/266)
+
+**Merged pull requests:**
+
+- \[Feature\] Increase spacing between header and content, and content and buttons [\#396](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/396) ([narin](https://github.com/narin))
+- Bump fast-loops from 1.1.3 to 1.1.4 in the npm\_and\_yarn group across 1 directory [\#391](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/391) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump @department-of-veterans-affairs/css-library from 0.7.0 to 0.8.4 in /packages/tokens [\#382](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/382) ([dependabot[bot]](https://github.com/apps/dependabot))
+
+## [components-v0.20.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.2) (2024-07-10)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.1...components-v0.20.2)
+
+**Closed issues:**
+
+- BUG - sev-2 - All - i18next causing error in va-mobile-app [\#383](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/383)
+- DS - Export useTheme hook [\#377](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/377)
+- Text Input - Align with VADS and publish documentation [\#156](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/156)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix themes module import causing crashes in va-mobile-app [\#388](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/388) ([narin](https://github.com/narin))
+- \[Bug\] Main - Update react-i18next package for flagship error [\#384](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/384) ([TimRoe](https://github.com/TimRoe))
+
+## [components-v0.19.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.19.1) (2024-07-03)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.1...components-v0.19.1)
+
+**Closed issues:**
+
+- DS - Update remainder of components to use theme [\#371](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/371)
+- DS - Loading Component Test Plan [\#310](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/310)
+- Spike - Look into adding color tokens to Storybook [\#302](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/302)
+
+## [components-v0.20.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.1) (2024-07-02)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.0...components-v0.20.1)
+
+**Closed issues:**
+
+- DS - Theme Setup [\#263](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/263)
+- DS - Loading Component Flagship Work Setup [\#250](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/250)
+
+**Merged pull requests:**
+
+- \[Feature\] Update additional components to useTheme hook [\#380](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/380) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.20.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.0) (2024-07-01)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.13.0...components-v0.20.0)
