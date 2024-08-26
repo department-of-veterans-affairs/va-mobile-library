@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/eslint-config-mobile",
-  "version": "0.18.1-alpha.0",
+  "version": "0.22.0",
   "description": "VA Design System Mobile ESLint Configuration",
   "repository": {
     "type": "git",
