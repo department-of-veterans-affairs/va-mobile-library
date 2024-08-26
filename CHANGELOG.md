@@ -1,5 +1,13 @@
 # Changelog
 
+## [linting-v0.22.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.22.1) (2024-08-26)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.22.0...linting-v0.22.1)
+
+**Closed issues:**
+
+- DS - SnackBar Component - Add to linting pkg [\#369](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/369)
+
 ## [components-v0.22.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.22.0) (2024-08-26)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.21.0...components-v0.22.0)
