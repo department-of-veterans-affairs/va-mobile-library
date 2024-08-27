@@ -14,10 +14,5 @@ export function useSnackbarDefaultOffset() {
     )
   }
 
-  console.log('insets: ', insets)
-  // @ts-ignore
-  console.log('bottom: ', insets.bottom)
-  console.log('stringed: ', insets.toString())
-
   return NAV_BAR_HEIGHT + insets.bottom
 }

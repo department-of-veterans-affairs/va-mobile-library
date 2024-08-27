@@ -34,6 +34,7 @@ jest.useFakeTimers()
  *        - Trying to use w/o library IMPOSSIBLE
  *        - Trying to use w/o insets CHECK
  *        - Trying to use `useSnackbar` hook without provider CHECK
+ *    - Test announceForAccessibility happens on appearance?
  */
 
 const onPressHideSpy = jest.fn()
@@ -77,35 +78,10 @@ const queryMessageText = () => screen.queryByText(commonProps.message)
 const getDismissText = () => screen.getByText('Dismiss')
 const getIcon = async () => await screen.root.findByType(Icon)
 
-// jest.spyOn('react-native-safe-area-context', 'useSafeAreaInsets()', 'get')
-
-// jest.mock('react-native-safe-area-context', () =>
-//   jest.fn(() => {
-//     return {
-//       ...mockSafeAreaContext,
-//       useSafeAreaInsets: mockedUseSafeAreaInsets,
-//     }
-//   }),
-// )
-
-// Mock the internal function call within the useExternalSnackbar hook
-// const useExternalSnackbarHookMock = jest.fn(
-//   (url: string, analytics?: SnackbarAnalytics, text?: utils.leaveAppPromptText) => {
-//     url
-//     analytics
-//     text
-//   },
-// )
-// Mock the useExternalSnackbar hook to leverage mock implementation
-// jest.spyOn(utils, 'useExternalSnackbar').mockImplementation(() => {
-//   return useExternalSnackbarHookMock
-// })
-
 describe('Snackbar', () => {
   afterEach(() => {
     onPressHideSpy.mockReset()
     onPressActionSpy.mockReset()
-    // useExternalSnackbarHookMock.mockReset()
   })
 
   describe('Basic UI tests', () => {
@@ -282,9 +258,24 @@ describe('Snackbar', () => {
 })
 
 describe('Snackbar Provider', () => {
+  afterEach(() => {
+    onPressHideSpy.mockReset()
+    onPressActionSpy.mockReset()
+  })
+
   const openSnackbarButtonLabel = 'Press for Snackbar'
-  const CustomRender: React.FC = () => {
+  const CustomRender: React.FC<{ customOffset?: number }> = (props) => {
     const { show } = useSnackbar()
+    const offset = props.customOffset
+
+    if (offset) {
+      return (
+        <Button
+          label={openSnackbarButtonLabel}
+          onPress={() => show(commonProps.message, { offset: offset })}
+        />
+      )
+    }
 
     return (
       <Button
@@ -372,53 +363,12 @@ describe('Snackbar Provider', () => {
 
   describe('Offset', () => {
     it('should have a default offset of 60', async () => {
-      const mockInsets = {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-      }
-      mockedUseSafeAreaInsets.mockImplementation(() => mockInsets)
       render(<CustomRender />, { wrapper: SnackbarProvider })
-      // const view = render(<CustomRender />, { wrapper: SnackbarProvider })
-
-      expect(getOpenSnackbarText()).toBeOnTheScreen()
-      expect(queryMessageText()).not.toBeOnTheScreen()
-
-      await userEvent.press(getOpenSnackbarText())
 
       expect((await getToastProvider()).props.offset).toEqual(60)
-
-      // expect(screen.UNSAFE_getByProps({ offset: 60 })) // IMPROVED PROTOTYPE WINNER
-
-      // const hello = within(screen.UNSAFE_root).UNSAFE_queryAllByProps({
-      //   bottom: 0,
-      // })
-
-      // view.debug()
-      // screen.debug()
-      // expect(screen.UNSAFE_root.props).toEqual('test') // yields customRender as children
-      // @ts-ignore
-      // expect(screen.UNSAFE_root._fiber.child.pendingProps.children.props.offset).toEqual(60) PROTOTYPE WINNER
-      // prettier-ignore
-      // expect(screen.root.parent?.parent?.parent?.parent?.parent?.parent?.parent?.memoizedState).toEqual(
-      //   'test',
-      // )
-      // expect(screen.getByTestId('TestingComponent')).toEqual('test')
-
-      // const fOffPrettier =
-      //   getMessageText().parent?.parent?.parent?.parent?.parent?.parent
-      // expect(
-      //   fOffPrettier?.parent?.parent?.parent?.parent?.parent?.props,
-      // ).toEqual('test')
-      // expect(screen.UNSAFE_queryByProps({ offset: 60 })).toBeTruthy()
-      // expect((await getSnackbarProvider()).props).toEqual('test')
-
-      // Cleanup mock
-      mockedUseSafeAreaInsets.mockReset()
     })
 
-    it('should have a default offset of 60', async () => {
+    it('should have an inset-adjusted offset of 94', async () => {
       const mockInsets = {
         top: 0,
         right: 0,
@@ -426,17 +376,55 @@ describe('Snackbar Provider', () => {
         left: 0,
       }
       mockedUseSafeAreaInsets.mockImplementation(() => mockInsets)
+
       render(<CustomRender />, { wrapper: SnackbarProvider })
-
-      expect(getOpenSnackbarText()).toBeOnTheScreen()
-      expect(queryMessageText()).not.toBeOnTheScreen()
-
-      await userEvent.press(getOpenSnackbarText())
 
       expect((await getToastProvider()).props.offset).toEqual(94)
 
       // Cleanup mock
-      mockedUseSafeAreaInsets.mockReset()
+      mockedUseSafeAreaInsets.mockClear()
+    })
+
+    it('should have a custom offset when set', async () => {
+      const view = renderHook(() => useSnackbar(), {
+        wrapper: SnackbarProvider,
+      })
+
+      view.result.current.show(commonProps.message, { offset: 30 })
+
+      expect((await getToastProvider()).props.offset).toEqual(30)
+    })
+
+    // Separate test to validate falsy number 0
+    it('should have a custom offset of 0 when set to 0', async () => {
+      console.log('custom offset test')
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      // render(<CustomRender />, { wrapper: SnackbarProvider })
+      const view = renderHook(() => useSnackbar(), {
+        wrapper: SnackbarProvider,
+      })
+      // const { result } = renderHook(() => useSnackbar(), {
+      //   wrapper: SnackbarProvider,
+      // })
+
+      // act(() => {
+      //   result.current.show(commonProps.message, { offset: 0 })
+      // })
+
+      // view.rerender
+      // await act(async () => await userEvent.press(getOpenSnackbarText()))
+      view.result.current.show(commonProps.message, { offset: 0 })
+      // view.rerender
+      // await userEvent.press(getOpenSnackbarText())
+
+      // await jest.advanceTimersByTimeAsync(1000)
+
+      expect((await getToastProvider()).props.offset).toEqual(0)
+
+      console.log('END custom offset test')
+
+      // Cleanup mock
+      // mockedUseSafeAreaInsets.mockReset()
     })
   })
 })
