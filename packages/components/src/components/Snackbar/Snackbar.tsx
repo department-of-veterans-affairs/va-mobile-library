@@ -56,7 +56,7 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
  * All options associated with the useSnackbar.show function
  */
 export type SnackbarOptions = SnackbarData & {
-  /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
+  /** offset from bottom of screen. defaults to NavBar height + device inset */
   offset?: number
 }
 
