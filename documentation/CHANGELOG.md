@@ -1,8 +1,36 @@
 # Changelog
 
+## [linting-v0.22.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.22.1) (2024-08-26)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.22.0...linting-v0.22.1)
+
+**Closed issues:**
+
+- DS - SnackBar Component - Add to linting pkg [\#369](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/369)
+
+## [components-v0.22.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.22.0) (2024-08-26)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.18.1-alpha.0...components-v0.22.0)
+
+**Closed issues:**
+
+- DS - Snackbar - Improve screen reader behavior [\#440](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/440)
+
+**Merged pull requests:**
+
+- \[Feature\] Add 'react-native-toast-notifications' to linter deprecation warnings [\#450](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/450) ([narin](https://github.com/narin))
+- \[Feature\] Snackbar – Add auto-dismiss logic for screen readers when no action provided [\#444](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/444) ([narin](https://github.com/narin))
+- \[Feature\] Snackbar - Simplify Typing [\#443](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/443) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Snackbar – Update default offset to assume nav bar [\#442](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/442) ([narin](https://github.com/narin))
+- \[Feature\] Announce Snackbar appearance to screen reader [\#437](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/437) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Snackbar – Add mechanism for adjusting bottom offset [\#423](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/423) ([narin](https://github.com/narin))
+- \[Feature\] Prevent screen reader from focusing content behind Snackbar [\#422](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/422) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Add Snackbar to Storybook [\#421](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/421) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Create Snackbar component [\#414](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/414) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.21.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.21.0) (2024-07-25)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.14.0...components-v0.21.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.4-alpha.3...components-v0.21.0)
 
 **Closed issues:**
 
@@ -14,18 +42,7 @@
 
 ## [tokens-v0.14.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.14.0) (2024-07-24)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.3...tokens-v0.14.0)
-
-**Closed issues:**
-
-- Alert - Increase spacing [\#394](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/394)
-- Design Tokens: Discovery for typography tokens [\#372](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/372)
-- DS - Tech Discovery for SnackBar [\#363](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/363)
-- Assets - Update documentation for VADS icons script [\#359](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/359)
-- DS - Loading Indicator Functional QA [\#311](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/311)
-- DS - Create Large Nav Button Component [\#92](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/92)
-- DS - Design Tokens - Colors [\#78](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/78)
-- DS - Create Loading Component [\#71](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/71)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.4-alpha.2...tokens-v0.14.0)
 
 **Merged pull requests:**
 
@@ -51,13 +68,7 @@
 
 ## [components-v0.20.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.2) (2024-07-10)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.1...components-v0.20.2)
-
-**Closed issues:**
-
-- BUG - sev-2 - All - i18next causing error in va-mobile-app [\#383](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/383)
-- DS - Export useTheme hook [\#377](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/377)
-- Text Input - Align with VADS and publish documentation [\#156](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/156)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.2-alpha.6...components-v0.20.2)
 
 **Merged pull requests:**
 
@@ -66,13 +77,7 @@
 
 ## [components-v0.19.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.19.1) (2024-07-03)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.20.1...components-v0.19.1)
-
-**Closed issues:**
-
-- DS - Update remainder of components to use theme [\#371](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/371)
-- DS - Loading Component Test Plan [\#310](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/310)
-- Spike - Look into adding color tokens to Storybook [\#302](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/302)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.1-alpha.8...components-v0.19.1)
 
 ## [components-v0.20.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.1) (2024-07-02)
 
@@ -89,12 +94,7 @@
 
 ## [components-v0.20.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.20.0) (2024-07-01)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.13.0...components-v0.20.0)
-
-**Closed issues:**
-
-- Icon - Enhance Unit Tests [\#223](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/223)
-- DS - Icon Library [\#82](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/82)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.1-alpha.1...components-v0.20.0)
 
 **Merged pull requests:**
 
@@ -102,7 +102,7 @@
 
 ## [tokens-v0.13.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.13.0) (2024-06-26)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.19.0...tokens-v0.13.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.12.1-alpha.6...tokens-v0.13.0)
 
 **Merged pull requests:**
 
@@ -110,11 +110,10 @@
 
 ## [components-v0.19.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.19.0) (2024-06-24)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.12.0...components-v0.19.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.12.1-alpha.0...components-v0.19.0)
 
 **Closed issues:**
 
-- Logos - Create documentation [\#326](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/326)
 - DS - Add missing icons from updated Icon Library [\#255](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/255)
 
 **Merged pull requests:**
@@ -147,17 +146,11 @@
 
 ## [components-v0.18.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.18.0) (2024-06-24)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.1...components-v0.18.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.11.1-alpha.0...components-v0.18.0)
 
 **Closed issues:**
 
-- Icon Library: Create documentation [\#313](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/313)
-- DS - Loading Component Unit Tests [\#254](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/254)
-- DS - Loading Component Storybook [\#249](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/249)
-- DS - Loading Component Implementation [\#247](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/247)
 - DS - Update Icon Storybook to link to VADS docs [\#234](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/234)
-- Icon Library: Update icons to align with VADS [\#144](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/144)
-- Loading Indicator - Publish component to Figma and Doc Site [\#114](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/114)
 
 **Merged pull requests:**
 
@@ -166,12 +159,11 @@
 
 ## [components-v0.17.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.17.1) (2024-06-07)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.11.0...components-v0.17.1)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.1-alpha.4...components-v0.17.1)
 
 **Closed issues:**
 
 - Loading Indicator - Visual QA [\#251](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/251)
-- DS - Update component-library to support semantic and component tokens [\#237](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/237)
 
 **Merged pull requests:**
 
@@ -189,19 +181,16 @@
 
 ## [assets-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.10.0) (2024-06-06)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.0...assets-v0.10.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.17.1-alpha.3...assets-v0.10.0)
 
 **Closed issues:**
 
-- \[stub\] Update assets package and Icon component once VADS has added icons to sprite [\#340](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/340)
-- \[stub\] Create PR to add inbox, refresh and local\_shipping to VADS sprite sheet [\#339](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/339)
 - DS - Update storybook to display all icons [\#258](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/258)
-- DS - Update Icon component to support SVG sprites [\#245](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/245)
 - Icon Library: Update Figma icons [\#146](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/146)
 
 ## [components-v0.17.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.17.0) (2024-06-04)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.12.0...components-v0.17.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.16.1-alpha.3...components-v0.17.0)
 
 **Closed issues:**
 
@@ -215,11 +204,7 @@
 
 ## [tokens-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.12.0) (2024-06-03)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.9.0...tokens-v0.12.0)
-
-**Closed issues:**
-
-- Establish process and guidelines around ticket management [\#122](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/122)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.16.1-alpha.1...tokens-v0.12.0)
 
 **Merged pull requests:**
 
@@ -239,12 +224,11 @@
 
 ## [tokens-v0.11.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.11.0) (2024-05-30)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.10.0...tokens-v0.11.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.8.1-alpha.1...tokens-v0.11.0)
 
 **Closed issues:**
 
 - Design Tokens: Create semantic color tokens - snackbar and alert [\#331](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/331)
-- Copy of Design Tokens: Create semantic color tokens - link [\#330](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/330)
 
 **Merged pull requests:**
 
@@ -252,13 +236,7 @@
 
 ## [tokens-v0.10.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.10.0) (2024-05-29)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.9.0...tokens-v0.10.0)
-
-**Closed issues:**
-
-- Design Tokens: Create semantic color tokens - alert [\#271](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/271)
-- Design Tokens: Create semantic color tokens - link [\#270](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/270)
-- DS - Script to import VADS Icons into assets package [\#244](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/244)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.8.1-alpha.0...tokens-v0.10.0)
 
 **Merged pull requests:**
 
@@ -266,7 +244,7 @@
 
 ## [tokens-v0.9.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.9.0) (2024-05-28)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.8.0...tokens-v0.9.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.7.1-alpha.0...tokens-v0.9.0)
 
 **Merged pull requests:**
 
@@ -274,13 +252,11 @@
 
 ## [assets-v0.8.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.8.0) (2024-05-28)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.6.0...assets-v0.8.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.6.1-alpha.0...assets-v0.8.0)
 
 **Closed issues:**
 
 - DS - Replace VA Logo and service emblems SVGs with PNGs. Add Space Force and VA dark text logo [\#304](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/304)
-- BUG - Sev-3 - Storybook - Fix Code Snippets [\#261](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/261)
-- BUG - Sev-3 - Web - Fix custom docs template [\#176](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/176)
 
 **Merged pull requests:**
 
@@ -289,14 +265,7 @@
 
 ## [assets-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.6.0) (2024-05-22)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.16.0...assets-v0.6.0)
-
-**Closed issues:**
-
-- DS - Remove ClickToCallPhoneNumber from linting rules [\#319](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/319)
-- Design Tokens: Update components to use semantic tokens [\#286](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/286)
-- DS - Update Spacer convenience component to be a standalone component [\#257](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/257)
-- DS - Loading Component Analytics Support [\#252](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/252)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.5.1-alpha.3...assets-v0.6.0)
 
 **Merged pull requests:**
 
@@ -340,18 +309,7 @@
 
 ## [components-v0.15.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.2) (2024-05-14)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.1...components-v0.15.2)
-
-**Closed issues:**
-
-- Designer onboarding [\#312](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/312)
-- BUG - Sev 2 - iOS/Android - Link - Text wrap goes off visible screen [\#303](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/303)
-- VA Figma transition [\#299](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/299)
-- Jest Matchers - Enhance Accessibility Unit Tests [\#279](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/279)
-- Link - Enhance Unit Tests for OSFunction Calls [\#278](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/278)
-- Link - Add Icon Override Unit Tests [\#277](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/277)
-- DS - Tech Discovery for Loading Component [\#248](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/248)
-- DS - Create Alert Component [\#61](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/61)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.2-alpha.2...components-v0.15.2)
 
 **Merged pull requests:**
 
@@ -360,25 +318,12 @@
 
 ## [components-v0.15.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.15.1) (2024-05-02)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.0...components-v0.15.1)
-
-**Fixed bugs:**
-
-- BUG - Sev 3 - Web - On press bolding does not work for Inline variant [\#197](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/197)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.15.1-alpha.0...components-v0.15.1)
 
 **Closed issues:**
 
 - Design Tokens: Create and publish documentation [\#291](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/291)
-- DS - Determine naming convention for component variants [\#217](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/217)
-- DS - Alert Storybook [\#199](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/199)
-- DS - Alert - Unit Tests [\#198](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/198)
-- Alert - Visual QA [\#167](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/167)
-- DS - Maintenance & Support - Q1 2024 [\#96](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/96)
 - DS - Component Tracking and Metrics [\#86](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/86)
-- DS - Create Link Component [\#58](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/58)
-- \[Placeholder\] Document Design Token Strategy [\#48](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/48)
-- Alert - Publish component to Figma and Doc Site [\#112](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/112)
-- Component Implementation - Document Alert [\#130](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/130)
 
 **Merged pull requests:**
 
@@ -413,16 +358,11 @@
 
 ## [components-v0.14.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.14.0) (2024-04-23)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.7.0...components-v0.14.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.12.1-alpha.0...components-v0.14.0)
 
 **Closed issues:**
 
-- Design Tokens: Update Alert to use semantic tokens [\#285](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/285)
-- Design Tokens: Update Link to use semantic tokens [\#284](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/284)
-- Design Tokens: Update Segmented Control to use semantic tokens [\#283](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/283)
-- Link - Update Active state [\#260](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/260)
 - Alert - Add Expand/Collapse Support [\#246](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/246)
-- Icon Library: Update Icon names to be app agnostic [\#102](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/102)
 
 **Merged pull requests:**
 
@@ -464,7 +404,7 @@
 
 ## [components-v0.12.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.12.1) (2024-04-16)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.6.0...components-v0.12.1)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.12.1-beta.4...components-v0.12.1)
 
 **Merged pull requests:**
 
@@ -472,31 +412,12 @@
 
 ## [tokens-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.6.0) (2024-04-15)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.4.0...tokens-v0.6.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.12.1-beta.1...tokens-v0.6.0)
 
 **Closed issues:**
 
-- DS - Update token build for compatibility with css-library 0.5.1 [\#265](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/265)
 - DS - Design Tokens: Create semantic tokens list based on VADS [\#238](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/238)
-- DS - Update semantic and component tokens [\#236](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/236)
-- DS - Update file structure for semantic tokens [\#235](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/235)
-- Design Tokens: Set up semantic tokens in Figma [\#232](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/232)
-- Link - Validate and Publish [\#216](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/216)
-- Link component - Update linting package [\#182](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/182)
 - Design Tokens: Create semantic color tokens - segmented control [\#179](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/179)
-- Icon Library: Determine naming strategy for icons [\#177](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/177)
-- Design Tokens: Determine naming structure for semantic tokens [\#153](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/153)
-- Design Tokens: Create color tokens - gray [\#152](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/152)
-- Design Tokens: Create color tokens - green [\#151](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/151)
-- Design Tokens: Create color tokens - yellow [\#150](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/150)
-- Design Tokens: Create color tokens - red [\#149](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/149)
-- Design Tokens: Create color tokens - blue [\#148](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/148)
-- Icon Library: Collect and export icons for implementation [\#147](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/147)
-- Discovery - Icon Library: Determine if/how we can import\(?\) VADS/USWDS icons into our library [\#145](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/145)
-- Add Automatic Doc Flow to Doc Site [\#143](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/143)
-- Link Component Unit Tests [\#134](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/134)
-- Component Implementation - Alert [\#132](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/132)
-- Design Tokens: Colors - Implementation [\#128](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/128)
 - Design Tokens: Typography - Implementation [\#127](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/127)
 
 **Merged pull requests:**
@@ -511,7 +432,7 @@
 
 ## [linting-v0.4.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.4.0) (2024-03-14)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.12.0...linting-v0.4.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.3.1-alpha.2...linting-v0.4.0)
 
 **Merged pull requests:**
 
@@ -519,20 +440,10 @@
 
 ## [components-v0.12.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.12.0) (2024-03-14)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.11.0...components-v0.12.0)
-
-**Fixed bugs:**
-
-- BUG - Sev-3 - Web - Icon scaling does not work [\#100](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/100)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.11.1-alpha.3...components-v0.12.0)
 
 **Closed issues:**
 
-- Design Tokens: Set up semantic tokens in Figma [\#233](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/233)
-- Link - Visual QA Findings [\#220](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/220)
-- Discovery - Design Tokens: Create structure for semantic tokens [\#163](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/163)
-- DS - Document Icon Component [\#174](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/174)
-- \[CU\] Add conditional typings to Icon [\#99](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/99)
-- Link - Publish component to Figma and Doc Site [\#111](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/111)
 - Move Contributing to the Design System ticket template to the DS repo [\#123](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/123)
 
 **Merged pull requests:**
@@ -607,7 +518,7 @@
 
 ## [components-v0.8.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.8.0) (2024-02-16)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.7.0...components-v0.8.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.7.1-alpha.0...components-v0.8.0)
 
 **Merged pull requests:**
 
@@ -623,15 +534,11 @@
 
 ## [assets-v0.2.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.2.0) (2024-02-15)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.6.0...assets-v0.2.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.6.1-alpha.0...assets-v0.2.0)
 
 **Fixed bugs:**
 
 - BUG - Sev 3 - Web Storybook - Background Color Override No Longer Works [\#117](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/117)
-
-**Closed issues:**
-
-- Clear out dependency security alerts [\#121](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/121)
 
 **Merged pull requests:**
 
@@ -639,7 +546,7 @@
 
 ## [components-v0.6.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.6.0) (2024-02-13)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.5.1...components-v0.6.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.5.2-alpha.10...components-v0.6.0)
 
 **Fixed bugs:**
 
@@ -648,10 +555,7 @@
 
 **Closed issues:**
 
-- Design Tokens: Create 3-5 semantic color tokens [\#180](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/180)
-- Update DS colors to align with VADS/USWDS [\#119](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/119)
 - Upgrade components package to React Native 0.73  [\#53](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/53)
-- Component Implementation - Link  [\#118](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/118)
 
 **Merged pull requests:**
 
@@ -660,7 +564,7 @@
 
 ## [tokens-v0.5.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.5.1) (2024-02-08)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.5.1...tokens-v0.5.1)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.5.2-alpha.2...tokens-v0.5.1)
 
 **Closed issues:**
 
@@ -719,22 +623,11 @@
 
 ## [assets-v0.1.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.1.1) (2024-01-10)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.1.0...assets-v0.1.1)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.6-alpha.12...assets-v0.1.1)
 
 ## [assets-v0.1.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.1.0) (2024-01-10)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.5...assets-v0.1.0)
-
-**Fixed bugs:**
-
-- Publish Package Workflow Doesn't Work for New Packages [\#47](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/47)
-
-**Closed issues:**
-
-- DS - Create Multi-touchCard Component [\#68](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/68)
-- DS - Create ListHeader Component [\#67](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/67)
-- DS - Create VCL Component [\#64](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/64)
-- DS - Create NameTag Component [\#63](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/63)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.6-alpha.9...assets-v0.1.0)
 
 ## [components-v0.3.5](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.5) (2023-12-20)
 
@@ -746,12 +639,7 @@
 
 ## [tokens-v0.3.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.3.1) (2023-12-20)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.3.0...tokens-v0.3.1)
-
-**Closed issues:**
-
-- DS - Create AlertBox Component [\#60](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/60)
-- DS - Create AlertBox Component [\#59](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/59)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.5-alpha.1...tokens-v0.3.1)
 
 **Merged pull requests:**
 
@@ -768,7 +656,7 @@
 
 ## [components-v0.3.4](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.4) (2023-12-15)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.3.0...components-v0.3.4)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.2.2-alpha.1...components-v0.3.4)
 
 ## [linting-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.3.0) (2023-12-07)
 
@@ -776,7 +664,7 @@
 
 ## [linting-v0.2.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.2.0) (2023-12-07)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.3...linting-v0.2.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.2.0-alpha.1...linting-v0.2.0)
 
 **Merged pull requests:**
 
@@ -785,7 +673,7 @@
 
 ## [components-v0.3.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.3) (2023-11-30)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.2.1...components-v0.3.3)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.3.3-alpha.3...components-v0.3.3)
 
 **Merged pull requests:**
 
@@ -809,7 +697,7 @@
 
 ## [components-v0.3.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.3.0) (2023-11-28)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.2.1...components-v0.3.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.2.2-alpha.21...components-v0.3.0)
 
 **Merged pull requests:**
 
@@ -817,7 +705,7 @@
 
 ## [components-v0.2.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.2.1) (2023-11-22)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.2.0...components-v0.2.1)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.2.1-alpha.0...components-v0.2.1)
 
 **Merged pull requests:**
 
@@ -826,11 +714,11 @@
 
 ## [components-v0.2.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.2.0) (2023-11-16)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.2.0...components-v0.2.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.1.1-alpha.15...components-v0.2.0)
 
 ## [tokens-v0.2.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.2.0) (2023-11-09)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.1.0...tokens-v0.2.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.1.1-alpha.1...tokens-v0.2.0)
 
 **Merged pull requests:**
 
@@ -839,7 +727,7 @@
 
 ## [tokens-v0.1.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.1.0) (2023-11-08)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.0.12...tokens-v0.1.0)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.0.13-alpha.3...tokens-v0.1.0)
 
 **Merged pull requests:**
 
@@ -853,7 +741,7 @@
 
 ## [components-v0.0.31](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.0.31) (2023-10-27)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.0.30...components-v0.0.31)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.0.11-alpha.0...components-v0.0.31)
 
 ## [components-v0.0.30](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.0.30) (2023-10-26)
 
@@ -869,7 +757,7 @@
 
 ## [components-v0.0.27](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.0.27) (2023-10-26)
 
-[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.0.26...components-v0.0.27)
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.0.27-beta.1...components-v0.0.27)
 
 ## [components-v0.0.26](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.0.26) (2023-10-25)
 
@@ -891,10 +779,6 @@
 - Fix Storybook web [\#17](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/17) ([narin](https://github.com/narin))
 - \[Feature\] Create Storybook story for Segmented Control [\#10](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/10) ([TimRoe](https://github.com/TimRoe))
 - \[Feature\] Create SegmentedControl Core Component [\#8](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/8) ([TimRoe](https://github.com/TimRoe))
-- Figma Integration [\#7](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/7) ([narin](https://github.com/narin))
-- Storybook Initial Setup [\#6](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/6) ([narin](https://github.com/narin))
-- \[Feature\] Building foundations, Initial installation of repo architecture and software [\#2](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/2) ([TimRoe](https://github.com/TimRoe))
-- Components automated tests [\#1](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/1) ([narin](https://github.com/narin))
 
 
 
