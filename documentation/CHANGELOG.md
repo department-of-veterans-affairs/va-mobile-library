@@ -1,5 +1,54 @@
 # Changelog
 
+## [linting-v0.22.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.22.1) (2024-08-26)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.22.0...linting-v0.22.1)
+
+**Closed issues:**
+
+- DS - SnackBar Component - Add to linting pkg [\#369](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/369)
+
+## [components-v0.22.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.22.0) (2024-08-26)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.21.0...components-v0.22.0)
+
+**Closed issues:**
+
+- DS - Snackbar - Improve screen reader behavior [\#440](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/440)
+- DS - Snackbar: Simplify types [\#439](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/439)
+- DS - Snackbar: Default offset [\#438](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/438)
+- BUG - \[3\] - All - Update Figma access instructions on Doc Site  [\#436](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/436)
+- Snackbar - Prevent Google TalkBack from focusing/reading items behind the Snackbar [\#417](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/417)
+- Snackbar - Announce Snackbar for accessibility [\#416](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/416)
+- Snackbar - Add mechanism for adjusting Snackbar offset from bottom [\#415](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/415)
+- DS -  SnackBar Global typescript declaration [\#412](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/412)
+- BUG - Sev-2 - GHA - Changelog generation is broken [\#410](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/410)
+- \[Design Tokens\] Typography: Set up tokens and styles in Figma [\#408](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/408)
+- Add new token for Snackbar component [\#406](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/406)
+- Design Tokens: Technical discovery for typography tokens [\#374](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/374)
+- Design Tokens: Determine design requirements for typography tokens [\#373](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/373)
+- DS - SnackBar Component Analytics Support [\#367](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/367)
+- DS - Snackbar Component Storybook [\#365](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/365)
+- DS - SnackBar Component Implementation [\#364](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/364)
+- Platform Support - DS [\#292](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/292)
+- Platform - Service Blueprint [\#287](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/287)
+- Q2 Bug & Maintenance Mgmt - Design System [\#269](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/269)
+- DS - Determine scope of form system [\#231](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/231)
+- Feature - Automate Syncing Tokens to Figma [\#52](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/52)
+- Design Tokens: Spacing - Discovery and Ideation [\#116](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/116)
+
+**Merged pull requests:**
+
+- \[Feature\] Add 'react-native-toast-notifications' to linter deprecation warnings [\#450](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/450) ([narin](https://github.com/narin))
+- \[Feature\] Snackbar – Add auto-dismiss logic for screen readers when no action provided [\#444](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/444) ([narin](https://github.com/narin))
+- \[Feature\] Snackbar - Simplify Typing [\#443](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/443) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Snackbar – Update default offset to assume nav bar [\#442](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/442) ([narin](https://github.com/narin))
+- \[Feature\] Announce Snackbar appearance to screen reader [\#437](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/437) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Snackbar – Add mechanism for adjusting bottom offset [\#423](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/423) ([narin](https://github.com/narin))
+- \[Feature\] Prevent screen reader from focusing content behind Snackbar [\#422](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/422) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Add Snackbar to Storybook [\#421](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/421) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Create Snackbar component [\#414](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/414) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.21.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.21.0) (2024-07-25)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.14.0...components-v0.21.0)
