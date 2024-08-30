@@ -32,7 +32,7 @@ jest.mock('react-native-safe-area-context', () => {
 jest.mock('../../utils/index', () => {
   return {
     ...jest.requireActual('../../utils/index'), // Don't mock other utils
-    useIsScreenReaderEnabled: () => mockedScreenReaderEnabled,
+    useIsScreenReaderEnabled: () => mockedScreenReaderEnabled(),
   }
 })
 
@@ -201,8 +201,68 @@ describe('Snackbar Provider', () => {
   })
 
   describe('Screen reader', () => {
+    it('should render "indefinitely" when off even without action', async () => {
+      render(<CustomRender noAction={true} />, { wrapper: SnackbarProvider })
+
+      expect(getOpenSnackbarText()).toBeOnTheScreen()
+      expect(queryMessageText()).not.toBeOnTheScreen()
+
+      await userEvent.press(getOpenSnackbarText())
+
+      expect(queryMessageText()).toBeOnTheScreen()
+
+      act(() => jest.advanceTimersByTime(6000))
+
+      expect(queryMessageText()).toBeOnTheScreen() // Still on screen after 6 seconds
+
+      act(() => jest.advanceTimersByTime(100000))
+
+      expect(queryMessageText()).toBeOnTheScreen() // Still on screen after 106 seconds
+
+      act(() => jest.advanceTimersByTime(2147483646 - 106000))
+
+      expect(queryMessageText()).toBeOnTheScreen() // Still on screen after nearly "indefinite" time
+
+      act(() => jest.advanceTimersByTime(1000))
+
+      expect(queryMessageText()).not.toBeOnTheScreen() // No longer on screen a second later
+    })
+
+    it('should render "indefinitely" when on with an action', async () => {
+      mockedScreenReaderEnabled.mockImplementation(() => true)
+
+      render(<CustomRender />, { wrapper: SnackbarProvider })
+
+      expect(getOpenSnackbarText()).toBeOnTheScreen()
+      expect(queryMessageText()).not.toBeOnTheScreen()
+
+      await userEvent.press(getOpenSnackbarText())
+
+      expect(queryMessageText()).toBeOnTheScreen()
+
+      act(() => jest.advanceTimersByTime(6000))
+
+      expect(queryMessageText()).toBeOnTheScreen() // Still on screen after 6 seconds
+
+      act(() => jest.advanceTimersByTime(100000))
+
+      expect(queryMessageText()).toBeOnTheScreen() // Still on screen after 106 seconds
+
+      act(() => jest.advanceTimersByTime(2147483646 - 100000 - 6000))
+
+      expect(queryMessageText()).toBeOnTheScreen() // Still on screen after nearly "indefinite" time
+
+      act(() => jest.advanceTimersByTime(1000))
+
+      expect(queryMessageText()).not.toBeOnTheScreen() // No longer on screen a second later
+
+      // Cleanup mock
+      mockedScreenReaderEnabled.mockReset()
+    })
+
     it('should render for 5 seconds without an action', async () => {
       mockedScreenReaderEnabled.mockImplementation(() => true)
+
       render(<CustomRender noAction={true} />, { wrapper: SnackbarProvider })
 
       expect(getOpenSnackbarText()).toBeOnTheScreen()
@@ -219,6 +279,9 @@ describe('Snackbar Provider', () => {
       act(() => jest.advanceTimersByTime(2000))
 
       expect(queryMessageText()).not.toBeOnTheScreen() // No longer on screen after 6 seconds
+
+      // Cleanup mock
+      mockedScreenReaderEnabled.mockReset()
     })
   })
 
