@@ -81,9 +81,10 @@ describe('Snackbar Provider', () => {
     // Override to suppress React render error logging, intentionally erroneous component render
     beforeEach(() => errorSpy.mockImplementationOnce(jest.fn()))
 
-    // @ts-ignore - Intentionally setting invalid value to validate no insets defined
-    mockedUseSafeAreaInsets.mockImplementationOnce(() => undefined)
     it('should error to try useSnackbar w/o SafeAreaProvider', () => {
+      // @ts-ignore - Intentionally setting invalid value to validate no insets defined
+      mockedUseSafeAreaInsets.mockImplementationOnce(() => undefined)
+
       try {
         renderHook(() => useSnackbar())
       } catch (e) {
