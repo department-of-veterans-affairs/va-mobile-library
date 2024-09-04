@@ -15,7 +15,6 @@ export enum ButtonVariants {
   Destructive = 'Destructive',
   Primary = 'Primary',
   Secondary = 'Secondary',
-  White = 'White',
 }
 
 export type ButtonProps = {
@@ -84,12 +83,6 @@ export const Button: React.FC<ButtonProps> = ({
       textColor = theme.vadsColorActionForegroundDefault
       textColorPressed = theme.vadsColorActionForegroundDefaultActive
       borderWidth = 2
-      break
-    case ButtonVariants.White:
-      bgColor = theme.vadsColorBaseLightest
-      bgColorPressed = theme.uswdsSystemColorGray30
-      textColor = theme.vadsColorBlack
-      textColorPressed = theme.vadsColorBlack
       break
     default:
       bgColor = theme.vadsColorActionSurfaceDefault
