@@ -12,7 +12,7 @@ type SnackbarContextType = {
 }
 
 export const SNACKBAR_DURATIONS = {
-  DEFAULT: 1000000000000, // Essentially indefinite until dismissed
+  DEFAULT: 2147483646, // Essentially indefinite until dismissed (23 days, limited by 32-bit int)
   SCREEN_READER: 5000,
 }
 

@@ -14,6 +14,7 @@ import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toas
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 
+import { ComponentWrapper } from '../../wrapper'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { isAndroid } from '../../utils/OSfunctions'
@@ -55,7 +56,7 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
  * All options associated with the useSnackbar.show function
  */
 export type SnackbarOptions = SnackbarData & {
-  /** offset from bottom of screen. defaults to 50 in SnackbarProvider */
+  /** offset from bottom of screen. defaults to NavBar height + device inset */
   offset?: number
 }
 
@@ -238,18 +239,20 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   }
 
   return (
-    <View {...containerProps}>
-      <View {...iconAndMessageContainer}>
-        <View style={iconViewStyle}>
-          <Icon {...iconProps} />
+    <ComponentWrapper>
+      <View {...containerProps}>
+        <View {...iconAndMessageContainer}>
+          <View style={iconViewStyle}>
+            <Icon {...iconProps} />
+          </View>
+          <Spacer size={sizing._8} horizontal />
+          <Text {...messageProps}>{toast.message}</Text>
         </View>
-        <Spacer size={sizing._8} horizontal />
-        <Text {...messageProps}>{toast.message}</Text>
+        <View {...buttonContainer}>
+          {actionButton()}
+          <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
+        </View>
       </View>
-      <View {...buttonContainer}>
-        {actionButton()}
-        <SnackbarButton text={t('dismiss')} onPress={toast.onHide} />
-      </View>
-    </View>
+    </ComponentWrapper>
   )
 }
