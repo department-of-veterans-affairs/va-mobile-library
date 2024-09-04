@@ -98,13 +98,3 @@ export const _____Destructive: Story = {
     a11yHint: 'A brief description of the result of pressing this Button',
   },
 }
-
-export const ______White: Story = {
-  name: 'White',
-  args: {
-    buttonType: ButtonVariants.White,
-    label: 'Button text',
-    a11yLabel: 'Alternate a11y text',
-    a11yHint: 'A brief description of the result of pressing this Button',
-  },
-}
