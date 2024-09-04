@@ -1,5 +1,20 @@
 # Changelog
 
+## [components-v0.22.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.22.1) (2024-09-04)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.22.1...components-v0.22.1)
+
+**Closed issues:**
+
+- DS - Tech Discovery for Checkbox Group [\#426](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/426)
+- DS - SnackBar Accessibility Review [\#411](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/411)
+- DS - Snackbar - Visual QA [\#366](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/366)
+- CU - Move CHANGELOG to documentation folder [\#137](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/137)
+
+**Merged pull requests:**
+
+- \[Tests\] Snackbar Unit Tests [\#451](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/451) ([TimRoe](https://github.com/TimRoe))
+
 ## [linting-v0.22.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/linting-v0.22.1) (2024-08-26)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.22.0...linting-v0.22.1)
