@@ -1,5 +1,13 @@
 # Changelog
 
+## [components-v0.23.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.23.0) (2024-09-04)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.22.1...components-v0.23.0)
+
+**Merged pull requests:**
+
+- \[Code Upkeep\] Remove White Button Variant [\#460](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/460) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.22.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.22.1) (2024-09-04)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/linting-v0.22.1...components-v0.22.1)
