@@ -25,8 +25,10 @@ export function useSnackbar() {
   const show = (message: string, snackbarOptions?: SnackbarOptions) => {
     const { offset, setOffset } = context
 
-    // Adjust offset if provided or reset to default
-    const newOffset = snackbarOptions?.offset || defaultOffset
+    const customOffset = snackbarOptions?.offset
+
+    // Custom offset if provided, else default
+    const newOffset = customOffset === undefined ? defaultOffset : customOffset
 
     // Only call setOffset if different from current to avoid re-render
     if (newOffset !== offset) {
