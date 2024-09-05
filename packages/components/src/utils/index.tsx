@@ -1,6 +1,3 @@
-// Namespace import is required. Destructuring causes error in va-mobile-app See #390.
-import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
-
 import {
   AccessibilityInfo,
   ColorSchemeName,
@@ -9,6 +6,7 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native'
+import { Theme, themes } from '@department-of-veterans-affairs/mobile-tokens'
 import { useEffect, useState } from 'react'
 
 /** Function to prefill base gray colors */
@@ -34,9 +32,9 @@ export function useColorScheme(): ColorSchemeName {
 }
 
 /** Returns light/dark theme based on useColorScheme */
-export function useTheme(): Tokens.Theme {
+export function useTheme(): Theme {
   const themeName: ColorSchemeName = useColorScheme() || 'light'
-  return Tokens.themes[themeName]
+  return themes[themeName]
 }
 
 /**
