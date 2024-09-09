@@ -128,6 +128,19 @@ StyleDictionary.registerFormat({
   },
 })
 
+/** Creates named type declaration for spacing. Allows for TypeScript autocomplete */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/spacing',
+  formatter: function (dictionary) {
+    let declaration = 'export declare const spacing: {\n'
+    dictionary.allProperties.forEach((token) => {
+      declaration += `  ${token.name}: number;\n`
+    })
+    declaration += '}'
+    return declaration
+  },
+})
+
 /** Creates named type declaration for Themes. Allows for TypeScript autocomplete */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/theme',
@@ -152,7 +165,8 @@ StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/module',
   formatter: function () {
     let declaration = "export * from './types/theme'\n"
-    declaration += "export * from './types/colors'"
+    declaration += "export * from './types/colors'\n"
+    declaration += "export * from './types/spacing'"
 
     return declaration
   },

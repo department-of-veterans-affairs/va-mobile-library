@@ -42,6 +42,11 @@ module.exports = {
           filter: 'filter/color/is-color',
         },
         {
+          destination: 'types/spacing.d.ts',
+          format: 'typescript/es6-declarations/spacing',
+          filter: 'filter/spacing/is-spacing',
+        },
+        {
           destination: 'types/theme.d.ts',
           format: 'typescript/es6-declarations/theme',
           filter: 'filter/color/light-mode',
