@@ -11,6 +11,9 @@ Once VADS has added tokens to their css-library package, we need to perform a co
 
 - [Link to VADS PR or Issue]()
 
+## Tokens
+  - primitive-token-1: VALUE
+  - semantic-token-1: VALUE
 ## Acceptance Criteria
 <!-- Add a checkbox for each item required to fulfill the user story/issue. -->  
 
