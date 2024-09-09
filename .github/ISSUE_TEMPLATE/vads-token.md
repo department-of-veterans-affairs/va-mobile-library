@@ -1,7 +1,7 @@
 ---
-name: VADS – Tokens
+name: VADS – Tokens update
 about: Template for updating our tokens package to include new VADS tokens
-title: DS - VADS Tokens: TOKENS_DESCRIPTION
+title: DS - VADS Token update: TOKENS_DESCRIPTION
 labels: ["design-system", "front-end"]
 assignees: ''
 

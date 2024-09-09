@@ -1,7 +1,7 @@
 ---
-name: VADS – Icon assets
+name: VADS – Icon update
 about: Template for updating our assets package to include new VADS icons
-title: DS - VADS Icon: ICON_NAME
+title: DS - VADS icon update: ICON_NAME
 labels: ["design-system", "front-end"]
 assignees: ''
 
