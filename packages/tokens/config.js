@@ -28,13 +28,13 @@ module.exports = {
           format: 'javascript/es6/vads-module-export',
         },
         {
-          destination: 'js/themes.js',
-          format: 'javascript/es6/vads-colors-themes',
-        },
-        {
           destination: 'js/spacing.js',
           format: 'javascript/es6/vads-spacing',
           filter: 'filter/spacing/is-spacing',
+        },
+        {
+          destination: 'js/themes.js',
+          format: 'javascript/es6/vads-colors-themes',
         },
         {
           destination: 'types/colors.d.ts',
