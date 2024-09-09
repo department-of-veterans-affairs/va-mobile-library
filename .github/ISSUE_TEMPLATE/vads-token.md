@@ -15,5 +15,5 @@ Once VADS has added tokens to their css-library package, we need to perform a co
 <!-- Add a checkbox for each item required to fulfill the user story/issue. -->  
 
 -  [ ] Update [css-library](https://www.npmjs.com/package/@department-of-veterans-affairs/css-library) in `tokens/package.json` to the latest version
--  [ ] Run the `yarn tokens:build` to rebuild our tokens and check for any errors
+-  [ ] Run `yarn tokens:build` to rebuild our tokens and check for any errors
 -  [ ] Publish a new version of the tokens package
