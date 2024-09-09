@@ -6,6 +6,7 @@ module.exports = {
     'src/tokens/color/component-light.json',
     'src/tokens/color/semantic-dark.json',
     'src/tokens/color/component-dark.json',
+    'src/tokens/spacing/spacing.json',
   ],
   platforms: {
     rn: {
@@ -29,6 +30,11 @@ module.exports = {
         {
           destination: 'js/themes.js',
           format: 'javascript/es6/vads-colors-themes',
+        },
+        {
+          destination: 'js/spacing.js',
+          format: 'javascript/es6/vads-spacing',
+          filter: 'filter/spacing/is-spacing',
         },
         {
           destination: 'types/colors.d.ts',

@@ -59,6 +59,12 @@ StyleDictionary.registerFilter({
   matcher: filterDark,
 })
 
+/** Remove tokens that do not have 'spacing' in the category */
+StyleDictionary.registerFilter({
+  name: 'filter/spacing/is-spacing',
+  matcher: (token) => token.attributes.category.includes('spacing'),
+})
+
 /**
  * Formats
  */
@@ -197,6 +203,19 @@ StyleDictionary.registerFormat({
     )
 
     return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
+  },
+})
+
+/** Custom format for spacing. Exports all spacing tokens as single object */
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/vads-spacing',
+  formatter: function (dictionary) {
+    const tokens = dictionary.allProperties.reduce((result, token) => {
+      result[token.name] = token.value
+      return result
+    }, {})
+
+    return `export const spacing = ${JSON.stringify(tokens, null, 2)};`
   },
 })
 
