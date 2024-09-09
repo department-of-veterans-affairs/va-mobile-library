@@ -110,7 +110,8 @@ StyleDictionary.registerFormat({
   formatter: function () {
     return (
       "export { colors } from './colors'\n" +
-      "export { themes } from './themes'"
+      "export { themes } from './themes'\n" +
+      "export { spacing } from './spacing'"
     )
   },
 })
