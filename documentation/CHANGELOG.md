@@ -1,5 +1,23 @@
 # Changelog
 
+## [tokens-v0.15.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.15.0) (2024-09-10)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.23.0...tokens-v0.15.0)
+
+**Closed issues:**
+
+- DS - Removed White Button Variant [\#454](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/454)
+- \[Design Tokens\] Spacing: Prep for handoff [\#445](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/445)
+- \[Design Tokens\] Checkbox: Add color tokens to VADS [\#441](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/441)
+- \[Design Tokens\] Checkbox: Create color tokens [\#424](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/424)
+- DS - SnackBar Component Flagship Work Setup [\#370](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/370)
+- DS - SnackBar Component Unit Tests [\#368](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/368)
+- Snackbar - Publish component to Figma and Doc Site [\#115](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/115)
+
+**Merged pull requests:**
+
+- \[Feature\] Add Checkbox tokens [\#472](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/472) ([jessicawoodin](https://github.com/jessicawoodin))
+
 ## [components-v0.23.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.23.0) (2024-09-04)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.22.1...components-v0.23.0)
