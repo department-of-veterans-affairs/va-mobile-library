@@ -6,10 +6,10 @@ import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 export type SpacerProps = {
   /** Size of the spacer, default sm */
   size?:
-    | 'none' // 0
-    | '2xs' // 4
-    | 'xs' // 8
-    | 'sm' // 12
+    | 'none'
+    | '2xs'
+    | 'xs'
+    | 'sm'
     | 'md'
     | 'lg'
     | 'xl'
@@ -33,9 +33,8 @@ export const Spacer: FC<SpacerProps> = ({
   horizontal = false,
 }) => {
   const index = `vadsSpace${size[0].toUpperCase()}${size.slice(1)}`
-  console.log('key', index)
   const spacerSize: number = spacing[index as keyof typeof spacing]
-  console.log('spacerSize', spacerSize)
+
   return (
     <View
       style={{
