@@ -9,7 +9,6 @@ import {
 } from 'react-native'
 import React, { FC, useState } from 'react'
 
-import * as Tokens from '@department-of-veterans-affairs/mobile-tokens'
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
 import { Icon, IconProps } from '../Icon/Icon'
@@ -129,7 +128,7 @@ export const Alert: FC<AlertProps> = ({
     backgroundColor: backgroundColor,
     borderLeftColor: borderColor,
     borderLeftWidth: Sizing._8,
-    padding: Tokens.spacing.vadsSpaceLg,
+    padding: Sizing._20,
     paddingLeft: Sizing._12, // Adds with borderLeftWidth for 20
     width: '100%', // Ensure Alert fills horizontal space, regardless of flexing content
   }
