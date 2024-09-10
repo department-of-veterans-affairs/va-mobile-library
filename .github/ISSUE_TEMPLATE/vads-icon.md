@@ -25,3 +25,4 @@ Once VADS has added an icon to their sprite sheet, we need to perform a couple a
 - [ ] Run [buildIconListFromAssets.js script](https://github.com/department-of-veterans-affairs/va-mobile-library/blob/main/packages/components/buildIconListFromAssets.js) to regenerate assets list
 - [ ] Verify new icon(s) is displaying in Storybook
 - [ ] [Publish](https://github.com/department-of-veterans-affairs/va-mobile-library/actions/workflows/publish.yml) a new version of the components package
+- [ ] Notify @jessicawoodin to add new tokens to Figma
