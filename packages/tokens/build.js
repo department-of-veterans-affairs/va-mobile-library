@@ -16,18 +16,6 @@ const sortTokensByKey = (obj) => {
   return sortedObj
 }
 
-/** Reterns a new tokens object sorted by value */
-const sortTokensByValue = (obj) => {
-  // Convert object to array of entries
-  const entries = Object.entries(obj)
-
-  // Sort the array based on the 'value' property
-  const sortedEntries = entries.sort((a, b) => a[1].value - b[1].value)
-
-  // Convert the sorted array back to an object
-  return Object.fromEntries(sortedEntries)
-}
-
 /** Reusable filter function that returns only non-dark-mode tokens */
 const filterLight = (token) =>
   token.attributes.category.includes('color') &&
@@ -235,12 +223,12 @@ StyleDictionary.registerFormat({
       {},
     )
 
-    const sortedTokens =
-      dictionary.allTokens?.[0].attributes?.category === 'spacing'
-        ? sortTokensByValue(tokens)
-        : sortTokensByKey(tokens)
+    // Leave spacing tokens sorted by size
+    if (dictionary.allTokens?.[0].attributes?.category === 'spacing') {
+      return JSON.stringify(tokens, undefined, 2) + `\n`
+    }
 
-    return JSON.stringify(sortedTokens, undefined, 2) + `\n`
+    return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
   },
 })
 
