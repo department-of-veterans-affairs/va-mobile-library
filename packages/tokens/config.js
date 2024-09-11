@@ -67,6 +67,11 @@ module.exports = {
           format: 'json/dtcg',
           filter: 'filter/color/light-mode',
         },
+        {
+          destination: `spacing.json`,
+          format: 'json/dtcg',
+          filter: 'filter/spacing/is-spacing',
+        },
       ],
     },
   },

@@ -177,9 +177,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
-    // Returns proper  value for dtcg aliasing
+    // Returns proper color value for dtcg aliasing
     const getValue = (value) => {
-      if (value.startsWith('{') && value.includes('.')) {
+      if (
+        typeof value == 'string' &&
+        value.startsWith('{') &&
+        value.includes('.')
+      ) {
         return `${value.split('.')[0]}}`
       }
 
@@ -200,6 +204,8 @@ StyleDictionary.registerFormat({
         return 'fontWeight'
       } else if (category === 'font' && type === 'size') {
         return 'dimension'
+      } else if (category === 'spacing') {
+        return 'number'
       }
 
       return ''
@@ -217,7 +223,12 @@ StyleDictionary.registerFormat({
       {},
     )
 
-    return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
+    const sortedTokens =
+      dictionary.allTokens?.[0].attributes?.category == 'spacing'
+        ? tokens
+        : sortTokensByKey(tokens)
+
+    return JSON.stringify(sortedTokens, undefined, 2) + `\n`
   },
 })
 
