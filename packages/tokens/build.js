@@ -236,7 +236,7 @@ StyleDictionary.registerFormat({
     )
 
     const sortedTokens =
-      dictionary.allTokens?.[0].attributes?.category == 'spacing'
+      dictionary.allTokens?.[0].attributes?.category === 'spacing'
         ? sortTokensByValue(tokens)
         : sortTokensByKey(tokens)
 
