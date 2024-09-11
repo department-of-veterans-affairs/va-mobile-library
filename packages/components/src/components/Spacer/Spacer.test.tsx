@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react-native'
 import React from 'react'
 
 describe('Spacer', () => {
-  it('renders correctly at default size (10)', () => {
+  it('renders correctly at default size vadsSpaceSm', () => {
     render(<Spacer />)
 
     const spacer = screen.root
@@ -21,7 +21,7 @@ describe('Spacer', () => {
     expect(spacer.props.style.width).toBe('auto')
   })
 
-  it('renders horizontally at default size (10)', () => {
+  it('renders horizontally at default size vadsSpaceSm', () => {
     render(<Spacer horizontal />)
 
     const spacer = screen.root
