@@ -19,7 +19,7 @@ Once VADS has added an icon to their sprite sheet, we need to perform a couple a
 
 - [ ] Update [component-library](https://www.npmjs.com/package/@department-of-veterans-affairs/component-library) in `assets/package.json` to the latest version
 - [ ] Run the [extract-icons](https://github.com/department-of-veterans-affairs/va-mobile-library/blob/main/packages/assets/extract-svgs.js) script to extract the individual SVGs 
-- [ ] Verify existence of new icon(s) and add it to the repo
+- [ ] Verify existence of new icon(s) and create a PR to merge to repo
 - [ ] Publish a new version of the assets package
 - [ ] Update components package to incorporate updated assets package
 - [ ] Run [buildIconListFromAssets.js script](https://github.com/department-of-veterans-affairs/va-mobile-library/blob/main/packages/components/buildIconListFromAssets.js) to regenerate assets list
