@@ -1,0 +1,50 @@
+{
+  "vads-space-none": {
+    "$value": 0,
+    "$type": "number"
+  },
+  "vads-space-2xs": {
+    "$value": 4,
+    "$type": "number"
+  },
+  "vads-space-xs": {
+    "$value": 8,
+    "$type": "number"
+  },
+  "vads-space-sm": {
+    "$value": 12,
+    "$type": "number"
+  },
+  "vads-space-md": {
+    "$value": 16,
+    "$type": "number"
+  },
+  "vads-space-lg": {
+    "$value": 20,
+    "$type": "number"
+  },
+  "vads-space-xl": {
+    "$value": 24,
+    "$type": "number"
+  },
+  "vads-space-2xl": {
+    "$value": 28,
+    "$type": "number"
+  },
+  "vads-space-3xl": {
+    "$value": 32,
+    "$type": "number"
+  },
+  "vads-space-4xl": {
+    "$value": 36,
+    "$type": "number"
+  },
+  "vads-space-5xl": {
+    "$value": 40,
+    "$type": "number"
+  },
+  "vads-space-6xl": {
+    "$value": 44,
+    "$type": "number"
+  }
+}
