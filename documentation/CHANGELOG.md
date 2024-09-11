@@ -1,5 +1,18 @@
 # Changelog
 
+## [tokens-v0.16.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.16.0) (2024-09-11)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.23.1...tokens-v0.16.0)
+
+**Closed issues:**
+
+- DS - Issue templates for VADS work [\#469](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/469)
+- DS - Add Spacing Tokens to Token Package [\#447](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/447)
+
+**Merged pull requests:**
+
+- \[Feature\] Add spacing tokens and style-dictionary configs [\#467](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/467) ([narin](https://github.com/narin))
+
 ## [components-v0.23.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.23.1) (2024-09-11)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.15.0...components-v0.23.1)
