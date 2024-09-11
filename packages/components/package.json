@@ -39,6 +39,7 @@
   },
   "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
+    "@department-of-veterans-affairs/mobile-tokens": "0.16.0",
     "@os-team/i18next-react-native-language-detector": "^1.0.34",
     "i18next": "^23.12.2",
     "react-i18next": "^15.0.0",
@@ -48,7 +49,6 @@
   },
   "peerDependencies": {
     "@department-of-veterans-affairs/mobile-assets": "^0.12.0",
-    "@department-of-veterans-affairs/mobile-tokens": "^0.14.0",
     "react": "^18.2.0",
     "react-native": ">=0.71.7",
     "react-native-gesture-handler": "^2.12.0",
@@ -60,7 +60,6 @@
     "@babel/preset-env": "^7.24.8",
     "@babel/preset-typescript": "^7.24.7",
     "@department-of-veterans-affairs/mobile-assets": "0.12.0",
-    "@department-of-veterans-affairs/mobile-tokens": "0.14.0",
     "@expo/metro-runtime": "~3.2.1",
     "@expo/webpack-config": "~19.0.1",
     "@react-native-async-storage/async-storage": "1.23.1",
