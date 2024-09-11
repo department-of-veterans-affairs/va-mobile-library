@@ -5,7 +5,7 @@ const StyleDictionary = require('style-dictionary')
  * Utils
  */
 
-/** Sort function to alphabetize token objects */
+/** Reterns a new tokens object sorted alphabetically by key */
 const sortTokensByKey = (obj) => {
   const sortedKeys = Object.keys(obj).sort()
   const sortedObj = {}
@@ -59,6 +59,12 @@ StyleDictionary.registerFilter({
   matcher: filterDark,
 })
 
+/** Remove tokens that do not have 'spacing' in the category */
+StyleDictionary.registerFilter({
+  name: 'filter/spacing/is-spacing',
+  matcher: (token) => token.attributes.category.includes('spacing'),
+})
+
 /**
  * Formats
  */
@@ -104,7 +110,8 @@ StyleDictionary.registerFormat({
   formatter: function () {
     return (
       "export { colors } from './colors'\n" +
-      "export { themes } from './themes'"
+      "export { themes } from './themes'\n" +
+      "export { spacing } from './spacing'"
     )
   },
 })
@@ -116,6 +123,19 @@ StyleDictionary.registerFormat({
     let declaration = 'export declare const colors: {\n'
     dictionary.allProperties.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
+    })
+    declaration += '}'
+    return declaration
+  },
+})
+
+/** Creates named type declaration for spacing. Allows for TypeScript autocomplete */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/spacing',
+  formatter: function (dictionary) {
+    let declaration = 'export declare const spacing: {\n'
+    dictionary.allProperties.forEach((token) => {
+      declaration += `  ${token.name}: number;\n`
     })
     declaration += '}'
     return declaration
@@ -146,7 +166,8 @@ StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/module',
   formatter: function () {
     let declaration = "export * from './types/theme'\n"
-    declaration += "export * from './types/colors'"
+    declaration += "export * from './types/colors'\n"
+    declaration += "export * from './types/spacing'"
 
     return declaration
   },
@@ -156,9 +177,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
-    // Returns proper  value for dtcg aliasing
+    // Returns proper color value for dtcg aliasing
     const getValue = (value) => {
-      if (value.startsWith('{') && value.includes('.')) {
+      if (
+        typeof value == 'string' &&
+        value.startsWith('{') &&
+        value.includes('.')
+      ) {
         return `${value.split('.')[0]}}`
       }
 
@@ -179,6 +204,8 @@ StyleDictionary.registerFormat({
         return 'fontWeight'
       } else if (category === 'font' && type === 'size') {
         return 'dimension'
+      } else if (category === 'spacing') {
+        return 'number'
       }
 
       return ''
@@ -196,7 +223,25 @@ StyleDictionary.registerFormat({
       {},
     )
 
+    // Leave spacing tokens sorted by size
+    if (dictionary.allTokens?.[0].attributes?.category === 'spacing') {
+      return JSON.stringify(tokens, undefined, 2) + `\n`
+    }
+
     return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
+  },
+})
+
+/** Custom format for spacing. Exports all spacing tokens as single object */
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/vads-spacing',
+  formatter: function (dictionary) {
+    const tokens = dictionary.allProperties.reduce((result, token) => {
+      result[token.name] = token.value
+      return result
+    }, {})
+
+    return `export const spacing = ${JSON.stringify(tokens, null, 2)};`
   },
 })
 
