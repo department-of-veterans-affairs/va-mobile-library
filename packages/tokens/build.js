@@ -5,7 +5,7 @@ const StyleDictionary = require('style-dictionary')
  * Utils
  */
 
-/** Sort function to alphabetize token objects */
+/** Reterns a new tokens object sorted alphabetically by key */
 const sortTokensByKey = (obj) => {
   const sortedKeys = Object.keys(obj).sort()
   const sortedObj = {}
@@ -14,6 +14,18 @@ const sortTokensByKey = (obj) => {
   })
 
   return sortedObj
+}
+
+/** Reterns a new tokens object sorted by value */
+const sortTokensByValue = (obj) => {
+  // Convert object to array of entries
+  const entries = Object.entries(obj)
+
+  // Sort the array based on the 'value' property
+  const sortedEntries = entries.sort((a, b) => a[1].value - b[1].value)
+
+  // Convert the sorted array back to an object
+  return Object.fromEntries(sortedEntries)
 }
 
 /** Reusable filter function that returns only non-dark-mode tokens */
@@ -225,7 +237,7 @@ StyleDictionary.registerFormat({
 
     const sortedTokens =
       dictionary.allTokens?.[0].attributes?.category == 'spacing'
-        ? tokens
+        ? sortTokensByValue(tokens)
         : sortTokensByKey(tokens)
 
     return JSON.stringify(sortedTokens, undefined, 2) + `\n`
