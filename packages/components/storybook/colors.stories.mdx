@@ -47,7 +47,9 @@ Our color palette is organized into semantic color tokens, which have specific m
     colors={{
       Gray90: colors.uswdsSystemColorGray90,
       Gray80: colors.uswdsSystemColorGray80,
+      Gray60: colors.uswdsSystemColorGray60,
       Gray30: colors.uswdsSystemColorGray30,
+      Gray2: colors.uswdsSystemColorGray2,
     }}
   />
 </ColorPalette>
@@ -182,11 +184,27 @@ Our color palette is organized into semantic color tokens, which have specific m
     }}
   />
   <ColorItem
+    title="Subtle"
+    subtitle="vadsColorForegroundSubtle"
+    colors={{
+      OnLight: colors.vadsColorForegroundSubtleOnLight,
+      OnDark: colors.vadsColorForegroundSubtleOnDark,
+    }}
+  />
+  <ColorItem
     title="Inverse"
     subtitle="vadsColorForegroundInverse"
     colors={{
       OnLight: colors.vadsColorForegroundInverseOnLight,
       OnDark: colors.vadsColorForegroundInverseOnDark,
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="vadsColorForegroundError"
+    colors={{
+      OnLight: colors.vadsColorForegroundErrorOnLight,
+      OnDark: colors.vadsColorForegroundErrorOnDark,
     }}
   />
 </ColorPalette>
@@ -445,6 +463,55 @@ Our color palette is organized into semantic color tokens, which have specific m
   />
 </ColorPalette>
 
+### Forms
+
+#### Foreground
+<ColorPalette>
+  <ColorItem
+    title="Active"
+    subtitle="vadsColorFormsForegroundActive"
+    colors={{
+      OnLight: colors.vadsColorFormsForegroundActiveOnLight,
+      OnDark: colors.vadsColorFormsForegroundActiveOnDark,
+    }}
+  />
+</ColorPalette>
+
+#### Border
+<ColorPalette>
+  <ColorItem
+    title="Default"
+    subtitle="vadsColorFormsBorderDefault"
+    colors={{
+      OnLight: colors.vadsColorFormsBorderDefaultOnLight,
+      OnDark: colors.vadsColorFormsBorderDefaultOnDark,
+    }}
+  />
+  <ColorItem
+    title="Subtle"
+    subtitle="vadsColorFormsBorderSubtle"
+    colors={{
+      OnLight: colors.vadsColorFormsBorderSubtleOnLight,
+      OnDark: colors.vadsColorFormsBorderSubtleOnDark,
+    }}
+  />
+  <ColorItem
+    title="Active"
+    subtitle="vadsColorFormsBorderActive"
+    colors={{
+      OnLight: colors.vadsColorFormsBorderActiveOnLight,
+      OnDark: colors.vadsColorFormsBorderActiveOnDark,
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="vadsColorFormsBorderError"
+    colors={{
+      OnLight: colors.vadsColorFormsBorderErrorOnLight,
+      OnDark: colors.vadsColorFormsBorderErrorOnDark,
+    }}
+  />
+</ColorPalette>
 
 ## Component
 
