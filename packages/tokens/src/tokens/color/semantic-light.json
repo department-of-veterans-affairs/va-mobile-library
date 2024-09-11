@@ -27,6 +27,20 @@
       "category": "color"
     }
   },
+  "vads-color-foreground-subtle-on-light": {
+    "name": "vads-color-foreground-subtle-on-light",
+    "value": "{vads-color-base-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-foreground-error-on-light": {
+    "name": "vads-color-foreground-error-on-light",
+    "value": "{vads-color-secondary-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-surface-secondary-on-light": {
     "name": "vads-color-surface-secondary-on-light",
     "value": "{vads-color-base-lighter.*.value}",
@@ -198,6 +212,41 @@
   "vads-color-feedback-surface-error-on-light": {
     "name": "vads-color-feedback-surface-error-on-light",
     "value": "{vads-color-error-lighter.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-forms-border-default-on-light": {
+    "name": "vads-color-forms-border-default-on-light",
+    "value": "{vads-color-base-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-forms-border-error-on-light": {
+    "name": "vads-color-forms-border-error-on-light",
+    "value": "{vads-color-secondary-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-forms-border-subtle-on-light": {
+    "name": "vads-color-forms-border-subtle-on-light",
+    "value": "{vads-color-base-light.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-forms-border-active-on-light": {
+    "name": "vads-color-forms-border-active-on-light",
+    "value": "{vads-color-primary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-forms-foreground-active-on-light": {
+    "name": "vads-color-forms-foreground-active-on-light",
+    "value": "{vads-color-primary.*.value}",
     "attributes": {
       "category": "color"
     }
