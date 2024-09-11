@@ -12,7 +12,7 @@ describe('Spacer', () => {
     expect(spacer.props.style.width).toBe('auto')
   })
 
-  it('renders correctly at overridden size 20', () => {
+  it('renders correctly at overridden size vadsSpaceLg', () => {
     render(<Spacer size="lg" />)
 
     const spacer = screen.root
@@ -30,7 +30,7 @@ describe('Spacer', () => {
     expect(spacer.props.style.width).toBe(12)
   })
 
-  it('renders horizontally at overridden size 20', () => {
+  it('renders horizontally at overridden size vadsSpaceLg', () => {
     render(<Spacer size="lg" horizontal />)
 
     const spacer = screen.root
