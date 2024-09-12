@@ -16,6 +16,7 @@ app.json
 babel.config.js
 jest.config.js
 metro.config.js
+tsconfig.json
 tsconfig.test.json
 
 # Source code

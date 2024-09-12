@@ -4,7 +4,7 @@ import React, { FC } from 'react'
 
 import { IconMap } from './iconList'
 import { useColorScheme } from '../../utils'
-import { useTheme } from '../../utils/useTheme'
+import { useTheme } from '../../utils'
 
 type nameOrSvg =
   | {

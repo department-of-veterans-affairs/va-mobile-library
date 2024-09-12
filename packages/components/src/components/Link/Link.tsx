@@ -19,7 +19,7 @@ import {
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
 import { t } from 'i18next'
-import { useTheme } from '../../utils/useTheme'
+import { useTheme } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
 type nullTypeSpecifics = {

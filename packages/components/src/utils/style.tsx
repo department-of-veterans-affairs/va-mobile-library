@@ -1,14 +1,11 @@
 import {
-  AccessibilityInfo,
   ColorSchemeName,
   PressableStateCallbackType,
   useColorScheme as RNUseColorScheme,
   StyleProp,
   ViewStyle,
 } from 'react-native'
-import { useEffect, useState } from 'react'
-
-import { useTheme } from './useTheme'
+import { Theme, themes } from '@department-of-veterans-affairs/mobile-tokens'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
@@ -32,33 +29,10 @@ export function useColorScheme(): ColorSchemeName {
   }
 }
 
-/**
- * Hook to monitor screen reader status
- * @returns True when the screen reader is on, else false
- */
-export function useIsScreenReaderEnabled(): boolean {
-  const [screenReaderEnabled, setScreenReaderEnabled] = useState(false)
-
-  useEffect(() => {
-    // Function to update state based on the screen reader status
-    const updateScreenReaderStatus = (isEnabled: boolean) => {
-      setScreenReaderEnabled(isEnabled)
-    }
-
-    // Initiate with current screen reader status
-    AccessibilityInfo.isScreenReaderEnabled().then(updateScreenReaderStatus)
-
-    // Subscribe to screen reader status changes
-    const subscription = AccessibilityInfo.addEventListener(
-      'screenReaderChanged',
-      updateScreenReaderStatus,
-    )
-
-    // Cleanup subscription on component unmount
-    return () => subscription.remove()
-  }, [screenReaderEnabled])
-
-  return screenReaderEnabled
+/** Returns light/dark theme based on useColorScheme */
+export function useTheme(): Theme {
+  const themeName: ColorSchemeName = useColorScheme() || 'light'
+  return themes[themeName]
 }
 
 /**

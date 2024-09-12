@@ -5,7 +5,7 @@ import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
 import { PressableOpacityStyle } from '../../utils'
-import { useTheme } from '../../utils/useTheme'
+import { useTheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}

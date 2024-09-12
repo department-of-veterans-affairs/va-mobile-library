@@ -10,7 +10,7 @@ import React, { useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { useTheme } from '../../utils/useTheme'
+import { useTheme } from '../../utils'
 
 export type LoadingIndicatorProps = {
   /** AccessibilityLabel for the text */
