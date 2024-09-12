@@ -233,7 +233,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     return (
       <>
         <SnackbarButton text={actionText} onPress={onPress} />
-        <Spacer size={sizing._24} horizontal />
+        <Spacer size="xl" horizontal />
       </>
     )
   }
@@ -245,7 +245,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
           <View style={iconViewStyle}>
             <Icon {...iconProps} />
           </View>
-          <Spacer size={sizing._8} horizontal />
+          <Spacer size="xs" horizontal />
           <Text {...messageProps}>{toast.message}</Text>
         </View>
         <View {...buttonContainer}>

@@ -225,7 +225,7 @@ export const Alert: FC<AlertProps> = ({
 
     return (
       <>
-        <Spacer size={Sizing._20} />
+        <Spacer size="lg" />
         <Button {...primaryButton} />
       </>
     )
@@ -240,7 +240,7 @@ export const Alert: FC<AlertProps> = ({
 
     return (
       <>
-        <Spacer size={Sizing._20} />
+        <Spacer size="lg" />
         <Button {...secondaryButton} />
       </>
     )
@@ -259,7 +259,7 @@ export const Alert: FC<AlertProps> = ({
             <View style={{ flexDirection: 'row' }}>
               <View style={{ flex: 1 }}>
                 {header && (description || children) ? (
-                  <Spacer size={Sizing._20} />
+                  <Spacer size="lg" />
                 ) : null}
                 {description ? (
                   <View
@@ -268,13 +268,11 @@ export const Alert: FC<AlertProps> = ({
                     <Text style={descriptionFont}>{description}</Text>
                   </View>
                 ) : null}
-                {description && children ? <Spacer size={Sizing._20} /> : null}
+                {description && children ? <Spacer size="lg" /> : null}
                 {children}
               </View>
               {/* When expandable, prevent body content extending below the expand icon and padding for it */}
-              {expandable ? (
-                <Spacer size={Sizing._10 + Sizing._24} horizontal />
-              ) : null}
+              {expandable ? <Spacer size="4xl" horizontal /> : null}
             </View>
           )}
         </View>
