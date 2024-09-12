@@ -18,7 +18,7 @@ import { ComponentWrapper } from '../../wrapper'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { isAndroid } from '../../utils/OSfunctions'
-import { useTheme } from '../../utils'
+import { useTheme } from '../../utils/useTheme'
 
 type SnackbarButtonProps = {
   text: string

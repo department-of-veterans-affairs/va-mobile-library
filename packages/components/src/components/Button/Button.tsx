@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import React from 'react'
 
-import { useTheme } from '../../utils'
+import { useTheme } from '../../utils/useTheme'
 
 export enum ButtonVariants {
   Base = 'Base',
