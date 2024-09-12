@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.24.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.0) (2024-09-12)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.16.0...components-v0.24.0)
+
+**Closed issues:**
+
+- \[Design Tokens\] Spacing: Publish tokens to Figma [\#463](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/463)
+
+**Merged pull requests:**
+
+- \[Feature\] Update Spacer component to use spacing tokens [\#474](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/474) ([narin](https://github.com/narin))
+
 ## [tokens-v0.16.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.16.0) (2024-09-11)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.23.1...tokens-v0.16.0)
