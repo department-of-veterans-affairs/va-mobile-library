@@ -3,8 +3,7 @@ import { SvgProps } from 'react-native-svg'
 import React, { FC } from 'react'
 
 import { IconMap } from './iconList'
-import { useColorScheme } from '../../utils'
-import { useTheme } from '../../utils'
+import { useColorScheme, useTheme } from '../../utils'
 
 type nameOrSvg =
   | {
