@@ -33,7 +33,10 @@ type SpacerSize =
   | '6xl'
 
 export type SpacerProps = {
-  /** Size of the spacer, default sm (12). @see {@link SpacerSize} for values **/
+  /**
+   * Size of the spacer, defaults to sm (12).
+   * @see {@link SpacerSize} for possible values
+   **/
   size?: SpacerSize
 
   /** True for horizontal spacing */
