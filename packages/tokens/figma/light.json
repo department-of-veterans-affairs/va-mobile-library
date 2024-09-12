@@ -631,8 +631,36 @@
     "$value": "{vads-color-base}",
     "$type": "color"
   },
+  "vads-color-foreground-error-on-light": {
+    "$value": "{vads-color-secondary-dark}",
+    "$type": "color"
+  },
   "vads-color-foreground-inverse-on-light": {
     "$value": "{vads-color-base-lightest}",
+    "$type": "color"
+  },
+  "vads-color-foreground-subtle-on-light": {
+    "$value": "{vads-color-base-dark}",
+    "$type": "color"
+  },
+  "vads-color-forms-border-active-on-light": {
+    "$value": "{vads-color-primary}",
+    "$type": "color"
+  },
+  "vads-color-forms-border-default-on-light": {
+    "$value": "{vads-color-base-dark}",
+    "$type": "color"
+  },
+  "vads-color-forms-border-error-on-light": {
+    "$value": "{vads-color-secondary-dark}",
+    "$type": "color"
+  },
+  "vads-color-forms-border-subtle-on-light": {
+    "$value": "{vads-color-base-light}",
+    "$type": "color"
+  },
+  "vads-color-forms-foreground-active-on-light": {
+    "$value": "{vads-color-primary}",
     "$type": "color"
   },
   "vads-color-gibill-accent": {

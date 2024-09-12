@@ -5,7 +5,7 @@ const StyleDictionary = require('style-dictionary')
  * Utils
  */
 
-/** Sort function to alphabetize token objects */
+/** Reterns a new tokens object sorted alphabetically by key */
 const sortTokensByKey = (obj) => {
   const sortedKeys = Object.keys(obj).sort()
   const sortedObj = {}
@@ -177,9 +177,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
   formatter: function ({ dictionary }) {
-    // Returns proper  value for dtcg aliasing
+    // Returns proper color value for dtcg aliasing
     const getValue = (value) => {
-      if (value.startsWith('{') && value.includes('.')) {
+      if (
+        typeof value == 'string' &&
+        value.startsWith('{') &&
+        value.includes('.')
+      ) {
         return `${value.split('.')[0]}}`
       }
 
@@ -200,6 +204,8 @@ StyleDictionary.registerFormat({
         return 'fontWeight'
       } else if (category === 'font' && type === 'size') {
         return 'dimension'
+      } else if (category === 'spacing') {
+        return 'number'
       }
 
       return ''
@@ -216,6 +222,11 @@ StyleDictionary.registerFormat({
       }),
       {},
     )
+
+    // Leave spacing tokens sorted by size
+    if (dictionary.allTokens?.[0].attributes?.category === 'spacing') {
+      return JSON.stringify(tokens, undefined, 2) + `\n`
+    }
 
     return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
   },
