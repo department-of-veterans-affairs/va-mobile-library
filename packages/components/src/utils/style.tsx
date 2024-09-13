@@ -1,38 +1,15 @@
-import {
-  ColorSchemeName,
-  PressableStateCallbackType,
-  useColorScheme as RNUseColorScheme,
-  StyleProp,
-  ViewStyle,
-} from 'react-native'
-import { Theme, themes } from '@department-of-veterans-affairs/mobile-tokens'
+import { PressableStateCallbackType, StyleProp, ViewStyle } from 'react-native'
+
+import { useTheme } from './hooks/useTheme'
+
+// Export related hooks
+export { useColorScheme } from './hooks/useColorScheme'
+export { useTheme } from './hooks/useTheme'
 
 /** Function to prefill base gray colors */
 export function BaseColor() {
   const theme = useTheme()
   return theme.vadsColorForegroundDefault
-}
-
-/** Handles return of color scheme based on platform */
-export function useColorScheme(): ColorSchemeName {
-  // If not web Storybook, set with RN useColorScheme hook
-  if (!process.env.STORYBOOK_WEB) {
-    return RNUseColorScheme()
-  } else {
-    try {
-      const webStorybookColorScheme =
-        require('./storybook').webStorybookColorScheme // eslint-disable-line
-      return webStorybookColorScheme()
-    } catch (error) {
-      return null
-    }
-  }
-}
-
-/** Returns light/dark theme based on useColorScheme */
-export function useTheme(): Theme {
-  const themeName: ColorSchemeName = useColorScheme() || 'light'
-  return themes[themeName]
 }
 
 /**
