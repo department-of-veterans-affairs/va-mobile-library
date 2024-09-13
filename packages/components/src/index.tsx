@@ -20,5 +20,5 @@ export {
 export { Spacer } from './components/Spacer/Spacer'
 
 // Export consumer available utilities here so they are exported through npm
+export { useIsScreenReaderEnabled, useTheme } from './utils'
 export { useSnackbar } from './components/Snackbar/useSnackbar'
-export { useTheme } from './utils'

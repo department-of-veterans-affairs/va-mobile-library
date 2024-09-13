@@ -1,7 +1,7 @@
 import { ColorSchemeName } from 'react-native'
 import { Theme, themes } from '@department-of-veterans-affairs/mobile-tokens'
 
-import { useColorScheme } from '../style'
+import { useColorScheme } from './useColorScheme'
 
 /** Returns light/dark theme based on useColorScheme */
 export function useTheme(): Theme {

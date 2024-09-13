@@ -11,7 +11,7 @@ export function useColorScheme(): ColorSchemeName {
   } else {
     try {
       const webStorybookColorScheme =
-        require('./storybook').webStorybookColorScheme // eslint-disable-line
+        require('./useWebStorybookColorScheme').useWebStorybookColorScheme // eslint-disable-line
       return webStorybookColorScheme()
     } catch (error) {
       return null
