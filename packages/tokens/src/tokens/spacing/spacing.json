@@ -1,0 +1,86 @@
+{
+  "vads-space-none": {
+    "name": "vads-space-none",
+    "value": 0,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-2xs": {
+    "name": "vads-space-2xs",
+    "value": 4,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-xs": {
+    "name": "vads-space-xs",
+    "value": 8,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-sm": {
+    "name": "vads-space-sm",
+    "value": 12,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-md": {
+    "name": "vads-space-md",
+    "value": 16,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-lg": {
+    "name": "vads-space-lg",
+    "value": 20,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-xl": {
+    "name": "vads-space-xl",
+    "value": 24,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-2xl": {
+    "name": "vads-space-2xl",
+    "value": 28,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-3xl": {
+    "name": "vads-space-3xl",
+    "value": 32,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-4xl": {
+    "name": "vads-space-4xl",
+    "value": 36,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-5xl": {
+    "name": "vads-space-5xl",
+    "value": 40,
+    "attributes": {
+      "category": "spacing"
+    }
+  },
+  "vads-space-6xl": {
+    "name": "vads-space-6xl",
+    "value": 44,
+    "attributes": {
+      "category": "spacing"
+    }
+  }
+}

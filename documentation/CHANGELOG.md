@@ -1,5 +1,59 @@
 # Changelog
 
+## [components-v0.24.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.0) (2024-09-12)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.16.0...components-v0.24.0)
+
+**Closed issues:**
+
+- \[Design Tokens\] Spacing: Publish tokens to Figma [\#463](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/463)
+
+**Merged pull requests:**
+
+- \[Feature\] Update Spacer component to use spacing tokens [\#474](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/474) ([narin](https://github.com/narin))
+
+## [tokens-v0.16.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.16.0) (2024-09-11)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.23.1...tokens-v0.16.0)
+
+**Closed issues:**
+
+- DS - Issue templates for VADS work [\#469](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/469)
+- DS - Add Spacing Tokens to Token Package [\#447](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/447)
+
+**Merged pull requests:**
+
+- \[Feature\] Add spacing tokens and style-dictionary configs [\#467](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/467) ([narin](https://github.com/narin))
+
+## [components-v0.23.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.23.1) (2024-09-11)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.15.0...components-v0.23.1)
+
+**Closed issues:**
+
+- \[Design Tokens\] Checkbox: Create color tokens [\#424](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/424)
+
+**Merged pull requests:**
+
+- \[Feature\] Add Checkbox tokens to Storybook [\#475](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/475) ([jessicawoodin](https://github.com/jessicawoodin))
+
+## [tokens-v0.15.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.15.0) (2024-09-10)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.23.0...tokens-v0.15.0)
+
+**Closed issues:**
+
+- DS - Removed White Button Variant [\#454](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/454)
+- \[Design Tokens\] Spacing: Prep for handoff [\#445](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/445)
+- \[Design Tokens\] Checkbox: Add color tokens to VADS [\#441](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/441)
+- DS - SnackBar Component Flagship Work Setup [\#370](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/370)
+- DS - SnackBar Component Unit Tests [\#368](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/368)
+- Snackbar - Publish component to Figma and Doc Site [\#115](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/115)
+
+**Merged pull requests:**
+
+- \[Feature\] Add Checkbox tokens [\#472](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/472) ([jessicawoodin](https://github.com/jessicawoodin))
+
 ## [components-v0.23.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.23.0) (2024-09-04)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.22.1...components-v0.23.0)
