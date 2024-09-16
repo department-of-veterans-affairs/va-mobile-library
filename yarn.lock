@@ -3046,12 +3046,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:^43.0.1":
-  version: 43.0.1
-  resolution: "@department-of-veterans-affairs/component-library@npm:43.0.1"
+"@department-of-veterans-affairs/component-library@npm:^46.3.0":
+  version: 46.3.0
+  resolution: "@department-of-veterans-affairs/component-library@npm:46.3.0"
   dependencies:
     "@department-of-veterans-affairs/react-components": "npm:28.1.0"
-    "@department-of-veterans-affairs/web-components": "npm:11.2.6"
+    "@department-of-veterans-affairs/web-components": "npm:14.3.0"
     i18next: "npm:^21.6.14"
     i18next-browser-languagedetector: "npm:^6.1.4"
     react-focus-on: "npm:^3.5.1"
@@ -3060,7 +3060,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": "*"
     react: ^18
     react-dom: "*"
-  checksum: 2a39bb3ac07fe273d2121c4dba9c07cb4ec8d4914e1a311029ef13db0567749ef1c929fcb584d39368ef8a9656edc683cec45a5a833b035196d0c35ee3aa6f9c
+  checksum: 69e6103c735aa19325ba29d92600d0404dc3302a6939f6037b2397e5703454cba7cb0feaf1cd97ab97806f57f739092cd248bd843b533d50272db2df0b6acbb9
   languageName: node
   linkType: hard
 
@@ -3075,14 +3075,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/css-library@npm:^0.8.1":
-  version: 0.8.3
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.8.3"
+"@department-of-veterans-affairs/css-library@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@department-of-veterans-affairs/css-library@npm:0.11.0"
   dependencies:
     "@divriots/style-dictionary-to-figma": "npm:^0.4.0"
-    "@uswds/uswds": "npm:^3.7.1"
+    "@uswds/uswds": "npm:^3.8.1"
     rimraf: "npm:^5.0.5"
-  checksum: 58fb334543261168b7c15b5f469ebcc5da26b49dc58ea6648ff57b37d11b3758d544705ab553db360a41e4b9997763e0d5db16d5e749a7fb8c6fc7d8a37456b7
+  checksum: 868ccff44e895d89da660da26a001af65984df8cc1ee551a78509529adf1381dca649e03e5a96d4f6428708e708eb570098ab34b5a6bf3aba6d28d4e5ebac7ba
   languageName: node
   linkType: hard
 
@@ -3108,7 +3108,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-assets@workspace:packages/assets"
   dependencies:
-    "@department-of-veterans-affairs/component-library": "npm:^43.0.1"
+    "@department-of-veterans-affairs/component-library": "npm:^46.3.0"
     hast-util-to-html: "npm:^9.0.1"
   languageName: unknown
   linkType: soft
@@ -3246,12 +3246,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:11.2.6":
-  version: 11.2.6
-  resolution: "@department-of-veterans-affairs/web-components@npm:11.2.6"
+"@department-of-veterans-affairs/web-components@npm:14.3.0":
+  version: 14.3.0
+  resolution: "@department-of-veterans-affairs/web-components@npm:14.3.0"
   dependencies:
-    "@department-of-veterans-affairs/css-library": "npm:^0.8.1"
-    "@stencil/core": "npm:^2.19.2"
+    "@department-of-veterans-affairs/css-library": "npm:^0.11.0"
+    "@stencil/core": "npm:4.20.0"
     aria-hidden: "npm:^1.1.3"
     body-scroll-lock: "npm:^4.0.0-beta.0"
     chromatic: "npm:^11.0.4"
@@ -3261,7 +3261,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": ^11.0.6
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: 39bc3f98a234b887b8d39b41cddea6499bbb720170e07232b6cd4e440efef16767f6f402c73d7c542a57f11f79ccf829088de9c1a342c2c5d03b3e30a8e9a574
+  checksum: 465a8e88868d18209f0457c2f1d0ab163daf04af68873d0f5aea364fa487541d39b848ffd8ed324a0f280932a48b9e1a039d9337606e56e446056fe28cf43ef2
   languageName: node
   linkType: hard
 
@@ -5773,12 +5773,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stencil/core@npm:^2.19.2":
-  version: 2.22.3
-  resolution: "@stencil/core@npm:2.22.3"
+"@stencil/core@npm:4.20.0":
+  version: 4.20.0
+  resolution: "@stencil/core@npm:4.20.0"
   bin:
     stencil: bin/stencil
-  checksum: 6df88e165ec0cf132b1dbdb71d61399359974c7533a20b5e2bcee5f9ab4495a63dff5cbb4b2687639ee711c91ef36ac55af45e613464e4f904ce346f490b04dc
+  checksum: 5757cf6f2cf7028b335e52ff6f1eb4c75920d8e07a7dccc74c57d27ed2bf1a0ba77af832a7d4fc86cfc75bda42f4090c875535a83b743f6c2fb781efa3bac2ea
   languageName: node
   linkType: hard
 
@@ -8335,6 +8335,17 @@ __metadata:
     receptor: "npm:1.0.0"
     resolve-id-refs: "npm:0.1.0"
   checksum: 032928403cac3ec76c2330a4192e43de6039504ec6f9cd4d38a22a02f7846266567ec56951c7b674e92f722f84c01030fccf45ef21ccc5af6425b10b88b45eae
+  languageName: node
+  linkType: hard
+
+"@uswds/uswds@npm:^3.8.1":
+  version: 3.8.2
+  resolution: "@uswds/uswds@npm:3.8.2"
+  dependencies:
+    object-assign: "npm:4.1.1"
+    receptor: "npm:1.0.0"
+    resolve-id-refs: "npm:0.1.0"
+  checksum: 878c68dec0a875bce9a64c4decd422035900c9924d2309534a8c00f760676aeabf43b48d95cf1ef6bb18523e77c5c40f607da5e85a5cf2d94a55e8862e0e1db5
   languageName: node
   linkType: hard
 
