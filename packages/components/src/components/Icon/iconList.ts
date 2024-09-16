@@ -16,6 +16,7 @@ import Announcement from '@department-of-veterans-affairs/mobile-assets/icons/va
 import Api from '@department-of-veterans-affairs/mobile-assets/icons/vads/api.svg'
 import AppStore from '@department-of-veterans-affairs/mobile-assets/icons/vads/app_store.svg'
 import ArrowBack from '@department-of-veterans-affairs/mobile-assets/icons/vads/arrow_back.svg'
+import ArrowCircleRight from '@department-of-veterans-affairs/mobile-assets/icons/vads/arrow_circle_right.svg'
 import ArrowDownward from '@department-of-veterans-affairs/mobile-assets/icons/vads/arrow_downward.svg'
 import ArrowDropDown from '@department-of-veterans-affairs/mobile-assets/icons/vads/arrow_drop_down.svg'
 import ArrowDropUp from '@department-of-veterans-affairs/mobile-assets/icons/vads/arrow_drop_up.svg'
@@ -298,6 +299,7 @@ export const IconMap = {
   Api,
   AppStore,
   ArrowBack,
+  ArrowCircleRight,
   ArrowDownward,
   ArrowDropDown,
   ArrowDropUp,
