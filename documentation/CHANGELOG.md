@@ -1,5 +1,17 @@
 # Changelog
 
+## [assets-v0.13.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.13.0) (2024-09-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.0...assets-v0.13.0)
+
+**Closed issues:**
+
+- DS - Add Spacing Tokens to Spacer Component [\#448](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/448)
+
+**Merged pull requests:**
+
+- \[Icons\] Add arrow\_circle\_right icon [\#479](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/479) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.24.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.0) (2024-09-12)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.16.0...components-v0.24.0)
