@@ -1,5 +1,20 @@
 # Changelog
 
+## [tokens-v0.17.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.17.0) (2024-09-17)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.13.0...tokens-v0.17.0)
+
+**Closed issues:**
+
+- \[Design Tokens\] Spacing: Apply tokens to components in Figma [\#464](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/464)
+- DS - Create SnackBar Component [\#62](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/62)
+- DS - Remove White Button Variant [\#45](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/45)
+
+**Merged pull requests:**
+
+- \[Tokens\] Add Checkbox color tokens [\#481](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/481) ([TimRoe](https://github.com/TimRoe))
+- \[Icons\] Add ArrowCircleRight icon to components [\#480](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/480) ([TimRoe](https://github.com/TimRoe))
+
 ## [assets-v0.13.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.13.0) (2024-09-16)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.0...assets-v0.13.0)
