@@ -91,12 +91,20 @@
     "$value": "#98afd2",
     "$type": "color"
   },
+  "uswds-system-color-blue-warm-5": {
+    "$value": "#ecf1f7",
+    "$type": "color"
+  },
   "uswds-system-color-blue-warm-50": {
     "$value": "#4a77b4",
     "$type": "color"
   },
   "uswds-system-color-blue-warm-60": {
     "$value": "#345d96",
+    "$type": "color"
+  },
+  "uswds-system-color-blue-warm-80": {
+    "$value": "#252f3e",
     "$type": "color"
   },
   "uswds-system-color-blue-warm-vivid-60": {
@@ -661,6 +669,10 @@
   },
   "vads-color-forms-foreground-active-on-light": {
     "$value": "{vads-color-primary}",
+    "$type": "color"
+  },
+  "vads-color-forms-surface-active-on-light": {
+    "$value": "{uswds-system-color-blue-warm-5}",
     "$type": "color"
   },
   "vads-color-gibill-accent": {

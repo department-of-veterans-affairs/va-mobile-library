@@ -91,12 +91,20 @@
     "$value": "#98afd2",
     "$type": "color"
   },
+  "uswds-system-color-blue-warm-5": {
+    "$value": "#ecf1f7",
+    "$type": "color"
+  },
   "uswds-system-color-blue-warm-50": {
     "$value": "#4a77b4",
     "$type": "color"
   },
   "uswds-system-color-blue-warm-60": {
     "$value": "#345d96",
+    "$type": "color"
+  },
+  "uswds-system-color-blue-warm-80": {
+    "$value": "#252f3e",
     "$type": "color"
   },
   "uswds-system-color-blue-warm-vivid-60": {
@@ -499,6 +507,10 @@
     "$value": "{uswds-system-color-red-vivid-40}",
     "$type": "color"
   },
+  "vads-color-background-default-on-dark": {
+    "$value": "{uswds-system-color-gray-warm-90}",
+    "$type": "color"
+  },
   "vads-color-base": {
     "$value": "{uswds-system-color-gray-90}",
     "$type": "color"
@@ -525,10 +537,6 @@
   },
   "vads-color-base-lightest": {
     "$value": "{uswds-system-color-gray-5}",
-    "$type": "color"
-  },
-  "vads-color-bg-default-on-dark": {
-    "$value": "{uswds-system-color-gray-warm-90}",
     "$type": "color"
   },
   "vads-color-black": {
@@ -641,6 +649,10 @@
   },
   "vads-color-forms-foreground-active-on-dark": {
     "$value": "{uswds-system-color-blue-vivid-30}",
+    "$type": "color"
+  },
+  "vads-color-forms-surface-active-on-dark": {
+    "$value": "{uswds-system-color-blue-warm-80}",
     "$type": "color"
   },
   "vads-color-gibill-accent": {
