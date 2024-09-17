@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.24.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.1) (2024-09-17)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.17.0...components-v0.24.1)
+
+**Closed issues:**
+
+- DS - Updated assets package to include arrow icon [\#462](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/462)
+
+**Merged pull requests:**
+
+- \[Bug\] Determine failure of destructured import of tokens [\#465](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/465) ([TimRoe](https://github.com/TimRoe))
+
 ## [tokens-v0.17.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.17.0) (2024-09-17)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.13.0...tokens-v0.17.0)
