@@ -1,12 +1,4 @@
-import {
-  Pressable,
-  PressableProps,
-  StyleProp,
-  Text,
-  TextStyle,
-  View,
-  ViewStyle,
-} from 'react-native'
+import { Pressable, StyleProp, Text, View, ViewStyle } from 'react-native'
 import React, { FC } from 'react'
 
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
@@ -55,6 +47,15 @@ export const Checkbox: FC<CheckboxProps> = ({
   const { t } = useTranslation()
   const theme = useTheme()
 
+  const baseTextStyle = {
+    fontFamily: 'SourceSansPro-Regular',
+    color: theme.vadsColorForegroundDefault,
+  }
+
+  /**
+   * Container
+   */
+
   let containerStyle: ViewStyle = {
     width: '100%',
   }
@@ -69,7 +70,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   }
 
   /**
-   * Pressable
+   * Pressable Area
    */
 
   const pressableBaseStyle: StyleProp<ViewStyle> = {
@@ -128,10 +129,30 @@ export const Checkbox: FC<CheckboxProps> = ({
     </View>
   )
 
-  const baseTextStyle = {
-    fontFamily: 'SourceSansPro-Regular',
-    color: theme.vadsColorForegroundDefault,
+  /**
+   * Label
+   */
+
+  const labelProps = {
+    'aria-label': a11yLabel || label,
+    style: {
+      ...baseTextStyle,
+      fontFamily: error ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
+      fontSize: 20,
+      lineHeight: 30,
+    },
   }
+
+  const requiredStyle = {
+    color: theme.vadsColorForegroundError,
+  }
+
+  const _label = (
+    <Text {...labelProps}>
+      {label}
+      {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
+    </Text>
+  )
 
   /**
    * Header
@@ -188,31 +209,6 @@ export const Checkbox: FC<CheckboxProps> = ({
       <Text {...errorProps}>{error}</Text>
       <Spacer size="xs" />
     </>
-  )
-
-  /**
-   * Label
-   */
-
-  const labelProps = {
-    'aria-label': a11yLabel || label,
-    style: {
-      ...baseTextStyle,
-      fontFamily: error ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
-      fontSize: 20,
-      lineHeight: 30,
-    },
-  }
-
-  const requiredStyle = {
-    color: theme.vadsColorForegroundError,
-  }
-
-  const _label = (
-    <Text {...labelProps}>
-      {label}
-      {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
-    </Text>
   )
 
   /**
