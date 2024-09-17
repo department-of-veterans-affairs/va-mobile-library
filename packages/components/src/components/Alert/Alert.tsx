@@ -7,6 +7,7 @@ import {
   ViewStyle,
   useWindowDimensions,
 } from 'react-native'
+import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC, useState } from 'react'
 
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
@@ -88,18 +89,24 @@ export const Alert: FC<AlertProps> = ({
     setExpanded(!expanded)
   }
 
-  // TODO: Replace with sizing/dimension tokens
-  const Sizing = {
-    _8: 8,
-    _10: 10,
-    _12: 12,
-    _16: 16,
-    _20: 20,
-    _24: 24,
-    _30: 30,
-  }
   const contentColor = AlertContentColor()
   let backgroundColor, borderColor, iconName: IconProps['name']
+
+  // TODO: Replace with typography tokens
+  const headerFont: TextStyle = {
+    color: contentColor,
+    fontFamily: 'SourceSansPro-Bold',
+    fontSize: 20,
+    lineHeight: 30,
+  }
+
+  // TODO: Replace with typography tokens
+  const descriptionFont: TextStyle = {
+    color: contentColor,
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: 20,
+    lineHeight: 30,
+  }
 
   switch (variant) {
     case 'info':
@@ -127,9 +134,9 @@ export const Alert: FC<AlertProps> = ({
   const contentBox: ViewStyle = {
     backgroundColor: backgroundColor,
     borderLeftColor: borderColor,
-    borderLeftWidth: Sizing._8,
-    padding: Sizing._20,
-    paddingLeft: Sizing._12, // Adds with borderLeftWidth for 20
+    borderLeftWidth: spacing.vadsSpaceXs,
+    padding: spacing.vadsSpaceLg,
+    paddingLeft: spacing.vadsSpaceSm, // Adds with borderLeftWidth to be `Lg` (20)
     width: '100%', // Ensure Alert fills horizontal space, regardless of flexing content
   }
 
@@ -137,7 +144,7 @@ export const Alert: FC<AlertProps> = ({
     flexDirection: 'row',
     // Below keeps icon aligned with first row of text, centered, and scalable
     alignSelf: 'flex-start',
-    minHeight: Sizing._30 * fontScale,
+    minHeight: headerFont.lineHeight! * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
@@ -160,34 +167,18 @@ export const Alert: FC<AlertProps> = ({
     </View>
   )
 
-  // TODO: Replace with typography tokens
-  const headerFont: TextStyle = {
-    color: contentColor,
-    fontFamily: 'SourceSansPro-Bold',
-    fontSize: 20,
-    lineHeight: 30,
-  }
-
-  // TODO: Replace with typography tokens
-  const descriptionFont: TextStyle = {
-    color: contentColor,
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 20,
-    lineHeight: 30,
-  }
-
   const _header = () => {
     if (!header) return null
 
     const headerText = <Text style={headerFont}>{header}</Text>
     const a11yLabel = headerA11yLabel || header
     const hitSlop: Insets = {
-      // left border + left padding + spacer + icon width
-      left: Sizing._8 + Sizing._12 + Sizing._10 + Sizing._24,
-      top: Sizing._20,
+      // left border/padding + spacer + icon width
+      left: spacing.vadsSpaceLg + spacing.vadsSpaceSm + spacing.vadsSpaceXl,
+      top: spacing.vadsSpaceLg,
       // bottom spacing changes depending on expanded state
-      bottom: expanded ? Sizing._10 : Sizing._20,
-      right: Sizing._20,
+      bottom: expanded ? spacing.vadsSpaceSm : spacing.vadsSpaceLg,
+      right: spacing.vadsSpaceLg,
     }
 
     /**
