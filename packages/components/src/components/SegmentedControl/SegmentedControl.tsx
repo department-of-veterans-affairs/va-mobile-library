@@ -1,4 +1,5 @@
 import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
+import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
@@ -35,9 +36,11 @@ type SegmentProps = {
 
 const Segment = styled(Pressable)<SegmentProps>`
   border-radius: 8px;
-  padding-vertical: 7px;
+  padding-horizontal: ${spacing.vadsSpace2xs}px;
+  padding-vertical: ${spacing.vadsSpaceXs}px;
   width: ${(props) => props.widthPct};
-  elevation: ${(props) => (props.isSelected ? 4 : 0)};
+  elevation: ${(props) =>
+    props.isSelected ? spacing.vadsSpace2xs : spacing.vadsSpaceNone};
   background-color: ${(props) => props.backgroundColor};
 `
 /** A segmented control is used to switch between related views of information within the same context. */
