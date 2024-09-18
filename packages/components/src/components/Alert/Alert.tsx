@@ -152,7 +152,7 @@ export const Alert: FC<AlertProps> = ({
   const iconDisplay = (
     <View style={iconViewStyle}>
       <Icon fill={contentColor} name={iconName} preventScaling />
-      <Spacer horizontal />
+      <Spacer size="xs" horizontal />
     </View>
   )
 
