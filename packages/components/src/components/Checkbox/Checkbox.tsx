@@ -14,10 +14,8 @@ export type CheckboxProps = {
   checked: boolean
   /** Primary text for checkbox */
   label: string
-  /** OnPress function. Pass a function that alters checked state */
+  /** OnPress function. Pass a function that alters `checked` state */
   onPress: () => void
-  /** Optional text to use as the accessibility hint   */
-  a11yHint?: string
   /** Optional accessibility override for description text  */
   descriptionA11y?: string
   /** Optional accessibility override for error text  */
@@ -27,7 +25,7 @@ export type CheckboxProps = {
   /** Optional accessibility override for hint text  */
   hintA11y?: string
   /** Optional accessibility override for label  */
-  a11yLabel?: string
+  labelA11y?: string
   /** Optional description that appears below label */
   description?: string
   /** Optional hint text. Appears below header */
@@ -47,7 +45,7 @@ export type CheckboxProps = {
 export const Checkbox: FC<CheckboxProps> = ({
   checked = false,
   label,
-  a11yLabel,
+  labelA11y,
   description,
   descriptionA11y,
   error,
@@ -153,7 +151,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
 
   const labelProps = {
-    'aria-label': a11yLabel || label,
+    'aria-label': labelA11y || label,
     style: {
       ...baseTextStyle,
       fontFamily: error ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
@@ -214,7 +212,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
 
   const errorProps = {
-    'aria-label': errorA11y || error,
+    'aria-label': `${t('error')}: ${errorA11y || error}`,
     style: {
       fontFamily: 'SourceSansPro-Bold',
       color: theme.vadsColorForegroundError,

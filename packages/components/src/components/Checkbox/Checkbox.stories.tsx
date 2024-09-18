@@ -42,25 +42,36 @@ type Story = StoryObj<CheckboxProps>
 const statefulComponentRenderer = (props: CheckboxProps) => {
   const {
     description,
+    descriptionA11y,
     error,
+    errorA11y,
     header,
+    headerA11y,
     hint,
+    hintA11y,
     indeterminate,
     label,
+    labelA11y,
     required,
     tile,
   } = props
+
   const [checked, setChecked] = useState(false)
 
   return (
     <Checkbox
       checked={checked}
       description={description}
+      descriptionA11y={descriptionA11y}
       error={error}
+      errorA11y={errorA11y}
       header={header}
+      headerA11y={headerA11y}
       hint={hint}
+      hintA11y={hintA11y}
       indeterminate={indeterminate}
       label={label}
+      labelA11y={labelA11y}
       onPress={() => setChecked(!checked)}
       required={required}
       tile={tile}
@@ -69,18 +80,27 @@ const statefulComponentRenderer = (props: CheckboxProps) => {
 }
 
 const header = 'Label Header',
+  headerA11y = 'Accessibility override for header',
   hint = 'Hint text',
+  hintA11y = 'Accessibility override for hint',
   error = 'Error text',
+  errorA11y = 'Accessibility override for error',
   label = 'Label',
-  description = 'Checkbox description'
+  labelA11y = 'Accessibility override for label',
+  description = 'Checkbox description',
+  descriptionA11y = 'Accessibility override for description'
 
 export const Default: Story = {
   render: statefulComponentRenderer,
   args: {
     header,
+    headerA11y,
     hint,
+    hintA11y,
     label,
+    labelA11y,
     description,
+    descriptionA11y,
     required: true,
   },
 }
@@ -89,10 +109,15 @@ export const Error: Story = {
   render: statefulComponentRenderer,
   args: {
     header,
+    headerA11y,
     hint,
+    hintA11y,
     error,
+    errorA11y,
     label,
+    labelA11y,
     description,
+    descriptionA11y,
   },
 }
 
@@ -100,6 +125,7 @@ export const LabelOnly: Story = {
   render: statefulComponentRenderer,
   args: {
     label,
+    labelA11y,
   },
 }
 
@@ -108,9 +134,13 @@ export const Tile: Story = {
   args: {
     tile: true,
     header,
+    headerA11y,
     hint,
+    hintA11y,
     label,
+    labelA11y,
     description,
+    descriptionA11y,
   },
 }
 
@@ -118,6 +148,7 @@ export const TileCheckboxOnly: Story = {
   render: statefulComponentRenderer,
   args: {
     label,
+    labelA11y,
     tile: true,
   },
 }
