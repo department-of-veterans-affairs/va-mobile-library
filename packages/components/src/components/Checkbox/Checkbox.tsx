@@ -10,35 +10,52 @@ import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 export type CheckboxProps = {
+  /** Determine whether checkbox is checked. Defaults to false */
   checked: boolean
+  /** Primary text for checkbox */
   label: string
-  a11yDescription?: string
-  a11yError?: string
-  a11yHeader?: string
+  /** OnPress function. Pass a function that alters checked state */
+  onPress: () => void
+  /** Optional text to use as the accessibility hint   */
   a11yHint?: string
+  /** Optional accessibility override for description text  */
+  descriptionA11y?: string
+  /** Optional accessibility override for error text  */
+  errorA11y?: string
+  /** Optional accessibility override for header  */
+  headerA11y?: string
+  /** Optional accessibility override for hint text  */
+  hintA11y?: string
+  /** Optional accessibility override for label  */
   a11yLabel?: string
+  /** Optional description that appears below label */
   description?: string
+  /** Optional hint text. Appears below header */
   hint?: string
+  /** Optional error text. Non-null value styles checkbox in error state */
   error?: string
+  /** Optional header text */
   header?: string
+  /** Optional indeterminate boolean. Overrides checked state */
   indeterminate?: boolean
-  onPress?: () => void
+  /** Optional required boolean that denotes a label as (*Required) */
   required?: boolean
+  /** Optional tile styling */
   tile?: boolean
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
   checked = false,
   label,
-  a11yDescription,
-  a11yError,
-  a11yHeader,
-  a11yHint,
   a11yLabel,
   description,
+  descriptionA11y,
   error,
+  errorA11y,
   header,
+  headerA11y,
   hint,
+  hintA11y,
   indeterminate,
   onPress,
   required,
@@ -53,7 +70,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   }
 
   /**
-   * Container
+   * Container styling
    */
 
   let containerStyle: ViewStyle = {
@@ -70,7 +87,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   }
 
   /**
-   * Pressable Area
+   * Pressable styling
    */
 
   const pressableBaseStyle: StyleProp<ViewStyle> = {
@@ -93,6 +110,7 @@ export const Checkbox: FC<CheckboxProps> = ({
     ? {
         ...tileBaseStyle,
         borderColor: theme.vadsColorFormsBorderActive,
+        backgroundColor: theme.vadsColorFormsSurfaceActive,
       }
     : {
         ...tileBaseStyle,
@@ -104,14 +122,15 @@ export const Checkbox: FC<CheckboxProps> = ({
    * Icon
    */
 
+  const iconViewStyle: ViewStyle = {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 3,
+    paddingBottom: 3,
+  }
+
   const _icon = (
-    <View
-      style={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 3,
-        paddingBottom: 3,
-      }}>
+    <View style={iconViewStyle}>
       <Icon
         name={
           indeterminate
@@ -159,7 +178,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
 
   const headerProps = {
-    'aria-label': a11yHeader || header,
+    'aria-label': headerA11y || header,
     style: { ...baseTextStyle, fontSize: 20, lineHeight: 30 },
   }
 
@@ -175,7 +194,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
 
   const hintProps = {
-    'aria-label': a11yHint || hint,
+    'aria-label': hintA11y || hint,
     style: {
       ...baseTextStyle,
       color: theme.vadsColorForegroundSubtle,
@@ -195,7 +214,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
 
   const errorProps = {
-    'aria-label': a11yError || error,
+    'aria-label': errorA11y || error,
     style: {
       fontFamily: 'SourceSansPro-Bold',
       color: theme.vadsColorForegroundError,
@@ -216,7 +235,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
 
   const descriptionProps = {
-    'aria-label': a11yDescription || description,
+    'aria-label': descriptionA11y || description,
     style: { ...baseTextStyle, fontSize: 16, lineHeight: 22 },
   }
 
@@ -235,7 +254,9 @@ export const Checkbox: FC<CheckboxProps> = ({
         {_error}
         <Pressable
           onPress={onPress}
-          style={tile ? tileStyle : pressableBaseStyle}>
+          style={tile ? tileStyle : pressableBaseStyle}
+          aria-checked={checked}
+          role="checkbox">
           {_icon}
           <Spacer size="xs" horizontal />
           <View style={{ flexShrink: 1 }}>
