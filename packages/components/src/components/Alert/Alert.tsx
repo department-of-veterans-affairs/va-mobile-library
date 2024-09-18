@@ -174,7 +174,7 @@ export const Alert: FC<AlertProps> = ({
     const a11yLabel = headerA11yLabel || header
     const hitSlop: Insets = {
       // left border/padding + spacer + icon width
-      left: spacing.vadsSpaceLg + spacing.vadsSpaceSm + spacing.vadsSpaceXl,
+      left: spacing.vadsSpaceLg + spacing.vadsSpaceXs + spacing.vadsSpaceXl,
       top: spacing.vadsSpaceLg,
       // bottom spacing changes depending on expanded state
       bottom: expanded ? spacing.vadsSpaceSm : spacing.vadsSpaceLg,
