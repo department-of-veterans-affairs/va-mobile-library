@@ -8,6 +8,7 @@ import {
   ViewStyle,
   useWindowDimensions,
 } from 'react-native'
+import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
 import { ComponentWrapper } from '../../wrapper'
@@ -144,6 +145,13 @@ export const Link: FC<LinkProps> = ({
   const fontScale = useWindowDimensions().fontScale
   const launchExternalLink = useExternalLink()
 
+  // TODO: Replace with typography tokens
+  const font = {
+    fontFamily: 'SourceSansPro-Regular',
+    fontSize: 20,
+    lineHeight: 30,
+  }
+
   let _icon: IconProps | 'no icon'
 
   /** Function to massage Partial<IconProps> data into IconProps based on variant icon defaults */
@@ -230,10 +238,10 @@ export const Link: FC<LinkProps> = ({
   }
 
   const iconViewStyle: ViewStyle = {
-    marginRight: 5, // Spacer to text
+    marginRight: spacing.vadsSpace2xs, // Spacer to text
     // Below keeps icon aligned with first row of text, centered, and scalable
     alignSelf: 'flex-start',
-    minHeight: 30 * fontScale,
+    minHeight: font.lineHeight * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
@@ -265,7 +273,7 @@ export const Link: FC<LinkProps> = ({
 
   const pressableProps: PressableProps = {
     onPress: _onPress,
-    hitSlop: 7,
+    hitSlop: 7, // Adds with lineHeight to achieve 44 pixel touch target
     ...a11yProps,
     style: ({ pressed }) => ({
       flexDirection: 'row',
@@ -278,10 +286,8 @@ export const Link: FC<LinkProps> = ({
   }
 
   const textStyle: TextStyle = {
+    ...font,
     color: linkColor,
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 20,
-    lineHeight: 30,
     textDecorationColor: linkColor,
     textDecorationLine: 'underline',
     flexShrink: 1, // RN Text takes full width in row flexbox; shrink to wrap as appropriate
