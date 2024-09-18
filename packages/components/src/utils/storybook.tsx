@@ -1,4 +1,3 @@
-import { ColorSchemeName, Linking, Text, View } from 'react-native'
 import {
   Controls,
   Description,
@@ -7,7 +6,11 @@ import {
   Subtitle,
   Title,
 } from '@storybook/addon-docs'
-import React, { useSyncExternalStore } from 'react'
+import { Linking, Text, View } from 'react-native'
+import React from 'react'
+
+// Export related hooks
+export { useWebStorybookColorScheme } from './hooks/useWebStorybookColorScheme'
 
 type DocProps = {
   name?: string
@@ -28,11 +31,16 @@ export const DocLink = ({ name, docUrl }: DocProps) => {
   return (
     <View style={{ marginVertical: 10 }}>
       <Text
-        style={{ color: 'blue', textDecorationLine: 'underline', lineHeight: 20 }}
+        style={{
+          color: 'blue',
+          textDecorationLine: 'underline',
+          lineHeight: 20,
+        }}
         onPress={() => {
           Linking.openURL(docUrl)
         }}>
-        View guidance for the {name} component on the VA Mobile Documentation Site
+        View guidance for the {name} component on the VA Mobile Documentation
+        Site
       </Text>
     </View>
   )
@@ -59,22 +67,3 @@ export const generateDocs = ({ name, docUrl, icons }: DocProps) => ({
     </>
   ),
 })
-
-/** Function to initialize listening to light/dark mode toggle in Web Storybook to set color scheme */
-export const webStorybookColorScheme = () => {
-  // Mimics RN useColorScheme hook, but listens to the parent body's class ('light'/'dark' from storybook-dark-mode)
-  return useSyncExternalStore(
-    (callback: () => void) => {
-      window.parent.addEventListener('click', callback)
-      return () => window.parent.removeEventListener('click', callback)
-    },
-    (): ColorSchemeName => {
-      const colorScheme = window.parent.document.body.className
-      if (colorScheme !== 'light' && colorScheme !== 'dark') {
-        return null
-      }
-
-      return colorScheme
-    },
-  )
-}

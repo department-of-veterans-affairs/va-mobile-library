@@ -3064,17 +3064,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/css-library@npm:0.8.5":
-  version: 0.8.5
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.8.5"
-  dependencies:
-    "@divriots/style-dictionary-to-figma": "npm:^0.4.0"
-    "@uswds/uswds": "npm:^3.7.1"
-    rimraf: "npm:^5.0.5"
-  checksum: 271c6b8a0fdae51084eac82290dff19e9aef0aad8e2885c840f23b8fba3bde1d665f7e024505fc124b24cc1ea965f60c9a5d177fc8523042d3fe3e8a6c4fe71d
-  languageName: node
-  linkType: hard
-
 "@department-of-veterans-affairs/css-library@npm:^0.11.0":
   version: 0.11.0
   resolution: "@department-of-veterans-affairs/css-library@npm:0.11.0"
@@ -3097,10 +3086,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@department-of-veterans-affairs/mobile-assets@npm:0.12.0":
-  version: 0.12.0
-  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.12.0"
-  checksum: 1a315faf9977163edfca0d51dd898275288a8378026917c4ea935e6ef1f2e68985eca48fb35a2143fb3b729cc36fac7bdb2b952fbd3eb94aa8a9a26e5eb8b074
+"@department-of-veterans-affairs/mobile-assets@npm:0.13.0":
+  version: 0.13.0
+  resolution: "@department-of-veterans-affairs/mobile-assets@npm:0.13.0"
+  checksum: a440db6beca4377543bb81131730d3c85e379727e1d5e2268a964c15d61b418498a649116247c40c7b81af31d6bbb07d80026f850837052ada2bb2b0e9e5f45d
   languageName: node
   linkType: hard
 
@@ -3138,7 +3127,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": "npm:^7.24.7"
     "@babel/preset-env": "npm:^7.24.8"
     "@babel/preset-typescript": "npm:^7.24.7"
-    "@department-of-veterans-affairs/mobile-assets": "npm:0.12.0"
+    "@department-of-veterans-affairs/mobile-assets": "npm:0.13.0"
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.17.0"
     "@expo/metro-runtime": "npm:~3.2.1"
     "@expo/webpack-config": "npm:~19.0.1"
@@ -3201,7 +3190,7 @@ __metadata:
     ts-jest: "npm:^29.2.3"
     typescript: "npm:~5.3.3"
   peerDependencies:
-    "@department-of-veterans-affairs/mobile-assets": ^0.12.0
+    "@department-of-veterans-affairs/mobile-assets": ^0.13.0
     "@department-of-veterans-affairs/mobile-tokens": ^0.17.0
     react: ^18.2.0
     react-native: ">=0.71.7"
@@ -3221,7 +3210,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens"
   dependencies:
-    "@department-of-veterans-affairs/css-library": "npm:0.8.5"
+    "@department-of-veterans-affairs/css-library": "npm:^0.11.0"
     prettier: "npm:^3.3.3"
     style-dictionary: "npm:^3.9.2"
   languageName: unknown
@@ -8326,18 +8315,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@uswds/uswds@npm:^3.7.1":
-  version: 3.8.1
-  resolution: "@uswds/uswds@npm:3.8.1"
-  dependencies:
-    classlist-polyfill: "npm:1.2.0"
-    object-assign: "npm:4.1.1"
-    receptor: "npm:1.0.0"
-    resolve-id-refs: "npm:0.1.0"
-  checksum: 032928403cac3ec76c2330a4192e43de6039504ec6f9cd4d38a22a02f7846266567ec56951c7b674e92f722f84c01030fccf45ef21ccc5af6425b10b88b45eae
-  languageName: node
-  linkType: hard
-
 "@uswds/uswds@npm:^3.8.1":
   version: 3.8.2
   resolution: "@uswds/uswds@npm:3.8.2"
@@ -10029,13 +10006,6 @@ __metadata:
   version: 1.2.3
   resolution: "cjs-module-lexer@npm:1.2.3"
   checksum: 0de9a9c3fad03a46804c0d38e7b712fb282584a9c7ef1ed44cae22fb71d9bb600309d66a9711ac36a596fd03422f5bb03e021e8f369c12a39fa1786ae531baab
-  languageName: node
-  linkType: hard
-
-"classlist-polyfill@npm:1.2.0":
-  version: 1.2.0
-  resolution: "classlist-polyfill@npm:1.2.0"
-  checksum: 97a6c6865daa1f74e6219f24bb5971c6b418aa9dcec0dcaab38283dbd9388af1c0057e9bd281b7236959059d971c55705bc055ee8382ee89f0c2d70749794cf3
   languageName: node
   linkType: hard
 
