@@ -262,11 +262,11 @@ export const Alert: FC<AlertProps> = ({
                   <Spacer size="lg" />
                 ) : null}
                 {description ? (
-                  <View
-                    accessible={true}
+                  <Text
+                    style={descriptionFont}
                     aria-label={descriptionA11yLabel || description}>
-                    <Text style={descriptionFont}>{description}</Text>
-                  </View>
+                    {description}
+                  </Text>
                 ) : null}
                 {description && children ? <Spacer size="lg" /> : null}
                 {children}
