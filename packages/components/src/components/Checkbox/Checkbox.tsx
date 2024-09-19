@@ -32,7 +32,7 @@ export type CheckboxProps = {
   header?: string
   /** Optional accessibility override for header  */
   headerA11y?: string
-  /** Optional indeterminate boolean. Overrides checked state */
+  /** Optional indeterminate boolean. Overrides checked styling */
   indeterminate?: boolean
   /** Optional accessibility override for label  */
   labelA11y?: string
@@ -78,7 +78,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   if (error) {
     containerStyle = {
       ...containerStyle,
-      borderLeftWidth: 4,
+      borderLeftWidth: spacing.vadsSpace2xs,
       borderColor: theme.vadsColorFormsBorderError,
       paddingLeft: spacing.vadsSpaceLg,
     }
