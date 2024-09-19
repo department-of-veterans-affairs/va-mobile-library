@@ -94,7 +94,7 @@ export const Checkbox: FC<CheckboxProps> = ({
     alignItems: 'flex-start',
   }
 
-  const tileBaseStyle: ViewStyle = {
+  const tileStyle: ViewStyle = {
     ...pressableBaseStyle,
     borderWidth: 2,
     borderRadius: spacing.vadsSpace2xs,
@@ -102,19 +102,13 @@ export const Checkbox: FC<CheckboxProps> = ({
     paddingBottom: spacing.vadsSpaceSm,
     paddingLeft: spacing.vadsSpaceSm,
     paddingRight: spacing.vadsSpaceMd,
+    borderColor: checked
+      ? theme.vadsColorFormsBorderActive
+      : theme.vadsColorFormsBorderSubtle,
+    backgroundColor: checked
+      ? theme.vadsColorFormsSurfaceActive
+      : theme.vadsColorSurfaceDefault,
   }
-
-  const tileStyle: ViewStyle = checked
-    ? {
-        ...tileBaseStyle,
-        borderColor: theme.vadsColorFormsBorderActive,
-        backgroundColor: theme.vadsColorFormsSurfaceActive,
-      }
-    : {
-        ...tileBaseStyle,
-        borderColor: theme.vadsColorFormsBorderSubtle,
-        backgroundColor: theme.vadsColorSurfaceDefault,
-      }
 
   /**
    * Icon
