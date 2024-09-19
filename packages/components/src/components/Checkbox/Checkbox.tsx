@@ -194,6 +194,7 @@ export const Checkbox: FC<CheckboxProps> = ({
       lineHeight: 22,
     },
   }
+
   const _hint = hint && (
     <>
       <Text {...hintProps}>{hint}</Text>
