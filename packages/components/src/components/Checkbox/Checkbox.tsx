@@ -16,26 +16,26 @@ export type CheckboxProps = {
   label: string
   /** OnPress function. Pass a function that alters `checked` state */
   onPress: () => void
-  /** Optional accessibility override for description text  */
-  descriptionA11y?: string
-  /** Optional accessibility override for error text  */
-  errorA11y?: string
-  /** Optional accessibility override for header  */
-  headerA11y?: string
-  /** Optional accessibility override for hint text  */
-  hintA11y?: string
-  /** Optional accessibility override for label  */
-  labelA11y?: string
   /** Optional description that appears below label */
   description?: string
+  /** Optional accessibility override for description text  */
+  descriptionA11y?: string
   /** Optional hint text. Appears below header */
   hint?: string
+  /** Optional accessibility override for hint text  */
+  hintA11y?: string
   /** Optional error text. Non-null value styles checkbox in error state */
   error?: string
+  /** Optional accessibility override for error text  */
+  errorA11y?: string
   /** Optional header text */
   header?: string
+  /** Optional accessibility override for header  */
+  headerA11y?: string
   /** Optional indeterminate boolean. Overrides checked state */
   indeterminate?: boolean
+  /** Optional accessibility override for label  */
+  labelA11y?: string
   /** Optional required boolean that denotes a label as (*Required) */
   required?: boolean
   /** Optional tile styling */
@@ -254,6 +254,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           onPress={onPress}
           style={tile ? tileStyle : pressableBaseStyle}
           aria-checked={checked}
+          accessibilityState={{ checked }}
           role="checkbox">
           {_icon}
           <Spacer size="xs" horizontal />
