@@ -4,11 +4,13 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 <Meta title="Design Tokens/Colors" />
 
 # Colors
+
 Our color palette is organized into semantic color tokens, which have specific meaning within the system, and primitive color tokens, which establish a subset of colors that the VA uses from the U.S. Web Design System.
 
 ## Primitive
 
 ### Gray
+
 <ColorPalette>
   <ColorItem
     title="Black & White"
@@ -55,6 +57,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 ### Blue
+
 <ColorPalette>
   <ColorItem
     title="Primary"
@@ -62,7 +65,7 @@ Our color palette is organized into semantic color tokens, which have specific m
     colors={{
       Darker: colors.vadsColorPrimaryDarker,
       Dark: colors.vadsColorPrimaryDark,
-      "—": colors.vadsColorPrimary,
+      '—': colors.vadsColorPrimary,
       Light: colors.vadsColorPrimaryLight,
       Lighter: colors.vadsColorPrimaryLighter,
     }}
@@ -73,7 +76,7 @@ Our color palette is organized into semantic color tokens, which have specific m
     colors={{
       Darkest: colors.vadsColorPrimaryAltDarkest,
       Dark: colors.vadsColorPrimaryAltDark,
-      "—": colors.vadsColorPrimaryAlt,
+      '—': colors.vadsColorPrimaryAlt,
       Light: colors.vadsColorPrimaryAltLight,
       Lightest: colors.vadsColorPrimaryAltLightest,
     }}
@@ -82,7 +85,7 @@ Our color palette is organized into semantic color tokens, which have specific m
     title="Cool"
     subtitle="vadsColorBlueCool"
     colors={{
-      "—": colors.vadsColorBlueCool,
+      '—': colors.vadsColorBlueCool,
       Light: colors.vadsColorBlueCoolLight,
       Lightest: colors.vadsColorBlueCoolLightest,
     }}
@@ -93,11 +96,14 @@ Our color palette is organized into semantic color tokens, which have specific m
     colors={{
       BlueVivid80: colors.uswdsSystemColorBlueVivid80,
       BlueVivid30: colors.uswdsSystemColorBlueVivid30,
+      BlueWarm80: colors.uswdsSystemColorBlueWarm80,
+      BlueWarm5: colors.uswdsSystemColorBlueWarm5,
     }}
   />
 </ColorPalette>
 
 ### Red
+
 <ColorPalette>
   <ColorItem
     title="Secondary"
@@ -105,7 +111,7 @@ Our color palette is organized into semantic color tokens, which have specific m
     colors={{
       Darkest: colors.vadsColorSecondaryDarkest,
       Dark: colors.vadsColorSecondaryDark,
-      "—": colors.vadsColorSecondary,
+      '—': colors.vadsColorSecondary,
       Light: colors.vadsColorSecondaryLight,
       Lightest: colors.vadsColorSecondaryLightest,
     }}
@@ -121,6 +127,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 ### Yellow
+
 <ColorPalette>
   <ColorItem
     title="Gold"
@@ -141,6 +148,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 ### Green
+
 <ColorPalette>
   <ColorItem
     title="Green"
@@ -162,18 +170,20 @@ Our color palette is organized into semantic color tokens, which have specific m
 ## Semantic
 
 ### Background
+
 <ColorPalette>
   <ColorItem
     title="Default"
     subtitle="vadsColorBackgroundDefault"
     colors={{
       OnLight: colors.vadsColorBackgroundDefaultOnLight,
-      OnDark: colors.vadsColorBgDefaultOnDark,
+      OnDark: colors.vadsColorBackgroundDefaultOnDark,
     }}
   />
 </ColorPalette>
 
 ### Foreground
+
 <ColorPalette>
   <ColorItem
     title="Default"
@@ -210,6 +220,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 ### Surface
+
 <ColorPalette>
   <ColorItem
     title="Default"
@@ -238,6 +249,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 ### Action
+
 <ColorPalette>
   <ColorItem
     title=""
@@ -258,6 +270,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 #### Default
+
 <ColorPalette>
   <ColorItem
     title="Foreground"
@@ -310,6 +323,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 #### Base
+
 <ColorPalette>
   <ColorItem
     title="Foreground"
@@ -362,6 +376,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 #### Destructive
+
 <ColorPalette>
   <ColorItem
     title="Surface"
@@ -384,6 +399,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 ### Feedback
 
 #### Informational
+
 <ColorPalette>
   <ColorItem
     title="Border"
@@ -404,6 +420,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 #### Success
+
 <ColorPalette>
   <ColorItem
     title="Border"
@@ -424,6 +441,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 #### Warning
+
 <ColorPalette>
   <ColorItem
     title="Border"
@@ -444,6 +462,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 #### Error
+
 <ColorPalette>
   <ColorItem
     title="Border"
@@ -466,6 +485,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 ### Forms
 
 #### Foreground
+
 <ColorPalette>
   <ColorItem
     title="Active"
@@ -478,6 +498,7 @@ Our color palette is organized into semantic color tokens, which have specific m
 </ColorPalette>
 
 #### Border
+
 <ColorPalette>
   <ColorItem
     title="Default"
@@ -513,9 +534,23 @@ Our color palette is organized into semantic color tokens, which have specific m
   />
 </ColorPalette>
 
+#### Surface
+
+<ColorPalette>
+  <ColorItem
+    title="Active"
+    subtitle="vadsColorFormsSurfaceActive"
+    colors={{
+      OnLight: colors.vadsColorFormsSurfaceActiveOnLight,
+      OnDark: colors.vadsColorFormsSurfaceActiveOnDark,
+    }}
+  />
+</ColorPalette>
+
 ## Component
 
 ### Segmented Control
+
 <ColorPalette>
   <ColorItem
     title="Surface (selected)"

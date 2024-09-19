@@ -58,7 +58,7 @@ Code reviewer validation:
 
 ## Publish
 <!-- Most changes entail a version increment; section can be removed for PRs exclusively within non-ship-relevant files (e.g. unit tests, Storybook stories) -->
-If changes warrant a new version [per the versioning guidelines](https://github.com/department-of-veterans-affairs/va-mobile-library#versioning-policy) and the PR is approved and ready to merge:
+If changes warrant a new version [per the versioning guidelines](https://github.com/department-of-veterans-affairs/va-mobile-library/blob/main/documentation/versioning.md) and the PR is approved and ready to merge:
 - [ ] Merge `main` into branch
 - [ ] Merge branch to `main`
 - [ ] Verify that [Check Component Integrations](https://github.com/department-of-veterans-affairs/va-mobile-library/actions/workflows/check-component-integrations.yml) workflow ran successfully
