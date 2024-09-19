@@ -10,12 +10,12 @@ import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 export type CheckboxProps = {
-  /** Determine whether checkbox is checked. Defaults to false */
-  checked: boolean
   /** Primary text for checkbox */
   label: string
   /** OnPress function. Pass a function that alters `checked` state */
   onPress: () => void
+  /** Optional boolean that determines whether checkbox appears checked */
+  checked?: boolean
   /** Optional description that appears below label */
   description?: string
   /** Optional accessibility override for description text  */
@@ -43,7 +43,7 @@ export type CheckboxProps = {
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
-  checked = false,
+  checked,
   label,
   labelA11y,
   description,
@@ -78,7 +78,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   if (error) {
     containerStyle = {
       ...containerStyle,
-      borderLeftWidth: spacing.vadsSpace2xs,
+      borderLeftWidth: 4,
       borderColor: theme.vadsColorFormsBorderError,
       paddingLeft: spacing.vadsSpaceLg,
     }
