@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.24.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.3) (2024-09-20)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.2...components-v0.24.3)
+
+**Closed issues:**
+
+- BUG - sev-3 - All - Alert component body sometimes incorrectly marked as actionable for voice control [\#488](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/488)
+
+**Merged pull requests:**
+
+- \[Code Upkeep\] Update components to use spacing tokens [\#487](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/487) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.24.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.2) (2024-09-20)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.1...components-v0.24.2)
