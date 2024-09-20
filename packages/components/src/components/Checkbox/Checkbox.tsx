@@ -78,7 +78,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   if (error) {
     containerStyle = {
       ...containerStyle,
-      borderLeftWidth: 4,
+      borderLeftWidth: spacing.vadsSpace2xs,
       borderColor: theme.vadsColorFormsBorderError,
       paddingLeft: spacing.vadsSpaceLg,
     }
