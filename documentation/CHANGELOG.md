@@ -1,5 +1,20 @@
 # Changelog
 
+## [components-v0.24.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.2) (2024-09-20)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.1...components-v0.24.2)
+
+**Closed issues:**
+
+- DS - VADS Tokens: Checkbox colors [\#473](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/473)
+- \[Design Tokens\] Spacing: Create documentation [\#446](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/446)
+- BUG - Sev-3 - All - Determine why destructured import of tokens isn't working in hooks [\#390](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/390)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix Alert description showing as actionable to Voice Control [\#497](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/497) ([TimRoe](https://github.com/TimRoe))
+- \[Tokens\] Add Checkbox color tokens to components [\#484](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/484) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.24.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.1) (2024-09-17)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.17.0...components-v0.24.1)
