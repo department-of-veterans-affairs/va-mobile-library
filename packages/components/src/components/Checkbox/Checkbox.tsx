@@ -1,8 +1,7 @@
 import { Pressable, StyleProp, Text, View, ViewStyle } from 'react-native'
-import React, { FC } from 'react'
-
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
+import React, { FC } from 'react'
 
 import { ComponentWrapper } from '../../wrapper'
 import { Icon } from '../Icon/Icon'
