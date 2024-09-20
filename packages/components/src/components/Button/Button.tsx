@@ -5,6 +5,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native'
+import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React from 'react'
 
 import { useTheme } from '../../utils'
@@ -101,7 +102,7 @@ export const Button: React.FC<ButtonProps> = ({
   }: PressableStateCallbackType): ViewStyle => ({
     width: '100%', // Ensure Button fills horizontal space, regardless of flexing content
     alignItems: 'center',
-    padding: 10,
+    padding: spacing.vadsSpaceSm,
     backgroundColor: pressed ? bgColorPressed : bgColor,
     borderRadius: 4,
     borderWidth,

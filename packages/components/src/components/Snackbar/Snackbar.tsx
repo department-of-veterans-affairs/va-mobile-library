@@ -11,6 +11,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
+import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 
@@ -144,15 +145,6 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     lineHeight: 22,
   }
 
-  const sizing = {
-    _4: 4,
-    _8: 8,
-    _12: 12,
-    _16: 16,
-    _20: 20,
-    _24: 24,
-  }
-
   const { isError, messageA11y, onActionPressed } = toast.data || {}
 
   const contentColor = theme.vadsColorForegroundInverse
@@ -162,13 +154,13 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
     style: {
       alignItems: 'center',
       backgroundColor: theme.vadsColorSurfaceInverse,
-      borderRadius: sizing._4,
+      borderRadius: 4,
       flexDirection: 'row',
       flexWrap: 'wrap',
-      gap: 5,
       minHeight: 44,
-      padding: sizing._12,
-      marginHorizontal: sizing._20,
+      padding: spacing.vadsSpaceSm,
+      marginHorizontal: spacing.vadsSpaceLg,
+      rowGap: spacing.vadsSpace2xs,
     },
   }
 
@@ -189,7 +181,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const iconViewStyle: ViewStyle = {
     // Below keeps icon aligned with first row of text, centered, and scalable
     alignSelf: 'flex-start',
-    minHeight: 22 * fontScale,
+    minHeight: helperText.lineHeight! * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
@@ -197,8 +189,8 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const iconProps: IconProps = {
     name: isError ? 'Warning' : 'CheckCircle',
     fill: contentColor,
-    height: sizing._16,
-    width: sizing._16,
+    height: 16,
+    width: 16,
     preventScaling: true,
   }
 
@@ -217,7 +209,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
       flexDirection: 'row',
       flexWrap: 'wrap',
       marginLeft: 'auto', // Maintains alignment to right side
-      paddingLeft: sizing._16, // Minimum spacing to message text
+      paddingLeft: spacing.vadsSpaceMd, // Minimum spacing to message text
     },
   }
 
