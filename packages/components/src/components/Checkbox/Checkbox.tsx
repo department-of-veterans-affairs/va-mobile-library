@@ -131,7 +131,7 @@ export const Checkbox: FC<CheckboxProps> = ({
               : 'CheckBoxOutlineBlank'
         }
         fill={
-          checked
+          checked || indeterminate
             ? theme.vadsColorFormsForegroundActive
             : theme.vadsColorFormsBorderDefault
         }
