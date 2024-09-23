@@ -61,11 +61,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   const { t } = useTranslation()
   const theme = useTheme()
 
-  const baseTextStyle = {
-    fontFamily: 'SourceSansPro-Regular',
-    color: theme.vadsColorForegroundDefault,
-  }
-
   /**
    * Container styling
    */
@@ -142,8 +137,9 @@ export const Checkbox: FC<CheckboxProps> = ({
   const labelProps = {
     'aria-label': labelA11y || label,
     style: {
-      ...baseTextStyle,
+      // TODO: Replace with typography tokens
       fontFamily: error ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
+      color: theme.vadsColorForegroundDefault,
       fontSize: 20,
       lineHeight: 30,
     },
@@ -165,7 +161,13 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
   const headerProps = {
     'aria-label': headerA11y || header,
-    style: { ...baseTextStyle, fontSize: 20, lineHeight: 30 },
+    style: {
+      // TODO: Replace with typography tokens
+      fontFamily: 'SourceSansPro-Regular',
+      color: theme.vadsColorForegroundDefault,
+      fontSize: 20,
+      lineHeight: 30,
+    },
   }
 
   const _header = header && (
@@ -181,7 +183,8 @@ export const Checkbox: FC<CheckboxProps> = ({
   const hintProps = {
     'aria-label': hintA11y || hint,
     style: {
-      ...baseTextStyle,
+      // TODO: Replace with typography tokens
+      fontFamily: 'SourceSansPro-Regular',
       color: theme.vadsColorForegroundSubtle,
       fontSize: 16,
       lineHeight: 22,
@@ -201,6 +204,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   const errorProps = {
     'aria-label': `${t('error')}: ${errorA11y || error}`,
     style: {
+      // TODO: Replace with typography tokens
       fontFamily: 'SourceSansPro-Bold',
       color: theme.vadsColorForegroundError,
       fontSize: 16,
@@ -220,7 +224,13 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
   const descriptionProps = {
     'aria-label': descriptionA11y || description,
-    style: { ...baseTextStyle, fontSize: 16, lineHeight: 22 },
+    style: {
+      // TODO: Replace with typography tokens
+      fontFamily: 'SourceSansPro-Regular',
+      color: theme.vadsColorForegroundDefault,
+      fontSize: 16,
+      lineHeight: 22,
+    },
   }
 
   const _description = description && (
