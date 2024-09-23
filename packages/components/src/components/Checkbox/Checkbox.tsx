@@ -30,7 +30,7 @@ export type CheckboxProps = {
   hint?: string
   /** Accessibility override for hint text  */
   hintA11y?: string
-  /** Optional error text. Non-null value styles checkbox in error state */
+  /** Optional error text. If present, applies error styling to checkbox */
   error?: string
   /** Accessibility override for error text  */
   errorA11y?: string
