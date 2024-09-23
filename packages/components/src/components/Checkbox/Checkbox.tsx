@@ -1,10 +1,17 @@
-import { Pressable, StyleProp, Text, View, ViewStyle } from 'react-native'
+import {
+  Pressable,
+  StyleProp,
+  Text,
+  View,
+  ViewStyle,
+  useWindowDimensions,
+} from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
 import { ComponentWrapper } from '../../wrapper'
-import { Icon } from '../Icon/Icon'
+import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
@@ -60,6 +67,7 @@ export const Checkbox: FC<CheckboxProps> = ({
 }) => {
   const { t } = useTranslation()
   const theme = useTheme()
+  const fontScale = useWindowDimensions().fontScale
 
   /**
    * Container styling
@@ -103,64 +111,10 @@ export const Checkbox: FC<CheckboxProps> = ({
   }
 
   /**
-   * Icon
-   */
-  const iconViewStyle: ViewStyle = {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 3,
-    paddingBottom: 3,
-  }
-
-  const _icon = (
-    <View style={iconViewStyle}>
-      <Icon
-        name={
-          indeterminate
-            ? 'IndeterminateCheckBox'
-            : checked
-              ? 'CheckBox'
-              : 'CheckBoxOutlineBlank'
-        }
-        fill={
-          checked || indeterminate
-            ? theme.vadsColorFormsForegroundActive
-            : theme.vadsColorFormsBorderDefault
-        }
-      />
-    </View>
-  )
-
-  /**
-   * Label
-   */
-  const labelProps = {
-    'aria-label': labelA11y || label,
-    style: {
-      // TODO: Replace with typography tokens
-      fontFamily: error ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
-      color: theme.vadsColorForegroundDefault,
-      fontSize: 20,
-      lineHeight: 30,
-    },
-  }
-
-  const requiredStyle = {
-    color: theme.vadsColorForegroundError,
-  }
-
-  const _label = (
-    <Text {...labelProps}>
-      {label}
-      {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
-    </Text>
-  )
-
-  /**
    * Header
    */
   const headerProps = {
-    'aria-label': headerA11y || header,
+    'aria-label': headerA11y,
     style: {
       // TODO: Replace with typography tokens
       fontFamily: 'SourceSansPro-Regular',
@@ -181,7 +135,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    * Hint
    */
   const hintProps = {
-    'aria-label': hintA11y || hint,
+    'aria-label': hintA11y,
     style: {
       // TODO: Replace with typography tokens
       fontFamily: 'SourceSansPro-Regular',
@@ -220,10 +174,66 @@ export const Checkbox: FC<CheckboxProps> = ({
   )
 
   /**
+   * Label
+   */
+  const labelProps = {
+    'aria-label': labelA11y,
+    style: {
+      // TODO: Replace with typography tokens
+      fontFamily: error ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
+      color: theme.vadsColorForegroundDefault,
+      fontSize: 20,
+      lineHeight: 30,
+    },
+  }
+
+  const requiredStyle = {
+    color: theme.vadsColorForegroundError,
+  }
+
+  const _label = (
+    <Text {...labelProps}>
+      {label}
+      {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
+    </Text>
+  )
+
+  /**
+   * Icon
+   */
+  const iconViewStyle: ViewStyle = {
+    paddingTop: 3,
+    paddingBottom: 3,
+    // Below keeps icon aligned with first row of text, centered, and scalable
+    alignSelf: 'flex-start',
+    minHeight: labelProps.style.lineHeight * fontScale,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
+
+  const iconProps: IconProps = {
+    name: indeterminate
+      ? 'IndeterminateCheckBox'
+      : checked
+        ? 'CheckBox'
+        : 'CheckBoxOutlineBlank',
+    fill:
+      checked || indeterminate
+        ? theme.vadsColorFormsForegroundActive
+        : theme.vadsColorFormsBorderDefault,
+  }
+
+  const _icon = (
+    <View style={iconViewStyle}>
+      <Icon {...iconProps} />
+    </View>
+  )
+
+  /**
    * Description
    */
   const descriptionProps = {
-    'aria-label': descriptionA11y || description,
+    'aria-label': descriptionA11y,
     style: {
       // TODO: Replace with typography tokens
       fontFamily: 'SourceSansPro-Regular',
@@ -249,8 +259,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         <Pressable
           onPress={onPress}
           style={tile ? tileStyle : pressableBaseStyle}
-          aria-checked={checked}
-          accessibilityState={{ checked }}
+          accessibilityState={{ checked: indeterminate ? 'mixed' : checked }}
           role="checkbox">
           {_icon}
           <Spacer size="xs" horizontal />
