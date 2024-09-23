@@ -81,13 +81,13 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
       <Animated.View style={{ transform: [{ rotate }] }}>
         <Icon {...iconProps} />
       </Animated.View>
-      <Spacer />
+      <Spacer size="xs" />
       {text && (
         <Text style={textStyle} accessibilityLabel={a11yLabel}>
           {text}
         </Text>
       )}
-      {text && children ? <Spacer /> : null}
+      {text && children ? <Spacer size="xs" /> : null}
       {children}
     </View>
   )
