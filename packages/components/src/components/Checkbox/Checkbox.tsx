@@ -11,7 +11,7 @@ import { useTheme } from '../../utils'
 export type CheckboxProps = {
   /** Primary text for checkbox */
   label: string
-  /** OnPress function. Pass a function that alters `checked` state */
+  /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
   onPress: () => void
   /** Optional boolean that determines whether checkbox appears checked */
   checked?: boolean
