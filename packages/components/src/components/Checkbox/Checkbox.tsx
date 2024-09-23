@@ -13,31 +13,31 @@ export type CheckboxProps = {
   label: string
   /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
   onPress: () => void
-  /** Optional boolean that determines whether checkbox appears checked */
+  /** True to make checkbox appear as checked */
   checked?: boolean
-  /** Optional description that appears below label */
+  /** Description that appears below label */
   description?: string
-  /** Optional accessibility override for description text  */
+  /** Accessibility override for description text  */
   descriptionA11y?: string
-  /** Optional hint text. Appears below header */
+  /** Hint text. Appears below header */
   hint?: string
-  /** Optional accessibility override for hint text  */
+  /** Accessibility override for hint text  */
   hintA11y?: string
   /** Optional error text. Non-null value styles checkbox in error state */
   error?: string
-  /** Optional accessibility override for error text  */
+  /** Accessibility override for error text  */
   errorA11y?: string
-  /** Optional header text */
+  /** Header text */
   header?: string
-  /** Optional accessibility override for header  */
+  /** Accessibility override for header  */
   headerA11y?: string
-  /** Optional indeterminate boolean. Overrides checked styling */
+  /** True to apply indeterminate icon to checkbox */
   indeterminate?: boolean
-  /** Optional accessibility override for label  */
+  /** Accessibility override for label  */
   labelA11y?: string
-  /** Optional required boolean that denotes a label as (*Required) */
+  /** True to append (*Required) suffix to label */
   required?: boolean
-  /** Optional tile styling */
+  /** True to apply tile styling */
   tile?: boolean
 }
 
@@ -69,7 +69,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Container styling
    */
-
   let containerStyle: ViewStyle = {
     width: '100%',
   }
@@ -86,7 +85,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Pressable styling
    */
-
   const pressableBaseStyle: StyleProp<ViewStyle> = {
     width: '100%',
     flexDirection: 'row',
@@ -112,7 +110,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Icon
    */
-
   const iconViewStyle: ViewStyle = {
     alignItems: 'center',
     justifyContent: 'center',
@@ -142,7 +139,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Label
    */
-
   const labelProps = {
     'aria-label': labelA11y || label,
     style: {
@@ -167,7 +163,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Header
    */
-
   const headerProps = {
     'aria-label': headerA11y || header,
     style: { ...baseTextStyle, fontSize: 20, lineHeight: 30 },
@@ -183,7 +178,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Hint
    */
-
   const hintProps = {
     'aria-label': hintA11y || hint,
     style: {
@@ -204,7 +198,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Error
    */
-
   const errorProps = {
     'aria-label': `${t('error')}: ${errorA11y || error}`,
     style: {
@@ -225,7 +218,6 @@ export const Checkbox: FC<CheckboxProps> = ({
   /**
    * Description
    */
-
   const descriptionProps = {
     'aria-label': descriptionA11y || description,
     style: { ...baseTextStyle, fontSize: 16, lineHeight: 22 },
