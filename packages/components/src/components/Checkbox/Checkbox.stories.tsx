@@ -20,17 +20,18 @@ const meta: Meta<CheckboxProps> = {
       {
         name: 'Figma component overview',
         type: 'figma',
-        url: 'REPLACE',
+        url: 'https://www.figma.com/design/mAMh8vyVgsevAOungfvGN6/%5BNEW%5D-Checkbox---%23427?node-id=1509-5372&t=eTj3nXLA5XBywjl0-4',
       },
       {
         name: 'Figma examples',
         type: 'figma',
-        url: 'REPLACE',
+        url: 'https://www.figma.com/design/mAMh8vyVgsevAOungfvGN6/%5BNEW%5D-Checkbox---%23427?node-id=1509-5373&t=bI5ocY9b39t81dX4-4',
       },
     ],
     docs: generateDocs({
       name: 'Checkbox',
-      docUrl: 'REPLACE',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/Checkbox/',
     }),
   },
 }
@@ -90,7 +91,7 @@ const header = 'Label Header',
   description = 'Checkbox description',
   descriptionA11y = 'Accessibility override for description'
 
-export const Default: Story = {
+export const _Default: Story = {
   render: statefulComponentRenderer,
   args: {
     header,
@@ -105,7 +106,30 @@ export const Default: Story = {
   },
 }
 
-export const Error: Story = {
+export const __Tile: Story = {
+  render: statefulComponentRenderer,
+  args: {
+    tile: true,
+    header,
+    headerA11y,
+    hint,
+    hintA11y,
+    label,
+    labelA11y,
+    description,
+    descriptionA11y,
+  },
+}
+
+export const ___CheckboxOnly: Story = {
+  render: statefulComponentRenderer,
+  args: {
+    label,
+    labelA11y,
+  },
+}
+
+export const ____Error: Story = {
   render: statefulComponentRenderer,
   args: {
     header,
@@ -118,37 +142,5 @@ export const Error: Story = {
     labelA11y,
     description,
     descriptionA11y,
-  },
-}
-
-export const LabelOnly: Story = {
-  render: statefulComponentRenderer,
-  args: {
-    label,
-    labelA11y,
-  },
-}
-
-export const Tile: Story = {
-  render: statefulComponentRenderer,
-  args: {
-    tile: true,
-    header,
-    headerA11y,
-    hint,
-    hintA11y,
-    label,
-    labelA11y,
-    description,
-    descriptionA11y,
-  },
-}
-
-export const TileCheckboxOnly: Story = {
-  render: statefulComponentRenderer,
-  args: {
-    label,
-    labelA11y,
-    tile: true,
   },
 }
