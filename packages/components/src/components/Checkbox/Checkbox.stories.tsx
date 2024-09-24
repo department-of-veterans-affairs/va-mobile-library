@@ -31,7 +31,7 @@ const meta: Meta<CheckboxProps> = {
     docs: generateDocs({
       name: 'Checkbox',
       docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/docs/Flagship%20design%20library/Components/Selection%20and%20Input/Form%20Elements/Checkbox/',
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/Checkbox/',
     }),
   },
 }
