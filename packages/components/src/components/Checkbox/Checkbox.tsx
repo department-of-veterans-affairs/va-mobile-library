@@ -70,6 +70,48 @@ export const Checkbox: FC<CheckboxProps> = ({
   const fontScale = useWindowDimensions().fontScale
 
   /**
+   * Fonts
+   */
+  // TODO: Replace with typography tokens
+  const fontRegular = 'SourceSansPro-Regular'
+  const fontBold = 'SourceSansPro-Bold'
+
+  const fontHeader = {
+    fontFamily: fontRegular,
+    color: theme.vadsColorForegroundDefault,
+    fontSize: 20,
+    lineHeight: 30,
+  }
+
+  const fontHint = {
+    fontFamily: fontRegular,
+    color: theme.vadsColorForegroundSubtle,
+    fontSize: 16,
+    lineHeight: 22,
+  }
+
+  const fontError = {
+    fontFamily: fontBold,
+    color: theme.vadsColorForegroundError,
+    fontSize: 16,
+    lineHeight: 22,
+  }
+
+  const fontLabel = {
+    fontFamily: error ? fontBold : fontRegular,
+    color: theme.vadsColorForegroundDefault,
+    fontSize: 20,
+    lineHeight: 30,
+  }
+
+  const fontDescription = {
+    fontFamily: fontRegular,
+    color: theme.vadsColorForegroundDefault,
+    fontSize: 16,
+    lineHeight: 22,
+  }
+
+  /**
    * Container styling
    */
   let containerStyle: ViewStyle = {
@@ -98,9 +140,7 @@ export const Checkbox: FC<CheckboxProps> = ({
     ...pressableBaseStyle,
     borderWidth: 2,
     borderRadius: spacing.vadsSpace2xs,
-    paddingTop: spacing.vadsSpaceSm,
-    paddingBottom: spacing.vadsSpaceSm,
-    paddingLeft: spacing.vadsSpaceSm,
+    padding: spacing.vadsSpaceSm,
     paddingRight: spacing.vadsSpaceMd,
     borderColor: checked
       ? theme.vadsColorFormsBorderActive
@@ -115,13 +155,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
   const headerProps = {
     'aria-label': headerA11y,
-    style: {
-      // TODO: Replace with typography tokens
-      fontFamily: 'SourceSansPro-Regular',
-      color: theme.vadsColorForegroundDefault,
-      fontSize: 20,
-      lineHeight: 30,
-    },
+    style: fontHeader,
   }
 
   const _header = header && (
@@ -136,13 +170,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
   const hintProps = {
     'aria-label': hintA11y,
-    style: {
-      // TODO: Replace with typography tokens
-      fontFamily: 'SourceSansPro-Regular',
-      color: theme.vadsColorForegroundSubtle,
-      fontSize: 16,
-      lineHeight: 22,
-    },
+    style: fontHint,
   }
 
   const _hint = hint && (
@@ -157,13 +185,7 @@ export const Checkbox: FC<CheckboxProps> = ({
    */
   const errorProps = {
     'aria-label': `${t('error')}: ${errorA11y || error}`,
-    style: {
-      // TODO: Replace with typography tokens
-      fontFamily: 'SourceSansPro-Bold',
-      color: theme.vadsColorForegroundError,
-      fontSize: 16,
-      lineHeight: 22,
-    },
+    style: fontError,
   }
 
   const _error = error && (
@@ -174,39 +196,12 @@ export const Checkbox: FC<CheckboxProps> = ({
   )
 
   /**
-   * Label
-   */
-  const labelProps = {
-    'aria-label': labelA11y,
-    style: {
-      // TODO: Replace with typography tokens
-      fontFamily: error ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
-      color: theme.vadsColorForegroundDefault,
-      fontSize: 20,
-      lineHeight: 30,
-    },
-  }
-
-  const requiredStyle = {
-    color: theme.vadsColorForegroundError,
-  }
-
-  const _label = (
-    <Text {...labelProps}>
-      {label}
-      {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
-    </Text>
-  )
-
-  /**
    * Icon
    */
   const iconViewStyle: ViewStyle = {
-    paddingTop: 3,
-    paddingBottom: 3,
     // Below keeps icon aligned with first row of text, centered, and scalable
     alignSelf: 'flex-start',
-    minHeight: labelProps.style.lineHeight * fontScale,
+    minHeight: fontLabel.lineHeight * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
@@ -230,17 +225,30 @@ export const Checkbox: FC<CheckboxProps> = ({
   )
 
   /**
+   * Label
+   */
+  const labelProps = {
+    'aria-label': labelA11y,
+    style: fontLabel,
+  }
+
+  const requiredStyle = {
+    color: theme.vadsColorForegroundError,
+  }
+
+  const _label = (
+    <Text {...labelProps}>
+      {label}
+      {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
+    </Text>
+  )
+
+  /**
    * Description
    */
   const descriptionProps = {
     'aria-label': descriptionA11y,
-    style: {
-      // TODO: Replace with typography tokens
-      fontFamily: 'SourceSansPro-Regular',
-      color: theme.vadsColorForegroundDefault,
-      fontSize: 16,
-      lineHeight: 22,
-    },
+    style: fontDescription,
   }
 
   const _description = description && (
@@ -259,7 +267,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         <Pressable
           onPress={onPress}
           style={tile ? tileStyle : pressableBaseStyle}
-          accessibilityState={{ checked: indeterminate ? 'mixed' : checked }}
+          aria-checked={indeterminate ? 'mixed' : checked}
           role="checkbox">
           {_icon}
           <Spacer size="xs" horizontal />
