@@ -1,5 +1,22 @@
 # Changelog
 
+## [components-v0.25.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.25.0) (2024-09-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.3...components-v0.25.0)
+
+**Closed issues:**
+
+- \[Design Tokens\] Colors: Create foreground tokens for feedback [\#490](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/490)
+- Radio Button: Prep for handoff [\#468](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/468)
+- DS - Checkbox Component Storybook [\#456](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/456)
+- DS - Checkbox Component Implementation [\#455](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/455)
+- DS - Update existing components to use spacing tokens [\#449](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/449)
+
+**Merged pull requests:**
+
+- \[Feature\] Checkbox Storybook Stories [\#500](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/500) ([narin](https://github.com/narin))
+- \[Feature\] Checkbox Implementation [\#485](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/485) ([narin](https://github.com/narin))
+
 ## [components-v0.24.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.24.3) (2024-09-20)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.2...components-v0.24.3)
