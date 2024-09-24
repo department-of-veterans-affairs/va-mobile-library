@@ -22,4 +22,7 @@ export const parameters = {
       return React.createElement(DocsContainer, currentProps)
     },
   },
+  viewport: {
+    defaultViewport: 'mobile2',
+  },
 }
