@@ -7,12 +7,12 @@ import { ComponentWrapper } from '../../../wrapper'
 import { Error, Header, Hint } from '../FormText'
 import { FormElementProps } from '../../../types/forms'
 import { Spacer } from '../../Spacer/Spacer'
-import { TextA11y } from '../../../types/common'
+import { TextWithA11y } from '../../../types/common'
 import { useTheme } from '../../../utils'
 
 export type CheckboxGroupItem =
   | string
-  | (TextA11y & { value?: string | number })
+  | (TextWithA11y & { value?: string | number })
 
 export type CheckboxGroupProps = FormElementProps & {
   /** Array of checkbox options. Can be an array of strings or objects if values and/or a11y overrides are needed */

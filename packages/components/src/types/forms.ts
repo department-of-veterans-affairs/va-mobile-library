@@ -1,15 +1,15 @@
-import { AccessibleText } from './common'
+import { TextWithA11y } from './common'
 
 /**
  * Props that are common to most form elements
  */
 export type FormElementProps = {
   /** Optional error text. If present, applies error styling to element */
-  error?: AccessibleText
+  error?: string | TextWithA11y
   /** Header text */
-  header?: AccessibleText
+  header?: string | TextWithA11y
   /** Hint text. Appears below header */
-  hint?: AccessibleText
+  hint?: string | TextWithA11y
   /** True to append (*Required) suffix to element */
   required?: boolean
   /** True to apply tile styling */
@@ -21,9 +21,9 @@ export type FormElementProps = {
  */
 export type CheckboxRadioProps = {
   /** Primary text for checkbox */
-  label: AccessibleText
+  label: string | TextWithA11y
   /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
   onPress: () => void
   /** Description that appears below label */
-  description?: AccessibleText
+  description?: string | TextWithA11y
 }
