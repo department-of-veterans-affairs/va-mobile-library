@@ -2,44 +2,25 @@ import { View, ViewStyle } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC, Fragment } from 'react'
 
-import { AccessibleText } from '../../../types/common'
 import { Checkbox } from '../Checkbox/Checkbox'
 import { ComponentWrapper } from '../../../wrapper'
 import { Error, Header, Hint } from '../FormText'
+import { FormElementProps } from '../../../types/forms'
 import { Spacer } from '../../Spacer/Spacer'
+import { TextA11y } from '../../../types/common'
 import { useTheme } from '../../../utils'
 
-export type CheckboxGroupItem = AccessibleText & {
-  value?: string | number
-}
+export type CheckboxGroupItem =
+  | string
+  | (TextA11y & { value?: string | number })
 
-export type CheckboxGroupProps = {
+export type CheckboxGroupProps = FormElementProps & {
   /** Array of checkbox options. Can be an array of strings or objects if values and/or a11y overrides are needed */
   items: CheckboxGroupItem[]
   /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
   onSelectionChange: (selected: (string | number)[]) => void
   /** Callback function that receives an updated array of selected values when checkboxes are pressed */
   selectedItems: (string | number)[]
-  /** Description that appears below label */
-  description?: string
-  /** Accessibility override for description text  */
-  descriptionA11y?: string
-  /** Hint text. Appears below header */
-  hint?: string
-  /** Accessibility override for hint text  */
-  hintA11y?: string
-  /** Optional error text. If present, applies error styling to checkbox */
-  error?: string
-  /** Accessibility override for error text  */
-  errorA11y?: string
-  /** Header text */
-  header?: string
-  /** Accessibility override for header  */
-  headerA11y?: string
-  /** True to append (*Required) suffix to label */
-  required?: boolean
-  /** True to apply tile styling */
-  tile?: boolean
 }
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
@@ -61,6 +42,18 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
       )
     } else {
       onSelectionChange([...selectedItems, value])
+    }
+  }
+
+  const getItemValue = (item: CheckboxGroupItem): string | number => {
+    if (typeof item === 'object') {
+      if (item.value) {
+        return item.value // value could be undefined or a number/string
+      } else {
+        return item.text
+      }
+    } else {
+      return item // Handle the case where item is a string
     }
   }
 
@@ -104,8 +97,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
           </>
         )}
         {items.map((item, index) => {
-          const value =
-            typeof item === 'object' ? item.value || item.text : item
+          const value = getItemValue(item)
 
           return (
             <Fragment key={`checkbox-group-item-${index}`}>

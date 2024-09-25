@@ -41,46 +41,17 @@ export default meta
 type Story = StoryObj<CheckboxGroupProps>
 
 const statefulComponentRenderer = (props: CheckboxGroupProps) => {
-  const {
-    description,
-    descriptionA11y,
-    error,
-    errorA11y,
-    header,
-    headerA11y,
-    hint,
-    hintA11y,
-    required,
-    tile,
-  } = props
+  const { error, header, hint, items, required, tile } = props
 
   const [selectedItems, setSelectedItems] = useState<(string | number)[]>([])
-
-  const items = [
-    {
-      text: 'Option 1',
-      a11y: 'Accessibility override for option 1',
-      value: '1',
-    },
-    { text: 'Option 2' },
-    { text: 'Option 3' },
-    { text: 'Option 4' },
-    { text: 'Option 5' },
-    { text: 'Option 6' },
-  ]
 
   return (
     <CheckboxGroup
       items={items}
       selectedItems={selectedItems}
-      description={description}
-      descriptionA11y={descriptionA11y}
       error={error}
-      errorA11y={errorA11y}
       header={header}
-      headerA11y={headerA11y}
       hint={hint}
-      hintA11y={hintA11y}
       onSelectionChange={(selected) => setSelectedItems(selected)}
       required={required}
       tile={tile}
@@ -88,24 +59,33 @@ const statefulComponentRenderer = (props: CheckboxGroupProps) => {
   )
 }
 
-const header = 'Label Header',
-  headerA11y = 'Accessibility override for header',
-  hint = 'Hint about this checkbox group',
-  hintA11y = 'Accessibility override for hint',
-  error = 'Error text',
-  errorA11y = 'Accessibility override for error',
-  description = 'Checkbox description',
-  descriptionA11y = 'Accessibility override for description'
+const items = [
+  {
+    text: 'Option 1',
+    a11y: 'Accessibility override for option 1',
+    value: '1',
+  },
+  { text: 'Option 2' },
+  { text: 'Option 3' },
+  { text: 'Option 4' },
+  { text: 'Option 5' },
+  { text: 'Option 6' },
+  'Option 7',
+]
+
+const header = {
+    text: 'Label Header',
+    a11y: 'Accessibility override for header',
+  },
+  hint = { text: 'Hint text', a11y: 'Accessibility override for hint' },
+  error = { text: 'Error text', a11y: 'Accessibility override for error' }
 
 export const _Default: Story = {
   render: statefulComponentRenderer,
   args: {
     header,
-    headerA11y,
     hint,
-    hintA11y,
-    description,
-    descriptionA11y,
+    items,
     required: true,
   },
 }
@@ -113,13 +93,10 @@ export const _Default: Story = {
 export const __Tile: Story = {
   render: statefulComponentRenderer,
   args: {
-    tile: true,
     header,
-    headerA11y,
     hint,
-    hintA11y,
-    description,
-    descriptionA11y,
+    items,
+    tile: true,
   },
 }
 
@@ -127,13 +104,9 @@ export const ___Error: Story = {
   render: statefulComponentRenderer,
   args: {
     error,
-    errorA11y,
     header,
-    headerA11y,
     hint,
-    hintA11y,
-    description,
-    descriptionA11y,
+    items,
     required: true,
   },
 }
