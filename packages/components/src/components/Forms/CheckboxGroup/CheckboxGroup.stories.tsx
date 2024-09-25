@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import React, { useState } from 'react'
 
 import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup'
-import { generateDocs } from '../../utils/storybook'
+import { generateDocs } from '../../../utils/storybook'
 
 const meta: Meta<CheckboxGroupProps> = {
   title: 'Checkbox group',
@@ -58,15 +58,15 @@ const statefulComponentRenderer = (props: CheckboxGroupProps) => {
 
   const items = [
     {
-      label: 'Option 1',
-      labelA11y: 'Accessibility override for option 1',
+      text: 'Option 1',
+      a11y: 'Accessibility override for option 1',
       value: '1',
     },
-    { label: 'Option 2' },
-    { label: 'Option 3' },
-    { label: 'Option 4' },
-    { label: 'Option 5' },
-    { label: 'Option 6' },
+    { text: 'Option 2' },
+    { text: 'Option 3' },
+    { text: 'Option 4' },
+    { text: 'Option 5' },
+    { text: 'Option 6' },
   ]
 
   return (
