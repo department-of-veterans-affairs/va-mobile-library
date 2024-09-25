@@ -45,18 +45,6 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
     }
   }
 
-  const getItemValue = (item: CheckboxGroupItem): string | number => {
-    if (typeof item === 'object') {
-      if (item.value) {
-        return item.value // value could be undefined or a number/string
-      } else {
-        return item.text
-      }
-    } else {
-      return item // Handle the case where item is a string
-    }
-  }
-
   /**
    * Container styling
    */
@@ -97,7 +85,8 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
           </>
         )}
         {items.map((item, index) => {
-          const value = getItemValue(item)
+          const value =
+            typeof item === 'object' ? item.value || item.text : item
 
           return (
             <Fragment key={`checkbox-group-item-${index}`}>
