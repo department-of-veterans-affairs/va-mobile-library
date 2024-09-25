@@ -65,10 +65,12 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
     color: theme.vadsColorForegroundError,
   }
 
+  const ariaLabel = required
+    ? getA11yText(text) + ', ' + t('required')
+    : getA11yText(text)
+
   return (
-    <Text
-      aria-label={`${getA11yText(text)}${required ? ', ' + t('required') : ''}`}
-      style={textStyle}>
+    <Text aria-label={ariaLabel} style={textStyle}>
       {getDisplayText(text)}
       {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
     </Text>
@@ -137,10 +139,12 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
     color: theme.vadsColorForegroundError,
   }
 
+  const ariaLabel = required
+    ? getA11yText(text) + ', ' + t('required')
+    : getA11yText(text)
+
   return (
-    <Text
-      aria-label={`${getA11yText(text)}${required ? ', ' + t('required') : ''}`}
-      style={textStyle}>
+    <Text aria-label={ariaLabel} style={textStyle}>
       {getDisplayText(text)}
       {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
     </Text>
