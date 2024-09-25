@@ -83,7 +83,6 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
 export const Hint: FC<FormTextProps> = ({ text }) => {
   const theme = useTheme()
 
-  // TODO: Replace with typography tokens
   const textStyle = {
     ...fontHint,
     color: theme.vadsColorForegroundSubtle,
@@ -103,7 +102,6 @@ export const Error: FC<FormTextProps> = ({ text }) => {
   const { t } = useTranslation()
   const theme = useTheme()
 
-  // TODO: Replace with typography tokens
   const textStyle = {
     ...fontError,
     color: theme.vadsColorForegroundError,
@@ -128,7 +126,6 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
   const theme = useTheme()
   const { t } = useTranslation()
 
-  // TODO: Replace with typography tokens
   const textStyle = {
     ...fontLabel,
     fontFamily: error ? fontBold : fontRegular,
@@ -157,7 +154,6 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
 export const Description: FC<FormTextProps> = ({ text }) => {
   const theme = useTheme()
 
-  // TODO: Replace with typography tokens
   const textStyle = {
     ...fontDescription,
     color: theme.vadsColorForegroundDefault,
