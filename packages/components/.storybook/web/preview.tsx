@@ -25,7 +25,4 @@ export const parameters = {
       sort: 'requiredFirst',
     },
   },
-  viewport: {
-    defaultViewport: 'mobile2',
-  },
 }
