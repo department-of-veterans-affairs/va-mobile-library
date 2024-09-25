@@ -66,7 +66,9 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
   }
 
   return (
-    <Text aria-label={getA11yText(text)} style={textStyle}>
+    <Text
+      aria-label={`${getA11yText(text)}${required ? ', ' + t('required') : ''}`}
+      style={textStyle}>
       {getDisplayText(text)}
       {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
     </Text>
@@ -136,7 +138,9 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
   }
 
   return (
-    <Text aria-label={getA11yText(text)} style={textStyle}>
+    <Text
+      aria-label={`${getA11yText(text)}${required ? ', ' + t('required') : ''}`}
+      style={textStyle}>
       {getDisplayText(text)}
       {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
     </Text>
