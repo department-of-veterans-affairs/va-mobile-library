@@ -73,12 +73,9 @@ const items = [
   'Option 7',
 ]
 
-const header = {
-    text: 'Label Header',
-    a11y: 'Accessibility override for header',
-  },
-  hint = { text: 'Hint text', a11y: 'Accessibility override for hint' },
-  error = { text: 'Error text', a11y: 'Accessibility override for error' }
+const header = { text: 'Header', a11y: 'Accessibility override for header' }
+const hint = { text: 'Hint text', a11y: 'Accessibility override for hint' }
+const error = { text: 'Error text', a11y: 'Accessibility override for error' }
 
 export const _Default: Story = {
   render: statefulComponentRenderer,
