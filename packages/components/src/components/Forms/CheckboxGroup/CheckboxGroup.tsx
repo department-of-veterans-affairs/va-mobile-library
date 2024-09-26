@@ -7,12 +7,12 @@ import { ComponentWrapper } from '../../../wrapper'
 import { Error, Header, Hint } from '../FormText'
 import { FormElementProps } from '../../../types/forms'
 import { Spacer } from '../../Spacer/Spacer'
-import { StringOrTextWithA11yAndValue } from '../../../types/common'
+import { TextWithA11yAndValue } from '../../../types/common'
 import { useTheme } from '../../../utils'
 
 export type CheckboxGroupProps = FormElementProps & {
   /** Array of checkbox options. Can be an array containing strings or objects if values or a11y overrides are needed */
-  items: StringOrTextWithA11yAndValue[]
+  items: string[] | TextWithA11yAndValue[]
   /** Callback function that receives an updated array of selected values when checkboxes are pressed */
   onSelectionChange: (selected: (string | number)[]) => void
   /** Array of the labels or values (if provided) of currently selected checkboxes */
