@@ -60,12 +60,8 @@ const statefulComponentRenderer = (props: CheckboxGroupProps) => {
 }
 
 const items = [
-  {
-    text: 'Option 1',
-    a11y: 'Accessibility override for option 1',
-    value: '1',
-  },
-  { text: 'Option 2' },
+  'Option 1',
+  { text: 'Option 2', a11y: 'Accessibility override for option 2', value: '2' },
   { text: 'Option 3' },
   { text: 'Option 4' },
   { text: 'Option 5' },
@@ -73,9 +69,9 @@ const items = [
   'Option 7',
 ]
 
-const header = { text: 'Header', a11y: 'Accessibility override for header' }
+const header = 'Header'
 const hint = { text: 'Hint text', a11y: 'Accessibility override for hint' }
-const error = { text: 'Error text', a11y: 'Accessibility override for error' }
+const error = { text: 'Error text' }
 
 export const _Default: Story = {
   render: statefulComponentRenderer,

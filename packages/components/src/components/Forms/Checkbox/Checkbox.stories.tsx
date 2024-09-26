@@ -70,7 +70,7 @@ const statefulComponentRenderer = (props: CheckboxProps) => {
   )
 }
 
-const header = { text: 'Header', a11y: 'Accessibility override for header' }
+const header = 'Header'
 const hint = { text: 'Hint text', a11y: 'Accessibility override for hint' }
 const error = { text: 'Error text', a11y: 'Accessibility override for error' }
 const label = { text: 'Label', a11y: 'Accessibility override for label' }
