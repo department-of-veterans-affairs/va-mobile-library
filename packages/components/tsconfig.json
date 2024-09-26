@@ -110,7 +110,7 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     // "skipLibCheck": true                              /* Skip type checking all .d.ts files. */
   },
-  "include": ["src", "global.d.ts"],
+  "include": ["src/**/*", ".storybook/**/*", "global.d.ts"],
   "exclude": ["node_modules"],
   "extends": "../../tsconfig.eslint.json"
 }

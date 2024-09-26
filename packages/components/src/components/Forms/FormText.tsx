@@ -1,13 +1,13 @@
 import { Text } from 'react-native'
 import React, { FC } from 'react'
 
-import { TextWithA11y } from '../../types/common'
+import { StringOrTextWithA11y } from '../../types/common'
 import { getA11yText, getDisplayText } from '../../utils'
 import { useTheme } from '../../utils'
 import { useTranslation } from 'react-i18next'
 
 export type FormTextProps = {
-  text: string | TextWithA11y
+  text: StringOrTextWithA11y
 }
 
 /**
@@ -119,7 +119,7 @@ export const Error: FC<FormTextProps> = ({ text }) => {
  */
 export type LabelProps = FormTextProps & {
   required?: boolean
-  error?: string | TextWithA11y
+  error?: StringOrTextWithA11y
 }
 
 export const Label: FC<LabelProps> = ({ text, error, required }) => {
@@ -160,7 +160,7 @@ export const Description: FC<FormTextProps> = ({ text }) => {
   }
 
   return (
-    <Text aria-label={getA11yText(text)} style={textStyle}>
+    <Text aria-label={`, ${getA11yText(text)}`} style={textStyle}>
       {getDisplayText(text)}
     </Text>
   )

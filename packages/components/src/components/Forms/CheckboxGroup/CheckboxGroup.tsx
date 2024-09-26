@@ -7,19 +7,15 @@ import { ComponentWrapper } from '../../../wrapper'
 import { Error, Header, Hint } from '../FormText'
 import { FormElementProps } from '../../../types/forms'
 import { Spacer } from '../../Spacer/Spacer'
-import { TextWithA11y } from '../../../types/common'
+import { StringOrTextWithA11yAndValue } from '../../../types/common'
 import { useTheme } from '../../../utils'
 
-export type CheckboxGroupItem =
-  | string
-  | (TextWithA11y & { value?: string | number })
-
 export type CheckboxGroupProps = FormElementProps & {
-  /** Array of checkbox options. Can be an array of strings or objects if values and/or a11y overrides are needed */
-  items: CheckboxGroupItem[]
-  /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
-  onSelectionChange: (selected: (string | number)[]) => void
+  /** Array of checkbox options. Can be an array containing strings or objects if values or a11y overrides are needed */
+  items: StringOrTextWithA11yAndValue[]
   /** Callback function that receives an updated array of selected values when checkboxes are pressed */
+  onSelectionChange: (selected: (string | number)[]) => void
+  /** Array of the labels or values (if provided) of currently selected checkboxes */
   selectedItems: (string | number)[]
 }
 
