@@ -129,6 +129,7 @@ StyleDictionary.registerFormat({
     const sortedTokens = sortTokensByName(dictionary.allTokens)
     let declaration = 'export declare const colors: {\n'
     sortedTokens.forEach((token) => {
+      declaration += `  /** #${token.value} */\n`
       declaration += `  ${token.name}: string;\n`
     })
     declaration += '}'
@@ -142,6 +143,7 @@ StyleDictionary.registerFormat({
   formatter: function (dictionary) {
     let declaration = 'export declare const spacing: {\n'
     dictionary.allProperties.forEach((token) => {
+      declaration += `  /** Value: ${token.value} */\n`
       declaration += `  ${token.name}: number;\n`
     })
     declaration += '}'
@@ -156,6 +158,7 @@ StyleDictionary.registerFormat({
     const sortedTokens = sortTokensByName(dictionary.allTokens)
     let declaration = 'export declare type Theme = {\n'
     sortedTokens.forEach((token) => {
+      declaration += `  /** #${token.value} */\n`
       declaration += `  ${stripMode(token.name)}: string;\n`
     })
     declaration += '}\n\n'
