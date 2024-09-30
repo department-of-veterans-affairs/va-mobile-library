@@ -16,7 +16,7 @@ const sortTokensByKey = (obj) => {
   return sortedObj
 }
 
-/** Returns a new tokens array sorted alphabetically by key */
+/** Returns a new tokens array sorted alphabetically by token name */
 const sortTokensByName = (tokens) =>
   tokens.sort((a, b) => {
     return a.name.localeCompare(b.name)
