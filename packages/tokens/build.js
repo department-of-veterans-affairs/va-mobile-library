@@ -5,7 +5,7 @@ const StyleDictionary = require('style-dictionary')
  * Utils
  */
 
-/** Reterns a new tokens object sorted alphabetically by key */
+/** Returns a new tokens object sorted alphabetically by key */
 const sortTokensByKey = (obj) => {
   const sortedKeys = Object.keys(obj).sort()
   const sortedObj = {}
@@ -15,6 +15,12 @@ const sortTokensByKey = (obj) => {
 
   return sortedObj
 }
+
+/** Returns a new tokens array sorted alphabetically by token name */
+const sortTokensByName = (tokens) =>
+  tokens.sort((a, b) => {
+    return a.name.localeCompare(b.name)
+  })
 
 /** Reusable filter function that returns only non-dark-mode tokens */
 const filterLight = (token) =>
@@ -120,8 +126,10 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
+    const sortedTokens = sortTokensByName(dictionary.allTokens)
     let declaration = 'export declare const colors: {\n'
-    dictionary.allProperties.forEach((token) => {
+    sortedTokens.forEach((token) => {
+      declaration += `  /** ${token.value} */\n`
       declaration += `  ${token.name}: string;\n`
     })
     declaration += '}'
@@ -134,11 +142,15 @@ StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/spacing',
   formatter: function (dictionary) {
     let declaration = 'export declare const spacing: {\n'
-    dictionary.allProperties.forEach((token) => {
+    let allValuesComment = '/**\n * '
+    dictionary.allProperties.forEach((token, index) => {
+      declaration += `  /** Value: ${token.value} */\n`
       declaration += `  ${token.name}: number;\n`
+      allValuesComment += `${index !== 0 ? ' | ' : ''}${token.name.replace('vadsSpace', '')}: ${token.value}`
     })
     declaration += '}'
-    return declaration
+    allValuesComment += '\n */\n'
+    return allValuesComment + declaration
   },
 })
 
@@ -146,8 +158,10 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/theme',
   formatter: function (dictionary) {
+    const sortedTokens = sortTokensByName(dictionary.allTokens)
     let declaration = 'export declare type Theme = {\n'
-    dictionary.allProperties.forEach((token) => {
+    sortedTokens.forEach((token) => {
+      declaration += `  /** ${token.value} */\n`
       declaration += `  ${stripMode(token.name)}: string;\n`
     })
     declaration += '}\n\n'
