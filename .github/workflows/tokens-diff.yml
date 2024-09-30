@@ -2,8 +2,7 @@ name: Check for token changes from css-library
 
 on:
   pull_request:
-    types: [opened]
-  workflow_dispatch:
+    types: [opened, edited]
 
 defaults:
   run:
