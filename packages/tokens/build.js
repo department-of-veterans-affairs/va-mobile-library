@@ -142,12 +142,15 @@ StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/spacing',
   formatter: function (dictionary) {
     let declaration = 'export declare const spacing: {\n'
-    dictionary.allProperties.forEach((token) => {
+    let allValuesComment = '/**\n * '
+    dictionary.allProperties.forEach((token, index) => {
       declaration += `  /** Value: ${token.value} */\n`
       declaration += `  ${token.name}: number;\n`
+      allValuesComment += `${index !== 0 ? ', ' : ''}${token.name.replace('vadsSpace', '')}: ${token.value}`
     })
     declaration += '}'
-    return declaration
+    allValuesComment += '\n */\n'
+    return allValuesComment + declaration
   },
 })
 
