@@ -18,12 +18,25 @@ The tokens package also has light and dark themes available. These themes are a 
 
 The purpose of themes is to allow for assignment of color tokens without the need to specify the light or dark mode, and let your theme provider or handler return the correct theme. For example: instead of having a conditional where you'd assign either the `colors.vadsColorForegroundDefaultOnLight` or `colors.vadsColorForegroundDefaultOnDark` token, you could instead use `theme.vadsColorForegroundDefault` if your app already knows which color scheme it wants to use.
 
-To use the themes:
+#### Using theme tokens directly
 1. Add `@department-of-veterans-affairs/mobile-tokens` to your project via your package manager (e.g. yarn)
 2. Add `import { themes } from '@department-of-veterans-affairs/mobile-tokens` to files you wish to use them in. 
 3. Reference the theme in your code using either `themes.light` or `themes.dark`
 
-We will potentially be making hook available in the future that will auto-detect the theme based on the device's dark mode setting and return the appropriate theme.
+#### useTheme hook
+We have also made a hook available in the component library that will return the appropriate light or dark theme based on the user's OS setting. To use the hook:
+1. Add `@department-of-veterans-affairs/mobile-component-library` to your project via your package manager (e.g. yarn)
+2. Add `import { useTheme } from '@department-of-veterans-affairs/mobile-component-library'`
+3. Use the hook to at the top of your component function to retrieve either the light or dark theme based on the device's current color scheme. e.g.
+
+```jsx
+  const theme = useTheme()
+
+  const componentStyle = {
+    color: theme.vadsColorForegroundDefault
+  }
+```
+
 
 ## For contributors
 Depending on what is being contributed, the recommendation for how to proceed differs.
