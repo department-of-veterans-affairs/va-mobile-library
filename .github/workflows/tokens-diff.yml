@@ -21,7 +21,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          # token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Set git credentials
         run: |
           git config --global user.name 'VA Automation Bot'
