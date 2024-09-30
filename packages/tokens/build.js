@@ -146,7 +146,7 @@ StyleDictionary.registerFormat({
     dictionary.allProperties.forEach((token, index) => {
       declaration += `  /** Value: ${token.value} */\n`
       declaration += `  ${token.name}: number;\n`
-      allValuesComment += `${index !== 0 ? ', ' : ''}${token.name.replace('vadsSpace', '')}: ${token.value}`
+      allValuesComment += `${index !== 0 ? ' | ' : ''}${token.name.replace('vadsSpace', '')}: ${token.value}`
     })
     declaration += '}'
     allValuesComment += '\n */\n'
