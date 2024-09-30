@@ -5,7 +5,7 @@ const StyleDictionary = require('style-dictionary')
  * Utils
  */
 
-/** Reterns a new tokens object sorted alphabetically by key */
+/** Returns a new tokens object sorted alphabetically by key */
 const sortTokensByKey = (obj) => {
   const sortedKeys = Object.keys(obj).sort()
   const sortedObj = {}
@@ -15,6 +15,12 @@ const sortTokensByKey = (obj) => {
 
   return sortedObj
 }
+
+/** Returns a new tokens array sorted alphabetically by key */
+const sortTokensByName = (tokens) =>
+  tokens.sort((a, b) => {
+    return a.name.localeCompare(b.name)
+  })
 
 /** Reusable filter function that returns only non-dark-mode tokens */
 const filterLight = (token) =>
@@ -120,8 +126,9 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/colors',
   formatter: function (dictionary) {
+    const sortedTokens = sortTokensByName(dictionary.allTokens)
     let declaration = 'export declare const colors: {\n'
-    dictionary.allProperties.forEach((token) => {
+    sortedTokens.forEach((token) => {
       declaration += `  ${token.name}: string;\n`
     })
     declaration += '}'
@@ -146,8 +153,9 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/theme',
   formatter: function (dictionary) {
+    const sortedTokens = sortTokensByName(dictionary.allTokens)
     let declaration = 'export declare type Theme = {\n'
-    dictionary.allProperties.forEach((token) => {
+    sortedTokens.forEach((token) => {
       declaration += `  ${stripMode(token.name)}: string;\n`
     })
     declaration += '}\n\n'
