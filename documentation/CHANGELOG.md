@@ -1,5 +1,17 @@
 # Changelog
 
+## [tokens-v0.17.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.17.1) (2024-09-30)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.25.0...tokens-v0.17.1)
+
+**Closed issues:**
+
+- DS - SPIKE - Focus Styles [\#466](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/466)
+
+**Merged pull requests:**
+
+- \[CU\] Alphabetize and add value comments to token declarations [\#506](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/506) ([narin](https://github.com/narin))
+
 ## [components-v0.25.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.25.0) (2024-09-24)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.24.3...components-v0.25.0)
