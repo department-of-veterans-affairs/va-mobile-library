@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
 import { StringOrTextWithA11y } from '../../types/common'
-import { getA11yText, getDisplayText } from '../../utils'
+import { getA11yLabel, getDisplayText } from '../../utils'
 import { useTheme } from '../../utils'
 
 type FormTextProps = {
+  /** String to display or TextWithA11y object with string and a11y label */
   text?: StringOrTextWithA11y
 }
 
@@ -49,6 +50,7 @@ const fontDescription = {
  * Header text element commonly used in form components
  */
 export type HeaderProps = FormTextProps & {
+  /** True to display (*Required) label next to header */
   required?: boolean
 }
 
@@ -68,8 +70,8 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
   }
 
   const ariaLabel = required
-    ? getA11yText(text) + ', ' + t('required')
-    : getA11yText(text)
+    ? getA11yLabel(text) + ', ' + t('required')
+    : getA11yLabel(text)
 
   return (
     <Text aria-label={ariaLabel} style={textStyle}>
@@ -93,7 +95,7 @@ export const Hint: FC<FormTextProps> = ({ text }) => {
   }
 
   return (
-    <Text aria-label={getA11yText(text)} style={textStyle}>
+    <Text aria-label={getA11yLabel(text)} style={textStyle}>
       {getDisplayText(text)}
     </Text>
   )
@@ -114,20 +116,21 @@ export const Error: FC<FormTextProps> = ({ text }) => {
   }
 
   return (
-    <Text aria-label={`${t('error')}: ${getA11yText(text)}`} style={textStyle}>
+    <Text aria-label={`${t('error')}: ${getA11yLabel(text)}`} style={textStyle}>
       {getDisplayText(text)}
     </Text>
   )
+}
+export type LabelProps = FormTextProps & {
+  /** True to display (*Required) label next to label */
+  required?: boolean
+  /** Error message that modifies label styling when provided */
+  error?: StringOrTextWithA11y
 }
 
 /**
  * Label text element commonly used in form components
  */
-export type LabelProps = FormTextProps & {
-  required?: boolean
-  error?: StringOrTextWithA11y
-}
-
 export const Label: FC<LabelProps> = ({ text, error, required }) => {
   const theme = useTheme()
   const { t } = useTranslation()
@@ -145,8 +148,8 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
   }
 
   const ariaLabel = required
-    ? getA11yText(text) + ', ' + t('required')
-    : getA11yText(text)
+    ? getA11yLabel(text) + ', ' + t('required')
+    : getA11yLabel(text)
 
   return (
     <Text aria-label={ariaLabel} style={textStyle}>
@@ -170,7 +173,7 @@ export const Description: FC<FormTextProps> = ({ text }) => {
   }
 
   return (
-    <Text aria-label={`, ${getA11yText(text)}`} style={textStyle}>
+    <Text aria-label={`, ${getA11yLabel(text)}`} style={textStyle}>
       {getDisplayText(text)}
     </Text>
   )
