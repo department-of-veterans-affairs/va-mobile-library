@@ -8,12 +8,19 @@ import {
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
-import { CheckboxRadioProps, FormElementProps } from '../../../types/forms'
-import { ComponentWrapper } from '../../../wrapper'
-import { Description, Error, Header, Hint, Label, fontLabel } from '../FormText'
-import { Icon, IconProps } from '../../Icon/Icon'
-import { Spacer } from '../../Spacer/Spacer'
-import { useTheme } from '../../../utils'
+import { CheckboxRadioProps, FormElementProps } from '../../types/forms'
+import { ComponentWrapper } from '../../wrapper'
+import {
+  Description,
+  Error,
+  Header,
+  Hint,
+  Label,
+  fontLabel,
+} from '../shared/FormText'
+import { Icon, IconProps } from '../Icon/Icon'
+import { Spacer } from '../Spacer/Spacer'
+import { useTheme } from '../../utils'
 
 export type CheckboxProps = FormElementProps &
   CheckboxRadioProps & {
@@ -110,26 +117,14 @@ export const Checkbox: FC<CheckboxProps> = ({
   return (
     <ComponentWrapper>
       <View style={containerStyle}>
-        {header && (
-          <>
-            <Header text={header} />
-            <Spacer size="xs" />
-          </>
-        )}
+        <Header text={header} />
+        {header && <Spacer size="xs" />}
 
-        {hint && (
-          <>
-            <Hint text={hint} />
-            <Spacer size="xs" />
-          </>
-        )}
+        <Hint text={hint} />
+        {hint && <Spacer size="xs" />}
 
-        {error && (
-          <>
-            <Error text={error} />
-            <Spacer size="xs" />
-          </>
-        )}
+        <Error text={error} />
+        {error && <Spacer size="xs" />}
 
         <Pressable
           onPress={onPress}
@@ -140,12 +135,8 @@ export const Checkbox: FC<CheckboxProps> = ({
           <Spacer size="xs" horizontal />
           <View style={{ flexShrink: 1 }}>
             <Label text={label} error={error} required={required} />
-            {description && (
-              <>
-                <Spacer size="xs" />
-                <Description text={description} />
-              </>
-            )}
+            {description && <Spacer size="xs" />}
+            <Description text={description} />
           </View>
         </Pressable>
       </View>

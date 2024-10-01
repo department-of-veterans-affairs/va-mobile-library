@@ -7,7 +7,7 @@ import { getA11yText, getDisplayText } from '../../utils'
 import { useTheme } from '../../utils'
 
 type FormTextProps = {
-  text: StringOrTextWithA11y
+  text?: StringOrTextWithA11y
 }
 
 /**
@@ -46,7 +46,7 @@ const fontDescription = {
 }
 
 /**
- * Header
+ * Header text element commonly used in form components
  */
 export type HeaderProps = FormTextProps & {
   required?: boolean
@@ -55,6 +55,8 @@ export type HeaderProps = FormTextProps & {
 export const Header: FC<HeaderProps> = ({ text, required }) => {
   const theme = useTheme()
   const { t } = useTranslation()
+
+  if (!text) return null
 
   const textStyle = {
     ...fontHeader,
@@ -78,10 +80,12 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
 }
 
 /**
- * Hint
+ * Hint text element commonly used in form components
  */
 export const Hint: FC<FormTextProps> = ({ text }) => {
   const theme = useTheme()
+
+  if (!text) return null
 
   const textStyle = {
     ...fontHint,
@@ -96,11 +100,13 @@ export const Hint: FC<FormTextProps> = ({ text }) => {
 }
 
 /**
- * Error
+ * Error text element commonly used in form components
  */
 export const Error: FC<FormTextProps> = ({ text }) => {
   const { t } = useTranslation()
   const theme = useTheme()
+
+  if (!text) return null
 
   const textStyle = {
     ...fontError,
@@ -115,7 +121,7 @@ export const Error: FC<FormTextProps> = ({ text }) => {
 }
 
 /**
- * Label
+ * Label text element commonly used in form components
  */
 export type LabelProps = FormTextProps & {
   required?: boolean
@@ -125,6 +131,8 @@ export type LabelProps = FormTextProps & {
 export const Label: FC<LabelProps> = ({ text, error, required }) => {
   const theme = useTheme()
   const { t } = useTranslation()
+
+  if (!text) return null
 
   const textStyle = {
     ...fontLabel,
@@ -149,10 +157,12 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
 }
 
 /**
- * Description
+ * Description text element commonly used in form components
  */
 export const Description: FC<FormTextProps> = ({ text }) => {
   const theme = useTheme()
+
+  if (!text) return null
 
   const textStyle = {
     ...fontDescription,

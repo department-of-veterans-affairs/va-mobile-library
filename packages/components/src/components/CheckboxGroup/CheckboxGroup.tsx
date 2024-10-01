@@ -3,12 +3,17 @@ import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC, Fragment } from 'react'
 
 import { Checkbox } from '../Checkbox/Checkbox'
-import { ComponentWrapper } from '../../../wrapper'
-import { Error, Header, Hint } from '../FormText'
-import { FormElementProps } from '../../../types/forms'
-import { Spacer } from '../../Spacer/Spacer'
-import { TextWithA11yAndValue } from '../../../types/common'
-import { useTheme } from '../../../utils'
+import { ComponentWrapper } from '../../wrapper'
+import { Error, Header, Hint } from '../shared/FormText'
+import { FormElementProps } from '../../types/forms'
+import { Spacer } from '../Spacer/Spacer'
+import { TextWithA11y } from '../../types/common'
+import { useTheme } from '../../utils'
+
+export type TextWithA11yAndValue = TextWithA11y & {
+  /** Value that may differ from provided text */
+  value?: string | number
+}
 
 export type CheckboxGroupProps = FormElementProps & {
   /** Array of checkbox options. Can be an array containing strings or objects if values or a11y overrides are needed */
