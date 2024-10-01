@@ -1,12 +1,12 @@
 import { Text } from 'react-native'
+import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
 import { StringOrTextWithA11y } from '../../types/common'
 import { getA11yText, getDisplayText } from '../../utils'
 import { useTheme } from '../../utils'
-import { useTranslation } from 'react-i18next'
 
-export type FormTextProps = {
+type FormTextProps = {
   text: StringOrTextWithA11y
 }
 
