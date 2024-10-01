@@ -7,10 +7,10 @@ import { ComponentWrapper } from '../../wrapper'
 import { Error, Header, Hint } from '../shared/FormText'
 import { FormElementProps } from '../../types/forms'
 import { Spacer } from '../Spacer/Spacer'
-import { TextWithA11y } from '../../types/common'
+import { TextWithA11y } from '../../types'
 import { useTheme } from '../../utils'
 
-export type TextWithA11yAndValue = TextWithA11y & {
+type TextWithA11yAndValue = TextWithA11y & {
   /** Value or ID for checkbox item if different than checkbox label */
   value?: string | number
 }

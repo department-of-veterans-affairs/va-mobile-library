@@ -1,4 +1,4 @@
-import { StringOrTextWithA11y } from '../types/common'
+import { StringOrTextWithA11y } from '../types'
 
 // Export related hooks
 export { useIsScreenReaderEnabled } from './hooks/useIsScreenReaderEnabled'
