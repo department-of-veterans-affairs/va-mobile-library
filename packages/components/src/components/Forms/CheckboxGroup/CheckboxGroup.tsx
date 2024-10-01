@@ -17,6 +17,8 @@ export type CheckboxGroupProps = FormElementProps & {
   onSelectionChange: (selected: (string | number)[]) => void
   /** Array of the labels or values (if provided) of currently selected checkboxes */
   selectedItems: (string | number)[]
+  /** True to apply tile styling */
+  tile?: boolean
 }
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({

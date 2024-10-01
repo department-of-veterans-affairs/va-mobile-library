@@ -12,8 +12,6 @@ export type FormElementProps = {
   hint?: StringOrTextWithA11y
   /** True to append (*Required) suffix to element */
   required?: boolean
-  /** True to apply tile styling */
-  tile?: boolean
 }
 
 /**
@@ -26,4 +24,6 @@ export type CheckboxRadioProps = {
   onPress: () => void
   /** Description that appears below label */
   description?: StringOrTextWithA11y
+  /** True to apply tile styling */
+  tile?: boolean
 }
