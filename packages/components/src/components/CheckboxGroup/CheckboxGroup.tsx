@@ -13,6 +13,8 @@ import { useTheme } from '../../utils'
 type TextWithA11yAndValue = TextWithA11y & {
   /** Value or ID for checkbox item if different than checkbox label */
   value?: string | number
+  /** Optional TestID */
+  testID?: string
 }
 
 export type CheckboxGroupProps = FormElementProps & {
@@ -131,8 +133,8 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
         {error && <Spacer size="xs" />}
 
         {items.map((item, index) => {
-          const value =
-            typeof item === 'object' ? item.value || item.text : item
+          const isObject = typeof item === 'object'
+          const value = isObject ? item.value || item.text : item
 
           return (
             <Fragment key={`checkbox-group-item-${index}`}>
@@ -140,6 +142,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
                 label={item}
                 checked={selectedItems.includes(value)}
                 onPress={() => handleCheckboxChange(value)}
+                testID={isObject ? item.testID : undefined}
                 tile={tile}
               />
               {index < items.length - 1 && <Spacer size="sm" />}

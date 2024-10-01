@@ -12,6 +12,8 @@ export type FormElementProps = {
   hint?: StringOrTextWithA11y
   /** True to append (*Required) suffix to element */
   required?: boolean
+  /** Optional TestID */
+  testID?: string
 }
 
 /**
