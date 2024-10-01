@@ -71,12 +71,15 @@ const statefulComponentRenderer = (props: CheckboxProps) => {
 }
 
 const header = 'Header'
-const hint = { text: 'Hint text', a11y: 'Accessibility override for hint' }
-const error = { text: 'Error text', a11y: 'Accessibility override for error' }
-const label = { text: 'Label', a11y: 'Accessibility override for label' }
+const hint = { text: 'Hint text', a11yLabel: 'Accessibility override for hint' }
+const error = {
+  text: 'Error text',
+  a11yLabel: 'Accessibility override for error',
+}
+const label = { text: 'Label', a11yLabel: 'Accessibility override for label' }
 const description = {
   text: 'Description',
-  a11y: 'Accessibility override for description',
+  a11yLabel: 'Accessibility override for description',
 }
 
 export const _Default: Story = {
