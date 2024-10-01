@@ -12,5 +12,5 @@ export const getDisplayText = (text: StringOrTextWithA11y): string =>
 /**
  * Returns a11y override text or just text if a11y isn't provided
  */
-export const getA11yText = (text: StringOrTextWithA11y): string =>
-  typeof text === 'string' ? text : text.a11y || text.text
+export const getA11yLabel = (text: StringOrTextWithA11y): string =>
+  typeof text === 'string' ? text : text.a11yLabel || text.text
