@@ -117,7 +117,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   return (
     <ComponentWrapper>
       <View style={containerStyle}>
-        <Header text={header} />
+        <Header text={header} required={required} />
         {header && <Spacer size="xs" />}
 
         <Hint text={hint} />
