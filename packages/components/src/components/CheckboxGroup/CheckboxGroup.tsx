@@ -11,7 +11,7 @@ import { TextWithA11y } from '../../types/common'
 import { useTheme } from '../../utils'
 
 export type TextWithA11yAndValue = TextWithA11y & {
-  /** Value that may differ from provided text */
+  /** Value or ID for checkbox item if different than checkbox label */
   value?: string | number
 }
 
@@ -26,6 +26,60 @@ export type CheckboxGroupProps = FormElementProps & {
   tile?: boolean
 }
 
+/**
+ * ### Managing checked item state
+ * The state of the selected checkbox items should be provided to CheckboxGroup via the `selectedItems` prop and updated
+ *  using the `onSelectionChange` callback. When a checkbox is tapped, the provided `onSelectionChange` callback
+ * function is fired and passed an array of the newly `selectedItems`, which can be used to update the parent
+ * component's state, whether that be redux, zustand, useState, or any other state management methods. Here is a basic
+ * example using the `useState` hook to store the state of the `selectedItems`:
+ *
+ * ```jsx
+ * export const ParentComponent = () => {
+ *   const [selectedItems, setSelectedItems] = useState([])
+ *
+ *   const onSelectionChange = (updatedItems) => setSelectedItems(updatedItems)
+ *
+ *   const items = ['Option 1', 'Option 2', 'Option 3']
+ *
+ *   return (
+ *     <CheckboxGroup
+ *       items={items}
+ *       onSelectionChange={onSelectionChange}
+ *     />
+ *   )
+ *
+ * }
+ * ```
+ *
+ * ### Providing values or accessibility labels
+ * CheckboxGroup can accept a simple array of strings in the `items` prop. If you want to provide values for each
+ * item that differ from the labels, or you want to provide accessibility labels for certain items, you can pass an
+ * array of objects containing these optional fields as well. For example:
+ *
+ * ```jsx
+ * export const ParentComponent = () => {
+ *   const [selectedItems, setSelectedItems] = useState([])
+ *
+ *   const onSelectionChange = (updatedItems) => setSelectedItems(updatedItems)
+ *
+ *   const items = [
+ *    { text: 'Minnesota', value: 'MN' },
+ *    { text: 'California', value: 'CA' },
+ *    { text: 'New Jersey', value: 'NJ' },
+ *    { text: 'Washington D.C.', value: 'DC', a11yLabel: 'District of Columbia' },
+ *   ]
+ *
+ *   return (
+ *     <CheckboxGroup
+ *       items={items}
+ *       onSelectionChange={onSelectionChange}
+ *     />
+ *   )
+ *
+ * }
+ * ```
+ */
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   items,
   selectedItems,
