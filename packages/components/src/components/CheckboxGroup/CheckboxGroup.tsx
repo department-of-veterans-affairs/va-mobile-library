@@ -53,9 +53,9 @@ export type CheckboxGroupProps = FormElementProps & {
  * ```
  *
  * ### Providing values or accessibility labels
- * CheckboxGroup can accept a simple array of strings in the `items` prop. If you want to provide values for each
- * item that differ from the labels, or you want to provide accessibility labels for certain items, you can pass an
- * array of objects containing these optional fields as well. For example:
+ * CheckboxGroup can accept a simple array of strings to display as checkboxes as shown above. If you want to provide
+ * values for each item that differ from display labels, or you want to provide accessibility labels for certain items,
+ * you can pass an array of objects containing these optional fields as well. For example:
  *
  * ```jsx
  * export const ParentComponent = () => {
