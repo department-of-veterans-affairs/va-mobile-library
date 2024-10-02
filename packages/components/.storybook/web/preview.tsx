@@ -21,8 +21,8 @@ export const parameters = {
       currentProps.theme = isDark ? themes.dark : themes.light
       return React.createElement(DocsContainer, currentProps)
     },
-  },
-  viewport: {
-    defaultViewport: 'mobile2',
+    controls: {
+      sort: 'requiredFirst',
+    },
   },
 }

@@ -2,12 +2,12 @@ import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React, { useState } from 'react'
 
-import { Checkbox, CheckboxProps } from './Checkbox'
+import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup'
 import { generateDocs } from '../../utils/storybook'
 
-const meta: Meta<CheckboxProps> = {
-  title: 'Checkbox',
-  component: Checkbox,
+const meta: Meta<CheckboxGroupProps> = {
+  title: 'Checkbox group',
+  component: CheckboxGroup,
   decorators: [
     (Story) => (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -29,7 +29,7 @@ const meta: Meta<CheckboxProps> = {
       },
     ],
     docs: generateDocs({
-      name: 'Checkbox',
+      name: 'Checkbox group',
       docUrl:
         'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/Checkbox/',
     }),
@@ -38,57 +38,59 @@ const meta: Meta<CheckboxProps> = {
 
 export default meta
 
-type Story = StoryObj<CheckboxProps>
+type Story = StoryObj<CheckboxGroupProps>
 
-const statefulComponentRenderer = (props: CheckboxProps) => {
-  const {
-    description,
-    error,
-    header,
-    hint,
-    indeterminate,
-    label,
-    required,
-    tile,
-  } = props
+const statefulComponentRenderer = (props: CheckboxGroupProps) => {
+  const { error, header, hint, items, required, tile } = props
 
-  const [checked, setChecked] = useState(false)
+  const [selectedItems, setSelectedItems] = useState<(string | number)[]>([])
 
   return (
-    <Checkbox
-      checked={checked}
-      description={description}
+    <CheckboxGroup
+      items={items}
+      selectedItems={selectedItems}
       error={error}
       header={header}
       hint={hint}
-      indeterminate={indeterminate}
-      label={label}
-      onPress={() => setChecked(!checked)}
+      onSelectionChange={(selected) => setSelectedItems(selected)}
       required={required}
       tile={tile}
     />
   )
 }
 
+const items = [
+  { text: 'Option 1' },
+  {
+    text: 'Option 2',
+    a11yLabel: 'Accessibility override for option 2',
+    value: '2',
+  },
+  { text: 'Option 3' },
+  { text: 'Option 4' },
+  { text: 'Option 5' },
+  { text: 'Option 6' },
+]
+
+const simpleItems = [
+  'Option 1',
+  'Option 2',
+  'Option 3',
+  'Option 4',
+  'Option 5',
+  'Option 6',
+]
+
 const header = 'Header'
 const hint = { text: 'Hint text', a11yLabel: 'Accessibility override for hint' }
-const error = {
-  text: 'Error text',
-  a11yLabel: 'Accessibility override for error',
-}
-const label = { text: 'Label', a11yLabel: 'Accessibility override for label' }
-const description = {
-  text: 'Description',
-  a11yLabel: 'Accessibility override for description',
-}
+const error = { text: 'Error text' }
 
 export const _Default: Story = {
   render: statefulComponentRenderer,
   args: {
     header,
     hint,
-    label,
-    description,
+    items,
     required: true,
   },
 }
@@ -96,28 +98,20 @@ export const _Default: Story = {
 export const __Tile: Story = {
   render: statefulComponentRenderer,
   args: {
+    header,
+    hint,
+    items: simpleItems,
     tile: true,
-    header,
-    hint,
-    label,
-    description,
   },
 }
 
-export const ___CheckboxOnly: Story = {
+export const ___Error: Story = {
   render: statefulComponentRenderer,
   args: {
-    label,
-  },
-}
-
-export const ____Error: Story = {
-  render: statefulComponentRenderer,
-  args: {
-    header,
-    hint,
     error,
-    label,
-    description,
+    header,
+    hint,
+    items,
+    required: true,
   },
 }
