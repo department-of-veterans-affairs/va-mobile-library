@@ -5,9 +5,8 @@ import React, { FC, Fragment } from 'react'
 import { Checkbox } from '../Checkbox/Checkbox'
 import { ComponentWrapper } from '../../wrapper'
 import { Error, Header, Hint } from '../shared/FormText'
-import { FormElementProps } from '../../types/forms'
+import { FormElementProps, TextWithA11y } from '../../types'
 import { Spacer } from '../Spacer/Spacer'
-import { TextWithA11y } from '../../types'
 import { useTheme } from '../../utils'
 
 type TextWithA11yAndValue = TextWithA11y & {
