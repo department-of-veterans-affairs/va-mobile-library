@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
 import { StringOrTextWithA11y } from '../../types/common'
-import { getA11yLabel, getDisplayText } from '../../utils'
-import { useTheme } from '../../utils'
+import { getA11yLabel, getDisplayText, useTheme } from '../../utils'
 
 type FormTextProps = {
   /** String to display or TextWithA11y object with string and a11y label */
@@ -45,15 +44,14 @@ const fontDescription = {
   fontSize: 16,
   lineHeight: 22,
 }
-
-/**
- * Header text element commonly used in form components
- */
 export type HeaderProps = FormTextProps & {
   /** True to display (*Required) label next to header */
   required?: boolean
 }
 
+/**
+ * Header text element commonly used in form components
+ */
 export const Header: FC<HeaderProps> = ({ text, required }) => {
   const theme = useTheme()
   const { t } = useTranslation()
