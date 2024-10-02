@@ -16,18 +16,6 @@ const meta: Meta<CheckboxProps> = {
     ),
   ],
   parameters: {
-    design: [
-      {
-        name: 'Figma component overview',
-        type: 'figma',
-        url: 'https://www.figma.com/design/mAMh8vyVgsevAOungfvGN6/%5BNEW%5D-Checkbox---%23427?node-id=1509-5372&t=eTj3nXLA5XBywjl0-4',
-      },
-      {
-        name: 'Figma examples',
-        type: 'figma',
-        url: 'https://www.figma.com/design/mAMh8vyVgsevAOungfvGN6/%5BNEW%5D-Checkbox---%23427?node-id=1509-5373&t=bI5ocY9b39t81dX4-4',
-      },
-    ],
     docs: generateDocs({
       name: 'Checkbox',
       docUrl:

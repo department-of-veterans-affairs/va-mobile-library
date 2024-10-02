@@ -16,18 +16,6 @@ const meta: Meta<CheckboxGroupProps> = {
     ),
   ],
   parameters: {
-    design: [
-      {
-        name: 'Figma component overview',
-        type: 'figma',
-        url: 'https://www.figma.com/design/mAMh8vyVgsevAOungfvGN6/%5BNEW%5D-Checkbox---%23427?node-id=1509-5372&t=eTj3nXLA5XBywjl0-4',
-      },
-      {
-        name: 'Figma examples',
-        type: 'figma',
-        url: 'https://www.figma.com/design/mAMh8vyVgsevAOungfvGN6/%5BNEW%5D-Checkbox---%23427?node-id=1509-5373&t=bI5ocY9b39t81dX4-4',
-      },
-    ],
     docs: generateDocs({
       name: 'Checkbox group',
       docUrl:
@@ -72,14 +60,7 @@ const items = [
   { text: 'Option 6' },
 ]
 
-const simpleItems = [
-  'Option 1',
-  'Option 2',
-  'Option 3',
-  'Option 4',
-  'Option 5',
-  'Option 6',
-]
+const simpleItems = ['Option 1', 'Option 2', 'Option 3', 'Option 4']
 
 const header = 'Header'
 const hint = { text: 'Hint text', a11yLabel: 'Accessibility override for hint' }
