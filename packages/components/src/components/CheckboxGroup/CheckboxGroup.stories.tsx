@@ -54,11 +54,15 @@ const statefulComponentRenderer = (props: CheckboxGroupProps) => {
 }
 
 const items = [
-  { text: 'Option 1' },
+  { text: 'Option 1', description: 'Description for option 1' },
   {
     text: 'Option 2',
     a11yLabel: 'Accessibility override for option 2',
     value: '2',
+    description: {
+      text: 'Description for option 2',
+      a11yLabel: 'Accessibility override for description',
+    },
   },
   { text: 'Option 3' },
   { text: 'Option 4' },
