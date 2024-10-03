@@ -121,7 +121,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
       ...containerStyle,
       borderLeftWidth: spacing.vadsSpace2xs,
       borderColor: theme.vadsColorFormsBorderError,
-      paddingLeft: spacing.vadsSpaceLg,
+      paddingLeft: spacing.vadsSpaceMd,
     }
   }
 
