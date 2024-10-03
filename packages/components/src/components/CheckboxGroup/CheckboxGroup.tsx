@@ -5,11 +5,17 @@ import React, { FC, Fragment } from 'react'
 import { Checkbox } from '../Checkbox/Checkbox'
 import { ComponentWrapper } from '../../wrapper'
 import { Error, Header, Hint } from '../shared/FormText'
-import { FormElementProps, TextWithA11y } from '../../types'
+import {
+  FormElementProps,
+  StringOrTextWithA11y,
+  TextWithA11y,
+} from '../../types'
 import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 type TextWithA11yAndValue = TextWithA11y & {
+  /** Description for checkbox item */
+  description?: StringOrTextWithA11y
   /** Value or ID for checkbox item if different than checkbox label */
   value?: string | number
   /** Optional TestID */
@@ -139,6 +145,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
             <Fragment key={`checkbox-group-item-${index}`}>
               <Checkbox
                 label={item}
+                description={isObject ? item.description : undefined}
                 checked={selectedItems.includes(value)}
                 onPress={() => handleCheckboxChange(value)}
                 testID={isObject ? item.testID : undefined}
