@@ -1,9 +1,8 @@
+import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React from 'react'
 
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTheme } from '../src/utils'
 
-// Table Component to display the data
 export const SpacingTable: React.FC = () => {
   const theme = useTheme()
 
