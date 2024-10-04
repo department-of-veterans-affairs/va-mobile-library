@@ -12,8 +12,8 @@ export const SpacingTable: React.FC = () => {
     <table style={{ width: '100%' }}>
       <thead>
         <tr>
-          <th style={thStyle}>Token</th>
-          <th style={thStyle}>Value</th>
+          <th style={{ ...thStyle, width: 125 }}>Token</th>
+          <th style={{ ...thStyle, width: 75 }}>Value</th>
           <th style={thStyle}>Example</th>
         </tr>
       </thead>
