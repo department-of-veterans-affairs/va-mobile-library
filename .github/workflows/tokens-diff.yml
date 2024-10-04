@@ -2,7 +2,7 @@ name: Check for token changes from css-library
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, edited]
   workflow_dispatch:
 
 defaults:
@@ -22,7 +22,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT || github.token }}
       - name: Set git credentials
         run: |
           git config --global user.name 'VA Automation Bot'
