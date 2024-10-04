@@ -1,18 +1,20 @@
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 import { useTheme } from '../src/utils'
 
 export const SpacingTable: React.FC = () => {
   const theme = useTheme()
 
+  const thStyle: CSSProperties = { textAlign: 'left' }
+
   return (
-    <table style={{ width: '60%' }}>
+    <table style={{ width: '100%' }}>
       <thead>
         <tr>
-          <th>Token</th>
-          <th>Value</th>
-          <th>Example</th>
+          <th style={thStyle}>Token</th>
+          <th style={thStyle}>Value</th>
+          <th style={thStyle}>Example</th>
         </tr>
       </thead>
       <tbody>
