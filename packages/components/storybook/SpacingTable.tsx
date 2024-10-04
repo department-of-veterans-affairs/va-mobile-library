@@ -21,6 +21,7 @@ export const SpacingTable: React.FC = () => {
             width: '100%',
             backgroundColor: theme.vadsColorActionForegroundDefault,
             height: value,
+            borderRadius: 3,
           }
 
           return (
