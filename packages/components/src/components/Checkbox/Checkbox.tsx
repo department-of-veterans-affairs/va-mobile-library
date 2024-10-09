@@ -40,6 +40,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   indeterminate,
   onPress,
   required,
+  testID,
   tile,
 }) => {
   const theme = useTheme()
@@ -116,7 +117,7 @@ export const Checkbox: FC<CheckboxProps> = ({
 
   return (
     <ComponentWrapper>
-      <View style={containerStyle}>
+      <View style={containerStyle} testID={testID}>
         <Header text={header} />
         {header && <Spacer size="xs" />}
 
