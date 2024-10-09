@@ -95,6 +95,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   hint,
   onSelectionChange,
   required,
+  testID,
   tile,
 }) => {
   const theme = useTheme()
@@ -127,7 +128,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
 
   return (
     <ComponentWrapper>
-      <View style={containerStyle}>
+      <View style={containerStyle} testID={testID}>
         <Header text={header} required={required} />
         {header && <Spacer size="xs" />}
 
