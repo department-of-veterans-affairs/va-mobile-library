@@ -54,23 +54,25 @@ describe('CheckboxGroup', () => {
 
     it('renders header, hint, and checkboxes', () => {
       render(<CheckboxGroup {...commonProps} />)
+      const checkboxes = screen.queryAllByRole('checkbox')
+
       expect(screen.getByTestId('testCheckboxGroup')).toBeTruthy()
       expect(screen.getByText('Header text')).toBeOnTheScreen()
       expect(screen.getByText('Hint text')).toBeOnTheScreen()
       expect(screen.queryByText('(*Required)')).not.toBeOnTheScreen()
 
-      const checkboxes = screen.queryAllByRole('checkbox')
       expect(checkboxes.length).toBe(6)
     })
 
     it('renders header, hint, and array of strings and set strings as a11y labels', () => {
       render(<CheckboxGroup {...commonProps} items={stringItems} />)
+      const checkboxes = screen.queryAllByRole('checkbox')
+
       expect(screen.getByTestId('testCheckboxGroup')).toBeTruthy()
       expect(screen.getByText('Header text')).toBeOnTheScreen()
       expect(screen.getByText('Hint text')).toBeOnTheScreen()
       expect(screen.queryByText('(*Required)')).not.toBeOnTheScreen()
 
-      const checkboxes = screen.queryAllByRole('checkbox')
       expect(checkboxes.length).toBe(3)
 
       expect(screen.getByText('String Option 1')).toBeOnTheScreen()
@@ -95,8 +97,12 @@ describe('CheckboxGroup', () => {
     it('should mark selectedItems as checked', () => {
       render(<CheckboxGroup {...commonProps} />)
       const checkboxes = screen.queryAllByRole('checkbox')
+      expect(checkboxes[0].props.accessibilityState.checked).toBe(false)
       expect(checkboxes[1].props.accessibilityState.checked).toBe(true)
+      expect(checkboxes[2].props.accessibilityState.checked).toBe(false)
       expect(checkboxes[3].props.accessibilityState.checked).toBe(true)
+      expect(checkboxes[4].props.accessibilityState.checked).toBe(false)
+      expect(checkboxes[5].props.accessibilityState.checked).toBe(false)
     })
   })
 
@@ -118,7 +124,7 @@ describe('CheckboxGroup', () => {
       render(<CheckboxGroup {...commonProps} />)
       const checkboxes = screen.queryAllByRole('checkbox')
 
-      // simulate uncheck '2'
+      // simulate uncheck '2', leaving just 'Option 4' selected
       fireEvent.press(checkboxes[1])
       expect(onSelectionChangeSpy).toHaveBeenLastCalledWith(['Option 4'])
     })
