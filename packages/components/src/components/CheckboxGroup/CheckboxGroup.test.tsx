@@ -61,9 +61,14 @@ describe('CheckboxGroup', () => {
       expect(checkboxes.length).toBe(6)
     })
 
+    it('renders error message', () => {
+      render(<CheckboxGroup {...commonProps} error={errorMsg} />)
+      expect(screen.getByText('Error text')).toBeOnTheScreen()
+    })
+
     it('renders required indicator', async () => {
       render(<CheckboxGroup {...commonProps} required />)
-      expect(screen.getByText('(*Required)')).toBeOnTheScreen()
+      expect(screen.getByText('Header text (*Required)')).toBeOnTheScreen()
     })
 
     it('should mark selectedItems as checked', () => {
