@@ -48,6 +48,11 @@ describe('Checkbox', () => {
       expect(await getIconName()).toBe('CheckBoxOutlineBlank')
     })
 
+    it('renders error message', () => {
+      render(<Checkbox {...commonProps} error={errorMsg} />)
+      expect(screen.getByText('Error text')).toBeOnTheScreen()
+    })
+
     it('renders required indicator', async () => {
       render(<Checkbox {...commonProps} required />)
       expect(screen.getByText('(*Required)')).toBeOnTheScreen()
