@@ -50,6 +50,11 @@ describe('Form Text', () => {
       expect(screen.getByLabelText('Header text object')).toBeOnTheScreen()
     })
 
+    it('should render required text', () => {
+      render(<Header text={headerString} required />)
+      expect(screen.root).toHaveTextContent('Header string (*Required)')
+    })
+
     it('should render light mode color', () => {
       render(<Header text={headerObject} />)
       expect(screen.root).toHaveStyle({
