@@ -14,24 +14,44 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
 })
 
 describe('Form Text', () => {
-  const header = { text: 'Header text', a11yLabel: 'Header a11y' }
-  const hint = { text: 'Hint text', a11yLabel: 'Hint a11y' }
-  const description = {
-    text: 'Description text',
+  const headerString = 'Header string'
+  const headerObject = { text: 'Header text object', a11yLabel: 'Header a11y' }
+
+  const hintString = 'Hint string'
+  const hintObject = { text: 'Hint text object', a11yLabel: 'Hint a11y' }
+
+  const descriptionString = 'Description string'
+  const descriptionObject = {
+    text: 'Description text object',
     a11yLabel: 'Description a11y',
   }
-  const error = { text: 'Error text', a11yLabel: 'Error a11y' }
-  const label = { text: 'Label text', a11yLabel: 'Label a11y' }
+
+  const errorString = 'Error string'
+  const errorObject = { text: 'Error text object', a11yLabel: 'Error a11y' }
+
+  const labelString = 'Label string'
+  const labelObject = { text: 'Label text object', a11yLabel: 'Label a11y' }
 
   describe('Header', () => {
-    it('should render text and a11y label', () => {
-      render(<Header text={header} />)
-      expect(screen.root).toHaveTextContent('Header text')
+    it('should render text object and a11y label', () => {
+      render(<Header text={headerObject} />)
+      expect(screen.root).toHaveTextContent('Header text object')
       expect(screen.getByLabelText('Header a11y')).toBeOnTheScreen()
     })
 
+    it('should render simple string', () => {
+      render(<Header text={headerString} />)
+      expect(screen.root).toHaveTextContent('Header string')
+    })
+
+    it('should render text object without a11y label', () => {
+      render(<Header text={{ text: 'Header text object' }} />)
+      expect(screen.root).toHaveTextContent('Header text object')
+      expect(screen.getByLabelText('Header text object')).toBeOnTheScreen()
+    })
+
     it('should render light mode color', () => {
-      render(<Header text={header} />)
+      render(<Header text={headerObject} />)
       expect(screen.root).toHaveStyle({
         color: '#1b1b1b',
       })
@@ -40,7 +60,7 @@ describe('Form Text', () => {
     it('should render dark mode color', () => {
       mockedColorScheme.mockImplementation(() => 'dark')
 
-      render(<Header text={header} />)
+      render(<Header text={headerObject} />)
       expect(screen.root).toHaveStyle({
         color: '#f0f0f0',
       })
@@ -49,14 +69,25 @@ describe('Form Text', () => {
 
   describe('Hint', () => {
     it('should render text and a11y label', () => {
-      render(<Hint text={hint} />)
-      expect(screen.root).toHaveTextContent('Hint text')
+      render(<Hint text={hintObject} />)
+      expect(screen.root).toHaveTextContent('Hint text object')
       expect(screen.getByLabelText('Hint a11y')).toBeOnTheScreen()
+    })
+
+    it('should render simple string', () => {
+      render(<Hint text={hintString} />)
+      expect(screen.root).toHaveTextContent('Hint string')
+    })
+
+    it('should render text object without a11y label', () => {
+      render(<Hint text={{ text: 'Hint text object' }} />)
+      expect(screen.root).toHaveTextContent('Hint text object')
+      expect(screen.getByLabelText('Hint text object')).toBeOnTheScreen()
     })
 
     it('should render light mode color', () => {
       mockedColorScheme.mockImplementation(() => 'light')
-      render(<Hint text={hint} />)
+      render(<Hint text={hintObject} />)
       expect(screen.root).toHaveStyle({
         color: '#565c65',
       })
@@ -65,7 +96,7 @@ describe('Form Text', () => {
     it('should render dark mode color', () => {
       mockedColorScheme.mockImplementation(() => 'dark')
 
-      render(<Hint text={hint} />)
+      render(<Hint text={hintObject} />)
       expect(screen.root).toHaveStyle({
         color: '#a9aeb1',
       })
@@ -74,14 +105,27 @@ describe('Form Text', () => {
 
   describe('Error', () => {
     it('should render text and a11y label', () => {
-      render(<Error text={error} />)
-      expect(screen.root).toHaveTextContent('Error text')
+      render(<Error text={errorObject} />)
+      expect(screen.root).toHaveTextContent('Error text object')
       expect(screen.getByLabelText('Error: Error a11y')).toBeOnTheScreen()
+    })
+
+    it('should render simple string', () => {
+      render(<Error text={errorString} />)
+      expect(screen.root).toHaveTextContent('Error string')
+    })
+
+    it('should render text object without a11y label', () => {
+      render(<Error text={{ text: 'Error text object' }} />)
+      expect(screen.root).toHaveTextContent('Error text object')
+      expect(
+        screen.getByLabelText('Error: Error text object'),
+      ).toBeOnTheScreen()
     })
 
     it('should render light mode color', () => {
       mockedColorScheme.mockImplementation(() => 'light')
-      render(<Error text={error} />)
+      render(<Error text={errorObject} />)
       expect(screen.root).toHaveStyle({
         color: '#b50909',
       })
@@ -90,7 +134,7 @@ describe('Form Text', () => {
     it('should render dark mode color', () => {
       mockedColorScheme.mockImplementation(() => 'dark')
 
-      render(<Error text={error} />, { wrapper: ComponentWrapper })
+      render(<Error text={errorObject} />, { wrapper: ComponentWrapper })
       expect(screen.root).toHaveStyle({
         color: '#fb5a47',
       })
@@ -99,13 +143,27 @@ describe('Form Text', () => {
 
   describe('Label', () => {
     it('should render text and a11y label', () => {
-      render(<Label text={label} />)
-      expect(screen.root).toHaveTextContent('Label text')
+      render(<Label text={labelObject} />)
+      expect(screen.root).toHaveTextContent('Label text object')
       expect(screen.getByLabelText('Label a11y')).toBeOnTheScreen()
+      expect(screen.root).toHaveStyle({
+        fontFamily: 'SourceSansPro-Regular',
+      })
+    })
+
+    it('should render simple string', () => {
+      render(<Label text={labelString} />)
+      expect(screen.root).toHaveTextContent('Label string')
+    })
+
+    it('should render text object without a11y label', () => {
+      render(<Label text={{ text: 'Label text object' }} />)
+      expect(screen.root).toHaveTextContent('Label text object')
+      expect(screen.getByLabelText('Label text object')).toBeOnTheScreen()
     })
 
     it('should have bold font when in error state', () => {
-      render(<Label text={label} error={error} />)
+      render(<Label text={labelObject} error={errorObject} />)
       expect(screen.root).toHaveStyle({
         fontFamily: 'SourceSansPro-Bold',
       })
@@ -113,9 +171,8 @@ describe('Form Text', () => {
 
     it('should render light mode color', () => {
       mockedColorScheme.mockImplementation(() => 'light')
-      render(<Label text={label} />)
+      render(<Label text={labelObject} />)
       expect(screen.root).toHaveStyle({
-        fontFamily: 'SourceSansPro-Regular',
         color: '#1b1b1b',
       })
     })
@@ -123,7 +180,7 @@ describe('Form Text', () => {
     it('should render dark mode color', () => {
       mockedColorScheme.mockImplementation(() => 'dark')
 
-      render(<Label text={label} />)
+      render(<Label text={labelObject} />)
       expect(screen.root).toHaveStyle({
         color: '#f0f0f0',
       })
@@ -132,14 +189,27 @@ describe('Form Text', () => {
 
   describe('Description', () => {
     it('should render text and a11y label', () => {
-      render(<Description text={description} />)
-      expect(screen.root).toHaveTextContent('Description text')
+      render(<Description text={descriptionObject} />)
+      expect(screen.root).toHaveTextContent('Description text object')
       expect(screen.getByLabelText(', Description a11y')).toBeOnTheScreen()
+    })
+
+    it('should render simple string', () => {
+      render(<Description text={descriptionString} />)
+      expect(screen.root).toHaveTextContent('Description string')
+    })
+
+    it('should render text object without a11y label', () => {
+      render(<Description text={{ text: 'Description text object' }} />)
+      expect(screen.root).toHaveTextContent('Description text object')
+      expect(
+        screen.getByLabelText(', Description text object'),
+      ).toBeOnTheScreen()
     })
 
     it('should render light mode color', () => {
       mockedColorScheme.mockImplementation(() => 'light')
-      render(<Description text={description} />)
+      render(<Description text={descriptionObject} />)
       expect(screen.root).toHaveStyle({
         color: '#1b1b1b',
       })
@@ -148,7 +218,7 @@ describe('Form Text', () => {
     it('should render dark mode color', () => {
       mockedColorScheme.mockImplementation(() => 'dark')
 
-      render(<Description text={description} />)
+      render(<Description text={descriptionObject} />)
       expect(screen.root).toHaveStyle({
         color: '#f0f0f0',
       })
