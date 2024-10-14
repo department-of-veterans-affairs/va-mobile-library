@@ -53,6 +53,14 @@ StyleDictionary.registerFilter({
   matcher: (token) => token.attributes.category.includes('color'),
 })
 
+/** Remove tokens that do not have 'font' in the category and have figma attribute */
+StyleDictionary.registerFilter({
+  name: 'filter/font/figma',
+  matcher: (token) =>
+    token.attributes.category.includes('font') &&
+    token.attributes.figma === true,
+})
+
 /** Remove tokens that have the dark mode (OnDark/-on-dark) suffix */
 StyleDictionary.registerFilter({
   name: 'filter/color/light-mode',
@@ -205,24 +213,33 @@ StyleDictionary.registerFormat({
     }
 
     // Infers type from attributes. VADS does not consistently populate the type field properly
-    const getType = (attributes) => {
+    const getType = (attributes, token) => {
       const { category, type } = attributes
 
       if (category.includes('color')) {
         return 'color'
-      } else if (category === 'units') {
-        return 'dimension'
-      } else if (category === 'font' && type === 'family') {
-        return 'fontFamily'
-      } else if (category === 'font' && type === 'weight') {
-        return 'fontWeight'
-      } else if (category === 'font' && type === 'size') {
-        return 'dimension'
-      } else if (category === 'spacing') {
-        return 'number'
       }
 
-      return ''
+      switch (category) {
+        case 'font':
+          switch (type) {
+            case 'family':
+              return 'fontFamily'
+            case 'letter-spacing':
+            case 'size':
+            case 'line-height':
+            case 'paragraph-spacing':
+              return 'number'
+            case 'style':
+              return token.value.toLowerCase()
+            default:
+              return ''
+          }
+        case 'spacing':
+          return 'number'
+        default:
+          return ''
+      }
     }
 
     // Format tokens for dtcg
@@ -231,14 +248,15 @@ StyleDictionary.registerFormat({
         ...previousTokens,
         [token.name]: {
           $value: getValue(token.original.value),
-          $type: getType(token.attributes),
+          $type: getType(token.attributes, token),
         },
       }),
       {},
     )
 
-    // Leave spacing tokens sorted by size
-    if (dictionary.allTokens?.[0].attributes?.category === 'spacing') {
+    const category = dictionary.allTokens?.[0].attributes?.category
+    // Leave spacing and font tokens sorted by source (size)
+    if (category === 'spacing' || category === 'font') {
       return JSON.stringify(tokens, undefined, 2) + `\n`
     }
 

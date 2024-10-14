@@ -1,12 +1,7 @@
 module.exports = {
   source: [
     '../../node_modules/@department-of-veterans-affairs/css-library/dist/tokens/json/variables.json',
-    'src/tokens/color/uswds.json',
-    'src/tokens/color/semantic-light.json',
-    'src/tokens/color/component-light.json',
-    'src/tokens/color/semantic-dark.json',
-    'src/tokens/color/component-dark.json',
-    'src/tokens/spacing/spacing.json',
+    'src/tokens/**/*.json',
   ],
   platforms: {
     rn: {
@@ -61,6 +56,11 @@ module.exports = {
           destination: `dark.json`,
           format: 'json/dtcg',
           filter: 'filter/color/dark-mode',
+        },
+        {
+          destination: `font.json`,
+          format: 'json/dtcg',
+          filter: 'filter/font/figma',
         },
         {
           destination: `light.json`,
