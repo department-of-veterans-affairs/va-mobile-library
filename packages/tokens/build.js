@@ -242,6 +242,10 @@ StyleDictionary.registerFormat({
       }
     }
 
+    if (dictionary.allTokens?.[0].attributes?.category === 'font') {
+      console.log(dictionary.allTokens)
+    }
+
     // Format tokens for dtcg
     const tokens = dictionary.allTokens.reduce(
       (previousTokens, token) => ({

@@ -1,29 +1,35 @@
 {
-  "vads-font-style-bold": {
-    "name": "vads-font-style-bold",
-    "value": "Bold",
-    "attributes": {
-      "category": "font",
-      "type": "style",
-      "figma": true
-    }
-  },
-  "vads-font-style-italic": {
-    "name": "vads-font-style-italic",
-    "value": "Italic",
-    "attributes": {
-      "category": "font",
-      "type": "style",
-      "figma": true
-    }
-  },
-  "vads-font-style-regular": {
-    "name": "vads-font-style-regular",
-    "value": "Regular",
-    "attributes": {
-      "category": "font",
-      "type": "style",
-      "figma": true
+  "vads": {
+    "font": {
+      "style": {
+        "bold": {
+          "name": "vads-font-style-bold",
+          "value": "Bold",
+          "attributes": {
+            "category": "font",
+            "type": "style",
+            "figma": true
+          }
+        },
+        "italic": {
+          "name": "vads-font-style-italic",
+          "value": "Italic",
+          "attributes": {
+            "category": "font",
+            "type": "style",
+            "figma": true
+          }
+        },
+        "regular": {
+          "name": "vads-font-style-regular",
+          "value": "Regular",
+          "attributes": {
+            "category": "font",
+            "type": "style",
+            "figma": true
+          }
+        }
+      }
     }
   }
 }
