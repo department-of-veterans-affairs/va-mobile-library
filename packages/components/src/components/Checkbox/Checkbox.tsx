@@ -57,7 +57,7 @@ export const Checkbox: FC<CheckboxProps> = ({
       ...containerStyle,
       borderLeftWidth: spacing.vadsSpace2xs,
       borderColor: theme.vadsColorFormsBorderError,
-      paddingLeft: spacing.vadsSpaceLg,
+      paddingLeft: spacing.vadsSpaceMd,
     }
   }
 
@@ -73,7 +73,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   const tileStyle: ViewStyle = {
     ...pressableBaseStyle,
     borderWidth: 2,
-    borderRadius: spacing.vadsSpace2xs,
+    borderRadius: 4,
     padding: spacing.vadsSpaceSm,
     paddingRight: spacing.vadsSpaceMd,
     borderColor: checked
