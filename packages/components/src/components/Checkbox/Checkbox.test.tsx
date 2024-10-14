@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 
 import { Checkbox } from './Checkbox'
-import { Icon } from '../Icon/Icon'
+import { getIcon, getIconName } from '../../../jest/utils'
 
 const mockedColorScheme = jest.fn()
 
@@ -27,11 +27,6 @@ describe('Checkbox', () => {
 
   const errorMsg = 'Error text'
 
-  const getIconName = async () => {
-    const icon = await screen.root.findByType(Icon)
-    return icon.props.name
-  }
-
   describe('Basic tests', () => {
     it('initializes correctly', () => {
       render(<Checkbox {...commonProps} />)
@@ -45,7 +40,7 @@ describe('Checkbox', () => {
       expect(screen.getByText('Label text')).toBeOnTheScreen()
       expect(screen.getByText('Hint text')).toBeOnTheScreen()
       expect(screen.queryByText('(*Required)')).not.toBeOnTheScreen()
-      expect(await getIconName()).toBe('CheckBoxOutlineBlank')
+      expect(await getIconName(screen)).toBe('CheckBoxOutlineBlank')
     })
 
     it('renders error message', () => {
@@ -60,17 +55,17 @@ describe('Checkbox', () => {
 
     it('renders checked icon', async () => {
       render(<Checkbox {...commonProps} checked />)
-      expect(await getIconName()).toBe('CheckBox')
+      expect(await getIconName(screen)).toBe('CheckBox')
     })
 
     it('renders indeterminate icon', async () => {
       render(<Checkbox {...commonProps} indeterminate />)
-      expect(await getIconName()).toBe('IndeterminateCheckBox')
+      expect(await getIconName(screen)).toBe('IndeterminateCheckBox')
     })
 
     it('overrides checked if indeterminate', async () => {
       render(<Checkbox {...commonProps} indeterminate checked />)
-      expect(await getIconName()).toBe('IndeterminateCheckBox')
+      expect(await getIconName(screen)).toBe('IndeterminateCheckBox')
     })
 
     it('fires onPress', async () => {
@@ -82,8 +77,21 @@ describe('Checkbox', () => {
 
   describe('Styling', () => {
     describe('Light mode', () => {
-      it('tiled variant styling (unchecked)', () => {
+      it('icon color (unchecked)', async () => {
+        render(<Checkbox {...commonProps} />)
+        const icon = await getIcon(screen)
+        expect(icon.props.fill).toEqual('#565c65')
+      })
+
+      it('icon color (checked)', async () => {
+        render(<Checkbox {...commonProps} checked />)
+        const icon = await getIcon(screen)
+        expect(icon.props.fill).toEqual('#005ea2')
+      })
+
+      it('tiled variant styling (unchecked)', async () => {
         render(<Checkbox {...commonProps} tile />)
+
         expect(screen.getByRole('checkbox')).toHaveStyle({
           borderWidth: 2,
           borderRadius: 4,
@@ -92,9 +100,12 @@ describe('Checkbox', () => {
           borderColor: '#a9aeb1',
           backgroundColor: '#ffffff',
         })
+
+        const icon = await getIcon(screen)
+        expect(icon.props.fill).toEqual('#565c65')
       })
 
-      it('tiled variant styling (checked)', () => {
+      it('tiled variant styling (checked)', async () => {
         render(<Checkbox {...commonProps} tile checked />)
         expect(screen.getByRole('checkbox')).toHaveStyle({
           borderWidth: 2,
@@ -104,6 +115,9 @@ describe('Checkbox', () => {
           borderColor: '#005ea2',
           backgroundColor: '#ecf1f7',
         })
+
+        const icon = await getIcon(screen)
+        expect(icon.props.fill).toEqual('#005ea2')
       })
 
       it('error state', () => {
