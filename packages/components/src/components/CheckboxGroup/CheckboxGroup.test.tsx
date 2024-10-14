@@ -33,6 +33,8 @@ describe('CheckboxGroup', () => {
     { text: 'Option 6' },
   ]
 
+  const stringItems = ['String Option 1', 'String Option 2', 'String Option 3']
+
   const commonProps = {
     header: 'Header text',
     hint: 'Hint text',
@@ -59,6 +61,25 @@ describe('CheckboxGroup', () => {
 
       const checkboxes = screen.queryAllByRole('checkbox')
       expect(checkboxes.length).toBe(6)
+    })
+
+    it('renders header, hint, and array of strings and set strings as a11y labels', () => {
+      render(<CheckboxGroup {...commonProps} items={stringItems} />)
+      expect(screen.getByTestId('testCheckboxGroup')).toBeTruthy()
+      expect(screen.getByText('Header text')).toBeOnTheScreen()
+      expect(screen.getByText('Hint text')).toBeOnTheScreen()
+      expect(screen.queryByText('(*Required)')).not.toBeOnTheScreen()
+
+      const checkboxes = screen.queryAllByRole('checkbox')
+      expect(checkboxes.length).toBe(3)
+
+      expect(screen.getByText('String Option 1')).toBeOnTheScreen()
+      expect(screen.getByText('String Option 2')).toBeOnTheScreen()
+      expect(screen.getByText('String Option 3')).toBeOnTheScreen()
+
+      expect(screen.getByLabelText('String Option 1')).toBeOnTheScreen()
+      expect(screen.getByLabelText('String Option 2')).toBeOnTheScreen()
+      expect(screen.getByLabelText('String Option 3')).toBeOnTheScreen()
     })
 
     it('renders error message', () => {
