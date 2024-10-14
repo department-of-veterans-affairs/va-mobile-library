@@ -48,9 +48,9 @@ describe('Checkbox', () => {
       expect(screen.getByText('Error text')).toBeOnTheScreen()
     })
 
-    it('renders required indicator', async () => {
+    it('renders required indicator next to label', async () => {
       render(<Checkbox {...commonProps} required />)
-      expect(screen.getByText('(*Required)')).toBeOnTheScreen()
+      expect(screen.getByText('Label text (*Required)')).toBeOnTheScreen()
     })
 
     it('renders checked icon', async () => {
