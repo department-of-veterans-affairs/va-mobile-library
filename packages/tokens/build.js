@@ -43,6 +43,13 @@ const stripModeReducer = (result, token) => {
   return result
 }
 
+/** Filter function to return tokens of category 'font', type from filter, and npm true */
+const fontFilter = (token, fontType) => {
+  const { category, type, npm } = token.attributes
+
+  return category === 'font' && type === fontType && npm === true
+}
+
 /**
  * Filters
  */
@@ -53,12 +60,35 @@ StyleDictionary.registerFilter({
   matcher: (token) => token.attributes.category.includes('color'),
 })
 
+/** Filter to tokens of category 'font', type 'family', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/family-npm',
+  matcher: (token) => fontFilter(token, 'family'),
+})
+
+/** Filter to tokens of category 'font', type 'letterSpacing', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/letterSpacing-npm',
+  matcher: (token) => fontFilter(token, 'letter-spacing'),
+})
+
+/** Filter to tokens of category 'font', type 'size', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/size-npm',
+  matcher: (token) => fontFilter(token, 'size'),
+})
+
+/** Filter to tokens of category 'font', type 'line-height', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/lineHeight-npm',
+  matcher: (token) => fontFilter(token, 'line-height'),
+})
+
 /** Remove tokens that do not have 'font' in the category and have figma attribute */
 StyleDictionary.registerFilter({
-  name: 'filter/font/figma',
+  name: 'filter/font-figma',
   matcher: (token) =>
-    token.attributes.category.includes('font') &&
-    token.attributes.figma === true,
+    token.attributes.category === 'font' && token.attributes.figma === true,
 })
 
 /** Remove tokens that have the dark mode (OnDark/-on-dark) suffix */
@@ -83,16 +113,22 @@ StyleDictionary.registerFilter({
  * Formats
  */
 
-/** Custom format for colors. Exports all color tokens as single object */
+/** Custom format for basic named export of simple key:value token pairs */
 StyleDictionary.registerFormat({
-  name: 'javascript/es6/vads-colors',
-  formatter: function (dictionary) {
-    const colorTokens = dictionary.allProperties.reduce((result, token) => {
+  name: 'javascript/es6/simple-key-value',
+  formatter: function ({ dictionary, options }) {
+    const tokens = dictionary.allProperties.reduce((result, token) => {
       result[token.name] = token.value
       return result
     }, {})
 
-    return `export const colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
+    const exportName = options.exportName
+
+    if (options.noSort) {
+      return `export const ${exportName} = ${JSON.stringify(tokens, null, 2)};`
+    }
+
+    return `export const ${exportName} = ${JSON.stringify(sortTokensByKey(tokens), null, 2)};`
   },
 })
 
@@ -122,11 +158,27 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-module-export',
   formatter: function () {
-    return (
-      "export { colors } from './colors'\n" +
-      "export { themes } from './themes'\n" +
-      "export { spacing } from './spacing'"
-    )
+    const files = ['colors', 'font', 'spacing', 'themes']
+    let exports = ''
+    for (const file of files) exports += `export { ${file} } from './${file}'\n`
+
+    return exports
+  },
+})
+
+/** Custom format to generate index js with exports */
+StyleDictionary.registerFormat({
+  name: 'javascript/es6/fontIndex',
+  formatter: function () {
+    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    let imports = '',
+      exports = ''
+
+    for (const file of files) imports += `import { ${file} } from './${file}'\n`
+    exports += 'export const font = {\n'
+    for (const file of files) exports += `${file},\n`
+
+    return `${imports}\n${exports}}`
   },
 })
 
@@ -187,11 +239,11 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/module',
   formatter: function () {
-    let declaration = "export * from './types/theme'\n"
-    declaration += "export * from './types/colors'\n"
-    declaration += "export * from './types/spacing'"
+    const files = ['colors', 'font', 'spacing', 'themes']
+    let exports = ''
+    for (const file of files) exports += `export * from './types/${file}'\n`
 
-    return declaration
+    return exports
   },
 })
 
@@ -213,7 +265,7 @@ StyleDictionary.registerFormat({
     }
 
     // Infers type from attributes. VADS does not consistently populate the type field properly
-    const getType = (attributes, token) => {
+    const getType = (attributes) => {
       const { category, type } = attributes
 
       if (category.includes('color')) {
@@ -224,14 +276,13 @@ StyleDictionary.registerFormat({
         case 'font':
           switch (type) {
             case 'family':
-              return 'fontFamily'
+            case 'style':
+              return 'string'
             case 'letter-spacing':
             case 'size':
             case 'line-height':
             case 'paragraph-spacing':
               return 'number'
-            case 'style':
-              return token.value.toLowerCase()
             default:
               return ''
           }
@@ -242,17 +293,25 @@ StyleDictionary.registerFormat({
       }
     }
 
+    // if (dictionary.allTokens?.[0].attributes?.category === 'font') {
+    //   console.log(dictionary.allTokens)
+    // }
+
     // Format tokens for dtcg
     const tokens = dictionary.allTokens.reduce(
       (previousTokens, token) => ({
         ...previousTokens,
         [token.name]: {
           $value: getValue(token.original.value),
-          $type: getType(token.attributes, token),
+          $type: getType(token.attributes),
         },
       }),
       {},
     )
+
+    // if (dictionary.allTokens?.[0].attributes?.category === 'font') {
+    //   console.log(tokens)
+    // }
 
     const category = dictionary.allTokens?.[0].attributes?.category
     // Leave spacing and font tokens sorted by source (size)
@@ -261,19 +320,6 @@ StyleDictionary.registerFormat({
     }
 
     return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
-  },
-})
-
-/** Custom format for spacing. Exports all spacing tokens as single object */
-StyleDictionary.registerFormat({
-  name: 'javascript/es6/vads-spacing',
-  formatter: function (dictionary) {
-    const tokens = dictionary.allProperties.reduce((result, token) => {
-      result[token.name] = token.value
-      return result
-    }, {})
-
-    return `export const spacing = ${JSON.stringify(tokens, null, 2)};`
   },
 })
 

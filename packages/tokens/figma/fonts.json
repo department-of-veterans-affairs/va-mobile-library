@@ -1,11 +1,11 @@
 {
   "vads-font-family-sans-serif": {
     "$value": "Source Sans Pro",
-    "$type": "fontFamily"
+    "$type": "string"
   },
   "vads-font-family-serif": {
     "$value": "Bitter",
-    "$type": "fontFamily"
+    "$type": "string"
   },
   "vads-font-letter-spacing-default": {
     "$value": 0,
@@ -269,14 +269,14 @@
   },
   "vads-font-style-bold": {
     "$value": "Bold",
-    "$type": "bold"
+    "$type": "string"
   },
   "vads-font-style-italic": {
     "$value": "Italic",
-    "$type": "italic"
+    "$type": "string"
   },
   "vads-font-style-regular": {
     "$value": "Regular",
-    "$type": "regular"
+    "$type": "string"
   }
 }
