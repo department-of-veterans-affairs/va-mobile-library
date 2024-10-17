@@ -166,7 +166,7 @@ StyleDictionary.registerFormat({
   },
 })
 
-/** Custom format to generate index js with exports */
+/** Custom format to generate font/index.js with exports */
 StyleDictionary.registerFormat({
   name: 'javascript/es6/fontIndex',
   formatter: function () {
@@ -182,35 +182,70 @@ StyleDictionary.registerFormat({
   },
 })
 
-/** Creates named type declaration for colors. Allows for TypeScript autocomplete */
+/** Custom format to generate font/index.d.ts with exports */
 StyleDictionary.registerFormat({
-  name: 'typescript/es6-declarations/colors',
-  formatter: function (dictionary) {
-    const sortedTokens = sortTokensByName(dictionary.allTokens)
-    let declaration = 'export declare const colors: {\n'
-    sortedTokens.forEach((token) => {
-      declaration += `  /** ${token.value} */\n`
-      declaration += `  ${token.name}: string;\n`
-    })
-    declaration += '}'
-    return declaration
+  name: 'typescript/es6-declarations/fontIndex',
+  formatter: function () {
+    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    let imports = '',
+      exports = ''
+
+    for (const file of files) imports += `import { ${file} } from './${file}'\n`
+    exports += 'export declare const font: {\n'
+    for (const file of files) exports += `${file}: typeof ${file},\n`
+
+    return `${imports}\n${exports}}`
   },
 })
 
-/** Creates named type declaration for spacing. Allows for TypeScript autocomplete */
+/** Formats basic key-value type declarations exports */
 StyleDictionary.registerFormat({
-  name: 'typescript/es6-declarations/spacing',
-  formatter: function (dictionary) {
-    let declaration = 'export declare const spacing: {\n'
-    let allValuesComment = '/**\n * '
-    dictionary.allProperties.forEach((token, index) => {
-      declaration += `  /** Value: ${token.value} */\n`
-      declaration += `  ${token.name}: number;\n`
-      allValuesComment += `${index !== 0 ? ' | ' : ''}${token.name.replace('vadsSpace', '')}: ${token.value}`
-    })
+  name: 'typescript/es6-declarations/simple-key-value',
+  formatter: function ({ dictionary, options }) {
+    const tokenTyping = options.tokenTyping || 'number'
+    let tokens = dictionary.allTokens,
+      declaration = '',
+      globalValuesDoc = '/**\n',
+      docLine = ' * '
+
+    if (!options.noSort) {
+      tokens = sortTokensByName(tokens)
+    }
+
+    if (options.noGlobalDoc) {
+      globalValuesDoc = ''
+    } else {
+      // Add global values doc to the top of the file
+      for (const token of tokens) {
+        let tokenDoc = ''
+        // Shorten token names:
+        const shortName = token.name
+          .replace('vads', '')
+          .replace('FontFamily', '')
+          .replace('FontLetterSpacing', '')
+          .replace('FontLineHeight', '')
+          .replace('FontSize', '')
+          .replace('Space', '')
+
+        tokenDoc = `${shortName}: \`${token.value}\``
+        tokenDoc += token === tokens[tokens.length - 1] ? '' : ' | ' // Add | if not last token
+
+        if (docLine.length + tokenDoc.length > 120) {
+          globalValuesDoc += docLine + '\n'
+          docLine = ' * '
+        }
+        docLine += tokenDoc
+      }
+      globalValuesDoc += docLine + '\n */\n'
+    }
+
+    declaration += `export declare const ${options.exportName}: {\n`
+    for (const token of dictionary.allTokens) {
+      declaration += `  /** Value: \`${token.value}\` */\n`
+      declaration += `  ${token.name}: ${tokenTyping};\n`
+    }
     declaration += '}'
-    allValuesComment += '\n */\n'
-    return allValuesComment + declaration
+    return globalValuesDoc + declaration
   },
 })
 
@@ -293,10 +328,6 @@ StyleDictionary.registerFormat({
       }
     }
 
-    // if (dictionary.allTokens?.[0].attributes?.category === 'font') {
-    //   console.log(dictionary.allTokens)
-    // }
-
     // Format tokens for dtcg
     const tokens = dictionary.allTokens.reduce(
       (previousTokens, token) => ({
@@ -308,10 +339,6 @@ StyleDictionary.registerFormat({
       }),
       {},
     )
-
-    // if (dictionary.allTokens?.[0].attributes?.category === 'font') {
-    //   console.log(tokens)
-    // }
 
     const category = dictionary.allTokens?.[0].attributes?.category
     // Leave spacing and font tokens sorted by source (size)

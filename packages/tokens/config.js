@@ -22,6 +22,10 @@ module.exports = {
           destination: 'js/font/index.js',
           format: 'javascript/es6/fontIndex',
         },
+        {
+          destination: 'types/font/index.d.ts',
+          format: 'typescript/es6-declarations/fontIndex',
+        },
         // JS defs
         {
           destination: 'js/colors.js',
@@ -49,20 +53,20 @@ module.exports = {
           },
         },
         {
-          destination: 'js/font/size.js',
-          format: 'javascript/es6/simple-key-value',
-          filter: 'filter/font/size-npm',
-          options: {
-            exportName: 'size',
-            noSort: true,
-          },
-        },
-        {
           destination: 'js/font/lineHeight.js',
           format: 'javascript/es6/simple-key-value',
           filter: 'filter/font/lineHeight-npm',
           options: {
             exportName: 'lineHeight',
+            noSort: true,
+          },
+        },
+        {
+          destination: 'js/font/size.js',
+          format: 'javascript/es6/simple-key-value',
+          filter: 'filter/font/size-npm',
+          options: {
+            exportName: 'size',
             noSort: true,
           },
         },
@@ -82,13 +86,58 @@ module.exports = {
         // TS defs
         {
           destination: 'types/colors.d.ts',
-          format: 'typescript/es6-declarations/colors',
+          format: 'typescript/es6-declarations/simple-key-value',
           filter: 'filter/color/is-color',
+          options: {
+            exportName: 'colors',
+            tokenTyping: 'string',
+            noGlobalDoc: true,
+          },
+        },
+        {
+          destination: 'types/font/family.d.ts',
+          format: 'typescript/es6-declarations/simple-key-value',
+          filter: 'filter/font/family-npm',
+          options: {
+            exportName: 'family',
+            tokenTyping: 'string',
+          },
+        },
+        {
+          destination: 'types/font/letterSpacing.d.ts',
+          format: 'typescript/es6-declarations/simple-key-value',
+          filter: 'filter/font/letterSpacing-npm',
+          options: {
+            exportName: 'letterSpacing',
+            noSort: true,
+          },
+        },
+        {
+          destination: 'types/font/lineHeight.d.ts',
+          format: 'typescript/es6-declarations/simple-key-value',
+          filter: 'filter/font/lineHeight-npm',
+          options: {
+            exportName: 'lineHeight',
+            noSort: true,
+          },
+        },
+        {
+          destination: 'types/font/size.d.ts',
+          format: 'typescript/es6-declarations/simple-key-value',
+          filter: 'filter/font/size-npm',
+          options: {
+            exportName: 'size',
+            noSort: true,
+          },
         },
         {
           destination: 'types/spacing.d.ts',
-          format: 'typescript/es6-declarations/spacing',
+          format: 'typescript/es6-declarations/simple-key-value',
           filter: 'filter/spacing/is-spacing',
+          options: {
+            exportName: 'spacing',
+            noSort: true,
+          },
         },
         {
           destination: 'types/themes.d.ts',
