@@ -56,18 +56,24 @@ describe('Form Text', () => {
     })
 
     it('should render light mode color', () => {
-      render(<Header text={headerObject} />)
+      render(<Header text={headerObject} required />)
       expect(screen.root).toHaveStyle({
         color: '#1b1b1b',
+      })
+      expect(screen.getByText('(*Required)')).toHaveStyle({
+        color: '#b50909',
       })
     })
 
     it('should render dark mode color', () => {
       mockedColorScheme.mockImplementation(() => 'dark')
 
-      render(<Header text={headerObject} />)
+      render(<Header text={headerObject} required />)
       expect(screen.root).toHaveStyle({
         color: '#f0f0f0',
+      })
+      expect(screen.getByText('(*Required)')).toHaveStyle({
+        color: '#fb5a47',
       })
     })
   })
@@ -167,6 +173,11 @@ describe('Form Text', () => {
       expect(screen.getByLabelText('Label text object')).toBeOnTheScreen()
     })
 
+    it('should render required text', () => {
+      render(<Label text={labelString} required />)
+      expect(screen.root).toHaveTextContent('Label string (*Required)')
+    })
+
     it('should have bold font when in error state', () => {
       render(<Label text={labelObject} error={errorObject} />)
       expect(screen.root).toHaveStyle({
@@ -176,18 +187,24 @@ describe('Form Text', () => {
 
     it('should render light mode color', () => {
       mockedColorScheme.mockImplementation(() => 'light')
-      render(<Label text={labelObject} />)
+      render(<Label text={labelObject} required />)
       expect(screen.root).toHaveStyle({
         color: '#1b1b1b',
+      })
+      expect(screen.getByText('(*Required)')).toHaveStyle({
+        color: '#b50909',
       })
     })
 
     it('should render dark mode color', () => {
       mockedColorScheme.mockImplementation(() => 'dark')
 
-      render(<Label text={labelObject} />)
+      render(<Label text={labelObject} required />)
       expect(screen.root).toHaveStyle({
         color: '#f0f0f0',
+      })
+      expect(screen.getByText('(*Required)')).toHaveStyle({
+        color: '#fb5a47',
       })
     })
   })

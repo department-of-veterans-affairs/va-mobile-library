@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react-native'
 import React from 'react'
 
 import { Checkbox } from './Checkbox'
-import { getIcon, getIconName } from '../../../jest/utils'
+import { getIcon, getIconName } from '../../utils/jest'
 
 const mockedColorScheme = jest.fn()
 
