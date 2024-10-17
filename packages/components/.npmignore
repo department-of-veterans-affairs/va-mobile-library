@@ -24,4 +24,5 @@ src/components/*/*.stories.tsx
 src/components/*/*.test.tsx
 src/utils/hooks/useWebStorybookColorScheme.ts
 src/utils/storybook.tsx
+src/utils/jest.tsx
 src/App.tsx
