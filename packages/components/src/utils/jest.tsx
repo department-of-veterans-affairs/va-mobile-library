@@ -1,6 +1,6 @@
 import { RenderResult } from '@testing-library/react-native'
 
-import { Icon } from '../src/components/Icon/Icon'
+import { Icon } from '../components/Icon/Icon'
 
 /**
  * Returns Icon on the screen
