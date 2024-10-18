@@ -1,3 +1,5 @@
+import { AccessibilityValue } from 'react-native'
+
 import { StringOrTextWithA11y } from './common'
 
 /**
@@ -24,6 +26,8 @@ export type CheckboxRadioProps = {
   label: StringOrTextWithA11y
   /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
   onPress: () => void
+  /** Textual description of position within list of checkboxes */
+  accessibilityValue?: AccessibilityValue
   /** Description that appears below label */
   description?: StringOrTextWithA11y
   /** True to apply tile styling */

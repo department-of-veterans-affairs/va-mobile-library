@@ -2,6 +2,7 @@ import { StringOrTextWithA11y } from '../types'
 
 // Export related hooks
 export { useIsScreenReaderEnabled } from './hooks/useIsScreenReaderEnabled'
+export { useA11yListPosition } from './hooks/useA11yListPosition'
 
 /**
  * Returns text that should be displayed on the screen

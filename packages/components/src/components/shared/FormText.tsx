@@ -72,7 +72,7 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
     : getA11yLabel(text)
 
   return (
-    <Text aria-label={ariaLabel} style={textStyle}>
+    <Text role="heading" aria-label={ariaLabel} style={textStyle}>
       {getDisplayText(text)}
       {required && <Text style={requiredStyle}>{` (*${t('required')})`}</Text>}
     </Text>
