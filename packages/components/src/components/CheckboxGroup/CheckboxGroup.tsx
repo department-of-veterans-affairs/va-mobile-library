@@ -11,8 +11,7 @@ import {
   TextWithA11y,
 } from '../../types'
 import { Spacer } from '../Spacer/Spacer'
-import { useListPosition } from '../../utils/accessibility'
-import { useTheme } from '../../utils'
+import { useListPosition, useTheme } from '../../utils'
 
 type TextWithA11yAndValue = TextWithA11y & {
   /** Description for checkbox item */

@@ -4,8 +4,7 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, useTheme } from '../../utils'
-import { useListPosition } from '../../utils/accessibility'
+import { PressableOpacityStyle, useListPosition, useTheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
