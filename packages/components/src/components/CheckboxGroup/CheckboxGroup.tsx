@@ -11,6 +11,7 @@ import {
   TextWithA11y,
 } from '../../types'
 import { Spacer } from '../Spacer/Spacer'
+import { useListPosition } from '../../utils/accessibility'
 import { useTheme } from '../../utils'
 import { useTranslation } from 'react-i18next'
 
@@ -99,7 +100,6 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   testID,
   tile,
 }) => {
-  const { t } = useTranslation()
   const theme = useTheme()
 
   const handleCheckboxChange = (value: string | number) => {
@@ -144,12 +144,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
           const isObject = typeof item === 'object'
           const value = isObject ? item.value || item.text : item
 
-          const accessibilityValue = {
-            text: t('listPosition', {
-              position: index + 1,
-              total: items.length,
-            }),
-          }
+          const accessibilityValue = useListPosition(index + 1, items.length)
 
           return (
             <Fragment key={`checkbox-group-item-${index}`}>

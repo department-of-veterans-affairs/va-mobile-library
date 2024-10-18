@@ -1,11 +1,11 @@
 import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
 import { PressableOpacityStyle, useTheme } from '../../utils'
+import { useListPosition } from '../../utils/accessibility'
 
 /**
  * Props for {@link SegmentedControl}
@@ -52,7 +52,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   a11yHints,
   testIDs,
 }) => {
-  const { t } = useTranslation()
   const theme = useTheme()
 
   useEffect(() => {
@@ -83,12 +82,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     const accessibilityLabel = a11yLabels
       ? a11yLabels[index] || labels[index]
       : labels[index]
-    const accessibilityValue = {
-      text: t('listPosition', {
-        position: index + 1,
-        total: labels.length,
-      }),
-    }
+    const accessibilityValue = useListPosition(index + 1, labels.length)
 
     // TODO: Replace with typography tokens
     const font: TextStyle = {
