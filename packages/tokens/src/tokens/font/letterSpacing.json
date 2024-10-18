@@ -1,0 +1,22 @@
+{
+  "vads-font-letter-spacing-default": {
+    "name": "vads-font-letter-spacing-default",
+    "value": 0,
+    "attributes": {
+      "category": "font",
+      "type": "letter-spacing",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-letter-spacing-heading": {
+    "name": "vads-font-letter-spacing-heading",
+    "value": 0.12,
+    "attributes": {
+      "category": "font",
+      "type": "letter-spacing",
+      "figma": true,
+      "npm": true
+    }
+  }
+}

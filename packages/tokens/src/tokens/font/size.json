@@ -1,0 +1,232 @@
+{
+  "vads-font-size-5xl": {
+    "name": "vads-font-size-5xl",
+    "value": 36.49,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-4xl": {
+    "name": "vads-font-size-4xl",
+    "value": 32.44,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-3xl": {
+    "name": "vads-font-size-3xl",
+    "value": 28.83,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-2xl": {
+    "name": "vads-font-size-2xl",
+    "value": 25.63,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-xl": {
+    "name": "vads-font-size-xl",
+    "value": 22.78,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-lg": {
+    "name": "vads-font-size-lg",
+    "value": 20.25,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-md": {
+    "name": "vads-font-size-md",
+    "value": 18,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-sm": {
+    "name": "vads-font-size-sm",
+    "value": 16,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-xs": {
+    "name": "vads-font-size-xs",
+    "value": 14.22,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-2xs": {
+    "name": "vads-font-size-2xs",
+    "value": 12.64,
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-heading-level-1": {
+    "name": "vads-font-size-heading-level-1",
+    "value": "{vads-font-size-2xl}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-heading-level-2": {
+    "name": "vads-font-size-heading-level-2",
+    "value": "{vads-font-size-xl}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-heading-level-3": {
+    "name": "vads-font-size-heading-level-3",
+    "value": "{vads-font-size-lg}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-heading-level-4": {
+    "name": "vads-font-size-heading-level-4",
+    "value": "{vads-font-size-md}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-heading-level-5": {
+    "name": "vads-font-size-heading-level-5",
+    "value": "{vads-font-size-sm}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-body-lead": {
+    "name": "vads-font-size-body-lead",
+    "value": "{vads-font-size-lg}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-body-large": {
+    "name": "vads-font-size-body-large",
+    "value": "{vads-font-size-lg}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-body-medium": {
+    "name": "vads-font-size-body-medium",
+    "value": "{vads-font-size-md}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-body-small": {
+    "name": "vads-font-size-body-small",
+    "value": "{vads-font-size-sm}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-body-xsmall": {
+    "name": "vads-font-size-body-xsmall",
+    "value": "{vads-font-size-xs}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-eyebrow": {
+    "name": "vads-font-size-eyebrow",
+    "value": "{vads-font-size-md}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-display": {
+    "name": "vads-font-size-display",
+    "value": "{vads-font-size-5xl}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-size-navigation": {
+    "name": "vads-font-size-navigation",
+    "value": "{vads-font-size-2xs}",
+    "attributes": {
+      "category": "font",
+      "type": "size",
+      "figma": true,
+      "npm": true
+    }
+  }
+}
