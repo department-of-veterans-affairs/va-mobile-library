@@ -575,6 +575,14 @@
     "$value": "{uswds-system-color-blue-warm-30}",
     "$type": "color"
   },
+  "vads-color-border-strong-on-light": {
+    "$value": "{vads-color-base-dark}",
+    "$type": "color"
+  },
+  "vads-color-border-subtle-on-light": {
+    "$value": "{vads-color-base-light}",
+    "$type": "color"
+  },
   "vads-color-emergency": {
     "$value": "{uswds-system-color-red-warm-vivid-60}",
     "$type": "color"
