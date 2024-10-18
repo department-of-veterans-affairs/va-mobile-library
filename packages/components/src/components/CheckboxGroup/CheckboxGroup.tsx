@@ -13,7 +13,6 @@ import {
 import { Spacer } from '../Spacer/Spacer'
 import { useListPosition } from '../../utils/accessibility'
 import { useTheme } from '../../utils'
-import { useTranslation } from 'react-i18next'
 
 type TextWithA11yAndValue = TextWithA11y & {
   /** Description for checkbox item */
