@@ -13,6 +13,20 @@
       "category": "color"
     }
   },
+  "vads-color-border-strong-on-light": {
+    "name": "vads-color-border-strong-on-light",
+    "value": "{vads-color-base-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-border-subtle-on-light": {
+    "name": "vads-color-border-subtle-on-light",
+    "value": "{vads-color-base-light.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-foreground-default-on-light": {
     "name": "vads-color-foreground-default-on-light",
     "value": "{vads-color-base.*.value}",
