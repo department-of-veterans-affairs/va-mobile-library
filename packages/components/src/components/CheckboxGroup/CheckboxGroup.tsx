@@ -11,7 +11,7 @@ import {
   TextWithA11y,
 } from '../../types'
 import { Spacer } from '../Spacer/Spacer'
-import { useListPosition, useTheme } from '../../utils'
+import { useA11yListPosition, useTheme } from '../../utils'
 
 type TextWithA11yAndValue = TextWithA11y & {
   /** Description for checkbox item */
@@ -142,7 +142,10 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
           const isObject = typeof item === 'object'
           const value = isObject ? item.value || item.text : item
 
-          const accessibilityValue = useListPosition(index + 1, items.length)
+          const accessibilityValue = useA11yListPosition(
+            index + 1,
+            items.length,
+          )
 
           return (
             <Fragment key={`checkbox-group-item-${index}`}>

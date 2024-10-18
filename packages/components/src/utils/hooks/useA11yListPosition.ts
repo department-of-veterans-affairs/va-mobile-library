@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import { AccessibilityValue } from 'react-native'
 
 /** Returns list position used for accessibilityValues */
-export function useListPosition(
+export function useA11yListPosition(
   position: number,
   total: number,
 ): AccessibilityValue {

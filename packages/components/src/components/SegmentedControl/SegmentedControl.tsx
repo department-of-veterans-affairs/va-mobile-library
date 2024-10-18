@@ -4,7 +4,11 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, useListPosition, useTheme } from '../../utils'
+import {
+  PressableOpacityStyle,
+  useA11yListPosition,
+  useTheme,
+} from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -81,7 +85,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     const accessibilityLabel = a11yLabels
       ? a11yLabels[index] || labels[index]
       : labels[index]
-    const accessibilityValue = useListPosition(index + 1, labels.length)
+    const accessibilityValue = useA11yListPosition(index + 1, labels.length)
 
     // TODO: Replace with typography tokens
     const font: TextStyle = {
