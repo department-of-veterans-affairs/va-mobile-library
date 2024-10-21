@@ -1,0 +1,282 @@
+{
+  "vads-font-family-sans-serif": {
+    "$value": "Source Sans Pro",
+    "$type": "string"
+  },
+  "vads-font-family-serif": {
+    "$value": "Bitter",
+    "$type": "string"
+  },
+  "vads-font-letter-spacing-default": {
+    "$value": 0,
+    "$type": "number"
+  },
+  "vads-font-letter-spacing-heading": {
+    "$value": 0.12,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-5xl": {
+    "$value": 54.74,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-4xl": {
+    "$value": 48.65,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-3xl": {
+    "$value": 43.25,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-2xl": {
+    "$value": 38.44,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-xl": {
+    "$value": 34.17,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-lg": {
+    "$value": 30.38,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-md": {
+    "$value": 27,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-sm": {
+    "$value": 24,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-xs": {
+    "$value": 21.33,
+    "$type": "number"
+  },
+  "vads-font-line-height-default-2xs": {
+    "$value": 18.96,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-5xl": {
+    "$value": 43.79,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-4xl": {
+    "$value": 38.92,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-3xl": {
+    "$value": 34.6,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-2xl": {
+    "$value": 30.75,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-xl": {
+    "$value": 27.34,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-lg": {
+    "$value": 24.3,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-md": {
+    "$value": 21.6,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-sm": {
+    "$value": 19.2,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-xs": {
+    "$value": 17.07,
+    "$type": "number"
+  },
+  "vads-font-line-height-heading-2xs": {
+    "$value": 15.17,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-5xl": {
+    "$value": 72.98,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-4xl": {
+    "$value": 64.87,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-3xl": {
+    "$value": 57.67,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-2xl": {
+    "$value": 51.26,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-xl": {
+    "$value": 45.56,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-lg": {
+    "$value": 40.5,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-md": {
+    "$value": 36,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-sm": {
+    "$value": 32,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-xs": {
+    "$value": 28.44,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-default-2xs": {
+    "$value": 25.28,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-5xl": {
+    "$value": 43.79,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-4xl": {
+    "$value": 38.92,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-3xl": {
+    "$value": 34.6,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-2xl": {
+    "$value": 30.75,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-xl": {
+    "$value": 27.34,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-lg": {
+    "$value": 24.3,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-md": {
+    "$value": 21.6,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-sm": {
+    "$value": 19.2,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-xs": {
+    "$value": 17.07,
+    "$type": "number"
+  },
+  "vads-font-paragraph-spacing-heading-2xs": {
+    "$value": 15.17,
+    "$type": "number"
+  },
+  "vads-font-size-5xl": {
+    "$value": 36.49,
+    "$type": "number"
+  },
+  "vads-font-size-4xl": {
+    "$value": 32.44,
+    "$type": "number"
+  },
+  "vads-font-size-3xl": {
+    "$value": 28.83,
+    "$type": "number"
+  },
+  "vads-font-size-2xl": {
+    "$value": 25.63,
+    "$type": "number"
+  },
+  "vads-font-size-xl": {
+    "$value": 22.78,
+    "$type": "number"
+  },
+  "vads-font-size-lg": {
+    "$value": 20.25,
+    "$type": "number"
+  },
+  "vads-font-size-md": {
+    "$value": 18,
+    "$type": "number"
+  },
+  "vads-font-size-sm": {
+    "$value": 16,
+    "$type": "number"
+  },
+  "vads-font-size-xs": {
+    "$value": 14.22,
+    "$type": "number"
+  },
+  "vads-font-size-2xs": {
+    "$value": 12.64,
+    "$type": "number"
+  },
+  "vads-font-size-heading-level-1": {
+    "$value": "{vads-font-size-2xl}",
+    "$type": "number"
+  },
+  "vads-font-size-heading-level-2": {
+    "$value": "{vads-font-size-xl}",
+    "$type": "number"
+  },
+  "vads-font-size-heading-level-3": {
+    "$value": "{vads-font-size-lg}",
+    "$type": "number"
+  },
+  "vads-font-size-heading-level-4": {
+    "$value": "{vads-font-size-md}",
+    "$type": "number"
+  },
+  "vads-font-size-heading-level-5": {
+    "$value": "{vads-font-size-sm}",
+    "$type": "number"
+  },
+  "vads-font-size-body-lead": {
+    "$value": "{vads-font-size-lg}",
+    "$type": "number"
+  },
+  "vads-font-size-body-large": {
+    "$value": "{vads-font-size-lg}",
+    "$type": "number"
+  },
+  "vads-font-size-body-medium": {
+    "$value": "{vads-font-size-md}",
+    "$type": "number"
+  },
+  "vads-font-size-body-small": {
+    "$value": "{vads-font-size-sm}",
+    "$type": "number"
+  },
+  "vads-font-size-body-xsmall": {
+    "$value": "{vads-font-size-xs}",
+    "$type": "number"
+  },
+  "vads-font-size-eyebrow": {
+    "$value": "{vads-font-size-md}",
+    "$type": "number"
+  },
+  "vads-font-size-display": {
+    "$value": "{vads-font-size-5xl}",
+    "$type": "number"
+  },
+  "vads-font-size-navigation": {
+    "$value": "{vads-font-size-2xs}",
+    "$type": "number"
+  },
+  "vads-font-style-bold": {
+    "$value": "Bold",
+    "$type": "string"
+  },
+  "vads-font-style-italic": {
+    "$value": "Italic",
+    "$type": "string"
+  },
+  "vads-font-style-regular": {
+    "$value": "Regular",
+    "$type": "string"
+  }
+}
