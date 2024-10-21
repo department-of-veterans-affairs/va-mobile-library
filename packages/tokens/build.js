@@ -66,7 +66,7 @@ StyleDictionary.registerFilter({
   matcher: (token) => filterFont(token, 'family'),
 })
 
-/** Filter to tokens of category 'font', type 'letterSpacing', and npm true */
+/** Filter to tokens of category 'font', type 'letter-spacing', and npm true */
 StyleDictionary.registerFilter({
   name: 'filter/font/letter-spacing-npm',
   matcher: (token) => filterFont(token, 'letter-spacing'),
