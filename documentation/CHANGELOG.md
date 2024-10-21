@@ -1,5 +1,13 @@
 # Changelog
 
+## [assets-v0.14.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.14.0) (2024-10-21)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.19.0...assets-v0.14.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add Bitter Regular font, remove Bitter Bold [\#544](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/544) ([TimRoe](https://github.com/TimRoe))
+
 ## [tokens-v0.19.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.19.0) (2024-10-21)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.18.0...tokens-v0.19.0)
