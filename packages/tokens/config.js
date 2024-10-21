@@ -46,7 +46,7 @@ module.exports = {
         {
           destination: 'js/font/letterSpacing.js',
           format: 'javascript/es6/simple-key-value',
-          filter: 'filter/font/letterSpacing-npm',
+          filter: 'filter/font/letter-spacing-npm',
           options: {
             exportName: 'letterSpacing',
             noSort: true,
@@ -55,7 +55,7 @@ module.exports = {
         {
           destination: 'js/font/lineHeight.js',
           format: 'javascript/es6/simple-key-value',
-          filter: 'filter/font/lineHeight-npm',
+          filter: 'filter/font/line-height-npm',
           options: {
             exportName: 'lineHeight',
             noSort: true,
@@ -106,7 +106,7 @@ module.exports = {
         {
           destination: 'types/font/letterSpacing.d.ts',
           format: 'typescript/es6-declarations/simple-key-value',
-          filter: 'filter/font/letterSpacing-npm',
+          filter: 'filter/font/letter-spacing-npm',
           options: {
             exportName: 'letterSpacing',
             noSort: true,
@@ -115,7 +115,7 @@ module.exports = {
         {
           destination: 'types/font/lineHeight.d.ts',
           format: 'typescript/es6-declarations/simple-key-value',
-          filter: 'filter/font/lineHeight-npm',
+          filter: 'filter/font/line-height-npm',
           options: {
             exportName: 'lineHeight',
             noSort: true,
@@ -159,6 +159,9 @@ module.exports = {
           destination: `fonts.json`,
           format: 'json/dtcg',
           filter: 'filter/font-figma',
+          options: {
+            noSort: true,
+          },
         },
         {
           destination: `light.json`,
@@ -169,6 +172,9 @@ module.exports = {
           destination: `spacing.json`,
           format: 'json/dtcg',
           filter: 'filter/spacing/is-spacing',
+          options: {
+            noSort: true,
+          },
         },
       ],
     },

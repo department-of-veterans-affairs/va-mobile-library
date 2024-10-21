@@ -44,7 +44,7 @@ const stripModeReducer = (result, token) => {
 }
 
 /** Filter function to return tokens of category 'font', type from filter, and npm true */
-const fontFilter = (token, fontType) => {
+const filterFont = (token, fontType) => {
   const { category, type, npm } = token.attributes
 
   return category === 'font' && type === fontType && npm === true
@@ -63,25 +63,25 @@ StyleDictionary.registerFilter({
 /** Filter to tokens of category 'font', type 'family', and npm true */
 StyleDictionary.registerFilter({
   name: 'filter/font/family-npm',
-  matcher: (token) => fontFilter(token, 'family'),
+  matcher: (token) => filterFont(token, 'family'),
 })
 
 /** Filter to tokens of category 'font', type 'letterSpacing', and npm true */
 StyleDictionary.registerFilter({
-  name: 'filter/font/letterSpacing-npm',
-  matcher: (token) => fontFilter(token, 'letter-spacing'),
+  name: 'filter/font/letter-spacing-npm',
+  matcher: (token) => filterFont(token, 'letter-spacing'),
 })
 
 /** Filter to tokens of category 'font', type 'size', and npm true */
 StyleDictionary.registerFilter({
   name: 'filter/font/size-npm',
-  matcher: (token) => fontFilter(token, 'size'),
+  matcher: (token) => filterFont(token, 'size'),
 })
 
 /** Filter to tokens of category 'font', type 'line-height', and npm true */
 StyleDictionary.registerFilter({
-  name: 'filter/font/lineHeight-npm',
-  matcher: (token) => fontFilter(token, 'line-height'),
+  name: 'filter/font/line-height-npm',
+  matcher: (token) => filterFont(token, 'line-height'),
 })
 
 /** Remove tokens that do not have 'font' in the category and have figma attribute */
@@ -285,7 +285,7 @@ StyleDictionary.registerFormat({
 /** Registering format to generate JSON in Design Token Community Group format (https://tr.designtokens.org/format/) */
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
-  formatter: function ({ dictionary }) {
+  formatter: function ({ dictionary, options }) {
     // Returns proper color value for dtcg aliasing
     const getValue = (value) => {
       if (
@@ -340,11 +340,7 @@ StyleDictionary.registerFormat({
       {},
     )
 
-    const category = dictionary.allTokens?.[0].attributes?.category
-    // Leave spacing and font tokens sorted by source (size)
-    if (category === 'spacing' || category === 'font') {
-      return JSON.stringify(tokens, undefined, 2) + `\n`
-    }
+    if (options.noSort) return JSON.stringify(tokens, undefined, 2) + `\n`
 
     return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
   },
