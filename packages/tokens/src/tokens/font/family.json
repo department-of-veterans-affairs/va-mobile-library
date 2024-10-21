@@ -1,0 +1,47 @@
+{
+  "vads-font-family-sans-serif": {
+    "name": "vads-font-family-sans-serif",
+    "value": "Source Sans Pro",
+    "attributes": {
+      "category": "font",
+      "type": "family",
+      "figma": true
+    }
+  },
+  "vads-font-family-sans-serif-regular": {
+    "name": "vads-font-family-sans-serif-regular",
+    "value": "SourceSansPro-Regular",
+    "attributes": {
+      "category": "font",
+      "type": "family",
+      "npm": true
+    }
+  },
+  "vads-font-family-sans-serif-bold": {
+    "name": "vads-font-family-sans-serif-bold",
+    "value": "SourceSansPro-Bold",
+    "attributes": {
+      "category": "font",
+      "type": "family",
+      "npm": true
+    }
+  },
+  "vads-font-family-serif": {
+    "name": "vads-font-family-serif",
+    "value": "Bitter",
+    "attributes": {
+      "category": "font",
+      "type": "family",
+      "figma": true
+    }
+  },
+  "vads-font-family-serif-regular": {
+    "name": "vads-font-family-serif-regular",
+    "value": "Bitter-Regular",
+    "attributes": {
+      "category": "font",
+      "type": "family",
+      "npm": true
+    }
+  }
+}
