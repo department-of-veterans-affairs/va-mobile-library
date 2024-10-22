@@ -1,7 +1,6 @@
 import { StringOrTextWithA11y } from '../types'
 
 // Export related hooks
-export { useA11yListPosition } from './hooks/useA11yListPosition'
 export { useIsScreenReaderEnabled } from './hooks/useIsScreenReaderEnabled'
 
 /**

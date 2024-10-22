@@ -11,7 +11,8 @@ import {
   TextWithA11y,
 } from '../../types'
 import { Spacer } from '../Spacer/Spacer'
-import { useA11yListPosition, useTheme } from '../../utils'
+import { useTheme } from '../../utils'
+import { useTranslation } from 'react-i18next'
 
 type TextWithA11yAndValue = TextWithA11y & {
   /** Description for checkbox item */
@@ -99,6 +100,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   tile,
 }) => {
   const theme = useTheme()
+  const { t } = useTranslation()
 
   const handleCheckboxChange = (value: string | number) => {
     if (selectedItems.includes(value)) {
@@ -141,12 +143,16 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
         {items.map((item, index) => {
           const isObject = typeof item === 'object'
           const value = isObject ? item.value || item.text : item
+          const a11yListPosition = t('listPosition', {
+            position: index + 1,
+            total: items.length,
+          })
 
           return (
             <Fragment key={`checkbox-group-item-${index}`}>
               <Checkbox
                 label={item}
-                a11yListPosition={useA11yListPosition(index, items.length)}
+                a11yListPosition={a11yListPosition}
                 description={isObject ? item.description : undefined}
                 checked={selectedItems.includes(value)}
                 onPress={() => handleCheckboxChange(value)}

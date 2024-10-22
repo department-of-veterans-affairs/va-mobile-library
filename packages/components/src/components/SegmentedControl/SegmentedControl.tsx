@@ -4,11 +4,8 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import {
-  PressableOpacityStyle,
-  useA11yListPosition,
-  useTheme,
-} from '../../utils'
+import { PressableOpacityStyle, useTheme } from '../../utils'
+import { useTranslation } from 'react-i18next'
 
 /**
  * Props for {@link SegmentedControl}
@@ -56,6 +53,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   testIDs,
 }) => {
   const theme = useTheme()
+  const { t } = useTranslation()
 
   useEffect(() => {
     onChange(selected)
@@ -99,6 +97,11 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       textAlign: 'center',
     }
 
+    const a11yListPosition = t('listPosition', {
+      position: index + 1,
+      total: labels.length,
+    })
+
     return (
       <Segment
         onPress={(): void => onChange(index)}
@@ -107,7 +110,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         key={index}
         widthPct={`${100 / labels.length}%`}
         aria-label={accessibilityLabel}
-        aria-valuetext={useA11yListPosition(index, labels.length)}
+        aria-valuetext={a11yListPosition}
         accessibilityHint={a11yHints ? a11yHints[index] : ''}
         role={'tab'}
         accessibilityState={{ selected: isSelected }}
