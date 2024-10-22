@@ -142,16 +142,11 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
           const isObject = typeof item === 'object'
           const value = isObject ? item.value || item.text : item
 
-          const accessibilityValue = useA11yListPosition(
-            index + 1,
-            items.length,
-          )
-
           return (
             <Fragment key={`checkbox-group-item-${index}`}>
               <Checkbox
                 label={item}
-                accessibilityValue={accessibilityValue}
+                accessibilityValue={useA11yListPosition(index, items.length)}
                 description={isObject ? item.description : undefined}
                 checked={selectedItems.includes(value)}
                 onPress={() => handleCheckboxChange(value)}
