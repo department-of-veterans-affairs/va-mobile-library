@@ -43,6 +43,13 @@ const stripModeReducer = (result, token) => {
   return result
 }
 
+/** Filter function to return tokens of category 'font', type from filter, and npm true */
+const filterFont = (token, fontType) => {
+  const { category, type, npm } = token.attributes
+
+  return category === 'font' && type === fontType && npm === true
+}
+
 /**
  * Filters
  */
@@ -51,6 +58,37 @@ const stripModeReducer = (result, token) => {
 StyleDictionary.registerFilter({
   name: 'filter/color/is-color',
   matcher: (token) => token.attributes.category.includes('color'),
+})
+
+/** Filter to tokens of category 'font', type 'family', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/family-npm',
+  matcher: (token) => filterFont(token, 'family'),
+})
+
+/** Filter to tokens of category 'font', type 'letter-spacing', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/letter-spacing-npm',
+  matcher: (token) => filterFont(token, 'letter-spacing'),
+})
+
+/** Filter to tokens of category 'font', type 'size', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/size-npm',
+  matcher: (token) => filterFont(token, 'size'),
+})
+
+/** Filter to tokens of category 'font', type 'line-height', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/line-height-npm',
+  matcher: (token) => filterFont(token, 'line-height'),
+})
+
+/** Remove tokens that do not have 'font' in the category and have figma attribute */
+StyleDictionary.registerFilter({
+  name: 'filter/font-figma',
+  matcher: (token) =>
+    token.attributes.category === 'font' && token.attributes.figma === true,
 })
 
 /** Remove tokens that have the dark mode (OnDark/-on-dark) suffix */
@@ -75,16 +113,22 @@ StyleDictionary.registerFilter({
  * Formats
  */
 
-/** Custom format for colors. Exports all color tokens as single object */
+/** Custom format for basic named export of simple key:value token pairs */
 StyleDictionary.registerFormat({
-  name: 'javascript/es6/vads-colors',
-  formatter: function (dictionary) {
-    const colorTokens = dictionary.allProperties.reduce((result, token) => {
+  name: 'javascript/es6/simple-key-value',
+  formatter: function ({ dictionary, options }) {
+    const tokens = dictionary.allProperties.reduce((result, token) => {
       result[token.name] = token.value
       return result
     }, {})
 
-    return `export const colors = ${JSON.stringify(sortTokensByKey(colorTokens), null, 2)};`
+    const exportName = options.exportName
+
+    if (options.noSort) {
+      return `export const ${exportName} = ${JSON.stringify(tokens, null, 2)};`
+    }
+
+    return `export const ${exportName} = ${JSON.stringify(sortTokensByKey(tokens), null, 2)};`
   },
 })
 
@@ -114,43 +158,94 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/vads-module-export',
   formatter: function () {
-    return (
-      "export { colors } from './colors'\n" +
-      "export { themes } from './themes'\n" +
-      "export { spacing } from './spacing'"
-    )
+    const files = ['colors', 'font', 'spacing', 'themes']
+    let exports = ''
+    for (const file of files) exports += `export { ${file} } from './${file}'\n`
+
+    return exports
   },
 })
 
-/** Creates named type declaration for colors. Allows for TypeScript autocomplete */
+/** Custom format to generate font/index.js with exports */
 StyleDictionary.registerFormat({
-  name: 'typescript/es6-declarations/colors',
-  formatter: function (dictionary) {
-    const sortedTokens = sortTokensByName(dictionary.allTokens)
-    let declaration = 'export declare const colors: {\n'
-    sortedTokens.forEach((token) => {
-      declaration += `  /** ${token.value} */\n`
-      declaration += `  ${token.name}: string;\n`
-    })
-    declaration += '}'
-    return declaration
+  name: 'javascript/es6/fontIndex',
+  formatter: function () {
+    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    let imports = '',
+      exports = ''
+
+    for (const file of files) imports += `import { ${file} } from './${file}'\n`
+    exports += 'export const font = {\n'
+    for (const file of files) exports += `${file},\n`
+
+    return `${imports}\n${exports}}`
   },
 })
 
-/** Creates named type declaration for spacing. Allows for TypeScript autocomplete */
+/** Custom format to generate font/index.d.ts with exports */
 StyleDictionary.registerFormat({
-  name: 'typescript/es6-declarations/spacing',
-  formatter: function (dictionary) {
-    let declaration = 'export declare const spacing: {\n'
-    let allValuesComment = '/**\n * '
-    dictionary.allProperties.forEach((token, index) => {
-      declaration += `  /** Value: ${token.value} */\n`
-      declaration += `  ${token.name}: number;\n`
-      allValuesComment += `${index !== 0 ? ' | ' : ''}${token.name.replace('vadsSpace', '')}: ${token.value}`
-    })
+  name: 'typescript/es6-declarations/fontIndex',
+  formatter: function () {
+    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    let imports = '',
+      exports = ''
+
+    for (const file of files) imports += `import { ${file} } from './${file}'\n`
+    exports += 'export declare const font: {\n'
+    for (const file of files) exports += `${file}: typeof ${file},\n`
+
+    return `${imports}\n${exports}}`
+  },
+})
+
+/** Formats basic key-value type declarations exports */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/simple-key-value',
+  formatter: function ({ dictionary, options }) {
+    const tokenTyping = options.tokenTyping || 'number'
+    let tokens = dictionary.allTokens,
+      declaration = '',
+      globalValuesDoc = '/**\n',
+      docLine = ' * '
+
+    if (!options.noSort) {
+      tokens = sortTokensByName(tokens)
+    }
+
+    if (options.noGlobalDoc) {
+      globalValuesDoc = ''
+    } else {
+      // Add global values doc to the top of the file
+      for (const token of tokens) {
+        let tokenDoc = ''
+        // Shorten token names:
+        const shortName = token.name
+          .replace('vads', '')
+          .replace('FontFamily', '')
+          .replace('FontLetterSpacing', '')
+          .replace('FontLineHeight', '')
+          .replace('FontSize', '')
+          .replace('Space', '')
+
+        tokenDoc = `${shortName}: \`${token.value}\``
+        tokenDoc += token === tokens[tokens.length - 1] ? '' : ' | ' // Add | if not last token
+
+        if (docLine.length + tokenDoc.length > 120) {
+          globalValuesDoc += docLine + '\n'
+          docLine = ' * '
+        }
+        docLine += tokenDoc
+      }
+      globalValuesDoc += docLine + '\n */\n'
+    }
+
+    declaration += `export declare const ${options.exportName}: {\n`
+    for (const token of dictionary.allTokens) {
+      declaration += `  /** Value: \`${token.value}\` */\n`
+      declaration += `  ${token.name}: ${tokenTyping};\n`
+    }
     declaration += '}'
-    allValuesComment += '\n */\n'
-    return allValuesComment + declaration
+    return globalValuesDoc + declaration
   },
 })
 
@@ -179,18 +274,18 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/module',
   formatter: function () {
-    let declaration = "export * from './types/theme'\n"
-    declaration += "export * from './types/colors'\n"
-    declaration += "export * from './types/spacing'"
+    const files = ['colors', 'font', 'spacing', 'themes']
+    let exports = ''
+    for (const file of files) exports += `export * from './types/${file}'\n`
 
-    return declaration
+    return exports
   },
 })
 
 /** Registering format to generate JSON in Design Token Community Group format (https://tr.designtokens.org/format/) */
 StyleDictionary.registerFormat({
   name: 'json/dtcg',
-  formatter: function ({ dictionary }) {
+  formatter: function ({ dictionary, options }) {
     // Returns proper color value for dtcg aliasing
     const getValue = (value) => {
       if (
@@ -210,19 +305,27 @@ StyleDictionary.registerFormat({
 
       if (category.includes('color')) {
         return 'color'
-      } else if (category === 'units') {
-        return 'dimension'
-      } else if (category === 'font' && type === 'family') {
-        return 'fontFamily'
-      } else if (category === 'font' && type === 'weight') {
-        return 'fontWeight'
-      } else if (category === 'font' && type === 'size') {
-        return 'dimension'
-      } else if (category === 'spacing') {
-        return 'number'
       }
 
-      return ''
+      switch (category) {
+        case 'font':
+          switch (type) {
+            case 'family':
+            case 'style':
+              return 'string'
+            case 'letter-spacing':
+            case 'size':
+            case 'line-height':
+            case 'paragraph-spacing':
+              return 'number'
+            default:
+              return ''
+          }
+        case 'spacing':
+          return 'number'
+        default:
+          return ''
+      }
     }
 
     // Format tokens for dtcg
@@ -237,25 +340,9 @@ StyleDictionary.registerFormat({
       {},
     )
 
-    // Leave spacing tokens sorted by size
-    if (dictionary.allTokens?.[0].attributes?.category === 'spacing') {
-      return JSON.stringify(tokens, undefined, 2) + `\n`
-    }
+    if (options.noSort) return JSON.stringify(tokens, undefined, 2) + `\n`
 
     return JSON.stringify(sortTokensByKey(tokens), undefined, 2) + `\n`
-  },
-})
-
-/** Custom format for spacing. Exports all spacing tokens as single object */
-StyleDictionary.registerFormat({
-  name: 'javascript/es6/vads-spacing',
-  formatter: function (dictionary) {
-    const tokens = dictionary.allProperties.reduce((result, token) => {
-      result[token.name] = token.value
-      return result
-    }, {})
-
-    return `export const spacing = ${JSON.stringify(tokens, null, 2)};`
   },
 })
 
