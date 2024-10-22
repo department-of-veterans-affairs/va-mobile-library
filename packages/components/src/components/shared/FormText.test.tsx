@@ -36,6 +36,7 @@ describe('Form Text', () => {
     it('should render text object and a11y label', () => {
       render(<Header text={headerObject} />)
       expect(screen.root).toHaveTextContent('Header text object')
+      expect(screen.getByRole('heading')).toBeOnTheScreen()
       expect(screen.getByLabelText('Header a11y')).toBeOnTheScreen()
     })
 
