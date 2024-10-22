@@ -27,7 +27,7 @@ export type CheckboxRadioProps = {
   /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
   onPress: () => void
   /** Textual description of position within list of checkboxes */
-  accessibilityValue?: AccessibilityValue
+  a11yListPosition?: string
   /** Description that appears below label */
   description?: StringOrTextWithA11y
   /** True to apply tile styling */

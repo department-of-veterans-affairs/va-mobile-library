@@ -31,7 +31,7 @@ export type CheckboxProps = FormElementProps &
   }
 
 export const Checkbox: FC<CheckboxProps> = ({
-  accessibilityValue,
+  a11yListPosition,
   checked,
   label,
   description,
@@ -131,7 +131,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         <Pressable
           onPress={onPress}
           style={tile ? tileStyle : pressableBaseStyle}
-          accessibilityValue={accessibilityValue}
+          aria-valuetext={a11yListPosition}
           aria-checked={indeterminate ? 'mixed' : checked}
           role="checkbox">
           {_icon}
