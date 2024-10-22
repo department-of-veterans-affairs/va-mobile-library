@@ -1,5 +1,35 @@
 # Changelog
 
+## [tokens-v0.18.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.18.0) (2024-10-18)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.17.1...tokens-v0.18.0)
+
+**Closed issues:**
+
+- DS - Review Home Icon Sizing [\#531](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/531)
+- DS - Tech Discovery for RadioButton [\#520](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/520)
+- DS - Review IIR's Veteran Status mockups [\#510](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/510)
+- DS - Typography Tokens - SPIKE - Components vs. Tokens [\#496](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/496)
+- \[Figma\] Update documentation on permissions [\#493](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/493)
+- Tokens - Update tokens to include documentation of values [\#486](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/486)
+- DS - Tokens: Alphabetize TS files [\#482](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/482)
+- \[Design Tokens\] Spacing: Create documentation in Storybook [\#476](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/476)
+- DS - Checkbox and Checkbox group - Visual QA [\#435](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/435)
+- DS - Checkbox - Add to linting pkg [\#432](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/432)
+- DS - Checkbox Group Component Unit Tests [\#431](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/431)
+- DS - Checkbox and Checkbox Group Accessibility Review [\#430](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/430)
+- DS - Checkbox Group Component Analytics Support [\#429](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/429)
+- DS - Checkbox Group Component Storybook [\#428](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/428)
+- DS - Checkbox Group Component Implementation [\#427](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/427)
+- Checkbox - Publish component to Figma and Doc Site [\#194](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/194)
+- DS - Design Tokens - Spacing [\#80](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/80)
+
+**Merged pull requests:**
+
+- \[Feature\] Add border tokens [\#543](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/543) ([jessicawoodin](https://github.com/jessicawoodin))
+- \[Feature\] CheckboxGroup – Add item descriptions [\#513](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/513) ([narin](https://github.com/narin))
+- \[Feature\] CheckboxGroup [\#503](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/503) ([narin](https://github.com/narin))
+
 ## [tokens-v0.17.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.17.1) (2024-09-30)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.25.0...tokens-v0.17.1)
