@@ -1,0 +1,202 @@
+{
+  "vads-font-line-height-default-5xl": {
+    "name": "vads-font-line-height-default-5xl",
+    "value": 54.74,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-4xl": {
+    "name": "vads-font-line-height-default-4xl",
+    "value": 48.65,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-3xl": {
+    "name": "vads-font-line-height-default-3xl",
+    "value": 43.25,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-2xl": {
+    "name": "vads-font-line-height-default-2xl",
+    "value": 38.44,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-xl": {
+    "name": "vads-font-line-height-default-xl",
+    "value": 34.17,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-lg": {
+    "name": "vads-font-line-height-default-lg",
+    "value": 30.38,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-md": {
+    "name": "vads-font-line-height-default-md",
+    "value": 27,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-sm": {
+    "name": "vads-font-line-height-default-sm",
+    "value": 24,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-xs": {
+    "name": "vads-font-line-height-default-xs",
+    "value": 21.33,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-default-2xs": {
+    "name": "vads-font-line-height-default-2xs",
+    "value": 18.96,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-5xl": {
+    "name": "vads-font-line-height-heading-5xl",
+    "value": 43.79,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-4xl": {
+    "name": "vads-font-line-height-heading-4xl",
+    "value": 38.92,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-3xl": {
+    "name": "vads-font-line-height-heading-3xl",
+    "value": 34.6,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-2xl": {
+    "name": "vads-font-line-height-heading-2xl",
+    "value": 30.75,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-xl": {
+    "name": "vads-font-line-height-heading-xl",
+    "value": 27.34,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-lg": {
+    "name": "vads-font-line-height-heading-lg",
+    "value": 24.3,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-md": {
+    "name": "vads-font-line-height-heading-md",
+    "value": 21.6,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-sm": {
+    "name": "vads-font-line-height-heading-sm",
+    "value": 19.2,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-xs": {
+    "name": "vads-font-line-height-heading-xs",
+    "value": 17.07,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  },
+  "vads-font-line-height-heading-2xs": {
+    "name": "vads-font-line-height-heading-2xs",
+    "value": 15.17,
+    "attributes": {
+      "category": "font",
+      "type": "line-height",
+      "figma": true,
+      "npm": true
+    }
+  }
+}

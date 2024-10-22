@@ -1,5 +1,25 @@
 # Changelog
 
+## [components-v0.26.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.26.0) (2024-10-21)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.14.0...components-v0.26.0)
+
+## [assets-v0.14.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.14.0) (2024-10-21)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.19.0...assets-v0.14.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add Bitter Regular font, remove Bitter Bold [\#544](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/544) ([TimRoe](https://github.com/TimRoe))
+
+## [tokens-v0.19.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.19.0) (2024-10-21)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.18.0...tokens-v0.19.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add atomic font tokens [\#540](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/540) ([TimRoe](https://github.com/TimRoe))
+
 ## [tokens-v0.18.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.18.0) (2024-10-18)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.17.1...tokens-v0.18.0)
@@ -16,7 +36,6 @@
 - \[Design Tokens\] Spacing: Create documentation in Storybook [\#476](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/476)
 - DS - Checkbox and Checkbox group - Visual QA [\#435](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/435)
 - DS - Checkbox - Add to linting pkg [\#432](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/432)
-- DS - Checkbox Group Component Unit Tests [\#431](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/431)
 - DS - Checkbox and Checkbox Group Accessibility Review [\#430](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/430)
 - DS - Checkbox Group Component Analytics Support [\#429](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/429)
 - DS - Checkbox Group Component Storybook [\#428](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/428)
@@ -51,7 +70,6 @@
 - \[Design Tokens\] Colors: Create foreground tokens for feedback [\#490](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/490)
 - Radio Button: Prep for handoff [\#468](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/468)
 - DS - Checkbox Component Storybook [\#456](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/456)
-- DS - Checkbox Component Implementation [\#455](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/455)
 - DS - Update existing components to use spacing tokens [\#449](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/449)
 
 **Merged pull requests:**

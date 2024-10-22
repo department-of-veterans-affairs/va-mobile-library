@@ -1,0 +1,182 @@
+{
+  "vads-font-paragraph-spacing-default-5xl": {
+    "name": "number",
+    "value": 72.98,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-4xl": {
+    "name": "number",
+    "value": 64.87,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-3xl": {
+    "name": "number",
+    "value": 57.67,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-2xl": {
+    "name": "number",
+    "value": 51.26,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-xl": {
+    "name": "number",
+    "value": 45.56,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-lg": {
+    "name": "number",
+    "value": 40.5,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-md": {
+    "name": "number",
+    "value": 36,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-sm": {
+    "name": "number",
+    "value": 32,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-xs": {
+    "name": "number",
+    "value": 28.44,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-default-2xs": {
+    "name": "number",
+    "value": 25.28,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-5xl": {
+    "name": "number",
+    "value": 43.79,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-4xl": {
+    "name": "number",
+    "value": 38.92,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-3xl": {
+    "name": "number",
+    "value": 34.6,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-2xl": {
+    "name": "number",
+    "value": 30.75,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-xl": {
+    "name": "number",
+    "value": 27.34,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-lg": {
+    "name": "number",
+    "value": 24.3,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-md": {
+    "name": "number",
+    "value": 21.6,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-sm": {
+    "name": "number",
+    "value": 19.2,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-xs": {
+    "name": "number",
+    "value": 17.07,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  },
+  "vads-font-paragraph-spacing-heading-2xs": {
+    "name": "number",
+    "value": 15.17,
+    "attributes": {
+      "category": "font",
+      "type": "paragraph-spacing",
+      "figma": true
+    }
+  }
+}
