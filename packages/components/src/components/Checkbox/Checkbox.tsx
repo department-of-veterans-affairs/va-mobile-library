@@ -118,6 +118,9 @@ export const Checkbox: FC<CheckboxProps> = ({
     </View>
   )
 
+  /**
+   * Combined a11yLabel on Pressable required for Android Talkback
+   */
   const a11yLabel =
     getA11yLabel(label) +
     (required ? ', ' + t('required') : '') +
