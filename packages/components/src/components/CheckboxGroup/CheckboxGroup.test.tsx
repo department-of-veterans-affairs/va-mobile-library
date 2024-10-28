@@ -104,6 +104,17 @@ describe('CheckboxGroup', () => {
       expect(checkboxes[4].props.accessibilityState.checked).toBe(false)
       expect(checkboxes[5].props.accessibilityState.checked).toBe(false)
     })
+
+    it('should have accessibilityValues on checkboxes', () => {
+      render(<CheckboxGroup {...commonProps} />)
+      const checkboxes = screen.queryAllByRole('checkbox')
+      expect(checkboxes[0].props.accessibilityValue.text).toBe('1 of 6')
+      expect(checkboxes[1].props.accessibilityValue.text).toBe('2 of 6')
+      expect(checkboxes[2].props.accessibilityValue.text).toBe('3 of 6')
+      expect(checkboxes[3].props.accessibilityValue.text).toBe('4 of 6')
+      expect(checkboxes[4].props.accessibilityValue.text).toBe('5 of 6')
+      expect(checkboxes[5].props.accessibilityValue.text).toBe('6 of 6')
+    })
   })
 
   describe('onPress behavior', () => {

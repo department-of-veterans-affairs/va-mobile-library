@@ -6,6 +6,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
 import { CheckboxRadioProps, FormElementProps } from '../../types/forms'
@@ -20,7 +21,7 @@ import {
 } from '../shared/FormText'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { useTheme } from '../../utils'
+import { getA11yLabel, useTheme } from '../../utils'
 
 export type CheckboxProps = FormElementProps &
   CheckboxRadioProps & {
@@ -31,6 +32,7 @@ export type CheckboxProps = FormElementProps &
   }
 
 export const Checkbox: FC<CheckboxProps> = ({
+  a11yListPosition,
   checked,
   label,
   description,
@@ -44,6 +46,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   tile,
 }) => {
   const theme = useTheme()
+  const { t } = useTranslation()
   const fontScale = useWindowDimensions().fontScale
 
   /**
@@ -115,6 +118,14 @@ export const Checkbox: FC<CheckboxProps> = ({
     </View>
   )
 
+  /**
+   * Combined a11yLabel on Pressable required for Android Talkback
+   */
+  const a11yLabel =
+    getA11yLabel(label) +
+    (required ? ', ' + t('required') : '') +
+    (description ? `, ${getA11yLabel(description)}` : '')
+
   return (
     <ComponentWrapper>
       <View style={containerStyle} testID={testID}>
@@ -131,6 +142,8 @@ export const Checkbox: FC<CheckboxProps> = ({
           onPress={onPress}
           style={tile ? tileStyle : pressableBaseStyle}
           aria-checked={indeterminate ? 'mixed' : checked}
+          aria-valuetext={a11yListPosition}
+          aria-label={a11yLabel}
           role="checkbox">
           {_icon}
           <Spacer size="xs" horizontal />
