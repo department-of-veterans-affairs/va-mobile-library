@@ -6,6 +6,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
 import { CheckboxRadioProps, FormElementProps } from '../../types/forms'
@@ -21,7 +22,6 @@ import {
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { getA11yLabel, useTheme } from '../../utils'
-import { useTranslation } from 'react-i18next'
 
 export type CheckboxProps = FormElementProps &
   CheckboxRadioProps & {

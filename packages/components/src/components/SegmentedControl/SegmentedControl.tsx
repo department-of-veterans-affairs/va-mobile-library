@@ -1,11 +1,11 @@
 import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
 import { PressableOpacityStyle, useTheme } from '../../utils'
-import { useTranslation } from 'react-i18next'
 
 /**
  * Props for {@link SegmentedControl}
@@ -84,6 +84,11 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       ? a11yLabels[index] || labels[index]
       : labels[index]
 
+    const a11yListPosition = t('listPosition', {
+      position: index + 1,
+      total: labels.length,
+    })
+
     // TODO: Replace with typography tokens
     const font: TextStyle = {
       fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
@@ -96,11 +101,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       color: theme.vadsColorForegroundDefault,
       textAlign: 'center',
     }
-
-    const a11yListPosition = t('listPosition', {
-      position: index + 1,
-      total: labels.length,
-    })
 
     return (
       <Segment

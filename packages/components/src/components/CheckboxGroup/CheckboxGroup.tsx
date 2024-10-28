@@ -1,5 +1,6 @@
 import { View, ViewStyle } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { useTranslation } from 'react-i18next'
 import React, { FC, Fragment } from 'react'
 
 import { Checkbox } from '../Checkbox/Checkbox'
@@ -12,7 +13,6 @@ import {
 } from '../../types'
 import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
-import { useTranslation } from 'react-i18next'
 
 type TextWithA11yAndValue = TextWithA11y & {
   /** Description for checkbox item */
