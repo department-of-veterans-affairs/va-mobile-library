@@ -86,8 +86,8 @@ StyleDictionary.registerFilter({
 
 /** Filter to tokens of category 'font', type 'font', and npm true */
 StyleDictionary.registerFilter({
-  name: 'filter/font/font-npm',
-  matcher: (token) => filterFont(token, 'font'),
+  name: 'filter/font/composite-npm',
+  matcher: (token) => filterFont(token, 'composite'),
 })
 
 /** Remove tokens that do not have 'font' in the category and have figma attribute */
@@ -176,7 +176,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/fontIndex',
   formatter: function () {
-    const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'fonts']
+    const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'styles']
     let imports = '',
       exports = ''
 
@@ -195,26 +195,26 @@ StyleDictionary.registerFormat({
     const fontTokens = dictionary.allTokens.filter(
       (t) => t.attributes.type === 'font',
     )
-    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'styles']
     let imports = '',
       exports = ''
 
     for (const file of files) imports += `import { ${file} } from './${file}'\n`
-    exports += 'export declare type Font = {\n'
+    exports += 'export declare const font: {\n'
     for (const file of files) exports += `${file}: typeof ${file},\n`
     exports += '}\n\n'
 
-    exports += `export declare const fonts: {\n`
-    for (const font of fontTokens) {
-      exports += `  /** `
-      Object.keys(font.value).forEach(
-        (key, index) =>
-          (exports += `${index !== 0 ? '| ' : ''}${key}: ${font.value[key]} `),
-      )
-      exports += `*/\n`
-      exports += `  ${font.name}: Font\n`
-    }
-    exports += '}'
+    // exports += `export declare const fonts: {\n`
+    // for (const font of fontTokens) {
+    //   exports += `  /** `
+    //   Object.keys(font.value).forEach(
+    //     (key, index) =>
+    //       (exports += `${index !== 0 ? '| ' : ''}${key}: ${font.value[key]} `),
+    //   )
+    //   exports += `*/\n`
+    //   exports += `  ${font.name}: Font\n`
+    // }
+    // exports += '}'
 
     return `${imports}\n${exports}`
   },
@@ -273,7 +273,7 @@ StyleDictionary.registerFormat({
 
 /** Formats declarations exports for composite font tokens */
 StyleDictionary.registerFormat({
-  name: 'typescript/es6-declarations/fonts',
+  name: 'typescript/es6-declarations/composite',
   formatter: function ({ dictionary, options }) {
     let tokens = dictionary.allTokens,
       declaration = ''
@@ -282,11 +282,19 @@ StyleDictionary.registerFormat({
       tokens = sortTokensByName(tokens)
     }
 
-    declaration += `import { font } from './index'\n\n`
-
     declaration += `export declare const ${options.exportName}: {\n`
     for (const token of dictionary.allTokens) {
-      declaration += `  ${token.name}: typeof font\n`
+      let docs = `/** `
+      let valueKeys = '{\n'
+      Object.keys(token.value).forEach((key, index) => {
+        docs += `${index !== 0 ? '| ' : ''}${key}: ${token.value[key]} `
+        valueKeys += `    ${key}: ${typeof token.value[key]}\n`
+      })
+      docs += `*/\n`
+
+      declaration += `  ${docs}`
+      declaration += `  ${token.name}: ${valueKeys}`
+      declaration += `  }\n`
     }
     declaration += '}'
     return declaration

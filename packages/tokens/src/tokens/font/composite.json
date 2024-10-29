@@ -10,7 +10,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -25,7 +25,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -40,7 +40,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -55,7 +55,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -70,7 +70,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -85,7 +85,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -100,7 +100,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -115,7 +115,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -130,7 +130,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   },
@@ -145,7 +145,7 @@
     },
     "attributes": {
       "category": "font",
-      "type": "font",
+      "type": "composite",
       "npm": true
     }
   }
