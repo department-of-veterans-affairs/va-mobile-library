@@ -84,10 +84,10 @@ StyleDictionary.registerFilter({
   matcher: (token) => filterFont(token, 'line-height'),
 })
 
-/** Filter to tokens of category 'font', type 'typography', and npm true */
+/** Filter to tokens of category 'font', type 'font', and npm true */
 StyleDictionary.registerFilter({
-  name: 'filter/font/typography-npm',
-  matcher: (token) => filterFont(token, 'typography'),
+  name: 'filter/font/font-npm',
+  matcher: (token) => filterFont(token, 'font'),
 })
 
 /** Remove tokens that do not have 'font' in the category and have figma attribute */
@@ -176,7 +176,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/fontIndex',
   formatter: function () {
-    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'fonts']
     let imports = '',
       exports = ''
 
@@ -191,16 +191,24 @@ StyleDictionary.registerFormat({
 /** Custom format to generate font/index.d.ts with exports */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/fontIndex',
-  formatter: function () {
+  formatter: function ({ dictionary }) {
+    const fontTokens = dictionary.allTokens.filter(
+      (t) => t.attributes.type === 'font',
+    )
     const files = ['family', 'letterSpacing', 'lineHeight', 'size']
     let imports = '',
       exports = ''
 
     for (const file of files) imports += `import { ${file} } from './${file}'\n`
-    exports += 'export declare const font: {\n'
+    exports += 'export declare type Font = {\n'
     for (const file of files) exports += `${file}: typeof ${file},\n`
+    exports += '}\n\n'
 
-    return `${imports}\n${exports}}`
+    exports += `export declare const fonts: {\n`
+    for (const font of fontTokens) exports += `  ${font.name}: Font\n`
+    exports += '}'
+
+    return `${imports}\n${exports}`
   },
 })
 
@@ -255,9 +263,9 @@ StyleDictionary.registerFormat({
   },
 })
 
-/** Formats declarations exports for composite tokens */
+/** Formats declarations exports for composite font tokens */
 StyleDictionary.registerFormat({
-  name: 'typescript/es6-declarations/composite',
+  name: 'typescript/es6-declarations/fonts',
   formatter: function ({ dictionary, options }) {
     let tokens = dictionary.allTokens,
       declaration = ''
@@ -266,13 +274,11 @@ StyleDictionary.registerFormat({
       tokens = sortTokensByName(tokens)
     }
 
+    declaration += `import { font } from './index'\n\n`
+
     declaration += `export declare const ${options.exportName}: {\n`
     for (const token of dictionary.allTokens) {
-      declaration += `  ${token.name}: {\n`
-      for (key in token.value) {
-        declaration += `    ${key}: ${typeof token.value[key]}\n`
-      }
-      declaration += '  }\n'
+      declaration += `  ${token.name}: typeof font\n`
     }
     declaration += '}'
     return declaration
