@@ -192,9 +192,6 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/fontIndex',
   formatter: function ({ dictionary }) {
-    const fontTokens = dictionary.allTokens.filter(
-      (t) => t.attributes.type === 'font',
-    )
     const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'styles']
     let imports = '',
       exports = ''
@@ -203,18 +200,6 @@ StyleDictionary.registerFormat({
     exports += 'export declare const font: {\n'
     for (const file of files) exports += `${file}: typeof ${file},\n`
     exports += '}\n\n'
-
-    // exports += `export declare const fonts: {\n`
-    // for (const font of fontTokens) {
-    //   exports += `  /** `
-    //   Object.keys(font.value).forEach(
-    //     (key, index) =>
-    //       (exports += `${index !== 0 ? '| ' : ''}${key}: ${font.value[key]} `),
-    //   )
-    //   exports += `*/\n`
-    //   exports += `  ${font.name}: Font\n`
-    // }
-    // exports += '}'
 
     return `${imports}\n${exports}`
   },
