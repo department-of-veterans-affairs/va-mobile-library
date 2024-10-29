@@ -83,6 +83,14 @@ module.exports = {
           destination: 'js/themes.js',
           format: 'javascript/es6/vads-colors-themes',
         },
+        {
+          destination: 'js/font/typography.js',
+          format: 'javascript/es6/simple-key-value',
+          filter: 'filter/font/typography-npm',
+          options: {
+            exportName: 'typography',
+          },
+        },
         // TS defs
         {
           destination: 'types/colors.d.ts',
@@ -143,6 +151,14 @@ module.exports = {
           destination: 'types/themes.d.ts',
           format: 'typescript/es6-declarations/theme',
           filter: 'filter/color/light-mode',
+        },
+        {
+          destination: 'types/font/typography.d.ts',
+          format: 'typescript/es6-declarations/composite',
+          filter: 'filter/font/typography-npm',
+          options: {
+            exportName: 'typography',
+          },
         },
       ],
     },

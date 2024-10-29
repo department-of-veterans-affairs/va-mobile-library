@@ -84,6 +84,12 @@ StyleDictionary.registerFilter({
   matcher: (token) => filterFont(token, 'line-height'),
 })
 
+/** Filter to tokens of category 'font', type 'line-height', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/typography-npm',
+  matcher: (token) => filterFont(token, 'typography'),
+})
+
 /** Remove tokens that do not have 'font' in the category and have figma attribute */
 StyleDictionary.registerFilter({
   name: 'filter/font-figma',
@@ -246,6 +252,30 @@ StyleDictionary.registerFormat({
     }
     declaration += '}'
     return globalValuesDoc + declaration
+  },
+})
+
+/** Formats declarations exports for composite tokens */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/composite',
+  formatter: function ({ dictionary, options }) {
+    let tokens = dictionary.allTokens,
+      declaration = ''
+
+    if (!options.noSort) {
+      tokens = sortTokensByName(tokens)
+    }
+
+    declaration += `export declare const ${options.exportName}: {\n`
+    for (const token of dictionary.allTokens) {
+      declaration += `  ${token.name}: {\n`
+      for (key in token.value) {
+        declaration += `    ${key}: ${typeof token.value[key]}\n`
+      }
+      declaration += '  }\n'
+    }
+    declaration += '}'
+    return declaration
   },
 })
 
