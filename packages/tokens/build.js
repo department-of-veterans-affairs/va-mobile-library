@@ -205,7 +205,15 @@ StyleDictionary.registerFormat({
     exports += '}\n\n'
 
     exports += `export declare const fonts: {\n`
-    for (const font of fontTokens) exports += `  ${font.name}: Font\n`
+    for (const font of fontTokens) {
+      exports += `  /** `
+      Object.keys(font.value).forEach(
+        (key, index) =>
+          (exports += `${index !== 0 ? '| ' : ''}${key}: ${font.value[key]} `),
+      )
+      exports += `*/\n`
+      exports += `  ${font.name}: Font\n`
+    }
     exports += '}'
 
     return `${imports}\n${exports}`
