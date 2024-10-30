@@ -255,7 +255,7 @@ StyleDictionary.registerFormat({
   },
 })
 
-/** Formats declarations exports for composite font tokens */
+/** Formats declarations exports for composite tokens */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/composite',
   formatter: function ({ dictionary, options }) {
