@@ -1,20 +1,28 @@
-import { ColorValue, useWindowDimensions } from 'react-native'
+import { ColorValue, View, ViewStyle, useWindowDimensions } from 'react-native'
 import { SvgProps } from 'react-native-svg'
 import React, { FC } from 'react'
 
 import { IconMap } from './iconList'
 import { useColorScheme, useTheme } from '../../utils'
 
-type nameOrSvg =
+type nameOrSvgOrNoIcon =
   | {
       /** Name of preset icon to use {@link IconMap} **/
       name: keyof typeof IconMap
+      noIcon?: never
       svg?: never
     }
   | {
       name?: never
+      noIcon?: never
       /** Custom SVG passed to display */
       svg: React.FC<SvgProps>
+    }
+  | {
+      name?: never
+      /** True to render icon as a null passthrough */
+      noIcon: boolean
+      svg?: never
     }
 
 type heightAndWidth =
@@ -37,8 +45,10 @@ type lightDarkModeFill = {
 /**
  *  Props that need to be passed in to {@link Icon}
  */
-export type IconProps = nameOrSvg &
+export type IconProps = nameOrSvgOrNoIcon &
   heightAndWidth & {
+    /** Wraps in View that aligns the icon with text of line height passed */
+    alignWithTextLineHeight?: number
     /** Fill color for the icon, defaults to light/dark mode primary blue */
     fill?: 'default' | 'base' | ColorValue | lightDarkModeFill
     /** Optional maximum width when scaled */
@@ -60,9 +70,11 @@ export type IconProps = nameOrSvg &
  */
 export const Icon: FC<IconProps> = ({
   name,
+  noIcon,
   svg,
   width = 24,
   height = 24,
+  alignWithTextLineHeight,
   fill = 'default',
   maxWidth,
   preventScaling,
@@ -72,6 +84,8 @@ export const Icon: FC<IconProps> = ({
   const colorScheme = useColorScheme()
   const fontScale = useWindowDimensions().fontScale
   const fs = (val: number) => fontScale * val
+
+  if (noIcon) return null
 
   // ! to override TS incorrectly thinking svg can be undefined after update
   const _Icon: FC<SvgProps> = name ? IconMap[name] : svg!
@@ -94,6 +108,21 @@ export const Icon: FC<IconProps> = ({
     iconProps = { ...iconProps, width: maxWidth, height: scaledHeight }
   } else {
     iconProps = { ...iconProps, width: fs(width), height: fs(height) }
+  }
+
+  if (alignWithTextLineHeight) {
+    const viewStyle: ViewStyle = {
+      alignSelf: 'flex-start',
+      minHeight: alignWithTextLineHeight * fontScale,
+      alignItems: 'center',
+      justifyContent: 'center',
+    }
+
+    return (
+      <View style={viewStyle}>
+        <_Icon {...iconProps} testID={testID} />
+      </View>
+    )
   }
 
   return <_Icon {...iconProps} testID={testID} />
