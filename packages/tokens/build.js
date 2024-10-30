@@ -84,7 +84,7 @@ StyleDictionary.registerFilter({
   matcher: (token) => filterFont(token, 'line-height'),
 })
 
-/** Filter to tokens of category 'font', type 'font', and npm true */
+/** Filter to tokens of category 'font', type 'composite', and npm true */
 StyleDictionary.registerFilter({
   name: 'filter/font/composite-npm',
   matcher: (token) => filterFont(token, 'composite'),
@@ -191,7 +191,7 @@ StyleDictionary.registerFormat({
 /** Custom format to generate font/index.d.ts with exports */
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/fontIndex',
-  formatter: function ({ dictionary }) {
+  formatter: function () {
     const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'styles']
     let imports = '',
       exports = ''
@@ -199,9 +199,8 @@ StyleDictionary.registerFormat({
     for (const file of files) imports += `import { ${file} } from './${file}'\n`
     exports += 'export declare const font: {\n'
     for (const file of files) exports += `${file}: typeof ${file},\n`
-    exports += '}\n\n'
 
-    return `${imports}\n${exports}`
+    return `${imports}\n${exports}}`
   },
 })
 
@@ -268,19 +267,22 @@ StyleDictionary.registerFormat({
     }
 
     declaration += `export declare const ${options.exportName}: {\n`
-    for (const token of dictionary.allTokens) {
+    for (const token of tokens) {
       let docs = `/** `
       let valueKeys = '{\n'
+
+      // Generate docs line and object of value types
       Object.keys(token.value).forEach((key, index) => {
         docs += `${index !== 0 ? '| ' : ''}${key}: ${token.value[key]} `
         valueKeys += `    ${key}: ${typeof token.value[key]}\n`
       })
-      docs += `*/\n`
 
+      docs += `*/\n`
       declaration += `  ${docs}`
       declaration += `  ${token.name}: ${valueKeys}`
       declaration += `  }\n`
     }
+
     declaration += '}'
     return declaration
   },
