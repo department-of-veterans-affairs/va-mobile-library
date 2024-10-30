@@ -260,13 +260,12 @@ StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/composite',
   formatter: function ({ dictionary, options }) {
     let tokens = dictionary.allTokens,
-      declaration = ''
+      declaration = '`export declare const ${options.exportName}: {\n'
 
     if (!options.noSort) {
       tokens = sortTokensByName(tokens)
     }
 
-    declaration += `export declare const ${options.exportName}: {\n`
     for (const token of tokens) {
       let docs = `/** `
       let valueKeys = '{\n'
