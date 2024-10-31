@@ -149,7 +149,7 @@ export const Link: FC<LinkProps> = ({
     lineHeight: 30,
   }
 
-  let _icon: IconProps | 'no icon'
+  let _icon: IconProps
 
   /** Function to massage Partial<IconProps> data into IconProps based on variant icon defaults */
   const setIcon = (name?: IconProps['name']) => {
@@ -268,7 +268,7 @@ export const Link: FC<LinkProps> = ({
     <ComponentWrapper>
       <Pressable {...pressableProps} testID={testID}>
         <Icon fill={linkColor} {..._icon} />
-        {icon === 'no icon' ? null : <Spacer size="2xs" horizontal />}
+        {_icon.noIcon ? null : <Spacer size="2xs" horizontal />}
         <Text style={textStyle}>{text}</Text>
       </Pressable>
     </ComponentWrapper>
