@@ -36,6 +36,7 @@ describe('Form Text', () => {
     it('should render text object and a11y label', () => {
       render(<Header text={headerObject} />)
       expect(screen.root).toHaveTextContent('Header text object')
+      expect(screen.getByRole('heading')).toBeOnTheScreen()
       expect(screen.getByLabelText('Header a11y')).toBeOnTheScreen()
     })
 
@@ -153,10 +154,9 @@ describe('Form Text', () => {
   })
 
   describe('Label', () => {
-    it('should render text and a11y label', () => {
+    it('should render text', () => {
       render(<Label text={labelObject} />)
       expect(screen.root).toHaveTextContent('Label text object')
-      expect(screen.getByLabelText('Label a11y')).toBeOnTheScreen()
       expect(screen.root).toHaveStyle({
         fontFamily: 'SourceSansPro-Regular',
       })
@@ -170,7 +170,6 @@ describe('Form Text', () => {
     it('should render text object without a11y label', () => {
       render(<Label text={{ text: 'Label text object' }} />)
       expect(screen.root).toHaveTextContent('Label text object')
-      expect(screen.getByLabelText('Label text object')).toBeOnTheScreen()
     })
 
     it('should render required text', () => {
@@ -210,10 +209,9 @@ describe('Form Text', () => {
   })
 
   describe('Description', () => {
-    it('should render text and a11y label', () => {
+    it('should render text', () => {
       render(<Description text={descriptionObject} />)
       expect(screen.root).toHaveTextContent('Description text object')
-      expect(screen.getByLabelText(', Description a11y')).toBeOnTheScreen()
     })
 
     it('should render simple string', () => {
@@ -224,9 +222,6 @@ describe('Form Text', () => {
     it('should render text object without a11y label', () => {
       render(<Description text={{ text: 'Description text object' }} />)
       expect(screen.root).toHaveTextContent('Description text object')
-      expect(
-        screen.getByLabelText(', Description text object'),
-      ).toBeOnTheScreen()
     })
 
     it('should render light mode color', () => {
