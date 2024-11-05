@@ -84,11 +84,11 @@ module.exports = {
           format: 'javascript/es6/vads-colors-themes',
         },
         {
-          destination: 'js/font/styles.js',
+          destination: 'js/font/typography.js',
           format: 'javascript/es6/simple-key-value',
           filter: 'filter/font/composite-npm',
           options: {
-            exportName: 'styles',
+            exportName: 'typography',
           },
         },
         // TS defs
@@ -139,12 +139,11 @@ module.exports = {
           },
         },
         {
-          destination: 'types/font/styles.d.ts',
+          destination: 'types/font/typography.d.ts',
           format: 'typescript/es6-declarations/composite',
           filter: 'filter/font/composite-npm',
           options: {
-            exportName: 'styles',
-            noSort: true,
+            exportName: 'typography',
           },
         },
         {

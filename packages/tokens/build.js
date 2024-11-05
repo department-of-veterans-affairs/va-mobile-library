@@ -176,7 +176,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/fontIndex',
   formatter: function () {
-    const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'styles']
+    const files = [
+      'family',
+      'letterSpacing',
+      'lineHeight',
+      'size',
+      'typography',
+    ]
     let imports = '',
       exports = ''
 
@@ -192,7 +198,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/fontIndex',
   formatter: function () {
-    const files = ['family', 'letterSpacing', 'lineHeight', 'size', 'styles']
+    const files = [
+      'family',
+      'letterSpacing',
+      'lineHeight',
+      'size',
+      'typography',
+    ]
     let imports = '',
       exports = ''
 
