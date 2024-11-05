@@ -71,6 +71,14 @@ module.exports = {
           },
         },
         {
+          destination: 'js/font/typography.js',
+          format: 'javascript/es6/simple-key-value',
+          filter: 'filter/font/composite-npm',
+          options: {
+            exportName: 'typography',
+          },
+        },
+        {
           destination: 'js/spacing.js',
           format: 'javascript/es6/simple-key-value',
           filter: 'filter/spacing/is-spacing',
@@ -82,14 +90,6 @@ module.exports = {
         {
           destination: 'js/themes.js',
           format: 'javascript/es6/vads-colors-themes',
-        },
-        {
-          destination: 'js/font/typography.js',
-          format: 'javascript/es6/simple-key-value',
-          filter: 'filter/font/composite-npm',
-          options: {
-            exportName: 'typography',
-          },
         },
         // TS defs
         {
