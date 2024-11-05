@@ -1,5 +1,31 @@
 # Changelog
 
+## [components-v0.27.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.27.0) (2024-11-01)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.26.0...components-v0.27.0)
+
+**Closed issues:**
+
+- DS - Typography Component - Align with VADS and publish documentation [\#557](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/557)
+- Assets - Add BitterRegular font family, remove BitterBold font family [\#538](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/538)
+- Accessibility: Add Heading Label for Screenreader Users [\#533](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/533)
+- Accessibility: Add Item Count to Checkbox Group for Screenreader Users [\#532](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/532)
+- Text Input: Prep for handoff [\#498](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/498)
+- \[Design Tokens\] Typography: Add tokens to tokens package [\#494](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/494)
+- \[Figma\] Add annotations to template [\#489](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/489)
+- DS - Checkbox Component Implementation [\#455](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/455)
+- DS - Checkbox Group Component Flagship Work Setup [\#433](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/433)
+- DS - Checkbox Group Component Unit Tests [\#431](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/431)
+- \[Design Tokens\] Typography: Prep for handoff [\#425](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/425)
+- \[Design Tokens\] Colors: Create divider and feedback tokens [\#419](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/419)
+- DS - Q3 Bug & Maintenance Mgmt [\#402](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/402)
+- DS - Create CheckboxGroup Component [\#69](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/69)
+
+**Merged pull requests:**
+
+- \[Bug\] Link - Flagship crash mitigation efforts [\#573](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/573) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Checkbox/CheckboxGroup: Add heading role and list position [\#545](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/545) ([narin](https://github.com/narin))
+
 ## [components-v0.26.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.26.0) (2024-10-21)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.14.0...components-v0.26.0)
