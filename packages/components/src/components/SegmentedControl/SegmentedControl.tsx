@@ -52,8 +52,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   a11yHints,
   testIDs,
 }) => {
-  const { t } = useTranslation()
   const theme = useTheme()
+  const { t } = useTranslation()
 
   useEffect(() => {
     onChange(selected)
@@ -83,12 +83,11 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     const accessibilityLabel = a11yLabels
       ? a11yLabels[index] || labels[index]
       : labels[index]
-    const accessibilityValue = {
-      text: t('listPosition', {
-        position: index + 1,
-        total: labels.length,
-      }),
-    }
+
+    const a11yListPosition = t('listPosition', {
+      position: index + 1,
+      total: labels.length,
+    })
 
     // TODO: Replace with typography tokens
     const font: TextStyle = {
@@ -111,8 +110,8 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         key={index}
         widthPct={`${100 / labels.length}%`}
         aria-label={accessibilityLabel}
+        aria-valuetext={a11yListPosition}
         accessibilityHint={a11yHints ? a11yHints[index] : ''}
-        accessibilityValue={accessibilityValue}
         role={'tab'}
         accessibilityState={{ selected: isSelected }}
         style={PressableOpacityStyle()}

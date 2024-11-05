@@ -4,11 +4,8 @@ import {
   Text,
   TextProps,
   TextStyle,
-  View,
-  ViewStyle,
-  useWindowDimensions,
 } from 'react-native'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { t } from 'i18next'
 import React, { FC } from 'react'
 
 import { ComponentWrapper } from '../../wrapper'
@@ -19,7 +16,7 @@ import {
   useExternalLink,
 } from '../../utils/OSfunctions'
 import { Icon, IconProps } from '../Icon/Icon'
-import { t } from 'i18next'
+import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 // Convenience type to default type-specific props to not existing/being optional
@@ -96,6 +93,7 @@ export type LinkAnalytics = {
   onPress?: () => void
   onConfirm?: () => void
   onCancel?: () => void
+  onOpenURLError?: (e?: unknown, url?: LinkProps['url']) => void
 }
 
 export type LinkProps = linkTypes & {
@@ -142,7 +140,6 @@ export const Link: FC<LinkProps> = ({
   url,
 }) => {
   const theme = useTheme()
-  const fontScale = useWindowDimensions().fontScale
   const launchExternalLink = useExternalLink()
 
   // TODO: Replace with typography tokens
@@ -152,28 +149,26 @@ export const Link: FC<LinkProps> = ({
     lineHeight: 30,
   }
 
-  let _icon: IconProps | 'no icon'
+  let _icon: IconProps
 
   /** Function to massage Partial<IconProps> data into IconProps based on variant icon defaults */
   const setIcon = (name?: IconProps['name']) => {
     switch (icon) {
       case 'no icon':
-        return 'no icon'
+        return { noIcon: true }
       case undefined:
         if (name) return { name }
-        return 'no icon'
+        return { noIcon: true }
       default:
         if (icon.svg) return icon as IconProps
-        if (!name && !icon.name) return 'no icon'
+        if (!name && !icon.name) return { noIcon: true }
 
         if (!icon.name) icon.name = name
         return icon as IconProps
     }
   }
 
-  let _onPress: () => void = async () => {
-    null // Empty function to keep TS happy a function exists
-  }
+  let _onPress: () => void
 
   /** Handler for links not using launchExternalLink prompt */
   const customOnPress: () => void = () => {
@@ -192,15 +187,11 @@ export const Link: FC<LinkProps> = ({
       break
     case 'call':
       _icon = setIcon('Phone')
-      _onPress = async (): Promise<void> => {
-        launchExternalLink(`tel:${phoneNumber}`, analytics)
-      }
+      _onPress = () => launchExternalLink(`tel:${phoneNumber}`, analytics)
       break
     case 'call TTY':
       _icon = setIcon('TTY')
-      _onPress = async (): Promise<void> => {
-        launchExternalLink(`tel:${TTYnumber}`, analytics)
-      }
+      _onPress = () => launchExternalLink(`tel:${TTYnumber}`, analytics)
       break
     case 'custom':
       _icon = setIcon()
@@ -209,23 +200,19 @@ export const Link: FC<LinkProps> = ({
     case 'directions':
       _icon = setIcon('Directions')
       const directions = FormDirectionsUrl(locationData)
-      _onPress = async (): Promise<void> => {
-        launchExternalLink(directions, analytics, promptText)
-      }
+      _onPress = () => launchExternalLink(directions, analytics, promptText)
       break
     case 'text':
       _icon = setIcon('PhoneIphone')
-      _onPress = async (): Promise<void> => {
-        launchExternalLink(`sms:${textNumber}`, analytics)
-      }
+      _onPress = () => launchExternalLink(`sms:${textNumber}`, analytics)
       break
     case 'url':
       _icon = setIcon('Launch')
-      _onPress = async (): Promise<void> => {
-        launchExternalLink(url, analytics, promptText)
-      }
+      _onPress = () => launchExternalLink(url, analytics, promptText)
       break
   }
+
+  _icon.alignWithTextLineHeight = font.lineHeight
 
   let linkColor: string
 
@@ -236,22 +223,6 @@ export const Link: FC<LinkProps> = ({
     default:
       linkColor = theme.vadsColorActionForegroundDefault
   }
-
-  const iconViewStyle: ViewStyle = {
-    marginRight: spacing.vadsSpace2xs, // Spacer to text
-    // Below keeps icon aligned with first row of text, centered, and scalable
-    alignSelf: 'flex-start',
-    minHeight: font.lineHeight * fontScale,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-
-  const iconDisplay =
-    _icon === 'no icon' ? null : (
-      <View style={iconViewStyle}>
-        <Icon fill={linkColor} {..._icon} />
-      </View>
-    )
 
   let ariaValue
   if (typeof a11yValue === 'string') {
@@ -296,7 +267,8 @@ export const Link: FC<LinkProps> = ({
   return (
     <ComponentWrapper>
       <Pressable {...pressableProps} testID={testID}>
-        {iconDisplay}
+        <Icon fill={linkColor} {..._icon} />
+        {_icon.noIcon ? null : <Spacer size="2xs" horizontal />}
         <Text style={textStyle}>{text}</Text>
       </Pressable>
     </ComponentWrapper>

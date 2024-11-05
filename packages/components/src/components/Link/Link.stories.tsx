@@ -124,6 +124,11 @@ export const _ExternalLink: Story = {
       onCancel: () => console.log('Analytics event: Canceled'),
       onPress: () => console.log('Analytics event: Pressed'),
       onConfirm: () => console.log('Analytics event: Confirmed'),
+      onOpenURLError: (e, url) => {
+        console.log(JSON.stringify(e))
+        console.log('Error: ' + e)
+        console.log('Error opening URL: ' + url)
+      },
     },
   },
 }

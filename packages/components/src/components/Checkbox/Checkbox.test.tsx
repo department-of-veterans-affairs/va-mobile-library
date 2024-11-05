@@ -25,6 +25,12 @@ describe('Checkbox', () => {
     onPress: onPressSpy,
   }
 
+  const labelObject = { text: 'Label text object', a11yLabel: 'Label a11y' }
+  const descriptionObject = {
+    text: 'Description text object',
+    a11yLabel: 'Description a11y',
+  }
+
   const errorMsg = 'Error text'
 
   describe('Basic tests', () => {
@@ -72,6 +78,49 @@ describe('Checkbox', () => {
       render(<Checkbox {...commonProps} />)
       fireEvent.press(screen.getByRole('checkbox'))
       expect(onPressSpy).toHaveBeenCalled()
+    })
+  })
+
+  describe('Accessibility', () => {
+    it('should have a11y labels when label and description are strings', () => {
+      render(<Checkbox {...commonProps} />)
+      expect(
+        screen.getByLabelText('Label text, Description text'),
+      ).toBeOnTheScreen()
+    })
+
+    it('should include required in a11y label', () => {
+      render(<Checkbox {...commonProps} required />)
+      expect(
+        screen.getByLabelText('Label text, Required, Description text'),
+      ).toBeOnTheScreen()
+    })
+
+    it('should have a11y labels when label and description are TextWithA11y objects', () => {
+      render(
+        <Checkbox
+          {...commonProps}
+          label={labelObject}
+          description={descriptionObject}
+          required
+        />,
+      )
+      expect(
+        screen.getByLabelText('Label a11y, Required, Description a11y'),
+      ).toBeOnTheScreen()
+    })
+
+    it('should have a11y labels when label and description are objects without a11y', () => {
+      render(
+        <Checkbox
+          {...commonProps}
+          label={{ text: 'Label without a11y' }}
+          description={{ text: 'Description without a11y' }}
+        />,
+      )
+      expect(
+        screen.getByLabelText('Label without a11y, Description without a11y'),
+      ).toBeOnTheScreen()
     })
   })
 
