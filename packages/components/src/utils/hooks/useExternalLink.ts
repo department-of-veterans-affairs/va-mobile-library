@@ -14,7 +14,7 @@ export function useExternalLink(): (
 ) => void {
   const { t } = useTranslation()
 
-  return (
+  return async (
     url: string,
     analytics?: LinkAnalytics,
     text?: leaveAppPromptText,
@@ -25,9 +25,13 @@ export function useExternalLink(): (
       if (analytics?.onCancel) analytics.onCancel()
     }
 
-    const onOKPress = () => {
-      if (analytics?.onConfirm) analytics.onConfirm()
-      return Linking.openURL(url)
+    const onOKPress = async () => {
+      try {
+        if (analytics?.onConfirm) analytics.onConfirm()
+        await Linking.openURL(url)
+      } catch (e) {
+        if (analytics?.onOpenURLError) analytics.onOpenURLError(e, url)
+      }
     }
 
     const body = text?.body ? text.body : t('leaveAppAlert.body')
@@ -44,12 +48,16 @@ export function useExternalLink(): (
         },
         {
           text: confirm,
-          onPress: (): Promise<void> => onOKPress(),
+          onPress: async (): Promise<void> => onOKPress(),
           style: 'default',
         },
       ])
     } else {
-      Linking.openURL(url)
+      try {
+        await Linking.openURL(url)
+      } catch (e) {
+        if (analytics?.onOpenURLError) analytics.onOpenURLError(e, url)
+      }
     }
   }
 }
