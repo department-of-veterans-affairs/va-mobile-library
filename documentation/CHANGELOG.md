@@ -1,5 +1,13 @@
 # Changelog
 
+## [tokens-v0.20.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.20.0) (2024-11-08)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.27.0...tokens-v0.20.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add composite typography tokens [\#572](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/572) ([narin](https://github.com/narin))
+
 ## [components-v0.27.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.27.0) (2024-11-01)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.26.0...components-v0.27.0)
