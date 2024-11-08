@@ -71,6 +71,14 @@ module.exports = {
           },
         },
         {
+          destination: 'js/font/typography.js',
+          format: 'javascript/es6/simple-key-value',
+          filter: 'filter/font/typography-npm',
+          options: {
+            exportName: 'typography',
+          },
+        },
+        {
           destination: 'js/spacing.js',
           format: 'javascript/es6/simple-key-value',
           filter: 'filter/spacing/is-spacing',
@@ -128,6 +136,14 @@ module.exports = {
           options: {
             exportName: 'size',
             noSort: true,
+          },
+        },
+        {
+          destination: 'types/font/typography.d.ts',
+          format: 'typescript/es6-declarations/composite',
+          filter: 'filter/font/typography-npm',
+          options: {
+            exportName: 'typography',
           },
         },
         {

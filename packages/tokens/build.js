@@ -84,6 +84,12 @@ StyleDictionary.registerFilter({
   matcher: (token) => filterFont(token, 'line-height'),
 })
 
+/** Filter to tokens of category 'font', type 'typography', and npm true */
+StyleDictionary.registerFilter({
+  name: 'filter/font/typography-npm',
+  matcher: (token) => filterFont(token, 'typography'),
+})
+
 /** Remove tokens that do not have 'font' in the category and have figma attribute */
 StyleDictionary.registerFilter({
   name: 'filter/font-figma',
@@ -170,7 +176,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/es6/fontIndex',
   formatter: function () {
-    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    const files = [
+      'family',
+      'letterSpacing',
+      'lineHeight',
+      'size',
+      'typography',
+    ]
     let imports = '',
       exports = ''
 
@@ -186,7 +198,13 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'typescript/es6-declarations/fontIndex',
   formatter: function () {
-    const files = ['family', 'letterSpacing', 'lineHeight', 'size']
+    const files = [
+      'family',
+      'letterSpacing',
+      'lineHeight',
+      'size',
+      'typography',
+    ]
     let imports = '',
       exports = ''
 
@@ -246,6 +264,38 @@ StyleDictionary.registerFormat({
     }
     declaration += '}'
     return globalValuesDoc + declaration
+  },
+})
+
+/** Formats declarations exports for composite tokens */
+StyleDictionary.registerFormat({
+  name: 'typescript/es6-declarations/composite',
+  formatter: function ({ dictionary, options }) {
+    let tokens = dictionary.allTokens,
+      declaration = `export declare const ${options.exportName}: {\n`
+
+    if (!options.noSort) {
+      tokens = sortTokensByName(tokens)
+    }
+
+    for (const token of tokens) {
+      let docs = `/** `
+      let valueKeys = '{\n'
+
+      // Generate docs line and object of value types
+      Object.keys(token.value).forEach((key, index) => {
+        docs += `${index !== 0 ? '| ' : ''}${key}: ${token.value[key]} `
+        valueKeys += `    ${key}: ${typeof token.value[key]}\n`
+      })
+
+      docs += `*/\n`
+      declaration += `  ${docs}`
+      declaration += `  ${token.name}: ${valueKeys}`
+      declaration += `  }\n`
+    }
+
+    declaration += '}'
+    return declaration
   },
 })
 
