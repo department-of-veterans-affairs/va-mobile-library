@@ -84,10 +84,10 @@ StyleDictionary.registerFilter({
   matcher: (token) => filterFont(token, 'line-height'),
 })
 
-/** Filter to tokens of category 'font', type 'composite', and npm true */
+/** Filter to tokens of category 'font', type 'typography', and npm true */
 StyleDictionary.registerFilter({
-  name: 'filter/font/composite-npm',
-  matcher: (token) => filterFont(token, 'composite'),
+  name: 'filter/font/typography-npm',
+  matcher: (token) => filterFont(token, 'typography'),
 })
 
 /** Remove tokens that do not have 'font' in the category and have figma attribute */

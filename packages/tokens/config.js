@@ -73,7 +73,7 @@ module.exports = {
         {
           destination: 'js/font/typography.js',
           format: 'javascript/es6/simple-key-value',
-          filter: 'filter/font/composite-npm',
+          filter: 'filter/font/typography-npm',
           options: {
             exportName: 'typography',
           },
@@ -141,7 +141,7 @@ module.exports = {
         {
           destination: 'types/font/typography.d.ts',
           format: 'typescript/es6-declarations/composite',
-          filter: 'filter/font/composite-npm',
+          filter: 'filter/font/typography-npm',
           options: {
             exportName: 'typography',
           },
