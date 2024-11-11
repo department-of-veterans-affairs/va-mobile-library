@@ -18,7 +18,7 @@ import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
  * - '5xl': 40
  * - '6xl': 44
  */
-type SpacerSize =
+export type SpacerSize =
   | 'none'
   | '2xs'
   | 'xs'
