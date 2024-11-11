@@ -21,7 +21,7 @@ type DisplayOrNavigationProps = {
 export type TextProps = {
   children: React.ReactNode
   /**
-   * Optional text color. See {@link colors}} for possible values
+   * Optional text color. See {@link colors} for possible values
    */
   color?: keyof typeof colors
   /**
