@@ -1,4 +1,8 @@
-import { Text as RNText, TextStyle } from 'react-native'
+import {
+  Text as RNText,
+  TextProps as RNTextProps,
+  TextStyle,
+} from 'react-native'
 import { colors, font } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
@@ -6,22 +10,24 @@ import { BaseColor } from '../../utils'
 import { Spacer, SpacerSize } from '../Spacer/Spacer'
 
 type BodyOrHeadingProps = {
-  /** Text variant: body, heading, display, or navigation */
+  /** Variant: body, heading, display, or navigation */
   variant?: 'body' | 'heading'
-  /** Text size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
+  /** Size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
   size?: 'xs' | 'sm' | 'md' | 'lg'
 }
 
 type DisplayOrNavigationProps = {
-  /** Text variant: body, heading, display, or navigation */
+  /** Variant: body, heading, display, or navigation */
   variant?: 'display' | 'navigation'
   size?: never
 }
 
 export type TextProps = {
   children: React.ReactNode
+  /** AccessibilityLabel for the text */
+  a11yLabel?: string
   /**
-   * Optional text color. See {@link colors} for possible values
+   * Text color. Defaults to vadsColorForegroundDefault. See {@link colors} for possible values
    */
   color?: keyof typeof colors
   /**
@@ -32,10 +38,11 @@ export type TextProps = {
 } & (BodyOrHeadingProps | DisplayOrNavigationProps)
 
 export const Text: FC<TextProps> = ({
-  color,
   children,
-  size = 'md',
+  a11yLabel,
   bottomSpacing,
+  color,
+  size = 'md',
   variant = 'body',
 }) => {
   let style: TextStyle = {}
@@ -77,9 +84,15 @@ export const Text: FC<TextProps> = ({
     style.marginBottom = 0
   }
 
+  const textProps: RNTextProps = {
+    accessibilityLabel: a11yLabel,
+    style,
+    role: variant === 'heading' ? 'heading' : undefined,
+  }
+
   return (
     <>
-      <RNText style={style}>{children}</RNText>
+      <RNText {...textProps}>{children}</RNText>
       <Spacer size={bottomSpacing ? bottomSpacing : 'none'} />
     </>
   )
