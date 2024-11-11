@@ -6,14 +6,14 @@ import { BaseColor } from '../../utils'
 import { Spacer, SpacerSize } from '../Spacer/Spacer'
 
 type BodyOrHeadingProps = {
-  /** Text variant. e.g. body, heading, display, or navigation */
+  /** Text variant: body, heading, display, or navigation */
   variant?: 'body' | 'heading'
-  /** Text size. e.g. xs, sm, md, or lg */
-  size: 'xs' | 'sm' | 'md' | 'lg'
+  /** Text size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
+  size?: 'xs' | 'sm' | 'md' | 'lg'
 }
 
 type DisplayOrNavigationProps = {
-  /** Text variant. e.g. body, heading, display, or navigation */
+  /** Text variant: body, heading, display, or navigation */
   variant?: 'display' | 'navigation'
   size?: never
 }
@@ -34,12 +34,12 @@ export type TextProps = {
 export const Text: FC<TextProps> = ({
   color,
   children,
-  size,
+  size = 'md',
   bottomSpacing,
   variant = 'body',
 }) => {
   let style: TextStyle = {}
-  const textColor = color ? colors[color] : BaseColor()
+  const defaultColor = BaseColor()
   const { typography } = font
   const prefix = 'vadsFont'
 
@@ -67,7 +67,10 @@ export const Text: FC<TextProps> = ({
       key = `${prefix}Body${sizeMap[size as keyof typeof sizeMap]}`
   }
 
-  style = { ...typography[key as keyof typeof typography], color: textColor }
+  style = {
+    ...typography[key as keyof typeof typography],
+    color: color ? colors[color] : defaultColor,
+  }
 
   /** Set margin to 0 and use Spacer component if custom spacing provided */
   if (bottomSpacing) {
