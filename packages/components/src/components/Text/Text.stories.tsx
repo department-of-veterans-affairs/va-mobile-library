@@ -34,8 +34,15 @@ export default meta
 type Story = StoryObj<TextProps>
 
 export const Body: Story = {
+  render: (props: TextProps) => (
+    <>
+      <Text {...props} />
+      <Text {...props} />
+    </>
+  ),
   args: {
-    children: 'Example body text',
+    children:
+      'Aenean sodales euismod metus non hendrerit. Integer vitae libero vel urna efficitur ornare. Ut mattis nec erat nec vulputate. Quisque quis erat tellus. Fusce vel felis ut augue commodo feugiat vel vitae lacus. Cras a augue ligula. Suspendisse vestibulum lobortis velit.',
     variant: 'body',
     size: 'md',
   },
