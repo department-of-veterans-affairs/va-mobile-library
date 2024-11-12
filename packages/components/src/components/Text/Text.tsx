@@ -85,10 +85,12 @@ export const Text: FC<TextProps> = ({
   size = 'md',
   variant = 'body',
 }) => {
-  const style: TextStyle = getTypographyToken(variant, size)
   const defaultColor = BaseColor()
 
-  style.color = color ? colors[color] : defaultColor
+  const style: TextStyle = {
+    ...getTypographyToken(variant, size),
+    color: color ? colors[color] : defaultColor,
+  }
 
   /** Set bottom margin to custom bottomSpacing if provided */
   if (bottomSpacing) {
