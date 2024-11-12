@@ -44,6 +44,15 @@ export type SpacerProps = {
 }
 
 /**
+ * Convenience function that accepts a spacing size abbreviation and returns the corresponding
+ * spacing token
+ */
+export function getSpacingToken(size: SpacerSize): number {
+  const key = `vadsSpace${size[0].toUpperCase()}${size.slice(1)}`
+  return spacing[key as keyof typeof spacing]
+}
+
+/**
  * Convenience component for handling spacing without managing margin/padding between elements
  * @param size - Size of the spacer, default sm (12)
  * @param horizontal - True for horizontal spacing
@@ -53,8 +62,7 @@ export const Spacer: FC<SpacerProps> = ({
   size = 'sm',
   horizontal = false,
 }) => {
-  const key = `vadsSpace${size[0].toUpperCase()}${size.slice(1)}`
-  const spacerSize: number = spacing[key as keyof typeof spacing]
+  const spacerSize = getSpacingToken(size)
 
   return (
     <View

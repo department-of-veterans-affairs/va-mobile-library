@@ -7,7 +7,7 @@ import { colors, font } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
 import { BaseColor } from '../../utils'
-import { Spacer, SpacerSize } from '../Spacer/Spacer'
+import { SpacerSize, getSpacingToken } from '../Spacer/Spacer'
 
 type BodyOrHeadingProps = {
   /** Variant: body, heading, display, or navigation */
@@ -79,9 +79,9 @@ export const Text: FC<TextProps> = ({
     color: color ? colors[color] : defaultColor,
   }
 
-  /** Set margin to 0 and use Spacer component if custom spacing provided */
+  /** Set bottom margin to custom bottomSpacing if provided */
   if (bottomSpacing) {
-    style.marginBottom = 0
+    style.marginBottom = getSpacingToken(bottomSpacing)
   }
 
   const textProps: RNTextProps = {
@@ -90,10 +90,5 @@ export const Text: FC<TextProps> = ({
     role: variant === 'heading' ? 'heading' : undefined,
   }
 
-  return (
-    <>
-      <RNText {...textProps}>{children}</RNText>
-      <Spacer size={bottomSpacing ? bottomSpacing : 'none'} />
-    </>
-  )
+  return <RNText {...textProps}>{children}</RNText>
 }
