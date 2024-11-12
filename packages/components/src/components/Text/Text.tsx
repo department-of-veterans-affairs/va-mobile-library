@@ -18,9 +18,9 @@ type BodyOrHeadingProps = {
   size?: TextSizes
 }
 
-type DisplayOrNavigationProps = {
+type DisplayProps = {
   /** Variant: body, heading, display, or navigation */
-  variant?: 'display' | 'navigation'
+  variant?: 'display'
   size?: never
 }
 
@@ -28,7 +28,7 @@ type DisplayOrNavigationProps = {
  * Convenience function to get typography token based on variant and size abbreviation
  */
 function getTypographyToken(
-  variant: BodyOrHeadingProps['variant'] | DisplayOrNavigationProps['variant'],
+  variant: BodyOrHeadingProps['variant'] | DisplayProps['variant'],
   size: TextSizes,
 ) {
   const { typography } = font
@@ -46,9 +46,6 @@ function getTypographyToken(
 
   /** Build typography token key based on variant and size props */
   switch (variant) {
-    case 'navigation':
-      key = `${prefix}Navigation`
-      break
     case 'display':
       key = `${prefix}Display`
       break
@@ -75,7 +72,7 @@ export type TextProps = {
    * @see {@link SpacerSize} for possible values
    **/
   bottomSpacing?: SpacerSize
-} & (BodyOrHeadingProps | DisplayOrNavigationProps)
+} & (BodyOrHeadingProps | DisplayProps)
 
 export const Text: FC<TextProps> = ({
   children,
