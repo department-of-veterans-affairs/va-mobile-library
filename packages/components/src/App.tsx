@@ -23,6 +23,7 @@ const App = () => {
   // Loads in custom fonts async conditionally based on OS. Loading from node
   // module seems to be broken on Android
   const [fontsLoaded, fontError] = useFonts({
+    'Bitter-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/Bitter/Bitter-Regular.ttf'),
     'SourceSansPro-Bold': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
     'SourceSansPro-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf'),
   })
