@@ -9,11 +9,13 @@ import React, { FC } from 'react'
 import { BaseColor } from '../../utils'
 import { SpacerSize, getSpacingToken } from '../Spacer/Spacer'
 
+type TextSizes = 'xs' | 'sm' | 'md' | 'lg'
+
 type BodyOrHeadingProps = {
   /** Variant: body, heading, display, or navigation */
   variant?: 'body' | 'heading'
   /** Size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
-  size?: 'xs' | 'sm' | 'md' | 'lg'
+  size?: TextSizes
 }
 
 type DisplayOrNavigationProps = {
@@ -22,32 +24,15 @@ type DisplayOrNavigationProps = {
   size?: never
 }
 
-export type TextProps = {
-  children: React.ReactNode
-  /** AccessibilityLabel for the text */
-  a11yLabel?: string
-  /**
-   * Text color. Defaults to vadsColorForegroundDefault. See {@link colors} for possible values
-   */
-  color?: keyof typeof colors
-  /**
-   * Optional bottom spacing if typography style default isn't desired.
-   * @see {@link SpacerSize} for possible values
-   **/
-  bottomSpacing?: SpacerSize
-} & (BodyOrHeadingProps | DisplayOrNavigationProps)
-
-export const Text: FC<TextProps> = ({
-  children,
-  a11yLabel,
-  bottomSpacing,
-  color,
-  size = 'md',
-  variant = 'body',
-}) => {
-  let style: TextStyle = {}
-  const defaultColor = BaseColor()
+/**
+ * Convenience function to get typography token based on variant and size abbreviation
+ */
+function getTypographyToken(
+  variant: BodyOrHeadingProps['variant'] | DisplayOrNavigationProps['variant'],
+  size: TextSizes,
+) {
   const { typography } = font
+
   const prefix = 'vadsFont'
 
   const sizeMap = {
@@ -74,10 +59,36 @@ export const Text: FC<TextProps> = ({
       key = `${prefix}Body${sizeMap[size as keyof typeof sizeMap]}`
   }
 
-  style = {
-    ...typography[key as keyof typeof typography],
-    color: color ? colors[color] : defaultColor,
-  }
+  return typography[key as keyof typeof typography]
+}
+
+export type TextProps = {
+  children: React.ReactNode
+  /** AccessibilityLabel for the text */
+  a11yLabel?: string
+  /**
+   * Text color. Defaults to vadsColorForegroundDefault. See {@link colors} for possible values
+   */
+  color?: keyof typeof colors
+  /**
+   * Optional bottom spacing if typography style default isn't desired.
+   * @see {@link SpacerSize} for possible values
+   **/
+  bottomSpacing?: SpacerSize
+} & (BodyOrHeadingProps | DisplayOrNavigationProps)
+
+export const Text: FC<TextProps> = ({
+  children,
+  a11yLabel,
+  bottomSpacing,
+  color,
+  size = 'md',
+  variant = 'body',
+}) => {
+  const style: TextStyle = getTypographyToken(variant, size)
+  const defaultColor = BaseColor()
+
+  style.color = color ? colors[color] : defaultColor
 
   /** Set bottom margin to custom bottomSpacing if provided */
   if (bottomSpacing) {
