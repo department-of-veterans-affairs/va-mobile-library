@@ -3,7 +3,7 @@ import {
   TextProps as RNTextProps,
   TextStyle,
 } from 'react-native'
-import { colors, font } from '@department-of-veterans-affairs/mobile-tokens'
+import { font } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
 import { BaseColor, useTheme } from '../../utils'
