@@ -14,29 +14,29 @@ type BaseTones = 'default' | 'subtle' | 'inverse'
 type BodyTones = BaseTones | 'error'
 
 type BodyProps = {
-  /** Variant: body, heading, display, or navigation */
-  variant?: 'body'
-  /** Text color: default, subtle, inverse, error. Defaults to vadsColorForegroundDefault. */
-  tone?: BodyTones
   /** Size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
   size?: TextSizes
+  /** Text color: default, subtle, inverse, error. Defaults to vadsColorForegroundDefault. */
+  tone?: BodyTones
+  /** Variant: body, heading, display, or navigation */
+  variant?: 'body'
 }
 
 type HeadingProps = {
-  /** Variant: body, heading, display, or navigation */
-  variant?: 'heading'
-  /** Text color: default, subtle, inverse. Defaults to vadsColorForegroundDefault. */
-  tone?: BaseTones
   /** Size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
   size?: TextSizes
+  /** Text color: default, subtle, inverse. Defaults to vadsColorForegroundDefault. */
+  tone?: BaseTones
+  /** Variant: body, heading, display, or navigation */
+  variant?: 'heading'
 }
 
 type DisplayProps = {
-  /** Variant: body, heading, display, or navigation */
-  variant?: 'display'
+  size?: never
   /** Text color: default, subtle, inverse. Defaults to vadsColorForegroundDefault. */
   tone?: BaseTones
-  size?: never
+  /** Variant: body, heading, display, or navigation */
+  variant?: 'display'
 }
 
 export type TextProps = {
@@ -51,11 +51,11 @@ export type TextProps = {
 } & (BodyProps | HeadingProps | DisplayProps)
 
 export const Text: FC<TextProps> = ({
-  children,
   a11yLabel,
   bottomSpacing,
-  tone = 'default',
+  children,
   size = 'md',
+  tone = 'default',
   variant = 'body',
 }) => {
   const defaultColor = BaseColor()
