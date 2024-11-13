@@ -62,10 +62,3 @@ export const __Display: Story = {
     variant: 'display',
   },
 }
-
-export const ___Navigation: Story = {
-  args: {
-    children: 'Example navigation text',
-    variant: 'navigation',
-  },
-}

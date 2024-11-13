@@ -6,8 +6,8 @@ import {
 import { font } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
-import { BaseColor, useTheme } from '../../utils'
 import { SpacerSize, getSpacingToken } from '../Spacer/Spacer'
+import { useTheme } from '../../utils'
 
 type TextSizes = 'xs' | 'sm' | 'md' | 'lg'
 type BaseTones = 'default' | 'subtle' | 'inverse'
@@ -58,64 +58,49 @@ export const Text: FC<TextProps> = ({
   tone = 'default',
   variant = 'body',
 }) => {
-  const defaultColor = BaseColor()
   const theme = useTheme()
-  let color
+  const { typography } = font
+  let typographyKey, color
 
-  /**
-   * Convenience function to get typography token based on variant and size abbreviation
-   */
-  const getTypographyToken = (
-    variant:
-      | BodyProps['variant']
-      | HeadingProps['variant']
-      | DisplayProps['variant'],
-    size: TextSizes,
-  ) => {
-    const { typography } = font
+  const prefix = 'vadsFont'
 
-    const prefix = 'vadsFont'
-
-    const sizeMap = {
-      xs: 'Xsmall',
-      sm: 'Small',
-      md: 'Medium',
-      lg: 'Large',
-    }
-
-    let key
-
-    /** Build typography token key based on variant and size props */
-    switch (variant) {
-      case 'display':
-        key = `${prefix}Display`
-        break
-      case 'heading':
-        key = `${prefix}Heading${sizeMap[size as keyof typeof sizeMap]}`
-        break
-      default:
-        key = `${prefix}Body${sizeMap[size as keyof typeof sizeMap]}`
-    }
-
-    return typography[key as keyof typeof typography]
+  const sizeMap = {
+    xs: 'Xsmall',
+    sm: 'Small',
+    md: 'Medium',
+    lg: 'Large',
   }
 
-  const getColor = (tone: BodyProps['tone']): string => {
-    switch (tone) {
-      case 'subtle':
-        return theme.vadsColorForegroundSubtle
-      case 'inverse':
-        return theme.vadsColorForegroundInverse
-      case 'error':
-        return theme.vadsColorForegroundError
-      default:
-        return theme.vadsColorForegroundDefault
-    }
+  /** Build typography key based on variant and size props */
+  switch (variant) {
+    case 'display':
+      typographyKey = `${prefix}Display`
+      break
+    case 'heading':
+      typographyKey = `${prefix}Heading${sizeMap[size as keyof typeof sizeMap]}`
+      break
+    default:
+      typographyKey = `${prefix}Body${sizeMap[size as keyof typeof sizeMap]}`
+  }
+
+  /** Set color based on tone */
+  switch (tone) {
+    case 'subtle':
+      color = theme.vadsColorForegroundSubtle
+      break
+    case 'inverse':
+      color = theme.vadsColorForegroundInverse
+      break
+    case 'error':
+      color = theme.vadsColorForegroundError
+      break
+    default:
+      color = theme.vadsColorForegroundDefault
   }
 
   const style: TextStyle = {
-    ...getTypographyToken(variant, size),
-    color: getColor(tone),
+    ...typography[typographyKey as keyof typeof typography],
+    color,
   }
 
   /** Set bottom margin to custom bottomSpacing if provided */
