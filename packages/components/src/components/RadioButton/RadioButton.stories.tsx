@@ -37,16 +37,16 @@ type Story = StoryObj<RadioButtonProps>
 const statefulComponentRenderer = (props: RadioButtonProps) => {
   const { error, header, hint, items, required, tile } = props
 
-  const [selectedItems, setSelectedItems] = useState<(string | number)[]>([])
+  const [selectedItem, setSelectedItem] = useState<string | number>()
 
   return (
     <RadioButton
       items={items}
-      selectedItems={selectedItems}
+      selectedItem={selectedItem}
       error={error}
       header={header}
       hint={hint}
-      onSelectionChange={(selected) => setSelectedItems(selected)}
+      onSelectionChange={(selected) => setSelectedItem(selected)}
       required={required}
       tile={tile}
     />

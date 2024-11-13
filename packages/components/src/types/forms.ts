@@ -16,18 +16,33 @@ export type FormElementProps = {
   testID?: string
 }
 
+type CheckboxOrRadioProps =
+  | {
+      /** True to apply indeterminate icon to checkbox */
+      indeterminate?: boolean
+      radio?: never
+    }
+  | {
+      indeterminate?: never
+      /** True to render as a radio button */
+      radio?: boolean
+    }
+
 /**
  * Props that are common to Checkbox and Radio
  */
-export type CheckboxRadioProps = {
-  /** Primary text for checkbox */
-  label: StringOrTextWithA11y
-  /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
-  onPress: () => void
-  /** Textual description of position within list of checkboxes */
-  a11yListPosition?: string
-  /** Description that appears below label */
-  description?: StringOrTextWithA11y
-  /** True to apply tile styling */
-  tile?: boolean
-}
+export type CheckboxRadioProps = CheckboxOrRadioProps &
+  FormElementProps & {
+    /** True to make checkbox/radio appear as checked */
+    checked?: boolean
+    /** Primary text for checkbox */
+    label: StringOrTextWithA11y
+    /** OnPress logic to alter `checked` state or other behavior associated with the checkbox */
+    onPress: () => void
+    /** Textual description of position within list of checkboxes */
+    a11yListPosition?: string
+    /** Description that appears below label */
+    description?: StringOrTextWithA11y
+    /** True to apply tile styling */
+    tile?: boolean
+  }

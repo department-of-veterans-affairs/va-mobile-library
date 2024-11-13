@@ -37,7 +37,7 @@ export type CheckboxGroupProps = FormElementProps & {
 /**
  * ### Managing checked item state
  * The state of the selected checkbox items should be provided to CheckboxGroup via the `selectedItems` prop and updated
- *  using the `onSelectionChange` callback. When a checkbox is tapped, the provided `onSelectionChange` callback
+ * using the `onSelectionChange` callback. When a checkbox is tapped, the provided `onSelectionChange` callback
  * function is fired and passed an array of the newly `selectedItems`, which can be used to update the parent
  * component's state, whether that be redux, zustand, useState, or any other state management methods. Here is a basic
  * example using the `useState` hook to store the state of the `selectedItems`:

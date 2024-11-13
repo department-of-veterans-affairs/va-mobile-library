@@ -1,15 +1,9 @@
-import {
-  Pressable,
-  StyleProp,
-  View,
-  ViewStyle,
-  useWindowDimensions,
-} from 'react-native'
+import { Pressable, StyleProp, View, ViewStyle } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
-import { CheckboxRadioProps, FormElementProps } from '../../types/forms'
-import { ComponentWrapper } from '../../wrapper'
+import { CheckboxRadioProps } from '../../types/forms'
 import {
   Description,
   Error,
@@ -20,19 +14,15 @@ import {
 } from '../shared/FormText'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
-import { useTheme } from '../../utils'
+import { getA11yLabel, useTheme } from '../../utils'
 
-export type _CheckboxRadioProps = FormElementProps &
-  CheckboxRadioProps & {
-    /** True to make checkbox appear as checked */
-    checked?: boolean
-    /** True to apply indeterminate icon to checkbox */
-    indeterminate?: boolean
-    /** True to render as a radio button */
-    radio?: boolean
-  }
-
-export const CheckboxRadio: FC<_CheckboxRadioProps> = ({
+/**
+ * Internal component for rendering a checkbox or radio button identically besides the icon
+ * Note: Should not be used directly. Use the `Checkbox` or `RadioButton` components instead as this does not include
+ * ComponentWrapper
+ */
+export const CheckboxRadio: FC<CheckboxRadioProps> = ({
+  a11yListPosition,
   checked,
   label,
   description,
@@ -47,7 +37,7 @@ export const CheckboxRadio: FC<_CheckboxRadioProps> = ({
   tile,
 }) => {
   const theme = useTheme()
-  const fontScale = useWindowDimensions().fontScale
+  const { t } = useTranslation()
 
   /**
    * Container styling
@@ -91,15 +81,6 @@ export const CheckboxRadio: FC<_CheckboxRadioProps> = ({
   /**
    * Icon
    */
-  const iconViewStyle: ViewStyle = {
-    // Below keeps icon aligned with first row of text, centered, and scalable
-    alignSelf: 'flex-start',
-    // TODO: Replace lineHeight with typography token
-    minHeight: fontLabel.lineHeight * fontScale,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-
   let iconName: IconProps['name']
 
   if (radio) {
@@ -118,40 +99,43 @@ export const CheckboxRadio: FC<_CheckboxRadioProps> = ({
       checked || indeterminate
         ? theme.vadsColorFormsForegroundActive
         : theme.vadsColorFormsBorderDefault,
+    alignWithTextLineHeight: fontLabel.lineHeight,
   }
 
-  const _icon = (
-    <View style={iconViewStyle}>
-      <Icon {...iconProps} />
-    </View>
-  )
+  /**
+   * Combined a11yLabel on Pressable required for Android Talkback
+   */
+  const a11yLabel =
+    getA11yLabel(label) +
+    (required ? ', ' + t('required') : '') +
+    (description ? `, ${getA11yLabel(description)}` : '')
 
   return (
-    <ComponentWrapper>
-      <View style={containerStyle} testID={testID}>
-        <Header text={header} />
-        {header && <Spacer size="xs" />}
+    <View style={containerStyle} testID={testID}>
+      <Header text={header} />
+      {header && <Spacer size="xs" />}
 
-        <Hint text={hint} />
-        {hint && <Spacer size="xs" />}
+      <Hint text={hint} />
+      {hint && <Spacer size="xs" />}
 
-        <Error text={error} />
-        {error && <Spacer size="xs" />}
+      <Error text={error} />
+      {error && <Spacer size="xs" />}
 
-        <Pressable
-          onPress={onPress}
-          style={tile ? tileStyle : pressableBaseStyle}
-          aria-checked={indeterminate ? 'mixed' : checked}
-          role="checkbox">
-          {_icon}
-          <Spacer size="xs" horizontal />
-          <View style={{ flexShrink: 1 }}>
-            <Label text={label} error={error} required={required} />
-            {description && <Spacer size="xs" />}
-            <Description text={description} />
-          </View>
-        </Pressable>
-      </View>
-    </ComponentWrapper>
+      <Pressable
+        onPress={onPress}
+        style={tile ? tileStyle : pressableBaseStyle}
+        aria-checked={indeterminate ? 'mixed' : checked}
+        aria-valuetext={a11yListPosition}
+        aria-label={a11yLabel}
+        role={radio ? 'radio' : 'checkbox'}>
+        <Icon {...iconProps} />
+        <Spacer size="xs" horizontal />
+        <View style={{ flexShrink: 1 }}>
+          <Label text={label} error={error} required={required} />
+          {description && <Spacer size="xs" />}
+          <Description text={description} />
+        </View>
+      </Pressable>
+    </View>
   )
 }
