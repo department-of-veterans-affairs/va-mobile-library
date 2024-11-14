@@ -15,6 +15,7 @@ const meta: Meta<TextProps> = {
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
+          margin: 12,
         }}>
         <Story />
       </View>
