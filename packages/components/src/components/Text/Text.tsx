@@ -6,8 +6,8 @@ import {
 import { font } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC } from 'react'
 
-import { SpacerSize, getSpacingToken } from '../Spacer/Spacer'
-import { useTheme } from '../../utils'
+import { SpacerSize } from '../Spacer/Spacer'
+import { getSpacingToken, useTheme } from '../../utils'
 
 type TextSizes = 'xs' | 'sm' | 'md' | 'lg'
 type BaseTones = 'default' | 'subtle' | 'inverse'
@@ -77,10 +77,10 @@ export const Text: FC<TextProps> = ({
       typographyKey = `${prefix}Display`
       break
     case 'heading':
-      typographyKey = `${prefix}Heading${sizeMap[size as keyof typeof sizeMap]}`
+      typographyKey = `${prefix}Heading${sizeMap[size]}`
       break
     default:
-      typographyKey = `${prefix}Body${sizeMap[size as keyof typeof sizeMap]}`
+      typographyKey = `${prefix}Body${sizeMap[size]}`
   }
 
   /** Set color based on tone */

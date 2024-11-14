@@ -42,15 +42,17 @@ export const Body: Story = {
   ),
   args: {
     children:
-      'Aenean sodales euismod metus non hendrerit. Integer vitae libero vel urna efficitur ornare. Ut mattis nec erat nec vulputate. Quisque quis erat tellus. Fusce vel felis ut augue commodo feugiat vel vitae lacus. Cras a augue ligula. Suspendisse vestibulum lobortis velit.',
+      'Lorem ipsum odor amet, consectetuer adipiscing elit. Ex ultricies auctor per eros et nec mauris. Ut nibh risus ligula vivamus est nascetur class auctor. Faucibus facilisis integer hac ullamcorper vulputate.',
     variant: 'body',
     size: 'md',
   },
 }
 
+const children = 'Lorem ipsum dolor sit amet.'
+
 export const _Heading: Story = {
   args: {
-    children: 'Example heading text',
+    children,
     variant: 'heading',
     size: 'md',
   },
@@ -58,7 +60,7 @@ export const _Heading: Story = {
 
 export const __Display: Story = {
   args: {
-    children: 'Example display text',
+    children,
     variant: 'display',
   },
 }
