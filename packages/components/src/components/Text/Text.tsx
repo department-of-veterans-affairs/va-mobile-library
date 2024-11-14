@@ -18,7 +18,7 @@ type BodyProps = {
   size?: TextSizes
   /** Text color: default, subtle, inverse, error. Defaults to vadsColorForegroundDefault. */
   tone?: BodyTones
-  /** Variant: body, heading, display, or navigation */
+  /** Variant: body, heading, or display */
   variant?: 'body'
 }
 
@@ -27,7 +27,7 @@ type HeadingProps = {
   size?: TextSizes
   /** Text color: default, subtle, inverse. Defaults to vadsColorForegroundDefault. */
   tone?: BaseTones
-  /** Variant: body, heading, display, or navigation */
+  /** Variant: body, heading, or display */
   variant?: 'heading'
 }
 
@@ -35,7 +35,7 @@ type DisplayProps = {
   size?: never
   /** Text color: default, subtle, inverse. Defaults to vadsColorForegroundDefault. */
   tone?: BaseTones
-  /** Variant: body, heading, display, or navigation */
+  /** Variant: body, heading, or display */
   variant?: 'display'
 }
 
