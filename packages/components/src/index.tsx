@@ -6,6 +6,10 @@ if (expoApp && App.initiateExpo) {
   App.initiateExpo(expoApp)
 }
 
+// Export consumer available utilities here so they are exported through npm
+export { useIsScreenReaderEnabled, useTheme } from './utils'
+export { useSnackbar } from './components/Snackbar/useSnackbar'
+
 // Export components here so they are exported through npm
 export { Alert } from './components/Alert/Alert'
 export { Button, ButtonVariants } from './components/Button/Button'
@@ -33,7 +37,3 @@ export type { LoadingIndicatorProps } from './components/LoadingIndicator/Loadin
 export type { SegmentedControlProps } from './components/SegmentedControl/SegmentedControl'
 export type { SpacerProps } from './components/Spacer/Spacer'
 export type { TextProps } from './components/Text/Text'
-
-// Export consumer available utilities here so they are exported through npm
-export { useIsScreenReaderEnabled, useTheme } from './utils'
-export { useSnackbar } from './components/Snackbar/useSnackbar'
