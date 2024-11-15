@@ -7,20 +7,29 @@ if (expoApp && App.initiateExpo) {
 }
 
 // Export components here so they are exported through npm
-export { Alert } from './components/Alert/Alert'
+export { Alert, AlertProps } from './components/Alert/Alert'
 export { Button, ButtonVariants } from './components/Button/Button'
-export { Checkbox } from './components/Checkbox/Checkbox'
-export { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup'
-export { Icon } from './components/Icon/Icon'
-export { Link } from './components/Link/Link'
-export { LoadingIndicator } from './components/LoadingIndicator/LoadingIndicator'
-export { SegmentedControl } from './components/SegmentedControl/SegmentedControl'
+export { Checkbox, CheckboxProps } from './components/Checkbox/Checkbox'
+export {
+  CheckboxGroup,
+  CheckboxGroupProps,
+} from './components/CheckboxGroup/CheckboxGroup'
+export { Icon, IconProps } from './components/Icon/Icon'
+export { Link, LinkProps } from './components/Link/Link'
+export {
+  LoadingIndicator,
+  LoadingIndicatorProps,
+} from './components/LoadingIndicator/LoadingIndicator'
+export {
+  SegmentedControl,
+  SegmentedControlProps,
+} from './components/SegmentedControl/SegmentedControl'
 export {
   SnackbarProvider,
   SnackbarProviderWithSafeArea,
 } from './components/Snackbar/SnackbarProvider'
-export { Spacer } from './components/Spacer/Spacer'
-export { Text } from './components/Text/Text'
+export { Spacer, SpacerProps } from './components/Spacer/Spacer'
+export { Text, TextProps } from './components/Text/Text'
 
 // Export consumer available utilities here so they are exported through npm
 export { useIsScreenReaderEnabled, useTheme } from './utils'
