@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 import React, { FC } from 'react'
 
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { getSpacingToken } from '../../utils'
 
 /**
  * Represents the size of a spacer component. Corresponds to spacing tokens.
@@ -18,7 +18,7 @@ import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
  * - '5xl': 40
  * - '6xl': 44
  */
-type SpacerSize =
+export type SpacerSize =
   | 'none'
   | '2xs'
   | 'xs'
@@ -53,8 +53,7 @@ export const Spacer: FC<SpacerProps> = ({
   size = 'sm',
   horizontal = false,
 }) => {
-  const key = `vadsSpace${size[0].toUpperCase()}${size.slice(1)}`
-  const spacerSize: number = spacing[key as keyof typeof spacing]
+  const spacerSize = getSpacingToken(size)
 
   return (
     <View
