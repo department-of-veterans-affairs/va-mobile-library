@@ -8,7 +8,7 @@ if (expoApp && App.initiateExpo) {
 
 // Export components here so they are exported through npm
 export { Alert, AlertProps } from './components/Alert/Alert'
-export { Button, ButtonVariants } from './components/Button/Button'
+export { Button, ButtonVariants, ButtonProps } from './components/Button/Button'
 export { Checkbox, CheckboxProps } from './components/Checkbox/Checkbox'
 export {
   CheckboxGroup,
