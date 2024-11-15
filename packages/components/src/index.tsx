@@ -20,6 +20,7 @@ export {
   SnackbarProviderWithSafeArea,
 } from './components/Snackbar/SnackbarProvider'
 export { Spacer } from './components/Spacer/Spacer'
+export { Text } from './components/Text/Text'
 
 // Export consumer available utilities here so they are exported through npm
 export { useIsScreenReaderEnabled, useTheme } from './utils'
