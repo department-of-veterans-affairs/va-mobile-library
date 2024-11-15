@@ -33,3 +33,7 @@ export type { LoadingIndicatorProps } from './components/LoadingIndicator/Loadin
 export type { SegmentedControlProps } from './components/SegmentedControl/SegmentedControl'
 export type { SpacerProps } from './components/Spacer/Spacer'
 export type { TextProps } from './components/Text/Text'
+
+// Export consumer available utilities here so they are exported through npm
+export { useIsScreenReaderEnabled, useTheme } from './utils'
+export { useSnackbar } from './components/Snackbar/useSnackbar'
