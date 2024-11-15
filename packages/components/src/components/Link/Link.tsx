@@ -153,15 +153,16 @@ export const Link: FC<LinkProps> = ({
 
   /** Function to massage Partial<IconProps> data into IconProps based on variant icon defaults */
   const setIcon = (name?: IconProps['name']) => {
+    const noIcon: IconProps = { name: 'none' }
     switch (icon) {
       case 'no icon':
-        return { noIcon: true }
+        return noIcon
       case undefined:
         if (name) return { name }
-        return { noIcon: true }
+        return noIcon
       default:
         if (icon.svg) return icon as IconProps
-        if (!name && !icon.name) return { noIcon: true }
+        if (!name && !icon.name) return noIcon
 
         if (!icon.name) icon.name = name
         return icon as IconProps
@@ -268,7 +269,7 @@ export const Link: FC<LinkProps> = ({
     <ComponentWrapper>
       <Pressable {...pressableProps} testID={testID}>
         <Icon fill={linkColor} {..._icon} />
-        {_icon.noIcon ? null : <Spacer size="2xs" horizontal />}
+        {_icon.name === 'none' ? null : <Spacer size="2xs" horizontal />}
         <Text style={textStyle}>{text}</Text>
       </Pressable>
     </ComponentWrapper>
