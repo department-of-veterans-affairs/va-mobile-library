@@ -24,9 +24,13 @@ const meta: Meta<TextProps> = {
   parameters: {
     docs: generateDocs({
       name: 'Text',
-      // docUrl:
-      //   'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20Progress/Text',
+      docUrl:
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Typography/Text',
     }),
+  },
+  argTypes: {
+    tone: { if: { arg: 'variant', neq: 'display' } },
+    size: { if: { arg: 'variant', neq: 'display' } },
   },
 }
 
@@ -52,6 +56,9 @@ export const Body: Story = {
 const children = 'Lorem ipsum dolor sit amet.'
 
 export const _Heading: Story = {
+  argTypes: {
+    tone: { control: 'radio', options: ['default', 'subtle', 'inverse'] },
+  },
   args: {
     children,
     variant: 'heading',
