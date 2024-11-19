@@ -120,7 +120,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
 
   return (
     <ComponentWrapper>
-      <View role="radiogroup" style={containerStyle} testID={testID}>
+      <View style={containerStyle} testID={testID}>
         <Header text={header} required={required} />
         {header && <Spacer size="xs" />}
 

@@ -25,7 +25,7 @@ const meta: Meta<RadioButtonProps> = {
     docs: generateDocs({
       name: 'Radio button',
       docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/Checkbox/',
+        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/RadioButton/',
     }),
   },
 }
