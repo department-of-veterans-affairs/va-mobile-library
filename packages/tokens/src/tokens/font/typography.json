@@ -1,0 +1,152 @@
+{
+  "vads-font-body-large": {
+    "name": "vads-font-body-large",
+    "value": {
+      "fontFamily": "{vads-font-family-sans-serif-regular}",
+      "fontSize": "{vads-font-size-body-large}",
+      "lineHeight": "{vads-font-line-height-default-lg}",
+      "marginBottom": "{vads-space-5xl}",
+      "letterSpacing": "{vads-font-letter-spacing-default}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-body-medium": {
+    "name": "vads-font-body-medium",
+    "value": {
+      "fontFamily": "{vads-font-family-sans-serif-regular}",
+      "fontSize": "{vads-font-size-body-medium}",
+      "lineHeight": "{vads-font-line-height-default-md}",
+      "marginBottom": "{vads-space-4xl}",
+      "letterSpacing": "{vads-font-letter-spacing-default}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-body-small": {
+    "name": "vads-font-body-small",
+    "value": {
+      "fontFamily": "{vads-font-family-sans-serif-regular}",
+      "fontSize": "{vads-font-size-body-small}",
+      "lineHeight": "{vads-font-line-height-default-sm}",
+      "marginBottom": "{vads-space-3xl}",
+      "letterSpacing": "{vads-font-letter-spacing-default}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-body-xsmall": {
+    "name": "vads-font-body-xsmall",
+    "value": {
+      "fontFamily": "{vads-font-family-sans-serif-regular}",
+      "fontSize": "{vads-font-size-body-xsmall}",
+      "lineHeight": "{vads-font-line-height-default-xs}",
+      "marginBottom": "{vads-space-2xl}",
+      "letterSpacing": "{vads-font-letter-spacing-default}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-display": {
+    "name": "vads-font-display",
+    "value": {
+      "fontFamily": "{vads-font-family-serif-regular}",
+      "fontSize": "{vads-font-size-display}",
+      "lineHeight": "{vads-font-line-height-heading-5xl}",
+      "marginBottom": "{vads-space-6xl}",
+      "letterSpacing": "{vads-font-letter-spacing-heading}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-heading-large": {
+    "name": "vads-font-heading-large",
+    "value": {
+      "fontFamily": "{vads-font-family-serif-regular}",
+      "fontSize": "{vads-font-size-heading-level-1}",
+      "lineHeight": "{vads-font-line-height-heading-2xl}",
+      "marginBottom": "{vads-space-3xl}",
+      "letterSpacing": "{vads-font-letter-spacing-heading}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-heading-medium": {
+    "name": "vads-font-heading-medium",
+    "value": {
+      "fontFamily": "{vads-font-family-serif-regular}",
+      "fontSize": "{vads-font-size-heading-level-2}",
+      "lineHeight": "{vads-font-line-height-heading-xl}",
+      "marginBottom": "{vads-space-2xl}",
+      "letterSpacing": "{vads-font-letter-spacing-heading}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-heading-small": {
+    "name": "vads-font-heading-small",
+    "value": {
+      "fontFamily": "{vads-font-family-sans-serif-bold}",
+      "fontSize": "{vads-font-size-heading-level-3}",
+      "lineHeight": "{vads-font-line-height-heading-lg}",
+      "marginBottom": "{vads-space-xl}",
+      "letterSpacing": "{vads-font-letter-spacing-heading}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-heading-xsmall": {
+    "name": "vads-font-heading-xsmall",
+    "value": {
+      "fontFamily": "{vads-font-family-sans-serif-bold}",
+      "fontSize": "{vads-font-size-heading-level-4}",
+      "lineHeight": "{vads-font-line-height-heading-md}",
+      "marginBottom": "{vads-space-lg}",
+      "letterSpacing": "{vads-font-letter-spacing-heading}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  },
+  "vads-font-navigation": {
+    "name": "vads-font-navigation",
+    "value": {
+      "fontFamily": "{vads-font-family-sans-serif-regular}",
+      "fontSize": "{vads-font-size-navigation}",
+      "lineHeight": "{vads-font-line-height-default-2xs}",
+      "marginBottom": "{vads-space-md}",
+      "letterSpacing": "{vads-font-letter-spacing-default}"
+    },
+    "attributes": {
+      "category": "font",
+      "type": "typography",
+      "npm": true
+    }
+  }
+}

@@ -81,9 +81,8 @@ describe('Link', () => {
       render(<Link {...commonProps} />)
       const icon = screen.UNSAFE_queryByType(Icon)
 
-      expect(icon?.props.name).toBeUndefined()
+      expect(icon?.props.name).toBe('none')
       expect(icon?.props.svg).toBeUndefined()
-      expect(icon?.props.noIcon).toBeDefined()
     })
   })
 
@@ -416,9 +415,8 @@ describe('Link', () => {
       render(<Link {...iconOverrideProps} icon={'no icon'} />)
       const icon = screen.UNSAFE_queryByType(Icon)
 
-      expect(icon?.props.name).toBeUndefined()
+      expect(icon?.props.name).toBe('none')
       expect(icon?.props.svg).toBeUndefined()
-      expect(icon?.props.noIcon).toBeDefined()
     })
   })
 

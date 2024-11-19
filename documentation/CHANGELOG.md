@@ -1,5 +1,27 @@
 # Changelog
 
+## [components-v0.27.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.27.1) (2024-11-15)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.20.0...components-v0.27.1)
+
+**Closed issues:**
+
+- DS - Typography Tokens - Create Composite Tokens [\#495](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/495)
+
+**Merged pull requests:**
+
+- \[Bug\] Icon – Update "no icon" variant [\#592](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/592) ([narin](https://github.com/narin))
+- \[Feature\] Text component [\#591](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/591) ([narin](https://github.com/narin))
+- \[Feature\] Add Bitter-Regular font [\#589](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/589) ([narin](https://github.com/narin))
+
+## [tokens-v0.20.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.20.0) (2024-11-08)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.27.0...tokens-v0.20.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Add composite typography tokens [\#572](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/572) ([narin](https://github.com/narin))
+
 ## [components-v0.27.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.27.0) (2024-11-01)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.26.0...components-v0.27.0)

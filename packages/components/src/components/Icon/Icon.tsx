@@ -5,24 +5,16 @@ import React, { FC } from 'react'
 import { IconMap } from './iconList'
 import { useColorScheme, useTheme } from '../../utils'
 
-type nameOrSvgOrNoIcon =
+type nameOrSvg =
   | {
       /** Name of preset icon to use {@link IconMap} **/
-      name: keyof typeof IconMap
-      noIcon?: never
+      name: keyof typeof IconMap | 'none'
       svg?: never
     }
   | {
       name?: never
-      noIcon?: never
       /** Custom SVG passed to display */
       svg: React.FC<SvgProps>
-    }
-  | {
-      name?: never
-      /** True to render icon as a null passthrough */
-      noIcon: boolean
-      svg?: never
     }
 
 type heightAndWidth =
@@ -45,7 +37,7 @@ type lightDarkModeFill = {
 /**
  *  Props that need to be passed in to {@link Icon}
  */
-export type IconProps = nameOrSvgOrNoIcon &
+export type IconProps = nameOrSvg &
   heightAndWidth & {
     /** Wraps in View that aligns the icon with text of line height passed */
     alignWithTextLineHeight?: number
@@ -70,7 +62,6 @@ export type IconProps = nameOrSvgOrNoIcon &
  */
 export const Icon: FC<IconProps> = ({
   name,
-  noIcon,
   svg,
   width = 24,
   height = 24,
@@ -85,7 +76,7 @@ export const Icon: FC<IconProps> = ({
   const fontScale = useWindowDimensions().fontScale
   const fs = (val: number) => fontScale * val
 
-  if (noIcon) return null
+  if (name === 'none') return null
 
   // ! to override TS incorrectly thinking svg can be undefined after update
   const _Icon: FC<SvgProps> = name ? IconMap[name] : svg!

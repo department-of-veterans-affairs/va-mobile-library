@@ -44,7 +44,7 @@ const meta: Meta<IconProps> = {
     ),
   ],
   argTypes: {
-    name: { options: Object.keys(IconMap) },
+    name: { options: ['none', ...Object.keys(IconMap)] },
   },
   parameters: {
     docs: generateDocs({
