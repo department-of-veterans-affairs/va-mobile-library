@@ -10,10 +10,19 @@ import { SpacerSize } from '../Spacer/Spacer'
 import { getSpacingToken, useTheme } from '../../utils'
 
 type TextSizes = 'xs' | 'sm' | 'md' | 'lg'
-type BaseTones = 'default' | 'subtle' | 'inverse'
+
+/** Declaring the BaseTones type like this allows us to reference this array in Text.stories */
+export const baseToneValues = ['default', 'subtle', 'inverse'] as const
+
+type BaseTones = (typeof baseToneValues)[number]
+
 type BodyTones = BaseTones | 'error'
 
 type BodyProps = {
+  /**
+   * Optionally set bottom spacing to none if typography style default isn't desired
+   **/
+  bottomSpacing?: 'none'
   /** Size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
   size?: TextSizes
   /** Text color: default, subtle, inverse, error. Defaults to vadsColorForegroundDefault. */
@@ -23,6 +32,11 @@ type BodyProps = {
 }
 
 type HeadingProps = {
+  /**
+   * Optional bottom spacing if typography style default isn't desired.
+   * @see {@link SpacerSize} for possible values
+   **/
+  bottomSpacing?: SpacerSize
   /** Size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
   size?: TextSizes
   /** Text color: default, subtle, inverse. Defaults to vadsColorForegroundDefault. */
@@ -32,6 +46,11 @@ type HeadingProps = {
 }
 
 type DisplayProps = {
+  /**
+   * Optional bottom spacing if typography style default isn't desired.
+   * @see {@link SpacerSize} for possible values
+   **/
+  bottomSpacing?: SpacerSize
   size?: never
   /** Text color: default, subtle, inverse. Defaults to vadsColorForegroundDefault. */
   tone?: BaseTones
@@ -43,11 +62,6 @@ export type TextProps = {
   children: React.ReactNode
   /** AccessibilityLabel for the text */
   a11yLabel?: string
-  /**
-   * Optional bottom spacing if typography style default isn't desired.
-   * @see {@link SpacerSize} for possible values
-   **/
-  bottomSpacing?: SpacerSize
 } & (BodyProps | HeadingProps | DisplayProps)
 
 export const Text: FC<TextProps> = ({
