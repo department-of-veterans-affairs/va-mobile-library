@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
 import React from 'react'
 
-import { Text, TextProps } from './Text'
+import { Text, TextProps, baseToneValues } from './Text'
 import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<TextProps> = {
@@ -29,6 +29,7 @@ const meta: Meta<TextProps> = {
     }),
   },
   argTypes: {
+    /** The foollowing conditions hide the tone and size props if variant's value is 'display' */
     tone: { if: { arg: 'variant', neq: 'display' } },
     size: { if: { arg: 'variant', neq: 'display' } },
   },
@@ -57,7 +58,7 @@ const children = 'Lorem ipsum dolor sit amet.'
 
 export const _Heading: Story = {
   argTypes: {
-    tone: { control: 'radio', options: ['default', 'subtle', 'inverse'] },
+    tone: { control: 'radio', options: baseToneValues },
   },
   args: {
     children,

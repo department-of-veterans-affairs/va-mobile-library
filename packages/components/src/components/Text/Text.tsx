@@ -10,7 +10,10 @@ import { SpacerSize } from '../Spacer/Spacer'
 import { getSpacingToken, useTheme } from '../../utils'
 
 type TextSizes = 'xs' | 'sm' | 'md' | 'lg'
-type BaseTones = 'default' | 'subtle' | 'inverse'
+
+export const baseToneValues = ['default', 'subtle', 'inverse'] as const
+
+type BaseTones = (typeof baseToneValues)[number]
 type BodyTones = BaseTones | 'error'
 
 type BodyProps = {
