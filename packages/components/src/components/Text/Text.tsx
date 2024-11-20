@@ -11,9 +11,11 @@ import { getSpacingToken, useTheme } from '../../utils'
 
 type TextSizes = 'xs' | 'sm' | 'md' | 'lg'
 
+/** Declaring the BaseTones type like this allows us to reference this array in Text.stories */
 export const baseToneValues = ['default', 'subtle', 'inverse'] as const
 
 type BaseTones = (typeof baseToneValues)[number]
+
 type BodyTones = BaseTones | 'error'
 
 type BodyProps = {
