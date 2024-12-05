@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "scheme": "mobile-components",
     "web": {
       "bundler": "metro"
