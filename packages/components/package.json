@@ -89,7 +89,7 @@
     "babel-plugin-react-docgen-typescript": "^1.5.1",
     "babel-plugin-react-native-web": "^0.19.12",
     "copy-webpack-plugin": "^12.0.2",
-    "expo": "^52.0.0",
+    "expo": "~52.0.14",
     "expo-constants": "~17.0.3",
     "expo-font": "~13.0.1",
     "expo-linking": "~7.0.3",
