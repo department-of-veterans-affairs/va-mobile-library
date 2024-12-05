@@ -39,7 +39,6 @@
   },
   "homepage": "https://department-of-veterans-affairs.github.io/va-mobile-library",
   "dependencies": {
-    "@os-team/i18next-react-native-language-detector": "^1.0.34",
     "i18next": "^23.12.2",
     "react-i18next": "^15.0.0",
     "react-native-svg": "15.8.0",

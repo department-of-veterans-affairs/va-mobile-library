@@ -3609,7 +3609,6 @@ __metadata:
     "@department-of-veterans-affairs/mobile-tokens": "npm:0.20.0"
     "@expo/metro-runtime": "npm:~4.0.0"
     "@expo/webpack-config": "npm:~19.0.1"
-    "@os-team/i18next-react-native-language-detector": "npm:^1.0.34"
     "@react-native-async-storage/async-storage": "npm:1.23.1"
     "@react-native-community/datetimepicker": "npm:8.2.0"
     "@react-native-community/slider": "npm:4.5.5"
@@ -5011,16 +5010,6 @@ __metadata:
   dependencies:
     semver: "npm:^7.3.5"
   checksum: 162b4a0b8705cd6f5c2470b851d1dc6cd228c86d2170e1769d738c1fbb69a87160901411c3c035331e9e99db72f1f1099a8b734bf1637cc32b9a5be1660e4e1e
-  languageName: node
-  linkType: hard
-
-"@os-team/i18next-react-native-language-detector@npm:^1.0.34":
-  version: 1.0.34
-  resolution: "@os-team/i18next-react-native-language-detector@npm:1.0.34"
-  peerDependencies:
-    i18next: "*"
-    react-native: "*"
-  checksum: 76d044e0b406368cc8d3ac80b0ee94a925b9319629009c1802ec1bed8fdf9cdbbd70360f0c6c9778fe4faf41ff53f4f498242f956c4a21b851f4f11536eab94f
   languageName: node
   linkType: hard
 
