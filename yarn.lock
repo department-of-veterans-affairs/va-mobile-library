@@ -3075,6 +3075,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@department-of-veterans-affairs/css-library@npm:^0.16.0":
+  version: 0.16.0
+  resolution: "@department-of-veterans-affairs/css-library@npm:0.16.0"
+  dependencies:
+    "@divriots/style-dictionary-to-figma": "npm:^0.4.0"
+    "@uswds/uswds": "npm:^3.9.0"
+    rimraf: "npm:^5.0.5"
+  checksum: 5d2fea38571bf0d2aea36d755f96df7314d9ad1ffb1022a8a038f2ef931e626689fd2304e3f62b5cea9a7679bcf28da7c38e5890836f9b44907ab3086ff90ccc
+  languageName: node
+  linkType: hard
+
 "@department-of-veterans-affairs/eslint-config-mobile@workspace:packages/linting":
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/eslint-config-mobile@workspace:packages/linting"
@@ -3210,7 +3221,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-tokens@workspace:packages/tokens"
   dependencies:
-    "@department-of-veterans-affairs/css-library": "npm:^0.11.0"
+    "@department-of-veterans-affairs/css-library": "npm:^0.16.0"
     prettier: "npm:^3.3.3"
     style-dictionary: "npm:^3.9.2"
   languageName: unknown
@@ -8323,6 +8334,16 @@ __metadata:
     receptor: "npm:1.0.0"
     resolve-id-refs: "npm:0.1.0"
   checksum: 878c68dec0a875bce9a64c4decd422035900c9924d2309534a8c00f760676aeabf43b48d95cf1ef6bb18523e77c5c40f607da5e85a5cf2d94a55e8862e0e1db5
+  languageName: node
+  linkType: hard
+
+"@uswds/uswds@npm:^3.9.0":
+  version: 3.10.0
+  resolution: "@uswds/uswds@npm:3.10.0"
+  dependencies:
+    receptor: "npm:1.0.0"
+    resolve-id-refs: "npm:0.1.0"
+  checksum: c093efcc06f1687e1122c6b6caa9a22328b4434c252fe2414914c383f09083c0935779595b2c15c516ab08bca9fec0cd63d759daa99bd020a1d9a64912432266
   languageName: node
   linkType: hard
 
