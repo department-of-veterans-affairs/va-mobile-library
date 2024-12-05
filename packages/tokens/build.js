@@ -43,7 +43,7 @@ const stripModeReducer = (result, token) => {
   return result
 }
 
-/** Filter function to return tokens of category 'font', type from filter, and npm true */
+/** Filter function to return tokens of category 'font', type from filter, and npm true. Exclude web font tokens */
 const filterFont = (token, fontType) => {
   const { category, type, npm } = token.attributes
 
