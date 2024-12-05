@@ -3,7 +3,7 @@ import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, Fragment } from 'react'
 
-import { Checkbox } from '../Checkbox/Checkbox'
+import { CheckboxRadio } from '../shared/CheckboxRadio'
 import { ComponentWrapper } from '../../wrapper'
 import { Error, Header, Hint } from '../shared/FormText'
 import {
@@ -15,43 +15,43 @@ import { Spacer } from '../Spacer/Spacer'
 import { useTheme } from '../../utils'
 
 type TextWithA11yAndValue = TextWithA11y & {
-  /** Description for checkbox item */
+  /** Description for radio item */
   description?: StringOrTextWithA11y
-  /** Value or ID for checkbox item if different than checkbox label */
+  /** Value or ID for radio item if different than radio label */
   value?: string | number
   /** Optional TestID */
   testID?: string
 }
 
-export type CheckboxGroupProps = FormElementProps & {
-  /** Array of checkbox options. Can be an array containing strings or objects if values or a11y overrides are needed */
+export type RadioButtonProps = FormElementProps & {
+  /** Array of radio options. Can be an array containing strings or objects if values or a11y overrides are needed */
   items: string[] | TextWithA11yAndValue[]
-  /** Callback function that receives an updated array of selected values when checkboxes are pressed */
-  onSelectionChange: (selected: (string | number)[]) => void
-  /** Array of the labels or values (if provided) of currently selected checkboxes */
-  selectedItems: (string | number)[]
+  /** Callback function that receives an updated selected value when a radio is pressed */
+  onSelectionChange: (selected: string | number) => void
+  /** The label or value (if provided) of currently selected radio, if any */
+  selectedItem?: string | number
   /** True to apply tile styling */
   tile?: boolean
 }
 
 /**
  * ### Managing checked item state
- * The state of the selected checkbox items should be provided to CheckboxGroup via the `selectedItems` prop and updated
- * using the `onSelectionChange` callback. When a checkbox is tapped, the provided `onSelectionChange` callback
- * function is fired and passed an array of the newly `selectedItems`, which can be used to update the parent
+ * The state of the selected radio item should be provided to RadioButton via the `selectedItem` prop and updated
+ * using the `onSelectionChange` callback. When a radio is tapped, the provided `onSelectionChange` callback
+ * function is fired and passed the newly `selectedItem`, which can be used to update the parent
  * component's state, whether that be redux, zustand, useState, or any other state management methods. Here is a basic
- * example using the `useState` hook to store the state of the `selectedItems`:
+ * example using the `useState` hook to store the state of the `selectedItem`:
  *
  * ```jsx
  * export const ParentComponent = () => {
- *   const [selectedItems, setSelectedItems] = useState([])
+ *   const [selectedItem, setSelectedItem] = useState()
  *
- *   const onSelectionChange = (updatedItems) => setSelectedItems(updatedItems)
+ *   const onSelectionChange = (updatedItem) => setSelectedItem(updatedItem)
  *
  *   const items = ['Option 1', 'Option 2', 'Option 3']
  *
  *   return (
- *     <CheckboxGroup
+ *     <RadioButton
  *       items={items}
  *       onSelectionChange={onSelectionChange}
  *     />
@@ -61,15 +61,15 @@ export type CheckboxGroupProps = FormElementProps & {
  * ```
  *
  * ### Providing values or accessibility labels
- * CheckboxGroup can accept a simple array of strings to display as checkboxes as shown above. If you want to provide
+ * RadioButton can accept a simple array of strings to display as radios as shown above. If you want to provide
  * values for each item that differ from display labels, or you want to provide accessibility labels for certain items,
  * you can pass an array of objects containing these optional fields as well. For example:
  *
  * ```jsx
  * export const ParentComponent = () => {
- *   const [selectedItems, setSelectedItems] = useState([])
+ *   const [selectedItem, setSelectedItem] = useState()
  *
- *   const onSelectionChange = (updatedItems) => setSelectedItems(updatedItems)
+ *   const onSelectionChange = (updatedItem) => setSelectedItem(updatedItem)
  *
  *   const items = [
  *    { text: 'Minnesota', value: 'MN' },
@@ -79,7 +79,7 @@ export type CheckboxGroupProps = FormElementProps & {
  *   ]
  *
  *   return (
- *     <CheckboxGroup
+ *     <RadioButton
  *       items={items}
  *       onSelectionChange={onSelectionChange}
  *     />
@@ -88,9 +88,9 @@ export type CheckboxGroupProps = FormElementProps & {
  * }
  * ```
  */
-export const CheckboxGroup: FC<CheckboxGroupProps> = ({
+export const RadioButton: FC<RadioButtonProps> = ({
   items,
-  selectedItems,
+  selectedItem,
   error,
   header,
   hint,
@@ -101,16 +101,6 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
 }) => {
   const theme = useTheme()
   const { t } = useTranslation()
-
-  const handleCheckboxChange = (value: string | number) => {
-    if (selectedItems.includes(value)) {
-      onSelectionChange(
-        selectedItems.filter((itemValue) => itemValue !== value),
-      )
-    } else {
-      onSelectionChange([...selectedItems, value])
-    }
-  }
 
   /**
    * Container styling
@@ -149,13 +139,14 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
           })
 
           return (
-            <Fragment key={`checkbox-group-item-${index}`}>
-              <Checkbox
+            <Fragment key={`radio-button-item-${index}`}>
+              <CheckboxRadio
                 label={item}
                 a11yListPosition={a11yListPosition}
                 description={isObject ? item.description : undefined}
-                checked={selectedItems.includes(value)}
-                onPress={() => handleCheckboxChange(value)}
+                checked={selectedItem === value}
+                onPress={() => onSelectionChange(value)}
+                radio
                 testID={isObject ? item.testID : undefined}
                 tile={tile}
               />

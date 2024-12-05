@@ -1,5 +1,22 @@
 # Changelog
 
+## [components-v0.28.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.28.0) (2024-12-03)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.27.1...components-v0.28.0)
+
+**Closed issues:**
+
+- DS - Text Component Analytics Support [\#553](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/553)
+- DS - Text Component Storybook [\#549](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/549)
+- DS - Text Component Implementation [\#548](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/548)
+- \[Design Tokens\] Colors: Add new feedback tokens to VADS [\#541](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/541)
+- DS - RadioButton Component Analytics Support [\#525](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/525)
+- \[Design Tokens\] Typography: Create documentation [\#409](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/409)
+
+**Merged pull requests:**
+
+- \[Feature\] Create Radio Button Component [\#586](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/586) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.27.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.27.1) (2024-11-15)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.20.0...components-v0.27.1)
