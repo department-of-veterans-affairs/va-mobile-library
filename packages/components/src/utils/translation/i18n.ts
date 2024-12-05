@@ -7,7 +7,7 @@ export const resources = {
   en: { translation: enTranslation },
 }
 
-// TODO: Detect language on mobile
+// TODO: Detect language on mobile (ticket #599)
 
 // If i18n is already initialized (in app), add our translations to the common namespace
 if (i18n.isInitializing || i18n.isInitialized) {
