@@ -47,7 +47,12 @@ const stripModeReducer = (result, token) => {
 const filterFont = (token, fontType) => {
   const { category, type, npm } = token.attributes
 
-  return category === 'font' && type === fontType && npm === true
+  return (
+    category !== 'vads-font' &&
+    category === 'font' &&
+    type === fontType &&
+    npm === true
+  )
 }
 
 /**
@@ -113,6 +118,12 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFilter({
   name: 'filter/spacing/is-spacing',
   matcher: (token) => token.attributes.category.includes('spacing'),
+})
+
+/** Remove VADS web font tokens */
+StyleDictionary.registerFilter({
+  name: 'filter/fonts/mobile-fonts',
+  matcher: (token) => token.attributes.category !== 'vads-font',
 })
 
 /**
