@@ -46,13 +46,7 @@ const stripModeReducer = (result, token) => {
 /** Filter function to return tokens of category 'font', type from filter, and npm true. Exclude web font tokens */
 const filterFont = (token, fontType) => {
   const { category, type, npm } = token.attributes
-
-  return (
-    category !== 'vads-font' &&
-    category === 'font' &&
-    type === fontType &&
-    npm === true
-  )
+  return category === 'font' && type === fontType && npm === true
 }
 
 /**
@@ -122,7 +116,7 @@ StyleDictionary.registerFilter({
 
 /** Remove VADS web font tokens */
 StyleDictionary.registerFilter({
-  name: 'filter/fonts/mobile-fonts',
+  name: 'filter/fonts/is-mobile-font',
   matcher: (token) => token.attributes.category !== 'vads-font',
 })
 
@@ -415,6 +409,9 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerTransformGroup({
   name: 'rn',
   transforms: ['name/cti/camel', 'color/hex'],
+  filter: (token) => {
+    console.log(`FILTERING ${token}`)
+  },
 })
 
 /** Registering transform group to massage output as desired for figma */

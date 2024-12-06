@@ -13,22 +13,22 @@ module.exports = {
         {
           destination: 'index.d.ts',
           format: 'typescript/es6-declarations/module',
-          filter: 'filter/fonts/mobile-fonts',
+          filter: 'filter/fonts/is-mobile-font',
         },
         {
           destination: 'js/index.js',
           format: 'javascript/es6/vads-module-export',
-          filter: 'filter/fonts/mobile-fonts',
+          filter: 'filter/fonts/is-mobile-font',
         },
         {
           destination: 'js/font/index.js',
           format: 'javascript/es6/fontIndex',
-          filter: 'filter/fonts/mobile-fonts',
+          filter: 'filter/fonts/is-mobile-font',
         },
         {
           destination: 'types/font/index.d.ts',
           format: 'typescript/es6-declarations/fontIndex',
-          filter: 'filter/fonts/mobile-fonts',
+          filter: 'filter/fonts/is-mobile-font',
         },
         // JS defs
         {
@@ -94,7 +94,7 @@ module.exports = {
         {
           destination: 'js/themes.js',
           format: 'javascript/es6/vads-colors-themes',
-          filter: 'filter/fonts/mobile-fonts',
+          filter: 'filter/fonts/is-mobile-font',
         },
         // TS defs
         {
