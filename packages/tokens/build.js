@@ -43,10 +43,9 @@ const stripModeReducer = (result, token) => {
   return result
 }
 
-/** Filter function to return tokens of category 'font', type from filter, and npm true */
+/** Filter function to return tokens of category 'font', type from filter, and npm true. Exclude web font tokens */
 const filterFont = (token, fontType) => {
   const { category, type, npm } = token.attributes
-
   return category === 'font' && type === fontType && npm === true
 }
 
@@ -113,6 +112,12 @@ StyleDictionary.registerFilter({
 StyleDictionary.registerFilter({
   name: 'filter/spacing/is-spacing',
   matcher: (token) => token.attributes.category.includes('spacing'),
+})
+
+/** Remove VADS web font tokens */
+StyleDictionary.registerFilter({
+  name: 'filter/fonts/is-mobile-font',
+  matcher: (token) => token.attributes.category !== 'vads-font',
 })
 
 /**
@@ -404,6 +409,9 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerTransformGroup({
   name: 'rn',
   transforms: ['name/cti/camel', 'color/hex'],
+  filter: (token) => {
+    console.log(`FILTERING ${token}`)
+  },
 })
 
 /** Registering transform group to massage output as desired for figma */
