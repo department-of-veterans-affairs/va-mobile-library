@@ -1,5 +1,24 @@
 # Changelog
 
+## [tokens-v0.21.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.21.0) (2024-12-09)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.28.0...tokens-v0.21.0)
+
+**Closed issues:**
+
+- DS - Update Expo to v52 [\#597](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/597)
+- DS - Text Component Accessibility Review [\#551](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/551)
+- DS - Text Component Visual QA [\#550](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/550)
+- DS - ZenHub to GitHub Projects Transition [\#536](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/536)
+- DS - RadioButton Visual QA [\#523](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/523)
+- DS - RadioButton Component Storybook [\#522](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/522)
+- DS - RadioButton Component Implementation [\#521](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/521)
+
+**Merged pull requests:**
+
+- \[Tokens\] Update css-library to 0.16.0 to get feedback tokens [\#601](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/601) ([narin](https://github.com/narin))
+- \[CU\] Update Expo to SDK 52 [\#600](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/600) ([narin](https://github.com/narin))
+
 ## [components-v0.28.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.28.0) (2024-12-03)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.27.1...components-v0.28.0)
@@ -9,7 +28,6 @@
 - DS - Text Component Analytics Support [\#553](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/553)
 - DS - Text Component Storybook [\#549](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/549)
 - DS - Text Component Implementation [\#548](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/548)
-- \[Design Tokens\] Colors: Add new feedback tokens to VADS [\#541](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/541)
 - DS - RadioButton Component Analytics Support [\#525](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/525)
 - \[Design Tokens\] Typography: Create documentation [\#409](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/409)
 
