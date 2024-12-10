@@ -80,7 +80,7 @@
       "fontFamily": "{vads-font-family-serif-regular}",
       "fontSize": "{vads-font-size-heading-level-1}",
       "lineHeight": "{vads-font-line-height-heading-2xl}",
-      "marginBottom": "{vads-space-3xl}",
+      "marginBottom": "{vads-space-lg}",
       "letterSpacing": "{vads-font-letter-spacing-heading}"
     },
     "attributes": {
@@ -95,7 +95,7 @@
       "fontFamily": "{vads-font-family-serif-regular}",
       "fontSize": "{vads-font-size-heading-level-2}",
       "lineHeight": "{vads-font-line-height-heading-xl}",
-      "marginBottom": "{vads-space-2xl}",
+      "marginBottom": "{vads-space-sm}",
       "letterSpacing": "{vads-font-letter-spacing-heading}"
     },
     "attributes": {
@@ -110,7 +110,7 @@
       "fontFamily": "{vads-font-family-sans-serif-bold}",
       "fontSize": "{vads-font-size-heading-level-3}",
       "lineHeight": "{vads-font-line-height-heading-lg}",
-      "marginBottom": "{vads-space-xl}",
+      "marginBottom": "{vads-space-sm}",
       "letterSpacing": "{vads-font-letter-spacing-heading}"
     },
     "attributes": {
@@ -125,7 +125,7 @@
       "fontFamily": "{vads-font-family-sans-serif-bold}",
       "fontSize": "{vads-font-size-heading-level-4}",
       "lineHeight": "{vads-font-line-height-heading-md}",
-      "marginBottom": "{vads-space-lg}",
+      "marginBottom": "{vads-space-xs}",
       "letterSpacing": "{vads-font-letter-spacing-heading}"
     },
     "attributes": {
