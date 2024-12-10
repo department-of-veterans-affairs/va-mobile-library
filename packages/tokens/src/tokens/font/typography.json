@@ -95,7 +95,7 @@
       "fontFamily": "{vads-font-family-serif-regular}",
       "fontSize": "{vads-font-size-heading-level-2}",
       "lineHeight": "{vads-font-line-height-heading-xl}",
-      "marginBottom": "{vads-space-sm}",
+      "marginBottom": "{vads-space-md}",
       "letterSpacing": "{vads-font-letter-spacing-heading}"
     },
     "attributes": {
