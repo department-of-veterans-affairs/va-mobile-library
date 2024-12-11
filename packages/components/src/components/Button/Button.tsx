@@ -5,7 +5,7 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React from 'react'
 
 import { useTheme } from '../../utils'
@@ -45,6 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
   testOnlyPressed,
 }) => {
   const theme = useTheme()
+  const { typography, family } = font
 
   let bgColor: string,
     bgColorPressed: string,
@@ -117,9 +118,9 @@ export const Button: React.FC<ButtonProps> = ({
   const getTextStyle = (pressed: boolean): TextStyle => {
     // TODO: Replace with typography tokens
     const font: TextStyle = {
-      fontFamily: 'SourceSansPro-Bold',
-      fontSize: 20,
-      lineHeight: 30,
+      ...typography.vadsFontBodyLarge,
+      fontFamily: family.vadsFontFamilySansSerifBold,
+      marginBottom: 0,
     }
 
     return {
