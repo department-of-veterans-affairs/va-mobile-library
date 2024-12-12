@@ -27,6 +27,13 @@
       "category": "color"
     }
   },
+  "vads-color-border-focus-on-light": {
+    "name": "vads-color-border-focus-on-light",
+    "value": "{uswds-system-color-yellow-vivid-20}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-foreground-default-on-light": {
     "name": "vads-color-foreground-default-on-light",
     "value": "{vads-color-base.*.value}",
@@ -254,6 +261,13 @@
   "vads-color-forms-border-subtle-on-light": {
     "name": "vads-color-forms-border-subtle-on-light",
     "value": "{vads-color-base-light.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-forms-border-success-on-light": {
+    "name": "vads-color-forms-border-success-on-light",
+    "value": "{vads-color-success.*.value}",
     "attributes": {
       "category": "color"
     }
