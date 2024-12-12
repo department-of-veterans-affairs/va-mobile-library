@@ -41,13 +41,6 @@
       "category": "color"
     }
   },
-  "vads-color-foreground-error-on-dark": {
-    "name": "vads-color-foreground-error-on-dark",
-    "value": "{uswds-system-color-red-vivid-40}",
-    "attributes": {
-      "category": "color"
-    }
-  },
   "vads-color-surface-secondary-on-dark": {
     "name": "vads-color-surface-secondary-on-dark",
     "value": "{vads-color-base-darker.*.value}",
@@ -170,6 +163,20 @@
   "vads-color-feedback-border-error-on-dark": {
     "name": "vads-color-feedback-border-error-on-dark",
     "value": "{vads-color-secondary.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-foreground-info-on-dark": {
+    "name": "vads-color-feedback-foreground-info-on-dark",
+    "value": "{vads-color-primary-alt.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-foreground-error-on-dark": {
+    "name": "vads-color-feedback-foreground-error-on-dark",
+    "value": "{uswds-system-color-red-vivid-40}",
     "attributes": {
       "category": "color"
     }

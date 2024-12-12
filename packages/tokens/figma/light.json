@@ -151,10 +151,6 @@
     "$value": "#e5a000",
     "$type": "color"
   },
-  "uswds-system-color-gold-vivid-40": {
-    "$value": "#c2850c",
-    "$type": "color"
-  },
   "uswds-system-color-gold-vivid-5": {
     "$value": "#fef0c8",
     "$type": "color"
@@ -309,10 +305,6 @@
   },
   "uswds-system-color-green-cool-vivid-20": {
     "$value": "#70e17b",
-    "$type": "color"
-  },
-  "uswds-system-color-green-cool-vivid-30": {
-    "$value": "#21c834",
     "$type": "color"
   },
   "uswds-system-color-green-cool-vivid-40": {
@@ -635,12 +627,12 @@
     "$value": "{vads-color-warning}",
     "$type": "color"
   },
-  "vads-color-feedback-foreground-success-on-light": {
-    "$value": "{uswds-system-color-green-cool-vivid-50}",
+  "vads-color-feedback-foreground-error-on-light": {
+    "$value": "{vads-color-secondary-dark}",
     "$type": "color"
   },
-  "vads-color-feedback-foreground-warning-on-light": {
-    "$value": "{uswds-system-color-gold-vivid-40}",
+  "vads-color-feedback-foreground-info-on-light": {
+    "$value": "{uswds-system-color-cyan-vivid-40}",
     "$type": "color"
   },
   "vads-color-feedback-surface-error-on-light": {
@@ -661,10 +653,6 @@
   },
   "vads-color-foreground-default-on-light": {
     "$value": "{vads-color-base}",
-    "$type": "color"
-  },
-  "vads-color-foreground-error-on-light": {
-    "$value": "{vads-color-secondary-dark}",
     "$type": "color"
   },
   "vads-color-foreground-inverse-on-light": {
