@@ -575,6 +575,10 @@
     "$value": "{uswds-system-color-blue-warm-30}",
     "$type": "color"
   },
+  "vads-color-border-focus-on-light": {
+    "$value": "{uswds-system-color-yellow-vivid-20}",
+    "$type": "color"
+  },
   "vads-color-border-strong-on-light": {
     "$value": "{vads-color-base-dark}",
     "$type": "color"
@@ -677,6 +681,10 @@
   },
   "vads-color-forms-border-subtle-on-light": {
     "$value": "{vads-color-base-light}",
+    "$type": "color"
+  },
+  "vads-color-forms-border-success-on-light": {
+    "$value": "{vads-color-success}",
     "$type": "color"
   },
   "vads-color-forms-foreground-active-on-light": {
