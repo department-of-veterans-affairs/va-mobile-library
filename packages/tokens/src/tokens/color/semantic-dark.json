@@ -34,13 +34,6 @@
       "category": "color"
     }
   },
-  "vads-color-foreground-error-on-dark": {
-    "name": "vads-color-foreground-error-on-dark",
-    "value": "{uswds-system-color-red-vivid-40}",
-    "attributes": {
-      "category": "color"
-    }
-  },
   "vads-color-foreground-inverse-on-dark": {
     "name": "vads-color-foreground-inverse-on-dark",
     "value": "{vads-color-base-darkest.*.value}",
