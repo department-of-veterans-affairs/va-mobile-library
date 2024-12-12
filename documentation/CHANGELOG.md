@@ -1,5 +1,17 @@
 # Changelog
 
+## [tokens-v0.23.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.23.0) (2024-12-12)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.22.0...tokens-v0.23.0)
+
+**Closed issues:**
+
+- DS - RadioButton Accessibility Review [\#524](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/524)
+
+**Merged pull requests:**
+
+- \[Tokens\] Add new tokens [\#610](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/610) ([jessicawoodin](https://github.com/jessicawoodin))
+
 ## [tokens-v0.22.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.22.0) (2024-12-11)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.21.0...tokens-v0.22.0)
