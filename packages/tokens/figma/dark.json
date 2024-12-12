@@ -151,6 +151,10 @@
     "$value": "#e5a000",
     "$type": "color"
   },
+  "uswds-system-color-gold-vivid-40": {
+    "$value": "#c2850c",
+    "$type": "color"
+  },
   "uswds-system-color-gold-vivid-5": {
     "$value": "#fef0c8",
     "$type": "color"
@@ -305,6 +309,10 @@
   },
   "uswds-system-color-green-cool-vivid-20": {
     "$value": "#70e17b",
+    "$type": "color"
+  },
+  "uswds-system-color-green-cool-vivid-30": {
+    "$value": "#21c834",
     "$type": "color"
   },
   "uswds-system-color-green-cool-vivid-40": {
@@ -617,6 +625,14 @@
   },
   "vads-color-feedback-foreground-info-on-dark": {
     "$value": "{vads-color-primary-alt}",
+    "$type": "color"
+  },
+  "vads-color-feedback-foreground-success-on-dark": {
+    "$value": "{uswds-system-color-green-cool-vivid-30}",
+    "$type": "color"
+  },
+  "vads-color-feedback-foreground-warning-on-dark": {
+    "$value": "{uswds-system-color-gold-vivid-30}",
     "$type": "color"
   },
   "vads-color-feedback-surface-error-on-dark": {

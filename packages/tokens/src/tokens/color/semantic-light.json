@@ -55,6 +55,13 @@
       "category": "color"
     }
   },
+  "vads-color-foreground-error-on-light": {
+    "name": "vads-color-foreground-error-on-light",
+    "value": "{vads-color-secondary-dark.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-surface-secondary-on-light": {
     "name": "vads-color-surface-secondary-on-light",
     "value": "{vads-color-base-lighter.*.value}",
@@ -194,7 +201,7 @@
     "attributes": {
       "category": "color"
     }
-  },  
+  },
   "vads-color-feedback-border-error-on-light": {
     "name": "vads-color-feedback-border-error-on-light",
     "value": "{vads-color-error.*.value}",
