@@ -1,7 +1,7 @@
 import {
   Pressable,
   PressableStateCallbackType,
-  Text,
+  Text as RNText,
   TextStyle,
   ViewStyle,
 } from 'react-native'
@@ -140,7 +140,7 @@ export const Button: React.FC<ButtonProps> = ({
       testID={testID || label}
       testOnly_pressed={testOnlyPressed}>
       {({ pressed }: PressableStateCallbackType) => (
-        <Text style={getTextStyle(pressed)}>{label}</Text>
+        <RNText style={getTextStyle(pressed)}>{label}</RNText>
       )}
     </Pressable>
   )
