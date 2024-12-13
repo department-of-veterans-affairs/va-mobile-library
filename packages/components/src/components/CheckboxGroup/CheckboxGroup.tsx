@@ -131,15 +131,15 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   return (
     <ComponentWrapper>
       <View style={containerStyle} testID={testID}>
-        <Header text={header} required={required} />{' '}
+        <Header text={header} required={required} />
         {header && <Spacer size="xs" />}
-        
+
         <Hint text={hint} />
         {hint && <Spacer size="xs" />}
 
         <Error text={error} />
         {error && <Spacer size="xs" />}
-        
+
         {items.map((item, index) => {
           const isObject = typeof item === 'object'
           const value = isObject ? item.value || item.text : item
