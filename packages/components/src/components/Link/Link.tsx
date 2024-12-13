@@ -5,6 +5,7 @@ import {
   TextProps,
   TextStyle,
 } from 'react-native'
+import { font } from '@department-of-veterans-affairs/mobile-tokens'
 import { t } from 'i18next'
 import React, { FC } from 'react'
 
@@ -141,12 +142,24 @@ export const Link: FC<LinkProps> = ({
 }) => {
   const theme = useTheme()
   const launchExternalLink = useExternalLink()
+  const { typography } = font
 
-  // TODO: Replace with typography tokens
-  const font = {
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 20,
-    lineHeight: 30,
+  let linkColor: string
+
+  switch (variant) {
+    case 'base':
+      linkColor = theme.vadsColorForegroundDefault
+      break
+    default:
+      linkColor = theme.vadsColorActionForegroundDefault
+  }
+
+  const textStyle: TextStyle = {
+    ...typography.vadsFontBodyLarge,
+    color: linkColor,
+    textDecorationColor: linkColor,
+    textDecorationLine: 'underline',
+    flexShrink: 1, // RN Text takes full width in row flexbox; shrink to wrap as appropriate
   }
 
   let _icon: IconProps
@@ -213,17 +226,7 @@ export const Link: FC<LinkProps> = ({
       break
   }
 
-  _icon.alignWithTextLineHeight = font.lineHeight
-
-  let linkColor: string
-
-  switch (variant) {
-    case 'base':
-      linkColor = theme.vadsColorForegroundDefault
-      break
-    default:
-      linkColor = theme.vadsColorActionForegroundDefault
-  }
+  _icon.alignWithTextLineHeight = textStyle.lineHeight
 
   let ariaValue
   if (typeof a11yValue === 'string') {
@@ -255,14 +258,6 @@ export const Link: FC<LinkProps> = ({
         : 'transparent',
     }),
     testOnly_pressed: testOnlyPressed,
-  }
-
-  const textStyle: TextStyle = {
-    ...font,
-    color: linkColor,
-    textDecorationColor: linkColor,
-    textDecorationLine: 'underline',
-    flexShrink: 1, // RN Text takes full width in row flexbox; shrink to wrap as appropriate
   }
 
   return (
