@@ -1,5 +1,32 @@
 # Changelog
 
+## [tokens-v0.23.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.23.0) (2024-12-12)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.22.0...tokens-v0.23.0)
+
+**Closed issues:**
+
+- DS - RadioButton Accessibility Review [\#524](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/524)
+
+**Merged pull requests:**
+
+- \[Tokens\] Add new tokens [\#610](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/610) ([jessicawoodin](https://github.com/jessicawoodin))
+
+## [tokens-v0.22.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.22.0) (2024-12-11)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.21.0...tokens-v0.22.0)
+
+**Closed issues:**
+
+- DS - Typography - Apply tokens to components in Figma [\#558](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/558)
+- DS -Publish Text component to Figma & Doc Site [\#552](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/552)
+- \[Design Tokens\] Colors: Add new feedback tokens to VADS [\#541](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/541)
+- Radio Button - Publish component to Figma and Doc Site [\#195](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/195)
+
+**Merged pull requests:**
+
+- \[Bug\] Typography – Fix heading bottom margin [\#606](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/606) ([narin](https://github.com/narin))
+
 ## [tokens-v0.21.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.21.0) (2024-12-09)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.28.0...tokens-v0.21.0)
