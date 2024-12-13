@@ -2,7 +2,7 @@ import {
   AccessibilityInfo,
   Pressable,
   PressableStateCallbackType,
-  Text,
+  Text as RNText,
   TextProps,
   TextStyle,
   View,
@@ -48,7 +48,7 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
   return (
     <Pressable hitSlop={11} onPress={onPress} role="button">
       {({ pressed }: PressableStateCallbackType) => (
-        <Text style={getTextStyle(pressed)}>{text}</Text>
+        <RNText style={getTextStyle(pressed)}>{text}</RNText>
       )}
     </Pressable>
   )
@@ -239,7 +239,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
             <Icon {...iconProps} />
           </View>
           <Spacer size="xs" horizontal />
-          <Text {...messageProps}>{toast.message}</Text>
+          <RNText {...messageProps}>{toast.message}</RNText>
         </View>
         <View {...buttonContainer}>
           {actionButton()}
