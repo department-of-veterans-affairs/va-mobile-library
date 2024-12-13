@@ -61,6 +61,7 @@ type DisplayProps = {
 }
 
 export type TextProps = {
+  /** True to set textAlign: center */
   center?: boolean
   children: React.ReactNode
   /** AccessibilityLabel for the text */
