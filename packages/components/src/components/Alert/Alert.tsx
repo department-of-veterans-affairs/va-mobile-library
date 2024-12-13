@@ -1,7 +1,6 @@
 import {
   Insets,
   Pressable,
-  TextStyle,
   View,
   ViewStyle,
   useWindowDimensions,
@@ -94,12 +93,6 @@ export const Alert: FC<AlertProps> = ({
   const contentColor = AlertContentColor()
   let backgroundColor, borderColor, iconName: IconProps['name']
 
-  const descriptionFont: TextStyle = {
-    ...typography.vadsFontBodyLarge,
-    color: contentColor,
-    marginBottom: 0,
-  }
-
   switch (variant) {
     case 'info':
       backgroundColor = theme.vadsColorFeedbackSurfaceInfo
@@ -132,17 +125,12 @@ export const Alert: FC<AlertProps> = ({
     width: '100%', // Ensure Alert fills horizontal space, regardless of flexing content
   }
 
-  const headerFont: TextStyle = {
-    ...typography.vadsFontHeadingSmall,
-    marginBottom: 0,
-    color: contentColor,
-  }
-
   const iconViewStyle: ViewStyle = {
     flexDirection: 'row',
     // Below keeps icon aligned with first row of text, centered, and scalable
+    // If Text variant for header changes, token referenced in minHeight must change accordingly
     alignSelf: 'flex-start',
-    minHeight: headerFont.lineHeight! * fontScale,
+    minHeight: typography.vadsFontHeadingSmall.lineHeight! * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
