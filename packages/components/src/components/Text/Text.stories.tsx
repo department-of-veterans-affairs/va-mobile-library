@@ -32,6 +32,7 @@ const meta: Meta<TextProps> = {
     /** The foollowing conditions hide the tone and size props if variant's value is 'display' */
     tone: { if: { arg: 'variant', neq: 'display' } },
     size: { if: { arg: 'variant', neq: 'display' } },
+    bold: { if: { arg: 'variant', eq: 'body' } },
   },
 }
 

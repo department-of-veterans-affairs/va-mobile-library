@@ -19,9 +19,9 @@ type BaseTones = (typeof baseToneValues)[number]
 type BodyTones = BaseTones | 'error'
 
 type BodyProps = {
-  /**
-   * Optionally set bottom spacing to none if typography style default isn't desired
-   **/
+  /** True to make body text bold */
+  bold?: boolean
+  /** Optionally set bottom spacing to none if typography style default isn't desired **/
   bottomSpacing?: 'none'
   /** Size: xs, sm, md, or lg. Defaults to 'md' for body and heading */
   size?: TextSizes
@@ -32,6 +32,7 @@ type BodyProps = {
 }
 
 type HeadingProps = {
+  bold?: never
   /**
    * Optional bottom spacing if typography style default isn't desired.
    * @see {@link SpacerSize} for possible values
@@ -46,6 +47,7 @@ type HeadingProps = {
 }
 
 type DisplayProps = {
+  bold?: never
   /**
    * Optional bottom spacing if typography style default isn't desired.
    * @see {@link SpacerSize} for possible values
@@ -59,6 +61,7 @@ type DisplayProps = {
 }
 
 export type TextProps = {
+  center?: boolean
   children: React.ReactNode
   /** AccessibilityLabel for the text */
   a11yLabel?: string
@@ -66,14 +69,16 @@ export type TextProps = {
 
 export const Text: FC<TextProps> = ({
   a11yLabel,
+  bold,
   bottomSpacing,
+  center,
   children,
   size = 'md',
   tone = 'default',
   variant = 'body',
 }) => {
   const theme = useTheme()
-  const { typography } = font
+  const { family, typography } = font
   let typographyKey, color
 
   const prefix = 'vadsFont'
@@ -115,6 +120,11 @@ export const Text: FC<TextProps> = ({
   const style: TextStyle = {
     ...typography[typographyKey as keyof typeof typography],
     color,
+    textAlign: center ? 'center' : 'auto',
+  }
+
+  if (bold && variant === 'body') {
+    style.fontFamily = family.vadsFontFamilySansSerifBold
   }
 
   /** Set bottom margin to custom bottomSpacing if provided */
