@@ -27,7 +27,7 @@ const meta: Meta<TextProps> = {
     }),
   },
   argTypes: {
-    /** The foollowing conditions hide the tone and size props if variant's value is 'display' */
+    /** The following condition hides the size props if variant's value is 'display' */
     size: { if: { arg: 'variant', neq: 'display' } },
   },
 }
