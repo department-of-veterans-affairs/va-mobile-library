@@ -1,9 +1,11 @@
 import { Text as RNText } from 'react-native'
-import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
+import { Spacer } from '../Spacer/Spacer'
 import { StringOrTextWithA11y } from '../../types/common'
+import { Text } from '../Text/Text'
 import { getA11yLabel, getDisplayText, useTheme } from '../../utils'
 
 type FormTextProps = {
@@ -12,16 +14,9 @@ type FormTextProps = {
 }
 
 /**
- * Fonts (TODO: replace with typography tokens)
+ * Fonts
  */
-const { family, typography } = font
-const fontRegular = family.vadsFontFamilySansSerifRegular
-const fontBold = family.vadsFontFamilySansSerifBold
-
-export const fontLabel = {
-  ...typography.vadsFontBodyLarge,
-  marginBottom: 0,
-}
+const { typography } = font
 
 export type HeaderProps = FormTextProps & {
   /** True to display (*Required) label next to header */
@@ -52,12 +47,15 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
     : getA11yLabel(text)
 
   return (
-    <RNText role="heading" aria-label={ariaLabel} style={textStyle}>
-      {getDisplayText(text)}
-      {required && (
-        <RNText style={requiredStyle}>{` (*${t('required')})`}</RNText>
-      )}
-    </RNText>
+    <>
+      <RNText role="heading" aria-label={ariaLabel} style={textStyle}>
+        {getDisplayText(text)}
+        {required && (
+          <RNText style={requiredStyle}>{` (*${t('required')})`}</RNText>
+        )}
+      </RNText>
+      <Spacer size="xs" />
+    </>
   )
 }
 
@@ -65,20 +63,20 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
  * Hint text element commonly used in form components
  */
 export const Hint: FC<FormTextProps> = ({ text }) => {
-  const theme = useTheme()
-
   if (!text) return null
 
-  const textStyle = {
-    ...typography.vadsFontBodySmall,
-    marginBottom: 0,
-    color: theme.vadsColorForegroundSubtle,
-  }
-
   return (
-    <RNText aria-label={getA11yLabel(text)} style={textStyle}>
-      {getDisplayText(text)}
-    </RNText>
+    <>
+      <Text
+        variant="body"
+        size="sm"
+        a11yLabel={getA11yLabel(text)}
+        tone="subtle"
+        bottomSpacing="none">
+        {getDisplayText(text)}
+      </Text>
+      <Spacer size="xs" />
+    </>
   )
 }
 
@@ -87,23 +85,22 @@ export const Hint: FC<FormTextProps> = ({ text }) => {
  */
 export const Error: FC<FormTextProps> = ({ text }) => {
   const { t } = useTranslation()
-  const theme = useTheme()
 
   if (!text) return null
 
-  const textStyle = {
-    ...typography.vadsFontBodySmall,
-    fontFamily: fontBold,
-    marginBottom: 0,
-    color: theme.vadsColorForegroundError,
-  }
-
   return (
-    <RNText
-      aria-label={`${t('error')}: ${getA11yLabel(text)}`}
-      style={textStyle}>
-      {getDisplayText(text)}
-    </RNText>
+    <>
+      <Text
+        variant="body"
+        bold
+        size="sm"
+        a11yLabel={`${t('error')}: ${getA11yLabel(text)}`}
+        tone="error"
+        bottomSpacing="none">
+        {getDisplayText(text)}
+      </Text>
+      <Spacer size="xs" />
+    </>
   )
 }
 export type LabelProps = FormTextProps & {
@@ -117,28 +114,28 @@ export type LabelProps = FormTextProps & {
  * Label text element commonly used in form components
  */
 export const Label: FC<LabelProps> = ({ text, error, required }) => {
-  const theme = useTheme()
   const { t } = useTranslation()
 
   if (!text) return null
 
-  const textStyle = {
-    ...fontLabel,
-    fontFamily: error ? fontBold : fontRegular,
-    color: theme.vadsColorForegroundDefault,
-  }
-
-  const requiredStyle = {
-    color: theme.vadsColorForegroundError,
-  }
-
   return (
-    <RNText style={textStyle}>
-      {getDisplayText(text)}
-      {required && (
-        <RNText style={requiredStyle}>{` (*${t('required')})`}</RNText>
-      )}
-    </RNText>
+    <>
+      <Text
+        variant="body"
+        size="lg"
+        bottomSpacing="none"
+        bold={error ? true : false}>
+        {getDisplayText(text)}
+        {required && (
+          <Text
+            variant="body"
+            size="lg"
+            tone="error"
+            bottomSpacing="none"
+            bold={error ? true : false}>{` (*${t('required')})`}</Text>
+        )}
+      </Text>
+    </>
   )
 }
 
@@ -146,15 +143,14 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
  * Description text element commonly used in form components
  */
 export const Description: FC<FormTextProps> = ({ text }) => {
-  const theme = useTheme()
-
   if (!text) return null
 
-  const textStyle = {
-    ...typography.vadsFontBodySmall,
-    marginBottom: 0,
-    color: theme.vadsColorForegroundDefault,
-  }
-
-  return <RNText style={textStyle}>{getDisplayText(text)}</RNText>
+  return (
+    <>
+      <Spacer size="xs" />
+      <Text variant="body" size="sm" bottomSpacing="none">
+        {getDisplayText(text)}
+      </Text>
+    </>
+  )
 }

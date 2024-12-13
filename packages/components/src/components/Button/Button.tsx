@@ -115,18 +115,12 @@ export const Button: React.FC<ButtonProps> = ({
    * @param pressed - boolean for pressed state
    * @returns TextStyle for text
    */
-  const getTextStyle = (pressed: boolean): TextStyle => {
-    const font: TextStyle = {
-      ...typography.vadsFontBodyLarge,
-      fontFamily: family.vadsFontFamilySansSerifBold,
-      marginBottom: 0,
-    }
-
-    return {
-      ...font,
-      color: pressed ? textColorPressed : textColor,
-    }
-  }
+  const getTextStyle = (pressed: boolean): TextStyle => ({
+    ...typography.vadsFontBodyLarge,
+    fontFamily: family.vadsFontFamilySansSerifBold,
+    marginBottom: 0,
+    color: pressed ? textColorPressed : textColor,
+  })
 
   return (
     <Pressable

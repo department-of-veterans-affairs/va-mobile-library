@@ -1,4 +1,4 @@
-import { Animated, Easing, TextStyle, View, ViewStyle } from 'react-native'
+import { Animated, Easing, View, ViewStyle } from 'react-native'
 import React, { useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'

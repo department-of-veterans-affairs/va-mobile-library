@@ -1,17 +1,10 @@
 import { Pressable, StyleProp, View, ViewStyle } from 'react-native'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
 import { CheckboxRadioProps } from '../../types/forms'
-import {
-  Description,
-  Error,
-  Header,
-  Hint,
-  Label,
-  fontLabel,
-} from '../shared/FormText'
+import { Description, Error, Header, Hint, Label } from '../shared/FormText'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { getA11yLabel, useTheme } from '../../utils'
@@ -38,6 +31,7 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
 }) => {
   const theme = useTheme()
   const { t } = useTranslation()
+  const { typography } = font
 
   /**
    * Container styling
@@ -99,7 +93,7 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
       checked || indeterminate
         ? theme.vadsColorFormsForegroundActive
         : theme.vadsColorFormsBorderDefault,
-    alignWithTextLineHeight: fontLabel.lineHeight,
+    alignWithTextLineHeight: typography.vadsFontBodyLarge.lineHeight,
   }
 
   /**
@@ -113,14 +107,8 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
   return (
     <View style={containerStyle} testID={testID}>
       <Header text={header} />
-      {header && <Spacer size="xs" />}
-
       <Hint text={hint} />
-      {hint && <Spacer size="xs" />}
-
       <Error text={error} />
-      {error && <Spacer size="xs" />}
-
       <Pressable
         onPress={onPress}
         style={tile ? tileStyle : pressableBaseStyle}
@@ -132,7 +120,6 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
         <Spacer size="xs" horizontal />
         <View style={{ flexShrink: 1 }}>
           <Label text={label} error={error} required={required} />
-          {description && <Spacer size="xs" />}
           <Description text={description} />
         </View>
       </Pressable>
