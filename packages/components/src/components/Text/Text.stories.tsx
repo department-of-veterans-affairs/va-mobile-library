@@ -13,8 +13,6 @@ const meta: Meta<TextProps> = {
       <View
         style={{
           flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
           margin: 12,
         }}>
         <Story />
@@ -29,8 +27,7 @@ const meta: Meta<TextProps> = {
     }),
   },
   argTypes: {
-    /** The foollowing conditions hide the tone and size props if variant's value is 'display' */
-    tone: { if: { arg: 'variant', neq: 'display' } },
+    /** The following condition hides the size props if variant's value is 'display' */
     size: { if: { arg: 'variant', neq: 'display' } },
     bold: { if: { arg: 'variant', eq: 'body' } },
   },
@@ -57,10 +54,12 @@ export const Body: Story = {
 
 const children = 'Lorem ipsum dolor sit amet.'
 
+const baseToneArgs = {
+  tone: { control: 'radio', options: baseToneValues },
+}
+
 export const _Heading: Story = {
-  argTypes: {
-    tone: { control: 'radio', options: baseToneValues },
-  },
+  argTypes: baseToneArgs,
   args: {
     children,
     variant: 'heading',
@@ -69,6 +68,7 @@ export const _Heading: Story = {
 }
 
 export const __Display: Story = {
+  argTypes: baseToneArgs,
   args: {
     children,
     variant: 'display',

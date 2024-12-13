@@ -27,6 +27,13 @@
       "category": "color"
     }
   },
+  "vads-color-border-focus-on-light": {
+    "name": "vads-color-border-focus-on-light",
+    "value": "{uswds-system-color-yellow-vivid-20}",
+    "attributes": {
+      "category": "color"
+    }
+  },
   "vads-color-foreground-default-on-light": {
     "name": "vads-color-foreground-default-on-light",
     "value": "{vads-color-base.*.value}",
@@ -44,13 +51,6 @@
   "vads-color-foreground-subtle-on-light": {
     "name": "vads-color-foreground-subtle-on-light",
     "value": "{vads-color-base-dark.*.value}",
-    "attributes": {
-      "category": "color"
-    }
-  },
-  "vads-color-foreground-error-on-light": {
-    "name": "vads-color-foreground-error-on-light",
-    "value": "{vads-color-secondary-dark.*.value}",
     "attributes": {
       "category": "color"
     }
@@ -194,10 +194,24 @@
     "attributes": {
       "category": "color"
     }
-  },  
+  },
   "vads-color-feedback-border-error-on-light": {
     "name": "vads-color-feedback-border-error-on-light",
     "value": "{vads-color-error.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-foreground-info-on-light": {
+    "name": "vads-color-feedback-foreground-info-on-light",
+    "value": "{uswds-system-color-cyan-vivid-40}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-feedback-foreground-error-on-light": {
+    "name": "vads-color-feedback-foreground-error-on-light",
+    "value": "{vads-color-secondary-dark.*.value}",
     "attributes": {
       "category": "color"
     }
@@ -247,6 +261,13 @@
   "vads-color-forms-border-subtle-on-light": {
     "name": "vads-color-forms-border-subtle-on-light",
     "value": "{vads-color-base-light.*.value}",
+    "attributes": {
+      "category": "color"
+    }
+  },
+  "vads-color-forms-border-success-on-light": {
+    "name": "vads-color-forms-border-success-on-light",
+    "value": "{vads-color-success.*.value}",
     "attributes": {
       "category": "color"
     }
