@@ -1,13 +1,13 @@
 import {
   Insets,
   Pressable,
-  Text,
+  Text as RNText,
   TextStyle,
   View,
   ViewStyle,
   useWindowDimensions,
 } from 'react-native'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC, useState } from 'react'
 
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
@@ -83,6 +83,8 @@ export const Alert: FC<AlertProps> = ({
     expandable ? initializeExpanded : true,
   )
 
+  const { typography } = font
+
   const toggleExpand = () => {
     if (expanded && analytics?.onCollapse) analytics.onCollapse()
     if (!expanded && analytics?.onExpand) analytics.onExpand()
@@ -92,20 +94,10 @@ export const Alert: FC<AlertProps> = ({
   const contentColor = AlertContentColor()
   let backgroundColor, borderColor, iconName: IconProps['name']
 
-  // TODO: Replace with typography tokens
-  const headerFont: TextStyle = {
-    color: contentColor,
-    fontFamily: 'SourceSansPro-Bold',
-    fontSize: 20,
-    lineHeight: 30,
-  }
-
-  // TODO: Replace with typography tokens
   const descriptionFont: TextStyle = {
+    ...typography.vadsFontBodyLarge,
     color: contentColor,
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 20,
-    lineHeight: 30,
+    marginBottom: 0,
   }
 
   switch (variant) {
@@ -140,6 +132,12 @@ export const Alert: FC<AlertProps> = ({
     width: '100%', // Ensure Alert fills horizontal space, regardless of flexing content
   }
 
+  const headerFont: TextStyle = {
+    ...typography.vadsFontHeadingSmall,
+    marginBottom: 0,
+    color: contentColor,
+  }
+
   const iconViewStyle: ViewStyle = {
     flexDirection: 'row',
     // Below keeps icon aligned with first row of text, centered, and scalable
@@ -170,7 +168,7 @@ export const Alert: FC<AlertProps> = ({
   const _header = () => {
     if (!header) return null
 
-    const headerText = <Text style={headerFont}>{header}</Text>
+    const headerText = <RNText style={headerFont}>{header}</RNText>
     const a11yLabel = headerA11yLabel || header
     const hitSlop: Insets = {
       // left border/padding + spacer + icon width
@@ -253,11 +251,11 @@ export const Alert: FC<AlertProps> = ({
                   <Spacer size="lg" />
                 ) : null}
                 {description ? (
-                  <Text
+                  <RNText
                     style={descriptionFont}
                     aria-label={descriptionA11yLabel || description}>
                     {description}
-                  </Text>
+                  </RNText>
                 ) : null}
                 {description && children ? <Spacer size="lg" /> : null}
                 {children}
