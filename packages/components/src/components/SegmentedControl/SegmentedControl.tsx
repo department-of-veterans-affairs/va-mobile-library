@@ -90,7 +90,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       total: labels.length,
     })
 
-    // TODO: Replace with typography tokens
     const textStyle: TextStyle = {
       ...typography.vadsFontBodyLarge,
       fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',

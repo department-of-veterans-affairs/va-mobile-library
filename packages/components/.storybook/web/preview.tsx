@@ -5,6 +5,9 @@ import { useDarkMode } from 'storybook-dark-mode'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  viewport: {
+    defaultViewport: 'mobile2',
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,

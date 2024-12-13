@@ -116,7 +116,6 @@ export const Button: React.FC<ButtonProps> = ({
    * @returns TextStyle for text
    */
   const getTextStyle = (pressed: boolean): TextStyle => {
-    // TODO: Replace with typography tokens
     const font: TextStyle = {
       ...typography.vadsFontBodyLarge,
       fontFamily: family.vadsFontFamilySansSerifBold,

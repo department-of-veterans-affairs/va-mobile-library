@@ -156,6 +156,7 @@ export const Link: FC<LinkProps> = ({
 
   const textStyle: TextStyle = {
     ...typography.vadsFontBodyLarge,
+    marginBottom: 0,
     color: linkColor,
     textDecorationColor: linkColor,
     textDecorationLine: 'underline',
