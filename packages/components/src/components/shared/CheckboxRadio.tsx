@@ -93,6 +93,7 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
       checked || indeterminate
         ? theme.vadsColorFormsForegroundActive
         : theme.vadsColorFormsBorderDefault,
+    // If Text variant for FormText Label changes, token referenced below must change accordingly
     alignWithTextLineHeight: typography.vadsFontBodyLarge.lineHeight,
   }
 
