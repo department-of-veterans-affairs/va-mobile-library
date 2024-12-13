@@ -11,7 +11,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 
@@ -28,11 +28,12 @@ type SnackbarButtonProps = {
 
 const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
   const theme = useTheme()
+  const { family, typography } = font
 
   const helperTextBold: TextStyle = {
-    fontFamily: 'SourceSansPro-Bold',
-    fontSize: 16,
-    lineHeight: 22,
+    ...typography.vadsFontBodySmall,
+    fontFamily: family.vadsFontFamilySansSerifBold,
+    marginBottom: 0,
   }
 
   const getTextStyle = (pressed: boolean): TextStyle => {
@@ -125,6 +126,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const fontScale = useWindowDimensions().fontScale
   const theme = useTheme()
   const { t } = useTranslation()
+  const { typography } = font
 
   /**
    * useEffect to handle announcing the Snackbar appearing to the screen reader
@@ -140,9 +142,8 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   }, [])
 
   const helperText: TextStyle = {
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 16,
-    lineHeight: 22,
+    ...typography.vadsFontBodySmall,
+    marginBottom: 0,
   }
 
   const { isError, messageA11y, onActionPressed } = toast.data || {}
