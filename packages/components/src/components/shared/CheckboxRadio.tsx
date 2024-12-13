@@ -107,8 +107,14 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
   return (
     <View style={containerStyle} testID={testID}>
       <Header text={header} />
+      {header && <Spacer size="xs" />}
+
       <Hint text={hint} />
+      {hint && <Spacer size="xs" />}
+
       <Error text={error} />
+      {error && <Spacer size="xs" />}
+
       <Pressable
         onPress={onPress}
         style={tile ? tileStyle : pressableBaseStyle}
@@ -120,6 +126,7 @@ export const CheckboxRadio: FC<CheckboxRadioProps> = ({
         <Spacer size="xs" horizontal />
         <View style={{ flexShrink: 1 }}>
           <Label text={label} error={error} required={required} />
+          {description && <Spacer size="xs" />}
           <Description text={description} />
         </View>
       </Pressable>

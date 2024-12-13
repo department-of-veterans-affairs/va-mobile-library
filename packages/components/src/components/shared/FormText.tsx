@@ -3,7 +3,6 @@ import { font } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
-import { Spacer } from '../Spacer/Spacer'
 import { StringOrTextWithA11y } from '../../types/common'
 import { Text } from '../Text/Text'
 import { getA11yLabel, getDisplayText, useTheme } from '../../utils'
@@ -54,7 +53,6 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
           <RNText style={requiredStyle}>{` (*${t('required')})`}</RNText>
         )}
       </RNText>
-      <Spacer size="xs" />
     </>
   )
 }
@@ -75,7 +73,6 @@ export const Hint: FC<FormTextProps> = ({ text }) => {
         bottomSpacing="none">
         {getDisplayText(text)}
       </Text>
-      <Spacer size="xs" />
     </>
   )
 }
@@ -89,18 +86,15 @@ export const Error: FC<FormTextProps> = ({ text }) => {
   if (!text) return null
 
   return (
-    <>
-      <Text
-        variant="body"
-        bold
-        size="sm"
-        a11yLabel={`${t('error')}: ${getA11yLabel(text)}`}
-        tone="error"
-        bottomSpacing="none">
-        {getDisplayText(text)}
-      </Text>
-      <Spacer size="xs" />
-    </>
+    <Text
+      variant="body"
+      bold
+      size="sm"
+      a11yLabel={`${t('error')}: ${getA11yLabel(text)}`}
+      tone="error"
+      bottomSpacing="none">
+      {getDisplayText(text)}
+    </Text>
   )
 }
 export type LabelProps = FormTextProps & {
@@ -119,23 +113,21 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
   if (!text) return null
 
   return (
-    <>
-      <Text
-        variant="body"
-        size="lg"
-        bottomSpacing="none"
-        bold={error ? true : false}>
-        {getDisplayText(text)}
-        {required && (
-          <Text
-            variant="body"
-            size="lg"
-            tone="error"
-            bottomSpacing="none"
-            bold={error ? true : false}>{` (*${t('required')})`}</Text>
-        )}
-      </Text>
-    </>
+    <Text
+      variant="body"
+      size="lg"
+      bottomSpacing="none"
+      bold={error ? true : false}>
+      {getDisplayText(text)}
+      {required && (
+        <Text
+          variant="body"
+          size="lg"
+          tone="error"
+          bottomSpacing="none"
+          bold={error ? true : false}>{` (*${t('required')})`}</Text>
+      )}
+    </Text>
   )
 }
 
@@ -146,11 +138,8 @@ export const Description: FC<FormTextProps> = ({ text }) => {
   if (!text) return null
 
   return (
-    <>
-      <Spacer size="xs" />
-      <Text variant="body" size="sm" bottomSpacing="none">
-        {getDisplayText(text)}
-      </Text>
-    </>
+    <Text variant="body" size="sm" bottomSpacing="none">
+      {getDisplayText(text)}
+    </Text>
   )
 }
