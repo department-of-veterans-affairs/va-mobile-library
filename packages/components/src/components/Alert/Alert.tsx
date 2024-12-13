@@ -1,7 +1,6 @@
 import {
   Insets,
   Pressable,
-  Text as RNText,
   TextStyle,
   View,
   ViewStyle,
@@ -14,6 +13,7 @@ import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { Text } from '../Text/Text'
 
 /** Convenience function to set children content color correctly with light/dark mode */
 export const AlertContentColor = BaseColor
@@ -168,7 +168,12 @@ export const Alert: FC<AlertProps> = ({
   const _header = () => {
     if (!header) return null
 
-    const headerText = <RNText style={headerFont}>{header}</RNText>
+    const headerText = (
+      <Text variant="heading" size="sm" bottomSpacing="none">
+        {header}
+      </Text>
+    )
+
     const a11yLabel = headerA11yLabel || header
     const hitSlop: Insets = {
       // left border/padding + spacer + icon width
@@ -251,11 +256,13 @@ export const Alert: FC<AlertProps> = ({
                   <Spacer size="lg" />
                 ) : null}
                 {description ? (
-                  <RNText
-                    style={descriptionFont}
-                    aria-label={descriptionA11yLabel || description}>
+                  <Text
+                    variant="body"
+                    size="lg"
+                    bottomSpacing="none"
+                    a11yLabel={descriptionA11yLabel || description}>
                     {description}
-                  </RNText>
+                  </Text>
                 ) : null}
                 {description && children ? <Spacer size="lg" /> : null}
                 {children}
