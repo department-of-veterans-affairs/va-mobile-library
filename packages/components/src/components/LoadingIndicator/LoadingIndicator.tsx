@@ -1,15 +1,9 @@
-import {
-  Animated,
-  Easing,
-  Text,
-  TextStyle,
-  View,
-  ViewStyle,
-} from 'react-native'
+import { Animated, Easing, TextStyle, View, ViewStyle } from 'react-native'
 import React, { useEffect } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { Text } from '../Text/Text'
 import { useTheme } from '../../utils'
 
 export type LoadingIndicatorProps = {
@@ -68,14 +62,6 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
     fill: theme.vadsColorActionForegroundDefault,
   }
 
-  const textStyle: TextStyle = {
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 20,
-    lineHeight: 30,
-    textAlign: 'center',
-    color: theme.vadsColorForegroundDefault,
-  }
-
   return (
     <View style={containerStyle}>
       <Animated.View style={{ transform: [{ rotate }] }}>
@@ -83,7 +69,12 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
       </Animated.View>
       <Spacer size="xs" />
       {text && (
-        <Text style={textStyle} accessibilityLabel={a11yLabel}>
+        <Text
+          variant="body"
+          size="lg"
+          a11yLabel={a11yLabel}
+          bottomSpacing="none"
+          center>
           {text}
         </Text>
       )}
