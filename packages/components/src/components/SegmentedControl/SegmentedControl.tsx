@@ -1,4 +1,10 @@
-import { Pressable, Text, TextStyle, View, ViewStyle } from 'react-native'
+import {
+  Pressable,
+  Text as RNText,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
@@ -93,7 +99,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     const textStyle: TextStyle = {
       ...typography.vadsFontBodyLarge,
       fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
-      marginBottom: 0,
+      marginBottom: spacing.vadsSpaceNone,
       color: theme.vadsColorForegroundDefault,
       textAlign: 'center',
     }
@@ -112,9 +118,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         accessibilityState={{ selected: isSelected }}
         style={PressableOpacityStyle()}
         testID={testIDs?.[index]}>
-        <Text allowFontScaling={false} style={textStyle}>
+        <RNText allowFontScaling={false} style={textStyle}>
           {label}
-        </Text>
+        </RNText>
       </Segment>
     )
   }

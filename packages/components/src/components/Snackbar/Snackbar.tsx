@@ -33,7 +33,7 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
   const helperTextBold: TextStyle = {
     ...typography.vadsFontBodySmall,
     fontFamily: family.vadsFontFamilySansSerifBold,
-    marginBottom: 0,
+    marginBottom: spacing.vadsSpaceNone,
   }
 
   const getTextStyle = (pressed: boolean): TextStyle => {
@@ -143,7 +143,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
 
   const helperText: TextStyle = {
     ...typography.vadsFontBodySmall,
-    marginBottom: 0,
+    marginBottom: spacing.vadsSpaceNone,
   }
 
   const { isError, messageA11y, onActionPressed } = toast.data || {}

@@ -5,7 +5,7 @@ import {
   TextProps,
   TextStyle,
 } from 'react-native'
-import { font } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { t } from 'i18next'
 import React, { FC } from 'react'
 
@@ -156,7 +156,7 @@ export const Link: FC<LinkProps> = ({
 
   const textStyle: TextStyle = {
     ...typography.vadsFontBodyLarge,
-    marginBottom: 0,
+    marginBottom: spacing.vadsSpaceNone,
     color: linkColor,
     textDecorationColor: linkColor,
     textDecorationLine: 'underline',

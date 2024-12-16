@@ -118,7 +118,7 @@ export const Button: React.FC<ButtonProps> = ({
   const getTextStyle = (pressed: boolean): TextStyle => ({
     ...typography.vadsFontBodyLarge,
     fontFamily: family.vadsFontFamilySansSerifBold,
-    marginBottom: 0,
+    marginBottom: spacing.vadsSpaceNone,
     color: pressed ? textColorPressed : textColor,
   })
 

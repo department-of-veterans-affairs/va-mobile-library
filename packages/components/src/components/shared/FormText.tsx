@@ -1,10 +1,11 @@
 import { Text as RNText } from 'react-native'
-import { font } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
+import { SpacerSize } from '../Spacer/Spacer'
 import { StringOrTextWithA11y } from '../../types/common'
-import { Text } from '../Text/Text'
+import { Text, TextProps } from '../Text/Text'
 import { getA11yLabel, getDisplayText, useTheme } from '../../utils'
 
 type FormTextProps = {
@@ -30,7 +31,7 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
 
   const textStyle = {
     ...typography.vadsFontBodyLarge,
-    marginBottom: 0,
+    marginBottom: spacing.vadsSpaceNone,
     color: theme.vadsColorForegroundDefault,
   }
 
@@ -109,20 +110,20 @@ export const Label: FC<LabelProps> = ({ text, error, required }) => {
 
   if (!text) return null
 
+  const bold = error ? true : false
+
+  const textProps: TextProps = {
+    variant: 'body',
+    size: 'lg',
+    bottomSpacing: 'none',
+    bold,
+  }
+
   return (
-    <Text
-      variant="body"
-      size="lg"
-      bottomSpacing="none"
-      bold={error ? true : false}>
+    <Text {...textProps}>
       {getDisplayText(text)}
       {required && (
-        <Text
-          variant="body"
-          size="lg"
-          tone="error"
-          bottomSpacing="none"
-          bold={error ? true : false}>{` (*${t('required')})`}</Text>
+        <Text {...textProps} tone="error">{` (*${t('required')})`}</Text>
       )}
     </Text>
   )

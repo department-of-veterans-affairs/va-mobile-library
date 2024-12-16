@@ -63,7 +63,7 @@ type DisplayProps = {
 export type TextProps = {
   /** True to set textAlign: center */
   center?: boolean
-  children: React.ReactNode
+  children?: React.ReactNode
   /** AccessibilityLabel for the text */
   a11yLabel?: string
 } & (BodyProps | HeadingProps | DisplayProps)
@@ -79,6 +79,9 @@ export const Text: FC<TextProps> = ({
   variant = 'body',
 }) => {
   const theme = useTheme()
+
+  if (!children) return null
+
   const { family, typography } = font
   let typographyKey, color
 
