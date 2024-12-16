@@ -115,7 +115,7 @@ export const Text: FC<TextProps> = ({
       color = theme.vadsColorForegroundInverse
       break
     case 'error':
-      color = theme.vadsColorForegroundError
+      color = theme.vadsColorFeedbackForegroundError
       break
     default:
       color = theme.vadsColorForegroundDefault

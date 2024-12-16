@@ -3,7 +3,6 @@ import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC } from 'react'
 
-import { SpacerSize } from '../Spacer/Spacer'
 import { StringOrTextWithA11y } from '../../types/common'
 import { Text, TextProps } from '../Text/Text'
 import { getA11yLabel, getDisplayText, useTheme } from '../../utils'
@@ -36,7 +35,7 @@ export const Header: FC<HeaderProps> = ({ text, required }) => {
   }
 
   const requiredStyle = {
-    color: theme.vadsColorForegroundError,
+    color: theme.vadsColorFeedbackForegroundError,
   }
 
   const ariaLabel = required
