@@ -1,5 +1,16 @@
 # Changelog
 
+## [components-v0.29.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.29.0) (2024-12-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.23.0...components-v0.29.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Update components to use typography tokens or Text component [\#612](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/612) ([narin](https://github.com/narin))
+- \[Bug\] Typography – Fix Heading margin bottom, Text stories [\#608](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/608) ([narin](https://github.com/narin))
+- \[Tokens\] Update components to use tokens package 0.21.0.  Update Storybook color docs [\#605](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/605) ([narin](https://github.com/narin))
+- Bump the npm\_and\_yarn group across 1 directory with 5 updates [\#576](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/576) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [tokens-v0.23.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/tokens-v0.23.0) (2024-12-12)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.22.0...tokens-v0.23.0)
