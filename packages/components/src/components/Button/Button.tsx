@@ -1,11 +1,11 @@
 import {
   Pressable,
   PressableStateCallbackType,
-  Text,
+  Text as RNText,
   TextStyle,
   ViewStyle,
 } from 'react-native'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React from 'react'
 
 import { useTheme } from '../../utils'
@@ -45,6 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
   testOnlyPressed,
 }) => {
   const theme = useTheme()
+  const { typography, family } = font
 
   let bgColor: string,
     bgColorPressed: string,
@@ -114,19 +115,12 @@ export const Button: React.FC<ButtonProps> = ({
    * @param pressed - boolean for pressed state
    * @returns TextStyle for text
    */
-  const getTextStyle = (pressed: boolean): TextStyle => {
-    // TODO: Replace with typography tokens
-    const font: TextStyle = {
-      fontFamily: 'SourceSansPro-Bold',
-      fontSize: 20,
-      lineHeight: 30,
-    }
-
-    return {
-      ...font,
-      color: pressed ? textColorPressed : textColor,
-    }
-  }
+  const getTextStyle = (pressed: boolean): TextStyle => ({
+    ...typography.vadsFontBodyLarge,
+    fontFamily: family.vadsFontFamilySansSerifBold,
+    marginBottom: spacing.vadsSpaceNone,
+    color: pressed ? textColorPressed : textColor,
+  })
 
   return (
     <Pressable
@@ -139,7 +133,7 @@ export const Button: React.FC<ButtonProps> = ({
       testID={testID || label}
       testOnly_pressed={testOnlyPressed}>
       {({ pressed }: PressableStateCallbackType) => (
-        <Text style={getTextStyle(pressed)}>{label}</Text>
+        <RNText style={getTextStyle(pressed)}>{label}</RNText>
       )}
     </Pressable>
   )

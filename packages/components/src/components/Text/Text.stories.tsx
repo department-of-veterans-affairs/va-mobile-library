@@ -27,8 +27,9 @@ const meta: Meta<TextProps> = {
     }),
   },
   argTypes: {
-    /** The following condition hides the size props if variant's value is 'display' */
+    /** Conditionally show or hide props depending prop values */
     size: { if: { arg: 'variant', neq: 'display' } },
+    bold: { if: { arg: 'variant', eq: 'body' } },
   },
 }
 

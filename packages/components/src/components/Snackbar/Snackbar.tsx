@@ -2,7 +2,7 @@ import {
   AccessibilityInfo,
   Pressable,
   PressableStateCallbackType,
-  Text,
+  Text as RNText,
   TextProps,
   TextStyle,
   View,
@@ -11,7 +11,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 import React, { FC, useEffect } from 'react'
 
@@ -28,11 +28,12 @@ type SnackbarButtonProps = {
 
 const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
   const theme = useTheme()
+  const { family, typography } = font
 
   const helperTextBold: TextStyle = {
-    fontFamily: 'SourceSansPro-Bold',
-    fontSize: 16,
-    lineHeight: 22,
+    ...typography.vadsFontBodySmall,
+    fontFamily: family.vadsFontFamilySansSerifBold,
+    marginBottom: spacing.vadsSpaceNone,
   }
 
   const getTextStyle = (pressed: boolean): TextStyle => {
@@ -47,7 +48,7 @@ const SnackbarButton: FC<SnackbarButtonProps> = ({ text, onPress }) => {
   return (
     <Pressable hitSlop={11} onPress={onPress} role="button">
       {({ pressed }: PressableStateCallbackType) => (
-        <Text style={getTextStyle(pressed)}>{text}</Text>
+        <RNText style={getTextStyle(pressed)}>{text}</RNText>
       )}
     </Pressable>
   )
@@ -125,6 +126,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   const fontScale = useWindowDimensions().fontScale
   const theme = useTheme()
   const { t } = useTranslation()
+  const { typography } = font
 
   /**
    * useEffect to handle announcing the Snackbar appearing to the screen reader
@@ -140,9 +142,8 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
   }, [])
 
   const helperText: TextStyle = {
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 16,
-    lineHeight: 22,
+    ...typography.vadsFontBodySmall,
+    marginBottom: spacing.vadsSpaceNone,
   }
 
   const { isError, messageA11y, onActionPressed } = toast.data || {}
@@ -238,7 +239,7 @@ export const Snackbar: FC<SnackbarProps> = (toast) => {
             <Icon {...iconProps} />
           </View>
           <Spacer size="xs" horizontal />
-          <Text {...messageProps}>{toast.message}</Text>
+          <RNText {...messageProps}>{toast.message}</RNText>
         </View>
         <View {...buttonContainer}>
           {actionButton()}

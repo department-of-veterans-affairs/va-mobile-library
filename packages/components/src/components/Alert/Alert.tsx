@@ -1,19 +1,18 @@
 import {
   Insets,
   Pressable,
-  Text,
-  TextStyle,
   View,
   ViewStyle,
   useWindowDimensions,
 } from 'react-native'
-import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import React, { FC, useState } from 'react'
 
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
+import { Text } from '../Text/Text'
 
 /** Convenience function to set children content color correctly with light/dark mode */
 export const AlertContentColor = BaseColor
@@ -83,6 +82,8 @@ export const Alert: FC<AlertProps> = ({
     expandable ? initializeExpanded : true,
   )
 
+  const { typography } = font
+
   const toggleExpand = () => {
     if (expanded && analytics?.onCollapse) analytics.onCollapse()
     if (!expanded && analytics?.onExpand) analytics.onExpand()
@@ -91,22 +92,6 @@ export const Alert: FC<AlertProps> = ({
 
   const contentColor = AlertContentColor()
   let backgroundColor, borderColor, iconName: IconProps['name']
-
-  // TODO: Replace with typography tokens
-  const headerFont: TextStyle = {
-    color: contentColor,
-    fontFamily: 'SourceSansPro-Bold',
-    fontSize: 20,
-    lineHeight: 30,
-  }
-
-  // TODO: Replace with typography tokens
-  const descriptionFont: TextStyle = {
-    color: contentColor,
-    fontFamily: 'SourceSansPro-Regular',
-    fontSize: 20,
-    lineHeight: 30,
-  }
 
   switch (variant) {
     case 'info':
@@ -143,8 +128,9 @@ export const Alert: FC<AlertProps> = ({
   const iconViewStyle: ViewStyle = {
     flexDirection: 'row',
     // Below keeps icon aligned with first row of text, centered, and scalable
+    // If Text variant for header changes, token referenced in minHeight must change accordingly
     alignSelf: 'flex-start',
-    minHeight: headerFont.lineHeight! * fontScale,
+    minHeight: typography.vadsFontHeadingSmall.lineHeight! * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
@@ -170,7 +156,12 @@ export const Alert: FC<AlertProps> = ({
   const _header = () => {
     if (!header) return null
 
-    const headerText = <Text style={headerFont}>{header}</Text>
+    const headerText = (
+      <Text variant="heading" size="sm" bottomSpacing="none">
+        {header}
+      </Text>
+    )
+
     const a11yLabel = headerA11yLabel || header
     const hitSlop: Insets = {
       // left border/padding + spacer + icon width
@@ -254,8 +245,10 @@ export const Alert: FC<AlertProps> = ({
                 ) : null}
                 {description ? (
                   <Text
-                    style={descriptionFont}
-                    aria-label={descriptionA11yLabel || description}>
+                    variant="body"
+                    size="lg"
+                    bottomSpacing="none"
+                    a11yLabel={descriptionA11yLabel || description}>
                     {description}
                   </Text>
                 ) : null}
