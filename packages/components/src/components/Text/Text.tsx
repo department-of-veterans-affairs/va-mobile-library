@@ -124,7 +124,7 @@ export const Text: FC<TextProps> = ({
     textAlign: center ? 'center' : 'auto',
   }
 
-  if (bold && variant === 'body') {
+  if (bold) {
     style.fontFamily = family.vadsFontFamilySansSerifBold
   }
 
