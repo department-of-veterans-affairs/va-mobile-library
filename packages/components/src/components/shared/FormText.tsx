@@ -12,9 +12,6 @@ type FormTextProps = {
   text?: StringOrTextWithA11y
 }
 
-/**
- * Fonts
- */
 const { typography } = font
 
 export type HeaderProps = FormTextProps & {
