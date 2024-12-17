@@ -1,5 +1,21 @@
 # Changelog
 
+## [components-v0.30.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.0) (2024-12-16)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.29.0...components-v0.30.0)
+
+**Closed issues:**
+
+- DS - Text Component and Typography Tokens - Flagship Work Setup [\#602](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/602)
+- DS - Update existing components to use typography tokens and/or Text component [\#559](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/559)
+- DS - Text Component and Typography Tokens Flagship Work Setup [\#556](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/556)
+- \[Design Tokens\] Colors: Add new tokens [\#542](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/542)
+- DS - Q4 Bug & Maintenance Mgmt [\#534](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/534)
+- DS - RadioButton Flagship Work Setup [\#528](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/528)
+- DS - Expand Platform Service Blueprint [\#403](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/403)
+- DS - Design Tokens - Typography [\#79](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/79)
+- DS - Create RadioButton Component [\#70](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/70)
+
 ## [components-v0.29.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.29.0) (2024-12-16)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/tokens-v0.23.0...components-v0.29.0)
