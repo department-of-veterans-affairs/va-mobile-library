@@ -1,10 +1,11 @@
 import { Animated, Easing, View, ViewStyle } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { Text } from '../Text/Text'
 import { useTheme } from '../../utils'
+import { isAndroid, isIOS } from '../../utils/OSfunctions'
 
 export type LoadingIndicatorProps = {
   /** AccessibilityLabel for the text */
@@ -30,19 +31,19 @@ export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
   children,
 }) => {
   const theme = useTheme()
-  const rotation = new Animated.Value(0)
+  const rotation = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
-    const animate = () => {
-      rotation.setValue(0) // Reset the rotation value to 0
+    const animation = Animated.loop(
       Animated.timing(rotation, {
         toValue: 1,
         duration: 1500,
         easing: Easing.linear,
-        useNativeDriver: true,
-      }).start(() => animate()) // Loop the animation
-    }
-    animate()
+        useNativeDriver: isAndroid() || isIOS(),
+      }),
+    )
+    animation.start() // Loop the animation
+    return () => animation.stop() // Cleanup animation when component unmounts
   }, [rotation])
 
   const rotate = rotation.interpolate({
