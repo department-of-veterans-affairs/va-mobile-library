@@ -4,8 +4,8 @@ import React, { useEffect, useRef } from 'react'
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
 import { Text } from '../Text/Text'
-import { useTheme } from '../../utils'
 import { isAndroid, isIOS } from '../../utils/OSfunctions'
+import { useTheme } from '../../utils'
 
 export type LoadingIndicatorProps = {
   /** AccessibilityLabel for the text */
