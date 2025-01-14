@@ -168,20 +168,20 @@ export const Alert: FC<AlertProps> = ({
       </Text>
     )
 
-    const hitSlop: Insets = {
-      // left border/padding + spacer + icon width
-      left: spacing.vadsSpaceLg + spacing.vadsSpaceXs + spacing.vadsSpaceXl,
-      top: spacing.vadsSpaceLg,
-      // bottom spacing changes depending on expanded state
-      bottom: expanded ? spacing.vadsSpaceSm : spacing.vadsSpaceLg,
-      right: spacing.vadsSpaceLg,
-    }
-
     /**
      * Wrap header text and expand icon in Pressable if the Alert is expandable
      * Otherwise just return header text
      */
     if (expandable) {
+      const hitSlop: Insets = {
+        // left border/padding + spacer + icon width
+        left: spacing.vadsSpaceLg + spacing.vadsSpaceXs + spacing.vadsSpaceXl,
+        top: spacing.vadsSpaceLg,
+        // bottom spacing changes depending on expanded state
+        bottom: expanded ? spacing.vadsSpaceSm : spacing.vadsSpaceLg,
+        right: spacing.vadsSpaceLg,
+      }
+
       return (
         <Pressable
           onPress={toggleExpand}
