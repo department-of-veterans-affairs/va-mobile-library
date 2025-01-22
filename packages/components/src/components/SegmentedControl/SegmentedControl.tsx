@@ -11,7 +11,7 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, useTheme } from '../../utils'
+import { isIOS, PressableOpacityStyle, useTheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -96,6 +96,13 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       total: labels.length,
     })
 
+    const accessibilityValueText = isIOS()
+      ? t('tab') +
+        ', ' +
+        (isSelected ? t('selected') + ', ' : '') +
+        a11yListPosition
+      : a11yListPosition
+
     const textStyle: TextStyle = {
       ...typography.vadsFontBodyLarge,
       fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
@@ -112,7 +119,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         key={index}
         widthPct={`${100 / labels.length}%`}
         aria-label={accessibilityLabel}
-        aria-valuetext={a11yListPosition}
+        aria-valuetext={accessibilityValueText}
         accessibilityHint={a11yHints ? a11yHints[index] : ''}
         role={'tab'}
         accessibilityState={{ selected: isSelected }}
