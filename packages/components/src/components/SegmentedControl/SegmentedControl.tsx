@@ -11,7 +11,7 @@ import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { isIOS, PressableOpacityStyle, useTheme } from '../../utils'
+import { PressableOpacityStyle, isIOS, useTheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
