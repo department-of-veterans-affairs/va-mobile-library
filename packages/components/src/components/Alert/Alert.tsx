@@ -156,33 +156,37 @@ export const Alert: FC<AlertProps> = ({
   const _header = () => {
     if (!header) return null
 
+    const a11yLabel = headerA11yLabel || header
+
     const headerText = (
-      <Text variant="heading" size="sm" bottomSpacing="none">
+      <Text
+        variant="heading"
+        size="sm"
+        bottomSpacing="none"
+        a11yLabel={a11yLabel}>
         {header}
       </Text>
     )
 
-    const a11yLabel = headerA11yLabel || header
-    const hitSlop: Insets = {
-      // left border/padding + spacer + icon width
-      left: spacing.vadsSpaceLg + spacing.vadsSpaceXs + spacing.vadsSpaceXl,
-      top: spacing.vadsSpaceLg,
-      // bottom spacing changes depending on expanded state
-      bottom: expanded ? spacing.vadsSpaceSm : spacing.vadsSpaceLg,
-      right: spacing.vadsSpaceLg,
-    }
-
     /**
      * Wrap header text and expand icon in Pressable if the Alert is expandable
-     * Otherwise wrap in View with accessibility props
+     * Otherwise just return header text
      */
     if (expandable) {
+      const hitSlop: Insets = {
+        // left border/padding + spacer + icon width
+        left: spacing.vadsSpaceLg + spacing.vadsSpaceXs + spacing.vadsSpaceXl,
+        top: spacing.vadsSpaceLg,
+        // bottom spacing changes depending on expanded state
+        bottom: expanded ? spacing.vadsSpaceSm : spacing.vadsSpaceLg,
+        right: spacing.vadsSpaceLg,
+      }
+
       return (
         <Pressable
           onPress={toggleExpand}
           role="tab"
           aria-expanded={expanded}
-          aria-label={a11yLabel}
           hitSlop={hitSlop}
           style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>{headerText}</View>
@@ -191,11 +195,7 @@ export const Alert: FC<AlertProps> = ({
       )
     }
 
-    return (
-      <View accessible={true} aria-label={a11yLabel} role="heading">
-        {headerText}
-      </View>
-    )
+    return headerText
   }
 
   const _primaryButton = () => {
