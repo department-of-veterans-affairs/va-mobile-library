@@ -159,11 +159,7 @@ export const Alert: FC<AlertProps> = ({
     const a11yLabel = headerA11yLabel || header
 
     const headerText = (
-      <Text
-        variant="heading"
-        size="sm"
-        bottomSpacing="none"
-        a11yLabel={a11yLabel}>
+      <Text variant="heading" size="sm" bottomSpacing="none">
         {header}
       </Text>
     )
@@ -187,6 +183,7 @@ export const Alert: FC<AlertProps> = ({
           onPress={toggleExpand}
           role="tab"
           aria-expanded={expanded}
+          aria-label={a11yLabel}
           hitSlop={hitSlop}
           style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>{headerText}</View>
@@ -195,7 +192,11 @@ export const Alert: FC<AlertProps> = ({
       )
     }
 
-    return headerText
+    return (
+      <View accessible={true} aria-label={a11yLabel}>
+        {headerText}
+      </View>
+    )
   }
 
   const _primaryButton = () => {
