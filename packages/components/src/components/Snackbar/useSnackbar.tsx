@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useCallback, useContext, useMemo } from 'react'
 
 import * as Toast from 'react-native-toast-notifications'
 
@@ -22,32 +22,39 @@ export function useSnackbar() {
     throw new Error('useSnackbar must be used within a SnackbarProvider')
   }
 
-  const show = (message: string, snackbarOptions?: SnackbarOptions) => {
-    const { offset, setOffset } = context
+  const { offset, setOffset } = context
 
-    const customOffset = snackbarOptions?.offset
+  const show = useCallback(
+    (message: string, snackbarOptions?: SnackbarOptions) => {
+      const customOffset = snackbarOptions?.offset
 
-    // Custom offset if provided, else default
-    const newOffset = customOffset === undefined ? defaultOffset : customOffset
+      // Custom offset if provided, else default
+      const newOffset =
+        customOffset === undefined ? defaultOffset : customOffset
 
-    // Only call setOffset if different from current to avoid re-render
-    if (newOffset !== offset) {
-      setOffset(newOffset)
-    }
+      // Only call setOffset if different from current to avoid re-render
+      if (newOffset !== offset) {
+        setOffset(newOffset)
+      }
 
-    // Auto-dismiss if screen reader is on and there is no action button
-    const duration =
-      screenReaderEnabled && !snackbarOptions?.onActionPressed
-        ? SNACKBAR_DURATIONS.SCREEN_READER
-        : SNACKBAR_DURATIONS.DEFAULT
+      // Auto-dismiss if screen reader is on and there is no action button
+      const duration =
+        screenReaderEnabled && !snackbarOptions?.onActionPressed
+          ? SNACKBAR_DURATIONS.SCREEN_READER
+          : SNACKBAR_DURATIONS.DEFAULT
 
-    toast.hideAll()
-    toast.show(message, { data: snackbarOptions, duration })
-  }
+      toast.hideAll()
+      toast.show(message, { data: snackbarOptions, duration })
+    },
+    [defaultOffset, offset, screenReaderEnabled, setOffset, toast],
+  )
 
-  return {
-    show,
-    hide: toast.hideAll,
-    isOpen: toast.isOpen,
-  }
+  return useMemo(
+    () => ({
+      show,
+      hide: toast.hideAll,
+      isOpen: toast.isOpen,
+    }),
+    [show, toast],
+  )
 }
