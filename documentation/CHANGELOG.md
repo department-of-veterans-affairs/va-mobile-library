@@ -1,5 +1,26 @@
 # Changelog
 
+## [components-v0.30.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.1) (2025-02-17)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.30.0...components-v0.30.1)
+
+**Implemented enhancements:**
+
+- \[Enhancement\] Improve loading indicator animation loop and cleanup [\#622](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/622) ([oddballdave](https://github.com/oddballdave))
+- \[Enhancement\] Add useMemo and useCallback to useSnackbar Hook [\#617](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/617) ([oddballdave](https://github.com/oddballdave))
+
+**Closed issues:**
+
+- BUG - Sev-3 - All - Alert component has duplicate heading accessibility roles when not expandable [\#620](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/620)
+- BUG - Sev-3 - iOS - VoiceOver not announcing role of SegmentedControl component [\#619](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/619)
+- DS - Improve LoadingIndicator Animation Loop and Cleanup [\#618](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/618)
+- DS - Add useMemo and useCallback to useSnackbar hook [\#603](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/603)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix VoiceOver for SegmentedControl [\#625](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/625) ([oddballdave](https://github.com/oddballdave))
+- \[Bug\] Fix duplicate heading roles in Alert component [\#621](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/621) ([oddballdave](https://github.com/oddballdave))
+
 ## [components-v0.30.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.0) (2024-12-16)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.29.0...components-v0.30.0)
