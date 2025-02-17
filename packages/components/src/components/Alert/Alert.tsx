@@ -156,17 +156,17 @@ export const Alert: FC<AlertProps> = ({
   const _header = () => {
     if (!header) return null
 
-    const a11yLabel = headerA11yLabel || header
-
     const headerText = (
       <Text variant="heading" size="sm" bottomSpacing="none">
         {header}
       </Text>
     )
 
+    const a11yLabel = headerA11yLabel || header
+
     /**
      * Wrap header text and expand icon in Pressable if the Alert is expandable
-     * Otherwise just return header text
+     * Otherwise wrap in View with accessibility props
      */
     if (expandable) {
       const hitSlop: Insets = {
