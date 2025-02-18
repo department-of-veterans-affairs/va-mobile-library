@@ -1,5 +1,13 @@
 # Changelog
 
+## [components-v0.30.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.2) (2025-02-18)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.30.1...components-v0.30.2)
+
+**Closed issues:**
+
+- BUG - Sev 3 - iOS - Alert component heading not announced with VoiceOver [\#630](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/630)
+
 ## [components-v0.30.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.1) (2025-02-17)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.30.0...components-v0.30.1)
