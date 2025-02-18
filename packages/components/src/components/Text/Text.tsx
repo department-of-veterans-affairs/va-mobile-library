@@ -139,7 +139,6 @@ export const Text: FC<TextProps> = ({
   const textProps: RNTextProps = {
     accessibilityLabel: a11yLabel,
     style,
-    role: variant === 'heading' ? 'heading' : undefined,
   }
 
   return <RNText {...textProps}>{children}</RNText>
