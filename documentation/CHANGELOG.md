@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.30.3](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.3) (2025-02-19)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.30.2...components-v0.30.3)
+
+**Closed issues:**
+
+- BUG - Sev 3 - All - Alert icon is misaligned vertically when no header is specified [\#632](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/632)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix Alert icon alignment when no header is present [\#633](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/633) ([oddballdave](https://github.com/oddballdave))
+
 ## [components-v0.30.2](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.2) (2025-02-18)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.30.1...components-v0.30.2)
@@ -7,6 +19,10 @@
 **Closed issues:**
 
 - BUG - Sev 3 - iOS - Alert component heading not announced with VoiceOver [\#630](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/630)
+
+**Merged pull requests:**
+
+- \[Bug\] Fix VoiceOver for Alert headings [\#631](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/631) ([oddballdave](https://github.com/oddballdave))
 
 ## [components-v0.30.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.30.1) (2025-02-17)
 
