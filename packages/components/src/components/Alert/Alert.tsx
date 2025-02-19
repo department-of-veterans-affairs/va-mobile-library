@@ -128,9 +128,13 @@ export const Alert: FC<AlertProps> = ({
   const iconViewStyle: ViewStyle = {
     flexDirection: 'row',
     // Below keeps icon aligned with first row of text, centered, and scalable
-    // If Text variant for header changes, token referenced in minHeight must change accordingly
+    // If Text variant for header or description changes, tokens referenced in
+    // minHeight must change accordingly
     alignSelf: 'flex-start',
-    minHeight: typography.vadsFontHeadingSmall.lineHeight! * fontScale,
+    minHeight:
+      (header
+        ? typography.vadsFontHeadingSmall.lineHeight!
+        : typography.vadsFontBodyLarge.lineHeight!) * fontScale,
     alignItems: 'center',
     justifyContent: 'center',
   }
