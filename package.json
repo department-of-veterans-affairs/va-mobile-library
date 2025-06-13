@@ -27,7 +27,7 @@
     "eslint-plugin-tsdoc": "^0.3.0",
     "prettier": "3.3.3",
     "prettier-eslint": "^16.3.0",
-    "typescript": "~5.3.3"
+    "typescript": "^5.8.3"
   },
   "resolutions": {
     "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0",

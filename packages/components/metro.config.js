@@ -40,6 +40,8 @@ module.exports = (() => {
     ],
     // Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
     disableHierarchicalLookup: true,
+    // Fix due to breaking change with RN 0.79 (see https://github.com/expo/expo/discussions/36551)
+    unstable_enablePackageExports: false,
   }
 
   return config
