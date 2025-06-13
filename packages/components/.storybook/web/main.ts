@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   stories: [
-    '../../storybook/*.stories.mdx',
+    '../../storybook/*.mdx',
     '../../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
@@ -20,7 +20,11 @@ module.exports = {
     builder: 'webpack5',
     disableWhatsNewNotifications: true,
   },
-  framework: '@storybook/react-webpack5',
+  // Force import of react-webpack5 to ensure compatibility
+  framework: path.resolve(
+    require.resolve('@storybook/react-webpack5'),
+    '..',
+  ) as any,
   options: { builder: { useSWC: true } }, // improves build performance
   staticDirs: ['../../src/assets'],
   webpackFinal: async (config) => {
