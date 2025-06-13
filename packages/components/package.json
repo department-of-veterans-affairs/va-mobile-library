@@ -57,6 +57,7 @@
     "@babel/core": "^7.25.2",
     "@babel/plugin-transform-react-jsx": "^7.24.7",
     "@babel/preset-env": "^7.24.8",
+    "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.24.7",
     "@department-of-veterans-affairs/mobile-assets": "0.14.0",
     "@department-of-veterans-affairs/mobile-tokens": "0.23.0",
@@ -74,10 +75,15 @@
     "@storybook/addon-ondevice-actions": "^7.6.20",
     "@storybook/addon-ondevice-controls": "^7.6.20",
     "@storybook/addon-react-native-web": "^0.0.24",
+    "@storybook/addons": "7.6.17",
     "@storybook/builder-webpack5": "7.6.20",
+    "@storybook/components": "^7.6.20",
+    "@storybook/manager-api": "^7.6.20",
+    "@storybook/preview-api": "^7.6.20",
     "@storybook/react": "7.6.20",
     "@storybook/react-native": "^7.6.20",
     "@storybook/react-webpack5": "7.6.20",
+    "@storybook/theming": "^7.6.20",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/react-native": "^12.5.1",
     "@types/jest": "^29.5.12",
@@ -113,6 +119,7 @@
     "storybook": "7.6.20",
     "storybook-dark-mode": "^3.0.3",
     "ts-jest": "^29.2.3",
-    "typescript": "~5.8.3"
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9"
   }
 }

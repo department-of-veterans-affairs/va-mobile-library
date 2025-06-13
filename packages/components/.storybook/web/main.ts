@@ -20,11 +20,7 @@ module.exports = {
     builder: 'webpack5',
     disableWhatsNewNotifications: true,
   },
-  // Force import of react-webpack5 to ensure compatibility
-  framework: path.resolve(
-    require.resolve('@storybook/react-webpack5'),
-    '..',
-  ) as any,
+  framework: '@storybook/react-webpack5',
   options: { builder: { useSWC: true } }, // improves build performance
   staticDirs: ['../../src/assets'],
   webpackFinal: async (config) => {
