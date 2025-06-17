@@ -1,3 +1,4 @@
+import { dirname, join } from 'path'
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 
@@ -6,23 +7,36 @@ module.exports = {
     '../../storybook/*.stories.mdx',
     '../../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
+
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-react-native-web',
-    '@storybook/addon-designs',
-    'storybook-dark-mode',
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-react-native-web'),
+    getAbsolutePath('@storybook/addon-designs'),
+    getAbsolutePath('storybook-dark-mode'),
+    '@chromatic-com/storybook',
   ],
-  docs: {
-    autodocs: true,
-  },
+
+  // docs: {
+  //   autodocs: true,
+  // },
+
   core: {
-    builder: 'webpack5',
+    builder: getAbsolutePath('webpack5'),
     disableWhatsNewNotifications: true,
   },
-  framework: '@storybook/react-webpack5',
-  options: { builder: { useSWC: true } }, // improves build performance
+
+  // Force import of react-webpack5 to ensure compatibility
+  framework: path.resolve(
+    require.resolve('@storybook/react-webpack5'),
+    '..',
+  ) as any,
+
+  // improves build performance
+  options: { builder: { useSWC: true } },
+
   staticDirs: ['../../src/assets'],
+
   webpackFinal: async (config) => {
     // Copies fonts from mobile-assets to storybook static folder
     config.plugins.push(
@@ -48,4 +62,12 @@ module.exports = {
 
     return config
   },
+
+  //   typescript: {
+  //     reactDocgen: 'react-docgen-typescript',
+  //   },
+}
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, 'package.json')))
 }

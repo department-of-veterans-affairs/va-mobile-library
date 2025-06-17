@@ -25,4 +25,5 @@ export const parameters = {
       sort: 'requiredFirst',
     },
   },
+  tags: ['autodocs'],
 }
