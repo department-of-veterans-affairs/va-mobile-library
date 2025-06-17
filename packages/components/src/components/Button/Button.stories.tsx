@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
-import React from 'react'
 
 import { Button, ButtonProps, ButtonVariants } from './Button'
 import { generateDocs } from '../../utils/storybook'

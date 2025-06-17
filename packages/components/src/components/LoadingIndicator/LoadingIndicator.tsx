@@ -1,5 +1,5 @@
 import { Animated, Easing, View, ViewStyle } from 'react-native'
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'

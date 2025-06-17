@@ -1,13 +1,28 @@
-import {
-  Controls,
-  Description,
-  Primary,
-  Stories,
-  Subtitle,
-  Title,
-} from '@storybook/addon-docs'
-import { Linking, Text, View } from 'react-native'
-import React from 'react'
+// import {
+//   Controls,
+//   Description,
+//   Primary,
+//   Stories,
+//   Subtitle,
+//   Title,
+// } from '@storybook/addon-docs'
+import { Linking, Platform, Text, View } from 'react-native'
+
+// Only import doc components on web platform
+let Controls, Description, Primary, Stories, Subtitle, Title
+if (Platform.OS === 'web') {
+  ;({
+    Controls,
+    Description,
+    Primary,
+    Stories,
+    Subtitle,
+    Title,
+  } = require('@storybook/addon-docs'))
+} else {
+  // Provide empty component implementations for native
+  Controls = Description = Primary = Stories = Subtitle = Title = () => null
+}
 
 // Export related hooks
 export { useWebStorybookColorScheme } from './hooks/useWebStorybookColorScheme'
@@ -53,17 +68,20 @@ export const DocLink = ({ name, docUrl }: DocProps) => {
  * @param icons - IconGallery documentation section passthrough
  * @returns
  */
-export const generateDocs = ({ name, docUrl, icons }: DocProps) => ({
-  page: () => (
-    <>
-      <Title />
-      <Subtitle />
-      <DocLink name={name} docUrl={docUrl} />
-      <Description />
-      <Primary />
-      <Controls />
-      {icons ? icons : null}
-      <Stories />
-    </>
-  ),
-})
+export const generateDocs = ({ name, docUrl, icons }: DocProps) =>
+  Platform.OS === 'web'
+    ? {
+        page: () => (
+          <>
+            <Title />
+            <Subtitle />
+            <DocLink name={name} docUrl={docUrl} />
+            <Description />
+            <Primary />
+            <Controls />
+            {icons ? icons : null}
+            <Stories />
+          </>
+        ),
+      }
+    : {}

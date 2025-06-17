@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
-import React from 'react'
 
 import { Link, LinkProps } from './Link'
 import { generateDocs } from '../../utils/storybook'

@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { View, ViewStyle } from 'react-native'
-import React from 'react'
 
 import { Button, ButtonVariants } from '../Button/Button'
 import { Icon } from '../Icon/Icon'
@@ -25,8 +24,8 @@ const meta: Meta<SpacerProps> = {
     ),
   ],
   parameters: {
-    docs: generateDocs({})
-  }
+    docs: generateDocs({}),
+  },
 }
 
 export default meta

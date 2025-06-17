@@ -3,9 +3,9 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo', '@babel/preset-typescript'],
     plugins: [
-      '@babel/plugin-transform-react-jsx',
+      ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }],
       'react-native-reanimated/plugin',
-      ['babel-plugin-react-docgen-typescript', { exclude: 'node_modules' }],
+      // ['babel-plugin-react-docgen-typescript', { exclude: 'node_modules' }],
     ],
   }
 }

@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
-import React from 'react'
 
 import { Text, TextProps, baseToneValues } from './Text'
 import { generateDocs } from '../../utils/storybook'

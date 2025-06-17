@@ -1,5 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react-native'
-import React from 'react'
 
 import { Icon } from '../Icon/Icon'
 import { Snackbar, SnackbarProps } from './Snackbar'

@@ -6,8 +6,8 @@ import {
   Pressable,
   Text,
 } from 'react-native'
+import { FC } from 'react'
 import { fireEvent, render, screen } from '@testing-library/react-native'
-import React, { FC } from 'react'
 
 import { ComponentWrapper } from '../wrapper'
 import {

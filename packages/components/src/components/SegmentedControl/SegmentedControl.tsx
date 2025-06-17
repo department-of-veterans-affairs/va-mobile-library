@@ -1,3 +1,4 @@
+import { FC, useEffect } from 'react'
 import {
   Pressable,
   Text as RNText,
@@ -7,7 +8,6 @@ import {
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
-import React, { FC, useEffect } from 'react'
 import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'

@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { Platform, View } from 'react-native'
-import React from 'react'
 
 import { Button } from '../Button/Button'
 import { Snackbar, SnackbarOptions, SnackbarProps } from './Snackbar'

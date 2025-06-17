@@ -6,7 +6,6 @@ import {
   ViewStyle,
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import React from 'react'
 
 import { useTheme } from '../../utils'
 

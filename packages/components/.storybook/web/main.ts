@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   stories: [
-    '../../storybook/*.stories.mdx',
+    // '../../storybook/*.stories.mdx',
     '../../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
@@ -23,6 +23,9 @@ module.exports = {
   framework: '@storybook/react-webpack5',
   options: { builder: { useSWC: true } }, // improves build performance
   staticDirs: ['../../src/assets'],
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
   webpackFinal: async (config) => {
     // Copies fonts from mobile-assets to storybook static folder
     config.plugins.push(

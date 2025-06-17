@@ -1,3 +1,4 @@
+import { FC, useState } from 'react'
 import {
   Insets,
   Pressable,
@@ -6,7 +7,6 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import React, { FC, useState } from 'react'
 
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'

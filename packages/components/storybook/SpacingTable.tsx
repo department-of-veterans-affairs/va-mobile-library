@@ -1,5 +1,5 @@
+import { CSSProperties } from 'react'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import React, { CSSProperties } from 'react'
 
 import { useTheme } from '../src/utils'
 

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup'
 import { generateDocs } from '../../utils/storybook'

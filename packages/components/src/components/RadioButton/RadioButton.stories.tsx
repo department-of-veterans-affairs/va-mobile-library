@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { RadioButton, RadioButtonProps } from './RadioButton'
 import { generateDocs } from '../../utils/storybook'

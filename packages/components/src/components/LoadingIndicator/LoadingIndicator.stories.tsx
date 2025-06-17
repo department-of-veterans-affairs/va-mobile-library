@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { View } from 'react-native'
-import React from 'react'
 
 import { Link } from '../Link/Link'
 import { LoadingIndicator, LoadingIndicatorProps } from './LoadingIndicator'

@@ -1,7 +1,7 @@
+import { FC, Fragment } from 'react'
 import { View, ViewStyle } from 'react-native'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
-import React, { FC, Fragment } from 'react'
 
 import { CheckboxRadio } from '../shared/CheckboxRadio'
 import { ComponentWrapper } from '../../wrapper'

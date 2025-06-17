@@ -1,6 +1,5 @@
 import 'react-native'
 import { fireEvent, render, screen } from '@testing-library/react-native'
-import React from 'react'
 
 import { CheckboxGroup } from './CheckboxGroup'
 

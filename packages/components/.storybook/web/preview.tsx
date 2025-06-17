@@ -1,5 +1,5 @@
-import React from 'react'
 import { DocsContainer } from '@storybook/addon-docs'
+import { createElement } from 'react'
 import { themes } from '@storybook/theming'
 import { useDarkMode } from 'storybook-dark-mode'
 
@@ -19,7 +19,7 @@ export const parameters = {
       const isDark = useDarkMode()
       const currentProps = { ...props }
       currentProps.theme = isDark ? themes.dark : themes.light
-      return React.createElement(DocsContainer, currentProps)
+      return createElement(DocsContainer, currentProps)
     },
     controls: {
       sort: 'requiredFirst',

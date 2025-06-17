@@ -6,7 +6,6 @@ import {
   screen,
   userEvent,
 } from '@testing-library/react-native'
-import React from 'react'
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock'
 
 import { AccessibilityInfo } from 'react-native'

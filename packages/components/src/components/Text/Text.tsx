@@ -1,10 +1,10 @@
+import { FC } from 'react'
 import {
   Text as RNText,
   TextProps as RNTextProps,
   TextStyle,
 } from 'react-native'
 import { font } from '@department-of-veterans-affairs/mobile-tokens'
-import React, { FC } from 'react'
 
 import { SpacerSize } from '../Spacer/Spacer'
 import { getSpacingToken, useTheme } from '../../utils'

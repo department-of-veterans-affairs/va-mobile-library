@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
-import React from 'react'
+import { Platform, View } from 'react-native'
 
 import { Alert, AlertProps } from './Alert'
 import { Link } from '../Link/Link'
@@ -23,11 +22,14 @@ const meta: Meta<AlertProps> = {
     ),
   ],
   parameters: {
-    docs: generateDocs({
-      name: 'Alert',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20Progress/Alert',
-    }),
+    docs:
+      Platform.OS === 'web'
+        ? generateDocs({
+            name: 'Alert',
+            docUrl:
+              'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20Progress/Alert',
+          })
+        : null,
   },
 }
 

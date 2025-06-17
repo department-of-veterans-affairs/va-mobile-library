@@ -1,7 +1,7 @@
+import { FC } from 'react'
 import { Text as RNText } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
-import React, { FC } from 'react'
 
 import { StringOrTextWithA11y } from '../../types/common'
 import { Text, TextProps } from '../Text/Text'

@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import {
   Pressable,
   PressableProps,
@@ -7,7 +8,6 @@ import {
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { t } from 'i18next'
-import React, { FC } from 'react'
 
 import { ComponentWrapper } from '../../wrapper'
 import {
