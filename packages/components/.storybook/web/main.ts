@@ -4,7 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   stories: [
-    '../../storybook/*.stories.mdx',
+    // '../../storybook/*.stories.mdx',
     '../../src/components/**/*.stories.@(js|jsx|ts|tsx)',
   ],
 
@@ -14,15 +14,14 @@ module.exports = {
     getAbsolutePath('@storybook/addon-react-native-web'),
     getAbsolutePath('@storybook/addon-designs'),
     getAbsolutePath('storybook-dark-mode'),
-    '@chromatic-com/storybook',
   ],
 
-  // docs: {
-  //   autodocs: true,
-  // },
+  docs: {
+    autodocs: true,
+  },
 
   core: {
-    builder: getAbsolutePath('webpack5'),
+    builder: getAbsolutePath('@storybook/builder-webpack5'),
     disableWhatsNewNotifications: true,
   },
 
