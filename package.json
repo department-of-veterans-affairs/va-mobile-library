@@ -30,15 +30,11 @@
     "typescript": "~5.3.3"
   },
   "resolutions": {
-    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0",
     "ip": "^2.0.1",
-    "react-docgen-typescript": "2.2.2",
     "semver": "^7.5.3"
   },
   "overrides": {
-    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0",
     "ip": "^2.0.1",
-    "react-docgen-typescript": "2.2.2",
     "semver": "^7.5.3"
   }
 }
