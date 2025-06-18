@@ -3524,12 +3524,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/component-library@npm:^46.3.0":
-  version: 46.3.0
-  resolution: "@department-of-veterans-affairs/component-library@npm:46.3.0"
+"@department-of-veterans-affairs/component-library@npm:^50.5.0":
+  version: 50.5.0
+  resolution: "@department-of-veterans-affairs/component-library@npm:50.5.0"
   dependencies:
     "@department-of-veterans-affairs/react-components": "npm:28.1.0"
-    "@department-of-veterans-affairs/web-components": "npm:14.3.0"
+    "@department-of-veterans-affairs/web-components": "npm:18.4.0"
     i18next: "npm:^21.6.14"
     i18next-browser-languagedetector: "npm:^6.1.4"
     react-focus-on: "npm:^3.5.1"
@@ -3538,18 +3538,7 @@ __metadata:
     "@department-of-veterans-affairs/formation": "*"
     react: ^18
     react-dom: "*"
-  checksum: 69e6103c735aa19325ba29d92600d0404dc3302a6939f6037b2397e5703454cba7cb0feaf1cd97ab97806f57f739092cd248bd843b533d50272db2df0b6acbb9
-  languageName: node
-  linkType: hard
-
-"@department-of-veterans-affairs/css-library@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "@department-of-veterans-affairs/css-library@npm:0.11.0"
-  dependencies:
-    "@divriots/style-dictionary-to-figma": "npm:^0.4.0"
-    "@uswds/uswds": "npm:^3.8.1"
-    rimraf: "npm:^5.0.5"
-  checksum: 868ccff44e895d89da660da26a001af65984df8cc1ee551a78509529adf1381dca649e03e5a96d4f6428708e708eb570098ab34b5a6bf3aba6d28d4e5ebac7ba
+  checksum: e83480bb730ad9536cdfd1e19e67dcf0ceb230818197fc174321e3204c02d3ed62a0434151a2daee147d116f85a8bab99e46ac33d067e010fdb10f2b2c7c0a1f
   languageName: node
   linkType: hard
 
@@ -3586,7 +3575,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@department-of-veterans-affairs/mobile-assets@workspace:packages/assets"
   dependencies:
-    "@department-of-veterans-affairs/component-library": "npm:^46.3.0"
+    "@department-of-veterans-affairs/component-library": "npm:^50.5.0"
     hast-util-to-html: "npm:^9.0.1"
   languageName: unknown
   linkType: soft
@@ -3723,22 +3712,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@department-of-veterans-affairs/web-components@npm:14.3.0":
-  version: 14.3.0
-  resolution: "@department-of-veterans-affairs/web-components@npm:14.3.0"
+"@department-of-veterans-affairs/web-components@npm:18.4.0":
+  version: 18.4.0
+  resolution: "@department-of-veterans-affairs/web-components@npm:18.4.0"
   dependencies:
-    "@department-of-veterans-affairs/css-library": "npm:^0.11.0"
     "@stencil/core": "npm:4.20.0"
     aria-hidden: "npm:^1.1.3"
     body-scroll-lock: "npm:^4.0.0-beta.0"
     chromatic: "npm:^11.0.4"
     classnames: "npm:^2.3.1"
     intersection-observer: "npm:^0.12.0"
+    libphonenumber-js: "npm:^1.12.7"
   peerDependencies:
     "@department-of-veterans-affairs/formation": ^11.0.6
     i18next: "*"
     i18next-browser-languagedetector: "*"
-  checksum: 465a8e88868d18209f0457c2f1d0ab163daf04af68873d0f5aea364fa487541d39b848ffd8ed324a0f280932a48b9e1a039d9337606e56e446056fe28cf43ef2
+  checksum: bfd55704618c3beb5c0588e12165d3a7a4d9aa48558dfdd5784e2a4378fa3e4ae6cc680f8741364bc0e8d39ffbf4da030f6580ad0fdae93b5032ece07bdb7031
   languageName: node
   linkType: hard
 
@@ -8520,17 +8509,6 @@ __metadata:
   peerDependencies:
     "@urql/core": ^5.0.0
   checksum: 4a4e54fbf21b7bd221e9d29acd885b16b154f3660aab4ce5bc257b0093a4aebe1dab4efe692127b43751359ea0c5aa11320a8f422236d22e54918e1637b6b248
-  languageName: node
-  linkType: hard
-
-"@uswds/uswds@npm:^3.8.1":
-  version: 3.8.2
-  resolution: "@uswds/uswds@npm:3.8.2"
-  dependencies:
-    object-assign: "npm:4.1.1"
-    receptor: "npm:1.0.0"
-    resolve-id-refs: "npm:0.1.0"
-  checksum: 878c68dec0a875bce9a64c4decd422035900c9924d2309534a8c00f760676aeabf43b48d95cf1ef6bb18523e77c5c40f607da5e85a5cf2d94a55e8862e0e1db5
   languageName: node
   linkType: hard
 
@@ -15667,6 +15645,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"libphonenumber-js@npm:^1.12.7":
+  version: 1.12.9
+  resolution: "libphonenumber-js@npm:1.12.9"
+  checksum: 77fb86802cdf339f472e6a65394603fec0dabe76faca8b5efb4ebcfada2c11a7b39b6773de400e8ec6528354d4b49317797673b14e921117cadbe6b76f01613d
+  languageName: node
+  linkType: hard
+
 "lighthouse-logger@npm:^1.0.0":
   version: 1.4.2
   resolution: "lighthouse-logger@npm:1.4.2"
@@ -17231,7 +17216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"object-assign@npm:4.1.1, object-assign@npm:^4.0.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
+"object-assign@npm:^4.0.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
   checksum: 1f4df9945120325d041ccf7b86f31e8bcc14e73d29171e37a7903050e96b81323784ec59f93f102ec635bcf6fa8034ba3ea0a8c7e69fa202b87ae3b6cec5a414
