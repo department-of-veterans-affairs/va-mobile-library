@@ -26,19 +26,3 @@ fs.readFile(
     })
   },
 )
-
-fs.readFile('./flag-sprite.svg', 'utf8', function (err, contents) {
-  const parsed = parse(contents)
-  const symbols = parsed.children[0].children
-  let length = 0
-  symbols.forEach((symbol) => {
-    const name = symbol.properties.id
-    symbol.tagName = 'svg'
-    let newIcon = toHtml(symbol)
-    fs.writeFile(`flags/${name}.svg`, newIcon, () => {
-      console.log(name)
-      length += 1
-    })
-    console.log(length, ' icons extracted')
-  })
-})
