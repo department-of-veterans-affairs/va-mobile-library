@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "devDependencies": {
-    "@department-of-veterans-affairs/component-library": "^46.3.0",
+    "@department-of-veterans-affairs/component-library": "^50.5.0",
     "hast-util-to-html": "^9.0.1"
   }
 }
