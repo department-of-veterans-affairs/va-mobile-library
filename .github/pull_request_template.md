@@ -6,6 +6,9 @@ where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
 '[Issue type]/[Issue #]-[Your name]-[Summary of issue]',
 where Issue type = bug, feature, spike, CU (code upkeep), etc.-->
 
+<!-- Update w/ ticket number to cross-repo link PR and ticket -->
+**[Ticket # ](https://github.com/department-of-veterans-affairs/vets-design-system-documentation/issues/# )**
+
 ## Description of Change
 <!-- Describe the change and context with which it was made beyond ACs unless straightforward.
 Consider:
@@ -36,6 +39,7 @@ Consider highlighting:
 - Edge cases validated
 - Special situations that could not be tested
 - Any testing performed in a consuming app -->
+
 
 - [ ] Tested on iOS <!-- simulator is fine -->
 - [ ] Tested on Android <!-- simulator is fine -->
