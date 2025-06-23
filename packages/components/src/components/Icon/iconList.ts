@@ -281,6 +281,277 @@ import Youtube from '@department-of-veterans-affairs/mobile-assets/icons/vads/yo
 import ZoomIn from '@department-of-veterans-affairs/mobile-assets/icons/vads/zoom_in.svg'
 import ZoomOut from '@department-of-veterans-affairs/mobile-assets/icons/vads/zoom_out.svg'
 import ZoomOutMap from '@department-of-veterans-affairs/mobile-assets/icons/vads/zoom_out_map.svg'
+import flag_AD from '@department-of-veterans-affairs/mobile-assets/flags/ad.svg'
+import flag_AE from '@department-of-veterans-affairs/mobile-assets/flags/ae.svg'
+import flag_AF from '@department-of-veterans-affairs/mobile-assets/flags/af.svg'
+import flag_AG from '@department-of-veterans-affairs/mobile-assets/flags/ag.svg'
+import flag_AI from '@department-of-veterans-affairs/mobile-assets/flags/ai.svg'
+import flag_AL from '@department-of-veterans-affairs/mobile-assets/flags/al.svg'
+import flag_AM from '@department-of-veterans-affairs/mobile-assets/flags/am.svg'
+import flag_AO from '@department-of-veterans-affairs/mobile-assets/flags/ao.svg'
+import flag_AQ from '@department-of-veterans-affairs/mobile-assets/flags/aq.svg'
+import flag_AR from '@department-of-veterans-affairs/mobile-assets/flags/ar.svg'
+import flag_ARAB from '@department-of-veterans-affairs/mobile-assets/flags/arab.svg'
+import flag_AS from '@department-of-veterans-affairs/mobile-assets/flags/as.svg'
+import flag_ASEAN from '@department-of-veterans-affairs/mobile-assets/flags/asean.svg'
+import flag_AT from '@department-of-veterans-affairs/mobile-assets/flags/at.svg'
+import flag_AU from '@department-of-veterans-affairs/mobile-assets/flags/au.svg'
+import flag_AW from '@department-of-veterans-affairs/mobile-assets/flags/aw.svg'
+import flag_AX from '@department-of-veterans-affairs/mobile-assets/flags/ax.svg'
+import flag_AZ from '@department-of-veterans-affairs/mobile-assets/flags/az.svg'
+import flag_BA from '@department-of-veterans-affairs/mobile-assets/flags/ba.svg'
+import flag_BB from '@department-of-veterans-affairs/mobile-assets/flags/bb.svg'
+import flag_BD from '@department-of-veterans-affairs/mobile-assets/flags/bd.svg'
+import flag_BE from '@department-of-veterans-affairs/mobile-assets/flags/be.svg'
+import flag_BF from '@department-of-veterans-affairs/mobile-assets/flags/bf.svg'
+import flag_BG from '@department-of-veterans-affairs/mobile-assets/flags/bg.svg'
+import flag_BH from '@department-of-veterans-affairs/mobile-assets/flags/bh.svg'
+import flag_BI from '@department-of-veterans-affairs/mobile-assets/flags/bi.svg'
+import flag_BJ from '@department-of-veterans-affairs/mobile-assets/flags/bj.svg'
+import flag_BL from '@department-of-veterans-affairs/mobile-assets/flags/bl.svg'
+import flag_BM from '@department-of-veterans-affairs/mobile-assets/flags/bm.svg'
+import flag_BN from '@department-of-veterans-affairs/mobile-assets/flags/bn.svg'
+import flag_BO from '@department-of-veterans-affairs/mobile-assets/flags/bo.svg'
+import flag_BQ from '@department-of-veterans-affairs/mobile-assets/flags/bq.svg'
+import flag_BR from '@department-of-veterans-affairs/mobile-assets/flags/br.svg'
+import flag_BS from '@department-of-veterans-affairs/mobile-assets/flags/bs.svg'
+import flag_BT from '@department-of-veterans-affairs/mobile-assets/flags/bt.svg'
+import flag_BV from '@department-of-veterans-affairs/mobile-assets/flags/bv.svg'
+import flag_BW from '@department-of-veterans-affairs/mobile-assets/flags/bw.svg'
+import flag_BY from '@department-of-veterans-affairs/mobile-assets/flags/by.svg'
+import flag_BZ from '@department-of-veterans-affairs/mobile-assets/flags/bz.svg'
+import flag_CA from '@department-of-veterans-affairs/mobile-assets/flags/ca.svg'
+import flag_CC from '@department-of-veterans-affairs/mobile-assets/flags/cc.svg'
+import flag_CD from '@department-of-veterans-affairs/mobile-assets/flags/cd.svg'
+import flag_CEFTA from '@department-of-veterans-affairs/mobile-assets/flags/cefta.svg'
+import flag_CF from '@department-of-veterans-affairs/mobile-assets/flags/cf.svg'
+import flag_CG from '@department-of-veterans-affairs/mobile-assets/flags/cg.svg'
+import flag_CH from '@department-of-veterans-affairs/mobile-assets/flags/ch.svg'
+import flag_CI from '@department-of-veterans-affairs/mobile-assets/flags/ci.svg'
+import flag_CK from '@department-of-veterans-affairs/mobile-assets/flags/ck.svg'
+import flag_CL from '@department-of-veterans-affairs/mobile-assets/flags/cl.svg'
+import flag_CM from '@department-of-veterans-affairs/mobile-assets/flags/cm.svg'
+import flag_CN from '@department-of-veterans-affairs/mobile-assets/flags/cn.svg'
+import flag_CO from '@department-of-veterans-affairs/mobile-assets/flags/co.svg'
+import flag_CP from '@department-of-veterans-affairs/mobile-assets/flags/cp.svg'
+import flag_CR from '@department-of-veterans-affairs/mobile-assets/flags/cr.svg'
+import flag_CU from '@department-of-veterans-affairs/mobile-assets/flags/cu.svg'
+import flag_CV from '@department-of-veterans-affairs/mobile-assets/flags/cv.svg'
+import flag_CW from '@department-of-veterans-affairs/mobile-assets/flags/cw.svg'
+import flag_CX from '@department-of-veterans-affairs/mobile-assets/flags/cx.svg'
+import flag_CY from '@department-of-veterans-affairs/mobile-assets/flags/cy.svg'
+import flag_CZ from '@department-of-veterans-affairs/mobile-assets/flags/cz.svg'
+import flag_DE from '@department-of-veterans-affairs/mobile-assets/flags/de.svg'
+import flag_DG from '@department-of-veterans-affairs/mobile-assets/flags/dg.svg'
+import flag_DJ from '@department-of-veterans-affairs/mobile-assets/flags/dj.svg'
+import flag_DK from '@department-of-veterans-affairs/mobile-assets/flags/dk.svg'
+import flag_DM from '@department-of-veterans-affairs/mobile-assets/flags/dm.svg'
+import flag_DO from '@department-of-veterans-affairs/mobile-assets/flags/do.svg'
+import flag_DZ from '@department-of-veterans-affairs/mobile-assets/flags/dz.svg'
+import flag_EAC from '@department-of-veterans-affairs/mobile-assets/flags/eac.svg'
+import flag_EC from '@department-of-veterans-affairs/mobile-assets/flags/ec.svg'
+import flag_EE from '@department-of-veterans-affairs/mobile-assets/flags/ee.svg'
+import flag_EG from '@department-of-veterans-affairs/mobile-assets/flags/eg.svg'
+import flag_EH from '@department-of-veterans-affairs/mobile-assets/flags/eh.svg'
+import flag_ER from '@department-of-veterans-affairs/mobile-assets/flags/er.svg'
+import flag_ES from '@department-of-veterans-affairs/mobile-assets/flags/es.svg'
+import flag_ES_CT from '@department-of-veterans-affairs/mobile-assets/flags/es-ct.svg'
+import flag_ES_GA from '@department-of-veterans-affairs/mobile-assets/flags/es-ga.svg'
+import flag_ES_PV from '@department-of-veterans-affairs/mobile-assets/flags/es-pv.svg'
+import flag_ET from '@department-of-veterans-affairs/mobile-assets/flags/et.svg'
+import flag_EU from '@department-of-veterans-affairs/mobile-assets/flags/eu.svg'
+import flag_FI from '@department-of-veterans-affairs/mobile-assets/flags/fi.svg'
+import flag_FJ from '@department-of-veterans-affairs/mobile-assets/flags/fj.svg'
+import flag_FK from '@department-of-veterans-affairs/mobile-assets/flags/fk.svg'
+import flag_FM from '@department-of-veterans-affairs/mobile-assets/flags/fm.svg'
+import flag_FO from '@department-of-veterans-affairs/mobile-assets/flags/fo.svg'
+import flag_FR from '@department-of-veterans-affairs/mobile-assets/flags/fr.svg'
+import flag_GA from '@department-of-veterans-affairs/mobile-assets/flags/ga.svg'
+import flag_GB from '@department-of-veterans-affairs/mobile-assets/flags/gb.svg'
+import flag_GB_ENG from '@department-of-veterans-affairs/mobile-assets/flags/gb-eng.svg'
+import flag_GB_NIR from '@department-of-veterans-affairs/mobile-assets/flags/gb-nir.svg'
+import flag_GB_SCT from '@department-of-veterans-affairs/mobile-assets/flags/gb-sct.svg'
+import flag_GB_WLS from '@department-of-veterans-affairs/mobile-assets/flags/gb-wls.svg'
+import flag_GD from '@department-of-veterans-affairs/mobile-assets/flags/gd.svg'
+import flag_GE from '@department-of-veterans-affairs/mobile-assets/flags/ge.svg'
+import flag_GF from '@department-of-veterans-affairs/mobile-assets/flags/gf.svg'
+import flag_GG from '@department-of-veterans-affairs/mobile-assets/flags/gg.svg'
+import flag_GH from '@department-of-veterans-affairs/mobile-assets/flags/gh.svg'
+import flag_GI from '@department-of-veterans-affairs/mobile-assets/flags/gi.svg'
+import flag_GL from '@department-of-veterans-affairs/mobile-assets/flags/gl.svg'
+import flag_GM from '@department-of-veterans-affairs/mobile-assets/flags/gm.svg'
+import flag_GN from '@department-of-veterans-affairs/mobile-assets/flags/gn.svg'
+import flag_GP from '@department-of-veterans-affairs/mobile-assets/flags/gp.svg'
+import flag_GQ from '@department-of-veterans-affairs/mobile-assets/flags/gq.svg'
+import flag_GR from '@department-of-veterans-affairs/mobile-assets/flags/gr.svg'
+import flag_GS from '@department-of-veterans-affairs/mobile-assets/flags/gs.svg'
+import flag_GT from '@department-of-veterans-affairs/mobile-assets/flags/gt.svg'
+import flag_GU from '@department-of-veterans-affairs/mobile-assets/flags/gu.svg'
+import flag_GW from '@department-of-veterans-affairs/mobile-assets/flags/gw.svg'
+import flag_GY from '@department-of-veterans-affairs/mobile-assets/flags/gy.svg'
+import flag_HK from '@department-of-veterans-affairs/mobile-assets/flags/hk.svg'
+import flag_HM from '@department-of-veterans-affairs/mobile-assets/flags/hm.svg'
+import flag_HN from '@department-of-veterans-affairs/mobile-assets/flags/hn.svg'
+import flag_HR from '@department-of-veterans-affairs/mobile-assets/flags/hr.svg'
+import flag_HT from '@department-of-veterans-affairs/mobile-assets/flags/ht.svg'
+import flag_HU from '@department-of-veterans-affairs/mobile-assets/flags/hu.svg'
+import flag_IC from '@department-of-veterans-affairs/mobile-assets/flags/ic.svg'
+import flag_ID from '@department-of-veterans-affairs/mobile-assets/flags/id.svg'
+import flag_IE from '@department-of-veterans-affairs/mobile-assets/flags/ie.svg'
+import flag_IL from '@department-of-veterans-affairs/mobile-assets/flags/il.svg'
+import flag_IM from '@department-of-veterans-affairs/mobile-assets/flags/im.svg'
+import flag_IN from '@department-of-veterans-affairs/mobile-assets/flags/in.svg'
+import flag_IO from '@department-of-veterans-affairs/mobile-assets/flags/io.svg'
+import flag_IQ from '@department-of-veterans-affairs/mobile-assets/flags/iq.svg'
+import flag_IR from '@department-of-veterans-affairs/mobile-assets/flags/ir.svg'
+import flag_IS from '@department-of-veterans-affairs/mobile-assets/flags/is.svg'
+import flag_IT from '@department-of-veterans-affairs/mobile-assets/flags/it.svg'
+import flag_JE from '@department-of-veterans-affairs/mobile-assets/flags/je.svg'
+import flag_JM from '@department-of-veterans-affairs/mobile-assets/flags/jm.svg'
+import flag_JO from '@department-of-veterans-affairs/mobile-assets/flags/jo.svg'
+import flag_JP from '@department-of-veterans-affairs/mobile-assets/flags/jp.svg'
+import flag_KE from '@department-of-veterans-affairs/mobile-assets/flags/ke.svg'
+import flag_KG from '@department-of-veterans-affairs/mobile-assets/flags/kg.svg'
+import flag_KH from '@department-of-veterans-affairs/mobile-assets/flags/kh.svg'
+import flag_KI from '@department-of-veterans-affairs/mobile-assets/flags/ki.svg'
+import flag_KM from '@department-of-veterans-affairs/mobile-assets/flags/km.svg'
+import flag_KN from '@department-of-veterans-affairs/mobile-assets/flags/kn.svg'
+import flag_KP from '@department-of-veterans-affairs/mobile-assets/flags/kp.svg'
+import flag_KR from '@department-of-veterans-affairs/mobile-assets/flags/kr.svg'
+import flag_KW from '@department-of-veterans-affairs/mobile-assets/flags/kw.svg'
+import flag_KY from '@department-of-veterans-affairs/mobile-assets/flags/ky.svg'
+import flag_KZ from '@department-of-veterans-affairs/mobile-assets/flags/kz.svg'
+import flag_LA from '@department-of-veterans-affairs/mobile-assets/flags/la.svg'
+import flag_LB from '@department-of-veterans-affairs/mobile-assets/flags/lb.svg'
+import flag_LC from '@department-of-veterans-affairs/mobile-assets/flags/lc.svg'
+import flag_LI from '@department-of-veterans-affairs/mobile-assets/flags/li.svg'
+import flag_LK from '@department-of-veterans-affairs/mobile-assets/flags/lk.svg'
+import flag_LR from '@department-of-veterans-affairs/mobile-assets/flags/lr.svg'
+import flag_LS from '@department-of-veterans-affairs/mobile-assets/flags/ls.svg'
+import flag_LT from '@department-of-veterans-affairs/mobile-assets/flags/lt.svg'
+import flag_LU from '@department-of-veterans-affairs/mobile-assets/flags/lu.svg'
+import flag_LV from '@department-of-veterans-affairs/mobile-assets/flags/lv.svg'
+import flag_LY from '@department-of-veterans-affairs/mobile-assets/flags/ly.svg'
+import flag_MA from '@department-of-veterans-affairs/mobile-assets/flags/ma.svg'
+import flag_MC from '@department-of-veterans-affairs/mobile-assets/flags/mc.svg'
+import flag_MD from '@department-of-veterans-affairs/mobile-assets/flags/md.svg'
+import flag_ME from '@department-of-veterans-affairs/mobile-assets/flags/me.svg'
+import flag_MF from '@department-of-veterans-affairs/mobile-assets/flags/mf.svg'
+import flag_MG from '@department-of-veterans-affairs/mobile-assets/flags/mg.svg'
+import flag_MH from '@department-of-veterans-affairs/mobile-assets/flags/mh.svg'
+import flag_MK from '@department-of-veterans-affairs/mobile-assets/flags/mk.svg'
+import flag_ML from '@department-of-veterans-affairs/mobile-assets/flags/ml.svg'
+import flag_MM from '@department-of-veterans-affairs/mobile-assets/flags/mm.svg'
+import flag_MN from '@department-of-veterans-affairs/mobile-assets/flags/mn.svg'
+import flag_MO from '@department-of-veterans-affairs/mobile-assets/flags/mo.svg'
+import flag_MP from '@department-of-veterans-affairs/mobile-assets/flags/mp.svg'
+import flag_MQ from '@department-of-veterans-affairs/mobile-assets/flags/mq.svg'
+import flag_MR from '@department-of-veterans-affairs/mobile-assets/flags/mr.svg'
+import flag_MS from '@department-of-veterans-affairs/mobile-assets/flags/ms.svg'
+import flag_MT from '@department-of-veterans-affairs/mobile-assets/flags/mt.svg'
+import flag_MU from '@department-of-veterans-affairs/mobile-assets/flags/mu.svg'
+import flag_MV from '@department-of-veterans-affairs/mobile-assets/flags/mv.svg'
+import flag_MW from '@department-of-veterans-affairs/mobile-assets/flags/mw.svg'
+import flag_MX from '@department-of-veterans-affairs/mobile-assets/flags/mx.svg'
+import flag_MY from '@department-of-veterans-affairs/mobile-assets/flags/my.svg'
+import flag_MZ from '@department-of-veterans-affairs/mobile-assets/flags/mz.svg'
+import flag_NA from '@department-of-veterans-affairs/mobile-assets/flags/na.svg'
+import flag_NC from '@department-of-veterans-affairs/mobile-assets/flags/nc.svg'
+import flag_NE from '@department-of-veterans-affairs/mobile-assets/flags/ne.svg'
+import flag_NF from '@department-of-veterans-affairs/mobile-assets/flags/nf.svg'
+import flag_NG from '@department-of-veterans-affairs/mobile-assets/flags/ng.svg'
+import flag_NI from '@department-of-veterans-affairs/mobile-assets/flags/ni.svg'
+import flag_NL from '@department-of-veterans-affairs/mobile-assets/flags/nl.svg'
+import flag_NO from '@department-of-veterans-affairs/mobile-assets/flags/no.svg'
+import flag_NP from '@department-of-veterans-affairs/mobile-assets/flags/np.svg'
+import flag_NR from '@department-of-veterans-affairs/mobile-assets/flags/nr.svg'
+import flag_NU from '@department-of-veterans-affairs/mobile-assets/flags/nu.svg'
+import flag_NZ from '@department-of-veterans-affairs/mobile-assets/flags/nz.svg'
+import flag_OM from '@department-of-veterans-affairs/mobile-assets/flags/om.svg'
+import flag_PA from '@department-of-veterans-affairs/mobile-assets/flags/pa.svg'
+import flag_PC from '@department-of-veterans-affairs/mobile-assets/flags/pc.svg'
+import flag_PE from '@department-of-veterans-affairs/mobile-assets/flags/pe.svg'
+import flag_PF from '@department-of-veterans-affairs/mobile-assets/flags/pf.svg'
+import flag_PG from '@department-of-veterans-affairs/mobile-assets/flags/pg.svg'
+import flag_PH from '@department-of-veterans-affairs/mobile-assets/flags/ph.svg'
+import flag_PK from '@department-of-veterans-affairs/mobile-assets/flags/pk.svg'
+import flag_PL from '@department-of-veterans-affairs/mobile-assets/flags/pl.svg'
+import flag_PM from '@department-of-veterans-affairs/mobile-assets/flags/pm.svg'
+import flag_PN from '@department-of-veterans-affairs/mobile-assets/flags/pn.svg'
+import flag_PR from '@department-of-veterans-affairs/mobile-assets/flags/pr.svg'
+import flag_PS from '@department-of-veterans-affairs/mobile-assets/flags/ps.svg'
+import flag_PT from '@department-of-veterans-affairs/mobile-assets/flags/pt.svg'
+import flag_PW from '@department-of-veterans-affairs/mobile-assets/flags/pw.svg'
+import flag_PY from '@department-of-veterans-affairs/mobile-assets/flags/py.svg'
+import flag_QA from '@department-of-veterans-affairs/mobile-assets/flags/qa.svg'
+import flag_RE from '@department-of-veterans-affairs/mobile-assets/flags/re.svg'
+import flag_RO from '@department-of-veterans-affairs/mobile-assets/flags/ro.svg'
+import flag_RS from '@department-of-veterans-affairs/mobile-assets/flags/rs.svg'
+import flag_RU from '@department-of-veterans-affairs/mobile-assets/flags/ru.svg'
+import flag_RW from '@department-of-veterans-affairs/mobile-assets/flags/rw.svg'
+import flag_SA from '@department-of-veterans-affairs/mobile-assets/flags/sa.svg'
+import flag_SB from '@department-of-veterans-affairs/mobile-assets/flags/sb.svg'
+import flag_SC from '@department-of-veterans-affairs/mobile-assets/flags/sc.svg'
+import flag_SD from '@department-of-veterans-affairs/mobile-assets/flags/sd.svg'
+import flag_SE from '@department-of-veterans-affairs/mobile-assets/flags/se.svg'
+import flag_SG from '@department-of-veterans-affairs/mobile-assets/flags/sg.svg'
+import flag_SH from '@department-of-veterans-affairs/mobile-assets/flags/sh.svg'
+import flag_SH_AC from '@department-of-veterans-affairs/mobile-assets/flags/sh-ac.svg'
+import flag_SH_HL from '@department-of-veterans-affairs/mobile-assets/flags/sh-hl.svg'
+import flag_SH_TA from '@department-of-veterans-affairs/mobile-assets/flags/sh-ta.svg'
+import flag_SI from '@department-of-veterans-affairs/mobile-assets/flags/si.svg'
+import flag_SJ from '@department-of-veterans-affairs/mobile-assets/flags/sj.svg'
+import flag_SK from '@department-of-veterans-affairs/mobile-assets/flags/sk.svg'
+import flag_SL from '@department-of-veterans-affairs/mobile-assets/flags/sl.svg'
+import flag_SM from '@department-of-veterans-affairs/mobile-assets/flags/sm.svg'
+import flag_SN from '@department-of-veterans-affairs/mobile-assets/flags/sn.svg'
+import flag_SO from '@department-of-veterans-affairs/mobile-assets/flags/so.svg'
+import flag_SR from '@department-of-veterans-affairs/mobile-assets/flags/sr.svg'
+import flag_SS from '@department-of-veterans-affairs/mobile-assets/flags/ss.svg'
+import flag_ST from '@department-of-veterans-affairs/mobile-assets/flags/st.svg'
+import flag_SV from '@department-of-veterans-affairs/mobile-assets/flags/sv.svg'
+import flag_SX from '@department-of-veterans-affairs/mobile-assets/flags/sx.svg'
+import flag_SY from '@department-of-veterans-affairs/mobile-assets/flags/sy.svg'
+import flag_SZ from '@department-of-veterans-affairs/mobile-assets/flags/sz.svg'
+import flag_TC from '@department-of-veterans-affairs/mobile-assets/flags/tc.svg'
+import flag_TD from '@department-of-veterans-affairs/mobile-assets/flags/td.svg'
+import flag_TF from '@department-of-veterans-affairs/mobile-assets/flags/tf.svg'
+import flag_TG from '@department-of-veterans-affairs/mobile-assets/flags/tg.svg'
+import flag_TH from '@department-of-veterans-affairs/mobile-assets/flags/th.svg'
+import flag_TJ from '@department-of-veterans-affairs/mobile-assets/flags/tj.svg'
+import flag_TK from '@department-of-veterans-affairs/mobile-assets/flags/tk.svg'
+import flag_TL from '@department-of-veterans-affairs/mobile-assets/flags/tl.svg'
+import flag_TM from '@department-of-veterans-affairs/mobile-assets/flags/tm.svg'
+import flag_TN from '@department-of-veterans-affairs/mobile-assets/flags/tn.svg'
+import flag_TO from '@department-of-veterans-affairs/mobile-assets/flags/to.svg'
+import flag_TR from '@department-of-veterans-affairs/mobile-assets/flags/tr.svg'
+import flag_TT from '@department-of-veterans-affairs/mobile-assets/flags/tt.svg'
+import flag_TV from '@department-of-veterans-affairs/mobile-assets/flags/tv.svg'
+import flag_TW from '@department-of-veterans-affairs/mobile-assets/flags/tw.svg'
+import flag_TZ from '@department-of-veterans-affairs/mobile-assets/flags/tz.svg'
+import flag_UA from '@department-of-veterans-affairs/mobile-assets/flags/ua.svg'
+import flag_UG from '@department-of-veterans-affairs/mobile-assets/flags/ug.svg'
+import flag_UM from '@department-of-veterans-affairs/mobile-assets/flags/um.svg'
+import flag_UN from '@department-of-veterans-affairs/mobile-assets/flags/un.svg'
+import flag_US from '@department-of-veterans-affairs/mobile-assets/flags/us.svg'
+import flag_UY from '@department-of-veterans-affairs/mobile-assets/flags/uy.svg'
+import flag_UZ from '@department-of-veterans-affairs/mobile-assets/flags/uz.svg'
+import flag_VA from '@department-of-veterans-affairs/mobile-assets/flags/va.svg'
+import flag_VC from '@department-of-veterans-affairs/mobile-assets/flags/vc.svg'
+import flag_VE from '@department-of-veterans-affairs/mobile-assets/flags/ve.svg'
+import flag_VG from '@department-of-veterans-affairs/mobile-assets/flags/vg.svg'
+import flag_VI from '@department-of-veterans-affairs/mobile-assets/flags/vi.svg'
+import flag_VN from '@department-of-veterans-affairs/mobile-assets/flags/vn.svg'
+import flag_VU from '@department-of-veterans-affairs/mobile-assets/flags/vu.svg'
+import flag_WF from '@department-of-veterans-affairs/mobile-assets/flags/wf.svg'
+import flag_WS from '@department-of-veterans-affairs/mobile-assets/flags/ws.svg'
+import flag_XK from '@department-of-veterans-affairs/mobile-assets/flags/xk.svg'
+import flag_XX from '@department-of-veterans-affairs/mobile-assets/flags/xx.svg'
+import flag_YE from '@department-of-veterans-affairs/mobile-assets/flags/ye.svg'
+import flag_YT from '@department-of-veterans-affairs/mobile-assets/flags/yt.svg'
+import flag_ZA from '@department-of-veterans-affairs/mobile-assets/flags/za.svg'
+import flag_ZM from '@department-of-veterans-affairs/mobile-assets/flags/zm.svg'
+import flag_ZW from '@department-of-veterans-affairs/mobile-assets/flags/zw.svg'
 
 export const IconMap = {
   AccessibilityNew,
@@ -564,4 +835,275 @@ export const IconMap = {
   ZoomIn,
   ZoomOut,
   ZoomOutMap,
+  flag_AD,
+  flag_AE,
+  flag_AF,
+  flag_AG,
+  flag_AI,
+  flag_AL,
+  flag_AM,
+  flag_AO,
+  flag_AQ,
+  flag_AR,
+  flag_ARAB,
+  flag_AS,
+  flag_ASEAN,
+  flag_AT,
+  flag_AU,
+  flag_AW,
+  flag_AX,
+  flag_AZ,
+  flag_BA,
+  flag_BB,
+  flag_BD,
+  flag_BE,
+  flag_BF,
+  flag_BG,
+  flag_BH,
+  flag_BI,
+  flag_BJ,
+  flag_BL,
+  flag_BM,
+  flag_BN,
+  flag_BO,
+  flag_BQ,
+  flag_BR,
+  flag_BS,
+  flag_BT,
+  flag_BV,
+  flag_BW,
+  flag_BY,
+  flag_BZ,
+  flag_CA,
+  flag_CC,
+  flag_CD,
+  flag_CEFTA,
+  flag_CF,
+  flag_CG,
+  flag_CH,
+  flag_CI,
+  flag_CK,
+  flag_CL,
+  flag_CM,
+  flag_CN,
+  flag_CO,
+  flag_CP,
+  flag_CR,
+  flag_CU,
+  flag_CV,
+  flag_CW,
+  flag_CX,
+  flag_CY,
+  flag_CZ,
+  flag_DE,
+  flag_DG,
+  flag_DJ,
+  flag_DK,
+  flag_DM,
+  flag_DO,
+  flag_DZ,
+  flag_EAC,
+  flag_EC,
+  flag_EE,
+  flag_EG,
+  flag_EH,
+  flag_ER,
+  flag_ES,
+  flag_ES_CT,
+  flag_ES_GA,
+  flag_ES_PV,
+  flag_ET,
+  flag_EU,
+  flag_FI,
+  flag_FJ,
+  flag_FK,
+  flag_FM,
+  flag_FO,
+  flag_FR,
+  flag_GA,
+  flag_GB,
+  flag_GB_ENG,
+  flag_GB_NIR,
+  flag_GB_SCT,
+  flag_GB_WLS,
+  flag_GD,
+  flag_GE,
+  flag_GF,
+  flag_GG,
+  flag_GH,
+  flag_GI,
+  flag_GL,
+  flag_GM,
+  flag_GN,
+  flag_GP,
+  flag_GQ,
+  flag_GR,
+  flag_GS,
+  flag_GT,
+  flag_GU,
+  flag_GW,
+  flag_GY,
+  flag_HK,
+  flag_HM,
+  flag_HN,
+  flag_HR,
+  flag_HT,
+  flag_HU,
+  flag_IC,
+  flag_ID,
+  flag_IE,
+  flag_IL,
+  flag_IM,
+  flag_IN,
+  flag_IO,
+  flag_IQ,
+  flag_IR,
+  flag_IS,
+  flag_IT,
+  flag_JE,
+  flag_JM,
+  flag_JO,
+  flag_JP,
+  flag_KE,
+  flag_KG,
+  flag_KH,
+  flag_KI,
+  flag_KM,
+  flag_KN,
+  flag_KP,
+  flag_KR,
+  flag_KW,
+  flag_KY,
+  flag_KZ,
+  flag_LA,
+  flag_LB,
+  flag_LC,
+  flag_LI,
+  flag_LK,
+  flag_LR,
+  flag_LS,
+  flag_LT,
+  flag_LU,
+  flag_LV,
+  flag_LY,
+  flag_MA,
+  flag_MC,
+  flag_MD,
+  flag_ME,
+  flag_MF,
+  flag_MG,
+  flag_MH,
+  flag_MK,
+  flag_ML,
+  flag_MM,
+  flag_MN,
+  flag_MO,
+  flag_MP,
+  flag_MQ,
+  flag_MR,
+  flag_MS,
+  flag_MT,
+  flag_MU,
+  flag_MV,
+  flag_MW,
+  flag_MX,
+  flag_MY,
+  flag_MZ,
+  flag_NA,
+  flag_NC,
+  flag_NE,
+  flag_NF,
+  flag_NG,
+  flag_NI,
+  flag_NL,
+  flag_NO,
+  flag_NP,
+  flag_NR,
+  flag_NU,
+  flag_NZ,
+  flag_OM,
+  flag_PA,
+  flag_PC,
+  flag_PE,
+  flag_PF,
+  flag_PG,
+  flag_PH,
+  flag_PK,
+  flag_PL,
+  flag_PM,
+  flag_PN,
+  flag_PR,
+  flag_PS,
+  flag_PT,
+  flag_PW,
+  flag_PY,
+  flag_QA,
+  flag_RE,
+  flag_RO,
+  flag_RS,
+  flag_RU,
+  flag_RW,
+  flag_SA,
+  flag_SB,
+  flag_SC,
+  flag_SD,
+  flag_SE,
+  flag_SG,
+  flag_SH,
+  flag_SH_AC,
+  flag_SH_HL,
+  flag_SH_TA,
+  flag_SI,
+  flag_SJ,
+  flag_SK,
+  flag_SL,
+  flag_SM,
+  flag_SN,
+  flag_SO,
+  flag_SR,
+  flag_SS,
+  flag_ST,
+  flag_SV,
+  flag_SX,
+  flag_SY,
+  flag_SZ,
+  flag_TC,
+  flag_TD,
+  flag_TF,
+  flag_TG,
+  flag_TH,
+  flag_TJ,
+  flag_TK,
+  flag_TL,
+  flag_TM,
+  flag_TN,
+  flag_TO,
+  flag_TR,
+  flag_TT,
+  flag_TV,
+  flag_TW,
+  flag_TZ,
+  flag_UA,
+  flag_UG,
+  flag_UM,
+  flag_UN,
+  flag_US,
+  flag_UY,
+  flag_UZ,
+  flag_VA,
+  flag_VC,
+  flag_VE,
+  flag_VG,
+  flag_VI,
+  flag_VN,
+  flag_VU,
+  flag_WF,
+  flag_WS,
+  flag_XK,
+  flag_XX,
+  flag_YE,
+  flag_YT,
+  flag_ZA,
+  flag_ZM,
+  flag_ZW,
 }

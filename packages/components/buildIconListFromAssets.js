@@ -1,14 +1,15 @@
 /**
  * A script to perform the following:
- *   1. Read icons from department-of-veterans-affairs/mobile-assets package 'icons' folder
- *   2. Process the icons into UpperCamelCase and arrange data for writing
+ *   1. Read icons and flags from department-of-veterans-affairs/mobile-assets package 'icons' and 'flags' folders
+ *   2. Process the icons/flags into UpperCamelCase/flag_[country code] and arrange data for writing
  *   3. Output the results as src/components/Icon/iconList.ts file that is pulled into Icon.tsx
  */
 
 // eslint-disable-next-line
 const fs = require('fs')
 
-const importLocation = '@department-of-veterans-affairs/mobile-assets/icons'
+const iconImportLocation = '@department-of-veterans-affairs/mobile-assets/icons'
+const flagImportLocation = '@department-of-veterans-affairs/mobile-assets/flags'
 
 const iconList = []
 const iconImportPathList = {}
@@ -18,7 +19,7 @@ const iconImportPathList = {}
  * @param name - String of SVG file name
  * @returns UpperCamelCase icon name
  */
-function parseName(name) {
+function parseIconName(name) {
   if (name === 'vads') return '' // Remove 'vads' from list; it is a folder, not file
   if (name.startsWith('vads/')) name = name.replace('vads/', '') // Remove 'vads/' folder prefix
   // Convert name to UpperCamelCase
@@ -28,6 +29,19 @@ function parseName(name) {
   name = name.replace('.svg', '') // Remove file type
 
   if (name === 'Tty') return 'TTY' // Correction for acronym name
+
+  return name
+}
+
+/**
+ * Function to massage SVG file name to flag_[country code] name
+ * @param name - String of SVG file name
+ * @returns flag_[country code] name
+ */
+function parseFlagName(name) {
+  name = name.replace('.svg', '') // Remove file type
+  name = name.replace('-', '_') // Convert '-' separators to '_'
+  name = 'flag_' + name.toUpperCase()
 
   return name
 }
@@ -59,20 +73,34 @@ function formIconListFile() {
 
 /** Begin script */
 
-// Retrieve icon files from assets package
-const files = fs.readdirSync(`../../node_modules/${importLocation}`, {
+// Retrieve icon and flag files from assets package
+const iconFiles = fs.readdirSync(`../../node_modules/${iconImportLocation}`, {
+  recursive: true,
+})
+const flagFiles = fs.readdirSync(`../../node_modules/${flagImportLocation}`, {
   recursive: true,
 })
 
 // Process icon files list into requisite icon data
-for (const file of files) {
-  const iconName = parseName(file)
-  const importPath = `${importLocation}/${file}`
+for (const icon of iconFiles) {
+  const iconName = parseIconName(icon)
+  const importPath = `${iconImportLocation}/${icon}`
 
   if (!iconName) continue
 
   iconList.push(iconName)
   iconImportPathList[iconName] = importPath
+}
+
+// Process flag files list into requisite icon data
+for (const flag of flagFiles) {
+  const flagName = parseFlagName(flag)
+  const importPath = `${flagImportLocation}/${flag}`
+
+  if (!flagName) continue
+
+  iconList.push(flagName)
+  iconImportPathList[flagName] = importPath
 }
 
 // Sort icon data
