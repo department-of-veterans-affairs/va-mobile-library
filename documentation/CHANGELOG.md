@@ -1,5 +1,13 @@
 # Changelog
 
+## [assets-v0.15.1](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.15.1) (2025-06-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.15.0...assets-v0.15.1)
+
+**Merged pull requests:**
+
+- \[Feature\] Update US and US islands flags [\#645](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/645) ([TimRoe](https://github.com/TimRoe))
+
 ## [assets-v0.15.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/assets-v0.15.0) (2025-06-23)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.30.3...assets-v0.15.0)
