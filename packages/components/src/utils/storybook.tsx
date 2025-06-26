@@ -5,7 +5,7 @@ import {
   Stories,
   Subtitle,
   Title,
-} from '@storybook/addon-docs'
+} from '@storybook/addon-docs/blocks'
 import { Linking, Text, View } from 'react-native'
 import React from 'react'
 
