@@ -6,7 +6,7 @@ import { useFonts } from 'expo-font'
 import React, { useCallback } from 'react'
 
 import { SnackbarProviderWithSafeArea } from './components/Snackbar/SnackbarProvider'
-import StorybookUI from '../.storybook/native'
+import StorybookUI from '../.rnstorybook'
 import i18n from './utils/translation/i18n'
 
 SplashScreen.preventAutoHideAsync()
