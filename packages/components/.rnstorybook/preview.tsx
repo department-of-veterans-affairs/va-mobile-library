@@ -4,13 +4,13 @@ import { View } from 'react-native'
 const preview: Preview = {
   parameters: {},
   decorators: [
-    // Centers story components in the middle of the screen
+    // Flexes to fill space, centers story components horizontally, and adds padding
     (Story) => (
       <View
         style={{
           flex: 1,
-          justifyContent: 'center',
           alignItems: 'center',
+          padding: 12,
         }}>
         <Story />
       </View>
