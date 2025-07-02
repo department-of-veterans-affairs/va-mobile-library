@@ -57,8 +57,6 @@ export type IconProps = nameOrSvg &
  * package. Custom SVGs can also be used if your project is configured to
  * import them. See [\@svgr/webpack](https://www.npmjs.com/package/\@svgr/webpack)
  * for webpack setup guidance.
- *
- * @returns Icon component
  */
 export const Icon: FC<IconProps> = ({
   name,

@@ -11,7 +11,9 @@ import {
 import { Linking, Text, View } from 'react-native'
 import React from 'react'
 
+import { Icon } from '../components/Icon/Icon'
 import { IconMap } from '../components/Icon/iconList'
+import { useTheme } from '../utils/hooks/useTheme'
 
 // Export related hooks
 export { useWebStorybookColorScheme } from './hooks/useWebStorybookColorScheme'
@@ -31,19 +33,20 @@ type DocProps = {
 export const DocLink = ({ name, docUrl }: DocProps) => {
   if (!name || !docUrl) return null
 
+  const theme = useTheme()
+
   return (
     <View style={{ marginVertical: 10 }}>
       <Text
         style={{
-          color: 'blue',
+          color: theme.vadsColorActionForegroundDefault,
           textDecorationLine: 'underline',
           lineHeight: 20,
         }}
         onPress={() => {
           Linking.openURL(docUrl)
         }}>
-        View guidance for the {name} component on the VA Mobile Documentation
-        Site
+        View guidance for the {name} component on the VA Design System
       </Text>
     </View>
   )
@@ -90,3 +93,5 @@ const buildIconGallery = (icons: typeof IconMap) => {
 
   return <IconGallery>{iconItems}</IconGallery>
 }
+
+export default generateDocs
