@@ -1,6 +1,8 @@
 import {
   Controls,
   Description,
+  IconGallery,
+  IconItem,
   Primary,
   Stories,
   Subtitle,
@@ -9,14 +11,15 @@ import {
 import { Linking, Text, View } from 'react-native'
 import React from 'react'
 
+import { IconMap } from '../components/Icon/iconList'
+
 // Export related hooks
 export { useWebStorybookColorScheme } from './hooks/useWebStorybookColorScheme'
 
 type DocProps = {
   name?: string
   docUrl?: string
-  /** IconGallery documentation section passthrough */
-  icons?: React.JSX.Element
+  icons?: typeof IconMap
 }
 
 /**
@@ -62,8 +65,28 @@ export const generateDocs = ({ name, docUrl, icons }: DocProps) => ({
       <Description />
       <Primary />
       <Controls />
-      {icons ? icons : null}
+      {icons ? buildIconGallery(icons) : null}
       <Stories />
     </>
   ),
 })
+
+/**
+ * Function to create a gallery of all icons for documentation
+ * @returns JSX Element containing grid displaying all icons
+ */
+const buildIconGallery = (icons: typeof IconMap) => {
+  const iconItems = []
+  const iconMapArray = Object.keys(icons)
+
+  for (const icon of iconMapArray) {
+    iconItems.push(
+      <IconItem name={icon} key={icon}>
+        {/* @ts-ignore - Typed as string, but derived from IconMap names */}
+        <Icon name={icon} />
+      </IconItem>,
+    )
+  }
+
+  return <IconGallery>{iconItems}</IconGallery>
+}
