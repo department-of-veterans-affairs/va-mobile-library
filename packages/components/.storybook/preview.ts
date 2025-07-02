@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react-vite'
+import type { Preview } from '@storybook/react-native-web-vite'
 
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { themes } from 'storybook/theming'

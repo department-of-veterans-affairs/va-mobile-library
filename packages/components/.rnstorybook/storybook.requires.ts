@@ -4,7 +4,6 @@ import { start, updateView, View } from '@storybook/react-native';
 import "@storybook/addon-ondevice-controls/register";
 import "@storybook/addon-ondevice-actions/register";
 
-
 const normalizedStories = [
   {
     titlePrefix: "",
@@ -12,7 +11,11 @@ const normalizedStories = [
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
     // @ts-ignore
-    req: require.context('../src/components', true, /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/)
+    req: require.context(
+      '../src/components',
+      true,
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
+    ),
   }
 ];
 
@@ -21,7 +24,7 @@ declare global {
   var view: View;
   var STORIES: typeof normalizedStories;
 }
-  
+
 
 const annotations = [
   require('./preview'),
@@ -39,10 +42,10 @@ if (!global.view) {
   global.view = start({
     annotations,
     storyEntries: normalizedStories,
-    
+
   });
 } else {
-  updateView(global.view, annotations, normalizedStories, );
+  updateView(global.view, annotations, normalizedStories);
 }
 
 export const view: View = global.view;

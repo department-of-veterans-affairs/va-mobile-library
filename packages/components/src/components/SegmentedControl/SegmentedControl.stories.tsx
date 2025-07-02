@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import React, { useState } from 'react'
 
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'

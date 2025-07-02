@@ -1,26 +1,16 @@
-import type { StorybookConfig } from '@storybook/react-vite'
+import type { StorybookConfig } from '@storybook/react-native-web-vite'
 
 import { mergeConfig } from 'vite'
-
-import { join, dirname } from 'path'
-
-/**
- * This function is used to resolve the absolute path of a package.
- * It is needed in projects that use Yarn PnP or are set up within a monorepo.
- */
-function getAbsolutePath(value: string): any {
-  return dirname(require.resolve(join(value, 'package.json')))
-}
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath('@storybook/addon-onboarding'),
-    getAbsolutePath('@vueless/storybook-dark-mode'),
+    '@storybook/addon-docs',
+    '@storybook/addon-onboarding',
+    '@vueless/storybook-dark-mode',
   ],
   framework: {
-    name: getAbsolutePath('@storybook/react-vite'),
+    name: '@storybook/react-native-web-vite',
     options: {},
   },
   staticDirs: [
@@ -35,11 +25,22 @@ const config: StorybookConfig = {
     mergeConfig(config, {
       // Vite uses import.meta instead of process, but babel/node expects process.env
       define: { 'process.env': 'import.meta.env' },
+      // module: {
+      //   rules: [
+      //     {
+      //       test: /\.svg$/,
+      //       issuer: /\.[jt]sx?$/,
+      //       use: ['@svgr/webpack'],
+      //     },
+      //   ],
+      // },
       resolve: {
         alias: {
           'react-native': 'react-native-web',
+          // 'react-native-svg': 'react-native-svg-web',
         },
       },
     }),
 }
+
 export default config
