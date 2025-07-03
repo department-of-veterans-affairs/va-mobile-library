@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import { Platform, View } from 'react-native'
 import React from 'react'
 
