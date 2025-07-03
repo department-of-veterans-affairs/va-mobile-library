@@ -1,6 +1,6 @@
 {
   "name": "@department-of-veterans-affairs/mobile-component-library",
-  "version": "0.30.3",
+  "version": "0.31.0",
   "description": "VA Design System Mobile Component Library",
   "main": "src/index.tsx",
   "scripts": {
@@ -48,7 +48,7 @@
     "styled-components": "^6.1.12"
   },
   "peerDependencies": {
-    "@department-of-veterans-affairs/mobile-assets": "^0.14.0",
+    "@department-of-veterans-affairs/mobile-assets": "^0.15.1",
     "@department-of-veterans-affairs/mobile-tokens": "^0.23.0",
     "react": "^18.2.0",
     "react-native": ">=0.71.7",
@@ -60,7 +60,7 @@
     "@babel/plugin-transform-react-jsx": "^7.24.7",
     "@babel/preset-env": "^7.24.8",
     "@babel/preset-typescript": "^7.24.7",
-    "@department-of-veterans-affairs/mobile-assets": "0.14.0",
+    "@department-of-veterans-affairs/mobile-assets": "^0.15.1",
     "@department-of-veterans-affairs/mobile-tokens": "0.23.0",
     "@expo/metro-runtime": "~4.0.1",
     "@expo/webpack-config": "~19.0.1",
