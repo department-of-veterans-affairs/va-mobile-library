@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr'
 import vitePluginRequire from 'vite-plugin-require'
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)', '../storybook/*.mdx'],
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-onboarding',
