@@ -12,6 +12,7 @@ export function useColorScheme(): ColorSchemeName {
     try {
       const webStorybookColorScheme = require('./useWebStorybookColorScheme') // eslint-disable-line
       return webStorybookColorScheme()
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return null
     }

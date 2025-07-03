@@ -22,14 +22,13 @@ const children = (
   </>
 )
 
-export const _WithText: Story = {
-  name: 'With Text',
+export const WithText: Story = {
   args: {
     text: 'Loading your appointments...',
   },
 }
 
-export const __WithChildren: Story = {
+export const _WithChildren: Story = {
   name: 'With Text and Children',
   args: {
     text: 'Loading your appointments. Call one of the numbers below for support.',

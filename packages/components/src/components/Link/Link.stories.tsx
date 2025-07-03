@@ -20,9 +20,7 @@ export const Default: Story = {
   args: {
     text: 'Link opens in the app',
     type: 'custom',
-    onPress: () => {
-      null
-    },
+    onPress: () => {},
     analytics: {
       onPress: () => console.log('Analytics event: Pressed'),
     },
@@ -35,9 +33,7 @@ export const DefaultWithIcon: Story = {
     text: 'Link opens an external app',
     icon: { name: 'CleanHands' },
     type: 'custom',
-    onPress: () => {
-      null
-    },
+    onPress: () => {},
   },
 }
 

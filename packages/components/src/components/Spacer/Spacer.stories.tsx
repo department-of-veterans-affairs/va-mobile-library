@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import { View } from 'react-native'
 import React from 'react'
 
@@ -17,7 +17,6 @@ export default meta
 type Story = StoryObj<SpacerProps>
 
 export const Horizontal: Story = {
-  name: 'Horizontal',
   args: {
     horizontal: true,
   },
@@ -26,36 +25,22 @@ export const Horizontal: Story = {
       <View style={{ alignItems: 'center', flexDirection: 'row' }}>
         <Icon name="Info" preventScaling />
         <Story />
-        <Link
-          text="Link text after Spacer"
-          type="custom"
-          onPress={() => {
-            null
-          }}
-        />
+        <Link text="Link text after Spacer" type="custom" onPress={() => {}} />
       </View>
     ),
   ],
 }
 
 export const Vertical: Story = {
-  name: 'Vertical',
   decorators: [
     (Story) => (
       <View style={{ alignItems: 'center', flexDirection: 'column' }}>
-        <Button
-          label="Button before Spacer"
-          onPress={() => {
-            null
-          }}
-        />
+        <Button label="Button before Spacer" onPress={() => {}} />
         <Story />
         <Button
           label="Button after Spacer"
           buttonType={ButtonVariants.Secondary}
-          onPress={() => {
-            null
-          }}
+          onPress={() => {}}
         />
       </View>
     ),
