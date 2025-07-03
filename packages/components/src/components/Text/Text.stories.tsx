@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Text, TextProps, baseToneValues, bodyToneValues } from './Text'
 
-const meta = {
+const meta: Meta<TextProps> = {
   title: 'Text',
   component: Text,
   argTypes: {
@@ -12,11 +12,11 @@ const meta = {
     bold: { if: { arg: 'variant', eq: 'body' } },
     tone: { control: 'radio', options: baseToneValues },
   },
-} satisfies Meta<typeof Text>
+}
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<TextProps>
 
 export const Body: Story = {
   render: (props: TextProps) => (

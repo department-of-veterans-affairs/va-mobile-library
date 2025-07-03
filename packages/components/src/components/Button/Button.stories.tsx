@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-native-web-vite'
 
-import { Button, ButtonVariants } from './Button'
+import { Button, ButtonProps, ButtonVariants } from './Button'
 import { fn } from 'storybook/test'
 
-const meta = {
+const meta: Meta<ButtonProps> = {
   title: 'Button',
   component: Button,
   args: { onPress: fn() },
-} satisfies Meta<typeof Button>
+}
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<ButtonProps>
 
 export const Primary: Story = {
   args: {

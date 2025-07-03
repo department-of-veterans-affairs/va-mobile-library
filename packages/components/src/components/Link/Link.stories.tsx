@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 
 import { Link, LinkProps } from './Link'
 
-const meta = {
+const meta: Meta<LinkProps> = {
   title: 'Link',
   component: Link,
   argTypes: {
@@ -10,7 +10,7 @@ const meta = {
       action: 'onPress event',
     },
   },
-} satisfies Meta<typeof Link>
+}
 
 export default meta
 

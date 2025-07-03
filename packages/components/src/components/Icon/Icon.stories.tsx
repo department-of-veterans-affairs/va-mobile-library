@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import { Platform } from 'react-native'
 
-import { Icon } from './Icon'
+import { Icon, IconProps } from './Icon'
 import { IconMap } from './iconList'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
@@ -13,7 +13,7 @@ if (Platform.OS === 'web') {
   genDocs = () => {}
 }
 
-const meta = {
+const meta: Meta<IconProps> = {
   title: 'Icon',
   component: Icon,
   argTypes: {
@@ -32,11 +32,11 @@ const meta = {
       icons: IconMap,
     }),
   },
-} satisfies Meta<typeof Icon>
+}
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<IconProps>
 
 export const _Preloaded: Story = {
   name: 'Preloaded Icons',

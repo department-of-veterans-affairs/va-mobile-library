@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
 
-const meta = {
+const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',
   component: SegmentedControl,
-} satisfies Meta<typeof SegmentedControl>
+}
 
 export default meta
 
