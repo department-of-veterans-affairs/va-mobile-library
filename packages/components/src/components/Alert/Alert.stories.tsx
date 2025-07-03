@@ -1,34 +1,13 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import React from 'react'
 
 import { Alert, AlertProps } from './Alert'
 import { Link } from '../Link/Link'
 import { Spacer } from '../Spacer/Spacer'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<AlertProps> = {
   title: 'Alert',
   component: Alert,
-  decorators: [
-    (Story) => (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Story />
-      </View>
-    ),
-  ],
-  parameters: {
-    docs: generateDocs({
-      name: 'Alert',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20Progress/Alert',
-    }),
-  },
 }
 
 export default meta

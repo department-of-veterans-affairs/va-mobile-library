@@ -15,3 +15,5 @@ storybook-static/
 
 # macOS
 .DS_Store
+
+*storybook.log

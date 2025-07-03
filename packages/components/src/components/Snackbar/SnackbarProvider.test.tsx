@@ -132,6 +132,9 @@ describe('Snackbar Provider', () => {
 
       await userEvent.press(screen.getByText('Dismiss'))
 
+      // Advance timers to account for the 100ms animation duration
+      act(() => jest.advanceTimersByTime(100))
+
       expect(queryMessageText()).not.toBeOnTheScreen()
       expect(onPressActionSpy).not.toHaveBeenCalled()
     })
@@ -148,6 +151,9 @@ describe('Snackbar Provider', () => {
       expect(onPressActionSpy).not.toHaveBeenCalled()
 
       await userEvent.press(screen.getByText('Undo'))
+
+      // Advance timers to account for the 100ms animation duration
+      act(() => jest.advanceTimersByTime(100))
 
       expect(queryMessageText()).not.toBeOnTheScreen()
       expect(onPressActionSpy).toHaveBeenCalled()

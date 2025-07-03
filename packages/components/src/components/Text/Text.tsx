@@ -11,12 +11,12 @@ import { getSpacingToken, useTheme } from '../../utils'
 
 type TextSizes = 'xs' | 'sm' | 'md' | 'lg'
 
-/** Declaring the BaseTones type like this allows us to reference this array in Text.stories */
+/** Declaring the Base/Body-Tones types like this allows us to reference this array in Text.stories */
 export const baseToneValues = ['default', 'subtle', 'inverse'] as const
+export const bodyToneValues = [...baseToneValues, 'error'] as const
 
 type BaseTones = (typeof baseToneValues)[number]
-
-type BodyTones = BaseTones | 'error'
+type BodyTones = (typeof bodyToneValues)[number]
 
 type BodyProps = {
   /** True to make body text bold */

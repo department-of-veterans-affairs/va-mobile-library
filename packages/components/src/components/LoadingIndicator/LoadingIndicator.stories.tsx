@@ -1,34 +1,13 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import React from 'react'
 
 import { Link } from '../Link/Link'
 import { LoadingIndicator, LoadingIndicatorProps } from './LoadingIndicator'
 import { Spacer } from '../Spacer/Spacer'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<LoadingIndicatorProps> = {
   title: 'Loading indicator',
   component: LoadingIndicator,
-  decorators: [
-    (Story) => (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Story />
-      </View>
-    ),
-  ],
-  parameters: {
-    docs: generateDocs({
-      name: 'Loading indicator',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Alerts%20and%20Progress/LoadingIndicator',
-    }),
-  },
 }
 
 export default meta
@@ -43,14 +22,13 @@ const children = (
   </>
 )
 
-export const _WithText: Story = {
-  name: 'With Text',
+export const WithText: Story = {
   args: {
     text: 'Loading your appointments...',
   },
 }
 
-export const __WithChildren: Story = {
+export const _WithChildren: Story = {
   name: 'With Text and Children',
   args: {
     text: 'Loading your appointments. Call one of the numbers below for support.',

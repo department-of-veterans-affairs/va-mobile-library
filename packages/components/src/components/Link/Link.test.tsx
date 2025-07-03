@@ -8,7 +8,7 @@ import React from 'react'
 
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'
-import { Link, LinkAnalytics, LinkProps } from './Link'
+import { Link, LinkProps } from './Link'
 
 const onPressSpy = jest.fn()
 const mockedColorScheme = jest.fn()
@@ -20,13 +20,8 @@ jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
 })
 
 // Mock the internal function call within the useExternalLink hook
-const useExternalLinkHookMock = jest.fn(
-  (url: string, analytics?: LinkAnalytics, text?: utils.leaveAppPromptText) => {
-    url
-    analytics
-    text
-  },
-)
+const useExternalLinkHookMock = jest.fn(() => {})
+
 // Mock the useExternalLink hook to leverage mock implementation
 jest.spyOn(utils, 'useExternalLink').mockImplementation(() => {
   return useExternalLinkHookMock

@@ -6,7 +6,7 @@ import { useFonts } from 'expo-font'
 import React, { useCallback } from 'react'
 
 import { SnackbarProviderWithSafeArea } from './components/Snackbar/SnackbarProvider'
-import StorybookUI from '../.storybook/native'
+import StorybookUI from '../.rnstorybook'
 import i18n from './utils/translation/i18n'
 
 SplashScreen.preventAutoHideAsync()
@@ -23,9 +23,11 @@ const App = () => {
   // Loads in custom fonts async conditionally based on OS. Loading from node
   // module seems to be broken on Android
   const [fontsLoaded, fontError] = useFonts({
+    /* eslint-disable @typescript-eslint/no-require-imports */
     'Bitter-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/Bitter/Bitter-Regular.ttf'),
     'SourceSansPro-Bold': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf'),
     'SourceSansPro-Regular': require('@department-of-veterans-affairs/mobile-assets/fonts/SourceSansPro/SourceSansPro-Regular.ttf'),
+    /* eslint-enable @typescript-eslint/no-require-imports */
   })
 
   // Holds rendering until custom fonts load

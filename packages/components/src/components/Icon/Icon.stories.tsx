@@ -1,57 +1,35 @@
-import { IconGallery, IconItem } from '@storybook/blocks'
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
+import { Platform } from 'react-native'
 
 import { Icon, IconProps } from './Icon'
 import { IconMap } from './iconList'
-import { generateDocs } from '../../utils/storybook'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
-/**
- * Function to create a gallery of all icons for documentation
- * @returns JSX Element containing grid displaying all icons
- */
-const buildIconGallery = () => {
-  const iconItems = []
-  const iconMapArray = Object.keys(IconMap)
-
-  for (const icon of iconMapArray) {
-    iconItems.push(
-      <IconItem name={icon} key={icon}>
-        {/* @ts-ignore - Typed as string, but derived from IconMap names */}
-        <Icon name={icon} />
-      </IconItem>,
-    )
-  }
-
-  return <IconGallery>{iconItems}</IconGallery>
+// Storybook 9 chokes on importing @storybook/addon-docs/blocks IconGallery/IconItem in mobile so limits to web
+let genDocs
+if (Platform.OS === 'web') {
+  genDocs = require('../../utils/storybook') // eslint-disable-line
+} else {
+  genDocs = () => {}
 }
 
 const meta: Meta<IconProps> = {
   title: 'Icon',
   component: Icon,
-  decorators: [
-    (Story) => (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Story />
-      </View>
-    ),
-  ],
   argTypes: {
-    name: { options: ['none', ...Object.keys(IconMap)] },
+    name: {
+      control:
+        Platform.OS === 'web'
+          ? { type: 'select', search: true }
+          : { type: 'radio' },
+      options: ['none', ...Object.keys(IconMap)],
+    },
   },
   parameters: {
-    docs: generateDocs({
+    docs: genDocs({
       name: 'Icon',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Foundation/Icons/',
-      icons: buildIconGallery(),
+      docUrl: 'https://design.va.gov/components/icon',
+      icons: IconMap,
     }),
   },
 }

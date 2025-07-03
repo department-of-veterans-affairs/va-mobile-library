@@ -1,39 +1,11 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import React, { useState } from 'react'
 
 import { SegmentedControl, SegmentedControlProps } from './SegmentedControl'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<SegmentedControlProps> = {
   title: 'Segmented control',
   component: SegmentedControl,
-  decorators: [
-    (Story) => (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        {Story()}
-      </View>
-    ),
-  ],
-  parameters: {
-    design: [
-      {
-        name: 'Figma component overview',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11330&mode=design&t=IfpGfogEOoBtNhmN-1',
-      },
-      {
-        name: 'Figma examples',
-        type: 'figma',
-        url: 'https://www.figma.com/file/QVLPB3eOunmKrgQOuOt0SU/%F0%9F%93%90-DesignLibrary2.0---VAMobile?type=design&node-id=7332%3A11331&mode=design&t=IfpGfogEOoBtNhmN-1',
-      },
-    ],
-    docs: generateDocs({
-      name: 'Segmented control',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Navigation/Secondary/SegmentedControl',
-    }),
-  },
 }
 
 export default meta

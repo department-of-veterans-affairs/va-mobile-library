@@ -1,33 +1,11 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import React, { useState } from 'react'
 
 import { RadioButton, RadioButtonProps } from './RadioButton'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<RadioButtonProps> = {
   title: 'Radio button',
   component: RadioButton,
-  decorators: [
-    (Story) => (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: 8,
-        }}>
-        {Story()}
-      </View>
-    ),
-  ],
-  parameters: {
-    docs: generateDocs({
-      name: 'Radio button',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/RadioButton/',
-    }),
-  },
 }
 
 export default meta
