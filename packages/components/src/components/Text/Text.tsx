@@ -68,6 +68,9 @@ export type TextProps = {
   a11yLabel?: string
 } & (BodyProps | HeadingProps | DisplayProps)
 
+/**
+ * #### [<u>View guidance for the Text component on the VA Design System</u>](https://design.va.gov/components/text)
+ */
 export const Text: FC<TextProps> = ({
   a11yLabel,
   bold,

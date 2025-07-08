@@ -27,8 +27,6 @@ const meta: Meta<IconProps> = {
   },
   parameters: {
     docs: genDocs({
-      name: 'Icon',
-      docUrl: 'https://design.va.gov/components/icon',
       icons: IconMap,
     }),
   },

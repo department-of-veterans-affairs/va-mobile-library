@@ -35,6 +35,8 @@ export type RadioButtonProps = FormElementProps & {
 }
 
 /**
+ * #### [<u>View guidance for the Radio button component on the VA Mobile Documentation Site</u>](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20input/RadioButton)
+ *
  * ### Managing checked item state
  * The state of the selected radio item should be provided to RadioButton via the `selectedItem` prop and updated
  * using the `onSelectionChange` callback. When a radio is tapped, the provided `onSelectionChange` callback

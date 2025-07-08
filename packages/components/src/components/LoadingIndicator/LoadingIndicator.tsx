@@ -25,6 +25,9 @@ export type LoadingIndicatorProps = {
     }
 )
 
+/**
+ * #### [<u>View guidance for the Loading indicator component on the VA Design System</u>](https://design.va.gov/components/loading-indicator)
+ */
 export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
   text,
   a11yLabel,

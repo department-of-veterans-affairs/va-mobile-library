@@ -86,6 +86,8 @@ export type SnackbarProps = Pick<ToastProps, activeToastProps> & {
 }
 
 /**
+ * #### [<u>View guidance for the Snackbar component on the VA Design System</u>](https://design.va.gov/components/snackbar)
+ *
  * To use SnackbarProvider, import SnackbarProvider in App.tsx (or similar foundational file) and
  * surround any components or screens that need to trigger a snackbar:
  *
