@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
+import { View } from 'react-native'
 import React from 'react'
 
 import { Text, TextProps, baseToneValues, bodyToneValues } from './Text'
@@ -12,6 +13,17 @@ const meta: Meta<TextProps> = {
     bold: { if: { arg: 'variant', eq: 'body' } },
     tone: { control: 'radio', options: baseToneValues },
   },
+  decorators: [
+    (Story) => (
+      <View
+        style={{
+          alignSelf: 'flex-start',
+          margin: 12,
+        }}>
+        <Story />
+      </View>
+    ),
+  ],
 }
 
 export default meta

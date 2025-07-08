@@ -1,11 +1,25 @@
 import type { Preview } from '@storybook/react-native-web-vite'
 
 import { DocsContainer } from '@storybook/addon-docs/blocks'
+import { View } from 'react-native'
 import { themes } from 'storybook/theming'
 import React from 'react'
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Story />
+      </View>
+    ),
+  ],
   parameters: {
+    backgrounds: {}, // Show background color picker in the toolbar
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -31,10 +45,6 @@ const preview: Preview = {
     layout: 'padded', // Defaults story layout taking up the full space with some padding
   },
   tags: ['autodocs'],
-  //
-  // TODO: Add manual docs page unless there's an easy way to add a link to the docs site
-  // See: https://storybook.js.org/docs/writing-docs/autodocs
-  //
 }
 
 export default preview
