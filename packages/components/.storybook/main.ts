@@ -23,6 +23,9 @@ const config: StorybookConfig = {
       to: 'fonts',
     },
   ],
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
   viteFinal: async (config) =>
     mergeConfig(config, {
       // Vite uses import.meta instead of process, but babel/node expects process.env

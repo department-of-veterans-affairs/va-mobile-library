@@ -24,6 +24,9 @@ const preview: Preview = {
           webStorybookColorScheme() === 'dark' ? themes.dark : themes.light
         return React.createElement(DocsContainer, currentProps)
       },
+      controls: {
+        sort: 'requiredFirst',
+      },
     },
     layout: 'padded', // Defaults story layout taking up the full space with some padding
   },
