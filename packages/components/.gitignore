@@ -11,9 +11,9 @@ npm-debug.*
 *.orig.*
 web-build/
 storybook-static/
+*storybook.log
 .tool-versions
 
 # macOS
 .DS_Store
 
-*storybook.log

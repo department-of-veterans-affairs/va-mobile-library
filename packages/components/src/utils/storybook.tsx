@@ -8,63 +8,30 @@ import {
   Subtitle,
   Title,
 } from '@storybook/addon-docs/blocks'
-import { Linking, Text, View } from 'react-native'
 import React from 'react'
 
 import { Icon } from '../components/Icon/Icon'
 import { IconMap } from '../components/Icon/iconList'
-import { useTheme } from '../utils/hooks/useTheme'
 
 // Export related hooks
 export { useWebStorybookColorScheme } from './hooks/useWebStorybookColorScheme'
 
 type DocProps = {
-  name?: string
-  docUrl?: string
   icons?: typeof IconMap
 }
 
 /**
- *
- * @param name - Name of the component
- * @param docUrl - URL for the component's documentation on the docs site
- * @returns
- */
-export const DocLink = ({ name, docUrl }: DocProps) => {
-  if (!name || !docUrl) return null
-
-  const theme = useTheme()
-
-  return (
-    <View style={{ marginVertical: 10 }}>
-      <Text
-        style={{
-          color: theme.vadsColorActionForegroundDefault,
-          textDecorationLine: 'underline',
-          lineHeight: 20,
-        }}
-        onPress={() => {
-          Linking.openURL(docUrl)
-        }}>
-        View guidance for the {name} component on the VA Design System
-      </Text>
-    </View>
-  )
-}
-
-/**
- *
+ * Custom Storybook docs generator function
  * @param name - Name of the component
  * @param docUrl - URL for the component's documentation on the docs site
  * @param icons - IconGallery documentation section passthrough
  * @returns
  */
-export const generateDocs = ({ name, docUrl, icons }: DocProps) => ({
+export const generateDocs = ({ icons }: DocProps) => ({
   page: () => (
     <>
       <Title />
       <Subtitle />
-      <DocLink name={name} docUrl={docUrl} />
       <Description />
       <Primary />
       <Controls />

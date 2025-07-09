@@ -1782,7 +1782,6 @@ __metadata:
     "@react-native-community/datetimepicker": "npm:8.2.0"
     "@react-native-community/slider": "npm:4.5.5"
     "@storybook/addon-docs": "npm:^9.0.15"
-    "@storybook/addon-onboarding": "npm:^9.0.15"
     "@storybook/addon-ondevice-actions": "npm:^9.0.14"
     "@storybook/addon-ondevice-controls": "npm:^9.0.14"
     "@storybook/react-native": "npm:^9.0.14"
@@ -3518,15 +3517,6 @@ __metadata:
   peerDependencies:
     storybook: ^9.0.15
   checksum: 723cff206dd167f5bc589530c37e51fb970385a2d44a38c425e3bbc9522d4f7c60476a267eb96a225e0154041063df048374766681582ada186006fe778f6df4
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-onboarding@npm:^9.0.15":
-  version: 9.0.15
-  resolution: "@storybook/addon-onboarding@npm:9.0.15"
-  peerDependencies:
-    storybook: ^9.0.15
-  checksum: d2ef12914bd3cac5a70b2ebe97c08af5cb6de0c8d0c7949d38c5a61125423bdb91b1c9a3ca5aabc37a61da23590e377aceff4ba4378d9ae11cb1b644465804c4
   languageName: node
   linkType: hard
 

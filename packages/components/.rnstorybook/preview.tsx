@@ -15,7 +15,14 @@ const preview: Preview = {
       </View>
     ),
   ],
-  parameters: {},
+  parameters: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+  },
 }
 
 export default preview

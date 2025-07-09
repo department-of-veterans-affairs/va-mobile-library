@@ -26,9 +26,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    darkMode: {
-      stylePreview: true,
-    },
+    darkMode: { stylePreview: true },
     docs: {
       // Sets a custom container for the docs page so it toggles color scheme with Storybook UI and components
       container: (props) => {
@@ -38,9 +36,7 @@ const preview: Preview = {
           webStorybookColorScheme() === 'dark' ? themes.dark : themes.light
         return React.createElement(DocsContainer, currentProps)
       },
-      controls: {
-        sort: 'requiredFirst',
-      },
+      controls: { sort: 'requiredFirst' },
     },
     layout: 'padded', // Defaults story layout taking up the full space with some padding
   },

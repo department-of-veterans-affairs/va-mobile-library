@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
-import { Platform, View } from 'react-native'
+import { Platform } from 'react-native'
 import React from 'react'
 
 import { Button } from '../Button/Button'
@@ -9,21 +9,6 @@ import { useSnackbar } from './useSnackbar'
 const meta: Meta<SnackbarProps> = {
   title: 'Snackbar',
   component: Snackbar,
-  decorators:
-    Platform.OS === 'web'
-      ? [
-          (Story) => (
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              {Story()}
-            </View>
-          ),
-        ]
-      : undefined,
 }
 
 export default meta

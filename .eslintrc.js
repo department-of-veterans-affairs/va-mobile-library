@@ -21,6 +21,7 @@ module.exports = {
     'sort-imports-es6-autofix',
   ],
   extends: [
+    // For what this sets, see: https://typescript-eslint.io/linting/configs#recommended
     'plugin:@typescript-eslint/recommended',
     'prettier',
     'plugin:storybook/recommended',

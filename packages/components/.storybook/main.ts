@@ -6,15 +6,8 @@ import vitePluginRequire from 'vite-plugin-require'
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)', '../storybook/*.mdx'],
-  addons: [
-    '@storybook/addon-docs',
-    '@storybook/addon-onboarding',
-    '@vueless/storybook-dark-mode',
-  ],
-  framework: {
-    name: '@storybook/react-native-web-vite',
-    options: {},
-  },
+  addons: ['@storybook/addon-docs', '@vueless/storybook-dark-mode'],
+  framework: { name: '@storybook/react-native-web-vite', options: {} },
   staticDirs: [
     '../src/assets', // Points to `assets` folder for custom SVG icon for Icon story
     {
@@ -23,26 +16,19 @@ const config: StorybookConfig = {
       to: 'fonts',
     },
   ],
-  typescript: {
-    reactDocgen: 'react-docgen-typescript',
-  },
+  // Activates TS support in the Story Controls so all props display and use custom types instead of raw type defs
+  typescript: { reactDocgen: 'react-docgen-typescript' },
   viteFinal: async (config) =>
     mergeConfig(config, {
       // Vite uses import.meta instead of process, but babel/node expects process.env
       define: { 'process.env': 'import.meta.env' },
       plugins: [
         // Plugin to handle SVG icons as React components
-        svgr({
-          include: '**/*.svg',
-        }),
+        svgr({ include: '**/*.svg' }),
         // Plugin to enable require() in vite for hooks and stories
         vitePluginRequire(),
       ],
-      resolve: {
-        alias: {
-          'react-native': 'react-native-web',
-        },
-      },
+      resolve: { alias: { 'react-native': 'react-native-web' } },
     }),
 }
 

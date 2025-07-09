@@ -6,11 +6,11 @@ import { IconMap } from './iconList'
 import CustomSVG from '../../assets/svgs/custom.svg'
 
 // Storybook 9 chokes on importing @storybook/addon-docs/blocks IconGallery/IconItem in mobile so limits to web
-let genDocs
+let generateDocs
 if (Platform.OS === 'web') {
-  genDocs = require('../../utils/storybook') // eslint-disable-line
+  generateDocs = require('../../utils/storybook') // eslint-disable-line
 } else {
-  genDocs = () => {}
+  generateDocs = () => {}
 }
 
 const meta: Meta<IconProps> = {
@@ -26,9 +26,7 @@ const meta: Meta<IconProps> = {
     },
   },
   parameters: {
-    docs: genDocs({
-      icons: IconMap,
-    }),
+    docs: generateDocs({ icons: IconMap }),
   },
 }
 

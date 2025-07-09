@@ -68,15 +68,15 @@ yarn tokens:build
 
 ### Yarn Commands
 
-| Command              | Description                                                                                                                                |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `start`              | Starts Metro Bundler with options to run app on different platforms. **Note:** To run on web, use `yarn storybook:web` command below       |
-| `android `           | Run app on last used Android emulator/device                                                                                               |
-| `buildIcons `        | Run script to build icons from assets package                                                                                              |
-| `ios`                | Run app on last used iOS simulator/device                                                                                                  |
-| `storybook:build`    | Generates static version of Storybook for deployment                                                                                       |
-| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json`                    |
-| `storybook:generate` | Generates `.storybook/native/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
-| `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js`                                                                  |
-| `storybook:web`      | Builds and launches development server for web                                                                                             |
-| `test`               | Runs unit tests                                                                                                                            |
+| Command              | Description                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `start`              | Starts Metro Bundler with options to run app on different platforms. **Note:** To run on web, use `yarn storybook:web` command below  |
+| `android `           | Run app on last used Android emulator/device                                                                                          |
+| `buildIcons `        | Run script to build icons from assets package                                                                                         |
+| `ios`                | Run app on last used iOS simulator/device                                                                                             |
+| `storybook:build`    | Generates static version of Storybook for deployment                                                                                  |
+| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json`               |
+| `storybook:generate` | Generates `.rnstorybook/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
+| `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js`                                                             |
+| `storybook:web`      | Builds and launches development server for web                                                                                        |
+| `test`               | Runs unit tests                                                                                                                       |
