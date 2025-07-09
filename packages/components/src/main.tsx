@@ -10,8 +10,8 @@ export type AppType = {
 
 let App: AppType
 try {
-  App = require('./App.tsx')
+  App = require('./App.tsx') // eslint-disable-line
 } catch {
-  App = require('./wrapper.tsx')
+  App = require('./wrapper.tsx') // eslint-disable-line
 }
 export default App

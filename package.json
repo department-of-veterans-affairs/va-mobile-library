@@ -18,8 +18,8 @@
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "packageManager": "yarn@4.0.2",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.17.0",
-    "@typescript-eslint/parser": "^7.17.0",
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/parser": "^8.35.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
@@ -30,15 +30,11 @@
     "typescript": "~5.3.3"
   },
   "resolutions": {
-    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0",
     "ip": "^2.0.1",
-    "react-docgen-typescript": "2.2.2",
     "semver": "^7.5.3"
   },
   "overrides": {
-    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0",
     "ip": "^2.0.1",
-    "react-docgen-typescript": "2.2.2",
     "semver": "^7.5.3"
   }
 }

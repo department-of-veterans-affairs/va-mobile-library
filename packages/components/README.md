@@ -3,12 +3,14 @@
 The Components package is the core of the VA Mobile Design System containing the components themselves.
 
 ## For Consumers
+
 The components package assumes you already have a functioning React Native app, whether using Expo or React Native CLI; see the [React Native documentation](https://reactnative.dev/docs/environment-setup) if you do not.
 
 Once you have a running app:
+
 1. Add `@department-of-veterans-affairs/mobile-component-library` as a dependency with your package manager (e.g. yarn)
 2. Add `@department-of-veterans-affairs/mobile-assets` as a dependency
-    - Note: beyond the assets package, `react`, `react-native`, and `react-native-gesture-handler` are also expected dependencies to run the components package
+   - Note: beyond the assets package, `react`, `react-native`, and `react-native-gesture-handler` are also expected dependencies to run the components package
 3. [Hook up the custom fonts](https://blog.logrocket.com/adding-custom-fonts-react-native/) in the assets package to your app
 4. Import components from `@department-of-veterans-affairs/mobile-component-library` within .jsx/.tsx files and incorporate into the display logic similarly to how you would the built-in React Native components
 
@@ -32,7 +34,7 @@ Documentation about components available can be found via [the documentation sit
 git clone git@github.com:department-of-veterans-affairs/va-mobile-library.git
 ```
 
-2. From the root directory (`va-mobile-library`) run `nvm use`. If you do not have the active Node version installed (you will see an error) run `nvm install v18.18.0` (replacing v.18.18.0 with the version listed in our root-level .nvmrc file), then run `nvm use` to activate it.
+2. From the root directory (`va-mobile-library`) run `nvm use`. If you do not have the active Node version installed (you will see an error) run `nvm install v20.19.2` (replacing v.20.19.2 with the version listed in our root-level .nvmrc file), then run `nvm use` to activate it.
 
 3. Navigate to the components package
 
@@ -45,7 +47,9 @@ cd va-mobile-library/packages/components
 ```
 yarn
 ```
+
 then
+
 ```
 yarn tokens:build
 ```
@@ -64,15 +68,15 @@ yarn tokens:build
 
 ### Yarn Commands
 
-| Command              | Description |
-| -------------------- | ----------- |
-| `start`              | Starts Metro Bundler with options to run app on different platforms. **Note:** To run on web, use `yarn storybook:web` command below |
-| `android `           | Run app on last used Android emulator/device |
-| `buildIcons `        | Run script to build icons from assets package |
-| `ios`                | Run app on last used iOS simulator/device |
-| `storybook:build`    | Generates static version of Storybook for deployment |
-| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json` |
-| `storybook:generate` | Generates `.storybook/native/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
-| `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js` |
-| `storybook:web`      | Builds and launches development server for web |
-| `test`               | Runs unit tests |
+| Command              | Description                                                                                                                           |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `start`              | Starts Metro Bundler with options to run app on different platforms. **Note:** To run on web, use `yarn storybook:web` command below  |
+| `android `           | Run app on last used Android emulator/device                                                                                          |
+| `buildIcons `        | Run script to build icons from assets package                                                                                         |
+| `ios`                | Run app on last used iOS simulator/device                                                                                             |
+| `storybook:build`    | Generates static version of Storybook for deployment                                                                                  |
+| `storybook:deploy`   | Deploys Storybook to [`homepage`](https://department-of-veterans-affairs.github.io/va-mobile-library) in `package.json`               |
+| `storybook:generate` | Generates `.rnstorybook/storybook.requires.js` which tells React Native where to find stores since it doesn't support dynamic imports |
+| `storybook:watch`    | Watches for newly created stories and regenerates `storybook.requires.js`                                                             |
+| `storybook:web`      | Builds and launches development server for web                                                                                        |
+| `test`               | Runs unit tests                                                                                                                       |

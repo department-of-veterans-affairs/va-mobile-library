@@ -1,5 +1,7 @@
 import { colors } from '@department-of-veterans-affairs/mobile-tokens'
-import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
+import { ColorItem, ColorPalette, Meta } from '@storybook/addon-docs/blocks'
+
+{/* Note: Storybook 9 no longer supports direct MDX doc, but it works where CSF wasn't so it was maintained */}
 
 <Meta title="Design Tokens/Colors" />
 
@@ -215,14 +217,6 @@ Our color palette is organized into semantic color tokens, which have specific m
     colors={{
       OnLight: colors.vadsColorForegroundInverseOnLight,
       OnDark: colors.vadsColorForegroundInverseOnDark,
-    }}
-  />
-  <ColorItem
-    title="Error"
-    subtitle="vadsColorForegroundError"
-    colors={{
-      OnLight: colors.vadsColorForegroundErrorOnLight,
-      OnDark: colors.vadsColorForegroundErrorOnDark,
     }}
   />
 </ColorPalette>
@@ -515,6 +509,14 @@ Our color palette is organized into semantic color tokens, which have specific m
     colors={{
       OnLight: colors.vadsColorFeedbackBorderErrorOnLight,
       OnDark: colors.vadsColorFeedbackBorderErrorOnDark,
+    }}
+  />
+  <ColorItem
+    title="Foreground"
+    subtitle="vadsColorFeedbackForegroundError"
+    colors={{
+      OnLight: colors.vadsColorFeedbackForegroundErrorOnLight,
+      OnDark: colors.vadsColorFeedbackForegroundErrorOnDark,
     }}
   />
   <ColorItem

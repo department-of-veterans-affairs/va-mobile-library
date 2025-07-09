@@ -13,24 +13,6 @@ import styled from 'styled-components/native'
 import { ComponentWrapper } from '../../wrapper'
 import { PressableOpacityStyle, isIOS, useTheme } from '../../utils'
 
-/**
- * Props for {@link SegmentedControl}
- */
-export type SegmentedControlProps = {
-  /** Array of segment labels */
-  labels: string[]
-  /** Handler function for changing segment selection */
-  onChange: (selection: number) => void
-  /** Index of the currently selected segment */
-  selected: number
-  /** Optional array of segment accessibility override labels */
-  a11yLabels?: string[]
-  /** Optional array of segment accessibility hints */
-  a11yHints?: string[]
-  /** Optional array of test IDs for test suites */
-  testIDs?: string[]
-}
-
 type SegmentProps = {
   /** Sets the background color */
   backgroundColor: string
@@ -49,7 +31,28 @@ const Segment = styled(Pressable)<SegmentProps>`
     props.isSelected ? spacing.vadsSpace2xs : spacing.vadsSpaceNone};
   background-color: ${(props) => props.backgroundColor};
 `
-/** A segmented control is used to switch between related views of information within the same context. */
+
+/**
+ * Props for {@link SegmentedControl}
+ */
+export type SegmentedControlProps = {
+  /** Array of segment labels */
+  labels: string[]
+  /** Handler function for changing segment selection */
+  onChange: (selection: number) => void
+  /** Index of the currently selected segment */
+  selected: number
+  /** Optional array of segment accessibility override labels */
+  a11yLabels?: string[]
+  /** Optional array of segment accessibility hints */
+  a11yHints?: string[]
+  /** Optional array of test IDs for test suites */
+  testIDs?: string[]
+}
+
+/**
+ * #### [<u>View guidance for the Segmented control component on the VA Design System</u>](https://design.va.gov/components/button/button-segmented)
+ */
 export const SegmentedControl: FC<SegmentedControlProps> = ({
   labels,
   onChange,

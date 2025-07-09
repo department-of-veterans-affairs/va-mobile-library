@@ -35,6 +35,9 @@ export type ButtonProps = {
   testOnlyPressed?: boolean
 }
 
+/**
+ * #### [<u>View guidance for the Button component on the VA Design System</u>](https://design.va.gov/components/button/)
+ */
 export const Button: React.FC<ButtonProps> = ({
   label,
   onPress,

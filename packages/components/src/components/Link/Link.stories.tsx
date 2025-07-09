@@ -1,9 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
-import React from 'react'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 
 import { Link, LinkProps } from './Link'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<LinkProps> = {
   title: 'Link',
@@ -12,25 +9,6 @@ const meta: Meta<LinkProps> = {
     onPress: {
       action: 'onPress event',
     },
-  },
-  decorators: [
-    (Story) => (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Story />
-      </View>
-    ),
-  ],
-  parameters: {
-    docs: generateDocs({
-      name: 'Link',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Buttons%20and%20links/Link',
-    }),
   },
 }
 
@@ -42,9 +20,7 @@ export const Default: Story = {
   args: {
     text: 'Link opens in the app',
     type: 'custom',
-    onPress: () => {
-      null
-    },
+    onPress: () => {},
     analytics: {
       onPress: () => console.log('Analytics event: Pressed'),
     },
@@ -57,9 +33,7 @@ export const DefaultWithIcon: Story = {
     text: 'Link opens an external app',
     icon: { name: 'CleanHands' },
     type: 'custom',
-    onPress: () => {
-      null
-    },
+    onPress: () => {},
   },
 }
 

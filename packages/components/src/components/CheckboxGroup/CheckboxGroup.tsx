@@ -35,6 +35,8 @@ export type CheckboxGroupProps = FormElementProps & {
 }
 
 /**
+ * #### [<u>View guidance for the Checkbox Group component on the VA Mobile Documentation Site</u>](https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/Checkbox/)
+ *
  * ### Managing checked item state
  * The state of the selected checkbox items should be provided to CheckboxGroup via the `selectedItems` prop and updated
  * using the `onSelectionChange` callback. When a checkbox is tapped, the provided `onSelectionChange` callback

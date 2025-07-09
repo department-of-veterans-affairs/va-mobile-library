@@ -1,33 +1,11 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import React, { useState } from 'react'
 
 import { CheckboxGroup, CheckboxGroupProps } from './CheckboxGroup'
-import { generateDocs } from '../../utils/storybook'
 
 const meta: Meta<CheckboxGroupProps> = {
   title: 'Checkbox group',
   component: CheckboxGroup,
-  decorators: [
-    (Story) => (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: 8,
-        }}>
-        {Story()}
-      </View>
-    ),
-  ],
-  parameters: {
-    docs: generateDocs({
-      name: 'Checkbox group',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/Checkbox/',
-    }),
-  },
 }
 
 export default meta
