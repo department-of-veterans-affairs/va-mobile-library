@@ -17,14 +17,9 @@ import {
 } from './OSfunctions'
 import { LinkAnalytics } from '../components/Link/Link'
 
-/** Jest mock to change Platform.OS return
- *    - Defaults 'ios'
- *    - Change with `Platform.OS = 'android'` in a test
+/**
+ * Note: Platform.OS is 'ios' by default in test environment, changed with `Platform.OS = 'android'` in a test
  */
-jest.doMock('react-native/Libraries/Utilities/Platform.ios.js', () => ({
-  OS: 'ios',
-  select: jest.fn(),
-}))
 
 jest.spyOn(Linking, 'openURL')
 
