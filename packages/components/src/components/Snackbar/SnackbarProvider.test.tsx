@@ -86,7 +86,7 @@ describe('Snackbar Provider', () => {
       mockedUseSafeAreaInsets.mockImplementationOnce(() => undefined)
 
       try {
-        renderHook(() => useSnackbar())
+        renderHook(() => useSnackbar(), { wrapper: SnackbarProvider })
       } catch (e) {
         const error = e as Error
         expect(error.message).toEqual(
