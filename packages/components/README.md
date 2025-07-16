@@ -58,6 +58,7 @@ yarn tokens:build
 
 - **Physical Device**
   1. Install the Expo Go app from the [App Store](https://itunes.apple.com/app/apple-store/id982107779) or [Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
+     - Note: It is highly recommended to turn off automatic updates for Expo Go as it is only compatible with the latest Expo SDK and will stop working upon update until the project SDK is upgraded which can include complicated dependency updates. Android allows downloading an old version APK as a workaround, but iOS is impossible to downgrade.
   2. Run `yarn start`
   3. Using your devices camera, scan the QR code that pops up in your console
 - **Simulator**
