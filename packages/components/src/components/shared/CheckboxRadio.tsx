@@ -1,7 +1,7 @@
+import { FC } from 'react'
 import { Pressable, StyleProp, View, ViewStyle } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
-import React, { FC } from 'react'
 
 import { CheckboxRadioProps } from '../../types/forms'
 import { Description, Error, Header, Hint, Label } from '../shared/FormText'

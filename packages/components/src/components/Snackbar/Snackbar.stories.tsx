@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import { Platform } from 'react-native'
-import React from 'react'
 
 import { Button } from '../Button/Button'
 import { Snackbar, SnackbarOptions, SnackbarProps } from './Snackbar'

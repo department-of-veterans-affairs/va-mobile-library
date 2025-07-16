@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 
 import { CheckboxRadio } from '../shared/CheckboxRadio'
 import { CheckboxRadioProps } from '../../types/forms'
