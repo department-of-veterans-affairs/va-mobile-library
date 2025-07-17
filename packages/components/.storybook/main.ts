@@ -21,7 +21,10 @@ const config: StorybookConfig = {
   viteFinal: async (config) =>
     mergeConfig(config, {
       // Vite uses import.meta instead of process, but babel/node expects process.env
-      define: { 'process.env': 'import.meta.env' },
+      define: { 
+        'process.env': 'import.meta.env',
+        'process.env.STORYBOOK_WEB': JSON.stringify(process.env.STORYBOOK_WEB || 'true')
+      },
       plugins: [
         // Plugin to handle SVG icons as React components
         svgr({ include: '**/*.svg' }),
