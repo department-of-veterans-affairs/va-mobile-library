@@ -1,0 +1,1 @@
+const a={vadsSpaceNone:0,vadsSpace2xs:4,vadsSpaceXs:8,vadsSpaceSm:12,vadsSpaceMd:16,vadsSpaceLg:20,vadsSpaceXl:24,vadsSpace2xl:28,vadsSpace3xl:32,vadsSpace4xl:36,vadsSpace5xl:40,vadsSpace6xl:44};export{a as s};
