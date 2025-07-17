@@ -1,0 +1,16 @@
+import{j as e,T as C,S,l as f,P as A,m as x,n as j,I as k,o as w,u as I,r as i,d as g}from"./iframe-D69x0NRx.js";import{I as b,a as l}from"./Icon-Dk7fbPP1.js";import"./style-tO4gk4Rh.js";const t=({icons:o})=>({page:()=>e.jsxs(e.Fragment,{children:[e.jsx(C,{}),e.jsx(S,{}),e.jsx(f,{}),e.jsx(A,{}),e.jsx(x,{}),o?O(o):null,e.jsx(j,{})]})}),O=o=>{const c=[],h=Object.keys(o);for(const n of h)c.push(e.jsx(w,{name:n,children:e.jsx(b,{name:n})},n));return e.jsx(k,{children:c})};try{useWebStorybookColorScheme.displayName="useWebStorybookColorScheme",useWebStorybookColorScheme.__docgenInfo={description:"Function to initialize listening to light/dark mode toggle in Web Storybook to set color scheme",displayName:"useWebStorybookColorScheme",props:{}}}catch{}try{t.displayName="generateDocs",t.__docgenInfo={description:"Custom Storybook docs generator function",displayName:"generateDocs",props:{icons:{defaultValue:null,description:"",name:"icons",required:!1,type:{name:"{ AccessibilityNew: any; AccessibleForward: any; AccountBalance: any; AccountBox: any; AccountCircle: any; Acute: any; Add: any; AddCircle: any; AddCircleOutline: any; Adjust: any; Alarm: any; AlternateEmail: any; ... 539 more ...; flag_ZW: any; }"}}}}}catch{}try{storybook.displayName="storybook",storybook.__docgenInfo={description:"Custom Storybook docs generator function",displayName:"storybook",props:{icons:{defaultValue:null,description:"",name:"icons",required:!1,type:{name:"{ AccessibilityNew: any; AccessibleForward: any; AccountBalance: any; AccountBox: any; AccountCircle: any; Acute: any; Add: any; AddCircle: any; AddCircleOutline: any; Adjust: any; Alarm: any; AlternateEmail: any; ... 539 more ...; flag_ZW: any; }"}}}}}catch{}const P=Object.freeze(Object.defineProperty({__proto__:null,default:t,generateDocs:t,useWebStorybookColorScheme:I},Symbol.toStringTag,{value:"Module"})),W=o=>i.createElement("svg",{width:24,height:24,viewBox:"0 0 24 24",fill:"none",xmlns:"http://www.w3.org/2000/svg",...o},i.createElement("path",{d:"M3 13.6493C3 16.6044 5.41766 19 8.4 19L16.5 19C18.9853 19 21 16.9839 21 14.4969C21 12.6503 19.8893 10.9449 18.3 10.25C18.1317 7.32251 15.684 5 12.6893 5C10.3514 5 8.34694 6.48637 7.5 8.5C4.8 8.9375 3 11.2001 3 13.6493Z"}));let s;g.Platform.OS==="web"?s=t||P:s=()=>{};const D={title:"Icon",component:b,argTypes:{name:{control:g.Platform.OS==="web"?{type:"select",search:!0}:{type:"radio"},options:["none",...Object.keys(l)]}},parameters:{docs:s({icons:l})}},r={name:"Preloaded Icons",args:{width:50,height:50,name:"HomeOutlined"}},a={name:"Custom SVG",args:{width:50,height:50,fill:"base",svg:W}};var d,m,y;r.parameters={...r.parameters,docs:{...(d=r.parameters)==null?void 0:d.docs,source:{originalSource:`{
+  name: 'Preloaded Icons',
+  args: {
+    width: 50,
+    height: 50,
+    name: 'HomeOutlined'
+  }
+}`,...(y=(m=r.parameters)==null?void 0:m.docs)==null?void 0:y.source}}};var u,p,_;a.parameters={...a.parameters,docs:{...(u=a.parameters)==null?void 0:u.docs,source:{originalSource:`{
+  name: 'Custom SVG',
+  args: {
+    width: 50,
+    height: 50,
+    fill: 'base',
+    svg: CustomSVG
+  }
+}`,...(_=(p=a.parameters)==null?void 0:p.docs)==null?void 0:_.source}}};const B=["_Preloaded","__Custom"];export{r as _Preloaded,a as __Custom,B as __namedExportsOrder,D as default};
