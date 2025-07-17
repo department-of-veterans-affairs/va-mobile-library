@@ -26,13 +26,38 @@ const config: StorybookConfig = {
         'process.env.STORYBOOK_WEB': JSON.stringify(
           process.env.STORYBOOK_WEB || 'true',
         ),
-        'global': 'globalThis',
+        global: 'globalThis',
       },
       plugins: [
         // Plugin to handle SVG icons as React components
         svgr({ include: '**/*.svg' }),
         // Plugin to enable require() in vite for hooks and stories
         vitePluginRequire(),
+        // Custom plugin to handle react-native require calls
+        {
+          name: 'react-native-require-alias',
+          transformIndexHtml(html) {
+            return html.replace(
+              '<head>',
+              `<head>
+                <script>
+                  // Override require to alias react-native to react-native-web
+                  const originalRequire = globalThis.require;
+                  globalThis.require = function(id) {
+                    if (id === 'react-native') {
+                      // Return react-native-web when react-native is required
+                      return globalThis.ReactNativeWeb || window.ReactNativeWeb || {};
+                    }
+                    if (originalRequire) {
+                      return originalRequire(id);
+                    }
+                    console.warn('require not supported:', id);
+                    return {};
+                  };
+                </script>`,
+            )
+          },
+        },
       ],
       resolve: { alias: { 'react-native': 'react-native-web' } },
     }),
