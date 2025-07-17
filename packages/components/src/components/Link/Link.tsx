@@ -120,6 +120,9 @@ export type LinkProps = linkTypes & {
   testOnlyPressed?: boolean
 }
 
+/**
+ * #### [<u>View guidance for the Link component on the VA Design System</u>](https://design.va.gov/components/link/)
+ */
 export const Link: FC<LinkProps> = ({
   type,
   text,

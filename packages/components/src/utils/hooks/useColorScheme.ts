@@ -10,9 +10,9 @@ export function useColorScheme(): ColorSchemeName {
     return RNUseColorScheme()
   } else {
     try {
-      const webStorybookColorScheme =
-        require('./useWebStorybookColorScheme').useWebStorybookColorScheme // eslint-disable-line
+      const webStorybookColorScheme = require('./useWebStorybookColorScheme') // eslint-disable-line
       return webStorybookColorScheme()
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return null
     }

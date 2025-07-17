@@ -60,6 +60,9 @@ export type AlertProps = {
     }
 )
 
+/**
+ * #### [<u>View guidance for the Alert component on the VA Design System</u>](https://design.va.gov/components/alert/)
+ */
 export const Alert: FC<AlertProps> = ({
   variant,
   header,

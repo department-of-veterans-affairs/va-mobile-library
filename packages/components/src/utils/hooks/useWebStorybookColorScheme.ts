@@ -19,3 +19,5 @@ export const useWebStorybookColorScheme = () => {
     },
   )
 }
+
+export default useWebStorybookColorScheme

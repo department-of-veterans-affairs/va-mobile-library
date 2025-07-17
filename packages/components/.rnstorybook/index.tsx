@@ -2,8 +2,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { view } from './storybook.requires'
 
-import './storybook.requires'
-
 const StorybookUIRoot = view.getStorybookUI({
   // Used to persist the selected story between reloads
   storage: {
@@ -11,4 +9,5 @@ const StorybookUIRoot = view.getStorybookUI({
     setItem: AsyncStorage.setItem,
   },
 })
+
 export default StorybookUIRoot

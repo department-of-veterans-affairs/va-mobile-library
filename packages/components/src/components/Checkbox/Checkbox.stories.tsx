@@ -1,40 +1,19 @@
-import { Meta, StoryObj } from '@storybook/react'
-import { View } from 'react-native'
+import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import React, { useState } from 'react'
 
-import { Checkbox, CheckboxProps } from './Checkbox'
-import { generateDocs } from '../../utils/storybook'
+import { Checkbox } from './Checkbox'
+import { CheckboxRadioProps } from '../../types'
 
-const meta: Meta<CheckboxProps> = {
+const meta: Meta<CheckboxRadioProps> = {
   title: 'Checkbox',
   component: Checkbox,
-  decorators: [
-    (Story) => (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          margin: 8,
-        }}>
-        {Story()}
-      </View>
-    ),
-  ],
-  parameters: {
-    docs: generateDocs({
-      name: 'Checkbox',
-      docUrl:
-        'https://department-of-veterans-affairs.github.io/va-mobile-app/design/Components/Selection%20and%20Input/Checkbox/',
-    }),
-  },
 }
 
 export default meta
 
-type Story = StoryObj<CheckboxProps>
+type Story = StoryObj<CheckboxRadioProps>
 
-const statefulComponentRenderer = (props: CheckboxProps) => {
+const statefulComponentRenderer = (props: CheckboxRadioProps) => {
   const {
     description,
     error,

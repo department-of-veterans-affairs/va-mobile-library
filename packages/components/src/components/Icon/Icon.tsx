@@ -52,13 +52,13 @@ export type IconProps = nameOrSvg &
   }
 
 /**
+ * #### [<u>View guidance for the Icon component on the VA Design System</u>](https://design.va.gov/components/icon)
+ *
  * Convenience component to display Icons that are in .svg file format. A set
  * of pre-loaded icons can be found in the [mobile-assets](https://www.npmjs.com/package/\@department-of-veterans-affairs/mobile-assets)
  * package. Custom SVGs can also be used if your project is configured to
  * import them. See [\@svgr/webpack](https://www.npmjs.com/package/\@svgr/webpack)
  * for webpack setup guidance.
- *
- * @returns Icon component
  */
 export const Icon: FC<IconProps> = ({
   name,

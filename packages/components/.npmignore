@@ -2,6 +2,7 @@
 
 # General
 .expo
+.rnstorybook
 .storybook
 .yarn
 buildIconListFromAssets.js
