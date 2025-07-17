@@ -43,7 +43,7 @@
     "react-i18next": "^15.0.0",
     "react-native-svg": "15.8.0",
     "react-native-toast-notifications": "^3.4.0",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.19"
   },
   "peerDependencies": {
     "@department-of-veterans-affairs/mobile-assets": "^0.15.1",

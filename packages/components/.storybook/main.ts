@@ -33,24 +33,6 @@ const config: StorybookConfig = {
         svgr({ include: '**/*.svg' }),
         // Plugin to enable require() in vite for hooks and stories
         vitePluginRequire(),
-        // Custom plugin to provide require polyfill
-        {
-          name: 'require-polyfill',
-          transformIndexHtml(html) {
-            return html.replace(
-              '<head>',
-              `<head>
-                <script>
-                  if (typeof globalThis.require === 'undefined') {
-                    globalThis.require = function(id) {
-                      console.warn('Dynamic require not supported:', id);
-                      return {};
-                    };
-                  }
-                </script>`
-            );
-          },
-        },
       ],
       resolve: { alias: { 'react-native': 'react-native-web' } },
     }),
