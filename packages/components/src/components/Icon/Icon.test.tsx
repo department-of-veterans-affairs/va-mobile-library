@@ -1,6 +1,5 @@
 import { Icon, IconProps } from './Icon'
 import { render, screen } from '@testing-library/react-native'
-import React from 'react'
 
 import CustomSVG from '../../assets/svgs/custom.svg'
 

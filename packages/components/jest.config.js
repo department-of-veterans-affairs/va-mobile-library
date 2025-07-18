@@ -1,6 +1,5 @@
 module.exports = {
-  preset: '@testing-library/react-native',
-  testEnvironment: 'node',
+  preset: 'jest-expo',
   transform: {
     '^.+\\.(ts|tsx)$': [
       'ts-jest',
@@ -18,5 +17,6 @@ module.exports = {
     './jest/nativeModulesSetup.ts',
   ],
   setupFilesAfterEnv: ['./jest/jestSetup.ts'],
+  testEnvironment: 'node',
   transformIgnorePatterns: ['jest-runner', '/node_modules/(?!native-base)/'],
 }

@@ -8,7 +8,6 @@ import {
   Subtitle,
   Title,
 } from '@storybook/addon-docs/blocks'
-import React from 'react'
 
 import { Icon } from '../components/Icon/Icon'
 import { IconMap } from '../components/Icon/iconList'

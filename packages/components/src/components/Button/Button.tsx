@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import {
   Pressable,
   PressableStateCallbackType,
@@ -6,7 +7,6 @@ import {
   ViewStyle,
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import React from 'react'
 
 import { useTheme } from '../../utils'
 
@@ -38,7 +38,7 @@ export type ButtonProps = {
 /**
  * #### [<u>View guidance for the Button component on the VA Design System</u>](https://design.va.gov/components/button/)
  */
-export const Button: React.FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   label,
   onPress,
   a11yHint,

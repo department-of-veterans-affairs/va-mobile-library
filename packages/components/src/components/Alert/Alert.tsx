@@ -1,3 +1,4 @@
+import { FC, ReactNode, useState } from 'react'
 import {
   Insets,
   Pressable,
@@ -6,7 +7,6 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import React, { FC, useState } from 'react'
 
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
@@ -33,7 +33,7 @@ export type AlertProps = {
   descriptionA11yLabel?: string
   /** Optional custom content to nest inside Alert
    * Use AlertContentColor or appropriate component props to set light/dark mode 'base' gray colors */
-  children?: React.ReactNode
+  children?: ReactNode
   /** Optional primary action button */
   primaryButton?: ButtonProps
   /** Optional secondary action button */

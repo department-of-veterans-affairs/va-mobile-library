@@ -1,5 +1,5 @@
 import { Animated, Easing, View, ViewStyle } from 'react-native'
-import React, { useEffect, useRef } from 'react'
+import { FC, ReactNode, useEffect, useRef } from 'react'
 
 import { Icon, IconProps } from '../Icon/Icon'
 import { Spacer } from '../Spacer/Spacer'
@@ -15,20 +15,20 @@ export type LoadingIndicatorProps = {
       /** Text appearing below indicator. Required if no children included */
       text: string
       /** Optional custom content to display below indicator */
-      children?: React.ReactNode
+      children?: ReactNode
     }
   | {
       /** Text appearing below indicator. Optional if children included */
       text?: string
       /** Optional custom content to display below indicator */
-      children: React.ReactNode
+      children: ReactNode
     }
 )
 
 /**
  * #### [<u>View guidance for the Loading indicator component on the VA Design System</u>](https://design.va.gov/components/loading-indicator)
  */
-export const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({
+export const LoadingIndicator: FC<LoadingIndicatorProps> = ({
   text,
   a11yLabel,
   children,

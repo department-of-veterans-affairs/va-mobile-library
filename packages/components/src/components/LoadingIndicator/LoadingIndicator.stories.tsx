@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
-import React from 'react'
 
 import { Link } from '../Link/Link'
 import { LoadingIndicator, LoadingIndicatorProps } from './LoadingIndicator'

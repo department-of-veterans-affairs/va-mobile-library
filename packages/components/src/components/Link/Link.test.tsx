@@ -4,7 +4,6 @@ import {
   screen,
   within,
 } from '@testing-library/react-native'
-import React from 'react'
 
 import * as utils from '../../utils/OSfunctions'
 import { Icon } from '../Icon/Icon'

@@ -2,8 +2,8 @@ import type { Preview } from '@storybook/react-native-web-vite'
 
 import { DocsContainer } from '@storybook/addon-docs/blocks'
 import { View } from 'react-native'
+import { createElement } from 'react'
 import { themes } from 'storybook/theming'
-import React from 'react'
 
 const preview: Preview = {
   decorators: [
@@ -34,7 +34,7 @@ const preview: Preview = {
         const currentProps = { ...props }
         currentProps.theme =
           webStorybookColorScheme() === 'dark' ? themes.dark : themes.light
-        return React.createElement(DocsContainer, currentProps)
+        return createElement(DocsContainer, currentProps)
       },
       controls: { sort: 'requiredFirst' },
     },

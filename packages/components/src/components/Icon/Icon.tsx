@@ -1,6 +1,6 @@
 import { ColorValue, View, ViewStyle, useWindowDimensions } from 'react-native'
+import { FC } from 'react'
 import { SvgProps } from 'react-native-svg'
-import React, { FC } from 'react'
 
 import { IconMap } from './iconList'
 import { useColorScheme, useTheme } from '../../utils'
@@ -14,7 +14,7 @@ type nameOrSvg =
   | {
       name?: never
       /** Custom SVG passed to display */
-      svg: React.FC<SvgProps>
+      svg: FC<SvgProps>
     }
 
 type heightAndWidth =

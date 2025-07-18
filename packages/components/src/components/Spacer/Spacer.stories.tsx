@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 import { View } from 'react-native'
-import React from 'react'
 
 import { Button, ButtonVariants } from '../Button/Button'
 import { Icon } from '../Icon/Icon'

@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import { ToastProvider } from 'react-native-toast-notifications'
 import {
   act,
@@ -6,7 +7,6 @@ import {
   screen,
   userEvent,
 } from '@testing-library/react-native'
-import React from 'react'
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock'
 
 import { AccessibilityInfo } from 'react-native'
@@ -55,7 +55,7 @@ const queryMessageText = () => screen.queryByText(commonProps.message)
 const getToastProvider = async () =>
   screen.UNSAFE_root.findByType(ToastProvider)
 
-const CustomRender: React.FC<{ noAction?: boolean }> = (props) => {
+const CustomRender: FC<{ noAction?: boolean }> = (props) => {
   const { show } = useSnackbar()
   const noAction = props.noAction
 
@@ -86,7 +86,7 @@ describe('Snackbar Provider', () => {
       mockedUseSafeAreaInsets.mockImplementationOnce(() => undefined)
 
       try {
-        renderHook(() => useSnackbar())
+        renderHook(() => useSnackbar(), { wrapper: SnackbarProvider })
       } catch (e) {
         const error = e as Error
         expect(error.message).toEqual(
