@@ -1,5 +1,17 @@
 # Changelog
 
+## [components-v0.34.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.34.0) (2025-07-18)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.32.0...components-v0.34.0)
+
+## [components-v0.32.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.32.0) (2025-07-18)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.31.0...components-v0.32.0)
+
+**Merged pull requests:**
+
+- \[Code Upkeep\] Update components package to Expo SDK53 [\#647](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/647) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.31.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.31.0) (2025-06-24)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/assets-v0.15.1...components-v0.31.0)

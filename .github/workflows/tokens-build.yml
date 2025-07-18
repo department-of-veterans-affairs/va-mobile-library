@@ -36,8 +36,8 @@ jobs:
       - name: Prepare commit
         working-directory: packages/tokens
         run: |
-          git config --global user.name 'VA Automation Bot'
-          git config --global user.email 'va-mobileapp@adhocteam.us'
+          git config --global user.name 'VA Mobile Automation Bot'
+          git config --global user.email 'VAFlagshipMobile@va.gov'
           rm -rf dist
           git pull
           git add -f figma/

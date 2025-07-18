@@ -25,8 +25,8 @@ jobs:
           token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
       - name: Set git credentials
         run: |
-          git config --global user.name 'VA Automation Bot'
-          git config --global user.email 'va-mobileapp@adhocteam.us'
+          git config --global user.name 'VA Mobile Automation Bot'
+          git config --global user.email 'VAFlagshipMobile@va.gov'
       - name: Regenerate yarn.lock
         run: |
           yarn install
