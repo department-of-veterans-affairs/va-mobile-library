@@ -1,5 +1,4 @@
-import React, { ReactNode, createContext, useState } from 'react'
-
+import { FC, ReactNode, createContext, useState } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ToastProvider } from 'react-native-toast-notifications'
 
@@ -20,9 +19,7 @@ export const SnackbarContext = createContext<SnackbarContextType | undefined>(
   undefined,
 )
 
-export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+export const SnackbarProvider: FC<{ children: ReactNode }> = ({ children }) => {
   // TODO: Check global default setting
   const [offset, setOffset] = useState(useSnackbarDefaultOffset())
 
@@ -41,7 +38,7 @@ export const SnackbarProvider: React.FC<{ children: ReactNode }> = ({
   )
 }
 
-export const SnackbarProviderWithSafeArea: React.FC<{
+export const SnackbarProviderWithSafeArea: FC<{
   children: ReactNode
 }> = ({ children }) => (
   <SafeAreaProvider>

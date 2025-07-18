@@ -1,6 +1,5 @@
 import { Spacer } from './Spacer'
 import { render, screen } from '@testing-library/react-native'
-import React from 'react'
 
 describe('Spacer', () => {
   it('renders correctly at default size  vadsSpaceSm (12)', () => {

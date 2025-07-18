@@ -10,10 +10,10 @@ import {
   ViewStyle,
   useWindowDimensions,
 } from 'react-native'
+import { FC, useEffect } from 'react'
 import { ToastProps } from 'react-native-toast-notifications/lib/typescript/toast'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
-import React, { FC, useEffect } from 'react'
 
 import { ComponentWrapper } from '../../wrapper'
 import { Icon, IconProps } from '../Icon/Icon'

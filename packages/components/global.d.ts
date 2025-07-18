@@ -3,8 +3,8 @@
  * See: https://github.com/kristerkari/react-native-svg-transformer?tab=readme-ov-file#using-typescript
  */
 declare module '*.svg' {
+  import { FC } from 'react'
   import { SvgProps } from 'react-native-svg'
-  import React from 'react'
-  const content: React.FC<SvgProps>
+  const content: FC<SvgProps>
   export default content
 }

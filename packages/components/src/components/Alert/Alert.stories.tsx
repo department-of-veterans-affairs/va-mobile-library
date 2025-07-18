@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
-import React from 'react'
 
 import { Alert, AlertProps } from './Alert'
 import { Link } from '../Link/Link'

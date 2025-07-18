@@ -1,9 +1,9 @@
+import { CSSProperties, FC } from 'react'
 import { spacing } from '@department-of-veterans-affairs/mobile-tokens'
-import React, { CSSProperties } from 'react'
 
 import { useTheme } from '../src/utils'
 
-export const SpacingTable: React.FC = () => {
+export const SpacingTable: FC = () => {
   const theme = useTheme()
 
   const thStyle: CSSProperties = { textAlign: 'left' }

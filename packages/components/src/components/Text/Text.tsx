@@ -1,10 +1,10 @@
+import { FC, ReactNode } from 'react'
 import {
   Text as RNText,
   TextProps as RNTextProps,
   TextStyle,
 } from 'react-native'
 import { font } from '@department-of-veterans-affairs/mobile-tokens'
-import React, { FC } from 'react'
 
 import { SpacerSize } from '../Spacer/Spacer'
 import { getSpacingToken, useTheme } from '../../utils'
@@ -63,7 +63,7 @@ type DisplayProps = {
 export type TextProps = {
   /** True to set textAlign: center */
   center?: boolean
-  children?: React.ReactNode
+  children?: ReactNode
   /** AccessibilityLabel for the text */
   a11yLabel?: string
 } & (BodyProps | HeadingProps | DisplayProps)
