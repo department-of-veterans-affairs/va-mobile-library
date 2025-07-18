@@ -30,10 +30,10 @@ const preview: Preview = {
     docs: {
       // Sets a custom container for the docs page so it toggles color scheme with Storybook UI and components
       container: (props) => {
-        const webStorybookColorScheme = require('../src/utils/hooks/useWebStorybookColorScheme.ts')
+        // const webStorybookColorScheme = require('../src/utils/hooks/useWebStorybookColorScheme.ts')
         const currentProps = { ...props }
-        currentProps.theme =
-          webStorybookColorScheme() === 'dark' ? themes.dark : themes.light
+        currentProps.theme = themes.light
+        // webStorybookColorScheme() === 'dark' ? themes.dark : themes.light
         return createElement(DocsContainer, currentProps)
       },
       controls: { sort: 'requiredFirst' },
