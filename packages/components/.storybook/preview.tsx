@@ -5,6 +5,17 @@ import { View } from 'react-native'
 import { createElement } from 'react'
 import { themes } from 'storybook/theming'
 
+import { useWebStorybookColorScheme } from '../src/utils/hooks/useWebStorybookColorScheme.ts'
+
+/**
+ * Custom DocsContainer to update theme in Storybook according to the light/dark mode toggle
+ */
+const CustomDocsContainer = (props) => {
+  const colorScheme = useWebStorybookColorScheme()
+  const theme = colorScheme === 'dark' ? themes.dark : themes.light
+  return createElement(DocsContainer, { ...props, theme })
+}
+
 const preview: Preview = {
   decorators: [
     (Story) => (
@@ -28,14 +39,7 @@ const preview: Preview = {
     },
     darkMode: { stylePreview: true },
     docs: {
-      // Sets a custom container for the docs page so it toggles color scheme with Storybook UI and components
-      container: (props) => {
-        const webStorybookColorScheme = require('../src/utils/hooks/useWebStorybookColorScheme.ts')
-        const currentProps = { ...props }
-        currentProps.theme =
-          webStorybookColorScheme() === 'dark' ? themes.dark : themes.light
-        return createElement(DocsContainer, currentProps)
-      },
+      container: CustomDocsContainer,
       controls: { sort: 'requiredFirst' },
     },
     layout: 'padded', // Defaults story layout taking up the full space with some padding
