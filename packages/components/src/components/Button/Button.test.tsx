@@ -1,7 +1,6 @@
 import 'react-native'
 import { fireEvent, render, screen } from '@testing-library/react-native'
 // Note: test renderer must be required after react-native.
-import 'jest-styled-components'
 
 import { Button, ButtonVariants } from './Button'
 

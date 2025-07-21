@@ -1,36 +1,60 @@
 import { FC, useEffect } from 'react'
 import {
   Pressable,
-  Text as RNText,
+  PressableProps,
+  StyleSheet,
+  Text,
   TextStyle,
   View,
   ViewStyle,
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
 import { PressableOpacityStyle, isIOS, useTheme } from '../../utils'
 
-type SegmentProps = {
-  /** Sets the background color */
-  backgroundColor: string
-  /** True if segment is selected, else false */
-  isSelected: boolean
-  /** Percent of width the segment is allocated */
-  widthPct: string
-}
+// Regular Pressable component instead of styled-component to avoid web compatibility issues
+const Segment: FC<
+  {
+    backgroundColor: string
+    isSelected: boolean
+    widthPct: string
+    children: React.ReactNode
+    onPress: () => void
+  } & Omit<PressableProps, 'onPress' | 'children'>
+> = ({
+  backgroundColor,
+  isSelected,
+  widthPct,
+  children,
+  onPress,
+  style,
+  ...props
+}) => {
+  const segmentStyle = StyleSheet.create({
+    segment: {
+      borderRadius: 8,
+      paddingHorizontal: spacing.vadsSpace2xs,
+      paddingVertical: spacing.vadsSpaceXs,
+      width: widthPct as '100%', // Type assertion for percentage strings
+      elevation: isSelected ? spacing.vadsSpace2xs : spacing.vadsSpaceNone,
+      backgroundColor: backgroundColor,
+    },
+  })
 
-const Segment = styled(Pressable)<SegmentProps>`
-  border-radius: 8px;
-  padding-horizontal: ${spacing.vadsSpace2xs}px;
-  padding-vertical: ${spacing.vadsSpaceXs}px;
-  width: ${(props) => props.widthPct};
-  elevation: ${(props) =>
-    props.isSelected ? spacing.vadsSpace2xs : spacing.vadsSpaceNone};
-  background-color: ${(props) => props.backgroundColor};
-`
+  return (
+    <Pressable
+      onPress={onPress}
+      style={({ pressed }) => [
+        segmentStyle.segment,
+        typeof style === 'function' ? style({ pressed }) : style,
+      ]}
+      {...props}>
+      {children}
+    </Pressable>
+  )
+}
 
 /**
  * Props for {@link SegmentedControl}
@@ -128,9 +152,9 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         accessibilityState={{ selected: isSelected }}
         style={PressableOpacityStyle()}
         testID={testIDs?.[index]}>
-        <RNText allowFontScaling={false} style={textStyle}>
+        <Text allowFontScaling={false} style={textStyle}>
           {label}
-        </RNText>
+        </Text>
       </Segment>
     )
   }
