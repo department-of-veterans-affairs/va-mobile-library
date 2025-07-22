@@ -2,8 +2,8 @@ import { FC, useEffect } from 'react'
 import {
   Pressable,
   PressableProps,
+  Text as RNText,
   StyleSheet,
-  Text,
   TextStyle,
   View,
   ViewStyle,
@@ -12,7 +12,7 @@ import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, isIOS, useTheme } from '../../utils'
+import { PressableOpacityStyle, useTheme } from '../../utils'
 
 // Regular Pressable component instead of styled-component to avoid web compatibility issues
 const Segment: FC<
@@ -123,13 +123,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       total: labels.length,
     })
 
-    const accessibilityValueText = isIOS()
-      ? t('tab') +
-        ', ' +
-        (isSelected ? t('selected') + ', ' : '') +
-        a11yListPosition
-      : a11yListPosition
-
     const textStyle: TextStyle = {
       ...typography.vadsFontBodyLarge,
       fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
@@ -146,15 +139,15 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
         key={index}
         widthPct={`${100 / labels.length}%`}
         aria-label={accessibilityLabel}
-        aria-valuetext={accessibilityValueText}
+        aria-valuetext={a11yListPosition}
         accessibilityHint={a11yHints ? a11yHints[index] : ''}
         role={'tab'}
         accessibilityState={{ selected: isSelected }}
         style={PressableOpacityStyle()}
         testID={testIDs?.[index]}>
-        <Text allowFontScaling={false} style={textStyle}>
+        <RNText allowFontScaling={false} style={textStyle}>
           {label}
-        </Text>
+        </RNText>
       </Segment>
     )
   }
