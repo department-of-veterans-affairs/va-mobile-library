@@ -17,7 +17,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adobe/css-tools@npm:^4.0.1, @adobe/css-tools@npm:^4.4.0":
+"@adobe/css-tools@npm:^4.4.0":
   version: 4.4.3
   resolution: "@adobe/css-tools@npm:4.4.3"
   checksum: 6d16c4d4b6752d73becf6e58611f893c7ed96e04017ff7084310901ccdbe0295171b722b158f6a2b0aa77182ef3446ffd62b39488fa5a7adab1f0dfe5ffafbae
@@ -1776,7 +1776,6 @@ __metadata:
     i18next: "npm:^23.12.2"
     jest: "npm:^29.7.0"
     jest-expo: "npm:~53.0.9"
-    jest-styled-components: "npm:^7.2.0"
     metro-react-native-babel-preset: "npm:^0.77.0"
     react: "npm:19.0.0"
     react-docgen-typescript: "npm:^2.4.0"
@@ -9086,17 +9085,6 @@ __metadata:
     pretty-format: "npm:^29.7.0"
     semver: "npm:^7.5.3"
   checksum: 6e9003c94ec58172b4a62864a91c0146513207bedf4e0a06e1e2ac70a4484088a2683e3a0538d8ea913bcfd53dc54a9b98a98cdfa562e7fe1d1339aeae1da570
-  languageName: node
-  linkType: hard
-
-"jest-styled-components@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "jest-styled-components@npm:7.2.0"
-  dependencies:
-    "@adobe/css-tools": "npm:^4.0.1"
-  peerDependencies:
-    styled-components: ">= 5"
-  checksum: 44eecf73cd1ee50686c9c16517222e2c012422dd7d90a07813f82f3ccce4059563e620d25aed60274e05d31fe6375b1f31a3486033aa39ea5e82fd94afcfa32f
   languageName: node
   linkType: hard
 
