@@ -84,7 +84,6 @@ describe('SegmentedControl', () => {
     const inactiveSegmentText = screen.getByText(labels[1])
 
     expect(activeSegment).toHaveStyle({
-      elevation: 4,
       backgroundColor: '#ffffff',
     })
 
@@ -93,7 +92,6 @@ describe('SegmentedControl', () => {
     })
 
     expect(inactiveSegment).toHaveStyle({
-      elevation: 0,
       backgroundColor: '#dfe1e2',
     })
 
@@ -111,7 +109,6 @@ describe('SegmentedControl', () => {
     const inactiveSegmentText = screen.getByText(labels[1])
 
     expect(activeSegment).toHaveStyle({
-      elevation: 4,
       backgroundColor: '#565c65',
     })
 
@@ -120,7 +117,6 @@ describe('SegmentedControl', () => {
     })
 
     expect(inactiveSegment).toHaveStyle({
-      elevation: 0,
       backgroundColor: '#3d4551',
     })
 

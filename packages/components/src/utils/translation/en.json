@@ -7,8 +7,6 @@
   "leaveAppAlert.title": "Leave the mobile app?",
   "listPosition": "{{position}} of {{total}}",
   "required": "Required",
-  "selected": "Selected",
-  "tab": "Tab",
   "tryAgain": "Try again",
   "undo": "Undo"
 }

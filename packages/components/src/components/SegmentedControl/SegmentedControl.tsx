@@ -1,9 +1,7 @@
 import { FC, useEffect } from 'react'
 import {
   Pressable,
-  PressableProps,
   Text as RNText,
-  StyleSheet,
   TextStyle,
   View,
   ViewStyle,
@@ -13,48 +11,6 @@ import { useTranslation } from 'react-i18next'
 
 import { ComponentWrapper } from '../../wrapper'
 import { PressableOpacityStyle, useTheme } from '../../utils'
-
-// Regular Pressable component instead of styled-component to avoid web compatibility issues
-const Segment: FC<
-  {
-    backgroundColor: string
-    isSelected: boolean
-    widthPct: string
-    children: React.ReactNode
-    onPress: () => void
-  } & Omit<PressableProps, 'onPress' | 'children'>
-> = ({
-  backgroundColor,
-  isSelected,
-  widthPct,
-  children,
-  onPress,
-  style,
-  ...props
-}) => {
-  const segmentStyle = StyleSheet.create({
-    segment: {
-      borderRadius: 8,
-      paddingHorizontal: spacing.vadsSpace2xs,
-      paddingVertical: spacing.vadsSpaceXs,
-      width: widthPct as '100%', // Type assertion for percentage strings
-      elevation: isSelected ? spacing.vadsSpace2xs : spacing.vadsSpaceNone,
-      backgroundColor: backgroundColor,
-    },
-  })
-
-  return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        segmentStyle.segment,
-        typeof style === 'function' ? style({ pressed }) : style,
-      ]}
-      {...props}>
-      {children}
-    </Pressable>
-  )
-}
 
 /**
  * Props for {@link SegmentedControl}
@@ -99,7 +55,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   const viewStyle: ViewStyle = {
     alignSelf: 'stretch',
     backgroundColor: inactiveBgColor,
-    borderRadius: 8,
+    borderRadius: 6,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -107,12 +63,28 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   }
 
   /**
-   * Function to build individual segment within controller
-   * @param label - Segment label
-   * @param index - Segment index position in array
+   * Props for Segment component
    */
-  const buildSegment = (label: string, index: number) => {
+  type SegmentProps = {
+    /** Label for the segment */
+    label: string
+    /** Index of the segment */
+    index: number
+  }
+
+  /**
+   * Individual segment component within the segmented control
+   */
+  const Segment: FC<SegmentProps> = ({ label, index }) => {
     const isSelected = selected === index
+
+    const segmentStyle: ViewStyle = {
+      backgroundColor: isSelected ? activeBgColor : inactiveBgColor,
+      borderRadius: 6,
+      paddingHorizontal: spacing.vadsSpace2xs,
+      paddingVertical: spacing.vadsSpaceXs,
+      width: `${100 / labels.length}%`,
+    }
 
     const accessibilityLabel = a11yLabels
       ? a11yLabels[index] || labels[index]
@@ -132,30 +104,28 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     }
 
     return (
-      <Segment
-        onPress={(): void => onChange(index)}
-        backgroundColor={isSelected ? activeBgColor : inactiveBgColor}
-        isSelected={isSelected}
-        key={index}
-        widthPct={`${100 / labels.length}%`}
+      <Pressable
         aria-label={accessibilityLabel}
+        aria-selected={isSelected}
         aria-valuetext={a11yListPosition}
-        accessibilityHint={a11yHints ? a11yHints[index] : ''}
+        accessibilityHint={a11yHints?.[index] || ''}
+        onPress={() => onChange(index)}
         role={'tab'}
-        accessibilityState={{ selected: isSelected }}
-        style={PressableOpacityStyle()}
+        style={PressableOpacityStyle(segmentStyle)}
         testID={testIDs?.[index]}>
         <RNText allowFontScaling={false} style={textStyle}>
           {label}
         </RNText>
-      </Segment>
+      </Pressable>
     )
   }
 
   return (
     <ComponentWrapper>
       <View style={viewStyle} role="tablist">
-        {labels.map((label, index) => buildSegment(label, index))}
+        {labels.map((label, index) => (
+          <Segment key={index} label={label} index={index} />
+        ))}
       </View>
     </ComponentWrapper>
   )
