@@ -8,29 +8,9 @@ import {
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components/native'
 
 import { ComponentWrapper } from '../../wrapper'
-import { PressableOpacityStyle, isIOS, useTheme } from '../../utils'
-
-type SegmentProps = {
-  /** Sets the background color */
-  backgroundColor: string
-  /** True if segment is selected, else false */
-  isSelected: boolean
-  /** Percent of width the segment is allocated */
-  widthPct: string
-}
-
-const Segment = styled(Pressable)<SegmentProps>`
-  border-radius: 8px;
-  padding-horizontal: ${spacing.vadsSpace2xs}px;
-  padding-vertical: ${spacing.vadsSpaceXs}px;
-  width: ${(props) => props.widthPct};
-  elevation: ${(props) =>
-    props.isSelected ? spacing.vadsSpace2xs : spacing.vadsSpaceNone};
-  background-color: ${(props) => props.backgroundColor};
-`
+import { PressableOpacityStyle, useTheme } from '../../utils'
 
 /**
  * Props for {@link SegmentedControl}
@@ -75,7 +55,7 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   const viewStyle: ViewStyle = {
     alignSelf: 'stretch',
     backgroundColor: inactiveBgColor,
-    borderRadius: 8,
+    borderRadius: 6,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -83,12 +63,28 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
   }
 
   /**
-   * Function to build individual segment within controller
-   * @param label - Segment label
-   * @param index - Segment index position in array
+   * Props for Segment component
    */
-  const buildSegment = (label: string, index: number) => {
+  type SegmentProps = {
+    /** Label for the segment */
+    label: string
+    /** Index of the segment */
+    index: number
+  }
+
+  /**
+   * Individual segment component within the segmented control
+   */
+  const Segment: FC<SegmentProps> = ({ label, index }) => {
     const isSelected = selected === index
+
+    const segmentStyle: ViewStyle = {
+      backgroundColor: isSelected ? activeBgColor : inactiveBgColor,
+      borderRadius: 6,
+      paddingHorizontal: spacing.vadsSpace2xs,
+      paddingVertical: spacing.vadsSpaceXs,
+      width: `${100 / labels.length}%`,
+    }
 
     const accessibilityLabel = a11yLabels
       ? a11yLabels[index] || labels[index]
@@ -99,13 +95,6 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
       total: labels.length,
     })
 
-    const accessibilityValueText = isIOS()
-      ? t('tab') +
-        ', ' +
-        (isSelected ? t('selected') + ', ' : '') +
-        a11yListPosition
-      : a11yListPosition
-
     const textStyle: TextStyle = {
       ...typography.vadsFontBodyLarge,
       fontFamily: isSelected ? 'SourceSansPro-Bold' : 'SourceSansPro-Regular',
@@ -115,30 +104,28 @@ export const SegmentedControl: FC<SegmentedControlProps> = ({
     }
 
     return (
-      <Segment
-        onPress={(): void => onChange(index)}
-        backgroundColor={isSelected ? activeBgColor : inactiveBgColor}
-        isSelected={isSelected}
-        key={index}
-        widthPct={`${100 / labels.length}%`}
+      <Pressable
         aria-label={accessibilityLabel}
-        aria-valuetext={accessibilityValueText}
-        accessibilityHint={a11yHints ? a11yHints[index] : ''}
+        aria-selected={isSelected}
+        aria-valuetext={a11yListPosition}
+        accessibilityHint={a11yHints?.[index] || ''}
+        onPress={() => onChange(index)}
         role={'tab'}
-        accessibilityState={{ selected: isSelected }}
-        style={PressableOpacityStyle()}
+        style={PressableOpacityStyle(segmentStyle)}
         testID={testIDs?.[index]}>
         <RNText allowFontScaling={false} style={textStyle}>
           {label}
         </RNText>
-      </Segment>
+      </Pressable>
     )
   }
 
   return (
     <ComponentWrapper>
       <View style={viewStyle} role="tablist">
-        {labels.map((label, index) => buildSegment(label, index))}
+        {labels.map((label, index) => (
+          <Segment key={index} label={label} index={index} />
+        ))}
       </View>
     </ComponentWrapper>
   )

@@ -1,7 +1,6 @@
 import 'react-native'
 import { render, screen } from '@testing-library/react-native'
 // Note: test renderer must be required after react-native.
-import 'jest-styled-components'
 
 import { Icon } from '../Icon/Icon'
 import { LoadingIndicator, LoadingIndicatorProps } from './LoadingIndicator'
