@@ -1,5 +1,13 @@
 # Changelog
 
+## [components-v0.35.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.35.0) (2025-07-24)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.34.0...components-v0.35.0)
+
+**Merged pull requests:**
+
+- \[Feature\] Revamp Segmented control internals to native [\#651](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/651) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.34.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.34.0) (2025-07-18)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.32.0...components-v0.34.0)
