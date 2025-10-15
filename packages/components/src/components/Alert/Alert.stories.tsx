@@ -1,17 +1,17 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 
-import { Alert, AlertProps } from './Alert'
+import { Alert } from './Alert'
 import { Link } from '../Link/Link'
 import { Spacer } from '../Spacer/Spacer'
 
-const meta: Meta<AlertProps> = {
+const meta: Meta<typeof Alert> = {
   title: 'Alert',
   component: Alert,
 }
 
 export default meta
 
-type Story = StoryObj<AlertProps>
+type Story = StoryObj<typeof Alert>
 
 const children = (
   <>
@@ -26,86 +26,57 @@ const children = (
   </>
 )
 
+const sharedArgs: Story['args'] = {
+  header: 'Header',
+  description: 'Description',
+  children: children,
+  analytics: {
+    onExpand: () => console.log('expanded'),
+    onCollapse: () => console.log('collapsed'),
+  },
+  primaryButton: {
+    label: 'Button Text',
+    onPress: () => console.log('primary press'),
+  },
+  secondaryButton: {
+    label: 'Button Text',
+    onPress: () => console.log('secondary press'),
+  },
+}
+
 export const Info: Story = {
   args: {
+    ...sharedArgs,
     variant: 'info',
-    header: 'Header',
-    description: 'Description',
-    children: children,
-    analytics: {
-      onExpand: () => console.log('expanded'),
-      onCollapse: () => console.log('collapsed'),
-    },
-    primaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('primary press'),
-    },
-    secondaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('secondary press'),
-    },
   },
 }
 
 export const _Success: Story = {
   args: {
+    ...sharedArgs,
     variant: 'success',
-    header: 'Header',
-    description: 'Description',
-    children: children,
-    analytics: {
-      onExpand: () => console.log('expanded'),
-      onCollapse: () => console.log('collapsed'),
-    },
-    primaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('primary press'),
-    },
-    secondaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('secondary press'),
-    },
   },
 }
 
 export const __Warning: Story = {
   args: {
+    ...sharedArgs,
     variant: 'warning',
-    header: 'Header',
-    description: 'Description',
-    children: children,
-    analytics: {
-      onExpand: () => console.log('expanded'),
-      onCollapse: () => console.log('collapsed'),
-    },
-    primaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('primary press'),
-    },
-    secondaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('secondary press'),
-    },
   },
 }
 
 export const ___Error: Story = {
   args: {
+    ...sharedArgs,
     variant: 'error',
-    header: 'Header',
-    description: 'Description',
-    children: children,
-    analytics: {
-      onExpand: () => console.log('expanded'),
-      onCollapse: () => console.log('collapsed'),
-    },
-    primaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('primary press'),
-    },
-    secondaryButton: {
-      label: 'Button Text',
-      onPress: () => console.log('secondary press'),
-    },
+  },
+}
+
+export const ____Expandable: Story = {
+  args: {
+    ...sharedArgs,
+    variant: 'info',
+    expandable: true,
+    initializeExpanded: false,
   },
 }
