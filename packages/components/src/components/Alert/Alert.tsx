@@ -7,6 +7,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { useTranslation } from 'react-i18next'
 
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
@@ -82,6 +83,7 @@ export const Alert: FC<AlertProps> = ({
   secondaryButton,
   testID,
 }) => {
+  const { t } = useTranslation()
   const colorScheme = useColorScheme()
   const theme = useTheme()
   const fontScale = useWindowDimensions().fontScale
@@ -225,7 +227,7 @@ export const Alert: FC<AlertProps> = ({
         <Spacer horizontal />
         <Pressable
           onPress={handleDismiss}
-          aria-label="Close"
+          aria-label={t('close')}
           hitSlop={spacing.vadsSpaceLg} // Matched to contentBox padding to go to Alert edge
           role="button"
           style={iconViewStyle}>
