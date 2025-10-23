@@ -8,6 +8,7 @@ import { Text, View } from 'react-native'
 
 const onExpandSpy = jest.fn()
 const onCollapseSpy = jest.fn()
+const onDismissSpy = jest.fn()
 const mockedColorScheme = jest.fn()
 
 jest.mock('react-native/Libraries/Utilities/useColorScheme', () => {
@@ -320,8 +321,32 @@ describe('Alert', () => {
     })
   })
 
+  describe('Dismissible', () => {
+    it('should render close button when dismissible is true', () => {
+      render(<Alert variant="info" dismissible {...commonProps} />)
+
+      expect(screen.getByRole('button', { name: 'close' })).toBeOnTheScreen()
+    })
+
+    it('should not render close button when dismissible is false', () => {
+      render(<Alert variant="info" {...commonProps} />)
+
+      expect(
+        screen.queryByRole('button', { name: 'close' }),
+      ).not.toBeOnTheScreen()
+    })
+
+    it('should dismiss alert when close button is pressed', () => {
+      render(<Alert variant="info" dismissible {...commonProps} />)
+
+      expect(screen.getByText('Description text')).toBeOnTheScreen()
+      fireEvent.press(screen.getByRole('button', { name: 'close' }))
+      expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
+    })
+  })
+
   describe('Analytics', () => {
-    it('should fire analytics events', async () => {
+    it('should fire expand/collapse analytics events', async () => {
       render(
         <Alert
           variant="error"
@@ -334,10 +359,28 @@ describe('Alert', () => {
         />,
       )
 
+      expect(onExpandSpy).not.toHaveBeenCalled()
       fireEvent.press(screen.getByRole('tab'))
       expect(onExpandSpy).toHaveBeenCalled()
+
+      expect(onCollapseSpy).not.toHaveBeenCalled()
       fireEvent.press(screen.getByRole('tab'))
       expect(onCollapseSpy).toHaveBeenCalled()
+    })
+
+    it('should fire dismiss analytics event', () => {
+      render(
+        <Alert
+          variant="info"
+          dismissible
+          analytics={{ onDismiss: onDismissSpy }}
+          {...commonProps}
+        />,
+      )
+
+      expect(onDismissSpy).not.toHaveBeenCalled()
+      fireEvent.press(screen.getByRole('button', { name: 'close' }))
+      expect(onDismissSpy).toHaveBeenCalled()
     })
   })
 })
