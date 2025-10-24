@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-native-web-vite'
 
-import { Alert } from './Alert'
+import { Alert, AlertProps } from './Alert'
 import { Link } from '../Link/Link'
 import { Spacer } from '../Spacer/Spacer'
 
@@ -26,13 +26,24 @@ const children = (
   </>
 )
 
-const sharedArgs: Story['args'] = {
+/**
+ * Circumvents Storybook's `Partial` typing of props causing TS errors due to scope narrowing
+ * mutually exclusive props (expandable w/ header required vs non-expandable w/ header optional)
+ */
+type AlertSharedArgs = Omit<
+  AlertProps,
+  'expandable' | 'initializeExpanded' | 'dismissible'
+>
+
+const sharedArgs: AlertSharedArgs = {
+  variant: 'info',
   header: 'Header',
   description: 'Description',
   children: children,
   analytics: {
     onExpand: () => console.log('expanded'),
     onCollapse: () => console.log('collapsed'),
+    onDismiss: () => console.log('dismissed'),
   },
   primaryButton: {
     label: 'Button Text',
@@ -47,7 +58,6 @@ const sharedArgs: Story['args'] = {
 export const Info: Story = {
   args: {
     ...sharedArgs,
-    variant: 'info',
   },
 }
 
@@ -72,10 +82,16 @@ export const ___Error: Story = {
   },
 }
 
-export const ____Expandable: Story = {
+export const ____Dismissible: Story = {
   args: {
     ...sharedArgs,
-    variant: 'info',
+    dismissible: true,
+  },
+}
+
+export const _____Expandable: Story = {
+  args: {
+    ...sharedArgs,
     expandable: true,
     initializeExpanded: false,
   },

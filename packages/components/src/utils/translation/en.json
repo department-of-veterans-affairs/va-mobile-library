@@ -1,6 +1,7 @@
 {
-  "error": "Error",
+  "close": "Close",
   "dismiss": "Dismiss",
+  "error": "Error",
   "goBack": "Go back",
   "leave": "Leave",
   "leaveAppAlert.body": "You'll go to a website outside of this app.",

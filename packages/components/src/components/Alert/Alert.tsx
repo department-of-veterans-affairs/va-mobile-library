@@ -7,6 +7,7 @@ import {
   useWindowDimensions,
 } from 'react-native'
 import { font, spacing } from '@department-of-veterans-affairs/mobile-tokens'
+import { useTranslation } from 'react-i18next'
 
 import { BaseColor, useColorScheme, useTheme } from '../../utils'
 import { Button, ButtonProps, ButtonVariants } from '../Button/Button'
@@ -20,6 +21,7 @@ export const AlertContentColor = BaseColor
 export type AlertAnalytics = {
   onExpand?: () => void
   onCollapse?: () => void
+  onDismiss?: () => void
 }
 
 export type AlertProps = {
@@ -44,6 +46,7 @@ export type AlertProps = {
   testID?: string
 } & (
   | {
+      dismissible?: never
       /** True to make the Alert expandable */
       expandable: true
       /** Header text. Required when Alert is expandable */
@@ -52,6 +55,8 @@ export type AlertProps = {
       initializeExpanded?: boolean
     }
   | {
+      /** True to make the Alert dismissible */
+      dismissible?: boolean
       /** True to make the Alert expandable */
       expandable?: false
       /** Header text. Optional when Alert is not expandable */
@@ -70,6 +75,7 @@ export const Alert: FC<AlertProps> = ({
   description,
   descriptionA11yLabel,
   children,
+  dismissible,
   expandable,
   initializeExpanded,
   analytics,
@@ -77,6 +83,7 @@ export const Alert: FC<AlertProps> = ({
   secondaryButton,
   testID,
 }) => {
+  const { t } = useTranslation()
   const colorScheme = useColorScheme()
   const theme = useTheme()
   const fontScale = useWindowDimensions().fontScale
@@ -84,6 +91,7 @@ export const Alert: FC<AlertProps> = ({
   const [expanded, setExpanded] = useState(
     expandable ? initializeExpanded : true,
   )
+  const [dismissed, setDismissed] = useState(false)
 
   const { typography } = font
 
@@ -91,6 +99,11 @@ export const Alert: FC<AlertProps> = ({
     if (expanded && analytics?.onCollapse) analytics.onCollapse()
     if (!expanded && analytics?.onExpand) analytics.onExpand()
     setExpanded(!expanded)
+  }
+
+  const handleDismiss = () => {
+    if (analytics?.onDismiss) analytics.onDismiss()
+    setDismissed(true)
   }
 
   const contentColor = AlertContentColor()
@@ -206,6 +219,24 @@ export const Alert: FC<AlertProps> = ({
     )
   }
 
+  const _dismissButton = () => {
+    if (!dismissible) return null
+
+    return (
+      <>
+        <Spacer horizontal />
+        <Pressable
+          onPress={handleDismiss}
+          aria-label={t('close')}
+          hitSlop={spacing.vadsSpaceLg} // Matched to contentBox padding to go to Alert edge
+          role="button"
+          style={iconViewStyle}>
+          <Icon fill={contentColor} name="Close" preventScaling />
+        </Pressable>
+      </>
+    )
+  }
+
   const _primaryButton = () => {
     if (!primaryButton) return null
 
@@ -236,6 +267,7 @@ export const Alert: FC<AlertProps> = ({
     )
   }
 
+  if (dismissed) return null
   return (
     <View
       style={contentBox}
@@ -268,6 +300,7 @@ export const Alert: FC<AlertProps> = ({
             </View>
           )}
         </View>
+        {_dismissButton()}
       </View>
       {expanded && (
         <>
