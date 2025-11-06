@@ -1,8 +1,22 @@
 # Changelog
 
+## [components-v0.36.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.36.0) (2025-11-06)
+
+[Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.35.0...components-v0.36.0)
+
+**Merged pull requests:**
+
+- \[Code Upkeep\] Dependency Updates - Update React Native and Expo SDK [\#656](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/656) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Alert - Update aria label for the dismiss button [\#655](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/655) ([TimRoe](https://github.com/TimRoe))
+- \[Feature\] Alert - Add Dismiss functionality [\#654](https://github.com/department-of-veterans-affairs/va-mobile-library/pull/654) ([TimRoe](https://github.com/TimRoe))
+
 ## [components-v0.35.0](https://github.com/department-of-veterans-affairs/va-mobile-library/tree/components-v0.35.0) (2025-07-24)
 
 [Full Changelog](https://github.com/department-of-veterans-affairs/va-mobile-library/compare/components-v0.34.0...components-v0.35.0)
+
+**Closed issues:**
+
+- Segmented Control - Revamp component internals [\#491](https://github.com/department-of-veterans-affairs/va-mobile-library/issues/491)
 
 **Merged pull requests:**
 
