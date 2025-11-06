@@ -227,7 +227,7 @@ export const Alert: FC<AlertProps> = ({
         <Spacer horizontal />
         <Pressable
           onPress={handleDismiss}
-          aria-label={t('close')}
+          aria-label={t('closeNotification', { header })}
           hitSlop={spacing.vadsSpaceLg} // Matched to contentBox padding to go to Alert edge
           role="button"
           style={iconViewStyle}>

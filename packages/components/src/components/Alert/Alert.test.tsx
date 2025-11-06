@@ -50,6 +50,9 @@ describe('Alert', () => {
     return icon.props.name
   }
 
+  const getDismissButton = () =>
+    screen.getByRole('button', { name: 'closeNotification' })
+
   describe('Basic tests', () => {
     render(<Alert {...commonProps} variant="info" />)
 
@@ -325,14 +328,14 @@ describe('Alert', () => {
     it('should render close button when dismissible is true', () => {
       render(<Alert variant="info" dismissible {...commonProps} />)
 
-      expect(screen.getByRole('button', { name: 'close' })).toBeOnTheScreen()
+      expect(getDismissButton()).toBeOnTheScreen()
     })
 
     it('should not render close button when dismissible is false', () => {
       render(<Alert variant="info" {...commonProps} />)
 
       expect(
-        screen.queryByRole('button', { name: 'close' }),
+        screen.queryByRole('button', { name: 'closeNotification' }),
       ).not.toBeOnTheScreen()
     })
 
@@ -340,7 +343,7 @@ describe('Alert', () => {
       render(<Alert variant="info" dismissible {...commonProps} />)
 
       expect(screen.getByText('Description text')).toBeOnTheScreen()
-      fireEvent.press(screen.getByRole('button', { name: 'close' }))
+      fireEvent.press(getDismissButton())
       expect(screen.queryByText('Description text')).not.toBeOnTheScreen()
     })
   })
@@ -379,7 +382,7 @@ describe('Alert', () => {
       )
 
       expect(onDismissSpy).not.toHaveBeenCalled()
-      fireEvent.press(screen.getByRole('button', { name: 'close' }))
+      fireEvent.press(getDismissButton())
       expect(onDismissSpy).toHaveBeenCalled()
     })
   })
