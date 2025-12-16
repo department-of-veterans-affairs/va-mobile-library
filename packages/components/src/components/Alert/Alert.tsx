@@ -46,24 +46,24 @@ export type AlertProps = {
   testID?: string
 } & (
   | {
-      dismissible?: never
-      /** True to make the Alert expandable */
-      expandable: true
-      /** Header text. Required when Alert is expandable */
-      header: string
-      /** True if Alert should start expanded. Defaults to false */
-      initializeExpanded?: boolean
-    }
+  dismissible?: never
+  /** True to make the Alert expandable */
+  expandable: true
+  /** Header text. Required when Alert is expandable */
+  header: string
+  /** True if Alert should start expanded. Defaults to false */
+  initializeExpanded?: boolean
+}
   | {
-      /** True to make the Alert dismissible */
-      dismissible?: boolean
-      /** True to make the Alert expandable */
-      expandable?: false
-      /** Header text. Optional when Alert is not expandable */
-      header?: string
-      initializeExpanded?: never
-    }
-)
+  /** True to make the Alert dismissible */
+  dismissible?: boolean
+  /** True to make the Alert expandable */
+  expandable?: false
+  /** Header text. Optional when Alert is not expandable */
+  header?: string
+  initializeExpanded?: never
+}
+  )
 
 /**
  * #### [<u>View guidance for the Alert component on the VA Design System</u>](https://design.va.gov/components/alert/)
@@ -284,16 +284,20 @@ export const Alert: FC<AlertProps> = ({
                   <Spacer size="lg" />
                 ) : null}
                 {description ? (
-                  <Text
-                    variant="body"
-                    size="lg"
-                    bottomSpacing="none"
-                    a11yLabel={descriptionA11yLabel || description}>
-                    {description}
-                  </Text>
+                  <View accessible={true}>
+                    <Text
+                      variant="body"
+                      size="lg"
+                      bottomSpacing="none"
+                      a11yLabel={descriptionA11yLabel || description}>
+                      {description}
+                    </Text>
+                  </View>
                 ) : null}
                 {description && children ? <Spacer size="lg" /> : null}
-                {children}
+                <View accessible={true}>
+                  {children}
+                </View>
               </View>
               {/* When expandable, prevent body content extending below the expand icon and padding for it */}
               {expandable ? <Spacer size="4xl" horizontal /> : null}
