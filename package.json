@@ -30,10 +30,18 @@
     "typescript": "5.8.3"
   },
   "resolutions": {
+    "@storybook/react": "9.0.15",
+    "@typescript-eslint/scope-manager": "8.35.1",
+    "@typescript-eslint/types": "8.35.1",
+    "@typescript-eslint/visitor-keys": "8.35.1",
     "ip": "2.0.1",
     "semver": "7.5.3"
   },
   "overrides": {
+    "@storybook/react": "9.0.15",
+    "@typescript-eslint/scope-manager": "8.35.1",
+    "@typescript-eslint/types": "8.35.1",
+    "@typescript-eslint/visitor-keys": "8.35.1",
     "ip": "2.0.1",
     "semver": "7.5.3"
   }
