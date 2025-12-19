@@ -32,8 +32,6 @@ permissions:
 jobs:
   publish-package:
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
     steps:
       - name: Generate token
         id: generate-token
