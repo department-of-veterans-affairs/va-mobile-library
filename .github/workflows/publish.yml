@@ -50,12 +50,14 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: .nvmrc
           cache: yarn
           cache-dependency-path: yarn.lock
+      - name: Ensure npm version supports trusted publishing
+        run: npm install -g npm@latest
       - name: Set git config
         run: |
           git config --global user.name 'VA Design System Bot'
