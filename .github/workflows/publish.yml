@@ -24,35 +24,44 @@ on:
           - patch
           - minor
           - major
-          - new package
+
+permissions:
+  contents: write # Read repository contents and write commits/tags
+  id-token: write # Generate OIDC tokens for npm trusted publishing
 
 jobs:
   publish-package:
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_KEY }}
     steps:
+      - name: Generate token
+        id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.VADS_APP_ID }}
+          private-key: ${{ secrets.VADS_APP_PRIVATE_KEY }}
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          token: ${{ steps.generate-token.outputs.token }}
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           registry-url: https://registry.npmjs.org/
           node-version-file: .nvmrc
           cache: yarn
           cache-dependency-path: yarn.lock
+      - name: Ensure npm version supports trusted publishing
+        run: npm install -g npm@latest
       - name: Set git config
         run: |
-          git config --global user.name 'VA Mobile Automation Bot'
-          git config --global user.email 'VAFlagshipMobile@va.gov'
+          git config --global user.name 'VA Design System Bot'
+          git config --global user.email 'platform-design-system@OCTO.VA.slack'
       - name: Install dependencies
         run: yarn install
       - name: Get package name
@@ -63,7 +72,6 @@ jobs:
           echo "NPM Package name: $NPM_PACKAGE"
           echo "NPM_PACKAGE_NAME=$NPM_PACKAGE" >> "$GITHUB_OUTPUT"
       - name: Increment version
-        if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
           BUMP=${{ inputs.version_type }}
@@ -95,7 +103,7 @@ jobs:
           else
             npm version $BUMP
           fi
-      - name: Publish to NPM
+      - name: Publish ${{ inputs.package }} package
         id: publish
         working-directory: packages/${{ inputs.package }}
         run: |
@@ -104,20 +112,21 @@ jobs:
           echo "Publishing to NPM..."
 
           if [[ "$BUMP" == "alpha" ]] || [[ "$BUMP" == "beta" ]]; then
-            npm publish --access public --tolerate-republish --tag $BUMP
+            npm publish --access public --tag $BUMP
           else
-            npm publish --access public --tolerate-republish
+            npm publish --access public
           fi
 
           NEW_VERSION=$(jq -r .version package.json)
-          echo "Updated version: $NEW_VERSION"
+          echo "Published version: $NEW_VERSION"
 
           echo "NEW_VERSION=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "GIT_TAG=${{ inputs.package }}-v$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Commit changes to git
-        if: ${{ inputs.version_type != 'new package' }}
         working-directory: packages/${{ inputs.package }}
         run: |
+          # Set GitHub App token for git actions authentication
+          git remote set-url origin https://x-access-token:${{ steps.generate-token.outputs.token }}@github.com/${{ github.repository }}.git
           git pull
           git add package.json
           git commit -m 'Version bump: ${{ steps.publish.outputs.GIT_TAG }}'
@@ -125,6 +134,8 @@ jobs:
       - name: Create git tag
         working-directory: packages/${{ inputs.package }}
         run: |
+          # Set GitHub App token for git actions authentication
+          git remote set-url origin https://x-access-token:${{ steps.generate-token.outputs.token }}@github.com/${{ github.repository }}.git
           TAG=${{ steps.publish.outputs.GIT_TAG }}
           echo $TAG
           git tag -a $TAG -m $TAG
@@ -132,83 +143,11 @@ jobs:
       - name: Generate changelog
         if: ${{ inputs.version_type != 'alpha' && inputs.version_type != 'beta' && github.ref_name == 'main' }}
         run: |
+          # Set GitHub App token for git actions authentication
+          git remote set-url origin https://x-access-token:${{ steps.generate-token.outputs.token }}@github.com/${{ github.repository }}.git
           chmod +x .github/scripts/generate-changelog.sh
           cd documentation
-          ./../.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ secrets.VA_MOBILE_ROBOT_GITHUB_PAT }}
+          ./../.github/scripts/generate-changelog.sh ${{ inputs.package }} ${{ steps.generate-token.outputs.token }}
           git add CHANGELOG.md
           git commit -m 'Changelog for ${{ steps.publish.outputs.GIT_TAG }}'
           git push
-      - name: Send success message to Slack
-        id: slack
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
-        with:
-          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
-          payload: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "Published *${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}* to NPM"
-                  }
-                },
-                {
-                  "type": "context",
-                  "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Version:* ${{ steps.publish.outputs.NEW_VERSION }}"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "<https://www.npmjs.com/package/${{ steps.package-name.outputs.NPM_PACKAGE_NAME }}|NPM>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "<https://github.com/department-of-veterans-affairs/va-mobile-library/releases/tag/${{ steps.publish.outputs.GIT_TAG }}|GitHub>"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Workflow Run>"
-                    }
-                    
-                  ]
-                }
-              ],
-              "unfurl_links": false,
-              "unfurl_media": false
-            }
-      - name: Send failure message to Slack
-        if: failure()
-        id: slack-error
-        uses: slackapi/slack-github-action@v1.24.0
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_OAUTH_TOKEN }}
-        with:
-          channel-id: C062TM03HN2 # DSVA #va-mobile-library-alerts channel
-          payload: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": ":red-x: Error publishing *${{ inputs.package }}* to NPM"
-                  }
-                },
-                {
-                  "type": "context",
-                  "elements": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Workflow Run>"
-                    }
-                  ]
-                }
-              ],
-              "unfurl_links": false,
-              "unfurl_media": false
-            }

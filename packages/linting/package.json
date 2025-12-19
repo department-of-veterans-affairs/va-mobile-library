@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/department-of-veterans-affairs/va-mobile-library#readme",
   "dependencies": {
-    "eslint-plugin-deprecate": "^0.8.5"
+    "eslint-plugin-deprecate": "0.8.5"
   },
   "peerDependencies": {
     "eslint": ">= 8"
   },
   "devDependencies": {
-    "eslint": "^8.57.0"
+    "eslint": "8.57.0"
   }
 }
