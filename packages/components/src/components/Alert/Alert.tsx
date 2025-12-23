@@ -284,16 +284,20 @@ export const Alert: FC<AlertProps> = ({
                   <Spacer size="lg" />
                 ) : null}
                 {description ? (
-                  <Text
-                    variant="body"
-                    size="lg"
-                    bottomSpacing="none"
-                    a11yLabel={descriptionA11yLabel || description}>
-                    {description}
-                  </Text>
+                  <View accessible={true}>
+                    <Text
+                      variant="body"
+                      size="lg"
+                      bottomSpacing="none"
+                      a11yLabel={descriptionA11yLabel || description}>
+                      {description}
+                    </Text>
+                  </View>
                 ) : null}
                 {description && children ? <Spacer size="lg" /> : null}
-                {children}
+                <View accessible={true}>
+                  {children}
+                </View>
               </View>
               {/* When expandable, prevent body content extending below the expand icon and padding for it */}
               {expandable ? <Spacer size="4xl" horizontal /> : null}
