@@ -116,7 +116,7 @@ export type LinkProps = linkTypes & {
   analytics?: LinkAnalytics
   /** Optional TestID */
   testID?: string
-  /** Optional for testing pressed state in test suites */
+  /** Unit test only: simulates a pressed and held state */
   testOnlyPressed?: boolean
 }
 

@@ -31,7 +31,7 @@ export type ButtonProps = {
   buttonType?: ButtonVariants
   /** Optional test ID for test suites */
   testID?: string
-  /** Optional pressed state test suites */
+  /** Unit test only: simulates a pressed and held state */
   testOnlyPressed?: boolean
 }
 

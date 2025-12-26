@@ -15,6 +15,7 @@ type Story = StoryObj<ButtonProps>
 
 export const Primary: Story = {
   args: {
+    buttonType: ButtonVariants.Primary,
     label: 'Button text',
     a11yLabel: 'Alternate a11y text',
     a11yHint: 'A brief description of the result of pressing this Button',
