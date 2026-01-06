@@ -37,8 +37,6 @@ const customConfig = {
       path.resolve(projectRoot, 'node_modules'),
       path.resolve(workspaceRoot, 'node_modules'),
     ],
-    // Force Metro to resolve (sub)dependencies only from the `nodeModulesPaths`
-    disableHierarchicalLookup: true,
   },
 }
 
