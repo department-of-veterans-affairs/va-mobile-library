@@ -284,13 +284,15 @@ export const Alert: FC<AlertProps> = ({
                   <Spacer size="lg" />
                 ) : null}
                 {description ? (
-                  <Text
-                    variant="body"
-                    size="lg"
-                    bottomSpacing="none"
-                    a11yLabel={descriptionA11yLabel || description}>
-                    {description}
-                  </Text>
+                  <View accessible={true}>
+                    <Text
+                      variant="body"
+                      size="lg"
+                      bottomSpacing="none"
+                      a11yLabel={descriptionA11yLabel || description}>
+                      {description}
+                    </Text>
+                  </View>
                 ) : null}
                 {description && children ? <Spacer size="lg" /> : null}
                 {children}
