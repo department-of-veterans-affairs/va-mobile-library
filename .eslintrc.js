@@ -85,5 +85,28 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
       },
     },
+    {
+      files: ['packages/components/**/*'],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: [
+                  '/assets/*',
+                  '/components/*',
+                  '/packages/*',
+                  '/src/*',
+                  '/types/*',
+                  '/utils/*',
+                ],
+                message: 'Use relative imports (./ or ../)',
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
 }
